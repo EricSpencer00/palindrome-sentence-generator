@@ -33,7 +33,7 @@ def test_v4_evidence_contains_actual_rendered_candidate_and_independent_audit():
     assert candidate["audit"]["sha256_forward"] == digest
     assert candidate["audit"]["sha256_reverse"] == digest
     assert candidate["provenance"]["source"] == "project construction run; not catalogue text"
-    assert candidate["provenance"]["run_id"] == "live-clause-pair-dfs-20260920-calibration"
+    assert candidate["provenance"]["run_id"] == "bilateral-grammar-csp-20260920"
     assert candidate["provenance"]["search_summary"]["pilot_lengths"] == "38–60; one independently recovered 38-letter anchor, no >38 closure"
     assert "longest 50 letters" in candidate["provenance"]["search_summary"]["latest_dream_rsi_repair"]
     assert candidate["promotion_status"] == "gated_pending_blinded_readers"

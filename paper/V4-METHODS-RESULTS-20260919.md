@@ -2714,12 +2714,31 @@ construction is a fixed-length lexical-edge chart: shared character variables
 are tied across the whole sentence, word boundaries remain free, and grammar,
 agreement, and valency choices are pruned before a complete string exists. It
 must first pass exhaustive tiny-grammar differential tests and rediscover the
-38-letter anchor from atomic vocabulary without injecting the phrase; only
-The corrected implementation now passes that regression: with only atomic
+38-letter anchor from atomic vocabulary without injecting the phrase. The
+corrected implementation now passes that regression: with only atomic
 entries, it visits 3,240 states, prunes 6,082 mismatches before completion, and
 recovers two exact 38-letter witnesses, including the anchor, with the
 independent SHA/pointer audits. The witness is rendered as “An aide rips nine
 memos; some men inspire Diana.”; no shortcut witness is admitted. This validates
-the global boundary semantics, but it is not yet a >38 result: the larger
-39–64 lexical-edge run remains unrun and must be offloaded before it can be
-counted as a new frontier.
+the global boundary semantics, but it is not yet a >38 result. The first remote
+Brown inventory run (500 deterministic common-POS entries, lengths 39–64, and a
+5,000-node cap) timed out at 5,000 nodes and 800,966 live character mismatches,
+with zero complete closures and zero rendered candidates. This is a genuine
+larger-search result, not a readability result: it says the current
+grammar/lexicon envelope needs a new constructive expansion, not that readable
+palindromes are impossible. The next method must change the construction
+dynamics rather than add a post-hoc repair.
+
+The follow-up bilateral grammar CSP changes the search dynamics directly. It
+expands the first clause from its left edge and an independently parsed second
+clause from its right edge; each right lexical edge contributes reversed
+characters to a live residual before the next edge is chosen. The two sides
+are not token mirrors and no completed tape is reversed. On the nine-word
+atomic inventory it visited 159 states, pruned 690 residual mismatches, and
+reached 22 complete grammar states. It recovered the same 38-letter anchor and
+its clause-order variant, with independent SHA/pointer audits; it produced no
+>38 candidate. A bounded remote run over 200 Brown-derived entries exhausted
+the current two-`CLAUSE` grammar envelope at 2,413 states and 9,385,984 live
+pair prunes, with zero complete closures and zero exact candidates. This is a
+constructive baseline for adding typed adjunct and relative productions, not a
+repair pass and not a readability claim.

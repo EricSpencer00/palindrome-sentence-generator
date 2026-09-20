@@ -1,0 +1,85 @@
+{
+  "method": "bilateral lexicalized grammar CSP with reverse-edge expansion",
+  "paths": [
+    {
+      "length": 38,
+      "rendered": "an aide rips nine memos; some men inspire diana.",
+      "audit": {
+        "letters": 38,
+        "exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+      },
+      "words": [
+        "an",
+        "aide",
+        "rips",
+        "nine",
+        "memos",
+        "some",
+        "men",
+        "inspire",
+        "diana"
+      ],
+      "provenance": {
+        "left_clause_grammar": true,
+        "right_clause_reverse_expansion": true,
+        "live_shared_character_residual": true,
+        "free_word_boundaries": true,
+        "center_inside_word_allowed": true,
+        "post_hoc_repair": false,
+        "finished_tape_reversal": false,
+        "word_order_mirroring": false,
+        "repeated_units": false,
+        "catalogue_text": false
+      }
+    },
+    {
+      "length": 38,
+      "rendered": "some men inspire diana; an aide rips nine memos.",
+      "audit": {
+        "letters": 38,
+        "exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+        "sha256_reverse": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec"
+      },
+      "words": [
+        "some",
+        "men",
+        "inspire",
+        "diana",
+        "an",
+        "aide",
+        "rips",
+        "nine",
+        "memos"
+      ],
+      "provenance": {
+        "left_clause_grammar": true,
+        "right_clause_reverse_expansion": true,
+        "live_shared_character_residual": true,
+        "free_word_boundaries": true,
+        "center_inside_word_allowed": true,
+        "post_hoc_repair": false,
+        "finished_tape_reversal": false,
+        "word_order_mirroring": false,
+        "repeated_units": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "stats": {
+    "nodes": 159,
+    "pruned": 690,
+    "complete": 22,
+    "status": "SAT"
+  },
+  "provenance": {
+    "grammar": "independent CLAUSE derivation on each side; S = CLAUSE CLAUSE",
+    "lexicon": "caller-supplied lexical entries with POS features",
+    "character_equation": "shared prefix residuals consume x[i] = x[N-1-i] online",
+    "next_construction": "add typed adjunct/relative productions only after this bilateral baseline is audited"
+  }
+}

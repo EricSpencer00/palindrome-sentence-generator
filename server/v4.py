@@ -33,14 +33,14 @@ GATE_MESSAGE = (
 BEST_KNOWN_TEXT = "An aide rips nine memos; some men inspire Diana."
 ALTERNATE_EXACT_TEXT = "Some men inspire Diana; an aide rips nine memos."
 ALTERNATE_EXACT_PROVENANCE = {
-    "run_id": "variable-phrase-grammar-20260920",
-    "method": "variable-length joint phrase grammar with live residual consumption",
+    "run_id": "bilateral-grammar-csp-20260920",
+    "method": "independent left/right CLAUSE grammar with live reverse-edge residual consumption",
     "source": "fresh authored/Brown-bigram construction; not catalogue text",
     "novelty_preflight": "passed no-reversal, no-token-mirror, no-repeated-unit exclusions",
 }
 BEST_KNOWN_PROVENANCE = {
-    "run_id": "live-clause-pair-dfs-20260920-calibration",
-    "method": "paired-slot clause DFS with live character debt and grammatical boundaries",
+    "run_id": "bilateral-grammar-csp-20260920",
+    "method": "independent left/right CLAUSE grammar with live reverse-edge residual consumption",
     "source": "project construction run; not catalogue text",
     "novelty_preflight": "passed local catalogue and construction-shortcut exclusions",
     "search_summary": {
@@ -125,7 +125,8 @@ BEST_KNOWN_PROVENANCE = {
         "latest_chart_phrase_path": "256 independently authored chart paths including held-out relative, passive-complement, temporal-adjunct, instrumental-adjunct, and causal-adjunct paths and 65,280 live unequal-boundary states, controls to 120 letters, zero exact closures above 38",
         "latest_dependency_frame_center_seam": "24 dependency-frame states including held-out ditransitive, benefactive, agreement-sensitive relative, passive-relative, and modal-passive frames with attachment/valency/agreement across a complement seam, controls to 119 letters, zero exact closures above 38",
         "latest_apposition_seam_grammar": "48 baseline plus 64 held-out temporal, 128 causal fourth-clause, and 256 contrastive fifth-clause joins across comma, coordination, and appositive seams, longest causal control 144 letters, zero live or exact closures above 38",
-        "latest_forward_lexicalized_grammar": "Corrected fixed-length shared-cell CSP: 3,240 nodes and 6,082 early prunes recover two atomic 38-letter witnesses including the anchor; no >38 search yet",
+        "latest_forward_lexicalized_grammar": "Corrected fixed-length shared-cell CSP: 3,240 nodes and 6,082 early prunes recover two atomic 38-letter witnesses including the anchor; remote Brown 39–64 run timed out at 5,000 nodes/800,966 prunes with zero closures",
+        "latest_bilateral_grammar_csp": "Independent left/right CLAUSE grammar expansion with live reverse-edge residuals: 159 states, 690 prunes, 22 complete states, and two exact 38-letter anchor-order witnesses; remote 200-entry Brown envelope exhausted at 2,413 states/9,385,984 pair prunes with zero closures",
         "reader_study": "not run",
     },
 }

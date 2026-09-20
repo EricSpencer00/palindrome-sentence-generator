@@ -82,6 +82,10 @@ BEST_KNOWN_PROVENANCE = {
         "latest_endpoint_width2": "4,374 width-1 survivors reduced to 1,458 width-2 survivors; longest 104 letters; zero exact >38 closure",
         "latest_endpoint_width3": "729 width-1 survivors reduced to 243 width-3 survivors; longest 84 letters; zero exact >38 closure",
         "latest_width3_interior_boundary": "12,288 width-1 survivors reduced to 128 endpoint-plus-two-interior survivors; longest 77 letters; zero exact >38 closure",
+        "latest_scope_conditioned_event_frames": "6 typed frames; 22 complete forward-English candidates; longest 91 letters; zero exact >38 closure",
+        "latest_relation_connector_frames": "3 relations over 4 typed frames; 24 complete prose candidates; longest 73 letters; max pre-render outer agreement 5; zero exact >38 closure",
+        "latest_compositional_slot_carry": "6,144 states; all pruned before rendering by carried character obligations; zero rendered candidates",
+        "latest_semordnilap_phrase_graph": "4,656 indexed mirror pairs; zero phrase edges survive role and article-agreement gates; zero rendered candidates",
         "reader_study": "not run",
     },
 }

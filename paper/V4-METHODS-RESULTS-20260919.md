@@ -111,6 +111,7 @@ multiword palindrome span:
 | Scope-conditioned event frames | Independently authored event frames enforce subject-number agreement, transitivity, semantic scope, and adjunct attachment before surface realization | 22 complete forward-English candidates; **“The patient nurses carry a quiet message through town, while a young pilot checks the clear signal before rain.”** (91 letters) | 0 / 0 |
 | Four-slot carried-character grammar | Agent, verb, object, and attachment slots propagate mirrored character obligations after each slot and prune before complete rendering | 6,144 states; all pruned before rendering; no candidate promoted | 0 / 0 |
 | Relation/connector event frames | Carries contrast, cause, or sequence relation choice alongside agreement-valid event frames and scores outer agreement before rendering | 24 complete prose candidates; longest 73 letters; best pre-render outer agreement 5 | 0 / 0 |
+| Typed semordnilap phrase graph | Uses mirror-pair strings only as a vocabulary index, then enforces phrase role and article agreement before shell rendering | 4,656 indexed pairs; all rejected before rendering; malformed fragments quarantined | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
 discriminator: 16 independently authored clause pairs were rendered above 38
@@ -2347,3 +2348,16 @@ candidate above 38 letters appeared. The relation state is therefore a real
 construction discriminator and a readable baseline, not a palindrome claim;
 the next reader-facing test remains a blinded intact-versus-shuffled study
 for any exact closure.
+
+## Typed semordnilap phrase graph preflight
+
+Because semordnilap edges can look promising while producing fragments, a
+separate preflight treated `data/mirror_pairs.json` only as a search index.
+Each edge was assigned a phrase role, inserted into a complete clause shell
+only when both sides had compatible roles, and checked for ordinary `a`/`an`
+agreement before rendering. The index contained 4,656 pairs, but no edge
+survived the combined role and article gates. Thus the earlier malformed rows
+(including “answers emits a” and “a eta”) are quarantined diagnostics, not
+English candidates, and the lane contributes zero rendered or exact rows.
+The next construction must add a fresh, typed phrase bank whose reversed
+surface also has valid determiner phonotactics before any graph edge is used.

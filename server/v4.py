@@ -143,6 +143,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_dialogue_act_product": "Independent conversational-act product: six authored acts per side, 36 complete transitions, intact controls to 59 letters, zero exact closures above 38; next is a three-turn acknowledgement/clarification grammar",
         "latest_lexicalized_constituent_interior_csp": "Joint lexicalized NP/VP/PP interior CSP: 41,280 live states, 4,524 character matches, 25,622 prunes, deepest frontier 23 letters, zero complete or exact closures above 38",
         "latest_typed_edge_yield_algebra": "Typed dependency-edge yield algebra: 81 authored edge paths, 6,561 bilateral states, 6,561 immediate character prunes, zero compatible frontiers and zero exact candidates above 38",
+        "latest_residual_equivalence_edge_quotient": "Myhill–Nerode-style quotient over typed edge continuations: existing bank 33 states/9 canonical states/24 merges and fresh bank 12 states/9 canonical states/3 merges; zero compatible frontiers or exact candidates above 38",
         "reader_study": "not run",
     },
 }

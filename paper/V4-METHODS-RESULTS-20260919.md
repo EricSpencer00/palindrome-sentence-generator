@@ -2901,3 +2901,15 @@ This closes that four-edge inventory at its outer interface; a future
 construction must change the edge algebra or lexical language, not repeat the
 same path product. Artifact:
 `runs/typed-edge-yield-algebra-20260920.json`.
+
+To change the search state rather than its vocabulary, we then applied a
+residual-equivalence quotient to typed edge continuations. A canonical key
+contained the remaining typed interfaces, semantic obligations, live
+character debt, and content-word exclusion state; paths with the same future
+continuation were merged while one full provenance trace was retained. The
+existing semantic-role bank reduced 33 explored states to 9 canonical states
+(24 merges), while a fresh authored two-frame bank reduced 12 to 9 (3 merges).
+Both banks reached zero compatible frontiers and zero exact candidates above
+38. Their 45- and 53-letter intact controls have independent pointer/SHA
+audits. This is a state-space result, not a readability claim, and its
+artifact is `runs/residual-equivalence-edge-quotient-20260920.json`.

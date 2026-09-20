@@ -5,3 +5,6 @@ def test_complete_prose_and_audit():
  assert all(r['complete_prose'] and len(r['audit']['sha256_forward'])==64 for r in run()['rendered_candidates'])
 def test_no_tape_shortcut():
  assert all(not r['provenance']['finished_tape_reversal'] and not r['provenance']['post_hoc_repair'] for r in run()['rendered_candidates'])
+def test_lane_is_explicitly_quarantined_diagnostic():
+ x=run(); assert x['novelty_preflight']['status']=='quarantined-diagnostic'
+ assert x['novelty_preflight']['global_residual_enforced'] is False

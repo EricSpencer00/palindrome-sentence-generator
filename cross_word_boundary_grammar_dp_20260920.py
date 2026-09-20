@@ -1,8 +1,8 @@
-"""Cross-word boundary grammar DP with live residual obligations.
+"""Diagnostic cross-word boundary grammar DP.
 
-States are pairs of independently generated grammar chunks.  A transition
-consumes one word on each side and records the still-unmatched boundary
-obligation; it does not pair words as semordnilaps and never reverses a tape.
+States are pairs of independently generated grammar chunks. A transition
+records a boundary diagnostic, but does not enforce a global outside-in
+residual; this lane is quarantined as a prose-control diagnostic.
 """
 import hashlib,json,re
 from pathlib import Path
@@ -30,6 +30,6 @@ def run():
    l=' '.join(left); r=' '.join(right); rendered=f'{l}, while {r}.'; au=audit(rendered)
    rows.append({'rendered':rendered,'audit':au,'cross_word_trace':trace,'final_residual':residual,'matched_chars':matched,'complete_prose':True,'provenance':{'left':'fresh typed grammar frame','right':'fresh typed grammar frame','cross_word_transitions':True,'finished_tape_reversal':False,'post_hoc_repair':False,'copied_or_reversed_tape':False,'mirrored_token_units':False,'repeated_units':False,'fragment':False}})
  exact=[r for r in rows if r['audit']['exact'] and r['audit']['letters']>38]
- return {'experiment_id':ID,'method':'cross-word boundary grammar DP with residual obligation carried per word transition','stats':{'left_frames':len(LEFT),'right_frames':len(RIGHT),'transition_states':states,'rendered_candidates':len(rows),'fresh_exact_gt38':len(exact),'max_letters':max(r['audit']['letters'] for r in rows)},'rendered_candidates':rows,'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':SIG,'distinct_from':'phrase-pair product, endpoint class, and inner class gates; each cross-word transition carries residual state'},'provenance':{'audits':['independent two-pointer mismatch','forward/reverse SHA-256'],'reader_gate':'closed unless fresh exact >38 appears'},'status':'fresh exact >38 candidate requires human reading' if exact else 'no fresh exact >38 candidate'}
+ return {'experiment_id':ID,'method':'diagnostic cross-word boundary grammar DP; residual score is not a global palindrome obligation','stats':{'left_frames':len(LEFT),'right_frames':len(RIGHT),'transition_states':states,'rendered_candidates':len(rows),'fresh_exact_gt38':len(exact),'max_letters':max(r['audit']['letters'] for r in rows)},'rendered_candidates':rows,'exact_candidates':exact,'novelty_preflight':{'status':'quarantined-diagnostic','signature':SIG,'distinct_from':'phrase-pair product, endpoint class, and inner class gates','global_residual_enforced':False},'provenance':{'audits':['independent two-pointer mismatch','forward/reverse SHA-256'],'reader_gate':'closed; prose controls only'},'status':'diagnostic prose controls; not a palindrome constructor'}
 if __name__=='__main__':
  x=run(); OUT.write_text(json.dumps(x,indent=2)+'\n'); print(json.dumps(x['stats']))

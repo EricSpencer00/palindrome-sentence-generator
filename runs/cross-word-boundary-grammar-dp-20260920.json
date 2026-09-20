@@ -1,6 +1,6 @@
 {
   "experiment_id": "cross-word-boundary-grammar-dp-20260920",
-  "method": "cross-word boundary grammar DP with residual obligation carried per word transition",
+  "method": "diagnostic cross-word boundary grammar DP; residual score is not a global palindrome obligation",
   "stats": {
     "left_frames": 3,
     "right_frames": 3,
@@ -661,16 +661,17 @@
   ],
   "exact_candidates": [],
   "novelty_preflight": {
-    "status": "passed",
+    "status": "quarantined-diagnostic",
     "signature": "cross-word-boundary-grammar-dp|cross-word-boundary-transition|live-residual|fresh-frames",
-    "distinct_from": "phrase-pair product, endpoint class, and inner class gates; each cross-word transition carries residual state"
+    "distinct_from": "phrase-pair product, endpoint class, and inner class gates",
+    "global_residual_enforced": false
   },
   "provenance": {
     "audits": [
       "independent two-pointer mismatch",
       "forward/reverse SHA-256"
     ],
-    "reader_gate": "closed unless fresh exact >38 appears"
+    "reader_gate": "closed; prose controls only"
   },
-  "status": "no fresh exact >38 candidate"
+  "status": "diagnostic prose controls; not a palindrome constructor"
 }

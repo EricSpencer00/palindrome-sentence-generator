@@ -1,0 +1,67 @@
+{
+  "experiment_id": "character-cfg-typed-center-two-debt-20260920",
+  "method": "typed center CFG chart with agreement-carrying outer and center seam debts",
+  "grammar": [
+    "S -> NPsubject VP",
+    "VP -> V NPobject",
+    "NP -> DET NOUN REL",
+    "REL -> who VP",
+    "CENTER -> a|the|some"
+  ],
+  "center_bank": [
+    {
+      "surface": "a",
+      "agreement": "sg"
+    },
+    {
+      "surface": "the",
+      "agreement": "sg"
+    },
+    {
+      "surface": "some",
+      "agreement": "pl"
+    }
+  ],
+  "stats": {
+    "subject_derivations": 180,
+    "object_derivations": 180,
+    "subject_chart_states": 4105,
+    "object_chart_states": 5508,
+    "typed_center_support": {
+      "a": 32400
+    },
+    "outer_debt_states": 0,
+    "center_debt_states": 32400,
+    "both_debts_cross_word_seam": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_two_debt_score": 1
+  },
+  "first_obligation_support": {},
+  "complete_prose_controls": [
+    "The sailor who reads the area guards the harbor.",
+    "Some guides who keep the era mark a garden."
+  ],
+  "best_diagnostic": {
+    "score": 1,
+    "left": "a area guides a area",
+    "right": "a area guides a area",
+    "center": "a",
+    "outer_seam": false,
+    "center_seam": true
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-typed-center-two-debt-20260920",
+    "catalogue_imported": false,
+    "fixed_bank_sweep": false,
+    "distinct_from": "character-cfg-shared-center-two-debt-20260920"
+  },
+  "next_construction": "Use a center nonterminal with a typed mirrored two-character onset, then solve the first outer obligation jointly instead of adding center categories.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

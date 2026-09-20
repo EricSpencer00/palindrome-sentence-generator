@@ -1,0 +1,87 @@
+{
+  "experiment_id": "bottom-up-recipient-adjunct-chart-20260920",
+  "method": "bottom-up semantic recipient/adjunct CFG chart with live residual pairing",
+  "chart_sizes": {
+    "NP": 12,
+    "V": 13,
+    "OBJ": 7,
+    "RECIP": 6,
+    "ADJ": 6,
+    "VP": 91,
+    "DITRANS": 546,
+    "VPADJ": 546,
+    "CLAUSE": 14196
+  },
+  "complete_clause_items": 80,
+  "stats": {
+    "states": 6400,
+    "combines": 6400,
+    "pruned": 6400,
+    "exact": 0
+  },
+  "exact_candidates": [],
+  "complete_prose_controls": [
+    {
+      "rendered": "the sailor gives to the poet the lantern at dawn",
+      "audit": {
+        "letters": 39,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          38
+        ],
+        "sha256_forward": "54d650e645d6273266e9620976f34f326d4ecf356f0e26443dda0df9ae2250c0",
+        "sha256_reverse": "65c5d23cc33b5ad9147d5c1795151b35a804957f62ef88c1573dde51cdd29bca",
+        "sha_equal": false
+      },
+      "reader_status": "intact control; not exact candidate"
+    },
+    {
+      "rendered": "a scholar reads old letters by the river",
+      "audit": {
+        "letters": 33,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          32
+        ],
+        "sha256_forward": "c478a69fdb225c482d7d3d61d3c67169b0b0851ee2365b2a13a8c0bcd1383469",
+        "sha256_reverse": "a66d3b2d697b7089213532e2cff82af8d95e38dd18c857477d56053105545b07",
+        "sha_equal": false
+      },
+      "reader_status": "intact control; not exact candidate"
+    },
+    {
+      "rendered": "the keeper carries a bright book with care",
+      "audit": {
+        "letters": 35,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          34
+        ],
+        "sha256_forward": "ebe9e9bebb3831e8bb3c3753345aa24a34f7b48fd2811ee4bf583a82024b036d",
+        "sha256_reverse": "26e37a5fe35aaff48058db10ab2071cfc9a32c3ef76bb326e53a8205df4e37c9",
+        "sha_equal": false
+      },
+      "reader_status": "intact control; not exact candidate"
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "bottom-up-semantic-recipient-adjunct|ditransitive-attachment|live-residual",
+    "distinct_from": "NP/VP/PP/REL chart; adds recipient argument and adjunct attachment nonterminals",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "lexicon": "authored recipient/theme/adjunct role banks",
+    "independent_audit": "two-pointer mismatch plus forward/reverse SHA-256",
+    "reader_evidence": false
+  },
+  "status": "no exact >38 closure",
+  "next_construction": "add tense/agreement feature states to recipient chart",
+  "reader_gate": "closed until blinded human ratings"
+}

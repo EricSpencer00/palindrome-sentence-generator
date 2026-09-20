@@ -4,22 +4,23 @@ Word boundaries may shift across edges; no token-aligned reflection is used.
 """
 import hashlib,itertools,json,re
 from pathlib import Path
-ROOT=Path(__file__).resolve().parent; OUT=ROOT/'runs/phrase-pair-cfg-boundary-shift-20260920.json'
-ID='phrase-pair-cfg-boundary-shift-20260920'; SIG='phrase-pair-graph|ordinary-English-CFG|variable-boundary-shifts|live-equations'
+ROOT=Path(__file__).resolve().parent; OUT=ROOT/'runs/typed-relative-cfg-boundary-shift-20260920.json'
+ID='typed-relative-cfg-boundary-shift-20260920'; SIG='phrase-pair-graph|typed-relative-CFG|variable-boundary-shifts|live-equations'
 def letters(s): return re.sub('[^a-z]','',s.lower())
 def audit(s):
  t=letters(s); mm=next(((i,t[i],t[-1-i]) for i in range(len(t)//2) if t[i]!=t[-1-i]),None)
  return {'letters':len(t),'exact':bool(t) and mm is None,'first_mismatch':mm,'sha256_forward':hashlib.sha256(t.encode()).hexdigest(),'sha256_reverse':hashlib.sha256(t[::-1].encode()).hexdigest()}
-DET=('the','a','our'); ADJ=('patient','quiet','careful'); N=('archivist','gardener','teacher','sailor'); V=('records','guards','follows','notices'); O=('map','letter','garden','harbor'); ADV=('before dusk','at dawn','near sunset')
+DET=('the','a','our'); ADJ=('patient','quiet','careful'); N=('archivist','gardener','teacher','sailor'); V=('records','guards','follows','notices'); O=('map','letter','garden','harbor'); ADV=('before dusk','at dawn','near sunset'); REL=('who records the map','who guards the harbor')
 def cfg():
- return tuple(f'{d} {a} {n} {v} the {o} {adv}' for d,a,n,v,o,adv in itertools.product(DET,ADJ,N,V,O,ADV))
+ base=tuple(f'{d} {a} {n} {v} the {o} {adv}' for d,a,n,v,o,adv in itertools.product(DET,ADJ,N,V,O,ADV))
+ return base+tuple(f'{d} {a} {n} {rel} {v} the {o} {adv}' for d,a,n,rel,v,o,adv in itertools.product(DET,ADJ,N,REL,V,O,ADV))
 def live(a,b):
  x,y=letters(a),letters(b)[::-1]
  for i,(u,v) in enumerate(zip(x,y)):
   if u!=v:return False,{'offset':i,'left':u,'right':v}
  return len(x)<=len(y),None
 def run():
- phrases=cfg()[:60]; rows=[]; prunes=0; shifts=0
+ phrases=cfg()[:80]; rows=[]; prunes=0; shifts=0
  for left,right in itertools.product(phrases,phrases):
   if left==right or len(set(left.split()))<3: continue
   # Variable boundary shifts: each clause contributes a complete prefix/suffix edge.

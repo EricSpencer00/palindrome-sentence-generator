@@ -2857,3 +2857,15 @@ relation edge, not a lexical substitution or a larger sweep. Artifact:
 
 
 A distinct dialogue-act product tested six independently authored conversational acts on each side: questions, requests, reports, warnings, and promises. The product retained complete utterances rather than token mirrors and generated 36 transitions, with intact controls from 45 to 59 letters. Independent two-pointer and forward/reverse SHA audits found zero exact candidates above 38 letters. Because this bounded product checks complete acts after selection, it is recorded as a topology diagnostic rather than a live character constructor; the next construction is a three-turn acknowledgement/clarification grammar with jointly solved act lengths. Artifact: `runs/dialogue-act-product-20260920.json`.
+
+The lexicalized-constituent interior CSP then changed the unit of generation.
+Instead of joining completed phrases or emitting isolated POS words, it
+expanded NP/VP/PP interiors one typed terminal at a time while carrying
+agreement, semantic role, and pending word-boundary state on both ordinary
+orders. In the bounded authored inventory it visited 41,280 live states,
+matched 4,524 characters, and pruned 25,622 character conflicts. Its deepest
+frontier reached 23 emitted letters, but no complete closure or exact candidate
+above 38 letters survived. This is a distinct zero-frontier result: the next
+construction must add a genuinely new lexicalized relation constituent rather
+than enlarge the same terminal bank. Artifact:
+`runs/lexicalized-constituent-interior-csp-20260920.json`.

@@ -141,6 +141,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_cfg_hypergraph_obligation": "Memoized weighted-CFG hypergraph: 3,825 chart items, 92 grammar hyperedges, 3,732 terminal edges, 34,509 character prunes, 3,535 complete parses, zero exact closures above 38",
         "latest_semantic_frame_hyperedges": "Selectional semantic-frame hyperedges (animate agent, concrete patient, action, setting): 25 paired frontiers, 25 immediate character prunes, zero complete or exact closures above 38",
         "latest_dialogue_act_product": "Independent conversational-act product: six authored acts per side, 36 complete transitions, intact controls to 59 letters, zero exact closures above 38; next is a three-turn acknowledgement/clarification grammar",
+        "latest_lexicalized_constituent_interior_csp": "Joint lexicalized NP/VP/PP interior CSP: 41,280 live states, 4,524 character matches, 25,622 prunes, deepest frontier 23 letters, zero complete or exact closures above 38",
         "reader_study": "not run",
     },
 }

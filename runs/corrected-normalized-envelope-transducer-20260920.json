@@ -1,0 +1,60 @@
+{
+  "experiment_id": "corrected-normalized-envelope-transducer-20260920",
+  "method": "normalized-letter envelope with independent rendered word boundaries",
+  "stats": {
+    "nodes": 50,
+    "fresh_exact_gt38": 0
+  },
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "Alice guards the crown; Diana praises the rose.",
+      "audit": {
+        "letters": 38,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "a584074b05cb2fd96227dfe8a6794468e265470cbca8a831f864037ad8218604",
+        "sha256_reverse": "f8b72f96af9a64edf1396cef47e1244ae5f0012d452c1c5e22cfa001814273b8",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "The young bard writes a song; Marie seeks the moon.",
+      "audit": {
+        "letters": 40,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "c6d123a26f6b2d77f550665843c5149e30e73558ddd7380349457879c95d6f6d",
+        "sha256_reverse": "cb0609066f3faffd1020d4f3b1b2190a00c90178e910a342a88c76e36bed5700",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "bug-fixed-normalized-envelope|brown-name-inventory|independent-word-offsets|complete-role-advancement",
+    "distinct_from": "previous raw-string envelope; this lane normalizes every lexical tape before character matching and advances roles only after tape exhaustion",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "brown_bank": "data/brown_pcfg_bank_20260920.json",
+    "audits": [
+      "independent two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "bug_fixed": "spaces and punctuation never enter character equations",
+    "reader_gate": "closed unless exact >38 rows appear"
+  },
+  "status": "no fresh exact >38 candidate"
+}

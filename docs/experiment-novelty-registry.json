@@ -11710,6 +11710,17 @@
       "distinction": "Uses the successful 38-letter slot geometry only as calibration, then generates fresh authored phrase banks and complete left/right frames with valency/agreement before reverse-character DP. The seed is never generated or wrapped; no repair, reversal, token mirroring, catalogue replay, or fragments are used.",
       "reader_evidence": false,
       "status": "4,608 fresh frames and 13,824 DP states in the 40–100-letter target; 0 complete reverse parses and 0 fresh exact candidates; independent 38/40/44-letter audits; reader gate closed"
+    },
+    {
+      "id": "packed-cfg-earley-intersection-20260920",
+      "signature": "packed-cfg-earley|recursive-semantic-chart|lexical-residual-intersection|variable-boundaries",
+      "artifact": "experiments/packed_cfg_earley_intersection_20260920.py",
+      "run_artifacts": [
+        "runs/packed-cfg-earley-intersection-20260920.json"
+      ],
+      "distinction": "Memoizes recursive S/NP/VP/relative/conjunction grammar paths and intersects independent lexical expansions under live residual character debt with variable word boundaries. No repair, finished-tape reversal, mirrored tokens, catalogue replay, or fragments are admitted.",
+      "reader_evidence": false,
+      "status": "4 packed paths, 64 compatible boundary seeds, 180,000 lexical states, 1,440,000 residual rejections, and 0 exact candidates above 38 letters; complete CFG control independently audited; reader gate closed; next construction is dependency-tree seam CSP"
     }
   ]
 }

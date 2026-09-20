@@ -1208,6 +1208,16 @@ calibration-only control, never generated or wrapped. Complete controls reached
 40 and 44 letters and passed independent audits. Artifact:
 `runs/seed-conditioned-paired-grammar-dp-20260920.json`.
 
+The packed CFG/Earley lane memoized recursive `S`, `NP`, `VP`, relative, and
+conjunction productions, then intersected independent lexical expansions with
+live residual character debt. It tested four packed chart paths, 64 compatible
+boundary seeds, 180,000 lexical-intersection states, and 1.44 million
+residual rejections. No exact candidate above 38 letters closed. The complete
+CFG control was independently audited; no repair, finished-tape reversal,
+mirrored token, or catalogue text was used. The next construction changes the
+semantic representation to a dependency-tree seam CSP. Artifact:
+`runs/packed-cfg-earley-intersection-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

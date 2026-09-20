@@ -11193,6 +11193,17 @@
       "distinction": "Chooses a lexical center before expanding complete semantic role pairs outward, rejecting non-palindromic centers by an exact central invariant and checking each outer transition before rendering. No finished-tape reversal, token mirror, catalogue replay, or post-hoc repair is used.",
       "reader_evidence": false,
       "status": "Four palindromic lexical centers accepted; 100 outer transitions were tested and pruned at the first character obligation, with 0 complete states and 0 exact closures. The word-level center family is stopped; the next construction must combine complete constituents with live residual debt across word boundaries."
+    },
+    {
+      "id": "bottom-up-cfg-character-intersection-20260920",
+      "signature": "bottom-up-cky|paired-constituent-chart|live-cross-boundary-residual",
+      "artifact": "experiments/bottom_up_cfg_character_intersection_20260920.py",
+      "run_artifacts": [
+        "runs/bottom-up-cfg-character-intersection-20260920.json"
+      ],
+      "distinction": "Builds complete NP, VP, PP, and relative chart items first, then intersects independent complete clauses at constituent boundaries while consuming character debt before the next combination. No finished-tape reversal, token mirror, catalogue replay, or post-hoc repair is used.",
+      "reader_evidence": false,
+      "status": "The chart contained 87 NP, 1,105 VP, 200 PP, and 96 relative items; 120,000 paired constituent states were tested and all were pruned, with 0 exact closures above 38 letters. Three complete ordinary prose controls were audited independently. The semantic chart family is stopped pending a new nonterminal construction."
     }
   ]
 }

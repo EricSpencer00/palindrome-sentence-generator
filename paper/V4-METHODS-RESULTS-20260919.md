@@ -695,6 +695,19 @@ complete constituents with live character residuals; it does not repair a
 rendered draft. The independent artifact is
 `runs/center-seeded-semantic-expansion-20260920.json`.
 
+### Bottom-up synchronous CFG chart
+
+The next representation builds grammatical constituents before pairing them:
+87 noun phrases, 1,105 verb phrases, 200 prepositional phrases, and 96 complete
+relative clauses. It then intersects complete clause derivations bottom-up,
+consuming exposed character debt at each paired constituent boundary. The
+120,000-state bounded run pruned every combination and closed no exact row above
+38 letters. Three ordinary complete-clause controls are retained with their
+independent pointer/SHA audits. This is a direct construction result, not a
+repair queue; the next construction changes the grammar's semantic nonterminals
+and keeps the same pre-render residual invariant. Artifact:
+`runs/bottom-up-cfg-character-intersection-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

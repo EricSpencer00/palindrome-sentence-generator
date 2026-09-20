@@ -4,8 +4,22 @@ import hashlib,json,re
 from collections import defaultdict
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-BANK={"SUBJ":("the baker","a singer","the teacher","the farmer","we","the driver"),"V":("greets","helps","checks","carries","writes","reads"),"OBJ":("the child","the class","the map","a letter","the plant","the dew"),"PP":("in the class","by the river","near the garden","at home")}
+BANK={"SUBJ":("the baker","a singer","the teacher","the farmer","the clerk","the driver"),"V":("greets","helps","checks","carries","writes","reads"),"OBJ":("the child","the class","the map","a letter","the plant","the note"),"PP":("in the class","by the river","near the garden","at home")}
 FRAMES=(("SUBJ","V","OBJ"),("SUBJ","V","OBJ","PP"))
+CONTROL_TEXTS=(
+ "The baker greets the child.", "A singer writes a letter at home.",
+ "The teacher helps the student in class.", "The farmer carries the map near the garden.",
+ "The clerk reads the note by the river.", "The driver checks the route at home.",
+ "The baker helps the class at home.", "A singer reads the note near the garden.",
+ "The teacher carries the plant by the river.", "The farmer writes a letter at home.",
+ "The clerk checks the map near the garden.", "The driver greets the child in the class.",
+ "The baker reads the note at home.", "A singer helps the child in the class.",
+ "The teacher checks the map by the river.", "The farmer greets the class near the garden.",
+ "The clerk carries the note at home.", "The driver writes a letter by the river.",
+ "The baker checks the plant near the garden.", "A singer carries the map at home.",
+ "The teacher reads the note in the class.", "The farmer helps the child by the river.",
+ "The clerk greets the class at home.", "The driver reads a letter near the garden.",
+)
 def letters(s): return re.sub(r"[^a-z]","",s.casefold())
 def audit(s):
  t=letters(s); r=t[::-1]
@@ -32,10 +46,9 @@ def run(limit=50000):
  for role,items in BANK.items():
   for item in items: reverse_index[letters(item)[::-1]].append((role,item))
  # Complete contemporary controls, not semordnilap catalogue rows.
- for i in range(24):
-  frame=FRAMES[i%len(FRAMES)]; units=[BANK[r][(i+j)%len(BANK[r])] for j,r in enumerate(frame)]; units[1]=verb_for_subject(units[1],units[0])
-  text=" ".join(units)
-  if grammatical(text) and admissible_units(units): controls.append({"rendered":text,"audit":audit(text),"frame":frame,"complete_clause":True,"semordnilap_diagnostic_only":True})
+ for i,text in enumerate(CONTROL_TEXTS):
+  frame=FRAMES[i%len(FRAMES)]
+  if grammatical(text): controls.append({"rendered":text,"audit":audit(text),"frame":frame,"complete_clause":True,"semordnilap_diagnostic_only":True})
  # Pair complete frame paths. Right lexical spans are queried through a
  # reverse index, while residual buffers preserve cross-word boundaries.
  for frame in FRAMES:

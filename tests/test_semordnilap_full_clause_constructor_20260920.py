@@ -1,6 +1,7 @@
 from experiments.semordnilap_full_clause_constructor_20260920 import audit, consume, run, self_palindromic
 def test_full_clause_controls_and_index():
- d=run(1000); assert d["control_count"]>=20 and d["reverse_index_keys"]>0
+    d=run(1000); assert d["control_count"]>=20 and d["reverse_index_keys"]>0
+    assert all("we reads" not in row["rendered"] for row in d["controls"])
 def test_cross_word_equation_and_rejection():
  assert consume("abcd","abc")==("d","") and consume("abcd","abx") is None and self_palindromic("level")
 def test_exact_rows_have_independent_audit():

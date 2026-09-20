@@ -1451,6 +1451,18 @@ audits passed, and no repair, reversal, mirrored unit, catalogue text, or
 fragment was admitted. Artifact:
 `runs/discourse-reference-form-20260920.json`.
 
+The semordnilap-aware full-clause constructor tested a different lexical
+geometry: reverse-indexed word spans were consumed across word boundaries, but
+both sides had to close as complete ordinary clauses. The fresh bank used two
+frames (SVO and SVO+PP), rejected repeated or self-palindromic units at exact
+admission, and kept complete-clause controls separate from that shortcut gate.
+The corrected run rendered 24 contemporary controls (maximum 36 letters),
+indexed 22 reverse lexical keys, and reached zero live exact states at the
+initial subject seam. It therefore produced zero exact candidates above 38
+letters. Independent pointer/SHA audits passed; no catalogue text, repair,
+finished-tape reversal, mirrored unit, or fragment was admitted. Artifact:
+`runs/semordnilap-full-clause-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

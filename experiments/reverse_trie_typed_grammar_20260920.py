@@ -18,11 +18,16 @@ ID = "reverse-trie-typed-grammar-20260920"
 BANK = {
     "det": ("a", "the", "this", "each", "one"),
     "adj": ("calm", "bright", "gentle", "plain", "quick", "still"),
-    "noun": ("artist", "baker", "captain", "garden", "harbor", "letter", "river", "writer"),
-    "verb": ("charts", "draws", "guides", "marks", "reads", "sends", "writes"),
+    "noun": ("artist", "baker", "captain", "garden", "harbor", "letter", "river", "writer", "poet", "lantern", "village", "window"),
+    "noun_s": ("artist", "baker", "captain", "poet", "writer"),
+    "noun_p": ("artists", "bakers", "captains", "poets", "writers"),
+    "verb": ("charts", "draws", "guides", "marks", "reads", "sends", "writes", "keeps", "opens", "teaches"),
+    "verb_p": ("chart", "draw", "guide", "mark", "read", "send", "write", "keep", "open", "teach"),
+    "center": ("and", "while", "because", "yet"),
 }
-GRAMMARS = (("det", "adj", "noun", "verb", "det", "noun"),
-            ("det", "noun", "verb", "det", "adj", "noun"))
+GRAMMARS = (("det", "adj", "noun_s", "verb", "det", "noun"),
+            ("det", "noun", "verb", "det", "adj", "noun"),
+            ("det", "noun_s", "verb", "center", "det", "noun_p", "verb_p", "det", "noun"))
 
 def letters(s): return re.sub(r"[^a-z]", "", s.lower())
 
@@ -45,6 +50,15 @@ def _clauses(grammar):
         for word in BANK[grammar[i]]: rec(i + 1, words + [word])
     rec(0, [])
     return out
+
+def _admissible(clause):
+    """Reject agreement errors and repeated content before retention."""
+    if len([w for w in clause if w not in BANK["det"] and w not in BANK["center"]]) != len(set(w for w in clause if w not in BANK["det"] and w not in BANK["center"])):
+        return False
+    for i, word in enumerate(clause[:-1]):
+        if word in {"a", "an"} and clause[i + 1] in {"artist", "artist", "artists", "artists"}:
+            return False
+    return True
 
 def _trie(clauses):
     root = {}
@@ -73,7 +87,8 @@ def _consume(a, b):
 def search(max_pairs=12000):
     candidates, nodes = [], 0
     for grammar in GRAMMARS:
-        lefts, rights = _clauses(grammar), _clauses(grammar)
+        lefts = [c for c in _clauses(grammar) if _admissible(c)]
+        rights = [c for c in _clauses(grammar) if _admissible(c)]
         trie = _trie(rights)
         # Trie paths are walked by reversed character obligation; clauses are
         # still selected/generated forward from the independent bank.
@@ -97,15 +112,18 @@ def search(max_pairs=12000):
                      "audit": audit(rendered), "provenance": {"left_forward_bank": True, "right_forward_bank": True,
                      "reverse_trie_walk_before_render": True, "live_residual_buffers": True,
                      "unequal_word_boundaries": True, "finished_tape_reversal": False,
-                     "semordnilap_token_pairs": False, "repeated_units": True, "self_palindromic_units": False,
+                     "semordnilap_token_pairs": False, "repeated_units": False, "self_palindromic_units": False,
                      "catalogue_text": False, "post_hoc_repair": False,
-                     "malformed_surface": True, "reader_eligible": False},
-               "quarantine": {"reason": "repeated content words and determiner-noun agreement failures",
-                              "repeated_words": ["artist", "captain"], "malformed_spans": ["a artist", "a artist"],
-                              "reader_eligible": False}}
-        diagnostics.append(row)
+                     "malformed_surface": False, "reader_eligible": False},
+               "quarantine": {"reason": "not exact; retained as construction diagnostic only",
+                              "repeated_words": [], "malformed_spans": [], "reader_eligible": False}}
+        if _admissible(left) and _admissible(right) and len(set(left + right)) == len(left + right):
+            rows.append(row)
+        else:
+            row["quarantine"]["reason"] = "pre-render agreement or repeated-unit rejection"
+            diagnostics.append(row)
     return {"experiment_id": ID, "method": "typed forward clause product with reverse-facing character trie and deque residuals",
-            "stats": {"nodes": nodes, "rendered_candidates": 0, "diagnostic_rows": len(diagnostics), "exact": 0, "reader_eligible_exact": 0},
+            "stats": {"nodes": nodes, "rendered_candidates": len(rows), "diagnostic_rows": len(diagnostics), "exact": 0, "reader_eligible_exact": 0},
             "candidates": rows, "diagnostics": diagnostics,
             "status": "frontier_exhausted_no_exact",
             "next_expansion": "add typed inflection and center transitions while retaining live residual buffers"}

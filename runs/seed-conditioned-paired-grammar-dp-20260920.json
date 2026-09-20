@@ -1,0 +1,78 @@
+{
+  "experiment_id": "seed-conditioned-paired-grammar-dp-20260920",
+  "method": "seed-conditioned paired grammar with fresh frame banks and reverse segmentation DP",
+  "stats": {
+    "left_frames": 4608,
+    "frontier_states": 4608,
+    "dp_states": 13824,
+    "complete_reverse_parses": 0,
+    "fresh_exact_40_100": 0
+  },
+  "exact_candidates": [],
+  "baseline_control": {
+    "rendered": "An aide rips nine memos; some men inspire Diana.",
+    "audit": {
+      "letters": 38,
+      "exact": true,
+      "first_mismatch": null,
+      "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "sha_equal": true
+    },
+    "calibration_only": true,
+    "generated": false
+  },
+  "controls": [
+    {
+      "rendered": "The young bard guards the crown within the court.",
+      "audit": {
+        "letters": 40,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "r"
+        ],
+        "sha256_forward": "330d0419fd744e3a585d1980b829fcaef56aba5c0b5df55a5a7a0df5eb1cb12b",
+        "sha256_reverse": "d7381a5acaa0de7768eccea05cfc3de7aa28c7e0bf7aaa1263c20047dcf27404",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    },
+    {
+      "rendered": "The fair queen praises a bright rose beneath the moon.",
+      "audit": {
+        "letters": 44,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "2198227ef400366abcb9e47c39ba4d8d6d770bb266a9ea91a37215b28ea8f187",
+        "sha256_reverse": "e9b40207e41f8f326a5c2dfa085e35be94436dbd1140d4728ba75be02769dce7",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "seed-conditioned-slot-geometry|fresh-authored-banks|complete-frame-dp|reverse-character-segmentation",
+    "distinct_from": "prior phrase graph; seed contributes slot geometry only, while all phrase banks and both complete frames are fresh",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "fresh_authored_banks": true,
+    "audits": [
+      "independent two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed unless fresh exact rows appear",
+    "next_reader_test": "randomized blinded intact-versus-shuffled ratings"
+  },
+  "status": "no fresh exact 40-100 letter candidate"
+}

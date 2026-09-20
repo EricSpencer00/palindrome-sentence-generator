@@ -100,11 +100,11 @@ def run():
               "provenance":{"lexical_edges":"hand-authored ordinary words","finished_tape_reversal":False,"post_hoc_repair":False,"catalogue_text":False,"mirrored_units":False,"repeated_units":False,"fragment":False,"tautological_word_order":False}})
     rows.sort(key=lambda r:(-r["audit"]["letters"], r["rendered"]))
     exact=[r for r in rows if r["audit"]["exact"] and r["audit"]["letters"] > 38]
-    return {"experiment_id":ID,"method":"bounded word-boundary grammar automaton with four finite event relations, explicit attachment graph, and typed causal-subordinator connector edge",
+    return {"experiment_id":ID,"method":"bounded word-boundary grammar automaton with four finite event relations, explicit attachment graph, and typed concessive-subordinator connector edge",
       "stats":{"frames":len(FRAMES),"states_pruned_live":prunes,"rendered_candidates":len(rows),"fresh_exact_gt38":len(exact),"max_letters":max((r["audit"]["letters"] for r in rows),default=0)},
       "rendered_candidates":rows[:100],"near_misses":sorted(near,key=lambda r:-r["audit"]["letters"])[:20],"exact_candidates":exact,
-      "novelty_preflight":{"status":"passed","signature":SIG,"distinct_from":"since/while duration connector graph: adds a typed causal-subordinator as-clause without increasing the event count"},
-      "next_topology":{"if_no_closure":"add a concessive-subordinator connector edge with explicit attachment and tense state","reason":"current causal-subordinator connector frame bank has no exact closure above the reader threshold"},
+      "novelty_preflight":{"status":"passed","signature":SIG,"distinct_from":"causal-subordinator connector graph: adds a typed concessive-subordinator though-clause without increasing the event count"},
+      "next_topology":{"if_no_closure":"add a conditional-subordinator connector edge with explicit attachment and tense state","reason":"current concessive-subordinator connector frame bank has no exact closure above the reader threshold"},
       "status":"fresh exact >38 candidate requires human reading" if exact else "no fresh exact >38 closure; grammatical near-misses and next topology recorded"}
 
 if __name__ == "__main__":

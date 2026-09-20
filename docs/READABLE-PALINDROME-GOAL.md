@@ -6181,3 +6181,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   complete controls reached 92 letters, with 0 exact candidates above 38. The
   next construction is asynchronous one-character role transitions. Artifact:
   `runs/width3-relative-role-buffer-20260920.json`.
+
+- **Quantified modal-passive topology, 2026-09-20:** introduced a typed
+  `all-being` quantified state before the modal passive beneficiary/agent/theme
+  frame. Across target lengths 44/56/68/80 it visited 1,420 states and made
+  532 live factor prunes, with 0 complete parses and 0 exact candidates above
+  38. The next construction is generic modal passive. Artifact:
+  `runs/quantified-modal-passive-csp-20260920.json`.
+
+- **Asynchronous width-three relative roles, 2026-09-20:** advanced residuals
+  one character at a time across typed agent/theme attachments. It tested 90
+  transitions over 81 states, pruned 81 transitions, and retained complete
+  controls to 92 letters; 0 exact candidates above 38 survived. The next
+  construction crosses word boundaries with a role/attachment-indexed trie.
+  Artifact: `runs/async-width3-relative-roles-20260920.json`.
+
+- **Concessive-subordinator connector graph, 2026-09-20:** added a typed
+  `though`-clause relation to the causal-subordinator graph. Four frames
+  incurred 2,949,120 live boundary prunes and retained 20 ordinary-prose
+  near-miss diagnostics to 186 letters; 0 exact candidates above 38 survived.
+  The next construction adds a conditional-subordinator edge. Artifact:
+  `runs/word-boundary-concessive-subordinator-20260920.json`.

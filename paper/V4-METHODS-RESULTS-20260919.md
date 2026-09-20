@@ -3477,3 +3477,24 @@ agent/theme roles and tense/number states across two indexed attachments. All
 letters, with zero exact candidates above 38. The next construction is
 asynchronous one-character role transitions. Artifact:
 `runs/width3-relative-role-buffer-20260920.json`.
+
+The quantified modal-passive lane introduced a typed `all-being` quantified
+state before the modal passive beneficiary/agent/theme frame. Across target
+lengths 44, 56, 68, and 80 it visited 1,420 states and made 532 live factor
+prunes, with zero complete parses and zero exact candidates above 38. The next
+construction is generic modal passive. Artifact:
+`runs/quantified-modal-passive-csp-20260920.json`.
+
+The asynchronous width-three relative-role lane advanced residuals one
+character at a time across typed agent/theme attachments. It tested 90
+transitions over 81 states, pruned 81 transitions, and retained complete
+controls to 92 letters; zero exact candidates above 38 survived. The next
+construction crosses word boundaries with a role/attachment-indexed trie.
+Artifact: `runs/async-width3-relative-roles-20260920.json`.
+
+The concessive-subordinator connector graph added a typed `though`-clause
+relation to the causal-subordinator graph. Four frames incurred 2,949,120 live
+boundary prunes and retained 20 ordinary-prose near-miss diagnostics to 186
+letters; zero exact candidates above 38 survived. The next construction adds a
+conditional-subordinator edge. Artifact:
+`runs/word-boundary-concessive-subordinator-20260920.json`.

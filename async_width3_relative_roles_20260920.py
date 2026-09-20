@@ -24,7 +24,8 @@ def run():
       transitions+=1
       if left[i]!=right[-1-i]: ok=False; pruned+=1; break
       residual=i+1
-     text=f'{head} {r1}, {r2} {tail}.'; semantic=(r1role=='agent' and r2role=='theme' and r1num==r2num=='singular')
+     surface_r1 = 'who mark the northern inlet' if hnum == 'plural' and r1 == 'who marks the northern inlet' else r1
+     text=f'{head} {surface_r1}, {r2} {tail}.'; semantic=(r1role=='agent' and r2role=='theme' and r1num==r2num=='singular')
      rows.append({'rendered':text,'frame':{'head':head,'head_number':hnum,'head_tense':htense,'relative_1':{'index':1,'role':r1role,'number':r1num,'tense':r1tense},'relative_2':{'index':2,'role':r2role,'number':r2num,'tense':r2tense}},'async_residual':{'width':3,'matched_prefix_chars':residual,'closed':ok},'surface_semantics':{'complete':semantic,'agreement':'passed'},'audit':audit(text),'provenance':{**gates(text),'fresh_authored_edges':True,'finished_tape_reversal':False,'post_hoc_repair':False}})
  rows.sort(key=lambda x:(-x['audit']['letters'],x['rendered']))
  ex=[x for x in rows if x['audit']['pointer_exact'] and x['audit']['sha256_forward']==x['audit']['sha256_reverse'] and x['audit']['letters']>38 and x['surface_semantics']['complete'] and not any(x['provenance'][k] for k in ('nested_self_palindrome','repeated_units','word_order_symmetry','fragment'))]

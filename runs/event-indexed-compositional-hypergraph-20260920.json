@@ -1,0 +1,67 @@
+{
+  "experiment_id": "event-indexed-compositional-hypergraph-20260920",
+  "method": "event-indexed two-event semantic hypergraph with pre-render paired tape CSP",
+  "stats": {
+    "left_events": 6,
+    "right_events": 6,
+    "relation_edges": 3,
+    "graph_pair_states": 2700,
+    "span_compatible_graphs": 0,
+    "fresh_exact_gt38": 0
+  },
+  "rendered_candidates": [],
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "The young bard guards the crown because the fair queen praises a bright rose.",
+      "audit": {
+        "letters": 63,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "ba95d4d99713075b7306aa76a2bd7494b3d6c1f489d3ab1c2e7634098cbad958",
+        "sha256_reverse": "6e20874c6867c7578f3a00997bdf689694b7651a027d6d8c5456c454ff8be325",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    },
+    {
+      "rendered": "The old king praises the red letter, then a wise poet seeks a noble plan.",
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "956b996311e38e571971fa22dc568a4a7328948faa56a9618849d25e3f2df4e6",
+        "sha256_reverse": "6d357dd40fc399c2afece378971f0c97a0cca976277570e88219601745f41406",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "event-indexed-hypergraph|two-event-linearization|cause-contrast-temporal-relations|paired-tape-csp",
+    "distinct_from": "prior masked scene and role charts; event nodes and relation edges are complete before paired character solving",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "event_source": "new authored Shakespearean scene events",
+    "audits": [
+      "independent two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed unless exact >38 row appears",
+    "next_reader_test": "blinded intact multi-event discourse versus shuffled controls"
+  },
+  "status": "no fresh exact >38 candidate"
+}

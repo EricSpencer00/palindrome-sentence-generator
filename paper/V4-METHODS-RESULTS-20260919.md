@@ -3289,10 +3289,19 @@ next topology is progressive modal passive embedding. Artifact:
 A fresh prose-first semordnilap authoring lane separately selected complete
 typed question/scene frames from an ordinary lexical bank and rejected nested
 self-palindromic spans, repeated units, word-order symmetry, fragments, and
-catalogue text before admission. It rendered 32 complete frames to at most 30
-letters; zero exact candidates above 38 or 50 survived. The strongest complete
-near-miss, “Did the pilot read a civic by the quay?”, is retained only as a
-diagnostic because it is not exact and contains a self-palindromic lexical
-span. The next construction expands typed ordinary verb edges while preserving
-the same hard exclusions. Artifact:
+catalogue text before admission. It rendered 768 complete frames, rejected
+720 at the endpoint-class residual, and reached at most 35 letters; zero exact
+candidates above 38 or 50 survived. The strongest complete near-miss, “Did
+the reader holds the bell near the pier?”, is retained only as a diagnostic
+because it is not exact and its verb agreement is not reader-ready. The next
+construction expands typed ordinary verb edges while preserving the same hard
+exclusions. Artifact:
 `runs/fresh-semordnilap-author-20260920.json`.
+
+The progressive modal-passive lane added a progressive state to the modal
+passive beneficiary/agent/theme frame and finite complement. Across target
+lengths 44, 56, 68, and 80 it visited 1,406 states and made 408 live factor
+prunes, with zero complete parses and zero exact candidates above 38. The two
+progressive controls (105 and 114 letters) were independently pointer/SHA
+audited. The next topology is inchoative modal passive embedding. Artifact:
+`runs/progressive-modal-passive-csp-20260920.json`.

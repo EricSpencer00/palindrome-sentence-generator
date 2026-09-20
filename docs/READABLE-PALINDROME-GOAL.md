@@ -5995,10 +5995,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
 - **Fresh prose-first semordnilap authoring, 2026-09-20:** selected complete
   typed question/scene frames from an ordinary lexical bank and rejected nested
   self-palindromic spans, repeated units, word-order symmetry, fragments, and
-  catalogue text before admission. It rendered 32 complete frames to at most
-  30 letters; 0 exact candidates above 38 or 50 survived. The strongest
-  complete near-miss, `Did the pilot read a civic by the quay?`, is diagnostic
-  only because it is not exact and contains a self-palindromic lexical span.
-  The next construction expands typed ordinary verb edges under the same hard
-  exclusions. Artifact:
+  catalogue text before admission. It rendered 768 complete frames, rejected
+  720 at the endpoint-class residual, and reached at most 35 letters; 0 exact
+  candidates above 38 or 50 survived. The strongest complete near-miss,
+  `Did the reader holds the bell near the pier?`, is diagnostic only because it
+  is not exact and its verb agreement is not reader-ready. The next construction
+  expands typed ordinary verb edges under the same hard exclusions. Artifact:
   `runs/fresh-semordnilap-author-20260920.json`.
+
+- **Progressive modal-passive topology, 2026-09-20:** added progressive
+  aspect to the modal passive beneficiary/agent/theme frame and finite
+  complement. Across target lengths 44/56/68/80 it visited 1,406 states and
+  made 408 live factor prunes, with 0 complete parses and 0 exact candidates
+  above 38. Two progressive controls (105 and 114 letters) passed independent
+  pointer/SHA audits. The next topology is inchoative modal passive embedding.
+  Artifact: `runs/progressive-modal-passive-csp-20260920.json`.

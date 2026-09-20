@@ -1,0 +1,75 @@
+{
+  "run_id": "length-scaled-constructive-grammar-20260920",
+  "method": "memoized recursive complete-event grammar with non-palindromic center and live character obligations",
+  "status": "completed_no_exact_closure",
+  "target_lengths": [
+    40,
+    60,
+    80
+  ],
+  "grammar": {
+    "complete_event_clauses": 8,
+    "center_nonterminals": 3,
+    "maximum_clause_depth": 3
+  },
+  "states_tested": 9,
+  "memoized_states": 9,
+  "obligation_prunes": 576,
+  "rendered_candidates": 193,
+  "longest_rendered_letters": 117,
+  "exact_candidates_over_38": 0,
+  "controls": [
+    {
+      "target_letters": 40,
+      "rendered_control": "the patient sailor studies the northern chart; while the evening bell remembers the garden",
+      "candidate_count": 192,
+      "audit": {
+        "letters": 76,
+        "exact": false,
+        "pointer_exact": false,
+        "sha256_forward": "f12c0d60b7b60258bb5f8597dcd3b45d355edc787a02849c84867c733c6be341",
+        "sha256_reverse": "462077f9750f210a50ccaee758bc5fdbf24d53263c0bf08f8665f8a0b3e56b53",
+        "no_self_palindromic_proper_multiword_span": true,
+        "proper_palindromic_spans": []
+      }
+    },
+    {
+      "target_letters": 60,
+      "rendered_control": "the patient sailor studies the northern chart; while the evening bell remembers the garden",
+      "candidate_count": 192,
+      "audit": {
+        "letters": 76,
+        "exact": false,
+        "pointer_exact": false,
+        "sha256_forward": "f12c0d60b7b60258bb5f8597dcd3b45d355edc787a02849c84867c733c6be341",
+        "sha256_reverse": "462077f9750f210a50ccaee758bc5fdbf24d53263c0bf08f8665f8a0b3e56b53",
+        "no_self_palindromic_proper_multiword_span": true,
+        "proper_palindromic_spans": []
+      }
+    },
+    {
+      "target_letters": 80,
+      "rendered_control": "the patient sailor studies the northern chart; while the evening bell remembers the garden; a careful keeper records the changing tide",
+      "candidate_count": 192,
+      "audit": {
+        "letters": 112,
+        "exact": false,
+        "pointer_exact": false,
+        "sha256_forward": "2a736f8b0be595a19885f8a7efa9574f981a6b81e9d07644321f1f5b71010298",
+        "sha256_reverse": "3470759633a0f6d1ee395a26681e573edafb16b257c456789efec62457090104",
+        "no_self_palindromic_proper_multiword_span": true,
+        "proper_palindromic_spans": []
+      }
+    }
+  ],
+  "reader_facing_candidates": [],
+  "exact_rows": [],
+  "first_live_diagnostic": "complete event clauses reach the recursive obligation frontier, but the first exposed character pair diverges before a closure can be carried to target length",
+  "provenance": "fresh hand-authored event-clause grammar; recursive depth/length/obligation memoization; no reversal, mirrored units, word-order symmetry, catalogue text, or post-hoc repair",
+  "independent_validation": [
+    "two-pointer audit",
+    "forward/reverse SHA-256",
+    "proper-span shortcut audit"
+  ],
+  "next_construction": "replace the single clause expansion with a typed event-composition nonterminal whose subject/object boundary is selected before clause lexicalization, preserving complete prose while carrying a wider obligation buffer"
+}

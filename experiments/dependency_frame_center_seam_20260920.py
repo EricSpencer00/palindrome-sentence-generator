@@ -47,6 +47,7 @@ HELDOUT_DITRANSITIVE = Frame("the trusted courier", "gives", "give", "the carefu
 HELDOUT_BENEFactive = Frame("a thoughtful baker", "sends", "send", "a warm loaf", "to", "the tired watchman", "sg", "complement", "benefactive")
 HELDOUT_RELATIVE = Frame("the attentive nurse", "follows", "follow", "the guide who waits", "near", "the station", "sg", "relative-complement", "relative")
 HELDOUT_PASSIVE = Frame("the tools", "are", "are", "used by the careful mason", "with", "steady hands", "pl", "instrument", "passive-relative")
+HELDOUT_MODAL = Frame("the old maps", "cannot be", "cannot be", "read by the young sailors", "during", "the lesson", "pl", "event", "modal-passive")
 
 def live_equations(text, state):
     t = letters(text); trace = []
@@ -92,6 +93,24 @@ def run():
                      "provenance": {"independent_left_frame": True, "independent_right_frame": True,
                          "held_out_ditransitive": True, "complement_determiner_in_seam_state": True,
                          "dependency_attachment_alternatives": True, "agreement_checked_before_render": True,
+                         "outside_in_equations": True, "finished_tape_reversal": False,
+                         "post_hoc_repair": False, "catalogue_text": False, "mirrored_token_units": False,
+                         "repeated_units": False}})
+    for li, left in enumerate(LEFT):
+        right = HELDOUT_MODAL
+        rendered = f"{left.render()}, but {right.render()}."
+        state = {"left_number": left.number, "right_number": right.number,
+                 "left_attachment": left.attachment, "right_attachment": right.attachment,
+                 "left_valency": left.valency, "right_valency": right.valency,
+                 "seam": "but|modal-passive", "negation_scope": "cannot-read",
+                 "modal": "cannot", "adjunct_attachment_alternative": "event-or-complement"}
+        trace, first = live_equations(rendered, state); transitions += len(trace)
+        rows.append({"rendered": rendered, "left_frame": asdict(left), "right_frame": asdict(right),
+                     "center_seam": "but", "live_trace": trace[:12], "first_live_obligation": first,
+                     "audit": audit(rendered), "complete_prose": True, "held_out_modal": True,
+                     "provenance": {"independent_left_frame": True, "independent_right_frame": True,
+                         "held_out_modal_passive": True, "negation_scope_state": True,
+                         "alternate_adjunct_attachment": True, "agreement_checked_before_render": True,
                          "outside_in_equations": True, "finished_tape_reversal": False,
                          "post_hoc_repair": False, "catalogue_text": False, "mirrored_token_units": False,
                          "repeated_units": False}})
@@ -156,7 +175,7 @@ def run():
                          "repeated_units": False}})
     exact = [r for r in rows if r["audit"]["exact"] and r["audit"]["letters"] > 38]
     return {"experiment_id": ID, "method": "independent dependency frames with attachment alternatives and live center-complement seam",
-            "stats": {"left_frames": len(LEFT), "right_frames": len(RIGHT), "held_out_ditransitive_states": len(LEFT), "held_out_benefactive_states": len(LEFT), "held_out_relative_states": len(LEFT), "held_out_passive_states": len(LEFT), "states": len(rows),
+            "stats": {"left_frames": len(LEFT), "right_frames": len(RIGHT), "held_out_ditransitive_states": len(LEFT), "held_out_benefactive_states": len(LEFT), "held_out_relative_states": len(LEFT), "held_out_passive_states": len(LEFT), "held_out_modal_states": len(LEFT), "states": len(rows),
                       "live_transitions": transitions, "fresh_exact_gt38": len(exact),
                       "max_letters": max(r["audit"]["letters"] for r in rows)},
             "rendered_candidates": rows, "exact_candidates": exact,
@@ -164,7 +183,7 @@ def run():
                 "distinct_from": "typed-central clause lane and clause-bank sweeps: attachment alternatives and complement seam are state dimensions",
                 "duplicate_cartesian_sweep": False, "finished_tape_reversal": False, "post_hoc_repair": False},
             "provenance": {"audits": ["independent two-pointer", "forward/reverse SHA-256"], "reader_gate": "closed unless exact >38"},
-            "next_construction": "author a held-out modal passive with negation scope and an adjunct attachment alternative",
+            "next_construction": "author a held-out causative frame with infinitival complement and subject-control agreement",
             "status": "fresh exact >38 candidate requires human reading" if exact else "no fresh exact >38 candidate; complete prose controls retained"}
 
 if __name__ == "__main__":

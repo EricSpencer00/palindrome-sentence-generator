@@ -3006,3 +3006,28 @@ There were zero exact candidates above 38. The next construction adds a third
 bridge clause and two-character obligation-prefix indexing; it will retain the
 fragment filter. Artifact:
 `runs/center-bridge-obligation-bank-20260920.json`.
+
+The third-bridge follow-up changed the center topology again: it selected a
+three-clause event bridge first, indexed scene-arm choices by a two-character
+obligation prefix, and applied the hard complete-prose filter before admission.
+Two fresh bridges produced four rendered diagnostics up to 113 letters; all
+four failed at the first outer character and none was reader-eligible. For
+example, “At first light, through reeds the bell rang; the keeper opened the
+chapel door; the choir began the hymn then the ferryman smiled.” is preserved
+with its pointer mismatch and forward/reverse SHA values, not promoted as a
+palindrome or readability evidence. The next construction conditions a fourth
+bridge clause on the residual two-character prefix and requires finite-verb
+agreement before rendering. Artifact:
+`runs/third-bridge-prefix-index-20260920.json`.
+
+In parallel, the tense/aspect endpoint decoder carried tense and aspect in the
+jointly selected endpoints while keeping finite-verb interiors held out from
+the earlier endpoint banks. It rendered 32 diagnostics, the longest 99
+letters, with zero exact candidates above 38. The longest row,
+“The careful mechanic was checking the weather log beside the old runway; had
+saved the final chart beside the old runway.”, is ordinary-word material but
+not a reader candidate: its first outer comparison is `t` versus `y`, and the
+semicolon/auxiliary construction is retained only as a construction trace.
+The next operator is a polarity-conditioned auxiliary/negation interior with
+a complete-clause admission check. Artifact:
+`runs/tense-aspect-endpoint-decoder-20260920.json`.

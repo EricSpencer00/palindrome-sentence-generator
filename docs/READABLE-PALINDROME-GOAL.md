@@ -5756,3 +5756,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   bridge clause and two-character obligation-prefix indexing while retaining a
   hard fragment filter. Artifact:
   `runs/center-bridge-obligation-bank-20260920.json`.
+
+- **Three-clause center bridge, 2026-09-20:** selected two fresh three-clause
+  event bridges before lexical outward growth, indexed by a two-character
+  obligation prefix, and applied the hard complete-prose filter. Four
+  diagnostics reached 104--113 letters; all failed at the first outer
+  character, with 0 exact candidates above 38. They remain non-reader
+  evidence even when grammatically complete, because they are not palindromes.
+  The next construction conditions a fourth bridge clause on the residual
+  prefix and requires finite-verb agreement. Artifact:
+  `runs/third-bridge-prefix-index-20260920.json`.
+
+- **Tense/aspect endpoint decoder, 2026-09-20:** jointly selected endpoint
+  schemas carrying tense and aspect, then expanded disjoint held-out
+  finite-verb interiors. It rendered 32 diagnostics up to 99 letters, but
+  closed 0 exact candidates above 38; the longest row failed its first outer
+  comparison (`t` versus `y`) and is not reader-eligible. The next operation
+  is a polarity-conditioned auxiliary/negation interior with a full-clause
+  admission check. Artifact:
+  `runs/tense-aspect-endpoint-decoder-20260920.json`.

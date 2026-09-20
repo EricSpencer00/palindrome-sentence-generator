@@ -1291,6 +1291,16 @@ a repair opportunity; no reversal, mirrored token, catalogue text, or
 fragment output was used. Artifact:
 `runs/event-indexed-compositional-hypergraph-20260920.json`.
 
+The CCG/supertagged seam constructor changed the grammar representation to
+forward/backward application and composition over independently generated
+lexical categories. It tested 3 complete templates, 12 compatible seeds,
+86,004 states, and 292,832 seam rejections, with no exact candidate above 38
+letters. Complete CCG controls reached 35, 44, 60, and 69 letters and were
+independently audited; repeated controls are retained as controls, not claimed
+as outputs. No repair, finished-tape reversal, mirrored unit, catalogue text,
+or fragment was admitted. Artifact:
+`runs/ccg-supertagged-seam-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

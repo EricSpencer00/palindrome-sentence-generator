@@ -1,0 +1,4435 @@
+{
+  "experiment_id": "semantic-role-temporal-subject-relative4-csp-20260920",
+  "signature": "typed-seam-machine|temporal-subject-relative|future-perfect|temporal-adjunct|nominative-head|independent-pointer-sha",
+  "method": "Fresh typed subject-relative temporal grammar with an explicit future-perfect relative clause and a before/by temporal adjunct. The ordinary-order left clause and inward-read right clause are intersected by the unequal-center two-cursor seam machine; boundaries and in-word centers remain live.",
+  "operator_added": {
+    "name": "typed temporal subject-relative attachment",
+    "surface_form": "SubjectHead who will have RelativeParticiple RelativeTheme TemporalAdjunct will MatrixVerb MatrixTheme",
+    "case_state": "nominative_head",
+    "attachment_state": "subject_relative_temporal",
+    "number_states": [
+      "sg",
+      "pl"
+    ],
+    "tense_state": "future",
+    "aspect_state": "perfect",
+    "temporal_relations": [
+      "before",
+      "by"
+    ],
+    "fresh_lexical_bank": true,
+    "same_unequal_center_cursor_product": true,
+    "benefactive_or_object_relative_bank_replayed": false
+  },
+  "stats": {
+    "heldout_clause_paths": 162,
+    "paired_grammar_states": 26244,
+    "online_character_equations": 26244,
+    "mismatch_prunes": 26244,
+    "overhang_prunes": 0,
+    "seam_closures": 0,
+    "seam_modes": {
+      "open": 26244
+    },
+    "unequal_word_count_pairs": 21222,
+    "unequal_letter_count_pairs": 24448,
+    "rendered_controls": 24,
+    "mechanical_exact_candidates": 0,
+    "exact_clean_above_38": 0,
+    "longest_rendered_control_letters": 177,
+    "longest_exact_clean_letters": 0
+  },
+  "rendered_controls": [
+    {
+      "rendered": "The patient pilot who will have guarded the quiet inlet before the tide turns will guide the narrow bridge; a careful gardener who will have studied the broad atlas before the tide turns will record the evening bell.",
+      "letters": 177,
+      "audit": {
+        "normalized_tape": "thepatientpilotwhowillhaveguardedthequietinletbeforethetideturnswillguidethenarrowbridgeacarefulgardenerwhowillhavestudiedthebroadatlasbeforethetideturnswillrecordtheeveningbell",
+        "letters": 177,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 176,
+          "left_char": "t",
+          "right_char": "l"
+        },
+        "sha256_forward": "c3a0b7ea4914977488ac058ac0bdf7fd113541541505903c94b7e7c8826df9b2",
+        "sha256_reverse": "161e794893c95ef8e20bc8d0cd798c89b3c1e910b1c5b2be0cc7ea42b8ee18ee",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "l",
+          "left_location": {
+            "word": "the",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bell",
+            "role": "matrix_theme",
+            "word_index": 18,
+            "offset": 3,
+            "word_length": 4,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 88,
+        "right_remaining": 89
+      },
+      "midpoint": {
+        "midpoint": 88,
+        "crossing": {
+          "token": "a",
+          "token_interval": [
+            88,
+            89
+          ],
+          "midpoint": 88,
+          "offset": 0,
+          "inside_word": false
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:sg:pilot:guard:inlet:before-tide-turn:guide:bridge",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:gardener:study:atlas:before-tide-turn:record:bell",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "the",
+          "quiet",
+          "inlet",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridge"
+        ],
+        "right_clause_words": [
+          "a",
+          "careful",
+          "gardener",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "the",
+          "broad",
+          "atlas",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "The patient pilot who will have guarded the quiet inlet before the tide turns will guide the narrow bridge; careful gardeners who will have studied broad atlases before the tide turns will record the evening bells.",
+      "letters": 177,
+      "audit": {
+        "normalized_tape": "thepatientpilotwhowillhaveguardedthequietinletbeforethetideturnswillguidethenarrowbridgecarefulgardenerswhowillhavestudiedbroadatlasesbeforethetideturnswillrecordtheeveningbells",
+        "letters": 177,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 176,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "b09d3218e6b3dcf6eddf64c09ebb722ccd193bda6458f221262b99b1038f8b8a",
+        "sha256_reverse": "63ca3a44cdf8dc3a5e6aeae6eb08990e8098d51f3ee360e29b953b3e55b1edce",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bells",
+            "role": "matrix_theme",
+            "word_index": 16,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 88,
+        "right_remaining": 89
+      },
+      "midpoint": {
+        "midpoint": 88,
+        "crossing": {
+          "token": "careful",
+          "token_interval": [
+            88,
+            95
+          ],
+          "midpoint": 88,
+          "offset": 0,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:sg:pilot:guard:inlet:before-tide-turn:guide:bridge",
+        "right_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:study:atlases:before-tide-turn:record:bells",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "the",
+          "quiet",
+          "inlet",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridge"
+        ],
+        "right_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Careful gardeners who will have studied broad atlases before the tide turns will guide the narrow bridges; the patient pilot who will have guarded the quiet inlet before the tide turns will record the evening bell.",
+      "letters": 177,
+      "audit": {
+        "normalized_tape": "carefulgardenerswhowillhavestudiedbroadatlasesbeforethetideturnswillguidethenarrowbridgesthepatientpilotwhowillhaveguardedthequietinletbeforethetideturnswillrecordtheeveningbell",
+        "letters": 177,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 176,
+          "left_char": "c",
+          "right_char": "l"
+        },
+        "sha256_forward": "73ba9a9b1b5c4a170e03abfae4fb16cecdde36ec447b9df866ceba4954371a6c",
+        "sha256_reverse": "ffc7f7d22717a60c8ed02d2a730d939b39cabd346f6585510cbb19fbe0a3b6da",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "c",
+          "right_char": "l",
+          "left_location": {
+            "word": "careful",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bell",
+            "role": "matrix_theme",
+            "word_index": 18,
+            "offset": 3,
+            "word_length": 4,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 89,
+        "right_remaining": 88
+      },
+      "midpoint": {
+        "midpoint": 88,
+        "crossing": {
+          "token": "bridges",
+          "token_interval": [
+            82,
+            89
+          ],
+          "midpoint": 88,
+          "offset": 6,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:study:atlases:before-tide-turn:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:pilot:guard:inlet:before-tide-turn:record:bell",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "the",
+          "quiet",
+          "inlet",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have guarded quiet inlets before the tide turns will guide the narrow bridges; careful gardeners who will have studied broad atlases before the tide turns will record the evening bells.",
+      "letters": 174,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhaveguardedquietinletsbeforethetideturnswillguidethenarrowbridgescarefulgardenerswhowillhavestudiedbroadatlasesbeforethetideturnswillrecordtheeveningbells",
+        "letters": 174,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 173,
+          "left_char": "p",
+          "right_char": "s"
+        },
+        "sha256_forward": "31dec28dea750453030efcaf1bef8b8cd6b29cd7b344b1c6bc599960ededed2d",
+        "sha256_reverse": "e68fe5dacb6ec78ca84c7b4a60b9cedaff4a3d796bb22c6d74b136b8c3727e56",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "s",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bells",
+            "role": "matrix_theme",
+            "word_index": 16,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 85,
+        "right_remaining": 89
+      },
+      "midpoint": {
+        "midpoint": 86,
+        "crossing": {
+          "token": "careful",
+          "token_interval": [
+            85,
+            92
+          ],
+          "midpoint": 86,
+          "offset": 1,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:guard:inlets:before-tide-turn:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:study:atlases:before-tide-turn:record:bells",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "quiet",
+          "inlets",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "The patient pilot who will have guarded the quiet inlet by first light will guide the narrow bridge; a careful gardener who will have studied the broad atlas before the tide turns will record the evening bell.",
+      "letters": 171,
+      "audit": {
+        "normalized_tape": "thepatientpilotwhowillhaveguardedthequietinletbyfirstlightwillguidethenarrowbridgeacarefulgardenerwhowillhavestudiedthebroadatlasbeforethetideturnswillrecordtheeveningbell",
+        "letters": 171,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 170,
+          "left_char": "t",
+          "right_char": "l"
+        },
+        "sha256_forward": "f1715e6b6a0582e95531efadd64e55dba9f7a33c6e20a00684d1021fe3cdf356",
+        "sha256_reverse": "8d86486c33345efa4c8015c077b054f6d3edcf34eefd7ab6eb7fc827ba6554ec",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "l",
+          "left_location": {
+            "word": "the",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bell",
+            "role": "matrix_theme",
+            "word_index": 18,
+            "offset": 3,
+            "word_length": 4,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 82,
+        "right_remaining": 89
+      },
+      "midpoint": {
+        "midpoint": 85,
+        "crossing": {
+          "token": "careful",
+          "token_interval": [
+            83,
+            90
+          ],
+          "midpoint": 85,
+          "offset": 2,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:sg:pilot:guard:inlet:by-light:guide:bridge",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:gardener:study:atlas:before-tide-turn:record:bell",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "the",
+          "quiet",
+          "inlet",
+          "by",
+          "first",
+          "light",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridge"
+        ],
+        "right_clause_words": [
+          "a",
+          "careful",
+          "gardener",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "the",
+          "broad",
+          "atlas",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "The patient pilot who will have guarded the quiet inlet by first light will guide the narrow bridge; careful gardeners who will have studied broad atlases before the tide turns will record the evening bells.",
+      "letters": 171,
+      "audit": {
+        "normalized_tape": "thepatientpilotwhowillhaveguardedthequietinletbyfirstlightwillguidethenarrowbridgecarefulgardenerswhowillhavestudiedbroadatlasesbeforethetideturnswillrecordtheeveningbells",
+        "letters": 171,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 170,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "fa7722ee9da3db1115cdac4a3976e9c7ae7b7a968d2e8e9903f9e11fbc9b0059",
+        "sha256_reverse": "733e9b2b9286c9e9a511215f139dca0d1e2ba42b8343027920cec5b35c20fdae",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bells",
+            "role": "matrix_theme",
+            "word_index": 16,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 82,
+        "right_remaining": 89
+      },
+      "midpoint": {
+        "midpoint": 85,
+        "crossing": {
+          "token": "careful",
+          "token_interval": [
+            82,
+            89
+          ],
+          "midpoint": 85,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:sg:pilot:guard:inlet:by-light:guide:bridge",
+        "right_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:study:atlases:before-tide-turn:record:bells",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "the",
+          "quiet",
+          "inlet",
+          "by",
+          "first",
+          "light",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridge"
+        ],
+        "right_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "The patient pilot who will have guarded the quiet inlet before the tide turns will guide the narrow bridge; a careful gardener who will have studied the broad atlas by first light will record the evening bell.",
+      "letters": 171,
+      "audit": {
+        "normalized_tape": "thepatientpilotwhowillhaveguardedthequietinletbeforethetideturnswillguidethenarrowbridgeacarefulgardenerwhowillhavestudiedthebroadatlasbyfirstlightwillrecordtheeveningbell",
+        "letters": 171,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 170,
+          "left_char": "t",
+          "right_char": "l"
+        },
+        "sha256_forward": "fdfcd6bf0f65b3ea1e7d016f8cb6841f4874ffb497e219c4cb697a41c0ea6c21",
+        "sha256_reverse": "f5798be44bc1def74f22ebf179842a3c834cef1d8b0564ab49a7f2ccfe156422",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "l",
+          "left_location": {
+            "word": "the",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bell",
+            "role": "matrix_theme",
+            "word_index": 17,
+            "offset": 3,
+            "word_length": 4,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 88,
+        "right_remaining": 83
+      },
+      "midpoint": {
+        "midpoint": 85,
+        "crossing": {
+          "token": "bridge",
+          "token_interval": [
+            82,
+            88
+          ],
+          "midpoint": 85,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:sg:pilot:guard:inlet:before-tide-turn:guide:bridge",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:gardener:study:atlas:by-light:record:bell",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "the",
+          "quiet",
+          "inlet",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridge"
+        ],
+        "right_clause_words": [
+          "a",
+          "careful",
+          "gardener",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "the",
+          "broad",
+          "atlas",
+          "by",
+          "first",
+          "light",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "The patient pilot who will have guarded the quiet inlet before the tide turns will guide the narrow bridge; careful gardeners who will have studied broad atlases by first light will record the evening bells.",
+      "letters": 171,
+      "audit": {
+        "normalized_tape": "thepatientpilotwhowillhaveguardedthequietinletbeforethetideturnswillguidethenarrowbridgecarefulgardenerswhowillhavestudiedbroadatlasesbyfirstlightwillrecordtheeveningbells",
+        "letters": 171,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 170,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "1a80f5879125cf85494163422b7d380974873bd8efff90a7b6f0bcff56419512",
+        "sha256_reverse": "cb555892b38037c864a9fcdc98f23ce8c095c8f4c38e1973887596284df036f2",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bells",
+            "role": "matrix_theme",
+            "word_index": 15,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 88,
+        "right_remaining": 83
+      },
+      "midpoint": {
+        "midpoint": 85,
+        "crossing": {
+          "token": "bridge",
+          "token_interval": [
+            82,
+            88
+          ],
+          "midpoint": 85,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:sg:pilot:guard:inlet:before-tide-turn:guide:bridge",
+        "right_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:study:atlases:by-light:record:bells",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "the",
+          "quiet",
+          "inlet",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridge"
+        ],
+        "right_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "by",
+          "first",
+          "light",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Careful gardeners who will have studied broad atlases by first light will guide the narrow bridges; the patient pilot who will have guarded the quiet inlet before the tide turns will record the evening bell.",
+      "letters": 171,
+      "audit": {
+        "normalized_tape": "carefulgardenerswhowillhavestudiedbroadatlasesbyfirstlightwillguidethenarrowbridgesthepatientpilotwhowillhaveguardedthequietinletbeforethetideturnswillrecordtheeveningbell",
+        "letters": 171,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 170,
+          "left_char": "c",
+          "right_char": "l"
+        },
+        "sha256_forward": "350d91ae9810b781e6be4e7d1000a4cfb6c61613cb762b957717c884b2602646",
+        "sha256_reverse": "adac55fcca804b6a9b7951124f30bfaa52fc24a01aa6c2c1174a08882a4246b7",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "c",
+          "right_char": "l",
+          "left_location": {
+            "word": "careful",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bell",
+            "role": "matrix_theme",
+            "word_index": 18,
+            "offset": 3,
+            "word_length": 4,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 83,
+        "right_remaining": 88
+      },
+      "midpoint": {
+        "midpoint": 85,
+        "crossing": {
+          "token": "the",
+          "token_interval": [
+            83,
+            86
+          ],
+          "midpoint": 85,
+          "offset": 2,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:study:atlases:by-light:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:pilot:guard:inlet:before-tide-turn:record:bell",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "by",
+          "first",
+          "light",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "the",
+          "quiet",
+          "inlet",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Careful gardeners who will have studied broad atlases before the tide turns will guide the narrow bridges; the patient pilot who will have guarded the quiet inlet by first light will record the evening bell.",
+      "letters": 171,
+      "audit": {
+        "normalized_tape": "carefulgardenerswhowillhavestudiedbroadatlasesbeforethetideturnswillguidethenarrowbridgesthepatientpilotwhowillhaveguardedthequietinletbyfirstlightwillrecordtheeveningbell",
+        "letters": 171,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 170,
+          "left_char": "c",
+          "right_char": "l"
+        },
+        "sha256_forward": "d4d886d22e2395279d450de160c57d3c81da0f1c0768f8672cbc1622965e5b61",
+        "sha256_reverse": "3bd0e8d2ddf934a4ee29e8f6cf146eff1d3be6f3be01655cfc989047ff157fb3",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "c",
+          "right_char": "l",
+          "left_location": {
+            "word": "careful",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bell",
+            "role": "matrix_theme",
+            "word_index": 17,
+            "offset": 3,
+            "word_length": 4,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 89,
+        "right_remaining": 82
+      },
+      "midpoint": {
+        "midpoint": 85,
+        "crossing": {
+          "token": "bridges",
+          "token_interval": [
+            82,
+            89
+          ],
+          "midpoint": 85,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:study:atlases:before-tide-turn:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:pilot:guard:inlet:by-light:record:bell",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "the",
+          "quiet",
+          "inlet",
+          "by",
+          "first",
+          "light",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have guarded quiet inlets by first light will guide the narrow bridges; careful gardeners who will have studied broad atlases before the tide turns will record the evening bells.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhaveguardedquietinletsbyfirstlightwillguidethenarrowbridgescarefulgardenerswhowillhavestudiedbroadatlasesbeforethetideturnswillrecordtheeveningbells",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "s"
+        },
+        "sha256_forward": "0e60c247f62bfdd7d78081b6c04d1feecc83afd3885fd82204423a57fb459dca",
+        "sha256_reverse": "024ae80591b3ddf325b0d2c0ffc41404873502b0253521d10cd4ee2ba81d0fa3",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "s",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bells",
+            "role": "matrix_theme",
+            "word_index": 16,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 79,
+        "right_remaining": 89
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "careful",
+          "token_interval": [
+            79,
+            86
+          ],
+          "midpoint": 83,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:guard:inlets:by-light:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:study:atlases:before-tide-turn:record:bells",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "quiet",
+          "inlets",
+          "by",
+          "first",
+          "light",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have guarded quiet inlets before the tide turns will guide the narrow bridges; careful gardeners who will have studied broad atlases by first light will record the evening bells.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhaveguardedquietinletsbeforethetideturnswillguidethenarrowbridgescarefulgardenerswhowillhavestudiedbroadatlasesbyfirstlightwillrecordtheeveningbells",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "s"
+        },
+        "sha256_forward": "76b9e0fc77007c3372962315e383f9c443504cd6a89242ee36b34ceebcbce798",
+        "sha256_reverse": "12e831e2e24b4dbc56a24053550e4fbdc9a92780034bfb9de789912b71cba5da",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "s",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bells",
+            "role": "matrix_theme",
+            "word_index": 15,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 85,
+        "right_remaining": 83
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "bridges",
+          "token_interval": [
+            78,
+            85
+          ],
+          "midpoint": 83,
+          "offset": 5,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:guard:inlets:before-tide-turn:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:study:atlases:by-light:record:bells",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "quiet",
+          "inlets",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "by",
+          "first",
+          "light",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have guarded quiet inlets by first light will record the evening bells; a careful gardener who will have studied the broad atlas before the tide turns will guide the narrow bridge.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhaveguardedquietinletsbyfirstlightwillrecordtheeveningbellsacarefulgardenerwhowillhavestudiedthebroadatlasbeforethetideturnswillguidethenarrowbridge",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "e"
+        },
+        "sha256_forward": "289dbe30896606abc0742be73500cf8b995481979d5922f2fb49ede3284117dd",
+        "sha256_reverse": "96b5bcec44e0630ef37c4f5fcd674acc90d19547ceaab155ef465e9b1dfab1d9",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "e",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bridge",
+            "role": "matrix_theme",
+            "word_index": 18,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 79,
+        "right_remaining": 89
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "careful",
+          "token_interval": [
+            80,
+            87
+          ],
+          "midpoint": 83,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:guard:inlets:by-light:record:bells",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:gardener:study:atlas:before-tide-turn:guide:bridge",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "quiet",
+          "inlets",
+          "by",
+          "first",
+          "light",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "right_clause_words": [
+          "a",
+          "careful",
+          "gardener",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "the",
+          "broad",
+          "atlas",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridge"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have guarded quiet inlets by first light will record the evening bells; careful gardeners who will have studied broad atlases before the tide turns will guide the narrow bridges.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhaveguardedquietinletsbyfirstlightwillrecordtheeveningbellscarefulgardenerswhowillhavestudiedbroadatlasesbeforethetideturnswillguidethenarrowbridges",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "s"
+        },
+        "sha256_forward": "a0f7ed185353a194fa05d7041dc213f276b19c833db8d452af8163299c71a059",
+        "sha256_reverse": "a6424183e97a195d464e221484f5aa79b8c402f0757f9ecdd9b2f61712431c68",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "s",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bridges",
+            "role": "matrix_theme",
+            "word_index": 16,
+            "offset": 6,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 79,
+        "right_remaining": 89
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "careful",
+          "token_interval": [
+            79,
+            86
+          ],
+          "midpoint": 83,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:guard:inlets:by-light:record:bells",
+        "right_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:study:atlases:before-tide-turn:guide:bridges",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "quiet",
+          "inlets",
+          "by",
+          "first",
+          "light",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "right_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have guarded quiet inlets before the tide turns will record the evening bells; a careful gardener who will have charted the old map before the tide turns will observe a calm harbor.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhaveguardedquietinletsbeforethetideturnswillrecordtheeveningbellsacarefulgardenerwhowillhavechartedtheoldmapbeforethetideturnswillobserveacalmharbor",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "r"
+        },
+        "sha256_forward": "ec3d76e138953aa9496be24df0f9a967e4cdc06149228347adcd87dfadbb4a8d",
+        "sha256_reverse": "60689d4035fd8c406aed9c4a7018c39ce83df70f7b0427dd22a4d3cd5880b9b1",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "r",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "harbor",
+            "role": "matrix_theme",
+            "word_index": 18,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 85,
+        "right_remaining": 83
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "bells",
+          "token_interval": [
+            80,
+            85
+          ],
+          "midpoint": 83,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:guard:inlets:before-tide-turn:record:bells",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:gardener:chart:map:before-tide-turn:observe:harbor",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "quiet",
+          "inlets",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "right_clause_words": [
+          "a",
+          "careful",
+          "gardener",
+          "who",
+          "will",
+          "have",
+          "charted",
+          "the",
+          "old",
+          "map",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "observe",
+          "a",
+          "calm",
+          "harbor"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have guarded quiet inlets before the tide turns will record the evening bells; a careful gardener who will have studied the broad atlas by first light will guide the narrow bridge.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhaveguardedquietinletsbeforethetideturnswillrecordtheeveningbellsacarefulgardenerwhowillhavestudiedthebroadatlasbyfirstlightwillguidethenarrowbridge",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "e"
+        },
+        "sha256_forward": "b38c7cbf61d1ebe9e68a4a1ac371fd6564633b05f91954aa4e163fff917dd6d5",
+        "sha256_reverse": "7fded1b28382f44fc9057d6f6fa10b0b3d1b8fc28678a25cee928e6bedce3b25",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "e",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bridge",
+            "role": "matrix_theme",
+            "word_index": 17,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 85,
+        "right_remaining": 83
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "bells",
+          "token_interval": [
+            80,
+            85
+          ],
+          "midpoint": 83,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:guard:inlets:before-tide-turn:record:bells",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:gardener:study:atlas:by-light:guide:bridge",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "quiet",
+          "inlets",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "right_clause_words": [
+          "a",
+          "careful",
+          "gardener",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "the",
+          "broad",
+          "atlas",
+          "by",
+          "first",
+          "light",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridge"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have guarded quiet inlets before the tide turns will record the evening bells; careful gardeners who will have studied broad atlases by first light will guide the narrow bridges.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhaveguardedquietinletsbeforethetideturnswillrecordtheeveningbellscarefulgardenerswhowillhavestudiedbroadatlasesbyfirstlightwillguidethenarrowbridges",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "s"
+        },
+        "sha256_forward": "37e9fadf9a789e0618af585724d7290044d571e89ef4b01dc456c9eb1e9ef4e4",
+        "sha256_reverse": "d0e8ef4725a8c720e552b1cf90dbbdf14a9cfc2243cd78a071b332ecd9eaefa2",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "s",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bridges",
+            "role": "matrix_theme",
+            "word_index": 15,
+            "offset": 6,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 85,
+        "right_remaining": 83
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "bells",
+          "token_interval": [
+            80,
+            85
+          ],
+          "midpoint": 83,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:guard:inlets:before-tide-turn:record:bells",
+        "right_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:study:atlases:by-light:guide:bridges",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "quiet",
+          "inlets",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "right_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "by",
+          "first",
+          "light",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have studied broad atlases by first light will guide the narrow bridges; the quiet scholar who will have guarded the quiet inlet before the tide turns will record the evening bell.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhavestudiedbroadatlasesbyfirstlightwillguidethenarrowbridgesthequietscholarwhowillhaveguardedthequietinletbeforethetideturnswillrecordtheeveningbell",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "l"
+        },
+        "sha256_forward": "54b7dc27497cdeca52a044a67f31128e43f90743b5cdf1e9d62b6d05985d9fc1",
+        "sha256_reverse": "025d2c641e00ba56f32ec4ef81453a212fd614b94dbc65eb8c2c2e0e730d53b3",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "l",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bell",
+            "role": "matrix_theme",
+            "word_index": 18,
+            "offset": 3,
+            "word_length": 4,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 80,
+        "right_remaining": 88
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "quiet",
+          "token_interval": [
+            83,
+            88
+          ],
+          "midpoint": 83,
+          "offset": 0,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:study:atlases:by-light:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:scholar:guard:inlet:before-tide-turn:record:bell",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "by",
+          "first",
+          "light",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "the",
+          "quiet",
+          "scholar",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "the",
+          "quiet",
+          "inlet",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have studied broad atlases by first light will guide the narrow bridges; careful gardeners who will have guarded quiet inlets before the tide turns will record the evening bells.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhavestudiedbroadatlasesbyfirstlightwillguidethenarrowbridgescarefulgardenerswhowillhaveguardedquietinletsbeforethetideturnswillrecordtheeveningbells",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "s"
+        },
+        "sha256_forward": "648f88bad7ab11890623356779b172a7b9368b7e69d0831d4a4bceded6c6f636",
+        "sha256_reverse": "d83f5b1a963feba7fd8c48be79e5f5f90ce007f1796be572e89dd188f57cdf73",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "s",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bells",
+            "role": "matrix_theme",
+            "word_index": 16,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 80,
+        "right_remaining": 88
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "careful",
+          "token_interval": [
+            80,
+            87
+          ],
+          "midpoint": 83,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:study:atlases:by-light:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:guard:inlets:before-tide-turn:record:bells",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "by",
+          "first",
+          "light",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "quiet",
+          "inlets",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have studied broad atlases before the tide turns will guide the narrow bridges; the quiet scholar who will have charted the old map before the tide turns will observe a calm harbor.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhavestudiedbroadatlasesbeforethetideturnswillguidethenarrowbridgesthequietscholarwhowillhavechartedtheoldmapbeforethetideturnswillobserveacalmharbor",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "r"
+        },
+        "sha256_forward": "f567db5bce89919f202ede7cdeb208ca8a700f9717ec8b776a67656a3c51f957",
+        "sha256_reverse": "a64bff96024f8f760444b5c930d5c901e415249517c4c218e0293051c747eaad",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "r",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "harbor",
+            "role": "matrix_theme",
+            "word_index": 18,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 86,
+        "right_remaining": 82
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "bridges",
+          "token_interval": [
+            79,
+            86
+          ],
+          "midpoint": 83,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:study:atlases:before-tide-turn:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:scholar:chart:map:before-tide-turn:observe:harbor",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "the",
+          "quiet",
+          "scholar",
+          "who",
+          "will",
+          "have",
+          "charted",
+          "the",
+          "old",
+          "map",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "observe",
+          "a",
+          "calm",
+          "harbor"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have studied broad atlases before the tide turns will guide the narrow bridges; the quiet scholar who will have guarded the quiet inlet by first light will record the evening bell.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhavestudiedbroadatlasesbeforethetideturnswillguidethenarrowbridgesthequietscholarwhowillhaveguardedthequietinletbyfirstlightwillrecordtheeveningbell",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "l"
+        },
+        "sha256_forward": "22d96fa6824335acf3a01b9b0cdef79209d4868a60b74cb869078a0a107bcf0b",
+        "sha256_reverse": "bd78d8b424f393b46ab8d8a39959b102136f8c7ba5b8f2d0ab725d795a9480ce",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "l",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bell",
+            "role": "matrix_theme",
+            "word_index": 17,
+            "offset": 3,
+            "word_length": 4,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 86,
+        "right_remaining": 82
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "bridges",
+          "token_interval": [
+            79,
+            86
+          ],
+          "midpoint": 83,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:study:atlases:before-tide-turn:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:scholar:guard:inlet:by-light:record:bell",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "the",
+          "quiet",
+          "scholar",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "the",
+          "quiet",
+          "inlet",
+          "by",
+          "first",
+          "light",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have studied broad atlases before the tide turns will guide the narrow bridges; careful gardeners who will have guarded quiet inlets by first light will record the evening bells.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhavestudiedbroadatlasesbeforethetideturnswillguidethenarrowbridgescarefulgardenerswhowillhaveguardedquietinletsbyfirstlightwillrecordtheeveningbells",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "s"
+        },
+        "sha256_forward": "e4302883dc5f0e8b50bb5f26266bb857acc07da9857934fedfd4ecfb808942c4",
+        "sha256_reverse": "ed81a6d90e78464ee377eeaf522de56a6e7f9a14da4690eed118e8d8add9f862",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "s",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bells",
+            "role": "matrix_theme",
+            "word_index": 15,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 86,
+        "right_remaining": 82
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "bridges",
+          "token_interval": [
+            79,
+            86
+          ],
+          "midpoint": 83,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:study:atlases:before-tide-turn:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:pl:gardeners:guard:inlets:by-light:record:bells",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "by"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "careful",
+          "gardeners",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "quiet",
+          "inlets",
+          "by",
+          "first",
+          "light",
+          "will",
+          "record",
+          "the",
+          "evening",
+          "bells"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have studied broad atlases before the tide turns will guide the narrow bridges; quiet scholars who will have guarded quiet inlets before the tide turns will observe calm harbors.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhavestudiedbroadatlasesbeforethetideturnswillguidethenarrowbridgesquietscholarswhowillhaveguardedquietinletsbeforethetideturnswillobservecalmharbors",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "s"
+        },
+        "sha256_forward": "10bac20adcc299e4fdf38504b43ce1c89ff5429524bd20c887e1bc8684c94240",
+        "sha256_reverse": "a2b7bdc0350ff7516427b19c7ce12a32cdcd45015386012ec5901193dbf03e18",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "s",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "harbors",
+            "role": "matrix_theme",
+            "word_index": 15,
+            "offset": 6,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 86,
+        "right_remaining": 82
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "bridges",
+          "token_interval": [
+            79,
+            86
+          ],
+          "midpoint": 83,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:study:atlases:before-tide-turn:guide:bridges",
+        "right_frame_id": "temporal-subject-relative:future-perfect:pl:scholars:guard:inlets:before-tide-turn:observe:harbors",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridges"
+        ],
+        "right_clause_words": [
+          "quiet",
+          "scholars",
+          "who",
+          "will",
+          "have",
+          "guarded",
+          "quiet",
+          "inlets",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "observe",
+          "calm",
+          "harbors"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    },
+    {
+      "rendered": "Patient pilots who will have studied broad atlases before the tide turns will observe calm harbors; a careful gardener who will have charted the old map before the tide turns will guide the narrow bridge.",
+      "letters": 168,
+      "audit": {
+        "normalized_tape": "patientpilotswhowillhavestudiedbroadatlasesbeforethetideturnswillobservecalmharborsacarefulgardenerwhowillhavechartedtheoldmapbeforethetideturnswillguidethenarrowbridge",
+        "letters": 168,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 167,
+          "left_char": "p",
+          "right_char": "e"
+        },
+        "sha256_forward": "1fb9a12cd803cc721ec2d3d0e680a5968a8bdfda3ce897321d814e31faabfff8",
+        "sha256_reverse": "fe6cbf5cc572995f78b9686ef1390036cf3f53e34e322e2287212b159b3c3db0",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "e",
+          "left_location": {
+            "word": "patient",
+            "role": "relative_head_subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "bridge",
+            "role": "matrix_theme",
+            "word_index": 18,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 83,
+        "right_remaining": 85
+      },
+      "midpoint": {
+        "midpoint": 83,
+        "crossing": {
+          "token": "a",
+          "token_interval": [
+            83,
+            84
+          ],
+          "midpoint": 83,
+          "offset": 0,
+          "inside_word": false
+        }
+      },
+      "provenance": {
+        "left_frame_id": "temporal-subject-relative:future-perfect:pl:pilots:study:atlases:before-tide-turn:observe:harbors",
+        "right_frame_id": "temporal-subject-relative:future-perfect:sg:gardener:chart:map:before-tide-turn:guide:bridge",
+        "left_production": "subject_relative_temporal",
+        "right_production": "subject_relative_temporal",
+        "left_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "pl",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "right_state": {
+          "case": "nominative_head",
+          "attachment": "subject_relative_temporal",
+          "number": "sg",
+          "tense": "future",
+          "aspect": "perfect",
+          "temporal_relation": "before"
+        },
+        "left_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "right_roles": [
+          "relative_head_subject",
+          "relative_marker",
+          "relative_future_auxiliary",
+          "relative_perfect_auxiliary",
+          "relative_past_participle",
+          "relative_theme",
+          "temporal_adjunct",
+          "matrix_future_auxiliary",
+          "matrix_verb",
+          "matrix_theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "pilots",
+          "who",
+          "will",
+          "have",
+          "studied",
+          "broad",
+          "atlases",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "observe",
+          "calm",
+          "harbors"
+        ],
+        "right_clause_words": [
+          "a",
+          "careful",
+          "gardener",
+          "who",
+          "will",
+          "have",
+          "charted",
+          "the",
+          "old",
+          "map",
+          "before",
+          "the",
+          "tide",
+          "turns",
+          "will",
+          "guide",
+          "the",
+          "narrow",
+          "bridge"
+        ],
+        "lexical_source": "fresh authored subject-relative temporal slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study is run without an exact-clean closure."
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "exact_clean_candidates": [],
+  "reader_facing_candidates": [],
+  "reader_gate": {
+    "status": "closed",
+    "reason": "No exact-clean candidate from this lane has blinded human readability evidence.",
+    "human_raters": 0
+  },
+  "center_transition_contract": {
+    "description": "Cursor-level contract only; probes are not sentence candidates.",
+    "probes": [
+      {
+        "left_words": [
+          "aba"
+        ],
+        "right_words": [
+          "ba"
+        ],
+        "status": "closed",
+        "seam_mode": "left_center_inside_word",
+        "center_location": {
+          "word": "aba",
+          "role": "probe",
+          "word_index": 0,
+          "offset": 2,
+          "word_length": 3,
+          "inside_word": true
+        }
+      },
+      {
+        "left_words": [
+          "ab"
+        ],
+        "right_words": [
+          "cba"
+        ],
+        "status": "closed",
+        "seam_mode": "right_center_inside_word",
+        "center_location": {
+          "word": "cba",
+          "role": "probe",
+          "word_index": 0,
+          "offset": 0,
+          "word_length": 3,
+          "inside_word": true
+        }
+      },
+      {
+        "left_words": [
+          "ab"
+        ],
+        "right_words": [
+          "ba"
+        ],
+        "status": "closed",
+        "seam_mode": "even_seam",
+        "center_location": null
+      }
+    ],
+    "all_expected_modes_present": true
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_inspected": true,
+    "registry_entries_read": 672,
+    "exact_signature_collision": [],
+    "predecessor_lane_seen": true,
+    "related_signatures_seen": [
+      "unequal-center-benefactive-subject-relative-20260920"
+    ],
+    "signature": "typed-seam-machine|temporal-subject-relative|future-perfect|temporal-adjunct|nominative-head|independent-pointer-sha",
+    "distinction": "Introduces a fresh subject-relative temporal production with an explicit will-have future-perfect state and a real before/by adjunct. It retains nominative-head agreement, number, tense, aspect, unequal boundaries, and in-word center states while not replaying the predecessor's lexical benefactive or object-relative banks.",
+    "not_a_duplicate_sweep": true
+  },
+  "provenance": {
+    "generator_sha256": "bd6b5a43bad8d445b5298c6a3bffebc8fb3c98ac7a5f5c34e7db2f4d551ebe9e",
+    "shared_cursor_source": "experiments/unequal_center_ditransitive_relative_complement_20260920.py",
+    "independent_audits": [
+      "literal outside-in pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "search_lexical_source": "fresh authored subject-relative temporal role slots",
+    "prior_benefactive_or_object_relative_paths_replayed": false,
+    "ordinary_order_grammar_emission": true,
+    "right_clause_read_inward_by_cursor": true,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_or_self_palindromic_units": false,
+    "catalogue_text": false,
+    "word_order_symmetry": false,
+    "fragment_output": false,
+    "per_search_rlaif": false
+  },
+  "status": "completed_no_exact_closure",
+  "next_construction": {
+    "operator": "typed temporal subject-relative with matrix perfect alternation",
+    "description": "Hold the fresh future-perfect relative frame fixed, then add one held-out matrix perfect auxiliary state and a distinct since/after temporal adjunct while retaining the same live unequal-boundary cursor obligations. This is a new grammar state, not a lexical repair, reversal, or bank replay.",
+    "reader_facing_test": "Render only complete controls; independently audit any exact closure above 38 letters, then randomize intact versus shuffled versions for blinded ratings."
+  }
+}

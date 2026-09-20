@@ -1,0 +1,107 @@
+{
+  "method": "nullable-clause-chart-crossword-20260920",
+  "status": "completed_no_exact_closure",
+  "derivations": 86,
+  "states": 30000,
+  "character_prunes": 28676,
+  "semantic_prunes": 288,
+  "seam_prunes": 0,
+  "state_limit": 30000,
+  "exact_candidates": [],
+  "exact_candidate_count": 0,
+  "rendered_diagnostics": [],
+  "controls": [
+    {
+      "rendered": "the patient sailor guards the lantern.",
+      "audit": {
+        "letters": 32,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "6e8d7f3ddb5bbfe845ff0068d1e30a4738df01fc9a7fead01e59da4aa1e41a2f",
+        "sha256_reverse": "b7ea7f7de9698ea4261787293c073c53b082054e9a4f728dffbba59a31455006"
+      },
+      "independent_pointer_exact": false,
+      "complete_semantic_parse": true,
+      "reader_eligible": false,
+      "provenance": "authored CFG derivation control; not an exact candidate"
+    },
+    {
+      "rendered": "the patient sailor guards the lantern and a careful keeper studies the chart.",
+      "audit": {
+        "letters": 64,
+        "exact": false,
+        "first_mismatch": {
+          "index": 1,
+          "forward": "h",
+          "reverse": "r"
+        },
+        "sha256_forward": "82e7915dd406f36d606acd2e1058492e0194326537661b6d80836bd4061d295b",
+        "sha256_reverse": "3028548aaefcf6caa8568794066599859f6b4d78f4858da13fec91bd8e3e4ed1"
+      },
+      "independent_pointer_exact": false,
+      "complete_semantic_parse": true,
+      "reader_eligible": false,
+      "provenance": "authored CFG derivation control; not an exact candidate"
+    },
+    {
+      "rendered": "the patient sailor guards the lantern while a careful keeper studies the chart.",
+      "audit": {
+        "letters": 66,
+        "exact": false,
+        "first_mismatch": {
+          "index": 1,
+          "forward": "h",
+          "reverse": "r"
+        },
+        "sha256_forward": "f4cc36cd631db9b41b5721b240ba53df81c224405edd803a301708be4e498c73",
+        "sha256_reverse": "8bf6c0183f5bf6c26f8447fca452a1a491975e328cc4921ece80c0d792809452"
+      },
+      "independent_pointer_exact": false,
+      "complete_semantic_parse": true,
+      "reader_eligible": false,
+      "provenance": "authored CFG derivation control; not an exact candidate"
+    },
+    {
+      "rendered": "the patient sailor guards the lantern but a careful keeper studies the chart.",
+      "audit": {
+        "letters": 64,
+        "exact": false,
+        "first_mismatch": {
+          "index": 1,
+          "forward": "h",
+          "reverse": "r"
+        },
+        "sha256_forward": "d6ed014f7d93896540c5ba03d990e7d18fc5062f7cb0da6b078e4452bc5a1363",
+        "sha256_reverse": "b000a21261fe94524471725ea74688863aeaab1ca97f23489e73bce643d7f3af"
+      },
+      "independent_pointer_exact": false,
+      "complete_semantic_parse": true,
+      "reader_eligible": false,
+      "provenance": "authored CFG derivation control; not an exact candidate"
+    }
+  ],
+  "reader_facing_candidates": [],
+  "reader_eligible": false,
+  "independent_validation": [
+    "literal outside-in two-pointer",
+    "forward/reverse SHA-256"
+  ],
+  "provenance": "fresh CFG-derived SVO/COP/IMP full clauses with nullable one-clause continuation; independent derivations emit word boundaries into live residuals and require cross-word seam; no tape reversal, lexical sweep, catalogue text, mirrored units, or repair",
+  "novelty_preflight": {
+    "passed": true,
+    "overlaps_checked": [
+      "exact-tape-grammatical-resegmentation-20260917",
+      "typed-word-boundary-clause-automaton-20260918",
+      "direct-clause-pair-inventory-20260920",
+      "multiclause-variable-boundary-semantic-csp-20260920"
+    ],
+    "unused_dimension": "nullable CFG continuation and derivation-level semantic role chart with delayed boundary ownership",
+    "reason": "prior boundary lanes enumerated fixed clause pairs or token sequences; this lane derives optional one/two-clause structures before character emission and keeps the nullable chart state in the exact solver"
+  },
+  "first_live_diagnostic": "character residual mismatch at CFG word edge",
+  "next_construction": "hold out an adjunct-bearing CFG nonterminal with typed attachment while retaining nullable continuation and cross-word seam gate"
+}

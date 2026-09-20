@@ -131,6 +131,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_semantic_role_bilateral": "Curated agent/theme transitive grammar: 65,841 states, 779,926 prunes, 56,430 complete states, exact controls to 30 letters, zero exact candidates above 38",
         "latest_vocative_bilateral_grammar": "Whole-sentence VOC+CLAUSE / CLAUSE+VOC grammar: 400,087 states, 347,360 complete states, 512 exact closures above 38, all rejected for proper nested palindrome spans; zero reader candidates",
         "latest_wordpath_ngram_csp": "Variable word-path lattice over 30,000 observed bigram rows: 376 states, 47,771 character prunes, 3,091 repeat prunes, zero exact closures",
+        "latest_wordpath_beam_csp": "Variable word-path beam with one-sided residual advancement: 300-word vocabulary, 100,000 observed rows, 1,631 states, 126,222 character prunes, 4,984 repeat prunes, zero exact closures",
         "reader_study": "not run",
     },
 }

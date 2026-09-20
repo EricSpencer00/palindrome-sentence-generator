@@ -38,6 +38,15 @@
       "status": "Remote bounded run with 100-word vocabulary, 30,000 observed rows, and eight-word cap: 376 states, 47,771 character prunes, 3,091 repeat prunes, 0 closures"
     },
     {
+      "id": "wordpath-beam-csp-20260920",
+      "signature": "variable-word-path|one-sided-residual-advancement|observed-bigram-beam",
+      "artifact": "experiments/wordpath_beam_csp_20260920.py",
+      "run_artifacts": ["runs/wordpath-beam-remote-300-100000-20260920.json"],
+      "distinction": "A variable word-path beam advances whichever side has residual character debt, using observed bigram likelihood only to order live states; exact closures terminate rather than being wrapped, and no finished tape or repair is used.",
+      "reader_evidence": false,
+      "status": "Remote bounded run with 300-word vocabulary, 100,000 observed rows, 5,000 beam, and 12-word cap: 1,631 states, 126,222 character prunes, 4,984 repeat prunes, 0 exact closures"
+    },
+    {
       "id": "independent-clause-seam-trie-20260920",
       "signature": "independent-clause-derivations|character-trie-cross-boundary|reverse-obligation-index|brown-terminals",
       "artifact": "experiments/independent_clause_seam_trie_20260920.py",

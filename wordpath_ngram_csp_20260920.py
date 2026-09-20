@@ -57,7 +57,7 @@ def wordpath_csp(vocab, nexts, prevs, max_words=12, min_side_words=3, max_nodes=
             return
         stats["nodes"] += 1
         if lres == rres == "" and len(left) >= min_side_words and len(right_rev) >= min_side_words:
-            words = left + list(reversed(right_rev))
+            words = left + tuple(reversed(right_rev))
             if admission_ok(words):
                 text = " ".join(words)
                 audit = independent_audit(text)

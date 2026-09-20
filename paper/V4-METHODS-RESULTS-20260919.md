@@ -2767,3 +2767,12 @@ nested-span gate leaves zero reader candidates. This is a useful boundary
 diagnostic, not a promoted output: the next construction must make discourse
 attachment part of the grammar while preventing a seed clause from being
 wrapped by names.
+
+Finally, the variable-path search was made genuinely bidirectional: when one
+side carried unmatched characters, only the opposite side advanced, and an
+observed-bigram beam ordered the live states. At 300 vocabulary words and
+100,000 intact bigram rows (5,000-state beam, 12-word cap), it visited 1,631
+states, pruned 126,222 character mismatches and 4,984 repeats, and reached no
+exact closure. Exact states would have been terminal, so this lane cannot hide
+a seed under an outer wrapper. The next branch is a typed clause gate over
+this residual scheduler, not a larger beam or a post-hoc repair.

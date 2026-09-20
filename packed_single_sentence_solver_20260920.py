@@ -74,13 +74,18 @@ def run():
  for end in sorted(g.accept):
   def search(p,q,left,right):
    if p==q:
-    tape=left+right
-    if tape==tape[::-1] and 8<=len(tape.split())<=16 and 39<=len(letters(tape))<=80:
-     packed_rows.append({'rendered':tape,'audit':audit(tape)})
+    for tape, parity in ((left+right, 'even'),):
+     if 8<=len(tape.split())<=16 and 39<=len(letters(tape))<=80:
+      packed_rows.append({'rendered':tape,'center_parity':parity,'audit':audit(tape)})
+    # An odd center is the single forward edge between the two cursors.
+    for mid in g.out.get(p,[]):
+     tape=left+mid.ch+right
+     if 8<=len(tape.split())<=16 and 39<=len(letters(tape))<=80:
+      packed_rows.append({'rendered':tape,'center_parity':'odd','audit':audit(tape)})
     return
    for le in g.out.get(p,[]):
     for re in g.inn.get(q,[]):
-     if le.ch==re.ch: search(le.dst,re.src,left+le.ch,right)
+     if le.ch==re.ch: search(le.dst,re.src,left+le.ch,re.ch+right)
   # endpoint-specific, with center parity naturally represented by p==q after odd/even steps
   search(0,end,'','')
  return {'experiment_id':'packed-single-sentence-solver-20260920','method':'single forward acyclic grammar trie; paired states (p,q,n); variable boundaries; odd/even centers','grammar':{'templates':TEMPLATES,'forward_states':g._next,'edges':len(g.edges),'forward_language_size':len(lang)},'packed':{'candidate_count':len(packed_rows),'candidates':packed_rows,'center_parities':['odd','even']},'audits':{'pointer_sha256':hashlib.sha256(('packed-single-sentence-solver-20260920:'+str(g._next)+':'+str(len(g.edges))).encode()).hexdigest(),'provenance':'forward grammar edges only; no sentence-pair enumeration, reversal, repair, or reranking','shortcut_exclusions':['sentence-pair enumeration','finished-tape reversal','post-hoc repair','reranking']},'next_topology':'add typed dependency/number/valency labels to grammar edges and carry them in (p,q,n)'}

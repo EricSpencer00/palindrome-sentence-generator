@@ -1,0 +1,44 @@
+{
+  "experiment_id": "phrase-cfg-shared-role-variable-path-20260920",
+  "method": "shared semantic-role variable-boundary path solver before lexicalization",
+  "grammar": [
+    "S -> NP VP PP",
+    "NP -> DET ADJ NOUN",
+    "VP -> V NP",
+    "PP -> TAIL"
+  ],
+  "shared_semantic_role": "maritime",
+  "stats": {
+    "left_phrases": 240,
+    "right_phrases": 240,
+    "full_outer_to_inner_paths": 0,
+    "path_states": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_mirrored_prefix": 0
+  },
+  "complete_prose_controls": [
+    "The patient sailor guards the harbor at dawn.",
+    "A careful captain guides the boat under stars."
+  ],
+  "best_diagnostic": {
+    "matched": 0,
+    "left": "",
+    "right": "",
+    "path": []
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-shared-role-variable-path-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-variable-boundary-propagation-20260920"
+  },
+  "next_construction": "Introduce a second phrase topology with shared role but different slot nesting; preserve full-path lexicalization and exact admission.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

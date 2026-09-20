@@ -2913,3 +2913,22 @@ Both banks reached zero compatible frontiers and zero exact candidates above
 38. Their 45- and 53-letter intact controls have independent pointer/SHA
 audits. This is a state-space result, not a readability claim, and its
 artifact is `runs/residual-equivalence-edge-quotient-20260920.json`.
+
+The next closure change kept that quotient but gave the live residual a small,
+typed center language: ordinary connective/complement continuations such as
+“while the bells ring,” “and the quiet tide turns,” “because the old harbor
+waits,” and “near dawn.” These center edges were selected as grammatical
+continuations and intersected with the outstanding character debt before any
+rendered row was accepted; they were not a finished-tape reversal, a
+resegmentation pass, or a repair operator. The existing bank again visited 33
+states (24 quotient merges and 8 character prunes), and the fresh authored
+edge bank visited 12 (3 merges and 8 prunes). Neither bank admitted a
+compatible center frontier or an exact candidate above 38. The intact controls
+“The patient scribe marks the old letters by the harbor.” and “A careful
+archivist copies a faded map near the quay.” are retained with independent
+pointer/SHA audits. Since no exact line reached the reader gate, the concrete
+next construction is a held-out two-edge typed-center grammar (complementizer
+plus finite clause) whose attachment state and characters are solved online;
+it will be novelty-preflighted before execution rather than enlarging this
+finite center list. Artifact:
+`runs/residual-language-center-automaton-20260920.json`.

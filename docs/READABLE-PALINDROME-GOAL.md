@@ -5681,3 +5681,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   phrase composition and character cancellation the same search state. The
   next repair adds only a boundary chunk whose opening character matches the
   residual's closing character.
+
+- **Residual-language center automaton, 2026-09-20:** after quotienting typed
+  edge continuations, intersected the live residual with a fresh finite
+  language of ordinary grammatical center continuations (connectives,
+  complement-like phrases, and an adjunct). The existing bank visited 33
+  states with 24 quotient merges and 8 prunes; the fresh authored bank visited
+  12 states with 3 merges and 8 prunes. Neither produced a compatible center
+  frontier or an exact candidate above 38. This is a construction result, not
+  a readability claim. The next operation is a novelty-preflighted,
+  held-out two-edge typed-center grammar—complementizer plus finite clause—with
+  attachment state and characters solved online, not an enlargement of the
+  current finite center list. Artifact:
+  `runs/residual-language-center-automaton-20260920.json`.

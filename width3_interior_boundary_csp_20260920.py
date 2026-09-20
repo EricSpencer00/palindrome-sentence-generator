@@ -10,7 +10,7 @@ LH=('I raise a lantern','I raise a question','I raise the curtain','I raise my v
 LV=('beside the river','under a clear sky','before the bell','near the orchard')
 LO=('for my friend','near the garden','after the rain','at first light')
 RH=('the safari guide','a patient artist','our evening host','the local driver')
-RV=('keeps a small journal','draws the distant road','opens the wooden gate','carries a folded map')
+RV=('keeps a small journal','draws the distant road','opens the wooden gate','carries a folded map','keeps a small crab','carries a warm sun')
 RO=('on safari','after safari','before safari','during safari')
 def run():
  left=[(h,v,o) for h in LH for v in LV for o in LO];right=[(h,v,o) for h in RH for v in RV for o in RO]

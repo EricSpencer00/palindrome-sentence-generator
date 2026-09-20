@@ -771,6 +771,36 @@ construction adds a typed relative frame to the same boundary index; no near
 miss is repaired. Artifact:
 `runs/boundary-conditioned-clause-growth-20260920.json`.
 
+The indexed-relative follow-up added a complete `DET SUBJ V REL V DET OBJ`
+frame and a final-object boundary index. It expanded 128 compatible seeds across
+180,000 states and rejected 1,438,669 residual transitions, with no exact row
+above 38 letters. The same punctuated controls remain the only reader-facing
+text. Relative agreement is the next construction; failed strings are not
+repaired. The run is retained in the same boundary-construction artifact.
+
+### Aspectual auxiliary chart
+
+The recipient branch next carried progressive and perfect auxiliaries (`is/are`,
+`was/were`, `has/have`, `had`) together with subject agreement and recipient
+valency. It produced 336 aspectual VPs, 2,016 recipient VPs, and 8,064
+agreement-valid clauses. A bounded run tested 3,328 live paired combinations;
+all were pruned before closure and no exact row above 38 letters appeared. Three
+ordinary aspectual controls were independently audited. The next construction
+would add clitic/negation states only if they form a genuinely new grammatical
+geometry; no candidate repair is used. Artifact:
+`runs/aspect-auxiliary-agreement-recipient-chart-20260920.json`.
+
+### Typed question-complement chart
+
+The dialogue branch then replaced `that` complements with typed `whether`
+questions. Subject number selected `do/does` and the bare question verb before
+the seam chart advanced; conjunction alternatives and complete objects were
+retained. The run produced 23,436 complete question-dialogue paths and tested
+300,000 states, all pruned with zero exact closures. Generated controls reached
+45 letters but are ordinary prose diagnostics only. The next construction is a
+typed wh-question complement, not a repair pass. Artifact:
+`runs/question-quote-chart-orbit-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

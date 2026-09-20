@@ -2802,3 +2802,12 @@ each required reverse character stream was independently parsed against typed
 clause patterns. No exact closure survived. This closes the observed-corpus
 path family at the tested bound; increasing fanout would repeat the same
 evidence rather than improve the reader-facing objective.
+
+A fresh remote Qwen phrase bank supplied 76 ordinary-English proposals to the
+exact outside-in unit beam (the model never supplied acceptance labels). Ten
+seeds yielded nine exact rows from 39 to 125 letters and three rows passing the
+mechanical repeated/nested-span gate. The rendered rows were still visibly
+fragmentary (“Tons its operations a hotel basis able to. Has no it are post is
+not.”); no row is reader-eligible, and no model score is treated as readability
+evidence. This branch supplies a reusable proposal interface but not the
+working generation method.

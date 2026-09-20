@@ -74,6 +74,15 @@
       "status": "Remote bounded run with 70 Brown-derived entries per POS, 100,000 observed rows, fanout 20, and 200,000 path cap: 5,913 left paths, 0 exact closures"
     },
     {
+      "id": "qwen-phrase-bank-beam-20260920",
+      "signature": "fresh-remote-phrase-bank|exact-outside-in-beam|proposal-unit-scoring",
+      "artifact": "experiments/qwen_phrase_bank_beam_20260920.py",
+      "run_artifacts": ["runs/qwen-phrases-20260920.json", "runs/qwen-phrase-bank-beam-20260920.json"],
+      "distinction": "A fresh Qwen phrase bank supplies ordinary-English units and ranking only; the exact outside-in search, pointer/SHA audit, and repeated/nested-span gates run independently. No model output is accepted as a palindrome without the character equation.",
+      "reader_evidence": false,
+      "status": "Remote run over 76 fresh proposals and 10 seeds produced 9 exact rows (39--125 letters), 3 mechanical admissions, and 0 reader-worthy outputs; exact rows remain visibly incoherent and are not promoted"
+    },
+    {
       "id": "independent-clause-seam-trie-20260920",
       "signature": "independent-clause-derivations|character-trie-cross-boundary|reverse-obligation-index|brown-terminals",
       "artifact": "experiments/independent_clause_seam_trie_20260920.py",

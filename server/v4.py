@@ -135,6 +135,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_typed_residual_scheduler": "Typed SVO/PP grammar with one-sided residual advancement: 6,620 states, 295,080 character prunes, 2,268 repeat prunes, 344 complete states, zero exact candidates above 38",
         "latest_typed_relative_residual_scheduler": "Typed relative-complement scheduler: 9,341 states, 413,528 character prunes, 2,821 repeat prunes, 344 complete states, zero exact candidates above 38",
         "latest_phrase_path_graph_join": "Phrase-first observed-bigram path join: 5,913 left paths from 100,000 rows, typed reverse-obligation parsing, zero exact closures",
+        "latest_qwen_phrase_bank_beam": "Fresh Qwen phrase bank plus exact outside-in beam: 76 proposals, 10 seeds, 9 exact rows at 39–125 letters, 3 mechanical admissions, zero reader-worthy outputs",
         "reader_study": "not run",
     },
 }

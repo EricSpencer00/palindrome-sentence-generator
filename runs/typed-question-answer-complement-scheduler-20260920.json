@@ -1,0 +1,96 @@
+{
+  "experiment_id": "typed-question-answer-complement-scheduler-20260920",
+  "method": "typed question/answer complement frames with unequal live scheduling",
+  "complete_dialogue_frames": 160,
+  "stats": {
+    "states": 12800,
+    "transitions": 0,
+    "pruned": 12800,
+    "closed": 0,
+    "exact": 0,
+    "baseline_exact": 1
+  },
+  "exact_candidates": [],
+  "baseline_exact_controls": [
+    {
+      "rendered": "an aide rips nine memos some men inspire Diana",
+      "audit": {
+        "letters": 38,
+        "exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "provenance": {
+        "baseline_control": true,
+        "generated_by_this_constructor": false
+      }
+    }
+  ],
+  "complete_prose_controls": [
+    {
+      "rendered": "the sailor asks whether the poet reads old letters",
+      "audit": {
+        "letters": 42,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          41
+        ],
+        "sha256_forward": "30c683892bd1da9f1865e521a275453f0ae8ff7ad8e20d19115dbaaaceae2211",
+        "sha256_reverse": "f71715cad02af162e1ad4e1b85d34794275712f0f1d2312ad04ad337cf8f60f1",
+        "sha_equal": false
+      },
+      "reader_status": "complete dialogue control; not exact candidate"
+    },
+    {
+      "rendered": "a scholar answers that the keeper keeps the lantern",
+      "audit": {
+        "letters": 43,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          42
+        ],
+        "sha256_forward": "0f0addafbba89dbd1babad8eb11bc89d8311779cfa5c2a86a1ec0c2b416fe2f8",
+        "sha256_reverse": "83f10aba42abece3b2e0f87356602d05ddf8b14065886b384e16c1d7998d42bc",
+        "sha_equal": false
+      },
+      "reader_status": "complete dialogue control; not exact candidate"
+    },
+    {
+      "rendered": "some writers ask whether Diana marks new notes",
+      "audit": {
+        "letters": 39,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          37
+        ],
+        "sha256_forward": "a8b35be0afcb8bab98e0b1d15b46526031d4ae12dab56cc29e68f68ba7df93fa",
+        "sha256_reverse": "4e21d51405448b59b3a113ea9ec78556f46ddc4f5111a0a2ff28c65d3b6138cd",
+        "sha_equal": false
+      },
+      "reader_status": "complete dialogue control; not exact candidate"
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "typed-question-answer|whether-that-complements|unequal-scheduler|live-residual",
+    "distinct_from": "finite declarative complement frames; question/answer dialogue roles are complete before seam pairing",
+    "baseline_is_control_only": true,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "vocabulary": "authored question/answer complement frames",
+    "independent_audit": "two-pointer mismatch plus forward/reverse SHA-256",
+    "reader_evidence": false
+  },
+  "status": "no fresh exact >38 closure",
+  "next_construction": "add wh-question complement frames with typed answer valency",
+  "reader_gate": "closed until blinded human ratings"
+}

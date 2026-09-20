@@ -2250,3 +2250,24 @@ banks, with no repair, reversal, catalogue borrowing, mirrored units, or
 repeated units. The next construction increases the equation to width three
 only with a fresh bank whose endpoint classes are not preselected to be
 identical.
+
+## Width-three endpoint equation
+
+The width-three pass varied the third endpoint class instead of preselecting
+every bank item to share the same prefix. The 729 width-one survivors remained
+729 at width two, then fell to 243 at width three. The longest complete control
+was:
+
+> **An old teacher beside the river near the garden; the patient artist draws the distant road near Verona.**
+
+It has 84 letters and fails at normalized character 3 (`l` versus `r`). Its
+forward and reverse SHA-256 digests are
+`32a3c2703af76e197d074dab31df751dbe8c47a870bc6c18d78533505327d5c5` and
+`c86a1f4162576379e7764e741e5959c9381ad51bf83282a42e7519cc64df2f1f`.
+The matched endpoint class is `ano`, but the interior tape immediately
+diverges; all 243 rows are complete forward clauses and zero are exact above
+38 letters. No row uses reversal, repair, catalogue text, mirrored units, or
+repeated units. This run is the first endpoint-width experiment in which a
+newly varied character actually prunes the bank; the next step is to carry the
+same class state into an interior word-boundary equation rather than widening
+the endpoint alone.

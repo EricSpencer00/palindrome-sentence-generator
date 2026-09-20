@@ -6,12 +6,12 @@ def n(s): return re.sub('[^a-z]','',s.casefold())
 def audit(s):
  t=n(s);m=next(((i,t[i],t[-i-1]) for i in range(len(t)//2) if t[i]!=t[-i-1]),None)
  return {'letters':len(t),'exact':bool(t) and m is None,'first_mismatch':m,'sha256_forward':hashlib.sha256(t.encode()).hexdigest(),'sha256_reverse':hashlib.sha256(t[::-1].encode()).hexdigest()}
-LH=('I raise a lantern','I raise a question','I raise the curtain')
+LH=('an avid poet','an old teacher','an eager sailor')
 LV=('beside the river','under a clear sky','before the bell')
 LO=('for my friend','near the garden','after the rain')
-RH=('the safari guide','a patient artist','our evening host')
+RH=('the patient artist','our evening host','the local grocer')
 RV=('keeps a small journal','draws the distant road','opens the wooden gate')
-RO=('on safari','after safari','before safari')
+RO=('with a banana','near Verona','near Siena')
 def run():
  left=[f'{h} {v} {o}' for h in LH for v in LV for o in LO]
  right=[f'{h} {v} {o}' for h in RH for v in RV for o in RO]

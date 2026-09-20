@@ -1,0 +1,51 @@
+{
+  "experiment_id": "phrase-cfg-typed-subordinate-matrix-roles-20260920",
+  "method": "typed subordinate/matrix semantic roles in while-boundary CFG",
+  "grammar": [
+    "S -> SUBORD S , MATRIX S",
+    "S -> NP VP",
+    "VP -> V NP"
+  ],
+  "typed_roles": {
+    "left": {
+      "subordinate": "maritime",
+      "matrix": "maritime"
+    },
+    "right": {
+      "subordinate": "writing",
+      "matrix": "writing"
+    }
+  },
+  "stats": {
+    "left_sentences": 240,
+    "right_sentences": 240,
+    "typed_boundary_states": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 0
+  },
+  "complete_prose_controls": [
+    "While the sailor guards the harbor, the poet reads the letter.",
+    "While a keeper marks the shore, a writer reads the notes."
+  ],
+  "best_diagnostic": {
+    "matched": 0,
+    "left": "",
+    "right": "",
+    "roles": {}
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-typed-subordinate-matrix-roles-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-subordination-boundary-state-20260920"
+  },
+  "next_construction": "Cross subordinate and matrix roles asymmetrically across the boundary while retaining typed exact admission.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

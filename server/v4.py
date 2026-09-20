@@ -158,6 +158,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_heldout_common_support": "Held-out common-word POS/number/valency support: 44/56/68/80 search visited 19,757 states, made 86,860 lookahead prunes, and produced 9,061 complete prose diagnostics but zero exact candidates above 38; longest rendered diagnostic was 40 letters",
         "latest_coordinated_clause_topology": "Coordinated-clause topology: 44/56/68/80 search visited 15,720 states and made 49,324 live factor prunes, with zero complete parses and zero exact candidates above 38",
         "latest_embedded_complement_topology": "Embedded finite-complement topology: 44/56/68/80 search visited 14,972 states and made 47,696 live factor prunes, with zero complete parses and zero exact candidates above 38",
+        "latest_ditransitive_embedding_topology": "Ditransitive embedding topology: 44/56/68/80 search visited 8,094 states and made 8,888 live factor prunes, with zero complete parses and zero exact candidates above 38",
         "reader_study": "not run",
     },
 }
@@ -1615,6 +1616,26 @@ LUNA_PARALLEL_RUNS = [
         "provenance": "one forward MatrixClause -> complementizer -> EmbeddedClause grammar with independent agreement/valency states, variable word boundaries, and live position factors; no reversal, repair, mirrored units, catalogue text, or sentence-pair enumeration",
         "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
         "next_construction": "add a held-out ditransitive matrix verb selecting an embedded finite clause; preflight a new topology signature",
+    },
+    {
+        "run_id": "ditransitive-embedding-global-csp-20260920",
+        "method": "global forward ditransitive-embedding grammar CSP over held-out typed lexical factors",
+        "status": "completed_no_exact_closure",
+        "target_lengths": [44, 56, 68, 80],
+        "states": 8094,
+        "live_factor_prunes": 8888,
+        "complete_palindrome_parses": 0,
+        "exact_candidates_over_38": 0,
+        "rendered_controls": 2,
+        "controls": [
+            "The patient sailor gives the traveler the chart because a careful gardener carries a lantern through the orchard.",
+            "A young scholar tells a child the lesson because a quiet keeper guards the gate near the lighthouse.",
+        ],
+        "reader_eligible": False,
+        "first_live_diagnostic": "the recipient/theme valency factor leaves no complete parse at any target length",
+        "provenance": "one forward MatrixClause(recipient, theme) -> complementizer -> EmbeddedClause grammar with explicit ditransitive roles, separate agreement/attachment states, variable word boundaries, and live position factors; no reversal, repair, mirrored units, catalogue text, or sentence-pair enumeration",
+        "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
+        "next_construction": "change voice to a held-out passive ditransitive embedding frame with an explicit beneficiary; preflight a new topology signature",
     },
 ]
 

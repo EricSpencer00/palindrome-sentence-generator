@@ -3193,3 +3193,15 @@ independent pointer/SHA audits. This closes the complementizer topology as
 implemented; the next construction is a held-out ditransitive matrix frame,
 not another scheduler or repair pass. Artifact:
 `runs/embedded-complement-global-csp-20260920.json`.
+
+The ditransitive-embedding topology added explicit recipient and theme roles
+to the matrix clause before its finite complementizer selected the embedded
+clause. Separate agreement and attachment state was carried through the same
+forward variable-boundary CSP, with character equations checked during each
+factor emission. Across target lengths 44, 56, 68, and 80 it visited 8,094
+states and made 8,888 live factor prunes, with zero complete parses and zero
+exact candidates above 38. The two complete controls (82 and 95 letters) were
+independently pointer/SHA audited. The next construction changes voice to a
+passive ditransitive embedding frame with an explicit beneficiary; it does not
+revisit scheduler ordering or post-hoc repair. Artifact:
+`runs/ditransitive-embedding-global-csp-20260920.json`.

@@ -5902,3 +5902,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   next construction is a held-out ditransitive embedding frame, not another
   scheduler or repair pass. Artifact:
   `runs/embedded-complement-global-csp-20260920.json`.
+
+- **Ditransitive embedding topology, 2026-09-20:** added explicit recipient
+  and theme roles to the matrix clause before a finite complementizer selected
+  the embedded clause. Separate agreement/attachment state and live character
+  factors were propagated through one forward variable-boundary grammar. Across
+  target lengths 44/56/68/80 it visited 8,094 states and made 8,888 live
+  factor prunes, with 0 complete parses and 0 exact candidates above 38. Two
+  complete controls (82 and 95 letters) passed independent pointer/SHA audits.
+  The next construction changes voice to a passive ditransitive embedding
+  frame with an explicit beneficiary; no scheduler or post-hoc repair pass is
+  being added. Artifact:
+  `runs/ditransitive-embedding-global-csp-20260920.json`.

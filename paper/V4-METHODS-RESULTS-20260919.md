@@ -2566,6 +2566,12 @@ This confirms that endpoint conditioning is active but the current role bank
 does not yet contain a compatible start; the next construction must widen the
 fresh role bank, not reopen the failed sentence.
 
+Widening that bank to two independently authored choices per side still found
+zero endpoint-compatible pairs in the indexed preflight. The inward residual
+search therefore performed no transitions and rendered no prose. This is an
+early rejection showing that the endpoint index is active, not a readability
+result or a reason to promote a non-palindrome.
+
 The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row

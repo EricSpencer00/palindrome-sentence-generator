@@ -155,7 +155,7 @@ def run() -> dict:
     # this is an obligation-aware opening, not a seed or a precomputed mirror.
     starts = [(l[0], (r[-1],), l, r) for l in LEFT_STARTS for r in RIGHT_STARTS
               if norm(l[0]) == norm(r[-1])][:16]
-    states = [State((first,), right, "", "none", 1,
+    states = [State((first,), right, "", "none", len(norm(first)),
                     ("authored-start", "source-left:" + " ".join(full_left),
                      "source-right:" + " ".join(full_right)))
               for first, right, full_left, full_right in starts]

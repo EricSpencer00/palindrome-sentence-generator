@@ -120,7 +120,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][52]["run_id"] == "cross-boundary-morphology-dp-20260919"
     assert method.json()["method_runs"][52]["bounded_template_trials"] == 4320
     assert method.json()["method_runs"][53]["run_id"] == "cfg-center-out-intersection-20260919"
-    assert method.json()["method_runs"][53]["early_pruned_derivations"] == 72
+    assert method.json()["method_runs"][53]["early_pruned_derivations"] == 10800
     assert method.json()["method_runs"][53]["exact_candidates"] == 0
     assert len(method.json()["method_runs"]) == 54
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8

@@ -429,12 +429,12 @@ the next method changes the boundary representation itself.
 The first whole-sentence grammar intersection implements that change directly.
 One compact CFG is expanded into complete role-labelled sentences, and a
 center-out character gate rejects each derivation at its first mirrored
-mismatch, before a finished tape can enter a repair queue. The 72 fresh
-derivations all died at that first gate (zero complete states, zero exact
-closures). This is a useful negative construction result—not a readable
-candidate—but it verifies the intended search geometry: the next expansion is
-the lexical trie and grammar, not a repair operator or a pre-paired reverse
-clause.
+mismatch, before a finished tape can enter a repair queue. An expanded
+held-out lexicon yielded 10,800 distinct-slot derivations; all died at that
+first gate (zero complete states, zero exact closures). This is a useful
+negative construction result—not a readable candidate—but it verifies the
+intended search geometry: the next expansion is a lexical trie and richer
+grammar, not a repair operator or a pre-paired reverse clause.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

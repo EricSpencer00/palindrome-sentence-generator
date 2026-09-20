@@ -10,7 +10,7 @@ def test_cfg_center_out_prunes_before_completion_without_shortcuts():
     assert data["stats"] == {
         "derivations": 0,
         "states": 0,
-        "pruned": 72,
+        "pruned": 10800,
         "exact": 0,
         "longest_letters": 0,
     }

@@ -6357,3 +6357,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   controls to 172 letters; 0 exact candidates above 38 survived. The next
   construction adds aspect compatibility before adjunct attachment. Artifact:
   `runs/heldout-ditransitive-tense-semordnilap-search-20260920.json`.
+
+- **Independent phrase-graph scene search, 2026-09-20:** scanned 4,656 graph
+  rows, selected 120 lexical/boundary options, and rendered diagnostics to 73
+  letters; 0 exact candidates above 38 survived. Several graph-derived
+  surfaces were rejected for duplication or fragmentary syntax. The next
+  construction indexes graph edges by valency across paired finite clauses.
+  Artifact: `runs/phrase-graph-independent-scene-20260920.json`.
+
+- **Poetic scene live CSP, 2026-09-20:** used fresh river, hill, keeper, and
+  temporal-adjunct imagery with live obligations. Depth three retained four
+  vivid prose diagnostics from 102 to 121 letters after six seam prunes; 0
+  exact candidates above 38 survived. The next construction adds semantic
+  cadence and role agreement. Artifact:
+  `runs/poetic-scene-live-csp-20260920.json`.

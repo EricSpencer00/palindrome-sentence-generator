@@ -3647,3 +3647,16 @@ It tested 125 states, made 27,000 live prunes, and retained 40 controls to 172
 letters; zero exact candidates above 38 survived. The next construction adds
 aspect compatibility before adjunct attachment. Artifact:
 `runs/heldout-ditransitive-tense-semordnilap-search-20260920.json`.
+
+The independent phrase-graph scene search scanned 4,656 graph rows, selected
+120 lexical/boundary options, and rendered diagnostics to 73 letters; zero
+exact candidates above 38 survived. Graph-derived surfaces that duplicated
+content or became fragments were rejected before any reader claim. The next
+construction indexes graph edges by valency across paired finite clauses.
+Artifact: `runs/phrase-graph-independent-scene-20260920.json`.
+
+The poetic scene live CSP used fresh river, hill, keeper, and temporal-adjunct
+imagery with live obligations. Depth three retained four vivid prose
+diagnostics from 102 to 121 letters after six seam prunes; zero exact
+candidates above 38 survived. The next construction adds semantic cadence and
+role agreement. Artifact: `runs/poetic-scene-live-csp-20260920.json`.

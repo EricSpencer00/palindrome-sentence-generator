@@ -660,6 +660,14 @@ all nine reachable states were pruned at the first character comparison, with
 zero exact closures. The next construction conditions bridge complement choice
 on tense and mood before seam expansion.
 
+The mood/tense bridge lane carried the bridge's mood and tense as equations
+into subordinate event selection before seam expansion, while retaining the
+attached relative clause and agreement state. It visited nine states and
+pruned all nine at the first character seam, with zero feature conflicts,
+orbit steps, or exact closures. This closes the current conjunction/attachment
+family for now; the next productive step is a broader character-conditioned
+lexical grammar rather than another local attachment variant.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

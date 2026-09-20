@@ -1428,6 +1428,18 @@ attachment selection before output. No repair, reversal, mirrored unit,
 catalogue text, or fragment was admitted. Artifact:
 `runs/discourse-stack-synchronous-20260920.json`.
 
+The anaphoric two-clause lane kept stack ownership but bound the second clause
+to the first clause's referent before any character equation was tested. Eight
+ordinary subjects, eight verb/object pairs, and four discourse linkers yielded
+256 complete contemporary-English frames and 24 intact controls (maximum 54
+letters), such as “The analyst reviews the report and they review the report.”
+Plural pronoun realization uses the correct uninflected verb (`they review`,
+not `they reviews`). No frame was residual-compatible at the tested boundary,
+so the exact count remained zero. The independent pointer/SHA audit and
+novelty preflight passed; no repair, reversal, mirrored unit, catalogue text,
+or fragment was admitted. Artifact:
+`runs/anaphoric-two-clause-discourse-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

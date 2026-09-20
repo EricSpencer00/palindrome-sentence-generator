@@ -11853,6 +11853,17 @@
       "distinction": "Separates rendered word boundaries from normalized letter tapes, excludes spaces and punctuation from character equations, and advances semantic roles only after normalized lexical tapes are consumed. This corrects the preceding raw-string envelope implementation; it is not a candidate repair.",
       "reader_evidence": false,
       "status": "50 corrected normalized-envelope states and 0 fresh exact candidates above 38 letters; independent 38/40-letter controls audited; reader gate closed"
+    },
+    {
+      "id": "normalized-multiword-slot-envelope-20260920",
+      "signature": "normalized-letter-tapes|multiword-semantic-slots|np-pp-relative-boundaries|live-paired-equations",
+      "artifact": "experiments/normalized_multiword_slot_envelope_20260920.py",
+      "run_artifacts": [
+        "runs/normalized-multiword-slot-envelope-20260920.json"
+      ],
+      "distinction": "Extends the corrected normalized-letter envelope to explicit multiword agent/object/PP/relative semantic slots, carrying paired equations across internal word boundaries while retaining complete parses. No repair, finished-tape reversal, mirrored units, catalogue replay, or fragments are admitted.",
+      "reader_evidence": false,
+      "status": "27 multiword-slot states and 0 fresh exact candidates above 38 letters; independent 40/48-letter prose controls audited; reader gate closed"
     }
   ]
 }

@@ -1341,6 +1341,15 @@ audits. No repair, finished-tape reversal, mirrored unit, catalogue text, or
 fragment was admitted. Artifact:
 `runs/corrected-normalized-envelope-transducer-20260920.json`.
 
+The normalized multiword-slot envelope extended that corrected state model to
+explicit multiword agent, object, PP, and relative slots. It explored 27 live
+states with complete normalized tapes and separate rendered boundaries, and
+closed zero fresh exact candidates above 38 letters. Complete controls reached
+40 and 48 letters and passed independent pointer/SHA audits. No repair,
+finished-tape reversal, mirrored unit, catalogue text, or fragment was
+admitted. Artifact:
+`runs/normalized-multiword-slot-envelope-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

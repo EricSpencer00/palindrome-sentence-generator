@@ -1623,6 +1623,20 @@ admitted. The next construction realizes the shifted subject anaphorically
 while retaining explicit referent identity. Artifact:
 `runs/contrastive-subject-shift-equations-20260920.json`.
 
+The anaphoric-subject lane replaced the shifted second-clause name with a
+pronoun (`she`, `he`, or `they`) bound to an explicit antecedent ID before
+equation closure. It retained relation-conditioned although/for versus
+while/to, typed recipient/theme roles, subject agreement, and the
+verb/preposition compatibility gate. Two relation states yielded 36 live
+states; all 36 were pruned at the equation boundary, with zero equation
+completions and zero exact candidates above 38 letters. Twenty intact
+contemporary-English controls were independently audited (maximum 65 letters),
+including “Mara gives the letter for the child although she sends a book for a
+friend.” No repair, reversal, mirrored unit, catalogue text, or fragment was
+admitted. The next construction allows anaphoric recipient pronouns with an
+explicit antecedent type. Artifact:
+`runs/anaphoric-subject-relation-equations-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

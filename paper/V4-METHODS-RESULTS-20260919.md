@@ -525,11 +525,13 @@ the only candidate eligible for future blinded comparison.
 Two follow-ups kept that invariant but changed the lexical geometry. A
 two-clause product consumed unmatched characters across 65,536 complete typed
 clause pairs; every pair was pruned and no closure above the 38-letter control
-appeared. A separate queried reverse-lexicon transducer used 287 Brown-typed
-transitions and 721 reverse-index keys across 120,407 states; its independent
-audit likewise found zero closures. These are distinct construction results,
-not repairs: the next lane must index multiword typed phrase transitions so
-local English joins are selected jointly with the character orbit.
+appeared. A separate reverse-index prototype queried 287 Brown-typed
+transitions and 721 reverse-index keys across 120,407 states, but its
+implementation audit found that the residual consumer was not actually called;
+its zero-closure result is therefore not a valid frontier measurement. These
+are distinct construction attempts, not repairs: the next lane must invoke
+residual consumption over multiword typed phrase transitions so local English
+joins are selected jointly with the character orbit.
 
 ## Reader evidence and API gate
 

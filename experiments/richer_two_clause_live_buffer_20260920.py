@@ -48,11 +48,14 @@ def clauses() -> list[tuple[str, tuple[str, ...]]]:
     out = []
     subjects = SUBJECTS + tuple(Word(x) for x in NAMES)
     for subj in subjects:
+        # Proper names stand alone; common nouns receive an explicit
+        # determiner so every generated surface is a complete clause.
+        subj_surface = subj.text if subj.text in NAMES else ("the " + subj.text)
         for obj in OBJECTS:
             # Determiner agreement and transitive valency are explicit here.
             for det in DET[obj.number]:
                 for verb in VERBS[subj.number]:
-                    core = f"{subj.text} {verb} {det} {obj.text}"
+                    core = f"{subj_surface} {verb} {det} {obj.text}"
                     out.append((core, ("SUBJ", "V", "OBJ")))
                     for pp in PP: out.append((core + " " + pp, ("SUBJ", "V", "OBJ", "PP")))
                     for rel in REL: out.append((core + " " + rel, ("SUBJ", "V", "OBJ", "REL")))
@@ -82,7 +85,7 @@ def forbidden(text: str) -> bool:
                    for n in (2, 3) for i in range(max(0, len(words)-n+1))))
 
 def controls() -> list[str]:
-    return [f"{(SUBJECTS[i % len(SUBJECTS)]).text} "
+    return [f"the {(SUBJECTS[i % len(SUBJECTS)]).text} "
             f"{VERBS[SUBJECTS[i % len(SUBJECTS)].number][i % len(VERBS[SUBJECTS[i % len(SUBJECTS)].number])] } "
             f"the {(OBJECTS[i % len(OBJECTS)]).text} {PP[i % len(PP)]}." for i in range(20)]
 

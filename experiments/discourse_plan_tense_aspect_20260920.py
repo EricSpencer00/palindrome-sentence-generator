@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class Subject: text:str; agreement:str
 @dataclass(frozen=True)
 class Plan: name:str; speakers:tuple[Subject,...]; referents:tuple[str,...]
-PLAN=Plan("storm-response",(Subject("I","base"),Subject("we","base"),Subject("the teacher","third")),("storm","message","friend","map"))
+PLAN=Plan("storm-response",(Subject("I","first_singular"),Subject("we","plural"),Subject("the teacher","third")),("storm","message","friend","map"))
 TENSE_ASPECT=(("present","simple"),("past","simple"),("present","progressive"),("past","progressive"))
 OBJECTS={"storm":("the storm","that storm","the rain","the dew"),"friend":("my friend","our friend","the neighbor"),"message":("the message","a note","the update"),"map":("the map","a route","the plan")}
 RECIPIENTS=("my friend","our friend","the neighbor"); CONJ=("and","but","so")
@@ -26,11 +26,19 @@ def grammatical(text):
  return all(not (w=="a" and i+1<len(ws) and ws[i+1][0] in "aeiou") and not (w=="an" and i+1<len(ws) and ws[i+1][0] not in "aeiou") for i,w in enumerate(ws))
 def surface(root,agreement,tense,aspect):
  if aspect=="simple":
-  if tense=="present": return root+("s" if agreement=="third" and root not in {"send"} else "")
+  if tense=="present": return root+("s" if agreement=="third" else "")
   return root+"ed" if root not in {"send"} else "sent"
- aux=("is" if agreement=="third" else "am" if agreement=="base" and root=="notice" else "are") if tense=="present" else ("was" if agreement=="third" else "were")
+ aux=(("is" if agreement=="third" else "am" if agreement=="first_singular" else "are") if tense=="present" else ("was" if agreement=="third" else "were"))
  ing={"notice":"noticing","track":"tracking","wait":"waiting","send":"sending"}[root]
  return aux+" "+ing
+def strict_surface(text):
+ """Reject article, agreement, auxiliary, and clause-boundary errors."""
+ if not grammatical(text): return False
+ low=text.casefold()
+ if re.search(r"^(?:and|but|so)\b|\b(?:and|but|so)$",low): return False
+ if re.search(r"\bI is\b|\bI are\b|\bwe is\b|\bwe am\b|\bthe teacher am\b|\bthe teacher are\b",low): return False
+ if re.search(r"\bI notices\b|\bwe notices\b|\bthe teacher notice\b",low): return False
+ return True
 def render(xs): return " ".join(xs).replace(" but ",", but ").replace(" so ",", so ")
 def run(limit=50000):
  states=pruned=0; controls=[]; exact=[]; seen=set()
@@ -39,7 +47,7 @@ def run(limit=50000):
   for j in range(8):
    subj=PLAN.speakers[j%3]; v1=surface(ROOTS["observe"],subj.agreement,tense,aspect); o1=OBJECTS["storm"][j%4]; conj=CONJ[j%3]
    v2=surface(ROOTS["track"],subj.agreement,tense,aspect); text=render([subj.text,v1,o1,conj,v2,OBJECTS["storm"][j%4]])
-   controls.append({"rendered":text,"audit":audit(text),"tense":tense,"aspect":aspect,"agreement":subj.agreement,"valency":"transitive+transitive","referents":PLAN.referents,"complete_utterance":True})
+   if strict_surface(text): controls.append({"rendered":text,"audit":audit(text),"tense":tense,"aspect":aspect,"agreement":subj.agreement,"valency":"transitive+transitive","referents":PLAN.referents,"complete_utterance":True})
  for tense,aspect in TENSE_ASPECT:
   for subj in PLAN.speakers:
    for valency in ("transitive","intransitive","ditransitive"):
@@ -54,7 +62,7 @@ def run(limit=50000):
      if li==len(roles) and ri==len(rr):
       if lbuf or rbuf: pruned+=1; continue
       text=render(left)+"; "+render(right); a=audit(text)
-      if a["two_pointer_exact"] and a["letters"]>38 and grammatical(text) and text not in seen:
+      if a["two_pointer_exact"] and a["letters"]>38 and strict_surface(text) and text not in seen:
        seen.add(text); exact.append({"rendered":text,"audit":a,"provenance":{"plan":PLAN.name,"tense":tense,"aspect":aspect,"valency":valency,"agreement":subj.agreement,"referent_binding":PLAN.referents,"delayed_surface_realization":True,"finished_tape_reversal":False,"posthoc_repair":False,"mirrored_token_units":False,"catalogue_replay":False,"word_path":prov}})
       continue
      if li<len(roles):
@@ -70,6 +78,6 @@ def run(limit=50000):
     if states>=limit: break
    if states>=limit: break
   if states>=limit: break
- return {"method":"discourse-plan-tense-aspect-20260920","plans":1,"tense_aspect_states":TENSE_ASPECT,"states":states,"pruned":pruned,"max_letters":80,"controls":controls,"control_count":len(controls),"exact_candidates":exact,"candidate_count":len(exact),"status":"reader gate required" if exact else "representation bottleneck","provenance":{"signature":"discourse-plan-conditioned|delayed-surface-realization|attribute-pushdown|joint-character-output|typed-valency|agreement|referent-binding|tense-aspect","coherent_authored_plan":True,"independent_pointer_sha":True,"novelty_preflight":"tense/aspect morphology bound before paired character emission"},"next_construction":"add lexical aspectual adverbs while retaining morphology state"}
+ return {"method":"discourse-plan-tense-aspect-corrected-20260920","plans":1,"tense_aspect_states":TENSE_ASPECT,"states":states,"pruned":pruned,"max_letters":80,"controls":controls,"control_count":len(controls),"exact_candidates":exact,"candidate_count":len(exact),"status":"reader gate required" if exact else "representation bottleneck","provenance":{"signature":"discourse-plan-conditioned|delayed-surface-realization|attribute-pushdown|joint-character-output|typed-valency|agreement|referent-binding|tense-aspect-corrected","coherent_authored_plan":True,"independent_pointer_sha":True,"novelty_preflight":"corrected irregular past and subject-specific auxiliaries before evidence"},"next_construction":"add lexical aspectual adverbs while retaining morphology state"}
 if __name__=="__main__":
  d=run(); (ROOT/"runs/discourse-plan-tense-aspect-20260920.json").write_text(json.dumps(d,indent=2)+"\n"); print(json.dumps(d,indent=2))

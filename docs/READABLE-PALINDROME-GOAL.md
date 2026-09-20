@@ -6814,3 +6814,28 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact candidates above 38. The next construction adds quotation polarity and
   attitude predicates with scope agreement. Artifact:
   `runs/shared-scene-quoted-speaker-tense-20260920.json`.
+
+- **Discourse-conditioned clause topology, 2026-09-20:** added held-out
+  discourse/evidential alternations with agreement state to independent
+  full-clause factorization. The bounded run visited 5,000 states, pruned
+  4,499, and reached no complete two-sided parse; its longest intact control
+  was 108 letters and exact count above 38 was 0. The next construction adds
+  quotation/discourse alternations. Artifact:
+  `runs/discourse-conditioned-clause-csp-20260920.json`.
+
+- **Mixed-valency role residuals, 2026-09-20:** paired transitive-theme and
+  intransitive-location adjuncts while carrying agent, event, theme/location,
+  and adjunct role labels through delayed residuals. It rendered 72 controls,
+  checked 1,008 residual steps, closed 0, and reached 0 exact candidates above
+  38; the longest diagnostic was 87 letters. Controls are explicitly
+  diagnostic-only because some reuse lexical units. The next construction uses
+  role-compatible residual transitions with explicit valency edges. Artifact:
+  `runs/mixed-valency-role-residuals-20260920.json`.
+
+- **Quotation attitude and polarity scope, 2026-09-20:** added attitude
+  predicates and hard polarity-scope agreement to the quotation-island graph.
+  It checked 233,280 online prunes and retained 20 complete controls up to 151
+  letters, with 0 exact candidates above 38. The longest control remains a
+  diagnostic, not reader material. The next construction adds attitude
+  entailment and source consistency. Artifact:
+  `runs/shared-scene-quotation-attitude-20260920.json`.

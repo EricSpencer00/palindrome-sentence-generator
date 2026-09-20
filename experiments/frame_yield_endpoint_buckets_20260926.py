@@ -20,6 +20,26 @@ def tape(s): return re.sub(r"[^a-z]", "", s.lower())
 def audit(s):
  t=tape(s); r=t[::-1]
  return {"letters":len(t),"two_pointer_exact":bool(t) and all(t[i]==t[-1-i] for i in range(len(t))),"pointer_mismatches":sum(a!=b for a,b in zip(t,r))//2,"sha256_forward":hashlib.sha256(t.encode()).hexdigest(),"sha256_reverse":hashlib.sha256(r.encode()).hexdigest()}
+def live_match(left_words, right_words):
+ """Consume opposite exposed characters before opening the next obligation."""
+ left=(ch for word in left_words for ch in tape(word))
+ right=(ch for word in reversed(right_words) for ch in reversed(tape(word)))
+ compared=0
+ while True:
+  try: lch=next(left)
+  except StopIteration:
+   try: next(right)
+   except StopIteration: return True,compared
+   return False,compared
+  try: rch=next(right)
+  except StopIteration: return False,compared
+  compared += 1
+  if lch != rch: return False,compared
+def proper_span(t):
+ for i in range(len(t)):
+  for j in range(i+4,len(t)+1):
+   if j-i < len(t) and t[i:j] == t[i:j][::-1]: return True
+ return False
 def yields():
  for role,num,dets,subs,verbs,odets,objs in FRAMES:
   for d,s,v,od,o in itertools.product(dets,subs,verbs,odets,objs):
@@ -38,9 +58,10 @@ def run(min_letters,limit):
    for right in buckets.get(key,[]):
     if left["words"]==right["words"] or left["frame"]["number"]!=right["frame"]["number"]: continue
     full=left["words"]+right["words"]; text=" ".join(full); t=tape(text)
-    states += len(t)//2
     if len(t)<min_letters: continue
-    if any(t[i]!=t[-1-i] for i in range(len(t)//2)): pruned+=1; continue
+    matched, compared = live_match(left["words"], right["words"])
+    states += compared
+    if not matched or proper_span(t): pruned+=1; continue
     rows.append({"rendered":text,"audit":audit(text),"reader_worthy":False,"provenance":{"construction":"frame-yield endpoint classes + live obligation buckets","left_frame":left,"right_frame":right,"endpoint_key_query":key,"agreement_checked":True,"valency_checked":True,"live_character_invariant":True,"no_finished_tape_reversal":True,"no_posthoc_repair":True,"catalogue_text":False}})
     if len(rows)>=limit: break
    if len(rows)>=limit: break

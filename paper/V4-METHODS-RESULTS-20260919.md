@@ -4038,9 +4038,22 @@ exact candidates above 38. The next construction carries variable-length
 residuals with relation-specific adjuncts. Artifact:
 `runs/valency-live-character-residual-20260920.json`.
 
+The variable-residual relation-adjunct lane evaluated 44 variable-width
+residual steps across 12 complete scenes, retaining controls up to 64 letters
+with zero exact candidates above 38. The next construction chains two
+relation-specific adjunct slots with delayed closure. Artifact:
+`runs/variable-residual-relation-adjuncts-20260920.json`.
+
 The quotation/reporting-scope lane added reporting states and hard
 negative-polarity agreement to the source/negation graph. It checked 31,104
 online prunes and retained 20 complete controls up to 112 letters, with zero
 exact candidates above 38. The next construction adds quotation content
 boundaries and scope islands. Artifact:
 `runs/shared-scene-quotation-reporting-20260920.json`.
+
+The quotation-content-islands lane closed quotation boundaries as explicit
+scope islands over the reporting-gated graph. It checked 62,208 online prunes
+and retained 20 complete controls up to 127 letters, with zero exact
+candidates above 38. The next construction adds quoted-clause speaker shifts
+and embedded-tense agreement. Artifact:
+`runs/shared-scene-quotation-islands-20260920.json`.

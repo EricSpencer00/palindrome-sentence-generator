@@ -6785,3 +6785,10 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   with 0 exact candidates above 38. The next construction adds quotation
   content boundaries and scope islands. Artifact:
   `runs/shared-scene-quotation-reporting-20260920.json`.
+
+- **Quotation content islands, 2026-09-20:** closed quotation content
+  boundaries as explicit scope islands over the reporting-gated graph. It
+  checked 62,208 online prunes and retained 20 complete controls up to 127
+  letters, with 0 exact candidates above 38. The next construction adds
+  quoted-clause speaker shifts and embedded-tense agreement. Artifact:
+  `runs/shared-scene-quotation-islands-20260920.json`.

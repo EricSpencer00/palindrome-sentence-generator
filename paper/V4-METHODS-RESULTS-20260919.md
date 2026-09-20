@@ -1952,3 +1952,22 @@ failure is concrete: the next construction chooses the opening letters of a
 second complete beat bank from live seam obligations, rather than repairing a
 finished sentence.  Artifact: `experiments/direct_scene_lattice_authoring_20260920.py`;
 run: `runs/direct-scene-lattice-authoring-20260920.json`.
+
+## Non-nested compositional grammar
+
+We next composed two independent three-beat contemporary scenes (subject,
+verb-object, and adjunct) while consuming opposite-end character obligations
+before rendering. This is a whole-sentence construction: it does not nest a
+palindrome inside a larger sentence, reverse a completed tape, or repair a
+finished string. The bounded lattice visited 14,400 component pairs and
+pruned all 14,400 at their first live mismatch. It produced zero fresh exact
+candidates above 38 letters. An intact diagnostic near-miss was:
+
+> The calm poet reads a letter by the river; the calm poet reads a letter in the garden.
+
+The row is not promoted because it is not exact and repeats its subject; it is
+retained only as provenance for the next construction. The next operator is
+to add a third independently authored beat bank and solve component terminal
+classes jointly before lexical expansion. Artifact:
+`experiments/compositional_non_nested_20260920.py`; run:
+`runs/compositional-non-nested-20260920.json`.

@@ -1,0 +1,95 @@
+{
+  "experiment_id": "generic-modal-passive-baseline-csp-20260920",
+  "method": "global forward quantified modal passive embedding grammar CSP over held-out typed lexical factors",
+  "results": [
+    {
+      "target_length": 44,
+      "represented_forward_language_count": "7679688081408",
+      "states": 193,
+      "prunes": 84,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 56,
+      "represented_forward_language_count": "7679688081408",
+      "states": 307,
+      "prunes": 84,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 68,
+      "represented_forward_language_count": "553379846108011330403605413888",
+      "states": 409,
+      "prunes": 140,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 80,
+      "represented_forward_language_count": "10703922944229519330909695368498631451056096404316356608",
+      "states": 493,
+      "prunes": 224,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "The patient sailor may be given the chart by the teacher because a careful gardener carries a lantern through the orchard.",
+      "audit": {
+        "letters": 101,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "ce4f09ca32b2510ff4f75154fb1d6e63c70d3f0ba8d5be68b845bc468ca5bd8d",
+        "sha256_reverse": "943f3fa7b6082307712df9430ce36c3e9ed0e698dc4d1c5ab48f5843f2cb2859",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "A young scholar may be given the lesson by the keeper because a quiet keeper guards the gate near the lighthouse.",
+      "audit": {
+        "letters": 92,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "98006485b65dc11f987546f22870e42baebd3e8b278dd7aded629ac3768d3c84",
+        "sha256_reverse": "7e16612e7a3bf1de41537ff893ade355186d1e6229255def0413a9a95baac4f0",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_checked": 623,
+    "signature": "generic-modal-passive-baseline|generic-state|beneficiary-agent-theme-state",
+    "distinct_from": "quantified/distributive/frequentative/iterative/habitual/stative/resultative/inchoative/progressive/perfect/modal-passive/active-ditransitive/coordination/finite-complement/relative/center/bridge/endpoint lanes: a generic may-being state provides a fresh typed baseline before beneficiary, agent, and theme roles"
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "source_text": "held-out common-word typed bank",
+    "reader_evidence": false,
+    "reader_gate": "closed until exact >38 and blinded ratings"
+  },
+  "next_construction": {
+    "name": "deontic modal passive topology",
+    "operator": "Add a held-out deontic modal passive frame with explicit beneficiary/agent/theme roles; keep live position factors and preflight a new signature first.",
+    "reader_facing_test": "retain complete prose only, independently audit exact closures above 38, then blinded intact-vs-shuffled ratings"
+  },
+  "status": "diagnostic lane; no exact candidate above 38"
+}

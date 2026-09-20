@@ -1145,6 +1145,15 @@ letters. No catalogue text, repair, wrapping, or mirrored unit was used. The
 next construction changes to causal-frame grammar. Artifact:
 `runs/brown-authored-event-chain-reverse-decoder-20260920.json`.
 
+The causal lane composed complete cause/result frames with source-admitted
+because/so-style markers before reverse parsing. It tested 10,000 complete
+frames and 10,000 reverse states, with no complete reverse parse or exact
+candidate. Intact controls reached 42 and 54 letters. No catalogue text,
+repair, wrapping, or mirrored unit was used. The next constructor is a joint
+bidirectional beam decoder that grows both complete grammar sides under exact
+character constraints instead of enumerating fixed frame products. Artifact:
+`runs/brown-authored-causal-reverse-decoder-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -6371,3 +6371,10 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact candidates above 38 survived. The next construction adds semantic
   cadence and role agreement. Artifact:
   `runs/poetic-scene-live-csp-20260920.json`.
+
+- **Phrase-pair CFG boundary-shift intersection, 2026-09-20:** intersected 60
+  ordinary-English CFG phrases with 173,460 variable word-boundary shifts and
+  live character equations. All shifts pruned before rendering; 0 exact
+  candidates above 38 survived. The next construction replaces the hand CFG
+  with a typed relative-clause CFG. Artifact:
+  `runs/phrase-pair-cfg-boundary-shift-20260920.json`.

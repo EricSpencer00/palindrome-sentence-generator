@@ -217,6 +217,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_heldout_ditransitive_tense_semordnilap": "Held-out ditransitive tense-aspect semordnilap: 125 triple-edge states, two tense/aspect states, 27,000 live prunes, 40 controls to 172 letters, zero exact candidates above 38",
         "latest_phrase_graph_independent_scene": "Independent phrase-graph scene search: 4,656 graph rows scanned, 120 lexical/boundary edges rendered, longest 73 letters, zero exact candidates above 38; next indexes valency",
         "latest_poetic_scene_live_csp": "Poetic scene live CSP: depth 3, six seam prunes, and four vivid prose diagnostics to 121 letters, zero exact candidates above 38; next adds semantic cadence",
+        "latest_phrase_pair_cfg_boundary_shift": "Phrase-pair CFG boundary-shift intersection: 60 CFG phrases and 173,460 live variable-boundary prunes, zero rendered or exact candidates above 38; next is typed relative CFG",
         "reader_study": "not run",
     },
 }
@@ -2749,6 +2750,22 @@ LUNA_PARALLEL_RUNS = [
       "provenance": "fresh human-authored river, hill, keeper, and temporal-adjunct scenes with live character obligations; no copied catalogue, repeated units, mirrored units, repair, or finished reversal",
       "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
       "next_construction": "add held-out cadence-compatible subject/object alternations with semantic role agreement",
+    },
+    {
+      "run_id": "phrase-pair-cfg-boundary-shift-20260920",
+      "method": "independent CFG phrase graph intersected with variable word-boundary shifts and live character equations",
+      "status": "completed_no_exact_closure",
+      "cfg_phrases": 60,
+      "boundary_shifts": 173460,
+      "live_prunes": 173460,
+      "rendered_candidates": 0,
+      "exact_candidates_over_38": 0,
+      "reader_eligible": False,
+      "example_near_miss": None,
+      "first_live_diagnostic": "all variable boundary shifts prune before a complete ordinary-English CFG rendering",
+      "provenance": "fresh ordinary-English CFG phrases intersected with variable word-boundary states and live equations; no finished-tape reversal, mirrored units, catalogue text, or post-hoc repair",
+      "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
+      "next_construction": "replace hand CFG products with a typed relative-clause CFG while preserving variable split states",
     },
 ]
 

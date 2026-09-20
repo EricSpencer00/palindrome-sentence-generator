@@ -3660,3 +3660,10 @@ imagery with live obligations. Depth three retained four vivid prose
 diagnostics from 102 to 121 letters after six seam prunes; zero exact
 candidates above 38 survived. The next construction adds semantic cadence and
 role agreement. Artifact: `runs/poetic-scene-live-csp-20260920.json`.
+
+The phrase-pair CFG boundary-shift intersection combined 60 ordinary-English
+CFG phrases with 173,460 variable word-boundary shifts and live character
+equations. Every shift pruned before rendering; zero exact candidates above 38
+survived. The next construction replaces the hand CFG with a typed
+relative-clause CFG. Artifact:
+`runs/phrase-pair-cfg-boundary-shift-20260920.json`.

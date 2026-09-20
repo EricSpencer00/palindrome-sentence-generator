@@ -611,6 +611,15 @@ but no longer row. This cross-implementation agreement is a useful correctness
 win; the next construction changes the semantic center pairing rather than
 adding another duplicate word sweep.
 
+The cross-paired seam constructor made that center change explicit. Its left
+clause used `subject–event–object–setting`, while the held-out right clause
+used `setting–object–event–subject`; each frame carried an explicit valency.
+Matched characters were consumed after every frame pair. All 12 outer frame
+pairings were rejected at the first seam equation, with zero orbit steps and
+zero exact closures. This is a valid semantic-pairing negative, not a failed
+repair queue; the next construction adds tense/agreement variants inside this
+cross-role order.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates five deterministic blinded

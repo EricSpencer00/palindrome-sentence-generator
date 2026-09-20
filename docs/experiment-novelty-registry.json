@@ -10995,6 +10995,28 @@
       "distinction": "Carries complete unmatched character buffers across unequal word lengths and indexes a new word only when the buffers are equal; the known 38-letter control is regenerated from a typed whole-sentence grammar rather than repaired.",
       "reader_evidence": false,
       "status": "Recovered the 38-letter control and one 37-letter lexical variant; no closure above 38 letters. This is an invariant correction and regression win, not a new reader candidate; next construction must add a new complete grammar family"
+    },
+    {
+      "id": "two-clause-live-buffer-20260919",
+      "signature": "two-independent-typed-clauses|consumed-character-buffers|cross-clause-obligation",
+      "artifact": "experiments/two_clause_live_buffer_20260919.py",
+      "run_artifacts": [
+        "runs/two-clause-live-buffer-20260919.json"
+      ],
+      "distinction": "Composes two complete typed clauses and consumes mirrored characters from unequal live buffers before admitting a closure; the seed is retained only as an independent regression.",
+      "reader_evidence": false,
+      "status": "65,536 bounded clause pairs, all pruned with 0 exact closures above 38 letters; the diagnostic witness is incomplete and not reader-eligible; next construction must add semantic valency during joint lexical selection"
+    },
+    {
+      "id": "reverse-lexicon-transducer-20260919",
+      "signature": "queried-reverse-lexicon|typed-brown-transitions|consumed-residual-buffer",
+      "artifact": "experiments/reverse_lexicon_transducer_20260919.py",
+      "run_artifacts": [
+        "runs/reverse-lexicon-transducer-20260919.json"
+      ],
+      "distinction": "Queries a reverse character index while composing typed Brown transitions and carries a tested residual buffer; unlike the rejected prototype, the reverse index participates in every expansion.",
+      "reader_evidence": false,
+      "status": "287 typed transitions and 721 reverse-index keys across 120,407 states; all pruned, 0 exact closures, and no rendered reader candidate; next construction must index multiword typed phrase transitions"
     }
   ]
 }

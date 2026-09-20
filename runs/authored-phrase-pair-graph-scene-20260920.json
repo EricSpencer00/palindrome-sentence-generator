@@ -1,0 +1,76 @@
+{
+  "experiment_id": "authored-phrase-pair-graph-scene-20260920",
+  "method": "authored phrase-pair graph with semantic chunk composition",
+  "stats": {
+    "left_chunks": 12,
+    "right_chunks": 11,
+    "compatible_phrase_pairs": 8,
+    "composition_states": 3,
+    "exact_fresh": 0
+  },
+  "exact_candidates": [],
+  "baseline_control": {
+    "rendered": "An aide rips nine memos; some men inspire Diana.",
+    "audit": {
+      "letters": 38,
+      "exact": true,
+      "first_mismatch": null,
+      "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "sha_equal": true
+    },
+    "excluded_from_generated_candidates": true,
+    "reader_status": "known 38-letter control only"
+  },
+  "controls": [
+    {
+      "rendered": "The young bard praises the crown within the court.",
+      "audit": {
+        "letters": 41,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "r"
+        ],
+        "sha256_forward": "e073debf945fdba094add158356de7e099c57756083b43c0c581a3a502d2c2eb",
+        "sha256_reverse": "ccebbfe7b5f44693f435be7f169955972f3a47c87690d241ff7af76f8013c4bf",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "The fair queen guards a red rose beneath the moon.",
+      "audit": {
+        "letters": 40,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "34ff221f7797102bd6f3a7caf03848aad8b5a0268614f6c9a42b7d1ec80773cf",
+        "sha256_reverse": "f2568eceb82807abbeba263cb13b453dcae04563b6419471cd91eb3a64e33822",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "authored-phrase-pair-graph|semantic-chunks|exposed-span-compatibility|complete-scene-frame",
+    "distinct_from": "prior lexical beam/transducer and full-frame lanes; authored chunk pair graph composes scene topology before exact gate",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "chunk_source": "new human-authored scene/dialogue phrases",
+    "audits": [
+      "independent two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed; no fresh exact candidate",
+    "next_reader_test": "blinded intact-scene versus shuffled controls if a fresh exact row appears"
+  },
+  "status": "no fresh exact >38 candidate"
+}

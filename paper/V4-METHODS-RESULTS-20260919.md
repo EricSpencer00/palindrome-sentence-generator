@@ -2811,3 +2811,17 @@ fragmentary (“Tons its operations a hotel basis able to. Has no it are post is
 not.”); no row is reader-eligible, and no model score is treated as readability
 evidence. This branch supplies a reusable proposal interface but not the
 working generation method.
+
+We then tested direct whole-sentence drafting as a separate proposal topology.
+Twelve remote Qwen batches produced 158 extracted drafts and 21 exact rows,
+but every exact row was a short, already-famous palindrome (“Rats live on no
+evil star.”, maximum 20 letters); none passed the repeated/nested structural
+gate. This is retained as a model-recall control, not as generated progress:
+the model did not produce a new long sentence and no catalogue text is claimed.
+
+Finally, a broad two-sided PCFG sampler drew 11,814 unique ordinary clause
+tapes and independently segmented each reversed character stream with a
+lexical dynamic program. It produced zero exact closures in 30,000 draws.
+The lane has no finished-tape reversal or repair, but its random one-sided
+sampling is not competitive with live bilateral construction; it is closed at
+this bound and remains a negative control for the next constructive design.

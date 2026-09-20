@@ -13030,6 +13030,24 @@
       "distinction": "A bounded lexicalized grammar regression enumerates atomic S-to-NP-VP derivations and checks the shared character equation against an exhaustive differential set; it is retained as a soundness toy, not as scalable SAT evidence because the correction must move pruning before complete-string materialization.",
       "reader_evidence": false,
       "status": "Corrected fixed-length shared-cell CSP: 3,240 nodes and 6,082 early prunes recover two atomic 38-letter witnesses including the anchor. Remote Brown run (500 entries, 39–64 letters, 5,000-node cap) timed out at 5,000 nodes and 800,966 prunes, with 0 complete closures and 0 exact candidates above 38; next method must change construction dynamics"
+    },
+    {
+      "id": "qwen-direct-palindrome-20260920",
+      "signature": "direct-whole-sentence-draft|independent-exact-audit|no-catalogue-acceptance",
+      "artifact": "experiments/qwen_direct_palindrome_20260920.py",
+      "run_artifacts": ["runs/qwen-direct-palindrome-20260920.json"],
+      "distinction": "A remote language model drafts complete sentences in one pass; exact pointer/SHA validation and shortcut checks are independent of the model. No phrase bank, finished-tape reversal, repair, or borrowed catalogue output is accepted.",
+      "reader_evidence": false,
+      "status": "12 batches, 158 drafts, 21 exact rows, maximum 20 letters; exact rows were famous short palindromes and 0 passed the structural gate; closed as a model-recall control"
+    },
+    {
+      "id": "two-sided-pcfg-sampler-20260920",
+      "signature": "broad-pcfg-sampling|independent-reverse-tape-lexical-dp|live-provenance",
+      "artifact": "experiments/two_sided_pcfg_sampler_20260920.py",
+      "run_artifacts": ["runs/two-sided-pcfg-sampler-20260920.json"],
+      "distinction": "Samples broad ordinary clause derivations, then independently tokenizes the reverse character stream with a scored lexical DP; it does not reverse a finished sentence, mirror word units, import catalogue text, or repair a mismatch.",
+      "reader_evidence": false,
+      "status": "30,000 draws, 11,814 unique left tapes, 0 exact closures; closed at this sampling bound because one-sided random clauses almost never admit a natural reverse segmentation"
     }
   ]
 }

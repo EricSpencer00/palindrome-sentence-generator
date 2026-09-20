@@ -1242,6 +1242,17 @@ miss; no post-hoc edit, finished-tape reversal, mirrored token, catalogue
 text, or fragment was admitted. Artifact:
 `runs/dependency-role-permutation-chart-20260920.json`.
 
+A second role-permuted scene-graph transducer used typed agent, patient,
+recipient, time, and place roles with independently ordered complete graphs.
+It found 48 compatible boundary seeds and explored 2,718 live states with
+12,465 seam rejections, but no exact candidate above 38 letters closed.
+Rendered complete controls included “The baker sends the child; the baker
+sends the poet” and “The farmer sends the child; the baker sends the poet”;
+both received independent pointer and SHA audits, but are controls rather
+than palindrome outputs. The lane changes the role topology without any
+repair, tape reversal, mirrored unit, catalogue text, or fragment emission.
+Artifact: `runs/role-permuted-scene-graph-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -122,6 +122,8 @@ BEST_KNOWN_PROVENANCE = {
         "latest_character_clause_trie_csp": "Six independently authored complete clauses per side joined through a reverse character trie: six prefix steps, zero exact joins, and complete prose controls retained",
         "latest_clitic_boundary_residual_lockstep": "Eighteen fresh agreement/clitic frames, 324 full residual-vector transitions, and two complete prose controls to 72 letters; zero exact closures above 38",
         "latest_typed_central_residual_clause_csp": "Three-by-two-by-three typed assignments with a complete authored center sentence: 18 character transitions, controls to 118 letters, zero exact closures above 38",
+        "latest_chart_phrase_path": "Ninety-six independently authored chart paths and 9,120 live unequal-boundary states, controls to 110 letters, zero exact closures above 38",
+        "latest_dependency_frame_center_seam": "Nine independent dependency-frame states with attachment/valency/agreement across a complement seam, controls to 110 letters, zero exact closures above 38",
         "reader_study": "not run",
     },
 }
@@ -1229,6 +1231,8 @@ OPTIMIZATION_SPEC = {
         "character-clause-trie-csp-20260920",
         "clitic-boundary-residual-lockstep-20260920",
         "typed-central-residual-clause-csp-20260920",
+        "chart-phrase-path-20260920",
+        "dependency-frame-center-seam-20260920",
         "broad-lexical-boundary-wfsa-20260925",
         "variable-boundary-lattice-decoder-20260926",
         "paired-clause-lattice-20260927",

@@ -1128,6 +1128,15 @@ No catalogue text, repair, wrapping, or mirrored unit was used. The next
 construction changes to discourse-frame grammar. Artifact:
 `runs/brown-authored-subordination-reverse-decoder-20260920.json`.
 
+The discourse-frame lane added source-admitted temporal markers (`then`, `now`)
+to complete semantic clauses before reverse parsing. It tested 10,000 complete
+frames and 10,000 reverse states, with no complete reverse parse or exact
+candidate. Intact controls reached 45 and 53 letters. `however` and `therefore`
+were unavailable in the frozen lexical bank and were not fabricated. No
+catalogue text, repair, wrapping, or mirrored unit was used. The next
+construction changes to an event-chain grammar. Artifact:
+`runs/brown-authored-discourse-reverse-decoder-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

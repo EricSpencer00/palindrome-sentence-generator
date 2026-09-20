@@ -903,6 +903,23 @@ prose diagnostics. The next construction adds relative-object valency variants;
 no near miss is repaired. Artifact:
 `runs/recursive-series-typed-relative-20260920.json`.
 
+### Semantic multiword phrase-trie orbit
+
+To move away from single-word boundary loops, this lane indexed complete
+authored phrase units (noun phrases, verb phrases, adjunct PPs, objects, and
+proper names) by their first and last letters. Two ordinary-order semantic
+templates were assembled from opposite ends while a live residual tape was
+consumed across phrase and word boundaries. The run tested 112 endpoint seeds
+and 3,552 incompatible phrase transitions; it closed no exact path and
+produced no candidate above the 38-letter frontier. Three intact controls were
+rendered at 38, 38, and 42 letters and independently checked with a two-pointer
+comparison and forward/reverse SHA-256. This is a construction failure, not a
+repaired-tape result: phrases remain in ordinary order, proper names are
+selected as grammatical endpoints, and no mirrored token or catalogue text is
+admitted. The next construction adds complete relative phrase units with
+name-compatible endpoints, preserving the live cross-boundary equations.
+Artifact: `runs/semantic-phrase-trie-orbit-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

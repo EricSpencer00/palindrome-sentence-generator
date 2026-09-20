@@ -1,0 +1,42 @@
+{
+  "experiment_id": "phrase-cfg-dialogue-asymmetric-pronoun-20260920",
+  "method": "alternating dialogue with asymmetric first/third-person binding and shared referent",
+  "grammar": [
+    "D -> TURN REPLY",
+    "TURN -> SPEAKER said I V DET REFERENT",
+    "REPLY -> SPEAKER replied THEY V DET REFERENT"
+  ],
+  "stats": {
+    "left_dialogues": 240,
+    "right_dialogues": 240,
+    "shared_referent_pairs": 8230,
+    "crossed_role_states": 1156,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 1
+  },
+  "complete_prose_controls": [
+    "The sailor said, \"I guard the letter\"; the poet replied, \"They read the letter.\"",
+    "A writer said, \"I mark the shore\"; a captain replied, \"They guide the shore.\""
+  ],
+  "best_diagnostic": {
+    "matched": 1,
+    "left": "some sailor said, \"I guards the notes\"; some poet replied, \"They guards the notes\"",
+    "right": "some poet said, \"I guards the notes\"; some sailor replied, \"They guards the notes\"",
+    "shared_referent": "notes"
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-dialogue-asymmetric-pronoun-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-alternating-shared-referent-20260920"
+  },
+  "next_construction": "Pivot to a non-dialogue reciprocal topology if asymmetric binding remains first-character blocked.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

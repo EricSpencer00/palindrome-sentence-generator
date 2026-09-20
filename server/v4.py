@@ -7253,6 +7253,24 @@ LUNA_PARALLEL_RUNS = [
         "novelty_preflight": "passed; distinct from event-ordered coordination and fixed-depth complementizer CFG",
         "next_construction": "add semantic valency features to the recursive chart before paired emission",
     },
+    {
+        "run_id": "outside-in-fresh-safe-vocab-20260920",
+        "method": "outside-in WordTries beam overhang with whole-sentence POS plan",
+        "status": "completed_no_exact_closure",
+        "seeds": 4,
+        "vocabulary_size": 500,
+        "beam": 32,
+        "records": 0,
+        "mechanically_admitted": 0,
+        "exact_candidates_over_38": 0,
+        "reader_eligible": False,
+        "longest_rendered_letters": 0,
+        "complete_prose_controls": 2,
+        "provenance": "fresh safe contemporary vocabulary with whole-sentence POS plans; no catalogue import, post-hoc repair, finished-tape reversal, or mirrored units",
+        "independent_validation": ["two-pointer normalized tape", "forward/reverse SHA-256"],
+        "novelty_preflight": "passed; distinct from recursive character CFG",
+        "next_construction": "use a live semantic-valency paired chart rather than mutating a finished tape",
+    },
 ]
 
 LATEST_LUNA_RUN = LUNA_PARALLEL_RUNS[-1]

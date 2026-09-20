@@ -7658,6 +7658,25 @@ LUNA_PARALLEL_RUNS = [
         "novelty_preflight": "passed; distinct character-orbit/frame product with live residual state",
         "next_construction": "add independently authored relative-clause and adjunct frames while retaining the frame/word/residual product state",
     },
+    {
+        "run_id": "lexical-reverse-automaton-grammar-20260920",
+        "method": "online reverse lexical trie intersected with independently generated typed complete clauses",
+        "status": "completed_no_exact_closure",
+        "brown_tokens": 1005119,
+        "ordinary_word_types": 46275,
+        "typed_inventory": {"agent": 7, "action": 7, "theme": 7, "place": 6},
+        "reverse_trie_nodes": 113,
+        "rendered_candidates": 2058,
+        "online_states": 2401,
+        "rejected_or_nonclosing": 2058,
+        "exact_candidates_over_38": 0,
+        "reader_eligible": 0,
+        "longest_rendered_letters": 74,
+        "provenance": "Brown token/tag frequencies only; no Brown sentence context emitted; independently generated typed complete clauses; no finished-tape reversal, posthoc repair, aligned semordnilap tokens, repeated/self-palindromic units, catalogue text, or per-search RLAIF",
+        "independent_validation": ["two-pointer scan", "forward/reverse SHA-256"],
+        "novelty_preflight": "passed; distinct reverse-trie intersection over typed independent clauses",
+        "next_construction": "expand typed role classes with held-out ordinary words and retain online trie intersection; do not add repair or mirrored-token operators",
+    },
 ]
 
 LATEST_LUNA_RUN = LUNA_PARALLEL_RUNS[-1]

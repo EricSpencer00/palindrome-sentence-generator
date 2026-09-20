@@ -310,6 +310,16 @@ search representation rather than reranking completed tapes; their next
 operator adds typed relative and discourse-relation transitions inside the
 same live residual state.
 
+The lexical reverse-automaton lane tests the API-inspired indexing idea under
+a stricter linguistic boundary.  It builds a reverse trie from Brown token
+and part-of-speech frequencies only, then intersects that trie online with
+independently generated typed complete clauses.  The run rendered 2,058
+clause states and visited 2,401 online states, reaching 74 letters but no
+exact-clean closure above the 38-letter benchmark.  Because Brown sentence
+context is never emitted, this is a construction experiment rather than
+borrowed prose; its next step expands held-out role classes while retaining
+the live trie intersection.
+
 The implementation also exposes an explicit totality witness for arbitrary
 requested lengths.  This witness is useful for testing the state machine but
 is tagged as non-reader output and cannot satisfy the admission gate.  Thus

@@ -3130,3 +3130,13 @@ a claimed generation gain. The next construction orders grammar factors by
 minimum remaining mirrored-support domain and propagates support across
 adjacent factors. Artifact:
 `runs/position-domain-arc-consistency-csp-20260920.json`.
+
+Minimum-domain grammar-factor branching was then tested as a controlled search
+ordering change. It passed the same 32-case differential suite and recorded
+the number of forward sentences represented by each target-length grammar
+frontier. The 44/52/60 traversals still visited 5,485 states and made 30,746
+live prunes, with zero complete parses and zero exact candidates above 38.
+Thus ordering alone did not change the reachable language on this inventory;
+the next operator is two-factor lookahead support propagation before either
+factor is assigned. Artifact:
+`runs/min-domain-factor-csp-20260920.json`.

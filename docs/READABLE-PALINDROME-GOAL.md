@@ -5847,3 +5847,11 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   The next operator orders grammar factors by minimum remaining support and
   propagates adjacent-factor domains. Artifact:
   `runs/position-domain-arc-consistency-csp-20260920.json`.
+
+- **Minimum-domain factor branching, 2026-09-20:** changed traversal by
+  ordering grammar factors by surviving mirrored-support domains and recording
+  represented forward-language counts. Differential testing passed, but the
+  44/52/60 traversals still produced 5,485 states, 30,746 prunes, 0 complete
+  parses, and 0 exact candidates above 38. The next operator is two-factor
+  lookahead support propagation before either factor is assigned. Artifact:
+  `runs/min-domain-factor-csp-20260920.json`.

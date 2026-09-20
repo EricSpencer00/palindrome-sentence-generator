@@ -1,0 +1,50 @@
+{
+  "experiment_id": "character-cfg-shared-center-two-debt-20260920",
+  "method": "shared-center character CFG chart with independent outer and center seam debts",
+  "grammar": [
+    "S -> NPsubject VP",
+    "VP -> V NPobject",
+    "NP -> DET NOUN REL",
+    "REL -> who VP"
+  ],
+  "stats": {
+    "subject_derivations": 180,
+    "object_derivations": 180,
+    "subject_chart_states": 4105,
+    "object_chart_states": 5508,
+    "outer_debt_states": 0,
+    "center_debt_states": 32400,
+    "both_debts_cross_word_seam": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_two_debt_score": 1
+  },
+  "complete_prose_controls": [
+    "The sailor who reads the area guards the harbor.",
+    "The sailor guards the area who reads the poet."
+  ],
+  "best_diagnostic": {
+    "letters": 1,
+    "left": "a area guides a area",
+    "right": "a area guides a area",
+    "outer_seam": false,
+    "center_seam": true
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-shared-center-two-debt-20260920",
+    "catalogue_imported": false,
+    "fixed_bank_sweep": false,
+    "distinct_from": [
+      "character-cfg-asymmetric-relative-seam-20260920",
+      "character-cfg-object-relative-attachment-20260920"
+    ]
+  },
+  "next_construction": "Replace the fixed who center with a typed center nonterminal whose agreement feature is solved jointly with both debts; keep lexical terminals fixed.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

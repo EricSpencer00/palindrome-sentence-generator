@@ -127,6 +127,8 @@ multiword palindrome span:
 | Center-out scene buffer | Grows independently authored event scenes from the center with variable buffers and attachment state | 3 scene transitions; all pruned before rendering | 0 / 0 |
 | Reverse-trie typed grammar | Traverses a reverse-facing right-clause trie with deque residuals, typed agreement, center transitions, and unequal word boundaries | 12,001 nodes; 0 rendered candidates; diagnostic row quarantined | 0 / 0 |
 | Prosodic-skeleton diagnostic | Ranks fresh clauses by aggregate word-length shapes without a live character equation | 16 fresh controls to 79 letters; post-render diagnostic only | 0 / 0 |
+| Endpoint-seeded inward scene | Seeds compatible scene endpoints, then expands full interior grammar and unequal buffers | 2 endpoint seeds; both pruned before interior expansion | 0 / 0 |
+| Endpoint-seed interior equations | Gates surface grammar, then solves live interior cross-word equations | 9 endpoint seeds; 0 interior closures; malformed article forms excluded | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
 discriminator: 16 independently authored clause pairs were rendered above 38
@@ -2500,3 +2502,10 @@ before rendering. The live boundary-shift grammar tried nine semantic-slot
 transitions and found no complete boundary closure. Both preserve the same
 independent-forward/right-reverse-facing invariant and therefore contribute
 zero reader candidates.
+
+Endpoint-conditioned authoring was then tested in two forms. The scene lane
+seeded two compatible endpoints but pruned both before interior expansion. The
+broader semantic-frame lane retained nine endpoint seeds, applied article and
+surface-grammar gates, and rejected every one at the next interior character;
+zero interior closures remained. This separates the useful endpoint prior
+from the still-unsolved interior construction.

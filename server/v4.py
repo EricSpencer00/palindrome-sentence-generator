@@ -101,6 +101,8 @@ BEST_KNOWN_PROVENANCE = {
         "latest_scene_buffer_centerout": "3 event-scene transitions; all pruned at live mismatch, zero rendered candidates",
         "latest_reverse_trie_typed_grammar": "12,001 reverse-trie nodes with typed center transitions; zero rendered candidates and one quarantined diagnostic",
         "latest_prosodic_skeleton_diagnostic": "16 fresh controls to 79 letters; post-render prose diagnostic only, zero exact >38 closure",
+        "latest_endpoint_seeded_scene_inward": "2 endpoint-compatible scene seeds; both pruned before interior expansion, zero rendered candidates",
+        "latest_endpoint_seed_interior_equations": "9 surface-grammar-valid endpoint seeds; zero interior closures and zero exact candidates",
         "reader_study": "not run",
     },
 }

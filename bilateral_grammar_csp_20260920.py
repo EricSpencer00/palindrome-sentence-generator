@@ -36,6 +36,21 @@ def _consume(left_residual: str, right_residual: str) -> tuple[str, str] | None:
     return left_residual[k:], right_residual[k:]
 
 
+def palindromic_residual(left_residual: str, right_residual: str) -> bool:
+    """Close complete derivations when their remaining middle is symmetric.
+
+    The right residual is already in reverse reading order. If L = reverse(R)
+    + C, then L + R is a palindrome exactly when C is a palindrome. Requiring
+    C to be empty incorrectly fixes the clause seam at an even-length center.
+    This test applies only after both grammar derivations are complete.
+    """
+    residual = _consume(left_residual, right_residual)
+    if residual is None:
+        return False
+    center = residual[0] or residual[1]
+    return all(center[i] == center[-1-i] for i in range(len(center) // 2))
+
+
 def bilateral_grammar_csp(
     lexicon=ATOMIC,
     max_words: int = 10,
@@ -59,7 +74,8 @@ def bilateral_grammar_csp(
             by_pos.setdefault(word.pos, []).append(word)
 
     found = []
-    stats = {"nodes": 0, "pruned": 0, "complete": 0}
+    stats = {"nodes": 0, "pruned": 0, "complete": 0,
+             "center_rejections": 0, "nonempty_center_closures": 0}
 
     def search(lsymbols, rsymbols, left, right_rev, lres="", rres=""):
         if stats["nodes"] >= max_nodes:
@@ -67,8 +83,13 @@ def bilateral_grammar_csp(
         stats["nodes"] += 1
         if not lsymbols and not rsymbols:
             stats["complete"] += 1
-            if lres or rres or not left or not right_rev:
+            if not left or not right_rev:
                 return
+            if not palindromic_residual(lres, rres):
+                stats["center_rejections"] += 1
+                return
+            if lres or rres:
+                stats["nonempty_center_closures"] += 1
             words = left + list(reversed(right_rev))
             if not admission_ok(words):
                 return
@@ -80,6 +101,9 @@ def bilateral_grammar_csp(
                     "rendered": render_path(text, lexicon),
                     "audit": audit,
                     "words": words,
+                    "center_residual": lres or rres,
+                    "left_clause_letters": sum(len(letters(w)) for w in left),
+                    "right_clause_letters": sum(len(letters(w)) for w in right_rev),
                     "provenance": {
                         "left_clause_grammar": True,
                         "right_clause_reverse_expansion": True,

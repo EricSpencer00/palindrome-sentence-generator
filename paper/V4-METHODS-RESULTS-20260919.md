@@ -2755,7 +2755,7 @@ transitions (2,000 Brown POS entries); its bilateral grammar CSP visited 428
 states and pruned 13,652,945 character and 320,313,552 transition attempts,
 with zero complete closures. A separate curated agent/theme grammar visited
 65,841 states and reached 56,430 complete states, but its longest exact output
-was only 30 letters (for example, “deer deliver leon; noel reviled reed.”), an
+was initially 30 letters (for example, “deer deliver leon; noel reviled reed.”), an
 exact telegraphic control rather than reader prose. Neither lane is promoted to
 the reader gate. These results narrow the next construction: keep lexical
 transitions as hard search constraints, but add richer discourse/valency
@@ -2869,3 +2869,20 @@ above 38 letters survived. This is a distinct zero-frontier result: the next
 construction must add a genuinely new lexicalized relation constituent rather
 than enlarge the same terminal bank. Artifact:
 `runs/lexicalized-constituent-interior-csp-20260920.json`.
+
+The terminal-closure audit subsequently found an implementation restriction:
+both solvers required an empty residual after the two complete derivations.
+For a compatible pair with $L=R^{\mathrm{rev}}C$, the full text $LR$ is
+palindromic whenever $C=C^{\mathrm{rev}}$; the residual need not be empty.
+Correcting this condition admits odd lengths and unequal clause-length centers.
+An exhaustive differential check of 900 synthetic string pairs recovered all
+126 oracle palindromes, compared with 30 under the old rule, with no false
+accepts. These synthetic strings are test fixtures, not candidate material.
+An unchanged-bank remote replay produced 456 exact semantic-bank outputs,
+including 200 additional outputs with nonempty centers, with a maximum of
+31 letters and none above 38. For example, “deer deliver rats; a star reviled
+reed.” is exact but does not constitute ordinary readable prose. The
+constituent bank remained at 41,280 states with no closure. Every retained
+exact output has an independent pointer and SHA audit in
+`runs/palindromic-residual-closure-regression-20260920.json`; no reader-evidence
+or availability claim changes.

@@ -12,10 +12,13 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from bilateral_grammar_csp_20260920 import _consume, palindromic_residual
 OUT = ROOT / "runs" / "lexicalized-constituent-interior-csp-20260920.json"
 ID = "lexicalized-constituent-interior-csp-20260920"
 SIGNATURE = "lexicalized-constituent-interior|feature-carrying-synchronous-stack|live-boundary-state"
@@ -135,7 +138,8 @@ def search(max_states: int = 120_000, min_letters: int = 39):
     seen = set()
     stats = {"popped": 0, "unique_states": 0, "grammar_expansions": 0,
              "word_choices": 0, "character_matches": 0, "character_prunes": 0,
-             "repeat_prunes": 0, "complete": 0, "deepest_letters": 0}
+             "repeat_prunes": 0, "complete": 0, "deepest_letters": 0,
+             "center_rejections": 0, "nonempty_center_closures": 0}
     exact = []
     controls = []
     deepest = None
@@ -182,6 +186,32 @@ def search(max_states: int = 120_000, min_letters: int = 39):
                                     state.left_words, state.right_words, state.used))
             continue
 
+        # Both parses may finish at unequal letter counts. The unmatched
+        # middle can end inside a word; it must be symmetric, not empty.
+        if not state.left_stack and not state.right_stack:
+            stats["complete"] += 1
+            if not palindromic_residual(state.left_pending, state.right_pending[::-1]):
+                stats["center_rejections"] += 1
+                continue
+            residual = _consume(state.left_pending, state.right_pending[::-1])
+            assert residual is not None
+            center = residual[0] or residual[1]
+            if center:
+                stats["nonempty_center_closures"] += 1
+            text = " ".join(state.left_words) + "; " + " ".join(state.right_words) + "."
+            result = audit(text)
+            if result["letters"] >= min_letters:
+                controls.append({"rendered": text, "audit": result,
+                                 "center_residual": center,
+                                 "provenance": {"complete_left_parse": True,
+                                                "complete_right_parse": True,
+                                                "finished_tape_reversal": False,
+                                                "mirrored_word_units": False,
+                                                "catalogue_text": False}})
+                if result["exact"]:
+                    exact.append(controls[-1])
+            continue
+
         # Character emission is the live equation.  A pending word is an
         # internal boundary state: its remainder may be matched across the
         # next word on the opposite side.
@@ -224,21 +254,6 @@ def search(max_states: int = 120_000, min_letters: int = 39):
         # No pending characters: choose the next lexical terminal on one or
         # both sides.  Expanding both sides whenever possible keeps the search
         # joint rather than turning into a finished-tape reverse parse.
-        if not state.left_stack and not state.right_stack:
-            stats["complete"] += 1
-            text = " ".join(state.left_words) + "; " + " ".join(state.right_words) + "."
-            result = audit(text)
-            if result["letters"] >= min_letters:
-                controls.append({"rendered": text, "audit": result,
-                                 "provenance": {"complete_left_parse": True,
-                                                "complete_right_parse": True,
-                                                "finished_tape_reversal": False,
-                                                "mirrored_word_units": False,
-                                                "catalogue_text": False}})
-                if result["exact"]:
-                    exact.append(controls[-1])
-            continue
-
         if state.left_stack and state.right_stack:
             lsym, rsym = state.left_stack[0], state.right_stack[-1]
             for lw in _word_choices(lsym):

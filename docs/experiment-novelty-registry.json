@@ -2,6 +2,15 @@
   "version": 1,
   "audit_reports": [
     {
+      "id": "palindromic-residual-closure-regression-20260920",
+      "signature": "implementation-correction|terminal-palindromic-residual|unequal-clause-lengths|odd-centers|exhaustive-differential-proof",
+      "artifact": "experiments/palindromic_residual_closure_regression_20260920.py",
+      "run_artifacts": ["runs/palindromic-residual-closure-regression-20260920.json"],
+      "distinction": "Implementation correction, not a new construction family: complete derivations may close around a palindromic nonempty residual. The previous empty-residual requirement silently excluded odd lengths and unequal clause-length centers. All existing lexical and shortcut constraints remain in force.",
+      "reader_evidence": false,
+      "status": "900 synthetic pairs: 126 corrected closures agree exactly with the independent oracle, versus 30 under the old rule. Unchanged remote semantic bank: 65,841 states, 456 exact outputs including 200 newly admitted nonempty-center outputs, longest 31 letters, zero above 38. Unchanged constituent bank: 41,280 states and zero closures. No readable candidate or API availability change."
+    },
+    {
       "id": "semantic-role-bilateral-20260920",
       "signature": "agent-theme-role-grammar|bilateral-character-residual|typed-transitive-frame",
       "artifact": "experiments/semantic_role_bilateral_20260920.py",

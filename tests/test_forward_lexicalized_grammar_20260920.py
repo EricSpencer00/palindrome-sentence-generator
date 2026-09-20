@@ -44,3 +44,7 @@ def test_center_inside_word_and_asymmetric_boundaries_are_supported():
     grammar = {"S": (("N", "N"),)}
     result = constrained_paths(lexicon=lex, lengths=[5], max_words=2, grammar=grammar)
     assert any(letters(r["rendered"]) == "abcba" for r in result["paths"])
+
+def test_brown_loader_is_bounded_and_deterministic():
+    a = load_brown_lexicon(limit=2000)
+    assert len(a) == 2000 and a == load_brown_lexicon(limit=2000)

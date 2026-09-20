@@ -6,6 +6,7 @@ same time.  No right-hand phrase is authored or reversed.
 """
 from dataclasses import dataclass
 import hashlib, json, re
+import gzip
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -39,6 +40,18 @@ GRAMMAR = {"S": (("CLAUSE", "CLAUSE"),), "CLAUSE": (("NP", "V", "NP"),),
 
 def letters(text):
     return re.sub(r"[^a-z]", "", text.casefold())
+
+def load_brown_lexicon(path=ROOT / "tools/polaris/payload/brown.json.gz", limit=5000):
+    """Load a deterministic, bounded common-POS inventory for remote searches."""
+    table = json.load(gzip.open(path, "rt"))["table"]
+    allowed = {"DET": "DET", "NOUN": "N", "VERB": "V", "PROPN": "PROPN"}
+    rows = []
+    for text in sorted(table):
+        if not text.isalpha() or len(text) > 14: continue
+        pos = next((allowed[p] for p in table[text] if p in allowed), None)
+        if pos: rows.append(Word(text, pos))
+        if len(rows) >= limit: break
+    return tuple(rows)
 
 def render_path(text, lexicon=ATOMIC):
     """Render a two-clause lexical path; punctuation is presentation only."""
@@ -167,11 +180,16 @@ def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=10, gramma
                                         "catalogue_text": False}} for n, text in found], "stats": stats}
 
 if __name__ == "__main__":
+    import argparse
+    ap = argparse.ArgumentParser(); ap.add_argument("--brown", action="store_true"); ap.add_argument("--limit", type=int, default=5000); ap.add_argument("--max-nodes", type=int, default=20000)
+    args = ap.parse_args()
     # Keep the exhaustive differential toy small; the expanded inventory is
     # exercised only by the propagating CSP below.
     result = solve(lexicon=ATOMIC[:9]); anchor_lex = tuple(w for w in ATOMIC if w.text in
         {"an", "aide", "rips", "nine", "memos", "some", "men", "inspire", "diana"})
     result["bounded_csp"] = constrained_paths(lexicon=anchor_lex, lengths=[38], max_nodes=20000)
+    if args.brown:
+        result["brown_search"] = constrained_paths(lexicon=load_brown_lexicon(limit=args.limit), lengths=range(39, 65), max_nodes=args.max_nodes)
     result["provenance"]["csp"] = "fixed-N shared character cells with online mirror propagation"
     OUT.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result["stats"]))

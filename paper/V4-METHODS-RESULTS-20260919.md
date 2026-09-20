@@ -1664,6 +1664,19 @@ unit, catalogue text, or fragment was admitted. The next construction branches
 mixed singular/plural antecedents with explicit agreement. Artifact:
 `runs/joint-plural-anaphora-equations-20260920.json`.
 
+The mixed-agreement lane branched singular and plural antecedents while
+retaining joint subject/recipient anaphora, relation-conditioned
+although/for versus while/to, explicit agreement, and semantic
+verb/preposition gates. It visited 18 live states, pruned all 18 at the
+equation boundary, and produced zero equation completions and zero exact
+candidates above 38 letters. Twenty intact contemporary-English controls were
+independently audited (maximum 63 letters), including “Noah brings the letter
+to a friend while he offers books to her.” No repair, reversal, mirrored unit,
+catalogue text, or fragment was admitted. The next construction adds
+cross-clause number-mismatch alternatives with explicit non-coreferential
+subjects. Artifact:
+`runs/mixed-agreement-anaphora-equations-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

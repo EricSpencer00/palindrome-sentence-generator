@@ -2185,3 +2185,24 @@ or repair was used. The full exact count above 38 is zero. This lane confirms
 that readability can be present in long candidates before exact closure, but
 the next construction must condition the clauses' outer letters before
 crossing the interior banks.
+
+## Endpoint-conditioned clause authoring
+
+The follow-up applied the top-level endpoint equation before any interior
+clause pair was rendered. Six independently authored heads, bodies, and tails
+per side produced 216 left and 216 right clauses; a one-letter prefix/suffix
+index retained 2,592 compatible pairs for full rendering. The longest complete
+prose control was:
+
+> **A calm archivist reads the morning paper after the evening bell; our thoughtful friend holds the faded photograph near a quiet sea.**
+
+It has 108 letters and fails at normalized character 1 (`c` versus `e`). Its
+forward and reverse SHA-256 digests are
+`a0edb719e701865c57c1961c1c6331efd68266de75e5cf448484a0091bdc41ee` and
+`604590712648ff037abebfd830421001d274bf7c700c48e9d5b5acf2497eeefe`.
+The endpoint equation was a pruning condition, not a palindrome certificate:
+all 2,592 rows still received a fresh full-tape audit, and zero exact candidates
+above 38 letters resulted. Both clause interiors were authored forward and
+independently; no row used reversal, repair, catalogue borrowing, mirrored
+units, or repeated units. The next construction increases endpoint width only
+with a fresh compatible bank, preserving this full-audit contract.

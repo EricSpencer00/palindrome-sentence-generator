@@ -143,6 +143,12 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
 
 
 def main() -> None:
+    tagged = None
+    try:
+        from nltk.corpus import brown
+        tagged = brown.tagged_words(tagset="universal")
+    except Exception:
+        tagged = None
     bank_path = Path("data/brown_pcfg_bank_20260920.json")
     if bank_path.exists():
         bank = json.loads(bank_path.read_text())["lexicon"]
@@ -150,14 +156,24 @@ def main() -> None:
             return tuple(x["word"] for x in bank.get(tag, [])[:24]) or fallback
     else:
         def top(tag, fallback): return fallback
+    if tagged:
+        counts = {}
+        for word, tag in tagged:
+            word = word.casefold()
+            if word.isalpha(): counts.setdefault(tag, {})[word] = counts.setdefault(tag, {}).get(word, 0) + 1
+        def tagged_top(tag, fallback):
+            vals = sorted(counts.get(tag, {}), key=lambda w: (-counts[tag][w], w))
+            return tuple(vals[:24]) or fallback
+    else:
+        def tagged_top(tag, fallback): return fallback
     def inflected(tag, fallback, predicate):
         values = top(tag, fallback)
         chosen = tuple(word for word in values if predicate(word))
         return chosen or values
-    det = top("DET", ("a", "the", "one", "this"))
+    det = tagged_top("DET", top("DET", ("a", "the", "one", "this")))
     adj = top("ADJ", ("calm", "brave", "young", "wise", "fair", "quiet", "keen", "mild"))
-    noun = inflected("NOUN", ("poet", "sailor", "keeper", "reader", "bard", "pilot", "guard"), lambda w: not w.endswith("s"))
-    verb = inflected("VERB", ("reads", "marks", "guides", "guards", "seeks", "keeps", "hears"), lambda w: w.endswith("s"))
+    noun = tagged_top("NOUN", top("NOUN", ("poet", "sailor", "keeper", "reader", "bard", "pilot", "guard")))
+    verb = tagged_top("VERB", top("VERB", ("reads", "marks", "guides", "guards", "seeks", "keeps", "hears")))
     obj = top("NOUN", ("letter", "sonnet", "garden", "harbor", "parcel", "secret", "candle"))
     template = (
         Slot("det", det), Slot("adj", adj), Slot("subject", noun),

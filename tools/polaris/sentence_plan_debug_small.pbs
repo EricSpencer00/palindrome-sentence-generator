@@ -1,0 +1,41 @@
+#!/bin/bash -l
+# Bounded Polaris debug run for the outside-in sentence-plan diagnostic.
+# This is a search diagnostic, not reader evidence or a candidate generator.
+#PBS -N pal-sentence-plan-small
+#PBS -q debug
+#PBS -l select=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:05:00
+#PBS -l filesystems=home
+#PBS -j oe
+
+set -euo pipefail
+REPO="${PALINDROME_REPO:-$PBS_O_WORKDIR}"
+OUT="$REPO/runs/polaris_sentence_plan_debug_$(date +%Y%m%d_%H%M%S)"
+mkdir -p "$OUT"
+cd "$REPO"
+export PYTHONPATH="$REPO:${PYTHONPATH:-}"
+export PYTHONUNBUFFERED=1
+PY=/usr/bin/python3.11
+NRANKS=4
+
+mpiexec -n "$NRANKS" --ppn "$NRANKS" --cpu-bind depth -d 1 \
+  "$PY" tools/polaris/sentence_plan_debug.py \
+  --vocab 12000 --min-letters 20 --max-letters 50 --max-units 14 \
+  --node-budget 1000000 --seconds-per-arm 90 --arms terminal \
+  --shards "$NRANKS" --out-dir "$OUT"
+
+"$PY" - "$OUT" <<'PY'
+import glob, json, sys
+rows = [json.load(open(p)) for p in glob.glob(sys.argv[1] + '/summary_*.json')]
+aggregate = {
+    "shards": len(rows),
+    "nodes": sum(x.get("nodes", 0) for x in rows),
+    "closures": sum(x.get("closures", 0) for x in rows),
+    "hits": sum(x.get("hits", 0) for x in rows),
+    "seconds": round(sum(x.get("seconds", 0) for x in rows), 1),
+    "note": "diagnostic only; no row is reader-eligible without exact and blinded human evidence",
+}
+json.dump(aggregate, open(sys.argv[1] + '/aggregate.json', 'w'), indent=2)
+print(json.dumps(aggregate))
+PY

@@ -4359,3 +4359,20 @@ attachments. It retained prose controls to 79 letters with zero exact rows
 above 38. The next construction pairs those relative roles with a held-out
 temporal adjunct. Artifact:
 `runs/imperative-relative-role-alternation-20260920.json`.
+
+Outer-class conditioning was tested in two fresh forms. The appositive lane
+selected one compatible subject/tail pair before 81 interior states, making
+3,315 live checks and retaining controls to 89 letters; the general two-letter
+endpoint index rendered 30 complete SVO/clause controls to 64 letters. Neither
+produced an exact row above 38. Artifacts:
+`runs/appositive-outer-class-lexicalization-20260920.json` and
+`runs/outer-class-conditioned-grammar-20260920.json`.
+
+A prelexical three-turn dialogue CSP selected speaker/act boundary signatures
+before lexical emission. It retained three complete authored exchanges to 122
+letters and pruned one boundary, with zero exact rows. A separate
+imperative/relative temporal lane tested nine held-out adjunct states and
+pruned all of them before a complete prose construction. Both remain outside
+the reader packet. Artifacts:
+`runs/typed-dialogue-three-turn-20260920.json` and
+`runs/imperative-relative-temporal-20260920.json`.

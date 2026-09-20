@@ -7115,3 +7115,31 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   to 79 letters, with zero exact rows above 38. The next topology pairs the two
   relative roles with a held-out temporal adjunct. Artifact:
   `runs/imperative-relative-role-alternation-20260920.json`.
+
+- **Appositive outer-class lexicalization, 2026-09-20:** selected one
+  compatible subject/tail endpoint pair before lexicalizing 81 appositive and
+  participial interiors. It made 3,315 live checks, retained controls to 89
+  letters, and promoted zero exact rows. The next topology uses typed endpoint
+  pairs with held-out interiors and agreement-preserving participles. Artifact:
+  `runs/appositive-outer-class-lexicalization-20260920.json`.
+
+- **Two-letter outer-class grammar, 2026-09-20:** indexed eight fresh
+  subject/tail endpoint classes before expanding a forward SVO/clause product.
+  It rendered 30 complete controls to 64 letters, with zero exact rows. The
+  next topology carries the endpoint obligations into the interior grammar
+  instead of stopping after top-level agreement. Artifact:
+  `runs/outer-class-conditioned-grammar-20260920.json`.
+
+- **Prelexical three-turn dialogue, 2026-09-20:** selected three speaker/act
+  boundary signatures before emitting intact dialogue turns. It retained three
+  complete authored exchanges to 122 letters and pruned one incompatible
+  boundary, with zero exact rows. The next topology replaces fixed names with
+  typed role signatures across all three turns. Artifact:
+  `runs/typed-dialogue-three-turn-20260920.json`.
+
+- **Imperative/relative temporal adjunct, 2026-09-20:** combined subject-gap
+  and object-gap relative alternatives with a held-out temporal constituent in
+  nine live states. All states pruned before a complete prose construction;
+  zero exact rows were produced. The next topology pairs two complete scenes
+  with asymmetric temporal adjunct placement. Artifact:
+  `runs/imperative-relative-temporal-20260920.json`.

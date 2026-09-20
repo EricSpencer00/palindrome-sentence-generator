@@ -11,7 +11,9 @@ from pathlib import Path
 WORDS={
  'det':('the','a'), 'noun':('cat','dog','man','woman'), 'verb':('sees','likes','runs','sees'),
  'obj':('tea','sun','dog'), 'adv':('now','well')}
-TEMPLATES=(('det','noun','verb','det','obj'),('verb','det','obj'),('det','noun','verb'),('det','noun','verb','adv'))
+TEMPLATES=(('det','noun','verb','det','obj','adv','det','noun'),
+ ('det','noun','verb','det','obj','adv','det','noun','adv'),
+ ('det','noun','verb','det','obj','det','noun','verb','adv','obj','adv','det'))
 
 def letters(s): return ''.join(c for c in s if c.isalpha()).lower()
 def audit(s):
@@ -24,6 +26,7 @@ class Edge:
 class ForwardGrammar:
  def __init__(self, max_words=16):
   self.edges=[]; self.out={}; self.inn={}; self.accept=set(); self.start=0; self._next=1
+  self.edge_labels={'dependency':'subject-object scope','number':'singular/plural agreement','valency':'verb frame satisfied'}
   # A single acyclic character trie, with spaces represented as boundaries.
   prefixes={"":0}
   for typ in TEMPLATES:
@@ -73,12 +76,13 @@ def run():
  packed_rows=[]
  for end in sorted(g.accept):
   def search(p,q,left,right):
-   if p==q:
+   if p==q and p in g.accept:
     for tape, parity in ((left+right, 'even'),):
      if 8<=len(tape.split())<=16 and 39<=len(letters(tape))<=80:
       packed_rows.append({'rendered':tape,'center_parity':parity,'audit':audit(tape)})
     # An odd center is the single forward edge between the two cursors.
     for mid in g.out.get(p,[]):
+     if mid.dst not in g.accept: continue
      tape=left+mid.ch+right
      if 8<=len(tape.split())<=16 and 39<=len(letters(tape))<=80:
       packed_rows.append({'rendered':tape,'center_parity':'odd','audit':audit(tape)})

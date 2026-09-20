@@ -3118,3 +3118,15 @@ scale test, not a readability claim; the next construction applies
 position-domain lexical arc consistency over held-out alternatives before
 choosing the next grammar factor. Artifact:
 `runs/global-forward-sentence-csp-20260920.json`.
+
+The position-domain arc-consistency implementation then made that correction
+explicit and testable. A 32-case exhaustive differential test passed for both
+odd and even centers and unequal word boundaries. On the 44/52/60 target
+lengths it reproduced 5,485 states and 30,746 live prunes, with zero complete
+parses and zero exact candidates above 38; the two intact controls retained
+independent pointer/SHA audits. Because the bounded search is numerically the
+same frontier, this result is a correctness/representation result rather than
+a claimed generation gain. The next construction orders grammar factors by
+minimum remaining mirrored-support domain and propagates support across
+adjacent factors. Artifact:
+`runs/position-domain-arc-consistency-csp-20260920.json`.

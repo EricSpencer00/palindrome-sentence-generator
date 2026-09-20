@@ -5838,3 +5838,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   above 38. The next construction is position-domain lexical arc consistency
   over held-out alternatives. Artifact:
   `runs/global-forward-sentence-csp-20260920.json`.
+
+- **Position-domain arc consistency, 2026-09-20:** passed a 32-case
+  exhaustive differential test covering odd/even centers and unequal word
+  boundaries, then reproduced the global search frontier at lengths 44/52/60:
+  5,485 states, 30,746 live prunes, 0 complete parses, and 0 exact
+  candidates above 38. This is a correctness result, not a generation gain.
+  The next operator orders grammar factors by minimum remaining support and
+  propagates adjacent-factor domains. Artifact:
+  `runs/position-domain-arc-consistency-csp-20260920.json`.

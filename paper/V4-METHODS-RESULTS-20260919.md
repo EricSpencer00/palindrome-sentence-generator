@@ -2625,6 +2625,13 @@ its fresh Brown-derived domains produced zero exact closures at the 40-letter
 gate. Both runs preserve their concrete next expansion rather than relaxing
 the exactness or intact-prose gates.
 
+The next seam-first construction enumerated four complete authored clauses on
+each side and compared their exposed cross-word characters before any claim of
+closure. It rendered 16 intact broad-English controls, including a 76-letter
+cartographer/harbor scene, but no exact candidate. The known 38-letter anchor
+was held out of the enumeration and never emitted. This is a new forward
+construction frontier, not a repair of a failed rendered sentence.
+
 The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row

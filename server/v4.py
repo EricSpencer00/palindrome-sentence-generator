@@ -118,6 +118,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_weighted_brown_relative_beams": "Two complete finite-relative beams crossed with two complete clause tails: four grammatical controls, zero quarantined fragments, and zero exact candidates above 38 letters",
         "latest_forward_phrase_equation": "Two forward-authored phrase banks produced 12 online transitions; 10 pruned at live mismatch, zero surviving states, zero rendered candidates",
         "latest_agreement_valency_wfsa": "Agreement/valency-aware clause-final WFSA over fresh Brown-derived domains: zero exact closures at the 40-letter gate",
+        "latest_fresh_heteropalindrome_seam": "Four by four complete-clause cross-word seam enumeration: 16 fresh candidates, best 76-letter control, zero exact closures; the 38-letter anchor stayed held out",
         "reader_study": "not run",
     },
 }

@@ -50,6 +50,21 @@ class GraphPath:
     def exact(self) -> bool:
         return tape(self.render()) == tape(self.render())[::-1]
 
+    def admissible_frame(self) -> bool:
+        """Require a complete SVO or imperative role chain on both mirrors."""
+        roles = self.roles
+        return roles in (("subject", "verb", "object"), ("verb", "object"))
+
+    def audit(self) -> dict[str, bool]:
+        units = [tape(e.left) for e in self.edges]
+        return {
+            "exact": self.exact(),
+            "complete_frame": self.admissible_frame(),
+            "boundary_shift": any(e.seam_shift for e in self.edges),
+            "no_repeated_units": len(units) == len(set(units)),
+            "no_repeated_edges": len(self.edges) == len({(e.left, e.right) for e in self.edges}),
+        }
+
 
 def build_graph(edges: Iterable[RoleEdge]) -> Mapping[str, tuple[RoleEdge, ...]]:
     """Index only exact, cross-word edges; malformed edges never enter."""

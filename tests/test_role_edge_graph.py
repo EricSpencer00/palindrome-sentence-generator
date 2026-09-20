@@ -12,6 +12,7 @@ def test_edges_and_role_path_are_exact_before_rendering():
     assert all(path.exact() for path in paths)
     assert paths[-1].roles == ("subject", "verb", "object")
     assert tape(paths[-1].render()) == tape(paths[-1].render())[::-1]
+    assert all(all(path.audit().values()) for path in paths if path.admissible_frame())
 
 
 def test_malformed_edges_are_not_repaired_into_graph():

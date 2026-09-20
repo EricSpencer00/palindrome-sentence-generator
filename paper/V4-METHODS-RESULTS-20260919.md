@@ -1803,3 +1803,13 @@ evidence and diagnostics only.
 The next reader-facing test is a randomized blinded intact-prose versus
 shuffled-control rating with independent raters and explicit exclusions.
 The reverse-lexicon typed-clause prototype was a distinct construction attempt, not a repair pass, but it is rejected as evidence. Although it constructed a reversed lexicon, the implementation did not query that index, and its residual-buffer invariant has not been independently established. Its 1,978,436-prune/0-closure result and SHA-256 artifact are retained for debugging only; they supply no readability or search-frontier claim.
+
+The recursive CFG/orbit lane tested genuine relative-clause and coordination
+productions in authored parse trees, then independently audited their character
+orbits. This implementation is explicitly diagnostic rather than a live
+frontier generator, so it is not claimed as simultaneous construction. A
+bounded run visited 6,000 recursive-tree states and retained 24 intact
+contemporary controls (maximum 38 letters), but found no exact candidate above
+38 letters. Pointer, SHA, and proper-span checks are retained in
+`runs/recursive-cfg-orbit-20260920.json`; this result does not certify
+readability and is not promoted to the reader package.

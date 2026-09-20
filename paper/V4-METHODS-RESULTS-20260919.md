@@ -668,6 +668,17 @@ orbit steps, or exact closures. This closes the current conjunction/attachment
 family for now; the next productive step is a broader character-conditioned
 lexical grammar rather than another local attachment variant.
 
+The broader character-conditioned lexical-trie grammar then changed the search
+space rather than the attachment template. It indexed each role in forward and
+reverse tries, selected individual words under the live character obligation,
+and supported complete SVO, PP, and transitive relative paths (`REL V DET N`).
+The corrected run visited 180,000 bounded states, produced no incomplete
+relative path, and closed zero exact rows above 38 letters. The first draft's
+bare `REL V` path is explicitly superseded and contributes no evidence. This
+is the current stopped lexical baseline; the next construction must add a
+different semantic center or a larger complete-role grammar, not repair a
+rendered tape.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

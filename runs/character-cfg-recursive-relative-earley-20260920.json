@@ -1,0 +1,43 @@
+{
+  "experiment_id": "character-cfg-recursive-relative-earley-20260920",
+  "method": "character-level CFG/Earley intersection with recursive relative items and agreement features",
+  "grammar": [
+    "S -> NP VP",
+    "NP -> DET NOUN | DET NOUN REL",
+    "REL -> who VP",
+    "VP -> V NP"
+  ],
+  "stats": {
+    "left_derivations": 180,
+    "right_derivations": 180,
+    "left_chart_states": 5508,
+    "right_chart_states": 5508,
+    "intersection_character_states": 10800,
+    "exact": 0,
+    "reader_eligible": 0,
+    "longest_mirrored_prefix_letters": 1
+  },
+  "complete_prose_controls": [
+    "The sailor who reads the area guards the harbor.",
+    "A quiet poet who writes a poem marks the garden."
+  ],
+  "best_diagnostic": {
+    "letters": 1,
+    "left": "a area guides a area",
+    "right": "a area guides a area"
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-recursive-relative-agreement-20260920",
+    "catalogue_imported": false,
+    "fixed_bank_sweep": false,
+    "distinct_from": "character-cfg-earley-trie-intersection-20260920"
+  },
+  "next_construction": "Permit relative attachment to the object NP and carry an explicit attachment feature through the paired chart; keep lexical terminals fixed.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

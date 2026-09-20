@@ -6442,6 +6442,17 @@
       "distinction": "Replaces the compact lexical bank with held-out common-word POS/number/valency alternatives and retains the two-factor exact global solver. It does not emit copied corpus sentences: one forward grammar assigns variable boundaries and live palindrome factors while lookahead checks adjacent lexical support. No pair enumeration, reversal, repair, mirrored units, or catalogue replay.",
       "reader_evidence": false,
       "status": "Differential test passed; target lengths 44/56/68/80: represented-language counts recorded, 19,757 states, 9,340 complete prose diagnostics, 0 exact candidates above 38; pointer/SHA audits retained; next changes grammar topology rather than further lexical widening"
+    },
+    {
+      "id": "coordinated-clause-global-csp-20260920",
+      "signature": "coordinated-clause-topology|two-independent-agreement-states|global-position-factors",
+      "artifact": "experiments/coordinated_clause_global_csp_20260920.py",
+      "run_artifacts": [
+        "runs/coordinated-clause-global-csp-20260920.json"
+      ],
+      "distinction": "Changes grammar topology to a live conjunction joining two independently typed clauses, each with its own agreement/valency state, while one forward CSP assigns variable-boundary characters directly. Distinct from center/bridge/relative/endpoint lanes and scheduler variants; no reversal, repair, mirrored units, or catalogue replay.",
+      "reader_evidence": false,
+      "status": "Target lengths 44/56/68/80: 15,720 states and 59,324 live factor prunes, 0 complete parses or exact candidates above 38; complete readable controls independently pointer/SHA audited; next is embedded-complement topology"
     }
   ],
   "excluded": [

@@ -1,0 +1,40 @@
+{
+  "experiment_id": "phrase-cfg-appositive-crossed-roles-20260920",
+  "method": "crossed maritime/writing roles in appositive NP clauses",
+  "grammar": [
+    "S -> NP APP NP VP NP",
+    "APP -> , DET NP ,",
+    "S S -> ;"
+  ],
+  "stats": {
+    "left_clauses": 240,
+    "right_clauses": 240,
+    "crossed_role_states": 6240,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 1
+  },
+  "complete_prose_controls": [
+    "The sailor, a poet, guards the letter; the writer, a captain, reads the harbor.",
+    "A keeper, the guide, marks the shore; a poet, the sailor, writes the notes."
+  ],
+  "best_diagnostic": {
+    "matched": 1,
+    "left": "some sailor , some sailor , guards letter",
+    "right": "some sailor , some sailor , guards notes"
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-appositive-crossed-roles-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-shared-although-connective-20260920"
+  },
+  "next_construction": "Try a dialogue-turn topology with explicit speaker and utterance roles, retaining hard exact admission.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

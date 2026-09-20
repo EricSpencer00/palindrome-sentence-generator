@@ -440,10 +440,11 @@ The subsequent slot-pair construction makes the boundary state explicit. For
 two complete determiner--subject--verb clause templates (one with a modifier
 and one with an adjunct), it chooses the first and last words independently,
 compares the exposed prefix and reversed suffix immediately, and retains
-unequal word lengths in buffers so a match may cross a word boundary. All 36
-live states in the expanded bank were pruned before a complete sentence, with
-zero exact closures. This is the right geometry for scaling the search; the
-bank, not an off-tape sentence, must now grow.
+unequal word lengths in buffers so a match may cross a word boundary. With up
+to 24 Brown-PCFG entries per role, 621 live states across the two templates
+were pruned before a complete sentence, with zero exact closures. This is the
+right geometry for scaling the search; inflection-safe valency partitions, not
+an off-tape sentence, must now grow.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

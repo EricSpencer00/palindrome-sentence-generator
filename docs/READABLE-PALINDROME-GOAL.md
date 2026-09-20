@@ -6223,3 +6223,37 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   near-miss diagnostics; 0 exact candidates above 38 survived. The next
   construction adds a counterfactual connector edge. Artifact:
   `runs/word-boundary-conditional-subordinator-20260920.json`.
+
+- **Deontic modal-passive topology, 2026-09-20:** introduced a typed
+  `must-being` deontic state before the modal-passive beneficiary/agent/theme
+  frame. Across target lengths 44/56/68/80 it visited 1,336 states and made
+  496 live factor prunes, with 0 complete parses and 0 exact candidates above
+  38. The next construction is epistemic modal passive. Artifact:
+  `runs/deontic-modal-passive-csp-20260920.json`.
+
+- **Multi-step role/attachment trie join, 2026-09-20:** joined independent
+  role and attachment residuals over 162 trie steps. It retained 81 complete
+  prose diagnostics to 93 letters but found 0 partial-compatible joins and 0
+  exact candidates above 38. The controls remain diagnostics, not reader
+  outputs, because the exact and shortcut gates fail. Artifact:
+  `runs/multistep-role-trie-join-20260920.json`.
+
+- **Counterfactual connector graph, 2026-09-20:** added a typed irrealis
+  `even if` connector with past-tense attachment to the word-boundary event
+  graph. Four frames incurred 3,538,944 live boundary prunes and produced 0
+  exact candidates above 38; the next construction adds epistemic irrealis
+  scope. Artifact: `runs/word-boundary-counterfactual-graph-20260920.json`.
+
+- **Epistemic modal-passive topology, 2026-09-20:** introduced a held-out
+  `might-being` epistemic scope state before the beneficiary/agent/theme frame.
+  Across target lengths 44/56/68/80 it visited 1,278 states and made 460 live
+  factor prunes, with 0 complete parses and 0 exact candidates above 38. The
+  next construction is a possibility modal passive. Artifact:
+  `runs/epistemic-modal-passive-csp-20260920.json`.
+
+- **Epistemic-irrealis connector graph, 2026-09-20:** added a typed
+  `perhaps when` relation with explicit tense and attachment state to the
+  counterfactual event graph. Four frames incurred 3,833,856 live boundary
+  prunes and produced 0 exact candidates above 38; the next construction adds
+  a possibility-bearing connector with modal scope. Artifact:
+  `runs/word-boundary-epistemic-irrealis-graph-20260920.json`.

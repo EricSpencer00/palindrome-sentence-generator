@@ -122,7 +122,7 @@ multiword palindrome span:
 | Relation/setting debt trace (diagnostic) | Records residual traces across two slots while retaining an explicitly arbitrary filter | 6 states; 4 complete prose controls to 90 letters; diagnostic only | 0 / 0 |
 | Unequal center-crossing grammar | Carries a two-character buffer across an unequal center before rendering | 16 typed pairings; 0 buffer survivors and 0 rendered candidates | 0 / 0 |
 | Wider unequal-center buffer | Propagates an exact unmatched buffer through unequal subject/verb slots | 243 typed states; all pruned before rendering | 0 / 0 |
-| Two-sided unmatched-buffer DP | Stores actual unmatched buffers on both word streams and prunes on mismatch | 18 transitions; 17 pruned, 0 surviving states, 0 rendered candidates | 0 / 0 |
+| Two-sided unmatched-buffer DP | Stores actual unmatched buffers on both word streams in reverse-facing order and prunes on mismatch | 9 orientation-correct transitions; 9 pruned, 0 surviving states, 0 rendered candidates | 0 / 0 |
 | Variable-buffer adjunct-trie DP | Adds variable-length word-trie transitions and independently authored adjunct slots to the live buffer | 8 slots; 4 transitions, 4 pruned, 0 rendered candidates | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
@@ -2463,7 +2463,9 @@ wider subject/verb variant propagated the unmatched buffer through 243 states
 and pruned all of them. Finally, a two-sided word-trie DP stored unmatched
 characters on both streams rather than a scalar similarity score: 18
 transitions were attempted, 17 were rejected by an actual buffer mismatch, and
-the final live frontier was empty. These are precise zero-frontier results,
+the final live frontier was empty. An orientation fixture separately confirms
+that a forward right-side word is inserted reverse-facing before comparison.
+These are precise zero-frontier results,
 not failed reader candidates; the next construction widens only the
 buffer-compatible subject/agent classes before adding adjuncts.
 

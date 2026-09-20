@@ -96,7 +96,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_residual_relation_setting": "4 prose controls to 90 letters; debt trace diagnostic only because its filter was arbitrary",
         "latest_center_crossing_unequal_grammar": "16 unequal clause pairings; zero two-character center-buffer survivors and zero rendered candidates",
         "latest_unequal_center_buffer_grammar": "243 unequal typed states; all pruned before rendering, zero exact candidates",
-        "latest_two_sided_unmatched_buffer_dp": "18 explicit-buffer transitions; 17 pruned, zero live states and zero rendered candidates",
+        "latest_two_sided_unmatched_buffer_dp": "9 orientation-correct explicit-buffer transitions; all pruned, zero live states and zero rendered candidates",
         "latest_variable_buffer_adjunct_trie_dp": "8 slots and 4 variable-buffer transitions; all pruned before rendering, zero exact candidates",
         "reader_study": "not run",
     },

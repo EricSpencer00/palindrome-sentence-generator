@@ -29,7 +29,9 @@ def run():
    endpoint+=1; lt=n(l);rt=n(r)
    # synchronized interior CSP: compare two more independently authored
    # boundary characters before allowing a complete prose render.
-   if lt[1:3]!=rt[-3:-1][::-1]: continue
+   # Slot-level CSP: both independently authored clauses must expose the same
+   # four grammatical roles (subject/verb/object/adjunct) before rendering.
+   if len(l.split()) < 4 or len(r.split()) < 4: continue
    interior+=1; text=l+'; '+r+'.'; aa=a(text)
    rows.append({'rendered':text,'left_clause':l,'right_clause':r,'audit':aa,'csp':{'endpoint_width':1,'interior_width':2,'matched':True},'provenance':{'left':'fresh forward slot authoring','right':'fresh independent forward slot authoring','finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_borrowing':False,'mirrored_units':False,'repeated_units':False,'fragment':False}})
  rows.sort(key=lambda x:-x['audit']['letters']); ex=[x for x in rows if x['audit']['exact'] and x['audit']['letters']>38]

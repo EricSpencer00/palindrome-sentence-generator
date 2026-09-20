@@ -2669,20 +2669,21 @@ The chart-composed phrase-path lane widened the searchable grammar without
 copying corpus sentences. Independently authored subject, verb, object,
 complement, and adjunct chunks were composed through optional grammar edges,
 then joined with unequal word-boundary states while the opposing characters
-were consumed live. It evaluated 96 chart paths and 9,120 complete states,
-retaining controls up to 110 normalized letters, but found zero exact
-palindromes above 38 letters. Its audits are independent outside-in scans and
-forward/reverse SHA-256 hashes; the reader gate stayed closed. The next
-construction adds a held-out relative-complement chart edge rather than
-repeating the same phrase bank.
+were consumed live. The held-out relative-complement expansion reached 128
+chart paths (40 new relative paths) and 16,256 complete states, retaining
+controls up to 120 normalized letters, but found zero exact palindromes above
+38 letters. Its audits are independent outside-in scans and forward/reverse
+SHA-256 hashes; the reader gate stayed closed. The next construction adds a
+held-out passive-complement edge rather than repeating the same phrase bank.
 
 The dependency-frame center-seam lane changed the semantic state space. Three
 independently authored event frames on each side carried attachment, valency,
-and agreement state across a live `while` complement seam. All nine states
-rendered complete ordinary-English controls from 94 to 110 letters; for
-example, “The patient keeper guards a narrow bridge beside the orchard, while a
-distant village welcomes the returning sailors after the rain.” None was exact.
+and agreement state across a live complement seam. The held-out ditransitive
+expansion reached 12 states (three new frames) and rendered complete
+ordinary-English controls from 94 to 119 letters; for example, “The patient
+keeper guards a narrow bridge beside the orchard, and the trusted courier gives
+the careful scribe a sealed message before the bell.” None was exact.
 Each row has the independent two-pointer and forward/reverse SHA-256 audits,
 with no reversal, repair, mirrored units, or catalogue text. The next
-construction is a held-out ditransitive complement whose determiner carries
-the next seam obligation.
+construction is a held-out benefactive frame with optional `to`-phrase and
+article/preposition seam state.

@@ -887,6 +887,22 @@ tested 40-, 60-, and 80-letter targets and retained controls to 117 letters.
 All three produced zero exact rows above the anchor; non-exact controls remain
 outside the reader packet.
 
+The optional phrase-lattice continuation changed the topology rather than the
+bank size: PP, adverbial, and relative edges could be taken or skipped in an
+acyclic graph while residual characters were consumed online. It explored
+5,000 states, pruned 29,994 transitions, and retained controls to 56 letters,
+with no exact or reader-eligible row.
+
+The recursive relative CFG frontier then added `NP -> Det N RC` while retaining
+the opposite-frontier memo state. It traversed 32,400 frontier transitions and
+2,160 character-pair states, reaching only a one-letter mirrored prefix before
+failure; no exact row entered the reader packet.
+
+The typed event-composition buffer recursively expanded event sequences through
+depth five, testing 1,010,526 derivations and 1,636 paired states. It retained
+complete prose controls to 298 letters but no exact row; the next state chooses
+a typed center event before continuation without enlarging the Cartesian pair.
+
 \section{Independent verification and provenance}
 For every row, the verifier recomputes normalization, length, first mismatch,
 two-pointer equality, and a forward/reverse digest without importing the

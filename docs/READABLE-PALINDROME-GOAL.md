@@ -7171,3 +7171,26 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   with 576 obligation prunes and zero exact rows. The next topology introduces
   a typed event-composition nonterminal with a wider obligation buffer. Artifact:
   `runs/length-scaled-constructive-grammar-20260920.json`.
+
+- **Optional phrase lattice, 2026-09-20:** replaced fixed phrase paths with an
+  acyclic optional PP/ADV/REL lattice and asynchronous residual consumption.
+  It explored 5,000 states, made 29,994 prunes, and retained four intact prose
+  controls to 56 letters; zero exact rows were produced. The next topology adds
+  one held-out finite relative edge with antecedent agreement, not another
+  adjunct sweep. Artifact: `runs/optional-phrase-lattice-20260920.json`.
+
+- **Recursive relative CFG frontier, 2026-09-20:** expanded `S -> NP VP` with
+  recursive relative clauses and memoized opposite-frontier word boundaries.
+  It traversed 32,400 frontier transitions and 2,160 character-pair states;
+  the best mirrored prefix was one letter, with zero exact rows. Complete
+  controls remain diagnostic. The next topology carries agreement through
+  paired recursive subject/object nonterminals. Artifact:
+  `runs/recursive-relative-cfg-frontier-20260920.json`.
+
+- **Typed event-composition buffer, 2026-09-20:** recursively composed typed
+  events through depth 5 with a wide live obligation buffer. It tested
+  1,010,526 derivations and 1,636 paired states, retaining complete prose
+  controls to 298 letters; zero exact rows were produced. The next topology
+  selects a typed center event before continuation without enlarging the
+  Cartesian pairing. Artifact:
+  `runs/typed-event-composition-buffer-20260920.json`.

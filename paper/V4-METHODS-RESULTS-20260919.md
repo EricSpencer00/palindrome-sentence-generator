@@ -4397,3 +4397,22 @@ Cartesian sweeps. Artifacts:
 `runs/bidirectional-cfg-word-boundary-intersection-20260920.json`,
 `runs/phrase-lattice-convolution-20260920.json`, and
 `runs/length-scaled-constructive-grammar-20260920.json`.
+
+The optional phrase-lattice continuation replaced fixed paths with an acyclic
+PP/ADV/REL graph. It explored 5,000 states and made 29,994 residual prunes,
+retaining four complete controls to 56 letters and no exact row. Its next state
+adds one held-out finite relative edge with antecedent agreement; it is not an
+adjunct-only sweep. Artifact: `runs/optional-phrase-lattice-20260920.json`.
+
+The recursive relative CFG frontier added `NP -> Det N RC` and memoized
+opposite-frontier word boundaries. It traversed 32,400 frontier transitions
+and 2,160 character-pair states, reaching only a one-letter mirrored prefix and
+zero exact rows. Its complete controls remain outside the reader packet. Artifact:
+`runs/recursive-relative-cfg-frontier-20260920.json`.
+
+The typed event-composition buffer then recursively composed event sequences
+through depth five. It tested 1,010,526 derivations and 1,636 paired states,
+retaining complete prose controls to 298 letters but no exact row. The next
+state selects a typed center event before continuation without widening the
+Cartesian pairing. Artifact:
+`runs/typed-event-composition-buffer-20260920.json`.

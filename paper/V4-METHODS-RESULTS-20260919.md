@@ -591,6 +591,16 @@ is longer than the existing anchor, and no row above 38 letters closed; this is
 therefore a real readability-preserving construction win and a clear next
 experiment (wider variable phrase banks), not evidence that repair can scale.
 
+The next variable-grammar construction changed the semantic shape rather than
+just increasing the bank: both sides had two finite events, with optional
+relative-clause or prepositional expansions from a held-out authored bank.
+Residual character buffers were consumed after every phrase edge. The run
+visited 180,000 states and rejected 1,243,165 transitions immediately; it
+closed zero exact rows above 38 letters. This is a valid stopped grammar family
+because its complete-path invariant is explicit. The next construction must
+change how semantic roles are paired across the center, not repeat this
+two-event state budget.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates five deterministic blinded

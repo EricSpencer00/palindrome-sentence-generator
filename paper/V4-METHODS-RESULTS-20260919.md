@@ -4324,3 +4324,17 @@ The two-center-relation scope grammar authored complete clauses around two
 typed relations with a compatibility gate. It checked 648 states and pruned
 648, retaining controls to 91 letters and promoting zero exact rows. Artifact:
 `runs/center-two-relation-scope-20260920.json`.
+
+The fresh dialogue grammar composed 36 punctuation-bearing vocative,
+declarative, and reply exchanges with an online opening equation. The longest
+intact dialogue was 39 letters; all exact and reader-facing lists were empty.
+The next construction assigns typed speaker roles and two-character
+turn-boundary obligations without reusing turns. Artifact:
+`runs/fresh-dialogue-vocative-grammar-20260920.json`.
+
+The imperative/relative online CSP crossed 16 complete command/relative pairs
+and 130 online states. It retained independently audited complete prose
+diagnostics up to 75 letters, with zero online completions and zero exact rows
+above 38. The next construction adds held-out transitive/intransitive
+imperative frames with subject-gap and object-gap relative attachments.
+Artifact: `runs/imperative-relative-online-csp-20260920.json`.

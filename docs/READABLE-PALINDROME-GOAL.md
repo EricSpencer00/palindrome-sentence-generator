@@ -7079,3 +7079,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   two typed center relations with a scope-compatibility gate. It checked 648
   states, pruned 648, retained controls to 91 letters, and promoted 0 exact
   rows. Artifact: `runs/center-two-relation-scope-20260920.json`.
+
+- **Fresh dialogue vocative grammar, 2026-09-20:** composed 36
+  punctuation-bearing vocative/declarative/reply exchanges with online opening
+  checks. The longest intact dialogue was 39 letters; every exact and
+  reader-facing list was empty. The next topology assigns typed speaker roles
+  and two-character turn-boundary obligations without reusing a turn. Artifact:
+  `runs/fresh-dialogue-vocative-grammar-20260920.json`.
+
+- **Imperative/relative online CSP, 2026-09-20:** crossed 16 complete
+  command/relative pairs and 130 online states. It retained complete prose
+  diagnostics up to 75 letters, with zero online completions and zero exact rows
+  above 38. The next topology adds held-out transitive/intransitive imperative
+  frames with subject-gap and object-gap relative attachments. Artifact:
+  `runs/imperative-relative-online-csp-20260920.json`.

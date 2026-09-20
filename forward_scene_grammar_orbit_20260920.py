@@ -7,7 +7,7 @@ def audit(s):
  t=n(s);m=next(((i,t[i],t[-i-1]) for i in range(len(t)//2) if t[i]!=t[-i-1]),None)
  return {'letters':len(t),'exact':bool(t) and m is None,'first_mismatch':m,'sha256_forward':hashlib.sha256(t.encode()).hexdigest(),'sha256_reverse':hashlib.sha256(t[::-1].encode()).hexdigest()}
 SCENES=(('the lantern keeper','checks the harbor','before the tide'),('a patient gardener','waters the roses','after the rain'),('our young cartographer','marks the valley','at first light'))
-MIRROR_SCENES=(('the night watch','opens the gate','near the shore'),('a quiet singer','folds the letter','by the window'),('our old neighbor','mends the chair','before sunrise'))
+MIRROR_SCENES=(('the night watch','opens the gate','at sunset'),('a quiet singer','folds the letter','near a plaza'),('our old neighbor','mends the chair','into the echo'))
 def run():
  rows=[];states=0;pruned=0
  for a in SCENES:

@@ -3807,3 +3807,22 @@ agreement. It retained 192 complete scenes up to 238 letters, with zero exact
 candidates above 38; the next construction moves aspect into a live
 lexical-edge residual automaton. Artifact:
 `runs/four-edge-aspectual-chain-20260920.json`.
+
+The cadence-compatible discourse branch added held-out discourse-source frames
+while preserving evidential, polarity, modal, and tense compatibility, role
+agreement, and PP attachment. It retained four vivid diagnostics up to 121
+letters after eight seam prunes, but zero exact candidates above 38; the next
+construction adds quotation frames. Artifact:
+`runs/cadence-discourse-adjunct-growth-20260920.json`.
+
+The typed optional-adjunct branch added a strict-gated optional edge. It
+retained 36 paired controls up to 148 letters, with 36 mismatch transitions and
+zero exact candidates above 38. The next construction adds adjunct attachment
+agreement and scope state. Artifact:
+`runs/synchronized-valency-tries-optional-adjunct-20260920.json`.
+
+The aspectual edge residual automaton carried simple, progressive, and perfect
+states into 96 live lexical-edge transitions and 96 boundary prunes. It
+retained diagnostics up to 127 letters, with zero exact candidates above 38;
+the next construction synchronizes two aspect streams. Artifact:
+`runs/aspectual-edge-residual-automaton-20260920.json`.

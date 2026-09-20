@@ -6527,3 +6527,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   0 exact candidates above 38. The next construction moves aspect into a live
   lexical-edge residual automaton. Artifact:
   `runs/four-edge-aspectual-chain-20260920.json`.
+
+- **Cadence-compatible discourse adjunct growth, 2026-09-20:** added held-out
+  discourse-source frames while preserving evidential, polarity, modal, and
+  tense compatibility, role agreement, and PP attachment. The depth-three run
+  retained four vivid diagnostics up to 121 letters after eight seam prunes,
+  with 0 exact candidates above 38. The next construction adds quotation
+  frames. Artifact: `runs/cadence-discourse-adjunct-growth-20260920.json`.
+
+- **Typed optional adjunct edge, 2026-09-20:** added a typed optional adjunct
+  edge under the strict reader gate. It retained 36 paired controls up to 148
+  letters, with 36 mismatch transitions and 0 exact candidates above 38. The
+  next construction adds adjunct attachment agreement and scope state. Artifact:
+  `runs/synchronized-valency-tries-optional-adjunct-20260920.json`.
+
+- **Aspectual edge residual automaton, 2026-09-20:** carried simple,
+  progressive, and perfect aspect states into 96 live lexical-edge transitions
+  and 96 boundary prunes, retaining diagnostics up to 127 letters and 0 exact
+  candidates above 38. The next construction synchronizes two aspect streams.
+  Artifact: `runs/aspectual-edge-residual-automaton-20260920.json`.

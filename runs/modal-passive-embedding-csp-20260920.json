@@ -1,0 +1,95 @@
+{
+  "experiment_id": "modal-passive-embedding-csp-20260920",
+  "method": "global forward passive ditransitive-embedding grammar CSP over held-out typed lexical factors",
+  "results": [
+    {
+      "target_length": 44,
+      "represented_forward_language_count": "7679688081408",
+      "states": 211,
+      "prunes": 84,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 56,
+      "represented_forward_language_count": "553379846108011330403605413888",
+      "states": 325,
+      "prunes": 140,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 68,
+      "represented_forward_language_count": "10703922944229519330909695368498631451056096404316356608",
+      "states": 409,
+      "prunes": 224,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 80,
+      "represented_forward_language_count": "13568834345049266644767606319602465351457648689512737482109389827556234217139478724608",
+      "states": 509,
+      "prunes": 324,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "The patient sailor could be given the chart by the teacher because a careful gardener carries a lantern through the orchard.",
+      "audit": {
+        "letters": 103,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "97409435e7451abe03692e4c99dd85bbcc5f5fea09c098b320013f6f736ce4ac",
+        "sha256_reverse": "9aefecf72ab9620eb0af363c01a7fec44c44b6ac37eb361e1e5d5c3e6ecc9e80",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "A young scholar could be given the lesson by the keeper because a quiet keeper guards the gate near the lighthouse.",
+      "audit": {
+        "letters": 94,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "778b130f08fc3cd05eab3aa2b99d7f08143deab8155b8e61d47039e1c376ec38",
+        "sha256_reverse": "5a3d443348e263d2e8e8f192ae54b1949d9ffecc6e215ab9e103bba8ebb086aa",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_checked": 612,
+    "signature": "modal-passive-embedding|beneficiary-agent-theme-state|global-position-factors",
+    "distinct_from": "passive-ditransitive/coordination/finite-complement/relative/center/bridge/endpoint lanes: a modal passive matrix adds modal scope before carrying beneficiary, agent, and theme roles"
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "source_text": "held-out common-word typed bank, no copied sentences",
+    "reader_evidence": false,
+    "reader_gate": "closed until exact >38 and blinded ratings"
+  },
+  "next_construction": {
+    "name": "aspectual modal embedding topology",
+    "operator": "Add a held-out aspectual modal passive frame with explicit beneficiary/agent/theme roles; keep live position factors and preflight a new signature first.",
+    "reader_facing_test": "retain complete prose only, independently audit exact closures above 38, then blinded intact-vs-shuffled ratings"
+  },
+  "status": "diagnostic lane; no exact candidate above 38"
+}

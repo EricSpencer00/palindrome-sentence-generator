@@ -1,0 +1,82 @@
+{
+  "experiment_id": "bottom-up-cfg-character-intersection-20260920",
+  "method": "bottom-up synchronous CFG/CKY character intersection",
+  "chart_sizes": {
+    "NP": 87,
+    "VP": 1105,
+    "PP": 200,
+    "REL": 96
+  },
+  "complete_clause_derivations": 86016,
+  "stats": {
+    "states": 120000,
+    "combines": 120000,
+    "pruned": 120000,
+    "exact": 0
+  },
+  "exact_candidates": [],
+  "complete_prose_controls": [
+    {
+      "rendered": "a sailor keeps the lantern in the garden",
+      "audit": {
+        "letters": 33,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          32
+        ],
+        "sha256_forward": "f49cb678dfa1b4efd5eaf63cdc6ca85c824377680bcc20faa9a09d2add51250d",
+        "sha256_reverse": "33f5524bfd627fbcd0d227a06cfc7a1290d3ef4466cfaaca78414b59cb3ee766",
+        "sha_equal": false
+      },
+      "reader_status": "intact control; not exact candidate"
+    },
+    {
+      "rendered": "the poet reads old letters by the river",
+      "audit": {
+        "letters": 32,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          31
+        ],
+        "sha256_forward": "7aa23d9c62e365193ac9fcc858b04ecdbc1a4582306a93a4ace356d1567fddd2",
+        "sha256_reverse": "91a91650585c87bbcd4e3a9e58aa75d537522e96a53bbf31be48b9233f3bfa17",
+        "sha_equal": false
+      },
+      "reader_status": "intact control; not exact candidate"
+    },
+    {
+      "rendered": "an aide rips nine memos",
+      "audit": {
+        "letters": 19,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          18
+        ],
+        "sha256_forward": "789ebff082e963bbc2fbea1e1c07059b524425e97f5c717fdcc61e835c9f2ef2",
+        "sha256_reverse": "3ff8bb9c3c12bc6124b83c185eeabb371a313612e9e10bf5bddddfd606a28285",
+        "sha_equal": false
+      },
+      "reader_status": "intact control; not exact candidate"
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "bottom-up-cky|paired-constituent-chart|live-cross-boundary-residual",
+    "outer_in_trie_sweep": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "lexicon": "authored role banks",
+    "independent_audit": "two-pointer mismatch plus forward/reverse SHA-256",
+    "reader_evidence": false
+  },
+  "status": "no exact >38 closure",
+  "next_construction": "add semantic recipient and adjunct nonterminal families",
+  "reader_gate": "closed until blinded human ratings"
+}

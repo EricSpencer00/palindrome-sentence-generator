@@ -30,11 +30,16 @@ INTACT_CONTROLS = (
     "The herald carries the letter through the hall; the actors keep the oath near the grove.",
 )
 
-# Fresh exact-by-construction output awaiting human judgment.  The package
-# deliberately keeps this as an unlabeled passage in the rater form; exactness
-# is disclosed only in the separated answer key.
-GENERATED_CANDIDATES = (
-    ("semordnilap-noel-scene-56", "semordnilap-poetic-clause-20261001", "No evil Noel deliver desserts raw; war stressed reviled Leon live on."),
+# This exact line is retained as a diagnostic, but excluded from reader
+# comparisons because its aligned reversed-token geometry violates the
+# no-shortcuts gate.  It must not be allowed to inflate readability evidence.
+WITHDRAWN_DIAGNOSTICS = (
+    {
+        "source_id": "semordnilap-noel-scene-56",
+        "source": "semordnilap-poetic-clause-20261001",
+        "text": "No evil Noel deliver desserts raw; war stressed reviled Leon live on.",
+        "reason": "withdrawn: aligned whole-token semordnilap chain; cross-word seam required",
+    },
 )
 
 
@@ -55,10 +60,6 @@ def _frontier() -> list[dict[str, object]]:
     rows = [
         {"source_id": "best-known-38", "source": "half-tape-grammar-csp-20260919", "text": BEST_KNOWN_TEXT},
     ]
-    rows.extend(
-        {"source_id": source_id, "source": source, "text": text}
-        for source_id, source, text in GENERATED_CANDIDATES
-    )
     rows.extend(
         {"source_id": f"intact-control-{i}", "source": "authored-reader-control", "text": text}
         for i, text in enumerate(INTACT_CONTROLS, 1)
@@ -103,6 +104,7 @@ def build(seed: int = SEED) -> dict[str, object]:
         "status": "blinded_package_ready_human_ratings_pending",
         "rater_form": {"instructions": "Rate only connected English. Ignore length, exactness, and source.", "items": rater_items},
         "answer_key": answer_key,
+        "excluded_diagnostics": list(WITHDRAWN_DIAGNOSTICS),
         "reproducibility": {
             "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             "randomization": "Python Random with explicit integer seed; answer key is separate from rater form",

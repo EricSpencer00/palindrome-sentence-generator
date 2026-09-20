@@ -10854,6 +10854,40 @@
       "distinction": "Adds an authored proper-name/war scene template to the online token-pair intersection and exposes exact reader candidates before any human readability claim; no catalogue text, repeated/self-palindromic content units, finished-tape reversal, or repair.",
       "reader_evidence": false,
       "status": "3 exact closures recorded, including the 56-letter Noel/Leon scene; 1 grammar-preflight reader candidate is queued for blinded human ratings, with reader_worthy_candidates=0 until ratings exist"
+    },
+    {
+      "id": "proper-name-scene-online-20260919",
+      "signature": "proper-name-scene|fronted-adjunct|cross-word-seam",
+      "artifact": "experiments/proper_name_scene_online_20260919.py",
+      "run_artifacts": [
+        "runs/proper-name-scene-online-20260919.json",
+        "docs/PROPER-NAME-SCENE-SEAM-20260919.md"
+      ],
+      "distinction": "Emits two complete authored event clauses in ordinary order while requiring a mirrored cross-word boundary shift; it does not admit aligned token pairs or repair a rendered draft.",
+      "reader_evidence": false,
+      "status": "512 remote candidates, longest 77 letters, 0 exact closures; valid intact controls retained and the next lane must add lexical cross-boundary segmentation"
+    },
+    {
+      "id": "cross-boundary-exact-lattice-20260919",
+      "signature": "cross-boundary-segmentation|online-exact-tape|authored-clause",
+      "artifact": "experiments/cross_boundary_exact_lattice_20260919.py",
+      "run_artifacts": [
+        "runs/cross-boundary-exact-lattice-20260919.json"
+      ],
+      "distinction": "Tests phrase-level opposing segmentation under an exact character obligation instead of aligned semordnilap tokens. The prototype is retained only as a failure record because its greedy fallback emitted single-letter pseudo-words; the next version requires a full lexical and grammatical parse.",
+      "reader_evidence": false,
+      "status": "3 exact 62–64-letter tapes, all rejected as gibberish by the no-fragment gate; no reader candidate"
+    },
+    {
+      "id": "role-edge-graph-20260919",
+      "signature": "role-edge-automaton|multiword-seam-filter|online-path",
+      "artifact": "llm_palindrome/role_edge_graph.py",
+      "run_artifacts": [
+        "runs/role-edge-graph-20260919.json"
+      ],
+      "distinction": "A role-transition graph rejects one-token and repeated-edge shortcuts before composing exact phrase edges; retained as a negative diagnostic until phrase edges are independently grammatical and nonrepeating.",
+      "reader_evidence": false,
+      "status": "exact graph paths exist, but the demonstration inventory is not reader-eligible prose; do not promote"
     }
   ]
 }

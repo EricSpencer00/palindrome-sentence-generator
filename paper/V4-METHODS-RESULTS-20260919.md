@@ -403,11 +403,20 @@ including “was deliver desserts drawer; reward stressed reviled saw.” Every
 one failed the intact-prose gate: these are exact lexical demonstrations, not
 readable outputs. They are retained as independently audited method evidence;
 the proper-name/scene extension then generated the following 56-letter exact
-reader candidate (shown with editorial punctuation only): “No evil, Noel,
-deliver desserts raw; war—stressed, reviled—Leon, live on.” Its normalized
-tape has zero pointer mismatches and identical forward/reverse SHA-256. It is
-queued in the blinded reader package, but no programmatic grammar preflight is
-being counted as readability evidence; human ratings are still pending.
+diagnostic (shown with editorial punctuation only): “No evil, Noel, deliver
+desserts raw; war—stressed, reviled—Leon, live on.” Its normalized tape has
+zero pointer mismatches and identical forward/reverse SHA-256, but the entire
+construction is an aligned reversed-token chain. We therefore withdraw it
+from reader comparisons under the no-shortcuts gate; it is not evidence of
+readability.
+
+The first cross-word-seam follow-up required a boundary shift on both sides
+and retained complete authored scene clauses. Its 512 remote controls reached
+77 letters but had zero exact closures. A phrase-segmentation prototype then
+closed three 62--64-letter tapes, but its greedy fallback emitted isolated
+letters on the opposing side. Those rows are rejected as gibberish; the next
+version must require a full lexical segmentation and grammatical parse before
+an exact tape can enter the reader queue.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

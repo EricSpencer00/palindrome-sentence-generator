@@ -1,0 +1,77 @@
+{
+  "experiment_id": "authored-phrase-pair-graph-scene-expanded-20260920",
+  "method": "expanded authored Shakespearean phrase-pair graph with complete scene/dialogue frames",
+  "stats": {
+    "left_chunks": 20,
+    "right_chunks": 20,
+    "compatible_pairs": 35,
+    "composition_states": 1920,
+    "exact_fresh": 0
+  },
+  "exact_candidates": [],
+  "baseline_control": {
+    "rendered": "An aide rips nine memos; some men inspire Diana.",
+    "audit": {
+      "letters": 38,
+      "exact": true,
+      "first_mismatch": null,
+      "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "sha_equal": true
+    },
+    "excluded_from_generated_candidates": true
+  },
+  "controls": [
+    {
+      "rendered": "The young bard guards the crown near the moon.",
+      "audit": {
+        "letters": 37,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "efd166f5065d6dd88e692779ac8df0cebc534804494f1ad52e5b68934c568043",
+        "sha256_reverse": "2aa1cbe954895945555d8cf04813e991a3028e85acdc831e5ae7b1ca272ffabe",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    },
+    {
+      "rendered": "The fair queen asks whether the old king answers that a quiet court sings.",
+      "audit": {
+        "letters": 60,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "sha256_forward": "b2c02a89900dfd1e4274ce719327a2b5ff836cf540e02c3d47634b7a95d4a413",
+        "sha256_reverse": "10fe5b07571901a4fe5fed7df1b8da4e79930b7600370d38da5633cf819f71d8",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "authored-phrase-pair-graph-expanded|40-nonpalindromic-chunks|cross-boundary-spans|complete-scene-valency",
+    "distinct_from": "prior sparse phrase graph; expanded authored non-palindromic chunk inventory and 4\u20136-chunk scene/dialogue frames",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "chunk_source": "new human-authored Shakespearean scene/dialogue phrases",
+    "audits": [
+      "independent two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed unless fresh exact rows appear",
+    "next_reader_test": "blinded intact-scene versus shuffled controls"
+  },
+  "status": "no fresh exact >38 candidate"
+}

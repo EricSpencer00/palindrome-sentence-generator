@@ -1,0 +1,89 @@
+{
+  "experiment_id": "crossing-consequence-scene-csp-20260920",
+  "method": "factorized scene/consequence grammar with internally crossing boundary equations during lexical choice",
+  "results": [
+    {
+      "target_length": 44,
+      "states": 2112,
+      "prunes": 768,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 56,
+      "states": 2304,
+      "prunes": 768,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 68,
+      "states": 2592,
+      "prunes": 768,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 80,
+      "states": 3304,
+      "prunes": 768,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "The patient sailor studies the northern chart, and so the harbor brightens.",
+      "audit": {
+        "letters": 62,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "sha256_forward": "d1e7555bd04b3347412819924ca2a65911d4cfd8071b5846791933a9de0f6f32",
+        "sha256_reverse": "d124975a3e28c7f1905d14a9abc73735d31bc1c316091704f12d6ca920270684",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "A careful gardener carries a silver lantern, therefore the garden opens.",
+      "audit": {
+        "letters": 60,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "s"
+        ],
+        "sha256_forward": "2f4279717830074d5be15c9cc86374b00a6d04a0f1f44a42fb66e3539c096c8e",
+        "sha256_reverse": "4ebcfd32ea99b02cd1808148ab3df45553d40b9f14f6d441fcdda2fffee7953a",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_checked": 661,
+    "signature": "crossing-consequence-scene|internal-boundary-equations|factorized-lexical-choice",
+    "distinct_from": "three-seam first/last-class automata and clause-pair products: object, conjunction, and consequence factors cross internally in one complete scene grammar while position equations are solved during lexical choice; no repair, reversal, repetition, mirrored units, or catalogue"
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed until exact >38 and blinded ratings"
+  },
+  "next_construction": {
+    "name": "crossing-relative-consequence grammar",
+    "operator": "Add one held-out relative consequence factor with attachment state, preserving internal crossing equations and complete prose; preflight a new signature first.",
+    "reader_facing_test": "retain exact >38 only, independently audit, then blinded intact-vs-shuffled ratings"
+  },
+  "status": "diagnostic lane; no exact candidate above 38"
+}

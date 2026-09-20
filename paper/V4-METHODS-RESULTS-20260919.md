@@ -1875,3 +1875,14 @@ candidate is independently checked by a two-pointer mismatch audit and
 forward/reverse SHA-256 digest; the n-gram score is diagnostic ordering only.
 The result is recorded in `runs/char-cfg-ngram-intersection-20260920.json` and
 is not reader evidence; the blinded human gate remains closed.
+
+The inflectional/clitic boundary CSP changed the construction variables rather
+than enlarging the clause bank. It carried explicit inflectional and clitic
+choices while consuming the opposite-end character obligation online with a
+correct residual operation. Three bounded plans visited 3 live states and
+pruned 75 incompatible obligations; three authored intact controls were
+rendered and no exact candidate above 38 letters emerged. Independent
+two-pointer and forward/reverse SHA-256 audits, provenance, and anti-shortcut
+flags are retained in `runs/inflectional-clitic-boundary-csp-20260920.json`.
+This is diagnostic construction evidence only; the human reader gate remains
+closed.

@@ -3305,3 +3305,15 @@ prunes, with zero complete parses and zero exact candidates above 38. The two
 progressive controls (105 and 114 letters) were independently pointer/SHA
 audited. The next topology is inchoative modal passive embedding. Artifact:
 `runs/progressive-modal-passive-csp-20260920.json`.
+
+The three-event attachment-graph lane extended the word-boundary grammar with
+a third finite event, a distinct attachment index, and tense state. Four
+frames incurred 147,456 live boundary prunes and retained 20 grammatical
+near-miss diagnostics to 137 letters, including “The patient gardener who
+records the note returns the patient drawer that the scribe records and that
+the gardener guards and the courier notes the date before dusk.”; zero exact
+candidates above 38 survived. This diagnostic demonstrates scalable prose
+expansion but is not admitted as a reader-eligible palindrome. The next
+construction adds a fourth event relation with the same explicit attachment
+graph and tense state. Artifact:
+`runs/word-boundary-third-event-graph-20260920.json`.

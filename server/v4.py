@@ -169,6 +169,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_aspectual_modal_passive": "Aspectual modal passive embedding: 44/56/68/80 search visited 1,390 states and made 532 live factor prunes, with zero complete parses and zero exact candidates above 38",
         "latest_fresh_semordnilap_author": "Fresh prose-first semordnilap authoring: 768 complete question/scene renderings to 35 letters, zero exact candidates above 38 or 50, with 720 endpoint rejections, shortcut rejection, and independent audits",
         "latest_progressive_modal_passive": "Progressive modal passive embedding: 44/56/68/80 search visited 1,406 states and made 408 live factor prunes, with zero complete parses and zero exact candidates above 38",
+        "latest_third_event_attachment_graph": "Three-event attachment graph: four frames incurred 147,456 live boundary prunes and retained 20 grammatical near-misses to 137 letters, with zero exact candidates above 38",
         "reader_study": "not run",
     },
 }
@@ -1849,6 +1850,23 @@ LUNA_PARALLEL_RUNS = [
         "provenance": "one forward ProgressiveModalPassiveMatrix(beneficiary, agent, theme) -> complementizer -> EmbeddedClause grammar with progressive/modal scope and live position factors; no reversal, repair, mirrored units, catalogue text, or sentence-pair enumeration",
         "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
         "next_construction": "add a held-out inchoative modal passive frame with explicit beneficiary/agent/theme roles; preflight a new signature",
+    },
+    {
+        "run_id": "word-boundary-third-event-graph-20260920",
+        "method": "bounded word-boundary grammar automaton with three finite event relations, explicit theme-headed attachment graph, and tense state",
+        "status": "completed_no_exact_closure",
+        "frames": 4,
+        "live_boundary_prunes": 147456,
+        "rendered_candidates": 0,
+        "near_miss_count": 20,
+        "longest_near_miss_letters": 137,
+        "exact_candidates_over_38": 0,
+        "reader_eligible": False,
+        "example_near_miss": "The patient gardener who records the note returns the patient drawer that the scribe records and that the gardener guards and the courier notes the date before dusk.",
+        "first_live_diagnostic": "first outer mismatch t versus k after third-event attachment-graph expansion",
+        "provenance": "hand-authored ordinary lexical edges with three coordinated finite events, explicit theme-headed attachment graph, distinct indices, and finite tense state; no finished-tape reversal, repair, mirrored units, catalogue text, or fragments",
+        "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
+        "next_construction": "add a fourth event relation with explicit attachment graph and tense state",
     },
 ]
 

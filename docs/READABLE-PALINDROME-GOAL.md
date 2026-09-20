@@ -6010,3 +6010,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   above 38. Two progressive controls (105 and 114 letters) passed independent
   pointer/SHA audits. The next topology is inchoative modal passive embedding.
   Artifact: `runs/progressive-modal-passive-csp-20260920.json`.
+
+- **Three-event attachment graph, 2026-09-20:** extended the word-boundary
+  grammar with a third finite event, a distinct attachment index, and tense
+  state. Four frames incurred 147,456 live boundary prunes and retained 20
+  grammatical near-miss diagnostics to 137 letters, including `The patient
+  gardener who records the note returns the patient drawer that the scribe
+  records and that the gardener guards and the courier notes the date before
+  dusk.`; 0 exact candidates above 38 survived. This is a construction result,
+  not a reader-eligible output. The next construction adds a fourth event
+  relation with the same explicit attachment graph and tense state. Artifact:
+  `runs/word-boundary-third-event-graph-20260920.json`.

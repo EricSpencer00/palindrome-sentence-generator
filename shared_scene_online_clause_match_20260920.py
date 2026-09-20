@@ -11,6 +11,9 @@ SCENES=(('agent','archive','artifact'),('agent','protect','place'),('agent','obs
 SUBJ=(('the archivist','agent'),('a gardener','agent'),('our teacher','agent'))
 VERBS=(('records','archive'),('guards','protect'),('notices','observe'))
 OBJS=(('the map','artifact'),('the garden','place'),('a letter','message'))
+RIGHT_SUBJ=('the keeper','a scholar','our poet')
+RIGHT_VERBS=('tends','marks','reads')
+RIGHT_OBJS=('the roses','the ledger','a verse')
 def online(left,right):
  a,b=letters(left),letters(right)[::-1]; checked=0
  for x,y in zip(a,b):
@@ -19,12 +22,12 @@ def online(left,right):
  return len(a)<=len(b),checked,None
 def run():
  rows=[]; prunes=0
- for (scene,sv,so),(s,sr),(v,vr),(o,orr) in itertools.product(SCENES,SUBJ,VERBS,OBJS):
+ for (scene,sv,so),(s,sr),(v,vr),(o,orr),(rs,rv,ro) in itertools.product(SCENES,SUBJ,VERBS,OBJS, itertools.product(RIGHT_SUBJ,RIGHT_VERBS,RIGHT_OBJS)):
   if sr!='agent' or vr!=sv or orr!=so: continue
-  left=f'{s} {v} {o}'; right=f'{o} {v} {s}'
+  left=f'{s} {v} {o}'; right=f'{rs} {rv} {ro}'
   ok,checked,mm=online(left,right)
-  rendered=f'{left}, while {s} {v} {o}.'
-  rec={'rendered':rendered,'scene':{'agent':s,'event':sv,'theme':o},'online_match':{'accepted':ok,'characters_checked':checked,'mismatch':mm},'audit':audit(rendered),'provenance':{'lexicon':'fresh hand-authored semantic-role lexicon','scene_graph':scene,'finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'word_order_symmetry':False,'repeated_units':False,'self_palindromic_units':False,'fragment':False}}
+  rendered=f'{left}, while {right}.'
+  rec={'rendered':rendered,'scene':{'agent':s,'event':sv,'theme':o,'follow_up':{'agent':rs,'event':rv,'theme':ro}},'online_match':{'accepted':ok,'characters_checked':checked,'mismatch':mm},'audit':audit(rendered),'provenance':{'lexicon':'fresh hand-authored semantic-role lexicon','scene_graph':scene,'finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'word_order_symmetry':False,'repeated_units':left==right,'self_palindromic_units':False,'fragment':False}}
   if ok: rows.append(rec)
   else:
    prunes+=1

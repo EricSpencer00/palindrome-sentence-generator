@@ -57,7 +57,7 @@ def agreement_compatible(subject: Slot, subject_word: str, verb: Slot, verb_word
 
 def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
     rendered: list[dict[str, object]] = []
-    states = pruned = 0
+    states = pruned = agreement_pruned = 0
 
     def walk(
         lo: int,
@@ -71,7 +71,7 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
         selected_features: tuple[tuple[str, str], ...] = (),
         selected_words: tuple[tuple[str, str], ...] = (),
     ) -> None:
-        nonlocal states, pruned
+        nonlocal states, pruned, agreement_pruned
         if len(rendered) >= limit:
             return
         if lo > hi:
@@ -133,6 +133,7 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
                 if subj and verb_slot and "subject" in words and "verb" in words:
                     if not agreement_compatible(subj, words["subject"], verb_slot, words["verb"]):
                         pruned += 1
+                        agreement_pruned += 1
                         continue
                 if feats.get("subject") and feats.get("verb") and feats["subject"] != feats["verb"]:
                     pruned += 1
@@ -168,7 +169,7 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
     walk(0, len(template) - 1, "", "", tuple(), tuple(), False, tuple())
     return {
         "candidates": rendered,
-        "stats": {"states": states, "pruned": pruned, "exact": len(rendered)},
+        "stats": {"states": states, "pruned": pruned, "agreement_pruned": agreement_pruned, "exact": len(rendered)},
     }
 
 
@@ -259,6 +260,7 @@ def main() -> None:
     result = {"candidates": [c for r in runs for c in r["candidates"]],
               "stats": {"states": sum(r["stats"]["states"] for r in runs),
                         "pruned": sum(r["stats"]["pruned"] for r in runs),
+                        "agreement_pruned": sum(r["stats"]["agreement_pruned"] for r in runs),
                         "exact": sum(r["stats"]["exact"] for r in runs)}}
     result.update({
         "experiment_id": "slot-pair-character-search-20260919",
@@ -272,6 +274,7 @@ def main() -> None:
             "distinct_words": True,
             "brown_frame_counts": frame_counts,
             "penn_agreement_frames": penn_frames,
+            "penn_map_sizes": {role: len(values) for role, values in penn_maps.items()},
         },
     })
     Path("runs/slot-pair-character-search-20260919.json").write_text(json.dumps(result, indent=2) + "\n")

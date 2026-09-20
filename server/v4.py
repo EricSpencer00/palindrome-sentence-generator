@@ -1033,6 +1033,9 @@ SLOT_PAIR_CHARACTER_RUN = {
     "pruned_states": 220,
     "frame_lexical_banks": True,
     "subject_object_banks_separate": True,
+    "word_feature_maps": True,
+    "penn_map_sizes": {"subject": 1275, "verb": 609},
+    "agreement_pruned_states": 0,
     "boundary_index": "first exposed character to right-word final character",
     "tag_source": "NLTK Brown universal POS counts",
     "brown_frame_counts": {"det_noun_verb_det_noun": 864, "det_noun_verb_prep": 1991},
@@ -1043,7 +1046,7 @@ SLOT_PAIR_CHARACTER_RUN = {
     "provenance": "independent outer slots are selected together; unequal word lengths remain in prefix/suffix buffers so obligations may cross word boundaries; no paired clauses, aligned token mirrors, finished-tape reversal, fallback, catalogue text, or post-hoc repair",
     "independent_validation": ["online prefix/suffix character gate", "literal two-pointer", "forward/reverse SHA-256"],
     "reader_status": "no complete candidate reached the reader gate",
-    "next_construction_discriminator": "carry the Penn number/verb features through Slot state; this run only measured their availability and did not yet apply them",
+    "next_construction_discriminator": "expand the feature-conditioned banks and carry a second compatible inner clause/adjunct state; this run reached no agreement-conflict frontier",
 }
 
 READER_PACKAGE = {

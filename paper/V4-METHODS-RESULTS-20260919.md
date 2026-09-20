@@ -124,6 +124,9 @@ multiword palindrome span:
 | Wider unequal-center buffer | Propagates an exact unmatched buffer through unequal subject/verb slots | 243 typed states; all pruned before rendering | 0 / 0 |
 | Two-sided unmatched-buffer DP | Stores actual unmatched buffers on both word streams in reverse-facing order and prunes on mismatch | 9 orientation-correct transitions; 9 pruned, 0 surviving states, 0 rendered candidates | 0 / 0 |
 | Variable-buffer adjunct-trie DP | Adds variable-length word-trie transitions and independently authored adjunct slots to the live buffer | 8 slots; 4 transitions, 4 pruned, 0 rendered candidates | 0 / 0 |
+| Center-out scene buffer | Grows independently authored event scenes from the center with variable buffers and attachment state | 3 scene transitions; all pruned before rendering | 0 / 0 |
+| Reverse-trie typed grammar | Traverses a reverse-facing right-clause trie with deque residuals and unequal word boundaries | 12,001 nodes; 0 rendered candidates; malformed repeated-unit row quarantined | 0 / 0 |
+| Prosodic-skeleton diagnostic | Ranks fresh clauses by aggregate word-length shapes without a live character equation | 16 fresh controls to 79 letters; post-render diagnostic only | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
 discriminator: 16 independently authored clause pairs were rendered above 38
@@ -2474,3 +2477,19 @@ independently authored adjunct slots. It attempted eight slot positions, made
 four transitions, and pruned all four on actual buffer mismatch. The live
 frontier again reached zero before any prose was rendered; this is a concrete
 construction boundary, not a reader result.
+
+The same invariant was then applied to three complete event scenes carrying
+semantic attachment state. All three scene transitions were rejected at the
+live character mismatch, leaving no rendered prose and no reader packet. This
+confirms that the buffer state is active while showing that the scene bank
+needs compatible reverse-facing openings before adjunct growth can begin.
+
+The reverse-trie typed grammar then widened the search to 12,001 nodes with a
+deque residual and unequal word boundaries. Its only longest diagnostic row
+was malformed and repeated content (“a artist” / “this captain”), so it is
+quarantined rather than counted as a candidate; the corrected run has zero
+rendered and zero reader-eligible exact rows. A separate prosodic-skeleton
+probe used only aggregate word-length shapes from the quarantined catalogue to
+rank 16 freshly authored controls (maximum 79 letters). Because that score is
+computed after rendering and never enforces a character equation, it remains a
+prose diagnostic, not generation evidence.

@@ -4162,6 +4162,26 @@ The next construction adds semantic compatibility between the center predicate
 and ordered roles. Artifact:
 `runs/author-first-role-agreement-20260920.json`.
 
+The reverse-tense-attachment lane carried tense/aspect state alongside typed
+subject/object/relative attachment through held-out reverse segmentation. It
+checked 32 forward candidates and 32 typed states, found zero reverse parse
+hits, and produced zero exact candidates above 38; the longest diagnostic was
+56 letters. The next construction carries reverse voice attachment state.
+Artifact: `runs/reverse-tense-attachment-segmentation-20260920.json`.
+
+The attached-adjunct CFG lane added explicit time, location, and setting
+attachment owners. It checked 81 typed transitions, pruned 81, and reached
+zero exact candidates above 38; the longest control was 36 letters. The next
+construction allows two distinct attached adjuncts with separate semantic
+owners. Artifact: `runs/bounded-cfg-attached-adjuncts-20260920.json`.
+
+The author-first semantic-compatibility lane required compatibility between the
+center predicate and ordered outward roles. It retained 144 compatible
+diagnostics after 144 online prunes, up to 80 letters, with zero exact
+candidates above 38. The next construction adds semantic entailment between
+the event predicate and typed outer setting. Artifact:
+`runs/author-first-semantic-compatibility-20260920.json`.
+
 The reader-gate hygiene pass audited 20 historical artifacts and moved every
 non-exact or shortcut-prone control out of `reader_facing_candidates` into
 `diagnostic_controls`, while protecting borrowed/catalogue rows. This makes the

@@ -6903,6 +6903,28 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   between the center predicate and ordered roles. Artifact:
   `runs/author-first-role-agreement-20260920.json`.
 
+- **Reverse tense attachment, 2026-09-20:** carried tense/aspect state
+  alongside typed subject/object/relative attachment through held-out reverse
+  segmentation. It checked 32 forward candidates and 32 typed states, found 0
+  reverse parse hits, and produced 0 exact candidates above 38; the longest
+  diagnostic was 56 letters. The next construction carries reverse voice
+  attachment state. Artifact:
+`runs/reverse-tense-attachment-segmentation-20260920.json`.
+
+- **Attached-adjunct CFG, 2026-09-20:** added explicit time, location, and
+  setting attachment owners to paired CFG productions. It checked 81 typed
+  transitions, pruned 81, and reached 0 exact candidates above 38; the longest
+  control was 36 letters. The next construction allows two distinct attached
+  adjuncts with separate semantic owners. Artifact:
+  `runs/bounded-cfg-attached-adjuncts-20260920.json`.
+
+- **Author-first semantic compatibility, 2026-09-20:** required semantic
+  compatibility between the center predicate and ordered outward roles. It
+  retained 144 compatible diagnostics after 144 online prunes, up to 80
+  letters, with 0 exact candidates above 38. The next construction adds
+  semantic entailment between the event predicate and typed outer setting.
+  Artifact: `runs/author-first-semantic-compatibility-20260920.json`.
+
 - **Reader-gate hygiene, 2026-09-20:** audited 20 historical run artifacts
   and moved every non-exact or shortcut-prone control out of
   `reader_facing_candidates` into `diagnostic_controls`. Borrowed/catalogue

@@ -57,6 +57,7 @@ def test_v4_evaluate_returns_repair_feedback_without_certifying_readability():
     assert body["rlaif"]["human_evidence_required"] is True
     assert body["promotion"]["reader_status"] == "not_run"
     assert "Shakespearean" in body["rlaif"]["framework"]
+    assert body["rlaif"]["broad_english_target"] is True
     assert body["rlaif"]["scores"]["dramatic_cadence_diagnostic"] > 0
     assert body["rlaif"]["repairs"]
 

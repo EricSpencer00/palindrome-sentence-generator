@@ -2,10 +2,12 @@
 
 v4 is deliberately an evidence surface, not another unblinded generator.  It
 exposes the strongest independently constructed candidate, its provenance,
-and two independent exactness checks.  The evaluation endpoint is a
-Shakespearean/RLAIF-inspired diagnostic only: it never edits a tape or drives
-post-hoc repair.  Readability remains a blinded-reader decision, and new
-palindromes must be generated on the live character/grammar constraints.
+and two independent exactness checks.  The evaluation endpoint's historical
+"Shakespearean" labels are shorthand for broad, vivid English readability;
+they are diagnostic only, never a literal style requirement, and never edit a
+tape or drive post-hoc repair.  Readability remains a blinded-reader decision,
+and new palindromes must be generated on the live character/grammar
+constraints.
 """
 from __future__ import annotations
 
@@ -110,7 +112,7 @@ AI_FEEDBACK_RUN = {
     "search_uses_feedback": False,
     "readability_certified": False,
     "blind_human_readers_required": True,
-    "rubric": "0-3 intact English, scene coherence, Shakespearean cadence; length ignored",
+    "rubric": "0-3 broad English readability, scene coherence, and cadence (legacy Shakespearean field names retained); length ignored",
     "scores": [
         {
             "run_id": "character-trie-grammar-decoder-20260919",
@@ -1255,9 +1257,9 @@ def _rlaif_diagnostic(text: str, checks: Mapping[str, bool], audit: Mapping[str,
     """Give repair-oriented language feedback without pretending to be human data.
 
     The rubric deliberately prefers a concrete scene, grammatical cadence,
-    and varied syntax—the qualities a Shakespearean line needs—while keeping
-    every score explicitly diagnostic.  It is not a trained reward model and
-    never promotes an item to readable output.
+    and varied syntax—the broad-English qualities the project wants—while
+    keeping every score explicitly diagnostic.  It is not a trained reward
+    model and never promotes an item to readable output.
     """
     words = _word_tokens(text)
     content = [
@@ -1270,9 +1272,9 @@ def _rlaif_diagnostic(text: str, checks: Mapping[str, bool], audit: Mapping[str,
     cadence = min(1.0, (_std(lengths) / 3.0) + (0.15 if re.search(r"[,;:!?]", text) else 0.0))
     grammar = 1.0 if checks.get("word_form") and lexical else 0.35 if words else 0.0
     exactness = 1.0 if audit.get("exact") else 0.0
-    # These axes are deliberately interpretable Shakespearean craft prompts:
-    # image, agency, turn, and cadence.  They are a repair rubric, not a
-    # reward model and not a substitute for a reader response.
+    # These legacy axes are interpretable broad-English craft prompts: image,
+    # agency, turn, and cadence.  They are a diagnostic rubric, not a reward
+    # model, a literal style constraint, or a substitute for reader response.
     concrete = {"aide", "memos", "men", "diana", "bard", "rose", "shore", "moon", "river"}
     image = min(1.0, len(set(content) & concrete) / 3.0) if content else 0.0
     agency = 1.0 if re.search(r"\b(?:a|an|the|some)\s+\w+\s+\w+", text.casefold()) else 0.0
@@ -1284,11 +1286,11 @@ def _rlaif_diagnostic(text: str, checks: Mapping[str, bool], audit: Mapping[str,
     elif scene < 0.5:
         feedback = (
             "Exact closure is mechanically real, but the line is semantically thin: replace abstract or repeated slots "
-            "with a named actor, a concrete object, and one consequential Shakespearean action before any reader test."
+            "with a named actor, a concrete object, and one consequential action before any reader test."
         )
     elif len(audit.get("normalized", "")) < 80:
         feedback = (
-            "Compact dramatic image, but not yet a full Shakespearean movement: preserve the aide/memos/Diana scene "
+            "Compact vivid image, but not yet a full readable movement: preserve the aide/memos/Diana scene "
             "while extending it with a subject-led clause, a strong verb, and a consequential second beat."
         )
     else:
@@ -1296,7 +1298,8 @@ def _rlaif_diagnostic(text: str, checks: Mapping[str, bool], audit: Mapping[str,
 
     return {
         "status": "diagnostic_only",
-        "framework": "RLAIF-inspired Shakespearean repair rubric",
+        "framework": "RLAIF-inspired broad-English readability diagnostic (legacy Shakespearean field names retained)",
+        "broad_english_target": True,
         "certifies_readability": False,
         "human_evidence_required": True,
         "scores": {

@@ -1837,8 +1837,11 @@ finite-verb/object, and clause-final), and repeated content-word cycles are
 rejected before beam ranking.  Beam ranking now prioritizes short residuals,
 balanced edge progress, paired characters, grammar completion, then length and
 lexical diversity; a bounded per-round progress window prevents one-sided
-growth from monopolizing the beam.  It reached 10 live states after 12 rounds
-and recorded 1,647 character conflicts plus 2,280 repeated-cycle rejections;
+growth from monopolizing the beam.  Nonterminal transitions now require both
+edges to add a word; empty-side transitions are permitted only after clause
+completion.  The rerun retained no one-word right suffix as a nonterminal
+state, and recorded 66 character conflicts, 74 one-sided-stall rejections, and
+0 repeated-cycle rejections before the stricter stall gate exhausted the beam;
 it produced no exact candidate above 38 letters.  The result is useful as a
 constructive discriminator: residuals can remain live across word boundaries,
 but the current continuation inventory needs relative/appositive constructions

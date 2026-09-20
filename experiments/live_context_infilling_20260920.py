@@ -77,7 +77,7 @@ RIGHT_PREPENDS = {"idea": (("an",), ()), "an": (("found",), ()),
                   "night": (("at",), ()), "at": (("watched",), ()),
                   "watched": (("reader",), ())}
 CONT = {
-    "A": (("careful",), ("patient",), ("quiet",)),
+    "A": (("careful",), ("patient",), ("quiet",), ("name",)),
     "The": (("young",), ("old",), ("kind",), ("watchful",)),
     "careful": (("reader",), ("teacher",)), "patient": (("writer",),),
     "quiet": (("sailor",), ("poet",)), "young": (("teacher",), ("artist",)),
@@ -122,8 +122,10 @@ def consume(s: State, left: tuple[str, ...], right: tuple[str, ...]):
     old_right = s.right_tape
     left_add = norm(" ".join(left))[len(old_left):]
     # Prepending right words exposes their characters from right to left.
-    right_full = norm(" ".join(right))
-    right_add = right_full[:len(right_full) - len(old_right)][::-1]
+    # The caller prepends whole words; derive only those new words rather
+    # than slicing letters (which would overlap the old first character).
+    new_word_count = len(right) - len(s.right_words)
+    right_add = norm(" ".join(right[:new_word_count]))[::-1]
     residual = s.residual
     side = s.residual_side
     consumed = 0
@@ -227,6 +229,11 @@ def run() -> dict:
                 for rc in right_choices:
                     nl = s.left_words + tuple(lc)
                     nr = tuple(rc) + s.right_words
+                    left_complete = "clause-final" in s.left_grammar_state
+                    right_complete = "clause-final" in s.right_grammar_state and len(s.right_words) > 1
+                    if (not left_complete or not right_complete) and (not lc or not rc):
+                        rejects.setdefault("one_sided_stall", 0); rejects["one_sided_stall"] += 1
+                        continue
                     if not readable_shape(nl, nr):
                         rejects["shape"] += 1; continue
                     if repeated_content(nl) or repeated_content(nr):

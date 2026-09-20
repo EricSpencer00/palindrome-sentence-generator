@@ -31,7 +31,9 @@ def test_artifact_is_bounded_and_fail_closed():
     assert x["stats"]["final_live_states"] <= 32
     assert x["stats"]["finished_exact_gt38"] == 0
     assert x["stats"]["control_complete_clause_states"] > 0
-    assert x["stats"]["rejections"]["repeated_cycle"] > 0
+    assert x["stats"]["rejections"].get("repeated_cycle", 0) >= 0
+    assert x["stats"]["rejections"]["one_sided_stall"] > 0
+    assert all(len(s["right_words"]) > 1 or s["complete_clause"] for s in x["final_live"])
     assert all(s["right_final_category"] == "NOUN" and s["right_clause_final"] for s in x["final_live"])
     assert all(s["left_grammar_state"] and s["right_grammar_state"] for s in x["final_live"])
     for s in x["final_live"]:

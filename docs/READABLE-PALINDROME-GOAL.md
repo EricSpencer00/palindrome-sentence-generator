@@ -7093,3 +7093,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   above 38. The next topology adds held-out transitive/intransitive imperative
   frames with subject-gap and object-gap relative attachments. Artifact:
   `runs/imperative-relative-online-csp-20260920.json`.
+
+- **Typed speaker-turn obligations, 2026-09-20:** composed 81 alternating
+  captain/witness dialogues with 6,543 online character checks. Complete
+  exchanges reached 169 letters, but no exact row closed; the first boundary
+  mismatch is retained as the construction diagnostic. The next topology uses
+  typed three-turn exchanges and chooses speaker-boundary signatures before
+  lexicalization. Artifact: `runs/typed-speaker-turn-obligations-20260920.json`.
+
+- **Appositive/participial scene grammar, 2026-09-20:** jointly selected a
+  named subject, appositive, participial adjunct, predicate, object, and tail
+  across 243 complete single-sentence constructions. It made 11,400 live
+  checks, retained grammatical scenes to 104 letters, and promoted zero exact
+  rows. The next topology selects outer subject/tail character classes before
+  lexicalizing the interior. Artifact:
+  `runs/appositive-participial-scene-20260920.json`.
+
+- **Imperative/relative role alternation, 2026-09-20:** crossed 108 complete
+  transitive/intransitive command frames with subject-gap and object-gap
+  relative attachments. All 108 were independently audited prose controls up
+  to 79 letters, with zero exact rows above 38. The next topology pairs the two
+  relative roles with a held-out temporal adjunct. Artifact:
+  `runs/imperative-relative-role-alternation-20260920.json`.

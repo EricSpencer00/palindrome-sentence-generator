@@ -4338,3 +4338,24 @@ diagnostics up to 75 letters, with zero online completions and zero exact rows
 above 38. The next construction adds held-out transitive/intransitive
 imperative frames with subject-gap and object-gap relative attachments.
 Artifact: `runs/imperative-relative-online-csp-20260920.json`.
+
+The typed speaker-turn lane composed 81 alternating captain/witness dialogues
+with 6,543 online two-character checks. Complete exchanges reached 169 letters,
+but no exact row closed; the first boundary mismatch is retained as evidence.
+The next construction selects typed three-turn speaker signatures before
+lexical emission. Artifact:
+`runs/typed-speaker-turn-obligations-20260920.json`.
+
+The appositive/participial lane jointly selected a named subject, appositive,
+participial adjunct, predicate, object, and tail across 243 complete sentences.
+It made 11,400 live checks and retained grammatical scenes to 104 letters, but
+promoted zero exact rows. The next construction selects outer subject/tail
+character classes before interior lexicalization. Artifact:
+`runs/appositive-participial-scene-20260920.json`.
+
+The imperative/relative role-alternation lane crossed 108 complete
+transitive/intransitive command frames with subject-gap and object-gap relative
+attachments. It retained prose controls to 79 letters with zero exact rows
+above 38. The next construction pairs those relative roles with a held-out
+temporal adjunct. Artifact:
+`runs/imperative-relative-role-alternation-20260920.json`.

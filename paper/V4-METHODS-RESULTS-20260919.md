@@ -387,6 +387,24 @@ frames; its best intact controls were ordinary English, but none survived the
 first exact equation. Both lanes are retained as construction evidence, not
 as repair attempts.
 
+The connector-clause debt follow-up corrected the clause renderer and reran on
+`hst-bench`. It selected the connector and both ordinary clause texts jointly,
+checked the full cross-clause character debt before rendering, and recorded
+eight valid intact-English controls. It produced zero exact closures. The
+controls are useful because they are real prose; the earlier type-label
+rendering is withdrawn and covered by a regression test.
+
+The strategy then changed representation rather than repairing a draft. A
+bidirectional semordnilap grammar intersects fresh lexical token pairs while
+filling typed clause templates from the first character. The first bank
+produced 20 exact closures at 26--36 letters. Adding auxiliary, agreement,
+and clause-finality states produced 20 exact closures up to 48 letters,
+including “was deliver desserts drawer; reward stressed reviled saw.” Every
+one failed the intact-prose gate: these are exact lexical demonstrations, not
+readable outputs. They are retained as independently audited method evidence;
+the next construction is a proper-name/scene grammar that must produce a
+complete poetic clause on both sides before it can enter the reader package.
+
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:
 grammar boundaries and mirrored character orbits must be selected together,
@@ -395,7 +413,9 @@ paired-slot clause DFS, two-sided semantic orbit product, its semantic-slot
 extension, and the semantic-role character FSM are the working generation
 claim; earlier
 repair runs remain auditable evidence and controls, but they are no longer the
-paper's proposed route to a readable palindrome.
+paper's proposed route to a readable palindrome. The semordnilap intersection
+is now the active constructive route; exactness is necessary, while human
+readability remains an independent gate.
 
 ## Reader evidence and API gate
 

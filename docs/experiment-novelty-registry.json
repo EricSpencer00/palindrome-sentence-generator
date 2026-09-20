@@ -2,6 +2,15 @@
   "version": 1,
   "audit_reports": [
     {
+      "id": "reverse-lexicon-typed-clause-20260919",
+      "signature": "reverse-character-index|typed-clause|joint-boundary-crossing",
+      "artifact": "experiments/reverse_lexicon_typed_clause_20260919.py",
+      "run_artifacts": ["runs/reverse-lexicon-typed-clause-20260919.json"],
+      "distinction": "Selects lexical material on both sides jointly from a reverse-character lexicon while consuming outer tape obligations; word boundaries may cross and no aligned token mirrors are used.",
+      "reader_evidence": false,
+      "status": "Valid exact-by-construction lane; 1,978,436 partial states pruned before closure, 0 exact candidates, so no readability claim"
+    },
+    {
       "id": "phrase-boundary-fsm-20260920",
       "signature": "synchronous-authored-constituents|cross-boundary-character-fsm|two-complete-clauses",
       "artifact": "experiments/phrase_boundary_fsm_20260920.py",
@@ -10966,6 +10975,15 @@
       "distinction": "Adds a second prepositional complement only when it occurs in the same tagged DET-NOUN-VERB-ADP-NOUN frame, retaining feature identity and live cross-word character obligations.",
       "reader_evidence": false,
       "status": "Only one past-feature second-complement context (of aluminum) was available; the 82 bounded states remained all pruned with 0 exact closures; this grammar family now needs a larger second-complement frame bank or retirement"
+    },
+    {
+      "id": "synchronous-cfg-intersection-20260919",
+      "signature": "whole-grammar|synchronous-character-intersection|det-noun-verb-det-noun-adp-noun",
+      "artifact": "experiments/synchronous_cfg_intersection_20260919.py",
+      "run_artifacts": ["runs/synchronous-cfg-intersection-20260919.json"],
+      "distinction": "Generates both outer sides from one seven-role grammatical frame and compares newly exposed character orbits online; no finished-tape reversal, repair, or word-order mirror.",
+      "reader_evidence": false,
+      "status": "64-word lexical partitions produced 960 synchronous states; all were pruned at live character obligations, with 0 exact closures and no rendered candidate"
     }
   ]
 }

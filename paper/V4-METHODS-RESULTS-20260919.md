@@ -492,6 +492,23 @@ semordnilap rows remain auditable diagnostics, not the paper's proposed route
 to readable prose. Exactness is necessary, while human readability remains an
 independent gate.
 
+### Synchronous whole-frame intersection
+
+To test whether a richer frame could avoid the short five-slot frontier, we
+implemented a seven-role `DET NOUN VERB DET NOUN ADP NOUN` grammar in
+`experiments/synchronous_cfg_intersection_20260919.py`. Both outer roles are
+selected together from frequency-ranked Brown frame partitions; newly exposed
+characters are compared immediately while recursion carries cross-word
+buffers inward. This is one grammatical derivation, not a finished tape
+followed by repair or reversal. With 64-word lexical partitions (16
+determiners, 64 subjects, 64 verbs, 10 object determiners, 64 objects, 14
+prepositions, and 64 complements), 960 synchronous states were visited and
+all were pruned by live character obligations. The independent SHA-256 audit
+therefore reports zero exact closures and no rendered candidate; complete
+provenance is in `runs/synchronous-cfg-intersection-20260919.json`. This is a
+construction boundary, not a readability claim or a reason to promote repair;
+the next lane must change the grammar or lexical character constraints.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates five deterministic blinded
@@ -503,3 +520,4 @@ evidence and diagnostics only.
 
 The next reader-facing test is a randomized blinded intact-prose versus
 shuffled-control rating with independent raters and explicit exclusions.
+The reverse-lexicon typed-clause lane was a distinct construction attempt, not a repair pass. It indexed frequent lexical items by reversed character tape, selected outer typed slots jointly, and consumed cross-word obligations before expanding inward. On 1,978,436 partial states, every branch was pruned before a complete derivation and no exact candidate was produced. The independent SHA-256 tape/reverse audit is retained in `runs/reverse-lexicon-typed-clause-20260919.json`; consequently this lane supplies no readability evidence and is not presented as progress toward a reader-worthy output.

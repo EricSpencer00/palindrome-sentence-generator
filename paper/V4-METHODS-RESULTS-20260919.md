@@ -1791,6 +1791,17 @@ obligation advance in one parse tree, and no completed tape is reversed or
 repaired. Artifact:
 `runs/centerout-cfg-frontier-20260920.json`.
 
+The live recursive grammar-frontier lane then carried the same obligation
+through paired slot expansion for simple, locative, and coordinated sentence
+shapes. It performed 144 hole-level obligation checks, pruning all 144 before
+tree completion because the current lexical inventory had no compatible outer
+character classes. It rendered no generated candidate and found no exact item
+above 38 letters. This is a true online construction diagnostic: unlike the
+recursive-tree enumeration above, it never audits a finished tree as a
+candidate. The next lexical step is to index ordinary words by compatible
+outer characters and expand the grammar with relative-clause constituents.
+Artifact: `runs/live-recursive-grammar-frontier-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

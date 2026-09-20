@@ -221,9 +221,16 @@ def reverse_trie_bilateral(lexicon=ATOMIC, max_nodes=20000):
     for w in lex:
         key = letters(w.text)[::-1]
         for i in range(len(key) + 1): index.setdefault(key[:i], []).append(w)
+    # Exercise residual-prefix lookup deterministically; the legacy constructor
+    # remains the reference search until the trie transition engine lands.
+    lookup_prefixes = sorted(index)[: min(32, len(index))]
+    lookup_hits = sum(len(index[p]) for p in lookup_prefixes)
     result = bilateral_lexical_csp(lex, max_nodes=max_nodes)
     result["provenance"]["reverse_trie"] = True
     result["provenance"]["index_keys"] = len(index)
+    result["provenance"]["lookup_prefixes"] = len(lookup_prefixes)
+    result["provenance"]["lookup_hits"] = lookup_hits
+    result["provenance"]["status"] = "diagnostic-index-only"
     return result
 
 if __name__ == "__main__":

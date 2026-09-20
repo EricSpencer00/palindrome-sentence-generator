@@ -1594,6 +1594,21 @@ next construction conditions the relation on a contrastive discourse
 connective. Artifact:
 `runs/relation-conditioned-preposition-equations-20260920.json`.
 
+The contrastive-connective lane coupled the relation state to the connective:
+benefit frames use “although” with `for`, while transfer frames use “while”
+with `to`. It retains typed recipient/theme roles, number and agreement, and
+the verb/preposition compatibility gate, with complete surface rendering
+separate from reverse equation arrival. Two relation states yielded 72 live
+states; all 72 were pruned at the equation boundary, with zero equation
+completions and zero exact candidates above 38 letters. Twenty intact
+contemporary-English controls were independently audited (maximum 73 letters),
+including “A sailor brings the seal for the poet although some guards offer
+books for the children.” No repair, reversal, mirrored unit, catalogue text, or
+fragment was admitted. The next construction introduces a contrastive
+subordinate clause with explicit subject shift while retaining the recipient
+state. Artifact:
+`runs/contrastive-relation-equations-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

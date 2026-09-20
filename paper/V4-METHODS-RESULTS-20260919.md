@@ -1191,6 +1191,15 @@ the current constructive sweep and supplies evidence for a method-level
 reassessment rather than another ad hoc feature lane. Artifact:
 `runs/authored-phrase-pair-graph-scene-20260920.json`.
 
+The phrase-pair graph was expanded to 20 human-authored chunks on each side.
+It yielded 35 non-palindromic exposed-span-compatible pairs and 1,920 complete
+four-to-six-chunk scene/dialogue composition states with valency and agreement
+checks. No fresh exact candidate above 38 letters closed. Complete controls
+reached 37 and 60 letters; the known 38-letter row remained an excluded
+baseline. This is the current constructive frontier: no wrapping, repair,
+finished-tape reversal, catalogue text, or mirrored unit was used. Artifact:
+`runs/authored-phrase-pair-graph-scene-expanded-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

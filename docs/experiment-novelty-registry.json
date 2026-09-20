@@ -2,6 +2,15 @@
   "version": 1,
   "audit_reports": [
     {
+      "id": "phrase-graph-valency-shifts-20260920",
+      "signature": "phrase-graph|valency-index|three-boundary-shifts|independent-clauses",
+      "artifact": "phrase_graph_valency_boundary_shifts_20260920.py",
+      "run_artifacts": ["runs/phrase-graph-valency-shifts-20260920.json"],
+      "distinction": "Indexes ordinary phrase-graph edges by transitive/locative valency and tests subject, object, and adjunct boundary shifts across paired finite clauses.",
+      "reader_evidence": false,
+      "status": "180 graph edges, 540 shifted scenes, longest 80 letters, 0 exact candidates above 38; next builds an incremental valency-aware edge trie."
+    },
+    {
       "id": "phrase-graph-independent-scene-20260920",
       "signature": "phrase-graph|independent-scene-sides|boundary-options|shortcut-gates",
       "artifact": "phrase_graph_independent_scene_search_20260920.py",
@@ -14440,6 +14449,15 @@
       "distinction": "Intersects independently generated ordinary-English CFG phrase nodes with variable word-boundary shifts and live character equations, rather than aligned token pairs or finished tape reversal; fragments, mirrored units, catalogue text, and repair are rejected.",
       "reader_evidence": false,
       "status": "60 bounded CFG phrases, 173460 variable boundary shifts and live prunes, 0 exact candidates above 38; next is typed relative-clause CFG"
+    },
+    {
+      "id": "typed-relative-cfg-boundary-shift-20260920",
+      "signature": "phrase-pair-graph|typed-relative-CFG|variable-boundary-shifts|live-equations",
+      "artifact": "phrase_pair_cfg_boundary_shift_20260920.py",
+      "run_artifacts": ["runs/typed-relative-cfg-boundary-shift-20260920.json"],
+      "distinction": "Replaces the flat CFG phrase product with typed relative-clause productions while retaining variable word-boundary split states and live equations; complete ordinary prose only, with reversal, repair, mirrored units, fragments, and catalogue text excluded.",
+      "reader_evidence": false,
+      "status": "80 bounded typed-relative CFG phrases, 309680 variable boundary shifts and live prunes, 0 exact candidates above 38; next is typed relative attachment on both clauses"
     },
     {
       "id": "packed-single-sentence-solver-20260920",

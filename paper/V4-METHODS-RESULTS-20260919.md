@@ -445,11 +445,12 @@ to 24 Brown-PCFG entries per role plus singular-subject, third-person
 transitive-verb, and determiner-object filters, first-character boundary
 indexing left 61 live states across the three templates. Replacing the coarse
 role buckets with NLTK Brown universal DET/NOUN/VERB counts did not produce a
-complete sentence: all states were pruned before closure. As a separate
-preflight, 864 Brown sentences matched the `DET NOUN VERB DET NOUN` frame and
-1,991 matched `DET NOUN VERB ADP`; those counts are not treated as lexical
-valency labels. The next construction uses the frame-attested word
-combinations directly rather than inferring subcategorization from endings.
+complete sentence: all states were pruned before closure. A frame extraction
+over the same corpus found 864 `DET NOUN VERB DET NOUN` sentences and 1,991
+`DET NOUN VERB ADP` sentences; the next pass used their observed lexical
+combinations rather than only counting frames. That produced 226 live states,
+216 early prunes, and zero exact closures. The next state keeps subject and
+object banks separate and carries number through the inner slots.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

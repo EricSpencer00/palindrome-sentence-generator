@@ -4,8 +4,11 @@ def test_phrase_roles_reject_fragments_and_accept_noun_phrases():
     assert role('as time') == 'PP'
     assert role('emits a') == 'VP'
     assert role('the sailor') == 'NP'
+    assert role('a eta') == 'NP_INVALID_ARTICLE'
+    assert role('an tea') == 'NP_INVALID_ARTICLE'
 
 def test_only_typed_edges_are_rendered():
     result = run()
     assert result['stats']['rendered_candidates'] == result['stats']['usable_graph_edges'] * 9
     assert all(' answers emits a' not in row['rendered'] for row in result['rendered_candidates'])
+    assert all('a eta' not in row['rendered'] and 'an tea' not in row['rendered'] for row in result['rendered_candidates'])

@@ -13048,6 +13048,15 @@
       "distinction": "Samples broad ordinary clause derivations, then independently tokenizes the reverse character stream with a scored lexical DP; it does not reverse a finished sentence, mirror word units, import catalogue text, or repair a mismatch.",
       "reader_evidence": false,
       "status": "30,000 draws, 11,814 unique left tapes, 0 exact closures; closed at this sampling bound because one-sided random clauses almost never admit a natural reverse segmentation"
+    },
+    {
+      "id": "cfg-hypergraph-obligation-20260920",
+      "signature": "weighted-cfg-hypergraph|memoized-grammar-obligation-state|ordinary-order-frontiers|independent-audit",
+      "artifact": "experiments/cfg_hypergraph_obligation_20260920.py",
+      "run_artifacts": ["runs/cfg-hypergraph-obligation-20260920.json"],
+      "distinction": "Intersects a small weighted CFG with the palindrome character equation as a memoized hypergraph chart. Grammar-stack, residual, semantic-role, and ordinary-order frontier states are merged before lexical expansion; no finished tape reversal, mirrored token units, catalogue text, or post-hoc repair is used.",
+      "reader_evidence": false,
+      "status": "Bounded Brown lexicon chart: 3,825 unique items, 92 grammar hyperedges, 3,732 terminal edges, 34,509 character prunes, 3,535 complete parses, and 0 exact closures above 38. Closed as a bounded CFG-chart diagnostic; next construction is a semantic-frame hyperedge rather than a wider lexical chart."
     }
   ]
 }

@@ -1934,3 +1934,21 @@ and independent pointer/SHA audit are in
 `runs/frame-yield-endpoint-buckets-20260926.json`; no row is reader evidence.
 The next constructive step is to add vivid ditransitive and locative role
 frames to the same endpoint buckets before optional adjunct expansion.
+
+## Direct narrative-beat lattice authoring
+
+To test a construction that does not begin from clause products or a tape,
+we wrote two independent banks of complete contemporary scene beats and
+joined them with ordinary narrative seams.  The 5-by-5-by-3 lattice produced
+75 intact rendered scenes (the longest was 117 letters).  Every row was
+audited by a fresh two-pointer scan and forward/reverse SHA-256 comparison;
+zero rows were exact above 38 letters.  The best rendered control was:
+
+> At noon, the village teacher told a kind story to the restless class; then the river saw the lantern while a careful sailor watched by moonlight.
+
+This is a deliberate near-miss, not a claimed palindrome or readability
+result.  It is retained because its provenance is fully authored and its
+failure is concrete: the next construction chooses the opening letters of a
+second complete beat bank from live seam obligations, rather than repairing a
+finished sentence.  Artifact: `experiments/direct_scene_lattice_authoring_20260920.py`;
+run: `runs/direct-scene-lattice-authoring-20260920.json`.

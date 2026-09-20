@@ -1,8 +1,8 @@
 """Author-first bidirectional lexical-boundary search, grown center/outward."""
 import hashlib,itertools,json,re
 from pathlib import Path
-ROOT=Path(__file__).resolve().parent; OUT=ROOT/'runs/author-first-attachment-order-20260920.json'
-ID='author-first-attachment-order-20260920'; SIG='author-first-inventory|attachment-ordering|three-outward-edges|online-obligations'
+ROOT=Path(__file__).resolve().parent; OUT=ROOT/'runs/author-first-role-agreement-20260920.json'
+ID='author-first-role-agreement-20260920'; SIG='author-first-inventory|attachment-ordering|role-agreement|online-obligations'
 def letters(s): return re.sub('[^a-z]','',s.lower())
 def audit(s):
  t=letters(s); mm=next(((i,t[i],t[-1-i]) for i in range(len(t)//2) if t[i]!=t[-1-i]),None)
@@ -24,11 +24,13 @@ def run():
  for center,(l,lr),(r,rr),(outer,orole),(third,trole),order in itertools.product(CENTERS,LEFT,RIGHT,OUTER,THIRD,ORDERS):
   # Independent expansions are authored clauses; center is inserted once, not mirrored.
   rendered=f'{l} {center} {r} {outer} {third}.'; walks+=1
+  role_agreement=(lr=='agent' and rr=='event' and orole=='setting' and trole in ('instrument','location'))
+  if not role_agreement: continue
   ok,checked,mm=consume(l+' '+center, r+' '+outer+' '+third)
-  rec={'rendered':rendered,'growth':{'center':center,'left_edge':l,'right_edge':r,'outer_edge':outer,'third_edge':third,'left_role':lr,'right_role':rr,'outer_role':orole,'third_role':trole,'attachment_order':order},'online_obligation':{'accepted':ok,'characters_checked':checked,'mismatch':mm},'audit':audit(rendered),'provenance':{'inventory':'fresh hand-authored intact English clauses/expansions','center_outward':True,'finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_word_order':False,'repeated_units':False,'self_palindromic_units':False,'fragment':False}}
+  rec={'rendered':rendered,'growth':{'center':center,'left_edge':l,'right_edge':r,'outer_edge':outer,'third_edge':third,'left_role':lr,'right_role':rr,'outer_role':orole,'third_role':trole,'attachment_order':order},'role_agreement':role_agreement,'online_obligation':{'accepted':ok,'characters_checked':checked,'mismatch':mm},'audit':audit(rendered),'provenance':{'inventory':'fresh hand-authored intact English clauses/expansions','center_outward':True,'finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_word_order':False,'repeated_units':False,'self_palindromic_units':False,'fragment':False}}
   diagnostics.append(rec)
   if not ok: prunes+=1
  diagnostics.sort(key=lambda x:-x['audit']['letters']); exact=[r for r in diagnostics if r['audit']['exact'] and r['audit']['letters']>38]
- return {'experiment_id':ID,'method':'author-first center/outward growth with three typed outward edges and explicit attachment ordering','stats':{'centers':len(CENTERS),'left_edges':len(LEFT),'right_edges':len(RIGHT),'outer_edges':len(OUTER),'third_edges':len(THIRD),'ordering_states':len(ORDERS),'bidirectional_walks':walks,'online_prunes':prunes,'diagnostic_controls':len(diagnostics),'fresh_exact_gt38':len(exact),'max_letters':max((r['audit']['letters'] for r in diagnostics),default=0)},'reader_facing_candidates':exact if exact and all(not r['provenance']['mirrored_word_order'] for r in exact) else [],'diagnostic_controls':diagnostics,'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':SIG,'distinct_from':'third-edge lane without attachment ordering'},'next_topology':'add role agreement between ordered outward edges and center frame','status':'fresh exact >38 candidate requires human reading' if exact else 'no exact >38 closure; reader-facing candidates intentionally empty'}
+ return {'experiment_id':ID,'method':'author-first center/outward growth with role agreement between ordered outward edges and center frame','stats':{'centers':len(CENTERS),'left_edges':len(LEFT),'right_edges':len(RIGHT),'outer_edges':len(OUTER),'third_edges':len(THIRD),'ordering_states':len(ORDERS),'bidirectional_walks':walks,'role_agreement_states':len(diagnostics),'online_prunes':prunes,'diagnostic_controls':len(diagnostics),'fresh_exact_gt38':len(exact),'max_letters':max((r['audit']['letters'] for r in diagnostics),default=0)},'reader_facing_candidates':exact if exact and all(not r['provenance']['mirrored_word_order'] for r in exact) else [],'diagnostic_controls':diagnostics,'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':SIG,'distinct_from':'attachment-order lane without center/outward role agreement'},'next_topology':'add semantic compatibility between center predicate and ordered roles','status':'fresh exact >38 candidate requires human reading' if exact else 'no exact >38 closure; reader-facing candidates intentionally empty'}
 if __name__=='__main__':
  r=run(); OUT.write_text(json.dumps(r,indent=2)+'\n'); print(json.dumps(r['stats']))

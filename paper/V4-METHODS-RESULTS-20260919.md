@@ -1108,6 +1108,16 @@ finished-tape reversal, or repair was admitted. The next construction changes
 grammar geometry to coordination rather than enlarging lexical scoring.
 Artifact: `runs/brown-authored-semantic-reverse-decoder-20260920.json`.
 
+The coordination lane composed two complete semantic clauses with a Brown-bank
+connector before reverse parsing. It tested 12,000 complete left frames and
+24,000 coordination attempts, with no complete reverse parse or exact
+candidate. Intact controls reached 41 and 49 letters. The frozen lexical bank
+contained only `but` among the requested conjunctions; this is disclosed rather
+than fabricated. No catalogue sentence, repair, wrapping, or mirrored unit was
+used. The next construction changes grammar geometry to subordination and
+embedded clauses. Artifact:
+`runs/brown-authored-coordination-reverse-decoder-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

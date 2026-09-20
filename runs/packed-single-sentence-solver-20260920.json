@@ -1,6 +1,6 @@
 {
   "experiment_id": "packed-single-sentence-solver-20260920",
-  "method": "single forward acyclic grammar trie; paired states (p,q,n); variable boundaries; odd/even centers",
+  "method": "single forward acyclic grammar trie; paired states (p,q,n); variable boundaries; odd/even centers; exact admission",
   "grammar": {
     "templates": [
       [
@@ -41,7 +41,13 @@
     ],
     "forward_states": 521451,
     "edges": 521450,
-    "forward_language_size": 89856
+    "forward_language_size": 89856,
+    "labels": {
+      "dependency": "subject-object scope",
+      "number": "singular/plural agreement",
+      "valency": "verb frame satisfied"
+    },
+    "labels_status": "metadata only; not yet carried in paired state"
   },
   "packed": {
     "candidate_count": 0,
@@ -61,5 +67,5 @@
       "reranking"
     ]
   },
-  "next_topology": "add typed dependency/number/valency labels to grammar edges and carry them in (p,q,n)"
+  "next_topology": "carry dependency/number/valency labels in (p,q,n) and enforce them on edge transitions"
 }

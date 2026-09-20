@@ -78,13 +78,13 @@ def run():
   def search(p,q,left,right):
    if p==q and p in g.accept:
     for tape, parity in ((left+right, 'even'),):
-     if 8<=len(tape.split())<=16 and 39<=len(letters(tape))<=80:
+     if 8<=len(tape.split())<=16 and 39<=len(letters(tape))<=80 and audit(tape)['exact']:
       packed_rows.append({'rendered':tape,'center_parity':parity,'audit':audit(tape)})
     # An odd center is the single forward edge between the two cursors.
     for mid in g.out.get(p,[]):
      if mid.dst not in g.accept: continue
      tape=left+mid.ch+right
-     if 8<=len(tape.split())<=16 and 39<=len(letters(tape))<=80:
+     if 8<=len(tape.split())<=16 and 39<=len(letters(tape))<=80 and audit(tape)['exact']:
       packed_rows.append({'rendered':tape,'center_parity':'odd','audit':audit(tape)})
     return
    for le in g.out.get(p,[]):
@@ -92,7 +92,7 @@ def run():
      if le.ch==re.ch: search(le.dst,re.src,left+le.ch,re.ch+right)
   # endpoint-specific, with center parity naturally represented by p==q after odd/even steps
   search(0,end,'','')
- return {'experiment_id':'packed-single-sentence-solver-20260920','method':'single forward acyclic grammar trie; paired states (p,q,n); variable boundaries; odd/even centers','grammar':{'templates':TEMPLATES,'forward_states':g._next,'edges':len(g.edges),'forward_language_size':len(lang)},'packed':{'candidate_count':len(packed_rows),'candidates':packed_rows,'center_parities':['odd','even']},'audits':{'pointer_sha256':hashlib.sha256(('packed-single-sentence-solver-20260920:'+str(g._next)+':'+str(len(g.edges))).encode()).hexdigest(),'provenance':'forward grammar edges only; no sentence-pair enumeration, reversal, repair, or reranking','shortcut_exclusions':['sentence-pair enumeration','finished-tape reversal','post-hoc repair','reranking']},'next_topology':'add typed dependency/number/valency labels to grammar edges and carry them in (p,q,n)'}
+ return {'experiment_id':'packed-single-sentence-solver-20260920','method':'single forward acyclic grammar trie; paired states (p,q,n); variable boundaries; odd/even centers; exact admission','grammar':{'templates':TEMPLATES,'forward_states':g._next,'edges':len(g.edges),'forward_language_size':len(lang),'labels':g.edge_labels,'labels_status':'metadata only; not yet carried in paired state'},'packed':{'candidate_count':len(packed_rows),'candidates':packed_rows,'center_parities':['odd','even']},'audits':{'pointer_sha256':hashlib.sha256(('packed-single-sentence-solver-20260920:'+str(g._next)+':'+str(len(g.edges))).encode()).hexdigest(),'provenance':'forward grammar edges only; no sentence-pair enumeration, reversal, repair, or reranking','shortcut_exclusions':['sentence-pair enumeration','finished-tape reversal','post-hoc repair','reranking']},'next_topology':'carry dependency/number/valency labels in (p,q,n) and enforce them on edge transitions'}
 
 if __name__=='__main__':
  out=run(); Path('runs/packed-single-sentence-solver-20260920.json').write_text(json.dumps(out,indent=2)+'\n'); print(json.dumps({k:out[k] for k in ('grammar','packed')}))

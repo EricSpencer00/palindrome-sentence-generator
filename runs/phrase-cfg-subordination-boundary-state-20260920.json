@@ -1,0 +1,43 @@
+{
+  "experiment_id": "phrase-cfg-subordination-boundary-state-20260920",
+  "method": "subordination CFG with explicit while/comma boundary state",
+  "grammar": [
+    "S -> SUBORD S , S",
+    "S -> NP VP",
+    "VP -> V NP"
+  ],
+  "topology": "while S, S",
+  "shared_semantic_role": "maritime",
+  "stats": {
+    "left_sentences": 240,
+    "right_sentences": 240,
+    "boundary_chart_states": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 0
+  },
+  "complete_prose_controls": [
+    "While the sailor guards the harbor, the captain guides the boat.",
+    "While a keeper marks the shore, a guide reads the tide."
+  ],
+  "best_diagnostic": {
+    "matched": 0,
+    "left": "",
+    "right": "",
+    "boundary": ""
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-subordination-boundary-state-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-coordinated-shared-role-20260920"
+  },
+  "next_construction": "Carry separate subordinate and matrix semantic roles through a typed boundary chart, retaining exact tape admission.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

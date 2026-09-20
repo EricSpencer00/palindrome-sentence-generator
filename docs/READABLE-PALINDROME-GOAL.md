@@ -6568,3 +6568,27 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   candidates above 38. The next construction allows asynchronous aspect
   transitions. Artifact:
   `runs/synchronized-dual-aspect-residuals-20260920.json`.
+
+- **Cadence-compatible reported-speech growth, 2026-09-20:** added held-out
+  reported-speech frames while preserving quotation, discourse, evidential,
+  polarity, modal/tense, role, and PP-attachment state. The depth-three run
+  retained four vivid diagnostics up to 121 letters after eight seam prunes,
+  with 0 exact candidates above 38. The next construction adds narrative-voice
+  frames. Artifact:
+  `runs/cadence-reported-speech-growth-20260920.json`.
+
+- **Asynchronous dual-aspect transitions, 2026-09-20:** let one aspect stream
+  transition while the other retained its residual, producing 288 complete
+  controls up to 164 letters. The independent exact and anti-shortcut gates
+  admitted 0 candidates above 38; these controls are diagnostic-only, not
+  reader material. The next construction adds explicit residual handoff events
+  at lexical boundaries. Artifact:
+  `runs/async-dual-aspect-transition-20260920.json`.
+
+- **Nested adjunct ordering, 2026-09-20:** added a bounded nested two-adjunct
+  scope state and an explicit ordering state to the paired valency tries. It
+  retained 36 ordinary-clause controls, 216 buffer comparisons, and surfaces
+  up to 161 letters, with 0 exact candidates above 38. The next construction
+  adds a third adjunct only with bounded scope depth and ordering compatibility.
+  Artifact:
+  `runs/synchronized-valency-tries-nested-adjunct-order-20260920.json`.

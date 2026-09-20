@@ -3845,3 +3845,24 @@ streams across 288 lexical-edge checks and boundary prunes. It retained
 diagnostics up to 127 letters, with zero exact candidates above 38; the next
 construction allows asynchronous aspect transitions. Artifact:
 `runs/synchronized-dual-aspect-residuals-20260920.json`.
+
+The cadence-compatible reported-speech branch added held-out reported-speech
+frames while preserving quotation, discourse, evidential, polarity,
+modal/tense, role, and PP-attachment state. It retained four vivid diagnostics
+up to 121 letters after eight seam prunes, with zero exact candidates above 38;
+the next construction adds narrative-voice frames. Artifact:
+`runs/cadence-reported-speech-growth-20260920.json`.
+
+The asynchronous dual-aspect branch let one aspect stream transition while a
+second retained its residual. It rendered 288 complete controls up to 164
+letters, but the independent pointer/hash and anti-shortcut gates admitted zero
+exact candidates above 38. These are diagnostic controls, not reader material;
+the next construction adds explicit residual handoff events at lexical
+boundaries. Artifact: `runs/async-dual-aspect-transition-20260920.json`.
+
+The nested-adjunct ordering branch added a bounded two-adjunct scope state and
+an explicit ordering state to the paired valency tries. It retained 36 ordinary
+clause controls and 216 buffer comparisons up to 161 letters, with zero exact
+candidates above 38. The next construction adds a third adjunct only with
+bounded scope depth and ordering compatibility. Artifact:
+`runs/synchronized-valency-tries-nested-adjunct-order-20260920.json`.

@@ -1,0 +1,40 @@
+{
+  "experiment_id": "phrase-cfg-reciprocal-crossed-roles-20260920",
+  "method": "crossed reciprocal subject/object roles in coordinated clauses",
+  "grammar": [
+    "S -> CLAUSE and CLAUSE",
+    "CLAUSE -> NP V NP",
+    "RECIPROCAL -> NP V NP and NP V NP"
+  ],
+  "stats": {
+    "left_pairs": 240,
+    "right_pairs": 240,
+    "crossed_role_states": 3456,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 1
+  },
+  "complete_prose_controls": [
+    "The sailor helps the poet and the poet helps the sailor.",
+    "A writer guides the captain and the captain guides the writer."
+  ],
+  "best_diagnostic": {
+    "matched": 1,
+    "left": "the sailor helps some poet and some poet helps the sailor",
+    "right": "some poet helps some sailor and some sailor helps some poet"
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-reciprocal-crossed-roles-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-dialogue-asymmetric-pronoun-20260920"
+  },
+  "next_construction": "Try a non-reciprocal coordination with distinct event predicates and crossed participants, retaining hard exact admission.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

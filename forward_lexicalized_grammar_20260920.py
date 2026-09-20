@@ -90,6 +90,49 @@ def solve(lexicon=ATOMIC, max_words=4, max_length=64):
                 "next_construction": "expand lexical entries and typed adjunct productions; retain live x constraints"},
             "status": "SAT" if exact else "UNSAT within bound"}
 
+def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=8, grammar=None):
+    """Forward CSP: fixed N cells, mirror equations, and pruning while emitting.
+
+    Spaces are boundary metadata and never cells, so boundaries may be placed
+    asymmetrically and the center can fall inside a word.
+    """
+    found = []; stats = {"nodes": 0, "pruned": 0, "complete": 0}
+    grammar = grammar or GRAMMAR
+    by_pos = {}
+    for w in lexicon: by_pos.setdefault(w.pos, []).append(w)
+    def run(n):
+        cells = [None] * n
+        def emit(words, pos, symbols):
+            stats["nodes"] += 1
+            if pos == n:
+                stats["complete"] += 1
+                if not symbols: found.append((n, " ".join(words)))
+                return
+            if len(words) >= max_words: return
+            if not symbols: return
+            head, *tail = symbols
+            if head in grammar:
+                for prod in grammar[head]: emit(words, pos, list(prod) + tail)
+                return
+            for word in by_pos.get(head, ()):
+                text = letters(word.text)
+                if pos + len(text) > n: continue
+                changed = []
+                ok = True
+                for j, ch in enumerate(text):
+                    i = pos + j; mirror = n - 1 - i
+                    if cells[i] not in (None, ch) or cells[mirror] not in (None, ch): ok = False; break
+                    for k in {i, mirror}:
+                        if cells[k] is None: cells[k] = ch; changed.append(k)
+                if ok: emit(words + [word.text], pos + len(text), tail)
+                else: stats["pruned"] += 1
+                for k in changed: cells[k] = None
+        emit([], 0, ["S"])
+    for n in lengths: run(n)
+    return {"paths": [{"length": n, "rendered": text + ".", "audit": independent_audit(text)} for n, text in found], "stats": stats}
+
 if __name__ == "__main__":
-    result = solve(); OUT.write_text(json.dumps(result, indent=2) + "\n")
+    result = solve(); result["bounded_csp"] = constrained_paths()
+    result["provenance"]["csp"] = "fixed-N shared character cells with online mirror propagation"
+    OUT.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result["stats"]))

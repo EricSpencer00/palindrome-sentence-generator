@@ -7,7 +7,8 @@
     "rendered": 64,
     "exact": 2,
     "exact_gt38": 0,
-    "max_length": 20
+    "max_length": 20,
+    "large_lexicon_search": "not-run: no bundled 2k-5k lexicalized feature inventory"
   },
   "exact_candidates": [
     {
@@ -569,7 +570,61 @@
       "forward/reverse SHA-256"
     ],
     "differential": "solver output is compared with brute-force derivation set",
-    "next_construction": "expand lexical entries and typed adjunct productions; retain live x constraints"
+    "next_construction": "expand lexical entries and typed adjunct productions; retain live x constraints",
+    "csp": "fixed-N shared character cells with online mirror propagation"
   },
-  "status": "SAT"
+  "status": "SAT",
+  "bounded_csp": {
+    "paths": [
+      {
+        "length": 10,
+        "rendered": "ava sees ava.",
+        "audit": {
+          "letters": 10,
+          "exact": true,
+          "first_mismatch": null,
+          "sha256_forward": "debe531d906b2082060bfb329db0d4d83c93a27c09adb0acea94f5f100a832fc",
+          "sha256_reverse": "debe531d906b2082060bfb329db0d4d83c93a27c09adb0acea94f5f100a832fc"
+        }
+      },
+      {
+        "length": 10,
+        "rendered": "ava sees ava.",
+        "audit": {
+          "letters": 10,
+          "exact": true,
+          "first_mismatch": null,
+          "sha256_forward": "debe531d906b2082060bfb329db0d4d83c93a27c09adb0acea94f5f100a832fc",
+          "sha256_reverse": "debe531d906b2082060bfb329db0d4d83c93a27c09adb0acea94f5f100a832fc"
+        }
+      },
+      {
+        "length": 12,
+        "rendered": "anna sees anna.",
+        "audit": {
+          "letters": 12,
+          "exact": true,
+          "first_mismatch": null,
+          "sha256_forward": "66efb827cda4bdba1c7f5d9a4f37f418d0dc2696e5af84795602227c9b163740",
+          "sha256_reverse": "66efb827cda4bdba1c7f5d9a4f37f418d0dc2696e5af84795602227c9b163740"
+        }
+      },
+      {
+        "length": 12,
+        "rendered": "anna sees anna.",
+        "audit": {
+          "letters": 12,
+          "exact": true,
+          "first_mismatch": null,
+          "sha256_forward": "66efb827cda4bdba1c7f5d9a4f37f418d0dc2696e5af84795602227c9b163740",
+          "sha256_reverse": "66efb827cda4bdba1c7f5d9a4f37f418d0dc2696e5af84795602227c9b163740"
+        }
+      }
+    ],
+    "stats": {
+      "nodes": 9750,
+      "pruned": 1215,
+      "complete": 7
+    }
+  }
 }

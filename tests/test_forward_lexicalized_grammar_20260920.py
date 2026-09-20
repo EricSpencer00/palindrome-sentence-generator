@@ -15,3 +15,17 @@ def test_forward_reverse_hashes_agree_only_for_exact():
     for text in brute_force(GRAMMAR, ATOMIC):
         audit = independent_audit(text)
         assert audit["exact"] == (audit["sha256_forward"] == audit["sha256_reverse"])
+
+def test_bounded_csp_matches_bruteforce_at_each_length():
+    csp = constrained_paths(lengths=range(1, 21))
+    expected = {t for t in brute_force(GRAMMAR, ATOMIC) if independent_audit(t)["letters"] <= 20}
+    got = {r["rendered"].rstrip(".") for r in csp["paths"]}
+    assert got == {t for t in expected if independent_audit(t)["exact"]}
+    assert csp["stats"]["pruned"] >= 0
+
+def test_center_inside_word_and_asymmetric_boundaries_are_supported():
+    # "level" has an interior center for N=5; no word-boundary symmetry is assumed.
+    lex = (Word("level", "N"),)
+    grammar = {"S": (("N",),)}
+    result = constrained_paths(lexicon=lex, lengths=[5], max_words=1, grammar=grammar)
+    assert any(r["rendered"].startswith("level") for r in result["paths"])

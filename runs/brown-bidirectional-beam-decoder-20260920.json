@@ -1,0 +1,93 @@
+{
+  "experiment_id": "brown-bidirectional-beam-decoder-20260920",
+  "method": "live bidirectional character/word-boundary beam over complete authored grammar paths",
+  "shape_count": 2,
+  "results": {
+    "0:0": {
+      "nodes": 7,
+      "states": 7,
+      "closures": [],
+      "status": "exhausted"
+    },
+    "0:1": {
+      "nodes": 1,
+      "states": 1,
+      "closures": [],
+      "status": "exhausted"
+    },
+    "1:0": {
+      "nodes": 7,
+      "states": 7,
+      "closures": [],
+      "status": "exhausted"
+    },
+    "1:1": {
+      "nodes": 1,
+      "states": 1,
+      "closures": [],
+      "status": "exhausted"
+    }
+  },
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "The young man sees the house; the old woman hears the word.",
+      "audit": {
+        "letters": 46,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "3ec8db09436bb6bf29006b95fe46a07e74d094412619f1a03bdb839ce0a72c2e",
+        "sha256_reverse": "ea5495b1313a6092f0fca47631b52b6b4dc1196318b0fb71afc2872efa858a05",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    },
+    {
+      "rendered": "A good boy found the door; a new girl held the key.",
+      "audit": {
+        "letters": 38,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "y"
+        ],
+        "sha256_forward": "479bcb02e5d14cb462a822afb041c7bae180a170a1b05474c28575e28206d8f9",
+        "sha256_reverse": "e966cfacfe7d9ffd7bb66537611aa486ff7dbd77ee72a0c1dab12bbe76e3cb66",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "brown-derived-lexicon|live-bidirectional-beam|character-boundary-synchronous|complete-grammar-gate",
+    "distinct_from": "prior full-frame reverse parsing; both sides are expanded synchronously before rendering",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "bank": "data/brown_pcfg_bank_20260920.json",
+    "bank_sha256": "53037c8356cf0bd387985fb085c5d41823ce5ea1d7c27c86c4ad50b25b72d322",
+    "generator_sha256": "3ea06dbcc7a7d6ffac111a22e17e52465958699429b0e2d7e62418234ee24560",
+    "ranking": "small authored collocation score ranks compatible states only; it never certifies readability",
+    "audits": [
+      "independent two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "next_reader_test": "randomized blinded ratings of intact exact rows versus shuffled controls"
+  },
+  "stats": {
+    "nodes": 16,
+    "closures": 0,
+    "exact": 0
+  },
+  "status": "no fresh exact parse in this lane",
+  "next_construction": "human reader package if exact rows survive; otherwise add a new grammar topology, not a wider beam"
+}

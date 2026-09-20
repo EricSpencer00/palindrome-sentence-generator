@@ -3390,3 +3390,26 @@ careful navigators who carried near the northern lighthouse.” (59 letters);
 zero exact candidates above 38 survived. The next construction adds two
 indexed relative attachments. Artifact:
 `runs/typed-relative-attachment-author-20260920.json`.
+
+The habitual modal-passive lane introduced a typed `usually-being` habitual
+state before the modal passive beneficiary/agent/theme frame. Across target
+lengths 44, 56, 68, and 80 it visited 1,192 states and made 420 live factor
+prunes, with zero complete parses and zero exact candidates above 38. The next
+construction is iterative modal passive. Artifact:
+`runs/habitual-modal-passive-csp-20260920.json`.
+
+The two-index relative attachment author carried two separately indexed
+relative attachments with explicit antecedent and tense features, filtering
+subject-number agreement before rendering. It retained 16 scenes from six
+relative-pair alternatives, with a 93-letter diagnostic and zero exact
+candidates above 38. The longest row is not reader-ready because its second
+attachment is semantically awkward; the next construction carries the
+obligations into a live residual trie. Artifact:
+`runs/two-index-relative-attachment-author-20260920.json`.
+
+The conditional connector graph added a typed conditional relation to the
+concessive attachment graph. Four frames incurred 1,474,560 live boundary
+prunes and retained 20 ordinary-prose near-miss diagnostics; zero exact
+candidates above 38 survived. The next construction adds a temporal-until
+connector edge. Artifact:
+`runs/word-boundary-conditional-graph-20260920.json`.

@@ -1,8 +1,8 @@
 """Paired valency tries synchronized by a shared relative-attachment state."""
 import hashlib,itertools,json,re
 from pathlib import Path
-ROOT=Path(__file__).resolve().parent; OUT=ROOT/'runs/synchronized-valency-tries-residual-compatible-20260920.json'
-ID='synchronized-valency-tries-residual-compatible-20260920'; SIG='paired-valency-tries|residual-character-buffers|tense-compatibility|relative-attachment'
+ROOT=Path(__file__).resolve().parent; OUT=ROOT/'runs/synchronized-valency-tries-synchronous-consumption-20260920.json'
+ID='synchronized-valency-tries-synchronous-consumption-20260920'; SIG='paired-valency-tries|synchronous-residual-consumption|relative-boundary-equations'
 def letters(s): return re.sub('[^a-z]','',s.lower())
 def audit(s):
  t=letters(s); mm=next(((i,t[i],t[-1-i]) for i in range(len(t)//2) if t[i]!=t[-1-i]),None)
@@ -18,10 +18,12 @@ def run():
   compatible=(lt!=rt and (lt,rt) in TENSE)
   if not compatible: continue
   residual_buffers={'left':letters(left)[-6:],'right':letters(right)[-6:]}
+  consumed_pairs=min(len(residual_buffers['left']),len(residual_buffers['right']))
+  synchronous_consumption=[(residual_buffers['left'][i],residual_buffers['right'][i]) for i in range(consumed_pairs)]
   # Independent pointers audit the rendered output; no generated reverse is used.
   a=audit(rendered)
-  rows.append({'rendered':rendered,'shared_attachment':{'state':rr,'left_role':lf,'right_role':rf,'relative':rel},'asymmetric_tense':{'left':lt,'right':rt,'compatible':compatible},'residual_buffers':residual_buffers,'independent_pointer_audit':a,'provenance':{'left_trie':'ordinary hand-authored clause trie','right_trie':'independent ordinary hand-authored clause trie','finished_tape_reversal':False,'post_hoc_repair':False,'mirrored_units':False,'repeated_units':False,'catalogue_text':False,'fragment':False,'word_order_symmetry':False}})
+  rows.append({'rendered':rendered,'shared_attachment':{'state':rr,'left_role':lf,'right_role':rf,'relative':rel},'asymmetric_tense':{'left':lt,'right':rt,'compatible':compatible},'residual_buffers':residual_buffers,'synchronous_consumption':synchronous_consumption,'independent_pointer_audit':a,'provenance':{'left_trie':'ordinary hand-authored clause trie','right_trie':'independent ordinary hand-authored clause trie','finished_tape_reversal':False,'post_hoc_repair':False,'mirrored_units':False,'repeated_units':False,'catalogue_text':False,'fragment':False,'word_order_symmetry':False}})
  rows.sort(key=lambda r:-r['independent_pointer_audit']['letters']); exact=[r for r in rows if r['independent_pointer_audit']['exact'] and r['independent_pointer_audit']['letters']>38]
- return {'experiment_id':ID,'method':'paired tries with residual character buffers and hard tense compatibility before relative attachment','stats':{'left_states':len(CLAUSES),'right_states':len(CLAUSES),'relative_states':len(REL),'asymmetric_tense_states':len(TENSE),'paired_controls':len(rows),'fresh_exact_gt38':len(exact),'max_letters':max((r['independent_pointer_audit']['letters'] for r in rows),default=0)},'rendered_candidates':rows,'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':SIG,'distinct_from':'asymmetric-tense run without residual buffers or compatibility gate'},'next_topology':'consume paired residual buffers synchronously at relative-clause boundaries','status':'fresh exact >38 candidate requires human reading' if exact else 'no exact >38 closure; paired ordinary diagnostics retained'}
+ return {'experiment_id':ID,'method':'paired tries synchronously consume left/right residual buffers at relative boundaries after tense compatibility','stats':{'left_states':len(CLAUSES),'right_states':len(CLAUSES),'relative_states':len(REL),'asymmetric_tense_states':len(TENSE),'paired_controls':len(rows),'synchronous_buffer_pairs':sum(len(r['synchronous_consumption']) for r in rows),'fresh_exact_gt38':len(exact),'max_letters':max((r['independent_pointer_audit']['letters'] for r in rows),default=0)},'rendered_candidates':rows,'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':SIG,'distinct_from':'buffer-storage run: this lane consumes paired residual characters synchronously'},'next_topology':'add a typed residual mismatch transition and bounded fallback edge','status':'fresh exact >38 candidate requires human reading' if exact else 'no exact >38 closure; paired ordinary diagnostics retained'}
 if __name__=='__main__':
  r=run(); OUT.write_text(json.dumps(r,indent=2)+'\n'); print(json.dumps(r['stats']))

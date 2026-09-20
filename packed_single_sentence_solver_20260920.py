@@ -29,6 +29,15 @@ def compatible_labels(left, right):
  strict={'det','noun','verb','obj'}
  return left == right if left in strict or right in strict else True
 
+def compatible_features(left, right):
+ """Unify role, number, and valency features carried by n."""
+ number={'noun':'sg','det':'sg','verb':'sg','obj':'sg','adv':'na'}
+ valency={'verb':'finite-transitive','noun':'argument','obj':'argument','det':'specifier','adv':'modifier'}
+ if not compatible_labels(left, right): return False
+ if number.get(left) != number.get(right) and 'na' not in (number.get(left),number.get(right)): return False
+ if valency.get(left) != valency.get(right) and left in valency and right in valency: return False
+ return True
+
 class ForwardGrammar:
  def __init__(self, max_words=16):
   self.edges=[]; self.out={}; self.inn={}; self.accept=set(); self.start=0; self._next=1
@@ -97,7 +106,7 @@ def run():
      # Carry typed dependency/number/valency obligations in n.  The tiny
      # grammar's labels are compatible by construction; production grammars
      # can reject here without changing the paired traversal.
-     compatible = compatible_labels(le.role, re.role)
+     compatible = compatible_features(le.role, re.role)
      if le.ch==re.ch and compatible:
       search(le.dst,re.src,left+le.ch,re.ch+right,label_state+(le.token,))
   # endpoint-specific, with center parity naturally represented by p==q after odd/even steps

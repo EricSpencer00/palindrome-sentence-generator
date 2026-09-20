@@ -1372,6 +1372,18 @@ still literary, so it is not treated as a readability claim. No repair,
 reversal, mirrored unit, catalogue text, or fragment was used. Artifact:
 `runs/discourse-plan-typed-valency-20260920.json`.
 
+Because “Shakespearean” is a broad readability target rather than a literal
+style requirement, the same typed discourse representation was rerun with
+plain contemporary English plans and lexical choices. It produced 24 complete
+natural-English controls (maximum 53 letters), explored 41 states, and had 41
+residual rejections with zero exact candidates above 38 letters. Controls
+included “I notice the storm and track my friend,” “We notice that storm, but
+track our friend,” and “The teacher notices the rain, so tracks the neighbor.”
+This is the same joint delayed-realization geometry with the style bias
+removed; no repair, reversal, mirrored unit, catalogue text, or fragment was
+used. Artifact:
+`runs/discourse-plan-typed-valency-plain-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

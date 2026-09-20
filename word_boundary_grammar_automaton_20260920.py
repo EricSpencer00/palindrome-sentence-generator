@@ -11,9 +11,9 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "runs/word-boundary-third-event-graph-20260920.json"
-ID = "word-boundary-third-event-graph-20260920"
-SIG = "word-boundary-aware|third-finite-event|attachment-graph|tense-state|live-equations"
+OUT = ROOT / "runs/word-boundary-fourth-event-graph-20260920.json"
+ID = "word-boundary-fourth-event-graph-20260920"
+SIG = "word-boundary-aware|fourth-finite-event|attachment-graph|tense-state|live-equations"
 
 def letters(s: str) -> str: return re.sub(r"[^a-z]", "", s.casefold())
 def audit(s: str):
@@ -51,6 +51,7 @@ COORD_OBJECT_RELATIVES = (("", "none", "none", "none"),
                           (" that the scribe records and that the gardener guards", "record+protect", "3sg", "distinct-1-2"))
 TENSE_STATES = (("past", "recorded+guarded"), ("present", "records+guards"))
 THIRD_EVENTS = (("", "none", "none"), (" and the courier notes the date", "note", "3sg"))
+FOURTH_EVENTS = (("", "none", "none"), (" and the witness checks the seal", "check", "3sg"))
 
 def live_equation(left: str, right: str):
     """Consume opposing edge characters immediately, returning first failure."""
@@ -68,7 +69,7 @@ def run():
     tails = [e for e in EDGES if e.pos == "PP"]
     rows=[]; near=[]; prunes=0
     for frame in FRAMES:
-        for d, a, n, v, od, oa, on, tail, (rel, rel_event, agreement), (orel, orevent, oagreement), (corel, corevent, coagreement, attach), (tense, finite_forms), (third, third_event, third_agreement) in itertools.product(dets, adjs, nouns, verbs, dets, adjs, nouns, tails, RELATIVES, OBJECT_RELATIVES, COORD_OBJECT_RELATIVES, TENSE_STATES, THIRD_EVENTS):
+        for d, a, n, v, od, oa, on, tail, (rel, rel_event, agreement), (orel, orevent, oagreement), (corel, corevent, coagreement, attach), (tense, finite_forms), (third, third_event, third_agreement), (fourth, fourth_event, fourth_agreement) in itertools.product(dets, adjs, nouns, verbs, dets, adjs, nouns, tails, RELATIVES, OBJECT_RELATIVES, COORD_OBJECT_RELATIVES, TENSE_STATES, THIRD_EVENTS, FOURTH_EVENTS):
             if n.role != "subject-agent" or v.role != "event-" + frame[1] or on.role != "object-theme": continue
             if d.role != "subject-det" or od.role != "object-det": continue
             # Relative clauses are complete, agreement-checked modifiers, not
@@ -78,7 +79,8 @@ def run():
             if orel and oagreement != "3sg": continue
             if corel and coagreement != "3sg": continue
             if third and third_agreement != "3sg": continue
-            obj = Edge(f"{od.text} {oa.text} {on.text}" + (corel if corel else (orel if orel else "")) + third, "NP+REL3" if third else ("NP+REL2" if corel else ("NP+REL" if orel else "NP")), "theme")
+            if fourth and fourth_agreement != "3sg": continue
+            obj = Edge(f"{od.text} {oa.text} {on.text}" + (corel if corel else (orel if orel else "")) + third + fourth, "NP+REL4" if fourth else ("NP+REL3" if third else ("NP+REL2" if corel else ("NP+REL" if orel else "NP"))), "theme")
             rendered = render(subject, v, obj, tail)
             # The boundary equation is checked while selecting the final edge.
             ok, mismatch = live_equation(subject.text + " " + v.text, obj.text + " " + tail.text)
@@ -90,7 +92,7 @@ def run():
                 continue
             if len({letters(x.text) for x in (subject, v, obj, tail)}) < 4: continue
             aout = audit(rendered)
-            rows.append({"rendered": rendered, "frame": {"agent": n.text, "event": frame[1], "theme": on.text, "time": tail.text, "relative_event": rel_event, "agreement": agreement, "object_relative_event": orevent, "object_agreement": oagreement, "coordinated_event": corevent, "third_event": third_event, "third_agreement": third_agreement, "attachment_graph":{"head":"theme","relative_1":"theme","relative_2":"theme","relative_3":"theme","indices":attach+"-3"}, "tense_state":tense, "finite_forms":finite_forms},
+            rows.append({"rendered": rendered, "frame": {"agent": n.text, "event": frame[1], "theme": on.text, "time": tail.text, "relative_event": rel_event, "agreement": agreement, "object_relative_event": orevent, "object_agreement": oagreement, "coordinated_event": corevent, "third_event": third_event, "third_agreement": third_agreement, "fourth_event": fourth_event, "fourth_agreement": fourth_agreement, "attachment_graph":{"head":"theme","relative_1":"theme","relative_2":"theme","relative_3":"theme","relative_4":"theme","indices":attach+"-3-4"}, "tense_state":tense, "finite_forms":finite_forms},
               "edges": [{"text":x.text,"pos":x.pos,"role":x.role,"semordnilap_pair":x.pair} for x in (subject,v,obj,tail)],
               "audit": aout, "live_equation":{"accepted":True,"mismatch":mismatch},
               "provenance":{"lexical_edges":"hand-authored ordinary words","finished_tape_reversal":False,"post_hoc_repair":False,"catalogue_text":False,"mirrored_units":False,"repeated_units":False,"fragment":False,"tautological_word_order":False}})

@@ -541,6 +541,20 @@ this is a valid lexical-geometry result but not reader evidence; the next
 construction must place these phrase transitions inside a complete typed clause
 grammar.
 
+The six-slot phrase-clause construction then made that change explicitly. Its
+outer-to-inner roles were `NP, VP, PP, PP, VP, NP`, with 180 transparent
+two-word units per role. A reverse trie was queried from the *current residual*
+obligation: an unmatched left buffer constrains the right phrase's final
+character, while an unmatched right buffer constrains the next left phrase's
+first character. When neither buffer exists, the full role bank is opened and
+the overlap is checked immediately. This avoids the earlier seam-index error
+and never edits a completed sentence. The run pruned 32,220 branches, reached
+zero complete states, and produced zero exact closures above 38 letters. Its
+independent artifact is `runs/six-slot-phrase-clause-20260919.json`; the lane
+is therefore a valid stopped construction family, not a candidate or a
+readability result. The next lane changes the grammar's phrase-length and
+semantic-frame structure rather than adding a repair pass.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates five deterministic blinded

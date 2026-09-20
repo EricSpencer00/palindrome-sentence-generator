@@ -620,6 +620,15 @@ zero exact closures. This is a valid semantic-pairing negative, not a failed
 repair queue; the next construction adds tense/agreement variants inside this
 cross-role order.
 
+The morphology-aware follow-up carried subject number, finite-verb agreement,
+and present/past tense as live feature state in the same cross-role grammar,
+using held-out right-clause realizations. Feature checks ran before the seam
+comparison, and residual characters were still consumed immediately. All nine
+reachable states were pruned at the first character seam, with zero feature
+conflicts, orbit steps, or exact closures. This rules out morphology as the
+missing ingredient for this role order; the next construction adds a central
+conjunction with independently inflected subordinate clauses.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

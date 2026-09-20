@@ -10,3 +10,7 @@ def test_penn_feature_slot_product_is_feature_conditioned_and_exact_gated():
     assert sum(item["exact"] for item in data["feature_stats"].values()) == 0
     assert data["candidates"] == []
     assert set(data["feature_stats"]) == {"singular_vbz", "plural_vbp", "past_vbd"}
+    assert data["feature_stats"]["singular_vbz"]["states"] == 51
+    assert data["feature_stats"]["plural_vbp"]["states"] == 21
+    assert data["feature_stats"]["past_vbd"]["states"] == 41
+    assert data["adjunct_frame_unique"] == 13650

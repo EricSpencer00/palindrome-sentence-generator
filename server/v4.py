@@ -1053,18 +1053,19 @@ PENN_FEATURE_SLOT_RUN = {
     "run_id": "penn-feature-slot-product-20260919",
     "method": "Penn-feature-conditioned single-sentence slot product with live cross-word character obligations",
     "status": "completed_no_exact_closure",
-    "frame_counts": {"singular_vbz": 2231, "plural_vbp": 0, "past_vbd": 4377},
+    "frame_counts": {"singular_vbz": 136, "plural_vbp": 59, "past_vbd": 227},
+    "adjunct_frame_unique": 13650,
     "feature_banks": {
-        "singular_vbz": {"subject_words": 64, "verb_words": 64, "states": 33, "pruned": 33, "agreement_pruned": 0},
-        "plural_vbp": {"subject_words": 58, "verb_words": 53, "states": 3, "pruned": 3, "agreement_pruned": 0},
-        "past_vbd": {"subject_words": 64, "verb_words": 64, "states": 23, "pruned": 23, "agreement_pruned": 0},
+        "singular_vbz": {"subject_words": 64, "verb_words": 64, "states": 51, "pruned": 51, "agreement_pruned": 0},
+        "plural_vbp": {"subject_words": 58, "verb_words": 53, "states": 21, "pruned": 21, "agreement_pruned": 0},
+        "past_vbd": {"subject_words": 64, "verb_words": 64, "states": 41, "pruned": 41, "agreement_pruned": 0},
     },
     "exact_candidates": 0,
     "reader_worthy_candidates": 0,
     "provenance": "original Brown Penn tags define word-level subject/verb feature maps; complete sentence templates are searched with live prefix/suffix character obligations; no paired clauses, aligned token mirror, finished-tape reversal, fallback, catalogue text, or post-hoc repair",
     "independent_validation": ["live cross-word obligation", "literal two-pointer", "forward/reverse SHA-256"],
     "reader_status": "no complete candidate reached the reader gate",
-    "next_construction_discriminator": "add frame-attested adjunct/prepositional lexical banks and preserve feature-conditioned inner states",
+    "next_construction_discriminator": "partition the adjunct bank by feature-compatible frame and add a prepositional object slot without relaxing the exact gate",
 }
 
 READER_PACKAGE = {

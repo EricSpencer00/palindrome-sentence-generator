@@ -460,11 +460,12 @@ readability gain; the next state expands feature-conditioned banks and inner
 states.
 
 The feature-conditioned run then used separate Brown Penn-tag banks for
-singular+VBZ, plural+VBP, and past+VBD frames. It searched two complete
-templates per feature (64/64, 58/53, and 64/64 subject/verb inventories),
-visited 59 bounded states, and pruned all 59 before an exact closure. No
-candidate reached the reader gate; the next construction adds frame-attested
-adjunct and prepositional banks without relaxing the character obligation.
+singular+VBZ, plural+VBP, and past+VBD frames, plus 13,650 observed
+preposition--noun adjunct combinations. It searched two complete templates
+per feature (64/64, 58/53, and 64/64 subject/verb inventories), visited 113
+bounded states, and pruned all 113 before an exact closure. No candidate
+reached the reader gate; the next construction partitions adjuncts by their
+compatible feature frame and adds a prepositional object slot.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

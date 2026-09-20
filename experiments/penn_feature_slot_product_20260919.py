@@ -90,7 +90,8 @@ def run() -> dict[str, object]:
         "method": "Penn-feature-conditioned single-sentence slot product with live cross-word character obligations",
         "candidates": results,
         "frame_counts": frame_counts,
-        "adjunct_frame_counts": dict(adjunct_counts),
+        "adjunct_frame_counts": dict(adjunct_counts.most_common(32)),
+        "adjunct_frame_unique": len(adjunct_counts),
         "feature_stats": feature_stats,
         "provenance": {
             "penn_tags": True,

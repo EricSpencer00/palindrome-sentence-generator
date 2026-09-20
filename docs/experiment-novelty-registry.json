@@ -65,6 +65,15 @@
       "status": "Remote bounded run with 70 Brown-derived entries per coarse POS plus relative pronouns, 500,000-node cap, and 20,000 beam: 9,341 states, 413,528 character prunes, 2,821 repeat prunes, 344 complete states, and 0 exact candidates above 38"
     },
     {
+      "id": "phrase-path-graph-join-20260920",
+      "signature": "observed-bigram-left-paths|typed-reverse-obligation-parser|phrase-first-join",
+      "artifact": "experiments/phrase_path_graph_join_20260920.py",
+      "run_artifacts": ["runs/phrase-path-graph-join-remote-70-100k-20260920.json"],
+      "distinction": "Generates intact ordinary left clause paths from observed bigram transitions, then independently parses the required reverse character stream with typed clause patterns; no finished candidate is reversed for rendering, and nested spans/repeated words are rejected.",
+      "reader_evidence": false,
+      "status": "Remote bounded run with 70 Brown-derived entries per POS, 100,000 observed rows, fanout 20, and 200,000 path cap: 5,913 left paths, 0 exact closures"
+    },
+    {
       "id": "independent-clause-seam-trie-20260920",
       "signature": "independent-clause-derivations|character-trie-cross-boundary|reverse-obligation-index|brown-terminals",
       "artifact": "experiments/independent_clause_seam_trie_20260920.py",

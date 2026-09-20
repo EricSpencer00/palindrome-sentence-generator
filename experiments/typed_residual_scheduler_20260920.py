@@ -140,6 +140,10 @@ def search(lexicon, *, grammar=None, max_words=14, max_nodes=250_000, beam_width
                 pairs = ((None, w) for w in right_choices)
             elif state.right_residual and not state.left_residual:
                 pairs = ((w, None) for w in left_choices)
+            elif not state.left_symbols:
+                pairs = ((None, w) for w in right_choices)
+            elif not state.right_symbols:
+                pairs = ((w, None) for w in left_choices)
             else:
                 pairs = ((a, b) for a in left_choices
                          for b in right_by_exposed.get(letters(a.text)[0], ())

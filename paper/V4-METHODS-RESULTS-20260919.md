@@ -2795,3 +2795,10 @@ repeats, and reached 344 complete states, but produced no exact candidate
 above 38 letters. The relative branch is therefore closed as a construction
 family; the next method must change the sentence topology itself rather than
 add another adjunct to this clause envelope.
+
+We then inverted the construction order without importing text: 5,913 intact
+left paths were generated from 100,000 observed bigram rows (fanout 20), and
+each required reverse character stream was independently parsed against typed
+clause patterns. No exact closure survived. This closes the observed-corpus
+path family at the tested bound; increasing fanout would repeat the same
+evidence rather than improve the reader-facing objective.

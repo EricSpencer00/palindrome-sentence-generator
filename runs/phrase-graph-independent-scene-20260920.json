@@ -9,7 +9,28 @@
     "max_letters": 73
   },
   "exact_candidates": [],
-  "reader_facing_candidates": [
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-graph|independent-scene-sides|boundary-options|shortcut-gates",
+    "distinct_from": "hand-authored edge bank: graph phrases are treated only as lexical boundary options and never emitted as mirrored sentence units"
+  },
+  "provenance": {
+    "audits": [
+      "independent two-pointer comparison",
+      "forward/reverse SHA-256"
+    ],
+    "hard_exclusions": [
+      "nested palindromes",
+      "repeated units",
+      "mirrored phrase units",
+      "fragments",
+      "catalogue text"
+    ]
+  },
+  "next_construction": "Index graph edges by grammatical valency and search paired finite clauses over multiple boundary shifts.",
+  "status": "no fresh exact >38; graph-derived readable controls retained",
+  "diagnostic_controls": [
     {
       "rendered": "The scout recorded animals animals, and the guide considered slam in a slam in a near dawn.",
       "graph_edge_index": 109,
@@ -358,25 +379,5 @@
         "post_hoc_repair": false
       }
     }
-  ],
-  "novelty_preflight": {
-    "status": "passed",
-    "signature": "phrase-graph|independent-scene-sides|boundary-options|shortcut-gates",
-    "distinct_from": "hand-authored edge bank: graph phrases are treated only as lexical boundary options and never emitted as mirrored sentence units"
-  },
-  "provenance": {
-    "audits": [
-      "independent two-pointer comparison",
-      "forward/reverse SHA-256"
-    ],
-    "hard_exclusions": [
-      "nested palindromes",
-      "repeated units",
-      "mirrored phrase units",
-      "fragments",
-      "catalogue text"
-    ]
-  },
-  "next_construction": "Index graph edges by grammatical valency and search paired finite clauses over multiple boundary shifts.",
-  "status": "no fresh exact >38; graph-derived readable controls retained"
+  ]
 }

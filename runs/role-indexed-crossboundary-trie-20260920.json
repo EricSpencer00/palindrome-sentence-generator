@@ -10,7 +10,29 @@
     "max_letters": 92
   },
   "exact_candidates": [],
-  "reader_facing_candidates": [
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "fresh-authored|role-indexed|attachment-indexed|crossboundary-trie",
+    "distinct_from": "prior asynchronous offsets: residual buffers are keyed by semantic role and attachment index while crossing word boundaries"
+  },
+  "provenance": {
+    "audits": [
+      "independent two-pointer comparison",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed unless exact >38",
+    "hard_exclusions": [
+      "nested self-palindromic spans",
+      "repeated units",
+      "word-order symmetry",
+      "fragments",
+      "catalogue text"
+    ]
+  },
+  "next_construction": "Join role-indexed keys through a multi-step trie and retain partial compatibility across both boundaries instead of a single key comparison.",
+  "status": "no fresh exact >38; role-indexed prose controls retained",
+  "diagnostic_controls": [
     {
       "rendered": "several careful navigators who carried the brass chart, that carries a brass compass beside the silent harbor.",
       "residual_keys": [
@@ -551,26 +573,5 @@
         "post_hoc_repair": false
       }
     }
-  ],
-  "novelty_preflight": {
-    "status": "passed",
-    "signature": "fresh-authored|role-indexed|attachment-indexed|crossboundary-trie",
-    "distinct_from": "prior asynchronous offsets: residual buffers are keyed by semantic role and attachment index while crossing word boundaries"
-  },
-  "provenance": {
-    "audits": [
-      "independent two-pointer comparison",
-      "forward/reverse SHA-256"
-    ],
-    "reader_gate": "closed unless exact >38",
-    "hard_exclusions": [
-      "nested self-palindromic spans",
-      "repeated units",
-      "word-order symmetry",
-      "fragments",
-      "catalogue text"
-    ]
-  },
-  "next_construction": "Join role-indexed keys through a multi-step trie and retain partial compatibility across both boundaries instead of a single key comparison.",
-  "status": "no fresh exact >38; role-indexed prose controls retained"
+  ]
 }

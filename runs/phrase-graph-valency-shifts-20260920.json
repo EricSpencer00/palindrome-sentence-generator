@@ -9,7 +9,28 @@
     "max_letters": 80
   },
   "exact_candidates": [],
-  "reader_facing_candidates": [
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-graph|valency-index|three-boundary-shifts|independent-clauses",
+    "distinct_from": "prior graph scan: each lexical edge is assigned a valency-compatible scene role and tested under subject/object/adjunct boundary shifts"
+  },
+  "provenance": {
+    "audits": [
+      "independent two-pointer comparison",
+      "forward/reverse SHA-256"
+    ],
+    "hard_exclusions": [
+      "graph duplication",
+      "fragments",
+      "catalogue text",
+      "mirrored units",
+      "nested palindromes"
+    ]
+  },
+  "next_construction": "Build a valency-aware edge trie that carries boundary shifts incrementally before complete clause rendering.",
+  "status": "no fresh exact >38; valency-shift prose controls retained",
+  "diagnostic_controls": [
     {
       "rendered": "The quiet scout walks beside the animals animals, while the guide waits near the slam in a slam in a.",
       "edge_index": 109,
@@ -370,25 +391,5 @@
         "post_hoc_repair": false
       }
     }
-  ],
-  "novelty_preflight": {
-    "status": "passed",
-    "signature": "phrase-graph|valency-index|three-boundary-shifts|independent-clauses",
-    "distinct_from": "prior graph scan: each lexical edge is assigned a valency-compatible scene role and tested under subject/object/adjunct boundary shifts"
-  },
-  "provenance": {
-    "audits": [
-      "independent two-pointer comparison",
-      "forward/reverse SHA-256"
-    ],
-    "hard_exclusions": [
-      "graph duplication",
-      "fragments",
-      "catalogue text",
-      "mirrored units",
-      "nested palindromes"
-    ]
-  },
-  "next_construction": "Build a valency-aware edge trie that carries boundary shifts incrementally before complete clause rendering.",
-  "status": "no fresh exact >38; valency-shift prose controls retained"
+  ]
 }

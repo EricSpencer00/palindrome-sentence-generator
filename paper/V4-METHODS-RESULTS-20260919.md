@@ -1384,6 +1384,16 @@ removed; no repair, reversal, mirrored unit, catalogue text, or fragment was
 used. Artifact:
 `runs/discourse-plan-typed-valency-plain-20260920.json`.
 
+The plain tense/aspect extension initially exposed malformed past stems and
+auxiliary agreement in its controls; that raw artifact is not counted as
+readability evidence. After a focused morphology correction (`noticed`,
+`tracked`, `waited`, `sent`; `I am`, `we are`, `the teacher is`, `I/we were`,
+`the teacher was`) and strict surface validation, the rerun produced 32
+natural contemporary-English controls (maximum 52 letters), 164 states, and
+164 residual rejections, with zero exact candidates above 38 letters. The
+corrected run is the only tense/aspect result retained for evaluation. Artifact:
+`runs/discourse-plan-tense-aspect-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

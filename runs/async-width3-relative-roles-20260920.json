@@ -11,7 +11,29 @@
     "max_letters": 92
   },
   "exact_candidates": [],
-  "reader_facing_candidates": [
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "fresh-authored|async-width3|relative-role-transitions|typed-features",
+    "distinct_from": "prior fixed width-three gate: residual obligations advance one character at a time and retain partial states"
+  },
+  "provenance": {
+    "audits": [
+      "independent two-pointer comparison",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed unless exact >38",
+    "hard_exclusions": [
+      "nested self-palindromic spans",
+      "repeated units",
+      "word-order symmetry",
+      "fragments",
+      "catalogue text"
+    ]
+  },
+  "next_construction": "Permit asynchronous crossing of word boundaries with a residual trie keyed by role and attachment index, not just character offset.",
+  "status": "no fresh exact >38; partial-transition near-misses retained",
+  "diagnostic_controls": [
     {
       "rendered": "several careful navigators who carried the brass chart, that carries a brass compass beside the silent harbor.",
       "frame": {
@@ -624,26 +646,5 @@
         "post_hoc_repair": false
       }
     }
-  ],
-  "novelty_preflight": {
-    "status": "passed",
-    "signature": "fresh-authored|async-width3|relative-role-transitions|typed-features",
-    "distinct_from": "prior fixed width-three gate: residual obligations advance one character at a time and retain partial states"
-  },
-  "provenance": {
-    "audits": [
-      "independent two-pointer comparison",
-      "forward/reverse SHA-256"
-    ],
-    "reader_gate": "closed unless exact >38",
-    "hard_exclusions": [
-      "nested self-palindromic spans",
-      "repeated units",
-      "word-order symmetry",
-      "fragments",
-      "catalogue text"
-    ]
-  },
-  "next_construction": "Permit asynchronous crossing of word boundaries with a residual trie keyed by role and attachment index, not just character offset.",
-  "status": "no fresh exact >38; partial-transition near-misses retained"
+  ]
 }

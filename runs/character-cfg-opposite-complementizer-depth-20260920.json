@@ -1,0 +1,54 @@
+{
+  "experiment_id": "character-cfg-opposite-complementizer-depth-20260920",
+  "method": "opposite complementizer attachment depth with direct center equality and hard outer seam",
+  "grammar": [
+    "S -> NP VP",
+    "depth1 NP -> DET NOUN COMP S",
+    "depth2 NP -> DET NOUN COMP NP COMP S",
+    "COMP -> that|as"
+  ],
+  "stats": {
+    "depth1_that": 180,
+    "depth2_as": 180,
+    "depth2_as_reverse": 180,
+    "depth1_that_reverse": 180,
+    "chart_states": 23008,
+    "depth_pair_support": {
+      "1/2": 32400,
+      "2/1": 32400
+    },
+    "center_mismatch_support": {
+      "t/s": 32400,
+      "a/t": 32400
+    },
+    "outer_twochar_states": 0,
+    "joint_closures": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_score": 0
+  },
+  "complete_prose_controls": [
+    "The sailor that the poet reads guards the harbor.",
+    "The sailor as the poet that the keeper reads guards the harbor."
+  ],
+  "best_diagnostic": {
+    "score": 0,
+    "left": "",
+    "right": "",
+    "depth_pair": ""
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-opposite-complementizer-depth-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "character-cfg-compatible-complementizer-pair-20260920"
+  },
+  "next_construction": "Pair opposite-depth complementizers with an agreement-carrying embedded clause, retaining direct center equality and hard seams.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

@@ -7022,3 +7022,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   0 exact candidates above 38. The next construction adds predicate/adjunct
   scope agreement before any second adjunct. Artifact:
   `runs/vivid-scene-attached-adjunct-csp-20260920.json`.
+
+- **Whole-scene joint opening grammar, 2026-09-20:** jointly authored complete
+  left/right clauses and tails, then retained nine opening-compatible scenes
+  from 27 constructions. Controls reached 77 letters; 0 exact clean rows were
+  promoted. The next construction solves two opening characters plus a
+  semantic relation. Artifact:
+  `runs/whole-scene-joint-opening-grammar-20260920.json`.
+
+- **Crossing-consequence scene CSP, 2026-09-20:** used an internally crossing
+  subject/verb/object/conjunction/consequence grammar with live character
+  equations. It visited 10,312 lexical states and pruned 3,072 equations;
+  every target closed at 0 complete renderings. Controls remain independently
+  audited. Artifact:
+  `runs/crossing-consequence-scene-csp-20260920.json`.
+
+- **Consequence/contrast whole-scene grammar, 2026-09-20:** authored two
+  complete clauses and selected consequence/contrast connectives online. It
+  checked 27 states and pruned 27, retaining controls to 73 letters and 0
+  exact rows. The next construction adds one causal subordinate clause with
+  attachment scope. Artifact:
+  `runs/whole-scene-consequence-contrast-20260920.json`.

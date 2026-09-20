@@ -4272,3 +4272,21 @@ pruned 162, retaining complete controls to 83 letters with zero exact rows
 above 38. The next topology adds predicate/adjunct scope agreement before any
 second adjunct. Artifact:
 `runs/vivid-scene-attached-adjunct-csp-20260920.json`.
+
+The whole-scene joint-opening lane authored complete left/right clauses and
+tails before a joint opening test. It retained nine opening-compatible scenes
+from 27 constructions, with controls to 77 letters and zero exact clean rows.
+The next construction solves two opening characters plus a semantic relation.
+Artifact: `runs/whole-scene-joint-opening-grammar-20260920.json`.
+
+The crossing-consequence scene CSP used an internally crossing
+subject/verb/object/conjunction/consequence grammar. It visited 10,312 lexical
+states and pruned 3,072 live equations; no complete target rendered, so no
+exact row was reader-eligible. Artifact:
+`runs/crossing-consequence-scene-csp-20260920.json`.
+
+The consequence/contrast whole-scene lane authored two complete clauses and
+selected connectives online. It checked 27 states and pruned 27, retained
+controls to 73 letters, and produced zero exact rows. The next topology adds a
+single causal subordinate clause with attachment scope. Artifact:
+`runs/whole-scene-consequence-contrast-20260920.json`.

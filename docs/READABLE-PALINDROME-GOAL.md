@@ -6592,3 +6592,28 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   adds a third adjunct only with bounded scope depth and ordering compatibility.
   Artifact:
   `runs/synchronized-valency-tries-nested-adjunct-order-20260920.json`.
+
+- **Author-first semantic lattice, 2026-09-20:** selected a complete scene
+  frame before lexical realization and consumed a live two-sided character
+  equation during selection. It explored 27 semantic states, retained prose
+  diagnostics up to 53 letters, and found 0 exact candidates above 38. The
+  next construction carries a two-character residual through number,
+  subject, verb, object, and setting states. Artifact:
+  `runs/semantic-lattice-live-equation-author-20260920.json`.
+
+- **Shared-scene online clause matching, 2026-09-20:** grew independent
+  subject/verb/object clauses from a fresh semantic-role graph while matching
+  characters online. After correcting an initial duplicated-clause control,
+  the rerun checked 243 online prunes and retained 20 non-repeated controls up
+  to 53 letters, with 0 exact candidates above 38. The next construction adds
+  a second independently typed event. Artifact:
+  `runs/shared-scene-online-clause-match-20260920.json`.
+
+- **Full-clause compositional obligation CSP, 2026-09-20:** factorized both
+  ordinary clauses into independent subject, verb, object, and locative slots
+  while carrying live word-boundary obligations. The bounded run visited 5,000
+  states, pruned 4,499, and reached no complete two-sided parse; its longest
+  intact control was 108 letters and exact count above 38 was 0. The next
+  construction adds held-out ditransitive and intransitive valency frames.
+  Artifact:
+  `runs/full-clause-compositional-obligation-csp-20260920.json`.

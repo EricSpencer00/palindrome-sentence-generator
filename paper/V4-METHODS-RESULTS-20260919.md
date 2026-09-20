@@ -3061,3 +3061,33 @@ the young poets read the quiet poem at first light.” Its first mismatch is
 `e` versus `g`. The next construction carries residual suffix-class vectors
 through a three-clause paradigm grammar with held-out auxiliaries. Artifact:
 `runs/morphological-paradigm-zipper-csp-20260920.json`.
+
+The residual-prefix scene-arm follow-up used a two-character obligation from
+an authored opening as a lookup key for the next scene arm, then retained the
+new residual rather than restarting the sentence. Three live lookups produced
+six complete-prose diagnostics up to 114 letters; all failed at the first
+outer character and none was exact above 38. The longest rendering was “After
+rain, the gardener gathered the apples; while the dark branches dripped, after
+the storm, the bright meadow opened beneath the clouds.” It is preserved as a
+diagnostic with its `a`/`s` mismatch, not as a palindrome. The next operator is
+a second residual-key transition with semantic-role and agreement preflight.
+Artifact: `runs/residual-prefix-scene-arm-20260920.json`.
+
+The synchronous relative-clause follow-up added an optional object-relative
+nonterminal and shared attachment state to the lockstep transducer. It tested
+36 synchronous states and 36 seam prunes, retaining nine intact diagnostics
+up to 127 letters and zero exact candidates above 38. Every row carries an
+independent pointer audit and forward/reverse SHA-256 values. The next
+construction is a distinct temporal-adjunct transducer, not another relative
+clause sweep. Artifact:
+`runs/synchronous-clause-relative-transducer-20260920.json`.
+
+The three-clause morphology follow-up carried a two-character residual
+suffix-class vector across two independent outer clauses before admitting a
+held-out auxiliary center. It enumerated 64 frames and 4,096 outer
+transitions; no pair was outer-compatible. Two 102-letter controls remain
+fully rendered and independently audited, including “The quiet keeper marks
+the old letter by the river; while the bell has sounded; patient poets kept a
+silver map near the garden.” The next operator conditions a fourth clause on
+the full residual vector and finite-verb agreement. Artifact:
+`runs/three-clause-residual-suffix-paradigm-20260920.json`.

@@ -5798,3 +5798,26 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   suffix-class vectors through a three-clause paradigm grammar with held-out
   auxiliaries. Artifact:
   `runs/morphological-paradigm-zipper-csp-20260920.json`.
+
+- **Residual-prefix scene-arm expansion, 2026-09-20:** used a live
+  two-character obligation from an authored opening to select the next
+  independently authored scene arm. Three lookups produced six complete-prose
+  diagnostics up to 114 letters; all failed at the first outer character and
+  0 exact candidates exceeded 38. The next operator retains the residual for
+  a second keyed transition with semantic-role/agreement preflight. Artifact:
+  `runs/residual-prefix-scene-arm-20260920.json`.
+
+- **Synchronous relative-clause transducer, 2026-09-20:** added an optional
+  object-relative nonterminal with shared attachment state to the lockstep
+  grammar. It tested 36 states, pruned 36 seams, and retained nine intact
+  diagnostics up to 127 letters; 0 exact candidates exceeded 38. The next
+  operator is a distinct temporal-adjunct transducer. Artifact:
+  `runs/synchronous-clause-relative-transducer-20260920.json`.
+
+- **Three-clause residual suffix paradigm, 2026-09-20:** carried a
+  two-character suffix-class vector across two outer clauses before admitting
+  a held-out auxiliary center. It tested 64 frames and 4,096 transitions,
+  with 0 outer-compatible pairs and two 102-letter controls. The next
+  construction conditions a fourth clause on the full residual vector and
+  finite-verb agreement. Artifact:
+  `runs/three-clause-residual-suffix-paradigm-20260920.json`.

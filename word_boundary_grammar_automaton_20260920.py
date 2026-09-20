@@ -11,9 +11,9 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "runs/word-boundary-conditional-subordinator-graph-20260920.json"
-ID = "word-boundary-conditional-subordinator-graph-20260920"
-SIG = "word-boundary-aware|conditional-subordinator|connector-edge|live-equations"
+OUT = ROOT / "runs/word-boundary-counterfactual-graph-20260920.json"
+ID = "word-boundary-counterfactual-graph-20260920"
+SIG = "word-boundary-aware|counterfactual-relation|connector-edge|live-equations"
 
 def letters(s: str) -> str: return re.sub(r"[^a-z]", "", s.casefold())
 def audit(s: str):
@@ -52,7 +52,7 @@ COORD_OBJECT_RELATIVES = (("", "none", "none", "none"),
 TENSE_STATES = (("past", "recorded+guarded"), ("present", "records+guards"))
 THIRD_EVENTS = (("", "none", "none"), (" and the courier notes the date", "note", "3sg"))
 FOURTH_EVENTS = (("", "none", "none"), (" and the witness checks the seal", "check", "3sg"))
-RELATION_EDGES = (("", "temporal"), (" because the record matters", "causal"), (" so the garden opens", "resultative"), (" although the path narrows", "concessive"), (" if the seal remains", "conditional"), (" until the lantern dims", "temporal-until"), (" since the bell rang", "temporal-since"), (" while the harbor waits", "temporal-while"), (" as the record matters", "causal-subordinator"), (" though the path narrows", "concessive-subordinator"), (" unless the seal breaks", "conditional-subordinator"))
+RELATION_EDGES = (("", "temporal"), (" because the record matters", "causal"), (" so the garden opens", "resultative"), (" although the path narrows", "concessive"), (" if the seal remains", "conditional"), (" until the lantern dims", "temporal-until"), (" since the bell rang", "temporal-since"), (" while the harbor waits", "temporal-while"), (" as the record matters", "causal-subordinator"), (" though the path narrows", "concessive-subordinator"), (" unless the seal breaks", "conditional-subordinator"), (" even if the seal broke", "counterfactual"))
 
 def live_equation(left: str, right: str):
     """Consume opposing edge characters immediately, returning first failure."""

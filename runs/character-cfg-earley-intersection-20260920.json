@@ -1,0 +1,41 @@
+{
+  "experiment_id": "character-cfg-earley-intersection-20260920",
+  "method": "character-level CFG/Earley-style intersection with Brown-derived character trie",
+  "grammar": [
+    "S -> NP VP",
+    "NP -> DET [ADJ] NOUN",
+    "VP -> VERB NP"
+  ],
+  "stats": {
+    "left_derivations": 240,
+    "right_derivations": 240,
+    "left_chart_states": 4166,
+    "right_chart_states": 4166,
+    "intersection_character_states": 18000,
+    "exact": 0,
+    "reader_eligible": 0,
+    "longest_mirrored_prefix_letters": 4
+  },
+  "complete_prose_controls": [
+    "The patient sailor guards the harbor.",
+    "Some quiet writers read a garden."
+  ],
+  "best_diagnostic": {
+    "letters": 4,
+    "left": "a era guides a area",
+    "right": "a area guides a area"
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-earley-trie-intersection-20260920",
+    "catalogue_imported": false,
+    "fixed_bank_sweep": false
+  },
+  "next_construction": "Add a recursive relative-clause production to the character chart and carry agreement as an Earley item feature; retain the trie and do not widen by lexical sweep.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

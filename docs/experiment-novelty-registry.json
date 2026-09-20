@@ -10899,6 +10899,17 @@
       "distinction": "A role-transition graph rejects one-token and repeated-edge shortcuts before composing exact phrase edges; retained as a negative diagnostic until phrase edges are independently grammatical and nonrepeating.",
       "reader_evidence": false,
       "status": "exact graph paths exist, but the demonstration inventory is not reader-eligible prose; do not promote"
+    },
+    {
+      "id": "cfg-center-out-intersection-20260919",
+      "signature": "whole-sentence-cfg|center-out-character-pruning|distinct-slot-grammar",
+      "artifact": "experiments/cfg_center_out_intersection_20260919.py",
+      "run_artifacts": [
+        "runs/cfg-center-out-intersection-20260919.json"
+      ],
+      "distinction": "Compiles one sentence grammar rather than two paired clauses and rejects a derivation at its first mirrored-character mismatch while carrying distinct lexical slots. No finished-tape reversal, aligned token pairs, fallback characters, catalogue text, or repair.",
+      "reader_evidence": false,
+      "status": "72 fresh derivations pruned online at the first character mismatch; 0 complete states and 0 exact closures; next construction replaces the tiny lexicon with a held-out lexical trie while preserving the same online gate"
     }
   ]
 }

@@ -6409,6 +6409,17 @@
       "distinction": "Extends the single forward factorized sentence CSP with per-position lexical support domains: lexical edges are pruned only when their mirrored position has no support before grammar-factor branching. Includes an exhaustive odd/even unequal-boundary differential test; no sentence-pair enumeration, reversal, repair, mirrored units, or catalogue replay.",
       "reader_evidence": false,
       "status": "Differential test passed (18 exhaustive cases); target lengths 44/52/60: 5,485 states, 30,746 live prunes, 0 complete parses and 0 exact candidates above 38; prose controls independently pointer/SHA audited; next is minimum-domain factor ordering with adjacent-factor propagation"
+    },
+    {
+      "id": "min-domain-factor-csp-20260920",
+      "signature": "minimum-domain-factor-branching|adjacent-support-propagation|global-forward-csp",
+      "artifact": "experiments/min_domain_factor_csp_20260920.py",
+      "run_artifacts": [
+        "runs/min-domain-factor-csp-20260920.json"
+      ],
+      "distinction": "Orders each factor's lexical alternatives by minimum surviving mirrored-support domain and propagates adjacent support before recursion, while one forward grammar assigns variable-length words into exact x[0:N] factors. Distinct from plain position-domain arc consistency; no pair enumeration, reversal, repair, mirrored units, or catalogue replay.",
+      "reader_evidence": false,
+      "status": "Differential test passed; target lengths 44/52/60: represented forward-language counts recorded, 5,485 states, 30,746 prunes, 0 complete parses and 0 exact candidates above 38; prose controls independently pointer/SHA audited; next is two-factor lookahead"
     }
   ],
   "excluded": [

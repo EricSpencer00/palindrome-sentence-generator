@@ -10,6 +10,7 @@ LEX = {
     "det": ("the", "a"), "noun": ("sailor", "keeper", "cartographer"),
     "verb": ("charts", "keeps", "marks"), "rel": ("who",),
     "conj": ("and", "but"), "obj": ("harbor", "signal", "map"),
+    "agent": ("pilot", "warden"),
 }
 
 @dataclass(frozen=True)
@@ -20,10 +21,10 @@ class State:
 
 def candidates():
     # Relative clause and coordination are both ordinary left-to-right parses.
-    for d, n, v, r, d2, o, c, v2, o2 in product(
+    for d, n, v, r, d2, o, c, v2, o2, ag in product(
         LEX["det"], LEX["noun"], LEX["verb"], LEX["rel"], LEX["det"],
-        LEX["obj"], LEX["conj"], LEX["verb"], LEX["obj"]):
-        yield f"{d} {n} {v} {r} {d2} {o} {c} {v2} {o2}."
+        LEX["obj"], LEX["conj"], LEX["verb"], LEX["obj"], LEX["agent"]):
+        yield f"{d} {n} {v} {r} {d2} {ag} {o} {c} {v2} {o2}."
 
 def norm(s):
     return "".join(ch for ch in s.lower() if ch.isalpha())
@@ -67,6 +68,7 @@ def main():
         "sha256_audit": {"left": hashlib.sha256(norm(best["left"]).encode()).hexdigest(), "right": hashlib.sha256(norm(best["right"]).encode()).hexdigest()},
         "provenance": "authored finite relative-clause/coordination CFG with held-out lexical bank; live opposite-pointer equality; no repair",
         "next_construction": "hold the relative marker fixed and add a held-out transitive-agent slot; require closure support to increase without editing a rendered tape",
+        "construction_update": "held-out transitive-agent slot added",
     }
     out = Path(os.environ.get("LUNA_OUTPUT", str(Path(__file__).parents[1] / "runs" / "luna-relative-cfg-orbit-20260920.json")))
     out.parent.mkdir(parents=True, exist_ok=True)

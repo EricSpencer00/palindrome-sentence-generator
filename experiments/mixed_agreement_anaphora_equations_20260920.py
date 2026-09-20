@@ -27,7 +27,14 @@ def banks(state):
  rec2=c("recipient","child","anaphoric-recipient","him",number="singular",animacy="animate",anaphoric=True)+c("recipient","friend","anaphoric-recipient","her",number="singular",animacy="animate",anaphoric=True)+c("recipient","guards","anaphoric-recipient","them",number="plural",animacy="animate",anaphoric=True)
  return sub,verb,theme,prep,rec,conn,sub,verb,theme,prep,rec2
 def vok(s,v):return (s.number=="singular")==v.text.endswith("s")
-def fok(s,v,t,p,r,cx,state):return vok(s,v) and v.valency=="dative" and t.valency=="patient" and t.animacy=="inanimate" and p.relation==state and p.text==("for" if state=="benefit" else "to") and r.animacy=="animate" and r.valency in {"animate-recipient","anaphoric-recipient"} and cx.relation==state
+def fok(s,v,t,p,r,cx,state):
+ benefit_verbs={"gives","sends","brings","offers"}
+ relation_ok=v.text in benefit_verbs if state=="benefit" else True
+ return (vok(s,v) and relation_ok and v.valency=="dative" and
+         t.valency=="patient" and t.animacy=="inanimate" and
+         p.relation==state and p.text==("for" if state=="benefit" else "to") and
+         r.animacy=="animate" and r.valency in {"animate-recipient","anaphoric-recipient"} and
+         cx.relation==state and cx.text==("although" if state=="benefit" else "while"))
 def controls():
  ts=["Mara gives the letter for the child although she sends a book for him.","Noah brings the seal for a friend although he offers books for her.","The guards give the letters for the guards although they send books for them.","Mara sends the letters for the child although she brings a book for him.","The guards give a book to the guards while they send the letters to them.","Noah brings the letter to a friend while he offers books to her.","The guards send the seal to a friend while they give a book to her.","Mara offers a letter to the guards while she shows the book to them.","The guards give books to the child while they send the seal to him.","Mara brings the letter to the guards while she shows a book to them.","Noah sends the letters to a friend while he gives a book to her.","The guards offer a book to the child while they give letters to him.","Mara sends the letter to a friend while she brings books to her.","The guards show the seal to the guards while they give a book to them.","Noah offers books to the guards while he sends the letter to them.","The guards bring a book to a friend while they give the seal to her.","Mara gives the book for a friend although she sends the seal for her.","The guards bring the letter to the child while they offer the book to him.","Noah shows seals to the guards while he gives a book to them.","The guards send books for a friend although they bring the letter for her."]
  return [{"rendered":t,"audit":audit(t),"reader_status":"complete contemporary prose control; not exact"} for t in ts]

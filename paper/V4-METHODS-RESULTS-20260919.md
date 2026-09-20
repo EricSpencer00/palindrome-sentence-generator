@@ -3342,3 +3342,29 @@ the gardener guards and the courier notes the date and the witness checks the
 seal before dusk.”; zero exact candidates above 38 survived. The next
 construction is a resultative or causal event relation. Artifact:
 `runs/word-boundary-fourth-event-graph-20260920.json`.
+
+The resultative modal-passive lane introduced a typed `remain-being` state
+before the modal passive beneficiary/agent/theme frame. Across target lengths
+44, 56, 68, and 80 it visited 1,234 states and made 436 live factor prunes,
+with zero complete parses and zero exact candidates above 38. Its complete
+controls are ordinary English and were independently pointer/SHA audited; the
+next construction is stative modal passive. Artifact:
+`runs/resultative-modal-passive-csp-20260920.json`.
+
+The typed transitive/locative agreement author generated 80 complete scenes
+with subject number, tense, and valency unified before rendering. The longest
+intact diagnostic is “Several young cartographers carried the narrow stone
+landing.” (53 letters); zero exact candidates above 38 survived. The next
+construction adds typed relative-clause attachment. Artifact:
+`runs/typed-transitive-locative-author-20260920.json`.
+
+The causal/resultative connector graph added a typed connector edge (“because
+the record matters” plus a resultative alternative) to the four-event
+attachment graph. Four frames incurred 884,736 live boundary prunes and
+retained 20 ordinary-prose near-miss diagnostics to 186 letters, including
+“The patient gardener who records the note records the patient diaper that the
+scribe records and that the gardener guards and the courier notes the date and
+the witness checks the seal before dusk because the record matters.”; zero
+exact candidates above 38 survived. The next construction adds a concessive
+connector edge. Artifact:
+`runs/word-boundary-resultative-causal-graph-20260920.json`.

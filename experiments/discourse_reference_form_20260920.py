@@ -10,9 +10,9 @@ class Scene:
 SCENES=(
  Scene("classroom","the teacher",("helps","guides","greets"),("the student","the child","the class"),"singular",("they","the student","the child"),("guides","checks","encourages"),("the class","the work","the team")),
  Scene("meeting","the manager",("sends","shares","reviews"),("the message","the update","the report"),"singular",("it","the message","the update"),("reaches","changes","helps"),("the team","the plan","the staff")),
- Scene("garden","the gardener",("waters","checks","plants"),("the plant","the tree","the garden"),"singular",("it","the plant","the tree"),("grows","needs","changes"),("the sun","the soil","the yard")),
+ Scene("garden","the gardener",("waters","checks","plants"),("the plant","the tree","the garden"),"singular",("it","the plant","the tree"),("needs","shades","fills"),("the soil","the yard","the garden")),
  Scene("travel","the traveler",("checks","carries","packs"),("the ticket","the map","the bag"),"singular",("it","the ticket","the map"),("opens","shows","holds"),("the gate","the route","the plan")),
- Scene("home","the parent",("calls","helps","watches"),("the child","the guest","the dog"),"singular",("they","the child","the guest"),("answers","finishes","joins"),("the meal","the game","the family")),
+ Scene("home","the parent",("calls","helps","watches"),("the child","the guest","the dog"),"singular",("they","the child","the guest"),("answer","finishes","joins"),("the call","the game","the family")),
 )
 RELATIONS=("and","but","so","because")
 def letters(s): return re.sub(r"[^a-z]","",s.casefold())

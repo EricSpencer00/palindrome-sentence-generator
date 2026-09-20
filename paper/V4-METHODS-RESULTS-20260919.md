@@ -1440,6 +1440,17 @@ novelty preflight passed; no repair, reversal, mirrored unit, catalogue text,
 or fragment was admitted. Artifact:
 `runs/anaphoric-two-clause-discourse-20260920.json`.
 
+The reference-form constructor made definite-NP versus pronoun choice an
+explicit discourse attribute before paired character emission. Five ordinary
+scenes (classroom, meeting, garden, travel, and home) supplied 25 complete
+controls, maximum 52 letters, with agreement-correct forms such as “The
+gardener waters the plant and it needs the soil” and “The parent calls the child
+and they answer the call.” The initial subject seam admitted zero live states,
+so there were zero exact candidates above 38 letters. Independent pointer/SHA
+audits passed, and no repair, reversal, mirrored unit, catalogue text, or
+fragment was admitted. Artifact:
+`runs/discourse-reference-form-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

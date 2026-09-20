@@ -10782,6 +10782,30 @@
       "distinction": "Carries subject number, transitivity, object role, and clause-finality in the mirrored lexical decoder before character emission; no raw reversal, catalogue text, repeated units, or post-hoc repair.",
       "reader_evidence": false,
       "status": "0 exact closures at 40+ letters and 0 reader-worthy candidates; next construction adds tense/aspect and semantic-role compatibility"
+    },
+    {
+      "id": "variable-boundary-lattice-decoder-20260926",
+      "signature": "brown-headwords|variable-phrase-length|online-mirror-segmentation",
+      "artifact": "experiments/variable_boundary_lattice_decoder_20260926.py",
+      "run_artifacts": [
+        "artifacts/variable-boundary-lattice-decoder-20260926-local.json",
+        "artifacts/variable-boundary-lattice-decoder-20260926-remote.json"
+      ],
+      "distinction": "Allows one-to-three-word phrase chunks and live boundary movement on both mirrored sides while enforcing immediate character equality and duplicate rejection; no finished-tape reversal, catalogue text, or repair.",
+      "reader_evidence": false,
+      "status": "0 exact closures at 40+ letters and 0 reader-worthy candidates; next construction carries POS and clause-finality labels through the lattice"
+    },
+    {
+      "id": "paired-clause-lattice-20260927",
+      "signature": "fresh-typed-clause-bank|joint-center-out-selection|semantic-roles",
+      "artifact": "experiments/paired_clause_lattice_20260927.py",
+      "run_artifacts": [
+        "artifacts/paired-clause-lattice-20260927-local.json",
+        "artifacts/paired-clause-lattice-20260927-remote.json"
+      ],
+      "distinction": "Selects fresh SVO, copular, locative, imperative, relative, and appositive clauses jointly under live character equations with semantic roles; no catalogue text, seed wrapping, repeated units, or post-hoc repair.",
+      "reader_evidence": false,
+      "status": "0 exact closures; best intact controls reached 38 letters but no state survived the first exact equation; next construction adds typed connectors and cross-clause boundary equations"
     }
   ]
 }

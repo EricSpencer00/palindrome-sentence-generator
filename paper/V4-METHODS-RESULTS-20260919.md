@@ -72,6 +72,8 @@ multiword palindrome span:
 | Brown character decoder center-out | Emits the left half with a Brown-derived character/word-boundary decoder and mirrors each character immediately, rejecting repeated units before rendering | 20 exact 40-letter closures with independent pointer/SHA audits; all failed the human readability gate because the right half was not English-segmentable | 20 / 0 admitted |
 | Right-boundary WFSA decoder | Constrains mirrored right-side word boundaries and POS transitions during character decoding, while retaining immediate exact mirroring and fresh-word rejection | 0 segmented exact closures at 40+ letters; no candidate reached the reader gate | 0 / 0 |
 | Agreement/valency WFSA decoder | Adds subject-number, transitivity, object-role, and clause-finality states to mirrored lexical decoding before a character is accepted | 0 exact closures at 40+ letters; no candidate reached the reader gate | 0 / 0 |
+| Variable-boundary lattice decoder | Allows 1–3-word phrase chunks and live boundary movement on both mirrored sides while preserving immediate character equality | 0 exact closures at 40+ letters; no candidate reached the reader gate | 0 / 0 |
+| Paired clause center-out lattice | Selects fresh SVO, copular, locative, imperative, relative, and appositive clauses jointly with typed semantic roles before character emission | 0 exact closures; intact controls reached 38 letters but never crossed the live equation gate | 0 / 0 |
 | Indexed phrase-boundary center-out | Pre-indexes fresh NP/VP phrase pairs by exposed boundary characters and length difference, then consumes full debt before opening the next grammatical seam | 12 index keys, 30 pair options; 0 states reached the frontier; no candidate rendered | 0 / 0 |
 | Boundary-indexed typed clause growth | Places each fresh subject/verb/number/object/name/adjunct at its real tape offset and rejects conflicts before opening the next slot | 66,967 live nodes and 23,668 terminal leaves across 40–70 letters; no exact closure | 0 / 0 |
 | Asymmetric boundary-indexed growth | Tests a six-slot left clause against a four-slot response while carrying every outer character obligation before lexical placement | 150,719 live nodes and 1,868 terminal leaves; the withheld fresh inventory produced no exact closure | 0 / 0 |
@@ -375,6 +377,15 @@ and clause-finality frames produced zero exact closures at 40+ letters on
 `hst-bench`; no text was sent to readers. Its next state is tense/aspect and
 semantic-role compatibility, again selected before emission rather than used
 to patch a near miss.
+
+The variable-boundary lattice next allowed one-to-three-word phrase chunks and
+live boundary movement on both sides. It still produced zero 40+-letter
+lexical closures, so the failure is not being hidden behind a fixed token
+boundary. A separate paired-clause lattice then widened the authored scene
+bank across SVO, copular, locative, imperative, relative, and appositive
+frames; its best intact controls were ordinary English, but none survived the
+first exact equation. Both lanes are retained as construction evidence, not
+as repair attempts.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

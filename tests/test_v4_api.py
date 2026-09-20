@@ -66,8 +66,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "broad-lexical-boundary-wfsa-20260925"
-    assert method.json()["optimization"]["search_history"][-1] == "broad-lexical-boundary-wfsa-20260925"
+    assert method.json()["optimization"]["current_search"] == "paired-clause-lattice-20260927"
+    assert method.json()["optimization"]["search_history"][-1] == "paired-clause-lattice-20260927"
     assert method.json()["optimization"]["generation_policy"]["mode"] == "constructive_only"
     assert method.json()["optimization"]["generation_policy"]["posthoc_repair"] is False
     assert "retire the grammar family" in method.json()["optimization"]["generation_policy"]["failure_action"]
@@ -97,7 +97,11 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][42]["exact_candidates"] == 0
     assert method.json()["method_runs"][43]["run_id"] == "broad-lexical-boundary-wfsa-20260925"
     assert method.json()["method_runs"][43]["exact_lexical_closures"] == 0
-    assert len(method.json()["method_runs"]) == 44
+    assert method.json()["method_runs"][44]["run_id"] == "variable-boundary-lattice-decoder-20260926"
+    assert method.json()["method_runs"][44]["exact_candidates"] == 0
+    assert method.json()["method_runs"][45]["run_id"] == "paired-clause-lattice-20260927"
+    assert method.json()["method_runs"][45]["exact_candidates"] == 0
+    assert len(method.json()["method_runs"]) == 46
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

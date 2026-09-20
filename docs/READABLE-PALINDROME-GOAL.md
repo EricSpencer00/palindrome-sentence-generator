@@ -6727,3 +6727,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   candidates above 38. The next construction adds evidential and polarity
   scope states. Artifact:
   `runs/shared-scene-modality-entailment-20260920.json`.
+
+- **Semantic-frame clause topology, 2026-09-20:** added held-out semantic
+  frame alternations with agreement state to the independent full-clause
+  factorization. The bounded run visited 5,000 states, pruned 4,499, and
+  reached no complete two-sided parse; its longest intact control was 108
+  letters and exact count above 38 was 0. The next construction adds
+  frame-conditioned tense and voice. Artifact:
+  `runs/semantic-frame-clause-csp-20260920.json`.
+
+- **Intransitive locative cross-role relations, 2026-09-20:** added explicit
+  adjacent, sheltered, and path relation metadata to 27 intransitive locative
+  transitions. It retained complete scene diagnostics up to 65 letters, with
+  0 exact candidates above 38. The next construction unifies transitive theme
+  and intransitive location alternatives. Artifact:
+  `runs/typed-locative-crossrole-relations-20260920.json`.
+
+- **Evidential/polarity scope, 2026-09-20:** added two evidential and two
+  polarity states to the modal/entailment-scoped scene graph. It checked 4,860
+  online prunes and retained 20 complete controls up to 91 letters, with 0
+  exact candidates above 38. The next construction adds speaker/source
+  attribution and negation scope attachment. Artifact:
+  `runs/shared-scene-evidential-polarity-20260920.json`.

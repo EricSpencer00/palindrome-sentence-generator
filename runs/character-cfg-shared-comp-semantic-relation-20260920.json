@@ -1,0 +1,69 @@
+{
+  "experiment_id": "character-cfg-shared-comp-semantic-relation-20260920",
+  "method": "shared semantic attachment relation across opposite-agreement complementizer sites",
+  "grammar": [
+    "S -> NP VP",
+    "subject-site NP -> DET NOUN COMP S",
+    "object-site NP -> DET NOUN COMP S",
+    "COMP -> that",
+    "shared relation -> scene role"
+  ],
+  "relations": {
+    "maritime_scene": [
+      "harbor",
+      "sailor",
+      "sailors"
+    ],
+    "writing_scene": [
+      "guides",
+      "poet",
+      "writer",
+      "writers"
+    ]
+  },
+  "stats": {
+    "subject_sg": 180,
+    "object_pl": 180,
+    "subject_pl": 180,
+    "object_sg": 180,
+    "chart_states": 22952,
+    "semantic_relation_support": {
+      "writing_scene": 27384,
+      "maritime_scene": 8640
+    },
+    "center_mismatch_support": {
+      "h/a": 36024
+    },
+    "outer_twochar_states": 8091,
+    "joint_relation_center_outer_closures": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_score": 2
+  },
+  "complete_prose_controls": [
+    "The sailor that the poet reads guards the harbor.",
+    "The writers that some guides mark guide the sailors."
+  ],
+  "best_diagnostic": {
+    "score": 2,
+    "left": "a guides that a guides guide a guides",
+    "right": "a area guides a poet that a area",
+    "relation": "writing_scene",
+    "orientation": "pl/sg",
+    "outer_seam": true
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-shared-comp-semantic-relation-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "character-cfg-two-comp-opposite-agreement-20260920"
+  },
+  "next_construction": "Use a relation-constrained pair of distinct complementizer lexical categories, retaining direct center equality and hard seam; no mismatch forgiveness.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

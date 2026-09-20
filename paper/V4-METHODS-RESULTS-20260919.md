@@ -1137,6 +1137,14 @@ catalogue text, repair, wrapping, or mirrored unit was used. The next
 construction changes to an event-chain grammar. Artifact:
 `runs/brown-authored-discourse-reverse-decoder-20260920.json`.
 
+The event-chain lane composed complete temporal sequences with source-admitted
+`first`, `then`, `after`, and `before` markers before reverse parsing. It
+tested 10,000 complete event frames and 10,000 reverse states, with no
+complete reverse parse or exact candidate. Intact controls reached 49 and 55
+letters. No catalogue text, repair, wrapping, or mirrored unit was used. The
+next construction changes to causal-frame grammar. Artifact:
+`runs/brown-authored-event-chain-reverse-decoder-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

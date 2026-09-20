@@ -146,10 +146,10 @@ def main() -> None:
     else:
         def top(tag, fallback): return fallback
     det = top("DET", ("a", "the", "one", "this"))
-    adj = ("calm", "brave", "young", "wise", "fair", "quiet", "keen", "mild")
-    noun = top("N", ("poet", "sailor", "keeper", "reader", "bard", "pilot", "guard"))
-    verb = top("V", ("reads", "marks", "guides", "guards", "seeks", "keeps", "hears"))
-    obj = top("N", ("letter", "sonnet", "garden", "harbor", "parcel", "secret", "candle"))
+    adj = top("ADJ", ("calm", "brave", "young", "wise", "fair", "quiet", "keen", "mild"))
+    noun = top("NOUN", ("poet", "sailor", "keeper", "reader", "bard", "pilot", "guard"))
+    verb = top("VERB", ("reads", "marks", "guides", "guards", "seeks", "keeps", "hears"))
+    obj = top("NOUN", ("letter", "sonnet", "garden", "harbor", "parcel", "secret", "candle"))
     template = (
         Slot("det", det), Slot("adj", adj), Slot("subject", noun),
         Slot("verb", verb), Slot("det", det), Slot("object", obj),

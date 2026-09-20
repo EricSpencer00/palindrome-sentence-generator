@@ -1498,6 +1498,16 @@ finished-tape reversal, mirrored unit, catalogue text, or fragment was admitted;
 human reading remains pending until an exact row exists. Artifact:
 `runs/free-center-discourse-growth-20260920.json`.
 
+The authored cross-word seam lane independently lexicalized both complete
+clauses from a small hand-authored inventory while exposing phrase boundaries
+to the live character equation. It explored 120,000 bounded seam states across
+eight agents, eight verbs, eight objects, and five attachment phrases, but no
+seam-compatible closure survived. Twenty authored controls were complete
+contemporary English (maximum 42 letters), including “The engineer checks the
+schedule beside the river.” Independent pointer/SHA audits passed; no repeated
+unit, repair, reversal, catalogue text, or fragment was admitted. Artifact:
+`runs/authored-crossword-seam-phrase-design-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

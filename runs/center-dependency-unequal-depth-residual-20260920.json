@@ -1,0 +1,165 @@
+{
+  "experiment_id": "center-dependency-unequal-depth-residual-20260920",
+  "method": "center-shared dependency with unequal attachment depths and live center residual",
+  "stats": {
+    "center_nodes": 3,
+    "left_depth_two": 3,
+    "right_depth_one": 3,
+    "residuals": 3,
+    "states": 81,
+    "live_prunes": 81,
+    "live_survivors": 0,
+    "exact_gt38": 0,
+    "reader_eligible": 0,
+    "longest_letters": 72
+  },
+  "controls": [
+    {
+      "rendered": "the patient keeper hears when the bell rings, at dawn; the harbor brightens after it.",
+      "center_dependency": {
+        "event": "the bell rings",
+        "kind": "signal",
+        "residual": "at dawn"
+      },
+      "left_depth": 2,
+      "right_depth": 1,
+      "left_attachment": [
+        "agent",
+        "the patient keeper hears"
+      ],
+      "right_attachment": [
+        "goal",
+        "the harbor brightens"
+      ],
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ]
+      },
+      "audit": {
+        "letters": 68,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ],
+        "sha256_forward": "386ddc5255c8375f5879cde451b63567f5097e50534b654e690fc56a65e0c103",
+        "sha256_reverse": "7d9ef86daa8476a3e0cde4859eca518dec547d68877fed92ec5346a4658b292d",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the patient keeper hears when the bell rings, before dusk; the harbor brightens after it.",
+      "center_dependency": {
+        "event": "the bell rings",
+        "kind": "signal",
+        "residual": "before dusk"
+      },
+      "left_depth": 2,
+      "right_depth": 1,
+      "left_attachment": [
+        "agent",
+        "the patient keeper hears"
+      ],
+      "right_attachment": [
+        "goal",
+        "the harbor brightens"
+      ],
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ],
+        "sha256_forward": "70136d551b2c723684147a6201261e1b7aa759909405c4811937a22969d68db5",
+        "sha256_reverse": "95139056010825a10ea82d59f8aa15938a87794047f60fb128da6a2be846bf34",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the patient keeper hears when the bell rings, after rain; the harbor brightens after it.",
+      "center_dependency": {
+        "event": "the bell rings",
+        "kind": "signal",
+        "residual": "after rain"
+      },
+      "left_depth": 2,
+      "right_depth": 1,
+      "left_attachment": [
+        "agent",
+        "the patient keeper hears"
+      ],
+      "right_attachment": [
+        "goal",
+        "the harbor brightens"
+      ],
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ]
+      },
+      "audit": {
+        "letters": 71,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ],
+        "sha256_forward": "4f99570c3cd8a384c36c2aa46dc657bfb0a353326f20f9a3ab984edbf1b50d62",
+        "sha256_reverse": "c6a475679852263c891424ea4fe9029e1ce2d8afc6cc5f8c48fcc17b05556bad",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    }
+  ],
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "center-dependency|unequal-depths|live-center-residual",
+    "registry_inspected": true,
+    "distinct_from": "equal-depth dependency frame, feature sweeps, and relation-overhang seams",
+    "catalogue_text_imported": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_units": false
+  },
+  "provenance": {
+    "generator_sha256": "a40ee818f020c29bd1802b78df28fcb6878c64744228692e8f1b408e7041d64d",
+    "independent_audits": [
+      "pointer scan",
+      "forward/reverse SHA-256"
+    ]
+  },
+  "status": "no reader-worthy exact closure",
+  "next_construction": "Let the center residual attach to a typed left dependent before the right dependent is emitted."
+}

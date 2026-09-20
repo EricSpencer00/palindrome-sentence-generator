@@ -27,6 +27,7 @@ def extract_frames(limit: int = 50_000):
     verbs: dict[str, Counter[str]] = defaultdict(Counter)
     frames = Counter()
     adjuncts = Counter()
+    feature_adjuncts = defaultdict(Counter)
     for sentence in brown.tagged_sents()[:limit]:
         for i in range(len(sentence) - 4):
             (det, det_tag), (subj, subj_tag), (verb, verb_tag), (obj_det, obj_det_tag), (obj, obj_tag) = sentence[i:i + 5]
@@ -50,7 +51,9 @@ def extract_frames(limit: int = 50_000):
             (prep, ptag), (noun, ntag) = sentence[i:i+2]
             if ptag == 'IN' and ntag.startswith(('NN','NP')) and prep.isalpha() and noun.isalpha():
                 adjuncts[f'{prep.casefold()} {noun.casefold()}'] += 1
-    return subjects, verbs, dict(frames), adjuncts
+                for feature in ('singular_vbz','plural_vbp','past_vbd'):
+                    feature_adjuncts[feature][f'{prep.casefold()} {noun.casefold()}'] += 1
+    return subjects, verbs, dict(frames), adjuncts, feature_adjuncts
 
 
 def top(counter: Counter[str], limit: int = 64) -> tuple[str, ...]:
@@ -58,14 +61,14 @@ def top(counter: Counter[str], limit: int = 64) -> tuple[str, ...]:
 
 
 def run() -> dict[str, object]:
-    subjects, verbs, frame_counts, adjunct_counts = extract_frames()
+    subjects, verbs, frame_counts, adjunct_counts, feature_adjuncts = extract_frames()
     det = ("a", "the", "this", "that", "one")
-    adjunct = tuple(word for word, _ in adjunct_counts.most_common(32)) or ("today",)
     results = []
     feature_stats = {}
     for feature in ("singular_vbz", "plural_vbp", "past_vbd"):
         subject_words = top(subjects[feature])
         verb_words = top(verbs[feature])
+        adjunct = tuple(word for word, _ in feature_adjuncts[feature].most_common(32)) or ("near town",)
         if not subject_words or not verb_words:
             feature_stats[feature] = {"subject_words": 0, "verb_words": 0, "states": 0, "pruned": 0, "exact": 0}
             continue
@@ -92,6 +95,7 @@ def run() -> dict[str, object]:
         "frame_counts": frame_counts,
         "adjunct_frame_counts": dict(adjunct_counts.most_common(32)),
         "adjunct_frame_unique": len(adjunct_counts),
+        "feature_adjunct_frame_counts": {k: dict(v.most_common(32)) for k, v in feature_adjuncts.items()},
         "feature_stats": feature_stats,
         "provenance": {
             "penn_tags": True,

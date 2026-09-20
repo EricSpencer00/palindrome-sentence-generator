@@ -7001,3 +7001,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   share the same direct lexical family. The larger expansion is retained as
   evidence but is not counted as a new method; only the indexed preselection
   is admitted as a distinct topology.
+
+- **Two-character unequal-length index, 2026-09-20:** selected two compatible
+  pairs from six fresh clauses using two-character exposed classes and unequal
+  normalized lengths. Both live seam checks mismatched; the longest intact
+  control was 48 letters and no exact row was promoted. The next construction
+  uses variable-length exposed prefixes and suffixes. Artifact:
+  `runs/twochar-indexed-unequal-clause-bank-20260920.json`.
+
+- **Three-seam boundary automaton, 2026-09-20:** advanced three independent
+  complete-clause seams while retaining only exposed first/last character
+  classes. It checked 20 bounded triples, accepted 0 boundaries, and retained
+  independently audited prose controls. The next construction adds a fourth
+  seam with the same minimal state. Artifact:
+  `runs/multi-seam-boundary-automaton-20260920.json`.
+
+- **Vivid scene with one attached adjunct, 2026-09-20:** added exactly one
+  bounded instrument/location adjunct to the fresh vivid-scene CSP. It checked
+  162 states, pruned 162, and retained complete controls to 83 letters, with
+  0 exact candidates above 38. The next construction adds predicate/adjunct
+  scope agreement before any second adjunct. Artifact:
+  `runs/vivid-scene-attached-adjunct-csp-20260920.json`.

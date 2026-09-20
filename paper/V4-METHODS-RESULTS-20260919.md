@@ -4253,3 +4253,22 @@ The direct six-clause inventory and its larger twelve-clause expansion are
 retained as diagnostics but are not counted as separate methods: their
 construction signature is the same direct lexical-boundary family. Only the
 indexed preselection changes the topology.
+
+The two-character indexed lane selected two unequal-length clause pairs from
+six fresh clauses and checked both live seams; both mismatched, with a longest
+intact control of 48 letters. The next topology uses variable-length exposed
+prefixes and suffixes. Artifact:
+`runs/twochar-indexed-unequal-clause-bank-20260920.json`.
+
+The three-seam boundary automaton advanced three independent complete-clause
+seams with only first/last character-class state. It checked 20 bounded triples,
+accepted no boundary, and retained independently audited prose controls. The
+next topology adds a fourth seam without semantic state. Artifact:
+`runs/multi-seam-boundary-automaton-20260920.json`.
+
+The vivid-scene adjunct lane added exactly one bounded instrument/location
+attachment to the author-first scene template. It checked 162 states and
+pruned 162, retaining complete controls to 83 letters with zero exact rows
+above 38. The next topology adds predicate/adjunct scope agreement before any
+second adjunct. Artifact:
+`runs/vivid-scene-attached-adjunct-csp-20260920.json`.

@@ -2206,3 +2206,25 @@ above 38 letters resulted. Both clause interiors were authored forward and
 independently; no row used reversal, repair, catalogue borrowing, mirrored
 units, or repeated units. The next construction increases endpoint width only
 with a fresh compatible bank, preserving this full-audit contract.
+
+## Synchronized slot audit (shortcut correction)
+
+The next endpoint follow-up synchronized four grammatical roles (subject,
+verb, object, and adjunct) after a productive one-letter endpoint filter. It
+visited 8,192 complete forward clause pairs from fresh 256-by-320 banks and
+rendered 8,192 controls. The longest raw row was 108 letters, but the audit
+found repeated content words in 3,872 rows; those rows are diagnostic only and
+cannot enter a reader packet. Among the eight disjoint-content controls, the
+longest was:
+
+> **A careful sailor carries warm bread near the window before dusk; the harbor keeper finds a lantern after the rain near a marina.**
+
+It has 104 letters and fails at normalized character 1 (`c` versus `n`). Its
+forward and reverse SHA-256 digests are
+`8215f0b47bc250489a9dbd3d5d04a91d9c357e747c708d35f51e43bf8ba2add4` and
+`d3ae7160fa971e40938538d833b877abaf5d6c2c8a5654fa43c16eeceb5ea317`.
+The role synchronizer was a grammar constraint, not a character closure—the
+record explicitly reports `interior_width=0`—and the full tape was independently
+audited. No exact candidate above 38 letters appeared. The next construction
+must add a real width-two character equation with a disjoint fresh bank; this
+correction prevents slot alignment from being mistaken for palindrome progress.

@@ -71,6 +71,11 @@ RIGHT_STARTS = (
     ("held", "a", "warm", "cup", "nearby"), ("left", "the", "garden", "quiet"),
     ("heard", "the", "story", "at", "a"), ("kept", "the", "boat", "at", "night"),
 )
+RIGHT_FINALS = (("idea", "NOUN", "A"), ("night", "NOUN", "The"))
+RIGHT_PREPENDS = {"idea": (("an",), ()), "an": (("found",), ()),
+                  "found": (("reader",), ()), "reader": (("A",), ()),
+                  "night": (("at",), ()), "at": (("watched",), ()),
+                  "watched": (("reader",), ())}
 CONT = {
     "A": (("careful",), ("patient",), ("quiet",)),
     "The": (("young",), ("old",), ("kind",), ("watchful",)),
@@ -95,6 +100,8 @@ class State:
     residual_side: str  # left, right, or none
     paired_count: int
     provenance: tuple[str, ...]
+    right_final_category: str = "NOUN"
+    right_clause_final: bool = True
 
     @property
     def left_tape(self) -> str:
@@ -153,12 +160,13 @@ def readable_shape(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
 def run() -> dict:
     # Starts are ordinary phrases selected for a live first-character match;
     # this is an obligation-aware opening, not a seed or a precomputed mirror.
-    starts = [(l[0], (r[-1],), l, r) for l in LEFT_STARTS for r in RIGHT_STARTS
-              if norm(l[0]) == norm(r[-1])][:16]
+    starts = [(l[0], (final,), l, final, category) for l in LEFT_STARTS
+              for final, category, opening in RIGHT_FINALS
+              if norm(l[0]) == norm(opening)][:16]
     states = [State((first,), right, "", "none", len(norm(first)),
                     ("authored-start", "source-left:" + " ".join(full_left),
-                     "source-right:" + " ".join(full_right)))
-              for first, right, full_left, full_right in starts]
+                     "source-right-final:" + final), category, True)
+              for first, right, full_left, final, category in starts]
     deepest = []
     rejects = {"character_conflict": 0, "shape": 0, "embedded_palindrome": 0}
     finished = []
@@ -166,11 +174,8 @@ def run() -> dict:
         nxt = []
         for s in states:
             left_choices = CONT.get(s.left_words[-1], NEXT) if s.left_words else NEXT
-            if s.right_words == ("a",):
-                # The first right prepend supplies the next exposed character;
-                # these are real lexical words, retained as open phrase
-                # continuations rather than synthetic character fragments.
-                right_choices = ((), ("music",), ("help",), ("Iraq",))
+            if s.right_words and s.right_words[0] in RIGHT_PREPENDS:
+                right_choices = RIGHT_PREPENDS[s.right_words[0]]
             else:
                 right_choices = NEXT if not s.right_words else (("and",), ("while",), ("before",), ("at",), ("in",))
             # Keep complete clauses on the right by drawing from authored
@@ -220,8 +225,17 @@ def run() -> dict:
             "parameters": {"starts": 16, "beam": 32, "rounds": 12, "target_letters": [40, 80]},
             "stats": {"deepest_live_states": max((len(x["left_words"]) + len(x["right_words"]) for x in deepest), default=0),
                       "final_live_states": len(states), "rejections": rejects,
-                      "finished_exact_gt38": len(finished)},
+                      "finished_exact_gt38": len(finished),
+                      "complete_clause_states": sum(1 for s in states
+                          if s.right_words and s.right_words[0] in {"A", "The"}
+                          and any(norm(w) in {"found", "watched"} for w in s.right_words))},
             "deepest_live": deepest[-64:], "exact_candidates": finished,
+            "final_live": [{"left_words": list(s.left_words), "right_words": list(s.right_words),
+                            "right_final_category": s.right_final_category,
+                            "right_clause_final": s.right_clause_final,
+                            "complete_clause": bool(s.right_words and s.right_words[0] in {"A", "The"}
+                                and any(norm(w) in {"found", "watched"} for w in s.right_words))}
+                           for s in states],
             "controls": [{"rendered": c, "audit": audit(c), "reader_status": "intact English control"} for c in controls],
             "novelty_preflight": {"status": "passed", "signature": "live-context-prefix-suffix-infilling|residual-side|contextual-continuations",
                                   "distinct_from": "fixed CFG, n-gram ranking, repair, word-order mirrors, and finished-tape reversal",

@@ -1830,7 +1830,10 @@ not a local model, reward scoring, finished-tape reversal, or repair.
 
 The reproducible run is `runs/live-context-infilling-20260920.json` and the
 implementation is `experiments/live_context_infilling_20260920.py`.  It
-reached 32 live states after 12 rounds and recorded 8,877 character conflicts;
+starts from grammatical noun-final suffixes (for example, *idea* and *night*)
+and carries an explicit final lexical category while prepending ordinary words
+toward a clause.  It reached 32 live states after 12 rounds and recorded 3,167
+character conflicts;
 it produced no exact candidate above 38 letters.  The result is useful as a
 constructive discriminator: residuals can remain live across word boundaries,
 but the current continuation inventory needs relative/appositive constructions

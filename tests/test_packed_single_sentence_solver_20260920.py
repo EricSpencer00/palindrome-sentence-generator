@@ -1,4 +1,9 @@
-from packed_single_sentence_solver_20260920 import ForwardGrammar, letters
+from packed_single_sentence_solver_20260920 import ForwardGrammar, letters, compatible_labels
+
+def test_typed_label_gate_prunes_incompatible_and_keeps_compatible():
+    assert not compatible_labels('verb', 'obj')
+    assert compatible_labels('verb', 'verb')
+    assert compatible_labels('adv', 'obj') is False
 
 def exhaustive(g):
  return set(g.language())

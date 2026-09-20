@@ -21,7 +21,13 @@ def audit(s):
 
 @dataclass(frozen=True)
 class Edge:
- src:int; dst:int; ch:str; token:str
+ src:int; dst:int; ch:str; token:str; role:str=''
+
+def compatible_labels(left, right):
+ """Small typed unification gate used by the paired traversal."""
+ # Subjects/verbs/objects must pair with their own role; adjuncts may pair.
+ strict={'det','noun','verb','obj'}
+ return left == right if left in strict or right in strict else True
 
 class ForwardGrammar:
  def __init__(self, max_words=16):
@@ -39,7 +45,7 @@ class ForwardGrammar:
       key=(cur,c)
       if key not in prefixes:
        prefixes[key]=self._next; self._next+=1
-       e=Edge(cur,prefixes[key],c,w); self.edges.append(e); self.out.setdefault(cur,[]).append(e); self.inn.setdefault(prefixes[key],[]).append(e)
+       e=Edge(cur,prefixes[key],c,w,typ[i]); self.edges.append(e); self.out.setdefault(cur,[]).append(e); self.inn.setdefault(prefixes[key],[]).append(e)
       cur=prefixes[key]
      rec(i+1,prefix+' '+w,cur)
    rec(0,'',0)
@@ -91,7 +97,7 @@ def run():
      # Carry typed dependency/number/valency obligations in n.  The tiny
      # grammar's labels are compatible by construction; production grammars
      # can reject here without changing the paired traversal.
-     compatible = le.token == re.token or le.token != re.token
+     compatible = compatible_labels(le.role, re.role)
      if le.ch==re.ch and compatible:
       search(le.dst,re.src,left+le.ch,re.ch+right,label_state+(le.token,))
   # endpoint-specific, with center parity naturally represented by p==q after odd/even steps

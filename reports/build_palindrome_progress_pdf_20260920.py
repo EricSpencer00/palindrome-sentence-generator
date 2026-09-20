@@ -52,7 +52,7 @@ def build() -> None:
         Paragraph("Acceptance target", h1),
         Paragraph("An original, coherent, intact English palindrome longer than 38 letters, followed by randomized blinded intact-versus-shuffled reader evidence. No word-order symmetry, repeated/self-palindromic units, catalogue text, punctuation trick, fragment, or gibberish qualifies.", body),
         Paragraph("The claim that is safe to make", h1),
-        Paragraph("<b>Best admitted exact candidate:</b> 38 letters. <b>Longest exact mechanical diagnostic in the ledger:</b> 132 letters. These are different fields. Longer diagnostics exist, but none is currently original, coherent, shortcut-clean, and ready for readers.", body),
+        Paragraph("<b>Best admitted exact candidate:</b> 38 letters. <b>Named v4 diagnostic:</b> 132 letters. Historical rendered artifacts reach 142 letters of exact gibberish, and synthetic exact fallback controls reach 100,001 letters. These are different scopes; none is currently original, coherent, shortcut-clean, and ready for readers.", body),
         Paragraph("Current benchmark", h2),
         Paragraph("An aide rips nine memos; some men inspire Diana.", mono),
         Paragraph("Normalized tape: anaideripsninememossomemeninspirediana | 38 letters | two-pointer exact = true | forward/reverse SHA-256 = ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6", small),
@@ -70,6 +70,7 @@ def build() -> None:
         [p("56", small), p("No evil Noel deliver desserts raw; war stressed reviled Leon live on.", small), p("Aligned whole-token semordnilap chain; withdrawn shortcut.", small)],
         [p("66", small), p("Erased on forever event is an evening. Is sign in even as it never ever. Of nodes are.", small), p("Hidden proper self-palindromic span; not admissible.", small)],
         [p("132", small), p("Name not left onto her a. Set add new one last one. Can all its an aide rips nine memos some men inspire Diana still an. Ace not sale now end dates. Are hot not felt one man.", small), p("Embeds the complete 38-letter anchor; explicit shortcut.", small)],
+        [p("142", small), p("wanders remembers follows patient near remembers follows remembers patient still ll it st ne it ap sr eb me me rs wo ll of sr eb me me rr ae nt ne it aps wo ll of sr eb me me rs red naw", small), p("Historical open-vocabulary artifact; visibly fragmented/gibberish and never reader-eligible.", small)],
     ]
     table = Table(diag, colWidths=[0.55 * inch, 4.25 * inch, 2.0 * inch], repeatRows=1)
     table.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#176b87")), ("GRID", (0, 0), (-1, -1), 0.35, colors.HexColor("#bcccdc")), ("VALIGN", (0, 0), (-1, -1), "TOP"), ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.HexColor("#f8fbfd"), colors.white]), ("LEFTPADDING", (0, 0), (-1, -1), 5), ("RIGHTPADDING", (0, 0), (-1, -1), 5), ("TOPPADDING", (0, 0), (-1, -1), 5), ("BOTTOMPADDING", (0, 0), (-1, -1), 5)]))
@@ -86,7 +87,9 @@ def build() -> None:
     method_rows = [
         [p("Field", th), p("Current value", th)],
         [p("best_admitted_exact_letters", small), p("38", small)],
-        [p("longest_mechanical_diagnostic_letters", small), p("132", small)],
+        [p("longest_named_v4_diagnostic_letters", small), p("132", small)],
+        [p("longest_rendered_historical_exact_artifact_letters", small), p("142 (gibberish)", small)],
+        [p("longest_synthetic_exact_fallback_letters", small), p("100,001 (non-English control)", small)],
         [p("reader_evidence", small), p("Pending; no rejected diagnostic is promoted", small)],
         [p("generation policy", small), p("Constructive only: grammar, semantic roles, and mirrored character obligations are selected together; no post-hoc repair.", small)],
         [p("next reader-facing test", small), p("Randomized blinded intact-prose versus shuffled-control rating with reproducible provenance.", small)],

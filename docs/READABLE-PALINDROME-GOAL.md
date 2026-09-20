@@ -39,9 +39,13 @@ multiword span and fragmentary answer; the 47-letter row has malformed clause
 boundaries and determiner agreement, the 50/66-letter
 Dream-RSI rows are incoherent or contain a hidden self-palindromic span, the
 56-letter row is an aligned whole-token semordnilap chain, and the 132-letter
-row embeds the complete 38-letter anchor.  The paper and API therefore report
-both fields explicitly: `longest_admitted_exact_letters = 38` and
-`longest_mechanical_diagnostic_letters = 132`.
+row embeds the complete 38-letter anchor.  Historical artifact files also
+contain a 142-letter exact but visibly fragmented/gibberish row, and the
+synthetic totality harness reaches 100,001 exact fallback letters.  Neither is
+English output.  The paper and API therefore report scoped fields explicitly:
+`best_admitted_exact_letters = 38`, `longest_named_v4_diagnostic_letters =
+132`, `longest_rendered_historical_exact_artifact_letters = 142`, and
+`longest_synthetic_exact_fallback_letters = 100001`.
 
 The live public API is a useful architectural reference, not a readability
 result.  Its fast lexical mirror-state search and clickable word-to-mirror

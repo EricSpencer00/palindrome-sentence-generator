@@ -11017,6 +11017,17 @@
       "distinction": "Queries a reverse character index while composing typed Brown transitions and carries a tested residual buffer; unlike the rejected prototype, the reverse index participates in every expansion.",
       "reader_evidence": false,
       "status": "Implementation audit: 287 typed transitions and 721 queried reverse-index keys across 120,407 states, 0 exact closures; the prototype defines but does not invoke its residual consumer during expansion, so it supplies no valid frontier claim. The next construction must use residual consumption over multiword typed phrase transitions"
+    },
+    {
+      "id": "reverse-phrase-transducer-20260919",
+      "signature": "multiword-phrase-reverse-index|live-residual-consumption|joint-phrase-pair",
+      "artifact": "experiments/reverse_phrase_transducer_20260919.py",
+      "run_artifacts": [
+        "runs/reverse-phrase-transducer-20260919.json"
+      ],
+      "distinction": "Queries a reverse index over 1,600 Brown-derived two-word phrase units and invokes residual consumption before any exact audit; phrase units are recombined rather than replayed as complete corpus sentences.",
+      "reader_evidence": false,
+      "status": "120,000 phrase-pair states, 119,997 pruned and 0 exact closures above 38 letters; no reader candidate; next construction must add typed multiword transitions to a complete clause grammar"
     }
   ]
 }

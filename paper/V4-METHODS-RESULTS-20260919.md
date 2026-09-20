@@ -533,6 +533,14 @@ are distinct construction attempts, not repairs: the next lane must invoke
 residual consumption over multiword typed phrase transitions so local English
 joins are selected jointly with the character orbit.
 
+The corrected phrase follow-up queried 1,600 two-word Brown-derived units and
+called residual consumption before each exact audit. It evaluated 120,000
+phrase-pair states, pruned 119,997, and found no closure above 38 letters.
+Because the units were recombined rather than replayed as complete sentences,
+this is a valid lexical-geometry result but not reader evidence; the next
+construction must place these phrase transitions inside a complete typed clause
+grammar.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates five deterministic blinded

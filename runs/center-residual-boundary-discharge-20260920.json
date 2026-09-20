@@ -1,0 +1,154 @@
+{
+  "experiment_id": "center-residual-boundary-discharge-20260920",
+  "method": "center-residual boundary discharge across unequal attachment depths",
+  "stats": {
+    "clause_frames": 8,
+    "left_depth_two_scenes": 4608,
+    "right_depth_one_scenes": 192,
+    "center_states": 3,
+    "signature_buckets": 108,
+    "signature_join_hits": 6001,
+    "live_checked": 6000,
+    "live_prunes": 6000,
+    "live_survivors": 0,
+    "exact_gt38": 0,
+    "reader_eligible": 0,
+    "longest_letters": 191
+  },
+  "controls": [
+    {
+      "rendered": "the weathered sailor studies the northern chart, while the weathered sailor waits by the harbor; while a patient keeper studies the northern chart. a patient keeper waits by the harbor, while the young scouts guard the old bridge.",
+      "left_depth": 2,
+      "right_depth": 1,
+      "center_residual": {
+        "text": "",
+        "state": "epsilon",
+        "nullable": true
+      },
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "center_emitted": false,
+        "center_discharged": false,
+        "max_residual": 4
+      },
+      "audit": {
+        "letters": 188,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "3794f30159a52cedcc32a15a80cd0044e0c534f8613f6ace7b3bed5403a548e6",
+        "sha256_reverse": "db7a97a5b05f58355052540de3883782301515e71bf543ecdc91a68670a5dd49",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the weathered sailor studies the northern chart, while the weathered sailor waits by the harbor; although a patient keeper studies the northern chart. a patient keeper waits by the harbor, while the young scouts guard the old bridge.",
+      "left_depth": 2,
+      "right_depth": 1,
+      "center_residual": {
+        "text": "",
+        "state": "epsilon",
+        "nullable": true
+      },
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "center_emitted": false,
+        "center_discharged": false,
+        "max_residual": 4
+      },
+      "audit": {
+        "letters": 191,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "a0014cc9a01464904f6ff150cf78bd2c9b84b7ceee32f5af7995d0c62fe4eda0",
+        "sha256_reverse": "bce10edd1f3e0de3136d4611247fecbc792e57fdc0d6445dc38bb79b204743d1",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the weathered sailor studies the northern chart, while the weathered sailor waits by the harbor; because a patient keeper studies the northern chart. a patient keeper waits by the harbor, while the young scouts guard the old bridge.",
+      "left_depth": 2,
+      "right_depth": 1,
+      "center_residual": {
+        "text": "",
+        "state": "epsilon",
+        "nullable": true
+      },
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "center_emitted": false,
+        "center_discharged": false,
+        "max_residual": 4
+      },
+      "audit": {
+        "letters": 190,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "9fed1a4dd28061067bb06b728c434ae1f45622bb1a410b1abda542f2389a5811",
+        "sha256_reverse": "fef012ecde9a113ade979e20e4d3f168f27695044697f435f130fb33b8bce189",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    }
+  ],
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "unequal-depth|center-residual-discharge|live-boundary|agreement-valency",
+    "registry_inspected": true,
+    "distinct_from": "unequal-depth residual join without discharge, two-edge nullable CFG, and repair lanes",
+    "catalogue_text_imported": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_units": false
+  },
+  "provenance": {
+    "generator_sha256": "bd63df83fe845f4dce8b746e494718335b0955171a20e2256a5eea12e3018513",
+    "independent_audits": [
+      "two-pointer mismatch scan",
+      "forward/reverse SHA-256"
+    ],
+    "reader_evidence": false
+  },
+  "status": "no reader-worthy exact closure",
+  "next_construction": "Permit a nonempty center residual to discharge in two staged character chunks across the unequal boundary.",
+  "reader_gate": "closed until exact candidates exist and blinded human ratings are collected"
+}

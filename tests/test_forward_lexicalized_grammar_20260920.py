@@ -71,3 +71,8 @@ def test_ngram_lattice_has_observed_transitions():
     result = ngram_lattice(limit=100)
     assert result["stats"]["observed_transitions"] > 0
     assert result["provenance"]["candidate_reranking"] is False
+
+def test_ngram_bilateral_is_bounded_and_audited():
+    result = ngram_bilateral_search(ATOMIC, limit=20, max_nodes=50)
+    assert result["provenance"]["observed_transition_filter"]
+    assert result["stats"]["status"] in {"SAT", "UNSAT", "timeout"}

@@ -258,6 +258,16 @@ def ngram_lattice(lexicon=ATOMIC, path=ROOT / "data/ngrams_wikitext2.json", limi
     return {"edges": edges, "stats": {"observed_transitions": len(edges), "rows": rows_seen, "limit": limit},
             "provenance": {"intact_sentence_boundaries": True, "candidate_reranking": False}}
 
+def ngram_bilateral_search(lexicon=ATOMIC, limit=2000, max_nodes=20000):
+    lattice = ngram_lattice(limit=limit)
+    vocab = {w.text for w in lexicon if any(w.text == a or w.text == b for a, b in lattice["edges"])}
+    bounded = tuple(w for w in lexicon if w.text in vocab)
+    result = bilateral_lexical_csp(bounded, max_nodes=max_nodes)
+    result["lattice"] = lattice["stats"]
+    result["provenance"]["observed_transition_filter"] = True
+    result["provenance"]["next_construction"] = "typed transition-conditioned expansion"
+    return result
+
 if __name__ == "__main__":
     import argparse
     ap = argparse.ArgumentParser(); ap.add_argument("--brown", action="store_true"); ap.add_argument("--limit", type=int, default=5000); ap.add_argument("--max-nodes", type=int, default=20000)

@@ -2558,6 +2558,14 @@ control only; no exact candidate or reader packet is claimed. The next
 construction should author endpoint-compatible role choices before extending
 the equation width, rather than trying to repair this rendered sentence.
 
+The follow-up role-seeded scene lane made that next construction explicit:
+semantic roles and endpoint classes were chosen before inward expansion, with a
+global residual buffer carried through the scene. Its single fresh transition
+was pruned immediately by an endpoint mismatch, leaving zero rendered prose.
+This confirms that endpoint conditioning is active but the current role bank
+does not yet contain a compatible start; the next construction must widen the
+fresh role bank, not reopen the failed sentence.
+
 The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row

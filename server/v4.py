@@ -108,6 +108,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_typed_clause_mitm_seam": "800 left and 800 right typed clause halves; 60,000 seam joins with agreement/type gates, 50 prose controls and zero exact candidates",
         "latest_mitm_consequence_phrase_grammar": "3 fresh consequence-grammar halves per side; 3 prefix probes and zero compatible joins or exact candidates",
         "latest_manual_outer8_inward": "2 freshly authored broad-English clause pairs; outer-8 equations admit 0 seeds, best 84-letter control fails at offset 0",
+        "latest_role_seeded_scene_inward": "1 fresh role-seeded scene transition pruned immediately by endpoint mismatch; zero surviving states, rendered candidates, or exact rows",
         "reader_study": "not run",
     },
 }

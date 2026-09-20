@@ -1,0 +1,87 @@
+{
+  "method": "multiclause-variable-boundary-semantic-csp-20260920",
+  "status": "completed_no_exact_closure",
+  "sequences": 12,
+  "states": 3828,
+  "character_prunes": 3696,
+  "semantic_prunes": 12,
+  "seam_prunes": 0,
+  "state_limit": 40000,
+  "exact_candidates": [],
+  "exact_candidate_count": 0,
+  "rendered_diagnostics": [],
+  "reader_facing_candidates": [],
+  "reader_eligible": false,
+  "controls": [
+    {
+      "rendered": "the patient sailor guards the lantern; the harbor is quiet; watch the bright harbor.",
+      "audit": {
+        "letters": 68,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "r"
+        },
+        "sha256_forward": "cc4bbec22dbad3bf7e91c34888440970ea52fe46e1fca7610f7638e1a5036f44",
+        "sha256_reverse": "0771fdc3fe0da01620e229c0361ac2449c995ab257f47892d1a09629a0cc4799"
+      },
+      "independent_pointer_exact": false,
+      "semantic_roles_complete": true,
+      "reader_eligible": false,
+      "provenance": "authored intact multi-clause control; not generated palindrome"
+    },
+    {
+      "rendered": "a quiet keeper studies the chart; the garden seems peaceful; carry the small letter.",
+      "audit": {
+        "letters": 68,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "r"
+        },
+        "sha256_forward": "990168c1688135609d98c887d5f13a1339c10ff7ae17b8a4782620cc40f134e9",
+        "sha256_reverse": "e82a2d89a5551c3931146efc7cad2a9c27eca8ac4b076e3af44ce5d3ea42da66"
+      },
+      "independent_pointer_exact": false,
+      "semantic_roles_complete": true,
+      "reader_eligible": false,
+      "provenance": "authored intact multi-clause control; not generated palindrome"
+    },
+    {
+      "rendered": "the young poet remembers the garden; the evening was gentle; follow the narrow river.",
+      "audit": {
+        "letters": 69,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "r"
+        },
+        "sha256_forward": "0503c4cfe4e4dc1fb363e0ad1d6738a78cb8b9b054b61f4a627dd46b820ad7b2",
+        "sha256_reverse": "33952c0fa93ea1ca5b87c45eb786d7863d5aebd9b9301a58ed0ba08e19fe741d"
+      },
+      "independent_pointer_exact": false,
+      "semantic_roles_complete": true,
+      "reader_eligible": false,
+      "provenance": "authored intact multi-clause control; not generated palindrome"
+    }
+  ],
+  "independent_validation": [
+    "literal outside-in two-pointer",
+    "forward/reverse SHA-256"
+  ],
+  "provenance": "fresh authored SVO/imperative/copular clause sequences; variable word-boundary residuals and complete semantic roles are solved online with a required cross-word seam; no reverse segmentation replay, finished-tape reversal, catalogue text, mirrored units, or repair",
+  "novelty_preflight": {
+    "passed": true,
+    "overlaps_checked": [
+      "exact-tape-grammatical-resegmentation-20260917",
+      "reverse-segmentation-cfg-valency-20260916",
+      "typed-word-boundary-clause-automaton-20260918"
+    ],
+    "reason": "prior runs resegmented fixed tapes or used boundary automata; this lane constructs three typed clauses independently and requires a seam crossing as an online state predicate"
+  },
+  "first_live_diagnostic": "variable residual mismatch before cross-word seam",
+  "next_construction": "hold out one ditransitive clause with explicit object-role agreement while retaining the three-clause cross-word seam gate"
+}

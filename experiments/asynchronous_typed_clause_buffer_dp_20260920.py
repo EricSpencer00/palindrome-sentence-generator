@@ -37,7 +37,7 @@ def audit(text: str) -> dict:
     }
 
 
-DET = ("a", "the", "some", "this")
+DET = ("a", "the", "some", "this", "every", "your")
 ADJ = ("calm", "bright", "careful", "quiet", "young", "patient",
        "kind", "swift", "gentle", "old")
 SUBJ_S = ("artist", "baker", "captain", "gardener", "keeper", "pilot",
@@ -49,10 +49,10 @@ VERB_S = ("charts", "carries", "guards", "guides", "marks", "praises",
 OBJ_S = ("archive", "basket", "candle", "compass", "garden", "harbor",
          "letter", "map", "melody", "parcel", "river", "story", "window",
          "orchard", "lantern", "message", "route", "signal", "bridge",
-         "shore")
+         "shore", "arena", "plaza", "boat", "coast", "maps", "letters", "era")
 PREP = ("at", "by", "near", "under", "beside", "toward")
 PLACE = ("harbor", "garden", "river", "tower", "bridge", "orchard",
-         "station", "shore")
+         "station", "shore", "era", "eats", "yoga")
 CONJ = ("and", "while", "yet")
 
 
@@ -226,7 +226,7 @@ def run() -> dict:
             "independent_audits": ["outside-in two-pointer", "forward/reverse SHA-256"],
             "next_reader_test": "randomized blinded intact-prose versus shuffled controls for any exact row",
         },
-        "next_construction": "zero indexed pairs: author compatible endpoint classes before widening typed role banks; retain asynchronous residual scheduling",
+        "next_construction": "endpoint-compatible bank now opens the index; widen typed role banks only after auditing residual states, retaining asynchronous scheduling",
     }
 
 

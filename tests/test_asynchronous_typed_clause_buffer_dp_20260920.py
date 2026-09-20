@@ -18,9 +18,9 @@ def test_async_buffer_run_is_reproducible_and_gated():
     assert payload["novelty_preflight"]["status"] == "passed"
     assert payload["novelty_preflight"]["finished_tape_reversal"] is False
     assert payload["provenance"]["next_reader_test"]
-    assert payload["stats"]["indexed_pairs"] == 0
+    assert payload["stats"]["indexed_pairs"] > 0
     assert payload["stats"]["exact_gt38"] == 0
-    assert "zero indexed pairs" in payload["next_construction"]
+    assert "widen" in payload["next_construction"]
     for row in payload["exact_candidates"]:
         assert row["audit"]["exact"]
         assert row["audit"]["sha256_forward"] == row["audit"]["sha256_reverse"]

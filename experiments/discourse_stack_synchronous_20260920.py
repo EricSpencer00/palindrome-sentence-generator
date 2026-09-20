@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "runs" / "discourse-stack-synchronous-20260920.json"
 EXPERIMENT_ID = "discourse-stack-synchronous-20260920"
-SIGNATURE = "discourse-plan-conditioned|delayed-surface-realization|attribute-pushdown|joint-character-output"
+SIGNATURE = "discourse-plan-conditioned|delayed-surface-realization|open-constituent-stack|shared-referents|attachment-before-output|joint-character-output"
 
 
 def letters(text: str) -> str:
@@ -191,7 +191,7 @@ def run(*, state_limit: int = 200_000) -> dict[str, object]:
                         "stack_pruned": stack_pruned, "chart_advances": advances,
                         "exact": len(candidates)},
               "provenance": {"novelty_signature": SIGNATURE,
-                  "novelty_preflight": "registry signature absent before run; no prior lane uses shared discourse referents plus delayed open-stack realization",
+                  "novelty_preflight": "extended signature is absent from the registry; prior delayed-realization lanes do not expose an open constituent stack with attachment choice before paired output",
                   "shared_referents": True, "explicit_open_constituent_stack": True,
                   "optional_attachment_selected_before_output": True,
                   "independent_pointer_sha_audit": True, "finished_tape_reversal": False,

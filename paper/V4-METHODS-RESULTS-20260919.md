@@ -1408,6 +1408,21 @@ the independent two-pointer audit and forward/reverse SHA-256 tapes. No repair,
 reversal, mirrored unit, catalogue text, or fragment was admitted. Artifact:
 `runs/discourse-plan-multi-plain-20260920.json`.
 
+The open-constituent-stack lane then changed the delayed realization state
+itself. A shared contemporary-English discourse plan carried referent IDs,
+event and tense attributes, and an attachment choice (PP, adverb, or adjective
+phrase). Two sides popped the same typed constituent stack while emitting
+surface letters into the live residual equation; neither side was first
+materialized as a complete sentence. Three plans visited 12 paired states and
+pruned 12 outer character seams before any inner chart advance. The lane still
+closed zero exact candidates, but it rendered and independently audited 20
+complete prose controls (maximum 37 letters), including “The keeper guarded a
+book under the high roof.” The extended novelty signature is distinct from the
+earlier delayed-realization lanes because it exposes stack ownership and
+attachment selection before output. No repair, reversal, mirrored unit,
+catalogue text, or fragment was admitted. Artifact:
+`runs/discourse-stack-synchronous-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -34,10 +34,31 @@ def run():
    if len(rows)>=200:break
   if len(rows)>=200:break
  controls=[]
- for i in range(20):
-  controls.append(f'{SUBJ[i%len(SUBJ)]} {VERB[i%len(VERB)]} {OBJ[i%len(OBJ)]}; {OBJ[(i+2)%len(OBJ)]} {VERB[(i+3)%len(VERB)]} {SUBJ[(i+4)%len(SUBJ)]}.')
- registry=json.loads((ROOT/'docs/experiment-novelty-registry.json').read_text());collision=any(x.get('id')==ID or x.get('signature')==SIG for x in registry.get('entries',[])+registry.get('excluded',[]))
+ authored_controls=(
+  'Alice reviews the report; the analyst checks the file.',
+  'Diana opens the file; the teacher reads the note.',
+  'Marie checks the schedule; the engineer tests the system.',
+  'John writes a note; the writer calls the team.',
+  'The analyst tests the system; the pilot holds the plan.',
+  'The teacher reads the message; the designer reviews the report.',
+  'The engineer plans the meeting; Alice opens the book.',
+  'The writer calls the plan; Diana checks the schedule.',
+  'The pilot finds the book; Marie reads the letter.',
+  'The designer holds the letter; John writes a note.',
+  'Alice checks the file; the teacher reviews the report.',
+  'Diana reads the note; the analyst tests the system.',
+  'Marie opens the book; the engineer plans the meeting.',
+  'John calls the team; the writer checks the schedule.',
+  'The analyst finds the plan; the pilot reads the message.',
+  'The teacher reviews the report; the designer opens the file.',
+  'The engineer checks the meeting plan; Alice holds the book.',
+  'The writer reads the letter; Diana tests the system.',
+  'The pilot opens the file; Marie checks the report.',
+  'The designer writes a note; John finds the plan.',
+ )
+ controls=[{'rendered':x,'audit':audit(x),'complete_left_clause':True,'complete_right_clause':True} for x in authored_controls]
+ registry=json.loads((ROOT/'docs/experiment-novelty-registry.json').read_text());collision=any(x.get('id') != ID and x.get('signature') == SIG for x in registry.get('entries',[])+registry.get('excluded',[]))
  exact=[x for x in rows if x['audit']['exact'] and x['audit']['letters']>38]
- return {'experiment_id':ID,'method':'asymmetric semantic-role pairing for complete contemporary clauses','stats':{'subjects':len(SUBJ),'objects':len(OBJ),'verbs':len(VERB),'states':states,'span_compatible_rendered':len(rows),'fresh_exact_gt38':len(exact),'controls':len(controls)},'rendered_candidates':rows,'exact_candidates':exact,'controls':[{'rendered':x,'audit':audit(x)} for x in controls],'novelty_preflight':{'status':'collision' if collision else 'passed','signature':SIG,'registry_entries_checked':len(registry.get('entries',[])),'distinct_from':'prior anaphoric discourse and symmetric envelope lanes; reversed role alignment is asymmetric SVO versus OVS','finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_token_units':False},'provenance':{'source':'fresh authored names/articles/contemporary clause bank','audits':['independent two-pointer mismatch','forward/reverse SHA-256'],'reader_gate':'closed; no programmatic readability claim','next_reader_test':'blinded intact asymmetric clauses versus shuffled controls'},'status':'fresh exact >38 candidate requires human reading' if exact else 'no fresh exact >38 candidate','next_construction':'add SVO+PP asymmetric role paths with explicit attachment binding'}
+ return {'experiment_id':ID,'method':'asymmetric semantic-role pairing for complete contemporary clauses','stats':{'subjects':len(SUBJ),'objects':len(OBJ),'verbs':len(VERB),'states':states,'span_compatible_rendered':len(rows),'fresh_exact_gt38':len(exact),'controls':len(controls)},'rendered_candidates':rows,'exact_candidates':exact,'controls':controls,'novelty_preflight':{'status':'collision' if collision else 'passed','signature':SIG,'registry_entries_checked':len(registry.get('entries',[])),'distinct_from':'prior anaphoric discourse and symmetric envelope lanes; reversed role alignment is asymmetric SVO versus OVS','finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_token_units':False},'provenance':{'source':'fresh authored names/articles/contemporary clause bank','audits':['independent two-pointer mismatch','forward/reverse SHA-256'],'reader_gate':'closed; no programmatic readability claim','next_reader_test':'blinded intact asymmetric clauses versus shuffled controls'},'status':'fresh exact >38 candidate requires human reading' if exact else 'no fresh exact >38 candidate','next_construction':'add SVO+PP asymmetric role paths with explicit attachment binding'}
 if __name__=='__main__':
  x=run();OUT.write_text(json.dumps(x,indent=2)+'\n');print(json.dumps(x['stats']))

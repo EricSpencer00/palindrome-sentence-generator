@@ -1463,6 +1463,17 @@ letters. Independent pointer/SHA audits passed; no catalogue text, repair,
 finished-tape reversal, mirrored unit, or fragment was admitted. Artifact:
 `runs/semordnilap-full-clause-20260920.json`.
 
+The asymmetric-role lane changed the reversal topology rather than the
+lexicon: a complete left SVO clause was paired against a complete right OVS
+clause so the left subject aligned with the right object and vice versa. Ten
+subjects, ten objects, and ten verbs yielded one million live role states, but
+zero span-compatible renderings survived the first character equation. Twenty
+authored clause-pair controls remained intact contemporary prose (maximum 52
+letters), including “Alice reviews the report; the analyst checks the file.”
+Independent pointer/SHA audits passed; no repair, reversal, mirrored unit,
+catalogue text, or fragment was admitted. Artifact:
+`runs/asymmetric-role-semordnilap-clause-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

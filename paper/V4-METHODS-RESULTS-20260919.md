@@ -1609,6 +1609,20 @@ subordinate clause with explicit subject shift while retaining the recipient
 state. Artifact:
 `runs/contrastive-relation-equations-20260920.json`.
 
+The contrastive subject-shift lane changed the second clause's agent identity
+while retaining the benefit/transfer relation and its although/for versus
+while/to coupling. It kept typed recipient/theme roles, subject agreement, and
+the verb/preposition compatibility gate, with complete surface rendering
+separate from reverse equation arrival. Two relation states yielded 60 live
+states; all 60 were pruned at the equation boundary, with zero equation
+completions and zero exact candidates above 38 letters. Twenty intact
+contemporary-English controls were independently audited (maximum 73 letters),
+including “Mara gives the letter for the child although Noah sends a book for a
+friend.” No repair, reversal, mirrored unit, catalogue text, or fragment was
+admitted. The next construction realizes the shifted subject anaphorically
+while retaining explicit referent identity. Artifact:
+`runs/contrastive-subject-shift-equations-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

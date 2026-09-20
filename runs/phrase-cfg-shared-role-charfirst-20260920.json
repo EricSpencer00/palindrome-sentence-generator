@@ -1,0 +1,47 @@
+{
+  "experiment_id": "phrase-cfg-shared-role-charfirst-20260920",
+  "method": "independently authored phrase-level CFG with shared scene role and character-first opposite index",
+  "grammar": [
+    "S -> NP VP PP",
+    "NP -> DET ADJ NOUN",
+    "VP -> V NP",
+    "PP -> TAIL"
+  ],
+  "shared_scene_roles": {
+    "left": "maritime",
+    "right": "writing"
+  },
+  "stats": {
+    "left_phrases": 240,
+    "right_phrases": 240,
+    "opposite_prefix_index_keys": 3,
+    "character_states": 14400,
+    "cross_word_seam_closures": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 1
+  },
+  "complete_prose_controls": [
+    "The patient sailor guards the harbor at dawn.",
+    "A careful writer reads the letter before rain."
+  ],
+  "best_diagnostic": {
+    "matched": 1,
+    "left": "some quiet sailor guards some harbor at dawn",
+    "right": "some quiet sailor guards some letter under stars"
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-shared-role-charfirst-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "character-cfg-opposite-depth-agreement-20260920"
+  },
+  "next_construction": "Replace the two-character opposite index with slot-level character domains, retaining independent phrase authorship and shared scene roles.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

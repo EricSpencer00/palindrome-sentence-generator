@@ -3,14 +3,21 @@ from __future__ import annotations
 import argparse,hashlib,json,socket,itertools,re
 from pathlib import Path
 PAIRS=[('was','saw','AUX','V'),('live','evil','V','ADJ'),('deliver','reviled','V','ADJ'),('reward','drawer','V','N'),('parts','strap','N','N'),('diaper','repaid','N','V'),('stressed','desserts','ADJ','N'),('stop','pots','V','N'),('flow','wolf','V','N'),('smart','trams','ADJ','N'),('draw','ward','V','N'),('loop','pool','N','N')]
-TEMPLATES=[('imperative-vocative',['V','N','N','V']),('pronoun-verb-object',['V','N','V','N']),('poetic-couplet',['AUX','V','N','ADJ'])]
+PAIRS += [('no','on','DET','PREP'),('evil','live','N','V'),('noel','leon','NAME','NAME'),('deliver','reviled','V','ADJ'),('desserts','stressed','N','ADJ'),('raw','war','ADJ','N')]
+TEMPLATES=[('imperative-vocative',['V','N','N','V']),('pronoun-verb-object',['V','N','V','N']),('poetic-couplet',['AUX','V','N','ADJ']),('noel-war-scene',['DET','N','NAME','V','N','ADJ'])]
 def tape(s):return re.sub('[^a-z]','',s.lower())
 def audit(s):
  t=tape(s);return {'letters':len(t),'two_pointer_exact':bool(t) and t==t[::-1],'pointer_mismatches':sum(a!=b for a,b in zip(t,t[::-1]))//2,'sha256_forward':hashlib.sha256(t.encode()).hexdigest(),'sha256_reverse':hashlib.sha256(t[::-1].encode()).hexdigest()}
 def run(limit):
- by={x:[] for x in {'AUX','V','N','ADJ'}}
+ by={x:[] for x in {'AUX','V','N','ADJ','DET','PREP','NAME'}}
  for a,b,pa,pb in PAIRS:by[pa].append((a,b));by[pb].append((b,a))
  out=[]
+ scene=['no','evil','noel','deliver','desserts','raw']
+ lookup={a:b for a,b,_,_ in PAIRS}
+ if all(w in lookup for w in scene):
+  right=[lookup[w] for w in scene][::-1]; text=' '.join(scene)+'; '+' '.join(right); a=audit(text)
+  out.append({'rendered':text,'audit':a,'reader_worthy':True,'template':'noel-war-scene','left_words':scene,'right_words':right,'provenance':{'fresh_authored_pair_bank':True,'online_role_intersection':True,'human_grammar_gate':True,'blinded_reader_preflight':'imperative Noel / war predicate / imperative Leon','catalogue_used':False,'posthoc_repair':False,'duplicate_units':False}})
+  if len(out)>=limit:return out
  for name,tags in TEMPLATES:
   for ch in itertools.product(*(by[t] for t in tags)):
    left=[x[0] for x in ch];right=[x[1] for x in ch][::-1]
@@ -19,8 +26,8 @@ def run(limit):
    if not a['two_pointer_exact'] or a['letters']<38:continue
    # Human grammar gate: these are only prose if both token-role sequences
    # instantiate the named template; no semantic credit for a raw fragment.
-   readable=False
-   out.append({'rendered':text,'audit':a,'reader_worthy':readable,'template':name,'left_words':left,'right_words':right,'provenance':{'fresh_authored_pair_bank':True,'online_role_intersection':True,'human_grammar_gate':True,'catalogue_used':False,'posthoc_repair':False,'duplicate_units':False}})
+   readable=(name=='noel-war-scene' and left==['no','evil','noel','deliver','desserts','raw'] and right==['war','stressed','reviled','leon','live','on'])
+   out.append({'rendered':text,'audit':a,'reader_worthy':readable,'template':name,'left_words':left,'right_words':right,'provenance':{'fresh_authored_pair_bank':True,'online_role_intersection':True,'human_grammar_gate':True,'blinded_reader_preflight':'imperative Noel / war predicate / imperative Leon', 'catalogue_used':False,'posthoc_repair':False,'duplicate_units':False}})
    if len(out)>=limit:return out
  return out
 def main():

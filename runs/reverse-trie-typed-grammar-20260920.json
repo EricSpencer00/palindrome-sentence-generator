@@ -4,13 +4,12 @@
   "stats": {
     "nodes": 12001,
     "endpoint_pairs": 12001,
-    "rendered_candidates": 0,
-    "diagnostic_rows": 1,
+    "rendered_candidates": 1,
+    "diagnostic_rows": 0,
     "exact": 0,
     "reader_eligible_exact": 0
   },
-  "candidates": [],
-  "diagnostics": [
+  "candidates": [
     {
       "rendered": "a calm artist charts a baker; this bright captain teaches this area.",
       "residual_left": "calmartistchartsabaker",
@@ -80,18 +79,100 @@
         "reader_eligible": false
       },
       "quarantine": {
-        "reason": "pre-render agreement or repeated-unit rejection",
+        "reason": "not exact; retained as construction diagnostic only",
         "repeated_words": [],
         "malformed_spans": [],
         "reader_eligible": false
       }
     }
   ],
+  "diagnostics": [],
   "status": "frontier_exhausted_no_exact",
   "endpoint_conditioning": {
     "authoring_before_expansion": true,
     "opening_class": "left determiner/subject initial equals right terminal noun final",
     "full_interior_walk": true
   },
+  "branch_ordering": {
+    "prior": "small typed n-gram lexical prior",
+    "is_admission_rule": false
+  },
+  "complete_prose_controls": [
+    {
+      "rendered": "a calm artist charts a baker; this bright captain teaches this area.",
+      "residual_left": "calmartistchartsabaker",
+      "residual_right_reverse_facing": "erasihtsehcaetniatpacthgirbsiht",
+      "audit": {
+        "letters": 55,
+        "two_pointer_exact": false,
+        "exact": false,
+        "mismatches": [
+          {
+            "index": 1,
+            "left": "c",
+            "right": "e"
+          },
+          {
+            "index": 2,
+            "left": "a",
+            "right": "r"
+          },
+          {
+            "index": 3,
+            "left": "l",
+            "right": "a"
+          },
+          {
+            "index": 4,
+            "left": "m",
+            "right": "s"
+          },
+          {
+            "index": 5,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "index": 6,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "index": 8,
+            "left": "i",
+            "right": "s"
+          },
+          {
+            "index": 9,
+            "left": "s",
+            "right": "e"
+          }
+        ],
+        "forward_sha256": "0cbaf88627ef69459f90697bfee23466a73da9dd89153d3b5201da8c3b357a7f",
+        "reverse_sha256": "02881f052e0b1d3282b62a28d8772f73de378ba20f90614398384946224ce497"
+      },
+      "provenance": {
+        "left_forward_bank": true,
+        "right_forward_bank": true,
+        "reverse_trie_walk_before_render": true,
+        "live_residual_buffers": true,
+        "unequal_word_boundaries": true,
+        "finished_tape_reversal": false,
+        "semordnilap_token_pairs": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "post_hoc_repair": false,
+        "malformed_surface": false,
+        "reader_eligible": false
+      },
+      "quarantine": {
+        "reason": "not exact; retained as construction diagnostic only",
+        "repeated_words": [],
+        "malformed_spans": [],
+        "reader_eligible": false
+      }
+    }
+  ],
   "next_expansion": "add typed inflection and center transitions while retaining live residual buffers"
 }

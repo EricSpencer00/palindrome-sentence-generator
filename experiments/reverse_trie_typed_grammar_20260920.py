@@ -28,6 +28,8 @@ BANK = {
 GRAMMARS = (("det", "adj", "noun_s", "verb", "det", "noun"),
             ("det", "noun", "verb", "det", "adj", "noun"),
             ("det", "noun_s", "verb", "center", "det", "noun_p", "verb_p", "det", "noun"))
+NGRAM_PRIOR = {"the": 1.2, "this": 1.1, "a": 1.0, "calm": .8, "bright": .8,
+               "artist": .7, "baker": .7, "captain": .7, "area": .6}
 
 def letters(s): return re.sub(r"[^a-z]", "", s.lower())
 
@@ -88,7 +90,8 @@ def search(max_pairs=12000):
     candidates, nodes, endpoint_pairs = [], 0, 0
     for grammar in GRAMMARS:
         lefts = [c for c in _clauses(grammar) if _admissible(c)]
-        rights = [c for c in _clauses(grammar) if _admissible(c)]
+        rights = sorted((c for c in _clauses(grammar) if _admissible(c)),
+                        key=lambda c: -sum(NGRAM_PRIOR.get(w, .1) for w in c))
         trie = _trie(rights)
         # Trie paths are walked by reversed character obligation; clauses are
         # still selected/generated forward from the independent bank.
@@ -126,7 +129,8 @@ def search(max_pairs=12000):
                      "malformed_surface": False, "reader_eligible": False},
                "quarantine": {"reason": "not exact; retained as construction diagnostic only",
                               "repeated_words": [], "malformed_spans": [], "reader_eligible": False}}
-        if _admissible(left) and _admissible(right) and len(set(left + right)) == len(left + right):
+        content = [w for w in left + right if w not in BANK["det"] and w not in BANK["center"]]
+        if _admissible(left) and _admissible(right) and len(set(content)) == len(content):
             rows.append(row)
         else:
             row["quarantine"]["reason"] = "pre-render agreement or repeated-unit rejection"
@@ -136,6 +140,8 @@ def search(max_pairs=12000):
             "candidates": rows, "diagnostics": diagnostics,
             "status": "frontier_exhausted_no_exact",
             "endpoint_conditioning": {"authoring_before_expansion": True, "opening_class": "left determiner/subject initial equals right terminal noun final", "full_interior_walk": True},
+            "branch_ordering": {"prior": "small typed n-gram lexical prior", "is_admission_rule": False},
+            "complete_prose_controls": [r for r in rows if not r["audit"]["exact"] and not r["provenance"]["malformed_surface"]],
             "next_expansion": "add typed inflection and center transitions while retaining live residual buffers"}
 
 def run():

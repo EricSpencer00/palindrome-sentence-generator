@@ -237,11 +237,25 @@ def ngram_lattice(lexicon=ATOMIC, path=ROOT / "data/ngrams_wikitext2.json", limi
     """Bounded evidence lattice of observed word transitions (search prior only)."""
     table = json.loads(Path(path).read_text())
     edges = set()
-    rows = table.get("2", []) if isinstance(table, dict) else table
-    for row in rows[:limit] if isinstance(rows, list) else []:
-        if isinstance(row, str): row = row.split()
-        if isinstance(row, (list, tuple)) and len(row) >= 2: edges.add((row[0], row[1]))
-    return {"edges": edges, "stats": {"observed_transitions": len(edges), "limit": limit},
+    rows_seen = 0
+    # The bundled file stores observed 3--6-grams rather than a dedicated
+    # 2-gram table.  Every adjacent pair inside those intact phrases is an
+    # observed transition; do not silently turn the lattice into a reranker.
+    tables = table.values() if isinstance(table, dict) else (table,)
+    for rows in tables:
+        if not isinstance(rows, list):
+            continue
+        for row in rows:
+            if rows_seen >= limit:
+                break
+            words = row.split() if isinstance(row, str) else list(row) if isinstance(row, (list, tuple)) else []
+            if len(words) < 2:
+                continue
+            rows_seen += 1
+            edges.update(zip(words, words[1:]))
+        if rows_seen >= limit:
+            break
+    return {"edges": edges, "stats": {"observed_transitions": len(edges), "rows": rows_seen, "limit": limit},
             "provenance": {"intact_sentence_boundaries": True, "candidate_reranking": False}}
 
 if __name__ == "__main__":

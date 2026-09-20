@@ -2616,6 +2616,15 @@ garden opens the gate; the school stays quiet.” and “A teacher that lives ne
 the school writes a letter; a garden holds flowers.” These are controls, not
 palindromes, and therefore are not presented as reader-study candidates.
 
+Two orthogonal zero-frontier checks followed. A forward phrase-equation lane
+kept both sides independently authored and consumed a live residual character
+stream; 10 of 12 transitions failed at the first incompatible character, so it
+rendered no candidate. An agreement/valency-aware clause-final WFSA then
+required complete subject–verb–object or intransitive frames on both sides;
+its fresh Brown-derived domains produced zero exact closures at the 40-letter
+gate. Both runs preserve their concrete next expansion rather than relaxing
+the exactness or intact-prose gates.
+
 The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row

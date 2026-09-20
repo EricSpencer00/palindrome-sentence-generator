@@ -1550,6 +1550,19 @@ next construction is typed recipient/dative structure with object number still
 carried live. Artifact:
 `runs/typed-object-chunk-equations-20260920.json`.
 
+The typed recipient/dative lane changed the clause frame to a complete
+ditransitive scene: animate recipients and inanimate themes were separate
+semantic roles, theme number remained live, and subject number still governed
+verb agreement before output. It visited 36 states, all pruned at the first
+equation, with zero equation completions and zero exact candidates above 38
+letters. Twenty intact contemporary-English ditransitive controls were
+rendered and independently audited (maximum 65 letters), including “The poet
+gives the child the letter and the queen sends a friend a book.” No repair,
+reversal, mirrored unit, catalogue text, or fragment was admitted. The next
+constructive expansion is an explicit prepositional benefactive recipient
+frame. Artifact:
+`runs/typed-recipient-dative-equations-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

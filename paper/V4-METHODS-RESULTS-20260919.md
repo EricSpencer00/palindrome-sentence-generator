@@ -3910,3 +3910,23 @@ prunes and retained 20 complete non-repeated controls up to 53 letters, with
 zero exact candidates above 38. The next construction adds event-order and
 tense compatibility. Artifact:
 `runs/shared-scene-two-event-online-20260920.json`.
+
+The valency-attachment topology added held-out benefactive and locative
+attachment frames with agreement state to independent full-clause factorization.
+Its bounded run visited 5,000 states, pruned 4,499, and reached no complete
+two-sided parse; the longest intact control was 108 letters and the exact count
+above 38 was zero. The next construction adds instrument and source attachment
+frames. Artifact: `runs/valency-attachment-topology-csp-20260920.json`.
+
+The asynchronous width-two semantic-slot lane carried buffers across
+number-agreeing subject, verb, object, and typed adjunct slots. It explored 48
+scene states and 144 boundary transitions, retaining diagnostics up to 58
+letters with zero exact candidates above 38. The next construction permits
+unequal slot lengths with residual carryover. Artifact:
+`runs/async-width2-semantic-slots-20260920.json`.
+
+The two-event order/tense matcher added explicit tense ordering to the
+independently typed scene graph. It checked 486 online prunes and retained 20
+complete controls up to 65 letters, with zero exact candidates above 38. The
+next construction adds cross-event attachment scope and temporal connector
+state. Artifact: `runs/shared-scene-event-order-tense-20260920.json`.

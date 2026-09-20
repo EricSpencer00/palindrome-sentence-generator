@@ -2,6 +2,17 @@
   "version": 1,
   "audit_reports": [
     {
+      "id": "firstlast-indexed-direct-clause-bank-20260920",
+      "signature": "fresh-authored|firstlast-index|direct-clause-bank|preselection-seam",
+      "artifact": "firstlast_indexed_direct_clause_bank_20260920.py",
+      "run_artifacts": [
+        "runs/firstlast-indexed-direct-clause-bank-20260920.json"
+      ],
+      "distinction": "Indexes a disjoint complete-clause bank by exposed first/last character classes and selects compatible clauses before any live reverse segmentation.",
+      "reader_evidence": false,
+      "status": "6 held-out clauses, 6 index keys, 0 compatible candidate pairs, so no live seam was reached; next indexes two-character exposed classes."
+    },
+    {
       "id": "direct-lexical-boundary-clause-search-20260920",
       "signature": "fresh-authored|direct-lexical-boundaries|variable-word-boundaries|complete-clauses",
       "artifact": "direct_lexical_boundary_clause_search_20260920.py",
@@ -7520,6 +7531,17 @@
       "distinction": "Simple direct lane with six fresh hand-authored English clauses: boundary matching starts at the first letter and uses lexical reverse segmentation only. It has no discourse/attachment/tense state product, repair, mirrored units, catalogue text, or finished-tape reversal for generation.",
       "reader_evidence": false,
       "status": "30 bounded clause pairs, 0 reverse segmentation hits and 0 exact candidates above 38; intact controls independently pointer/SHA audited; next is first-letter indexed direct bank"
+    },
+    {
+      "id": "character-boundary-automaton-clauses-20260920",
+      "signature": "character-boundary-automaton|two-clause-seams|first-last-class-state",
+      "artifact": "experiments/character_boundary_automaton_clauses_20260920.py",
+      "run_artifacts": [
+        "runs/character-boundary-automaton-clauses-20260920.json"
+      ],
+      "distinction": "Retains only current exposed first/last character classes while advancing two complete-clause seams over a fresh held-out clause bank. Distinct from direct lexical inventory and semantic-state products; no repair, reversal generation, repetition, mirrored units, or catalogue text.",
+      "reader_evidence": false,
+      "status": "20 bounded clause pairs, 20 automaton states, 0 accepted boundaries and 0 exact candidates above 38; intact controls independently pointer/SHA audited; next is multi-seam boundary automaton"
     }
   ],
   "excluded": [
@@ -15380,7 +15402,9 @@
       "id": "direct-clause-pair-inventory-20260920",
       "signature": "direct-clause-pairs|fresh-large-inventory|variable-boundary-online-match",
       "artifact": "direct_clause_pair_inventory_20260920.py",
-      "run_artifacts": ["runs/direct-clause-pair-inventory-20260920.json"],
+      "run_artifacts": [
+        "runs/direct-clause-pair-inventory-20260920.json"
+      ],
       "distinction": "Selects complete clauses from a fresh larger authored inventory, then matches variable word boundaries online; no semantic-state product, repair, reversal, mirrored/repeated units, fragments, or catalogue text.",
       "reader_evidence": false,
       "status": "12 clauses, 132 clause pairs, 8982 variable-boundary states/prunes, 8982 complete prose diagnostics to 105 letters, 0 exact candidates above 38; reader list empty"

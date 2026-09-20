@@ -414,9 +414,11 @@ The first cross-word-seam follow-up required a boundary shift on both sides
 and retained complete authored scene clauses. Its 512 remote controls reached
 77 letters but had zero exact closures. A phrase-segmentation prototype then
 closed three 62--64-letter tapes, but its greedy fallback emitted isolated
-letters on the opposing side. Those rows are rejected as gibberish; the next
-version must require a full lexical segmentation and grammatical parse before
-an exact tape can enter the reader queue.
+letters on the opposing side; those rows are rejected as gibberish. The strict
+held-out lexical/scene parser removes that fallback and returns zero admissible
+closures. This is the current construction boundary: every future exact row
+must be fully lexical and grammatical on both sides before it can enter the
+reader queue.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

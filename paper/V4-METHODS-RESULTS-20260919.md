@@ -465,8 +465,11 @@ preposition--noun adjuncts only from the same `DET NOUN VERB ADP NOUN` frame,
 kept subject, verb, and object banks separate (64/64/64, 58/53/58, and
 64/64/64), and searched a distinct prepositional-object template. It visited
 82 bounded states and pruned all 82 before an exact closure. No candidate
-reached the reader gate; the next construction adds a second frame-attested
-complement slot.
+reached the reader gate. A second-complement follow-up admitted only one
+past-feature context (`of aluminum`) from the bounded Brown frame inventory;
+adding that slot left the same 82 states all pruned and produced zero exact
+closures. This grammar family therefore needs a larger frame-attested
+second-complement bank or retirement, rather than an off-tape repair pass.
 
 An earlier adjunct follow-up is explicitly rejected in the audit: it copied one global
 preposition--noun inventory into every feature bank rather than extracting

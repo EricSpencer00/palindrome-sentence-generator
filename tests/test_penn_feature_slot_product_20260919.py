@@ -18,3 +18,4 @@ def test_penn_feature_slot_product_is_feature_conditioned_and_exact_gated():
     assert data["feature_stats"]["plural_vbp"]["states"] == 15
     assert data["feature_stats"]["past_vbd"]["states"] == 33
     assert all(item["object_words"] > 0 for item in data["feature_stats"].values())
+    assert data["feature_complement_counts"]["past_vbd"] == {"of aluminum": 1}

@@ -1055,6 +1055,7 @@ PENN_FEATURE_SLOT_RUN = {
     "status": "completed_no_exact_closure",
     "frame_counts": {"singular_vbz": 136, "plural_vbp": 59, "past_vbd": 227},
     "adjunct_frame_unique": 13650,
+    "feature_complement_unique": {"singular_vbz": 0, "plural_vbp": 0, "past_vbd": 1},
     "feature_banks": {
         "singular_vbz": {"subject_words": 64, "verb_words": 64, "object_words": 64, "states": 34, "pruned": 34, "agreement_pruned": 0},
         "plural_vbp": {"subject_words": 58, "verb_words": 53, "object_words": 58, "states": 15, "pruned": 15, "agreement_pruned": 0},
@@ -1065,7 +1066,7 @@ PENN_FEATURE_SLOT_RUN = {
     "provenance": "original Brown Penn tags define word-level subject/verb feature maps; complete sentence templates are searched with live prefix/suffix character obligations; no paired clauses, aligned token mirror, finished-tape reversal, fallback, catalogue text, or post-hoc repair",
     "independent_validation": ["live cross-word obligation", "literal two-pointer", "forward/reverse SHA-256"],
     "reader_status": "no complete candidate reached the reader gate",
-    "next_construction_discriminator": "add a second frame-attested complement/adjunct slot while retaining separate subject, verb, and object banks",
+    "next_construction_discriminator": "expand the sparse frame-attested second-complement bank before adding another grammar family",
 }
 
 READER_PACKAGE = {

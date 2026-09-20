@@ -2509,3 +2509,35 @@ broader semantic-frame lane retained nine endpoint seeds, applied article and
 surface-grammar gates, and rejected every one at the next interior character;
 zero interior closures remained. This separates the useful endpoint prior
 from the still-unsolved interior construction.
+
+## Three fresh constructive lanes
+
+The next batch kept the target broad: ordinary, vivid English with a coherent
+scene, not literal Shakespearean diction. Each lane selected words in normal
+left-to-right order, enforced character obligations during construction, and
+ran an independent outside-in audit plus forward/reverse SHA-256 check. None
+was allowed to turn a finished string into its reverse or to repair a failed
+candidate after rendering.
+
+The bidirectional scene-authoring lattice fixed semantic roles and argument
+structure first, then admitted lexical choices only when their exposed
+characters matched the live equation. It produced three complete broad-English
+controls but no live closure or exact candidate above 38 letters. The semantic
+obligation automaton carried scene obligations across a simultaneous transition;
+its one attempted transition was rejected at the first character mismatch, so
+it rendered no candidate. These are zero-frontier construction results, not
+readability failures.
+
+The typed-clause meet-in-the-middle lane split complete short clauses into
+typed halves and joined left/right halves only when seam characters, agreement,
+and semantic types were compatible. It evaluated 800 halves on each side and
+60,000 joins, retaining 50 complete prose controls but no exact closure. The
+longest controls are deliberately kept out of the reader packet because they
+are not palindromes. The concrete next construction is to carry a two-character
+seam buffer and inflection agreement across the half boundary rather than
+performing another duplicate sweep.
+
+The exact frontier is therefore unchanged: the best independently verified
+reader-plausible output remains the 38-letter anchor above. No human reader
+study is claimed for any non-exact control; a future exact intact-prose row
+must still be tested against randomized word-shuffled controls in blinded order.

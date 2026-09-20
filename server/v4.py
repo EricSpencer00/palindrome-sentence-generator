@@ -103,6 +103,9 @@ BEST_KNOWN_PROVENANCE = {
         "latest_prosodic_skeleton_diagnostic": "16 fresh controls to 79 letters; post-render prose diagnostic only, zero exact >38 closure",
         "latest_endpoint_seeded_scene_inward": "2 endpoint-compatible scene seeds; both pruned before interior expansion, zero rendered candidates",
         "latest_endpoint_seed_interior_equations": "9 surface-grammar-valid endpoint seeds; zero interior closures and zero exact candidates",
+        "latest_bidirectional_scene_lattice": "3 independently authored semantic scenes; 3 broad-English controls, zero live closures and zero exact candidates above 38 letters",
+        "latest_semantic_obligation_automaton": "3 coherent scene clauses; 1 simultaneous obligation transition pruned by live mismatch, zero rendered candidates",
+        "latest_typed_clause_mitm_seam": "800 left and 800 right typed clause halves; 60,000 seam joins with agreement/type gates, 50 prose controls and zero exact candidates",
         "reader_study": "not run",
     },
 }

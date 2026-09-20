@@ -66,8 +66,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "connector-clause-debt-lattice-20260928"
-    assert method.json()["optimization"]["search_history"][-1] == "connector-clause-debt-lattice-20260928"
+    assert method.json()["optimization"]["current_search"] == "semordnilap-poetic-clause-20261001"
+    assert method.json()["optimization"]["search_history"][-1] == "semordnilap-poetic-clause-20261001"
     assert method.json()["optimization"]["generation_policy"]["mode"] == "constructive_only"
     assert method.json()["optimization"]["generation_policy"]["posthoc_repair"] is False
     assert "retire the grammar family" in method.json()["optimization"]["generation_policy"]["failure_action"]
@@ -103,7 +103,15 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][45]["exact_candidates"] == 0
     assert method.json()["method_runs"][46]["run_id"] == "connector-clause-debt-lattice-20260928"
     assert method.json()["method_runs"][46]["exact_candidates"] == 0
-    assert len(method.json()["method_runs"]) == 47
+    assert method.json()["method_runs"][47]["run_id"] == "semordnilap-grammar-intersection-20260929"
+    assert method.json()["method_runs"][47]["exact_candidates"] == 20
+    assert method.json()["method_runs"][48]["run_id"] == "semordnilap-agreement-clause-20260930"
+    assert method.json()["method_runs"][48]["longest_exact_letters"] == 48
+    assert method.json()["method_runs"][49]["run_id"] == "semordnilap-poetic-clause-20261001"
+    assert method.json()["method_runs"][49]["longest_exact_letters"] == 56
+    assert method.json()["method_runs"][49]["reader_worthy_candidates"] == 0
+    assert method.json()["method_runs"][49]["reader_candidates_pending"] == 1
+    assert len(method.json()["method_runs"]) == 50
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

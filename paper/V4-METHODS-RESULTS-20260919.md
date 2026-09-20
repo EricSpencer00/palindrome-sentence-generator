@@ -402,8 +402,12 @@ and clause-finality states produced 20 exact closures up to 48 letters,
 including “was deliver desserts drawer; reward stressed reviled saw.” Every
 one failed the intact-prose gate: these are exact lexical demonstrations, not
 readable outputs. They are retained as independently audited method evidence;
-the next construction is a proper-name/scene grammar that must produce a
-complete poetic clause on both sides before it can enter the reader package.
+the proper-name/scene extension then generated the following 56-letter exact
+reader candidate (shown with editorial punctuation only): “No evil, Noel,
+deliver desserts raw; war—stressed, reviled—Leon, live on.” Its normalized
+tape has zero pointer mismatches and identical forward/reverse SHA-256. It is
+queued in the blinded reader package, but no programmatic grammar preflight is
+being counted as readability evidence; human ratings are still pending.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

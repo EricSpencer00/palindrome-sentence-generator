@@ -30,6 +30,13 @@ INTACT_CONTROLS = (
     "The herald carries the letter through the hall; the actors keep the oath near the grove.",
 )
 
+# Fresh exact-by-construction output awaiting human judgment.  The package
+# deliberately keeps this as an unlabeled passage in the rater form; exactness
+# is disclosed only in the separated answer key.
+GENERATED_CANDIDATES = (
+    ("semordnilap-noel-scene-56", "semordnilap-poetic-clause-20261001", "No evil Noel deliver desserts raw; war stressed reviled Leon live on."),
+)
+
 
 def _words(text: str) -> list[str]:
     return re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?", text)
@@ -48,6 +55,10 @@ def _frontier() -> list[dict[str, object]]:
     rows = [
         {"source_id": "best-known-38", "source": "half-tape-grammar-csp-20260919", "text": BEST_KNOWN_TEXT},
     ]
+    rows.extend(
+        {"source_id": source_id, "source": source, "text": text}
+        for source_id, source, text in GENERATED_CANDIDATES
+    )
     rows.extend(
         {"source_id": f"intact-control-{i}", "source": "authored-reader-control", "text": text}
         for i, text in enumerate(INTACT_CONTROLS, 1)

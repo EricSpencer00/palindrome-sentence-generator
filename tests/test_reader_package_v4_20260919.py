@@ -12,8 +12,15 @@ def test_package_is_deterministic_and_blinded():
 
 def test_every_frontier_item_has_intact_and_shuffled_pair_with_audit():
     result = build()
-    assert len(result["rater_form"]["items"]) == 5
+    assert len(result["rater_form"]["items"]) == 6
     for item in result["rater_form"]["items"]:
         assert item["a"]["text"] != item["b"]["text"]
     assert any(row["condition"] == "intact" and row["audit"]["exact"] for row in result["answer_key"])
+    assert any(
+        row["source_id"] == "semordnilap-noel-scene-56"
+        and row["condition"] == "intact"
+        and row["audit"]["letters"] == 56
+        and row["audit"]["exact"]
+        for row in result["answer_key"]
+    )
     assert all("mechanical_checks" in row for row in result["answer_key"])

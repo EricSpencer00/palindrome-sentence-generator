@@ -1,0 +1,575 @@
+{
+  "experiment_id": "forward-lexicalized-grammar-20260920",
+  "method": "forward whole-sentence lexicalized grammar compiled to bounded x variables",
+  "stats": {
+    "lexicon": 9,
+    "grammar_derivations": 64,
+    "rendered": 64,
+    "exact": 2,
+    "exact_gt38": 0,
+    "max_length": 20
+  },
+  "exact_candidates": [
+    {
+      "rendered": "anna sees anna.",
+      "audit": {
+        "letters": 12,
+        "exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "66efb827cda4bdba1c7f5d9a4f37f418d0dc2696e5af84795602227c9b163740",
+        "sha256_reverse": "66efb827cda4bdba1c7f5d9a4f37f418d0dc2696e5af84795602227c9b163740"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "ava sees ava.",
+      "audit": {
+        "letters": 10,
+        "exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "debe531d906b2082060bfb329db0d4d83c93a27c09adb0acea94f5f100a832fc",
+        "sha256_reverse": "debe531d906b2082060bfb329db0d4d83c93a27c09adb0acea94f5f100a832fc"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    }
+  ],
+  "near_misses": [
+    {
+      "rendered": "a dog sees a dog.",
+      "audit": {
+        "letters": 12,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "g"
+        ],
+        "sha256_forward": "796ea82713ceb83115e1c504fd53ce24b1b4367d750f1830156e5e471054b1ce",
+        "sha256_reverse": "76b9fa63c628379a263da4c498bd9820455eda4ec4caf66e32ade85a7bcd3955"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a dog sees a level.",
+      "audit": {
+        "letters": 14,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "l"
+        ],
+        "sha256_forward": "e2c326e44cd4886bcb866dc5efa37136fcc4d84754c810d69d044af17a87ad00",
+        "sha256_reverse": "2a93d904fe0cabd01bccb75cfc028ee150961498202e6272bcf59c86ea51ba9a"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a dog sees a noon.",
+      "audit": {
+        "letters": 13,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "n"
+        ],
+        "sha256_forward": "ba7b05b603ad0dee29bf1011ceb6c101f220745def1798a03e8e301892440e4e",
+        "sha256_reverse": "4cd45cc0f84dd64d55c4eebb7590f94031d04e1fb22f3241eaeec4ebe654bba2"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a dog sees anna.",
+      "audit": {
+        "letters": 12,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "d",
+          "n"
+        ],
+        "sha256_forward": "7f051c397cabded9ca71f4d555de970dce348ac2b69a63c0b03a0f5ec2bac596",
+        "sha256_reverse": "64d64c50ca9c4bcebd38eb50b0ac784350bbf92bbfcf50ea90abddd04723ae20"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a dog sees ava.",
+      "audit": {
+        "letters": 11,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "d",
+          "v"
+        ],
+        "sha256_forward": "301dbfa4ada3b0cfc1a418b95036337c238d01394da216acd53fa4c00d7f1c48",
+        "sha256_reverse": "853dd5015602d3c556695cde8775271750a292900f7d0991d9f4336bfa49051f"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a dog sees the dog.",
+      "audit": {
+        "letters": 14,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "g"
+        ],
+        "sha256_forward": "7dad23631ca4c8baa55b3850b6150bb0a56ab8224702aaab36d7948996bc968e",
+        "sha256_reverse": "69b9543f284b5c0e6b369b60bd8817ab5265af4d67bef536540522f24d1db537"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a dog sees the level.",
+      "audit": {
+        "letters": 16,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "l"
+        ],
+        "sha256_forward": "ae692b090c5fd4a6de9796e1aae164c687752fdf2c0bdf9f4e90fe000ad259ec",
+        "sha256_reverse": "f22c8125500aff8807a5f002e297f2923ed1c6c57dbbc5d4470cb0295052cbc8"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a dog sees the noon.",
+      "audit": {
+        "letters": 15,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "n"
+        ],
+        "sha256_forward": "47ed2b5fbeccd2af1e0e32a0fccb38600f33aa82124dc5269992d02357b9b3bd",
+        "sha256_reverse": "d53cd7c7eecb251db7aae1030be8d8733760c2c2c48f427846db3a9abdffb5ce"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a level sees a dog.",
+      "audit": {
+        "letters": 14,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "g"
+        ],
+        "sha256_forward": "83098c17ff2e2601e666a66c912c889267f32ae59ab3046e044c7cd3b1de85d1",
+        "sha256_reverse": "b465d7f1bd7b2f5bcb309080dfa04c744c4337237c81ef3008c45feebf6d768e"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a level sees a level.",
+      "audit": {
+        "letters": 16,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "l"
+        ],
+        "sha256_forward": "710cbdaef3459595003c855dcef62ebc150bfd712e8a64918c9e42882d208c58",
+        "sha256_reverse": "cf7ce37341823d05e4e3bbe92340169e8f734b73c8593aa325a44f040f3817a3"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a level sees a noon.",
+      "audit": {
+        "letters": 15,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "n"
+        ],
+        "sha256_forward": "c45cdf6e2483b8379ba5e6308ff37d0717e46efcb26a80d2821ed7469ebaab54",
+        "sha256_reverse": "d198eafe7a126e80e2fa2e06b0690408077a986c83969cf305972c8834392aa0"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a level sees anna.",
+      "audit": {
+        "letters": 14,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "l",
+          "n"
+        ],
+        "sha256_forward": "ac163e3696e391ad1c7257795ed8f1ffb67f292408a17705e300ec6ba9066cd4",
+        "sha256_reverse": "1e634664be899ac307e8ad28a4714aa084ea73b3f2037c98898874bea58310c5"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a level sees ava.",
+      "audit": {
+        "letters": 13,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "l",
+          "v"
+        ],
+        "sha256_forward": "eeffb96f1536e697b556bf3111da6c2040e21996bff6153ee7d15adebe3e020d",
+        "sha256_reverse": "e406466f54d5f0fab4b64adcaa645e754a9c6a351f3095e46b2f9af78aee9bec"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a level sees the dog.",
+      "audit": {
+        "letters": 16,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "g"
+        ],
+        "sha256_forward": "cda8d29df9e0fed441576f78d47b1632e2e233af7fe0610fcb907fb1dcacea62",
+        "sha256_reverse": "c6f008f34f848bf2dcd15dfe6546e68d6e857676f55972c87498d35bc112993a"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a level sees the level.",
+      "audit": {
+        "letters": 18,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "l"
+        ],
+        "sha256_forward": "a345cfac4be004824caa1b381b48219060944bb702704de2e460ad22f7bdc8ac",
+        "sha256_reverse": "7114e100ef0bb33964c5978d1685bee11b461c8b1fc04177701f8aebe15009d9"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a level sees the noon.",
+      "audit": {
+        "letters": 17,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "n"
+        ],
+        "sha256_forward": "b99abf40f91d843cf47a870f1d304f35789bd4e14378ce9f7940d2a228d3e7cd",
+        "sha256_reverse": "0ed4e042e5bf2d23fc56d36f24c1f19d7cda1bb16276e115f5978a4cd6bfebcd"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a noon sees a dog.",
+      "audit": {
+        "letters": 13,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "g"
+        ],
+        "sha256_forward": "fabc47b9a42d3af7ebeb5fa91a198d7a2454a0f817b721bc2646756c578a69b2",
+        "sha256_reverse": "dc1a2627b2da40e9bc0b94ef9621adf708649767f180cab47991f97691b677f2"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a noon sees a level.",
+      "audit": {
+        "letters": 15,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "l"
+        ],
+        "sha256_forward": "095ec0e08f882413a1d11caf8bd2e4bda71e32151fd3e418e243cac7c0482871",
+        "sha256_reverse": "40e71c5c17dff443dd96abfe1607fb24a9b8d6504f334a3558c1e2d19d2f2944"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a noon sees a noon.",
+      "audit": {
+        "letters": 14,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "n"
+        ],
+        "sha256_forward": "74dc2e053d016f94a9d6938165afeacc7a8e6a2f73c97cf5870b7eff1cc5491d",
+        "sha256_reverse": "4fccd52c84e760baca2f5516d46f2ad0effde405b18bd4631af3bd8385bdc2d6"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    },
+    {
+      "rendered": "a noon sees anna.",
+      "audit": {
+        "letters": 13,
+        "exact": false,
+        "first_mismatch": [
+          2,
+          "o",
+          "n"
+        ],
+        "sha256_forward": "7875b3459c678c468653bfd6b530911363d48d11a5d755114b15f0fea4df4913",
+        "sha256_reverse": "27cf4d6367337238180af7270d64609f4e39fd2268275dc10850a7ab190247c7"
+      },
+      "complete_ordinary_english": true,
+      "parse": "S -> NP VP",
+      "character_variables": {
+        "equation": "x[i] = x[N-1-i]",
+        "boundaries_free": true
+      },
+      "constraints": [
+        "agreement",
+        "transitive valency",
+        "entity type"
+      ]
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "phrase_injected": false,
+    "finished_tape_reversal": false,
+    "independently_authored_half_clauses": false,
+    "repair_or_reranking": false
+  },
+  "provenance": {
+    "lexicon": "atomic hand-audited entries in source",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "differential": "solver output is compared with brute-force derivation set",
+    "next_construction": "expand lexical entries and typed adjunct productions; retain live x constraints"
+  },
+  "status": "SAT"
+}

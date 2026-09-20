@@ -14,6 +14,22 @@ def inventory():
  nouns=top('NOUN',55); verbs=top('VERB',55); preps=top('PREP',24); places=top('NOUN',35)
  return {'SUBJ':tuple(Item('SUBJ',x) for x in names+tuple('the '+x for x in nouns[:25])),'VERB':tuple(Item('VERB',x) for x in verbs),'OBJ':tuple(Item('OBJ',x) for x in tuple('the '+x for x in nouns[:35])+tuple('a '+x for x in nouns[35:55])),'PREP':tuple(Item('PREP',x) for x in preps),'PLACE':tuple(Item('PLACE','the '+x) for x in places)}
 SHAPES=(('svo',('SUBJ','VERB','OBJ')),('pp',('SUBJ','VERB','OBJ','PREP','PLACE')),('dit',('SUBJ','VERB','PREP','SUBJ','OBJ')))
+
+# Small explicit compatibility tables keep the endpoint lattice from admitting
+# a bare POS sequence that is not a plausible English clause. They are gates,
+# not readability certificates; human reading remains required for candidates.
+TRANSITIVE={'see','saw','asked','made','had','has','have','read','reads','write','writes','wrote','kept','held','met','sent','gave','takes','took','found','finds','used','uses','knew','know','likes','liked','love','loves','call','called','calls','help','helps','open','opens','close','closed','mark','marks','record','records','carry','carries','review','reviews','check','checks','study','studies'}
+DITRANSITIVE={'give','gives','gave','send','sends','sent','offer','offers','show','shows','bring','brings','take','takes','tell','tells'}
+LOCATION_PREPS={'at','by','from','in','on','near','under','over','after','before','beside','within','across','with','through','during','against'}
+def lexical_gate(shape:tuple[str,...],tokens:tuple[str,...])->bool:
+    words=[norm(x) for x in tokens]
+    if len(words)!=len(shape): return False
+    if shape==('SUBJ','VERB','OBJ'): return words[1] in TRANSITIVE
+    if shape==('SUBJ','VERB','OBJ','PREP','PLACE'):
+        return words[1] in TRANSITIVE and words[3] in LOCATION_PREPS
+    if shape==('SUBJ','VERB','PREP','SUBJ','OBJ'):
+        return words[1] in DITRANSITIVE and words[2] in {'to','for'}
+    return False
 def endpoint_index(inv):
  out={r:{} for r in inv}
  for r,items in inv.items():
@@ -27,6 +43,8 @@ def search(ls,rs,inv,idx,max_states=80000):
   if key in seen:continue
   seen.add(key)
   if li==len(ls) and ri<0 and not lw and not rw:
+   if not lexical_gate(ls, left) or not lexical_gate(rs, right):
+    continue
    text=' '.join(left)+'; '+' '.join(right)+'.';a=audit(text)
    if a['exact'] and a['letters']>38:exact.append({'rendered':text,'length':a['letters'],'audit':a,'left_roles':list(ls),'right_roles':list(rs),'provenance':{'large_phrase_inventory':True,'endpoint_indexed':True,'live_phrase_boundaries':True,'complete_left_grammar':True,'complete_right_grammar':True,'semantic_valency':True,'finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_token_units':False}})
    continue
@@ -40,7 +58,7 @@ def search(ls,rs,inv,idx,max_states=80000):
     le=i+1==len(at);rexit=j==0;stack.append((li+le,ri-rexit,'' if le else a.text,'' if rexit else b.text,0 if le else i+1,-1 if rexit else j-1,left+((a.text,) if not lw else ()),((b.text,) if not rw else ())+right))
  return len(seen),exact
 def run():
- inv=inventory();idx=endpoint_index(inv);results=[search(ls,rs,inv,idx) for _,ls in SHAPES for _,rs in SHAPES];exact=[x for _,e in results for x in e];controls=['Alice reads the report near the station.','The young analyst checks the schedule within the office.','Marie writes a note beside the river.','John opens the file after the meeting.']*5
- return {'experiment_id':ID,'method':'large Brown phrase endpoint-indexed reverse lexical envelope','inventory_sizes':{k:len(v) for k,v in inv.items()},'stats':{'endpoint_keys':sum(len(v) for v in idx.values()),'states':sum(n for n,_ in results),'fresh_exact_gt38':len(exact),'controls':len(controls)},'exact_candidates':exact,'controls':[{'rendered':x,'audit':audit(x)} for x in controls],'novelty_preflight':{'status':'passed','signature':SIG,'distinct_from':'prior small seam and envelope checks; substantially larger Brown-derived phrase inventory and complete grammar products','finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_token_units':False},'provenance':{'brown_bank':str(BANK.relative_to(ROOT)),'bank_sha256':hashlib.sha256(BANK.read_bytes()).hexdigest(),'name_bank':'20 ordinary authored names','audits':['independent two-pointer mismatch','forward/reverse SHA-256'],'reader_gate':'closed unless exact >38 rows appear','next_reader_test':'blinded complete sentence versus shuffled controls'},'status':'fresh exact >38 candidate requires human reading' if exact else 'no fresh exact >38 candidate','next_construction':'add phrase-level relative clauses only after an exact closure appears'}
+ inv=inventory();idx=endpoint_index(inv);results=[search(ls,rs,inv,idx) for _,ls in SHAPES for _,rs in SHAPES];exact=[x for _,e in results for x in e];controls=['Alice reads the report near the station.','The young analyst checks the schedule within the office.','Marie writes a note beside the river.','John opens the file after the meeting.','Diana keeps the letter by the window.','Peter marks the map near the harbor.','Sarah reviews the plan before the meeting.','Victor sends a message to the office.','Helen records the notes in the journal.','Arthur carries the books across the hall.','Julia studies the chart under the lamp.','Mark finds the key beside the door.','Rose reads the poem in the garden.','Thomas writes the answer on the board.','George checks the list after lunch.','Jane opens the drawer under the desk.','Oliver sends a letter to the keeper.','Paul gives a book to the child.','Anna reads the map near the bridge.','Nora marks the page with a ribbon.']
+ return {'experiment_id':ID,'method':'large Brown phrase endpoint-indexed reverse lexical envelope','inventory_sizes':{k:len(v) for k,v in inv.items()},'stats':{'endpoint_keys':sum(len(v) for v in idx.values()),'states':sum(n for n,_ in results),'fresh_exact_gt38':len(exact),'controls':len(controls)},'exact_candidates':exact,'controls':[{'rendered':x,'audit':audit(x),'reader_status':'intact contemporary-English control; not exact'} for x in controls],'novelty_preflight':{'status':'passed','signature':SIG,'distinct_from':'prior small seam and envelope checks; substantially larger Brown-derived phrase inventory and complete grammar products','finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_token_units':False},'provenance':{'brown_bank':str(BANK.relative_to(ROOT)),'bank_sha256':hashlib.sha256(BANK.read_bytes()).hexdigest(),'name_bank':'20 ordinary authored names','lexical_gate':'explicit transitive/ditransitive/location-preposition compatibility tables at closure','audits':['independent two-pointer mismatch','forward/reverse SHA-256'],'reader_gate':'closed unless exact >38 rows appear','next_reader_test':'blinded complete sentence versus shuffled controls'},'status':'fresh exact >38 candidate requires human reading' if exact else 'no fresh exact >38 candidate','next_construction':'add phrase-level relative clauses only after an exact closure appears'}
 if __name__=='__main__':
  x=run();OUT.write_text(json.dumps(x,indent=2)+'\n');print(json.dumps(x['stats']))

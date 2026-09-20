@@ -30,6 +30,7 @@ def extract_frames(limit: int = 50_000):
     adjuncts = Counter()
     feature_adjuncts = defaultdict(Counter)
     frame_ids = defaultdict(Counter)
+    complements = defaultdict(Counter)
     for sentence in brown.tagged_sents()[:limit]:
         for i in range(len(sentence) - 4):
             (det, det_tag), (subj, subj_tag), (verb, verb_tag), (obj_det, obj_det_tag), (obj, obj_tag) = sentence[i:i + 5]
@@ -57,7 +58,10 @@ def extract_frames(limit: int = 50_000):
                 if ptag == 'IN' and ntag.startswith(('NN','NP')) and prep.isalpha() and noun.isalpha():
                     phrase=f'{prep.casefold()} {noun.casefold()}'; adjuncts[phrase] += 1; feature_adjuncts[feature][phrase] += 1
                     frame_ids[feature][frame_id+' | '+phrase] += 1
-    return subjects, verbs, objects, dict(frames), adjuncts, feature_adjuncts, frame_ids
+                    if i + 8 < len(sentence):
+                        p2,t2=sentence[i+7]; n2,u2=sentence[i+8]
+                        if t2 == 'IN' and u2.startswith(('NN','NP')) and p2.isalpha() and n2.isalpha(): complements[feature][f'{p2.casefold()} {n2.casefold()}'] += 1
+    return subjects, verbs, objects, dict(frames), adjuncts, feature_adjuncts, frame_ids, complements
 
 
 def top(counter: Counter[str], limit: int = 64) -> tuple[str, ...]:
@@ -65,7 +69,7 @@ def top(counter: Counter[str], limit: int = 64) -> tuple[str, ...]:
 
 
 def run() -> dict[str, object]:
-    subjects, verbs, objects, frame_counts, adjunct_counts, feature_adjuncts, frame_ids = extract_frames()
+    subjects, verbs, objects, frame_counts, adjunct_counts, feature_adjuncts, frame_ids, complements = extract_frames()
     det = ("a", "the", "this", "that", "one")
     results = []
     feature_stats = {}
@@ -74,6 +78,7 @@ def run() -> dict[str, object]:
         verb_words = top(verbs[feature])
         object_words = top(objects[feature])
         adjunct = tuple(word for word, _ in feature_adjuncts[feature].most_common(32)) or ("near town",)
+        complement = tuple(word for word, _ in complements[feature].most_common(16)) or ("by town",)
         if not subject_words or not verb_words:
             feature_stats[feature] = {"subject_words": 0, "verb_words": 0, "states": 0, "pruned": 0, "exact": 0}
             continue
@@ -83,6 +88,7 @@ def run() -> dict[str, object]:
         templates = [
             (Slot("det", det), subject_slot, verb_slot, Slot("det", det), object_slot),
             (Slot("det", det), subject_slot, verb_slot, Slot("det", det), object_slot, Slot("prep_object", adjunct)),
+            (Slot("det", det), subject_slot, verb_slot, Slot("det", det), object_slot, Slot("prep_object", adjunct), Slot("complement", complement)),
         ]
         runs = [search(template, limit=16) for template in templates]
         stats = {
@@ -103,6 +109,7 @@ def run() -> dict[str, object]:
         "adjunct_frame_unique": len(adjunct_counts),
         "feature_adjunct_frame_counts": {k: dict(v.most_common(32)) for k, v in feature_adjuncts.items()},
         "frame_identity_counts": {k: dict(v.most_common(32)) for k, v in frame_ids.items()},
+        "feature_complement_counts": {k: dict(v.most_common(16)) for k, v in complements.items()},
         "feature_stats": feature_stats,
         "provenance": {
             "penn_tags": True,

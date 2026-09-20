@@ -10,6 +10,11 @@ independent readers as grammatical, with a recoverable subject or intent and
 coherent meaning. The paper must distinguish those reader outcomes from
 mechanical exactness and automatic diagnostics.
 
+“Readable English” is deliberately broad rather than a literal Shakespeare
+style constraint. Historical Shakespearean labels are retained only for
+provenance and diagnostics; the active target is ordinary, vivid, coherent
+English that blinded readers can understand.
+
 ## Reader-first directive
 
 The deliverable is a reader-worthy construction, not a search-speed result and

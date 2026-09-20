@@ -7,6 +7,12 @@ scores and AI feedback only diagnose historical lanes. The active search is
 exact-by-construction, with grammar boundaries and mirrored character orbits
 chosen together. No output below is human certified yet.
 
+The readability target is broad English: an intact, grammatical, scene-bearing
+line that a blinded reader can understand. “Shakespearean,” where it appears
+in legacy run names or diagnostic fields, is not a diction or imitation
+requirement. Literary vocabulary is neither a shortcut nor a certificate;
+reader ratings decide whether an exact output is readable.
+
 ## Anchor and frontier
 
 The strongest reader-plausible exact output remains:

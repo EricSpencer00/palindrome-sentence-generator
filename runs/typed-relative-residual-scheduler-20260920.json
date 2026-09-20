@@ -1,0 +1,33 @@
+{
+  "paths": [],
+  "stats": {
+    "states": 9341,
+    "char_prunes": 413528,
+    "repeat_prunes": 2821,
+    "beam_prunes": 0,
+    "grammar_expansions": 3914,
+    "complete": 344,
+    "status": "UNSAT",
+    "exact": 0
+  },
+  "experiment_id": "typed-relative-residual-scheduler-20260920",
+  "provenance": {
+    "method": "typed SVO/PP grammar plus one subject-gap relative complement with one-sided live residual scheduling",
+    "lexicon_limit": 70,
+    "max_words": 18,
+    "max_nodes": 500000,
+    "beam_width": 20000,
+    "relative_productions": [
+      "OBJ -> DET N REL",
+      "REL -> RELPRON V N",
+      "REL -> RELPRON V DET N"
+    ],
+    "one_sided_residual_scheduler": true,
+    "nested_span_rejected": true,
+    "candidate_reranking": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "reader_gate": "closed pending exact output and blinded intact-versus-shuffled reading",
+    "next_construction": "if empty, change semantic topology rather than widening this relative beam"
+  }
+}

@@ -2787,3 +2787,11 @@ the anchor vocabulary is supplied, but is not counted as progress. This closes
 the residual-scheduler branch and points to a genuinely different next step:
 add a typed relative complement to the grammar, rather than widening the same
 SVO/PP beam.
+
+The first topology change added a subject-gap relative complement (`DET N
+REL`, with `REL` realized as a relative pronoun, verb, and object). The remote
+run visited 9,341 states, pruned 413,528 character mismatches and 2,821
+repeats, and reached 344 complete states, but produced no exact candidate
+above 38 letters. The relative branch is therefore closed as a construction
+family; the next method must change the sentence topology itself rather than
+add another adjunct to this clause envelope.

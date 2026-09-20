@@ -37,7 +37,7 @@ class State:
     score: float
 
 
-def load_lexicon(path=ROOT / "data/brown_pcfg_bank_20260920.json", limit=70):
+def load_lexicon(path=ROOT / "data/brown_pcfg_bank_20260920.json", limit=70, include_relative=False):
     bank = json.loads(Path(path).read_text())["lexicon"]
     mapping = {"DET": "DET", "NOUN": "N", "VERB": "V", "ADJ": "ADJ",
                "PREP": "PREP", "PRON": "PRON"}
@@ -54,6 +54,8 @@ def load_lexicon(path=ROOT / "data/brown_pcfg_bank_20260920.json", limit=70):
     # Keep the anchor vocabulary available without importing its sentence.
     words.extend([Word("aide", "N"), Word("rips", "V"), Word("memos", "N"),
                   Word("men", "N"), Word("inspire", "V")])
+    if include_relative:
+        words.extend(Word(text, "RELPRON") for text in ("who", "that", "which"))
     unique = {(w.text, w.pos): w for w in words}
     return tuple(unique.values())
 
@@ -69,7 +71,8 @@ def _nested_span(words: tuple[str, ...]) -> bool:
     return False
 
 
-def search(lexicon, *, max_words=14, max_nodes=250_000, beam_width=20_000):
+def search(lexicon, *, grammar=None, max_words=14, max_nodes=250_000, beam_width=20_000):
+    grammar = grammar or GRAMMAR
     by_pos = {}
     for word in lexicon:
         by_pos.setdefault(word.pos, []).append(word)
@@ -117,15 +120,15 @@ def search(lexicon, *, max_words=14, max_nodes=250_000, beam_width=20_000):
             if len(state.left) + len(state.right_rev) >= max_words:
                 continue
             # Expand grammar symbols before emitting characters.
-            if state.left_symbols and state.left_symbols[0] in GRAMMAR:
-                for production in GRAMMAR[state.left_symbols[0]]:
+            if state.left_symbols and state.left_symbols[0] in grammar:
+                for production in grammar[state.left_symbols[0]]:
                     stats["grammar_expansions"] += 1
                     children.append(State(tuple(production) + state.left_symbols[1:],
                                           state.right_symbols, state.left, state.right_rev,
                                           state.left_residual, state.right_residual, state.score))
                 continue
-            if state.right_symbols and state.right_symbols[-1] in GRAMMAR:
-                for production in GRAMMAR[state.right_symbols[-1]]:
+            if state.right_symbols and state.right_symbols[-1] in grammar:
+                for production in grammar[state.right_symbols[-1]]:
                     stats["grammar_expansions"] += 1
                     children.append(State(state.left_symbols, state.right_symbols[:-1] + tuple(production),
                                           state.left, state.right_rev, state.left_residual,

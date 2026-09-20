@@ -1,0 +1,80 @@
+{
+  "experiment_id": "reverse-trie-typed-grammar-20260920",
+  "method": "typed forward clause product with reverse-facing character trie and deque residuals",
+  "stats": {
+    "nodes": 12001,
+    "rendered_candidates": 1,
+    "exact": 0
+  },
+  "candidates": [
+    {
+      "rendered": "a calm artist charts a artist; a bright captain charts this captain.",
+      "residual_left": "acalmartistchartsaartist",
+      "residual_right_reverse_facing": "niatpacsihtstrahcniatpacthgirba",
+      "audit": {
+        "letters": 55,
+        "two_pointer_exact": false,
+        "exact": false,
+        "mismatches": [
+          {
+            "index": 0,
+            "left": "a",
+            "right": "n"
+          },
+          {
+            "index": 1,
+            "left": "c",
+            "right": "i"
+          },
+          {
+            "index": 3,
+            "left": "l",
+            "right": "t"
+          },
+          {
+            "index": 4,
+            "left": "m",
+            "right": "p"
+          },
+          {
+            "index": 6,
+            "left": "r",
+            "right": "c"
+          },
+          {
+            "index": 7,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "index": 9,
+            "left": "s",
+            "right": "h"
+          },
+          {
+            "index": 11,
+            "left": "c",
+            "right": "s"
+          }
+        ],
+        "forward_sha256": "5f08c0e7aa32a9a569db2270c139a48adbab320c15f05f654acb816d453776d0",
+        "reverse_sha256": "dee0d4c3d91877424873fcc7b9f839930b891a24791106c2ebe41783e2ffc8a2"
+      },
+      "provenance": {
+        "left_forward_bank": true,
+        "right_forward_bank": true,
+        "reverse_trie_walk_before_render": true,
+        "live_residual_buffers": true,
+        "unequal_word_boundaries": true,
+        "finished_tape_reversal": false,
+        "semordnilap_token_pairs": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "post_hoc_repair": false
+      }
+    }
+  ],
+  "status": "frontier_exhausted_no_exact",
+  "next_expansion": "add typed inflection and center transitions while retaining live residual buffers"
+}

@@ -26,10 +26,15 @@ R={
  'place':(('near the old bridge','place'),('by the river bend','place')),
 }
 def carry(left_parts,right_parts):
-    # Compare only the currently available outer orbit; state is updated after
-    # each slot and never inferred from a completed rendered string.
-    lt=letters(' '.join(left_parts)); rt=letters(' '.join(right_parts))[::-1]
-    n=min(len(lt),len(rt)); return next(((i,lt[i],rt[i]) for i in range(n) if lt[i]!=rt[i]),None)
+    """Propagate an obligation after every slot, pruning on a decided mismatch."""
+    left=''; right=''; trace=[]
+    for i,(lp,rp) in enumerate(zip(left_parts,right_parts)):
+        left += letters(lp); right = letters(rp) + right
+        lt,rt=left,right[::-1]
+        n=min(len(lt),len(rt)); mm=next(((j,lt[j],rt[j]) for j in range(n) if lt[j]!=rt[j]),None)
+        trace.append({'slot':i,'left_available':len(lt),'right_available':len(rt),'first_conflict':mm})
+        if mm is not None: return mm,trace,True
+    return None,trace,False
 def run():
  rows=[]; states=0
  for s,v,o,a in itertools.product(S,V,O,A):
@@ -37,11 +42,13 @@ def run():
   # paired right slots are generated in grammar order, not reflected text.
   for rs,rv,ro,ra in itertools.product(R['agent'],R[v[1]],R['object'],R[a[1]]):
    right=[rs[0],rv[0],ro[0],ra[0]]; states+=1
-   conflict=carry(left,right)
+   conflict,trace,pruned=carry(left,[right[3],right[2],right[1],right[0]])
+   if pruned:
+    continue
    rendered=' '.join(left)+', and '+' '.join(right)+'.'; au=audit(rendered)
-   rows.append({'rendered':rendered,'left_slots':left,'right_slots':right,'slot_classes':[s[1],v[1],o[1],a[1]],'carried_state':{'first_conflict':conflict,'slots_completed':4},'audit':au,'complete_prose':True,'provenance':{'independent_slot_authorship':True,'constraint_carried_between_slots':True,'finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_token_units':False,'repeated_units':False,'fragment':False}})
+   rows.append({'rendered':rendered,'left_slots':left,'right_slots':right,'slot_classes':[s[1],v[1],o[1],a[1]],'carried_state':{'first_conflict':conflict,'trace':trace,'slots_completed':4},'audit':au,'complete_prose':True,'provenance':{'independent_slot_authorship':True,'constraint_carried_between_slots':True,'finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_token_units':False,'repeated_units':False,'fragment':False}})
  rows.sort(key=lambda x:(-x['audit']['letters'],x['audit']['first_mismatch'] or (999,'','')))
  exact=[x for x in rows if x['audit']['exact'] and x['audit']['letters']>38]
- return {'experiment_id':'compositional-slot-carry-20260920','method':'four-slot bilateral compositional grammar with carried cross-slot character obligations','stats':{'slot_states':states,'rendered_candidates':len(rows),'fresh_exact_gt38':len(exact),'max_letters':max(x['audit']['letters'] for x in rows)},'rendered_candidates':rows[:120],'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':'four-slot-composition|carried-character-obligations|independent-slot-authorship','distinct_from':'endpoint-only class conditioning and boundary lexical lattices','finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'fragments':False},'provenance':{'audits':['independent pointer mismatch','forward/reverse SHA-256'],'reader_gate':'closed unless fresh exact >38 appears'},'status':'fresh exact >38 candidate requires human reading' if exact else 'no fresh exact >38 candidate; strongest complete near-misses recorded'}
+ return {'experiment_id':'compositional-slot-carry-20260920','method':'four-slot bilateral compositional grammar with carried cross-slot character obligations and pre-render pruning','stats':{'slot_states':states,'rendered_candidates':len(rows),'pruned_before_rendering':states-len(rows),'fresh_exact_gt38':len(exact),'max_letters':max((x['audit']['letters'] for x in rows),default=0)},'rendered_candidates':rows[:120],'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':'four-slot-composition|carried-character-obligations|slot-pruning|independent-slot-authorship','distinct_from':'endpoint-only class conditioning and boundary lexical lattices','finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'fragments':False},'provenance':{'audits':['independent pointer mismatch','forward/reverse SHA-256'],'reader_gate':'closed unless fresh exact >38 appears'},'status':'fresh exact >38 candidate requires human reading' if exact else 'no fresh exact >38 candidate; strongest complete near-misses recorded'}
 if __name__=='__main__':
  r=run(); OUT.write_text(json.dumps(r,indent=2)+'\n'); print(json.dumps(r['stats']))

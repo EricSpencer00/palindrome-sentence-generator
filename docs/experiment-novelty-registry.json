@@ -6398,6 +6398,17 @@
       "distinction": "One forward grammar generates a single ordinary sentence while assigning x[0:N] directly; variable word boundaries and agreement/valency parse factors are live, and palindrome factors x[i]=x[N-1-i] propagate during each lexical emission. It does not enumerate sentence pairs, reverse a completed tape, use shared-cell toys, repair, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "Target lengths 44/52/60: 5,485 bounded states, 30,746 live factor prunes, 0 complete palindrome parses and 0 exact candidates above 38; intact prose controls independently pointer/SHA audited; next is position-domain lexical arc consistency"
+    },
+    {
+      "id": "position-domain-arc-consistency-csp-20260920",
+      "signature": "position-domain-arc-consistency|global-forward-factorized-csp|held-out-lexical-support",
+      "artifact": "experiments/position_domain_arc_consistency_csp_20260920.py",
+      "run_artifacts": [
+        "runs/position-domain-arc-consistency-csp-20260920.json"
+      ],
+      "distinction": "Extends the single forward factorized sentence CSP with per-position lexical support domains: lexical edges are pruned only when their mirrored position has no support before grammar-factor branching. Includes an exhaustive odd/even unequal-boundary differential test; no sentence-pair enumeration, reversal, repair, mirrored units, or catalogue replay.",
+      "reader_evidence": false,
+      "status": "Differential test passed (18 exhaustive cases); target lengths 44/52/60: 5,485 states, 30,746 live prunes, 0 complete parses and 0 exact candidates above 38; prose controls independently pointer/SHA audited; next is minimum-domain factor ordering with adjacent-factor propagation"
     }
   ],
   "excluded": [

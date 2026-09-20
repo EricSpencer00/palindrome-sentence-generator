@@ -1,0 +1,96 @@
+{
+  "experiment_id": "typed-wh-recipient-ditransitive-scheduler-20260920",
+  "method": "typed wh-recipient question/ditransitive answer scheduler",
+  "complete_frames": 160,
+  "stats": {
+    "states": 12800,
+    "transitions": 0,
+    "pruned": 12800,
+    "closed": 0,
+    "exact": 0,
+    "baseline_exact": 1
+  },
+  "exact_candidates": [],
+  "baseline_exact_controls": [
+    {
+      "rendered": "an aide rips nine memos some men inspire Diana",
+      "audit": {
+        "letters": 38,
+        "exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "provenance": {
+        "baseline_control": true,
+        "generated_by_this_constructor": false
+      }
+    }
+  ],
+  "complete_prose_controls": [
+    {
+      "rendered": "to whom the sailor asks gives the poet an idea",
+      "audit": {
+        "letters": 37,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          36
+        ],
+        "sha256_forward": "144e4732216a26fb4664537bdf6afb3a7401a0003199831cbb0f1d3360c504ce",
+        "sha256_reverse": "1cc2565f658561bed7d781e86e2d95050ce1261c3cc66f80bbe538a6057470b5",
+        "sha_equal": false
+      },
+      "reader_status": "complete wh-recipient control; not exact candidate"
+    },
+    {
+      "rendered": "a scholar answers that gives the keeper the lantern",
+      "audit": {
+        "letters": 43,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          42
+        ],
+        "sha256_forward": "9297e806d32051fa0444a84f275969e806cb3cc0154f7fd1a9e378c4ef607a6e",
+        "sha256_reverse": "4e88ff874dc051f7a8bbff4bf424b610206f7773573d479d34fe58e3df50d6e0",
+        "sha_equal": false
+      },
+      "reader_status": "complete wh-recipient control; not exact candidate"
+    },
+    {
+      "rendered": "which poet the writers ask sends Diana new notes",
+      "audit": {
+        "letters": 40,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          39
+        ],
+        "sha256_forward": "e19516bd92d808f8014951c3dd86969920f6fdb50c539694b284d6d4ffff5748",
+        "sha256_reverse": "957987815dc5cdf30f5f864c596593d761f449e18c49ade7efff814db44f93ad",
+        "sha_equal": false
+      },
+      "reader_status": "complete wh-recipient control; not exact candidate"
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "wh-recipient|typed-ditransitive-answer|unequal-scheduler|live-residual",
+    "distinct_from": "wh-theme questions; recipient and theme are separate answer valency roles",
+    "baseline_is_control_only": true,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "vocabulary": "authored wh-recipient and ditransitive answer frames",
+    "independent_audit": "two-pointer mismatch plus forward/reverse SHA-256",
+    "reader_evidence": false
+  },
+  "status": "no fresh exact >38 closure",
+  "next_construction": "add recipient case alternants to wh-recipient frames",
+  "reader_gate": "closed until blinded human ratings"
+}

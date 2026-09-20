@@ -2872,8 +2872,10 @@ than enlarge the same terminal bank. Artifact:
 
 The terminal-closure audit subsequently found an implementation restriction:
 both solvers required an empty residual after the two complete derivations.
-For a compatible pair with $L=R^{\mathrm{rev}}C$, the full text $LR$ is
-palindromic whenever $C=C^{\mathrm{rev}}$; the residual need not be empty.
+Let $U$ be the character stream already cancelled by the live matcher.  If
+the remaining stream on one side is $C$, the rendered tape has the form
+$U C U^{\mathrm{rev}}$ (or the symmetric case with $C$ on the other side),
+so exact closure requires $C=C^{\mathrm{rev}}$, not $C=\epsilon$.
 Correcting this condition admits odd lengths and unequal clause-length centers.
 An exhaustive differential check of 900 synthetic string pairs recovered all
 126 oracle palindromes, compared with 30 under the old rule, with no false

@@ -467,6 +467,12 @@ bounded states, and pruned all 113 before an exact closure. No candidate
 reached the reader gate; the next construction partitions adjuncts by their
 compatible feature frame and adds a prepositional object slot.
 
+An adjunct follow-up is explicitly rejected in the audit: it copied one global
+preposition--noun inventory into every feature bank rather than extracting
+adjuncts from matching tagged clause frames, and it did not add a distinct
+prepositional-object derivation. It contributes no candidate or method claim;
+the next implementation must carry frame identity into the adjunct slot.
+
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:
 grammar boundaries and mirrored character orbits must be selected together,

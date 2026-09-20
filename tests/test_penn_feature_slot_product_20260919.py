@@ -6,6 +6,7 @@ def test_penn_feature_slot_product_is_feature_conditioned_and_exact_gated():
     data = json.loads(Path("runs/penn-feature-slot-product-20260919.json").read_text())
     assert data["provenance"]["penn_tags"]
     assert data["provenance"]["word_feature_maps"]
+    assert data["provenance"]["adjunct_partition_audit"].startswith("REJECTED:")
     assert data["provenance"]["aligned_token_mirror"] is False
     assert sum(item["exact"] for item in data["feature_stats"].values()) == 0
     assert data["candidates"] == []

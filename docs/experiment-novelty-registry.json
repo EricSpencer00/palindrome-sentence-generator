@@ -10932,6 +10932,18 @@
       "distinction": "Builds singular+VBZ, plural+VBP, and past+VBD subject/verb word banks from original Brown Penn tags, then searches complete sentence slots with word-level feature maps and live cross-word character obligations. No paired clauses, aligned token mirrors, reversal, fallback, or repair.",
       "reader_evidence": false,
       "status": "64/64, 58/53, and 64/64 feature banks for singular, plural, and past frames; 136/59/227 tagged frame counts and 13,650 adjunct combinations; 113 bounded states, 113 pruned, 0 exact closures; next construction partitions adjuncts by compatible feature frame"
+    },
+    {
+      "id": "penn-adjunct-feature-expansion-20260919",
+      "signature": "penn-feature-banks|adjunct-preposition-noun|contextual-frame-audit",
+      "artifact": "experiments/penn_feature_slot_product_20260919.py",
+      "run_artifacts": [
+        "runs/penn-feature-slot-product-20260919.json",
+        "docs/PENN-ADJUNCT-FEATURE-AUDIT-20260919.md"
+      ],
+      "distinction": "Attempted to add Brown preposition--noun adjuncts to each Penn feature-conditioned template while retaining live character pruning.",
+      "reader_evidence": false,
+      "status": "Rejected: the same global adjunct inventory was copied into each feature bank and no separate prepositional-object derivation was added; retain only as an implementation audit"
     }
   ]
 }

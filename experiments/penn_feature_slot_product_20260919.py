@@ -104,6 +104,7 @@ def run() -> dict[str, object]:
             "aligned_token_mirror": False,
             "finished_tape_reversal": False,
             "fallback": False,
+            "adjunct_partition_audit": "REJECTED: the current feature adjunct inventories are copied from a global preposition-noun bank rather than extracted from feature-specific clause frames; not a valid contextual partition",
             "human_readability_evidence": False,
         },
     }

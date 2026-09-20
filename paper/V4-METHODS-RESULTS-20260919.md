@@ -2843,3 +2843,14 @@ survived the exact gate, there is no reader candidate; the next constructive
 direction is a semantic-frame hyperedge representation, not a larger lexical
 sweep. Artifact:
 `runs/cfg-hypergraph-obligation-20260920.json`.
+
+The semantic-frame hyperedge follow-up made that direction explicit. Each
+hyperedge carried an animate agent, concrete patient, action, and setting, so
+selectional constraints were fixed before lexical emission. Twenty-five
+independently paired event hyperedges entered the live two-frontier product;
+all 25 were pruned at the first character boundary, with zero complete
+closures. Intact controls ranged from 41 to 48 letters and were independently
+audited, but none is an exact candidate. This closes the four-role frame at
+its outer boundary and specifies the next topology: add a typed recipient
+relation edge, not a lexical substitution or a larger sweep. Artifact:
+`runs/semantic-frame-hyperedges-20260920.json`.

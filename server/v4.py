@@ -139,6 +139,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_qwen_direct_draft": "Direct Qwen whole-sentence drafting: 12 batches, 158 drafts, 21 exact rows, maximum 20 letters; all exact rows were famous short palindromes and none passed the structural gate",
         "latest_two_sided_pcfg_sampler": "Broad two-sided PCFG sampler: 30,000 draws and 11,814 unique left tapes, independently reverse-segmented, zero exact closures",
         "latest_cfg_hypergraph_obligation": "Memoized weighted-CFG hypergraph: 3,825 chart items, 92 grammar hyperedges, 3,732 terminal edges, 34,509 character prunes, 3,535 complete parses, zero exact closures above 38",
+        "latest_semantic_frame_hyperedges": "Selectional semantic-frame hyperedges (animate agent, concrete patient, action, setting): 25 paired frontiers, 25 immediate character prunes, zero complete or exact closures above 38",
         "reader_study": "not run",
     },
 }

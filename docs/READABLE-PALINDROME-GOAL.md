@@ -6403,3 +6403,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   shown to readers. The next construction carries valency and boundary state
   incrementally in an edge trie. Artifact:
   `runs/phrase-graph-valency-shifts-20260920.json`.
+
+- **Cadence-compatible tense adjunct growth, 2026-09-20:** carried held-out
+  subject/object role agreement into tense-compatible temporal adjunct slots.
+  The bounded depth-three run retained four vivid diagnostics up to 121
+  letters after eight seam prunes, with 0 exact candidates above 38. The next
+  construction adds aspect-compatible adjunct states. Artifact:
+  `runs/cadence-tense-adjunct-growth-20260920.json`.
+
+- **Incremental valency edge trie, 2026-09-20:** carried boundary residuals
+  inside a typed valency edge trie before complete clause rendering. It retained
+  15,360 intact ordinary-clause controls up to 53 letters, with 0 exact
+  candidates above 38. The next construction synchronizes two tries through a
+  shared relative-attachment state. Artifact:
+  `runs/valency-edge-trie-boundary-shift-20260920.json`.
+
+- **Dual-relative antecedent graph, 2026-09-20:** bound two independent
+  relative attachments to explicit antecedent indices across 72 complete scene
+  renderings up to 108 letters, with 0 exact candidates above 38. The artifact
+  contains diagnostic controls only; its reader-facing list is empty because
+  exactness is a prerequisite. The next construction carries typed agreement
+  features into a live residual trie. Artifact:
+  `runs/dual-relative-graph-antecedents-20260920.json`.

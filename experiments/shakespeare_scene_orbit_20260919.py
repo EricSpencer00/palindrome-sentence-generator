@@ -43,9 +43,19 @@ class Frame:
     valency: str
 
 
-def compatible(left: str, right: str) -> bool:
+def consume(left: str, right: str) -> tuple[str, str] | None:
+    """Consume the currently paired outer characters.
+
+    ``left`` is ordered from the left seam inward.  ``right`` is ordered
+    from the right seam inward, so its *end* is the next character paired
+    with ``left[0]``.  Matched characters are removed immediately; retaining
+    them was the bug in the first implementation and made the search reject
+    valid paths after the first unequal word boundary.
+    """
     n = min(len(left), len(right))
-    return left[:n] == right[::-1][:n]
+    if left[:n] != right[-n:][::-1] if n else False:
+        return None
+    return left[n:], right[:-n] if n else right
 
 
 def _frame(role: str, scene: str, valency: str, *texts: str) -> tuple[Frame, ...]:
@@ -101,9 +111,10 @@ def run(*, state_limit: int = 250_000, candidate_limit: int = 32) -> dict[str, o
             for f in lattice[lo]:
                 nl = left + letters(f.text)
                 states += 1
-                if compatible(nl, right):
+                residual = consume(nl, right)
+                if residual is not None:
                     orbit_steps += 1
-                    walk(lo + 1, hi - 1, nl, right, lf + (f,), rf)
+                    walk(lo + 1, hi - 1, residual[0], residual[1], lf + (f,), rf)
                 else:
                     pruned += 1
                     add_witness(" ".join(x.text for x in lf + (f,) + tuple(reversed(rf))), len(lf) + 1, nl, right)
@@ -116,12 +127,14 @@ def run(*, state_limit: int = 250_000, candidate_limit: int = 32) -> dict[str, o
                 # The orbit equation checks every currently paired endpoint;
                 # unequal buffers are intentionally retained, not indexed by
                 # the newest word or repaired later.
-                if not compatible(nl, nr):
+                residual = consume(nl, nr)
+                if residual is None:
                     pruned += 1
                     add_witness(" ".join(x.text for x in lf + (lframe,) + (rframe,) + tuple(reversed(rf))), len(lf) + 1, nl, nr)
                     continue
                 orbit_steps += 1
-                walk(lo + 1, hi - 1, nl, nr, lf + (lframe,), (rframe,) + rf)
+                walk(lo + 1, hi - 1, residual[0], residual[1],
+                     lf + (lframe,), (rframe,) + rf)
 
     walk(0, len(lattice) - 1, "", "", (), ())
     candidates.sort(key=lambda x: x["audit"]["letters"], reverse=True)
@@ -134,7 +147,8 @@ def run(*, state_limit: int = 250_000, candidate_limit: int = 32) -> dict[str, o
                   "corpus_replay": False, "finished_tape_reversal": False,
                   "post_hoc_repair": False, "catalogue_text": False,
                   "aligned_token_mirror": False,
-                  "next_construction": "add an authored two-clause scene with explicit subject/object valency and retain orbit buffers"}}
+        "next_construction": "add an authored two-clause scene with explicit subject/object valency and retain consumed residual buffers",
+        "implementation_audit": "corrected after initial run: every orbit step now consumes the matched overlap; the pre-correction 16-state result is invalid"}}
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(result, indent=2) + "\n")
     return result

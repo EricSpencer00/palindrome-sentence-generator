@@ -1,4 +1,12 @@
-from experiments.shakespeare_scene_orbit_20260919 import audit, build_scene_lattice, run
+from experiments.shakespeare_scene_orbit_20260919 import audit, build_scene_lattice, consume, run
+
+
+def test_orbit_consumes_matched_overlap_and_keeps_debt():
+    assert consume("abc", "cba") == ("", "")
+    assert consume("abcd", "cba") == ("d", "")
+    assert consume("abc", "ba") == ("c", "")
+    assert consume("a", "cba") == ("", "cb")
+    assert consume("abc", "xyz") is None
 
 
 def test_scene_lattice_is_authored_and_typed():

@@ -1508,6 +1508,21 @@ schedule beside the river.” Independent pointer/SHA audits passed; no repeated
 unit, repair, reversal, catalogue text, or fragment was admitted. Artifact:
 `runs/authored-crossword-seam-phrase-design-20260920.json`.
 
+The cross-word equation scene lane made the lexical equation itself the
+construction object. It selected a complete contemporary two-clause scene
+with typed agent, event, patient, and connective roles, then consumed lexical
+characters across independently chosen phrase boundaries before either clause
+was complete. The 25 live states all failed at the first outer role equation,
+so there were no equation completions and no exact candidate above 38 letters.
+The separate control set contains 20 intact contemporary-English clauses,
+with a maximum of 42 letters; examples include “Mara reads the letter and the
+queen opens the gate.” Every state and control has an independent two-pointer
+and forward/reverse SHA audit. The lane uses no repair, finished-tape reversal,
+mirrored unit, catalogue text, or fragment. Its next constructive expansion is
+two-word subject chunks with agreement carried in the live equation rather than
+post-hoc repair. Artifact:
+`runs/cross-word-equation-scene-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

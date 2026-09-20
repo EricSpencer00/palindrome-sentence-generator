@@ -1,0 +1,55 @@
+{
+  "experiment_id": "character-cfg-two-comp-opposite-agreement-20260920",
+  "method": "two distinct complementizer attachment sites with opposite embedded agreement",
+  "grammar": [
+    "S -> NP VP",
+    "subject-site NP -> DET NOUN COMP S",
+    "object-site NP -> DET NOUN COMP S",
+    "COMP -> that",
+    "embedded V agrees with embedded subject"
+  ],
+  "stats": {
+    "subject_sg": 180,
+    "object_pl": 180,
+    "subject_pl": 180,
+    "object_sg": 180,
+    "chart_states": 22952,
+    "pair_support": {
+      "subject-sg/object-pl": 32400,
+      "subject-pl/object-sg": 32400
+    },
+    "center_mismatch_support": {
+      "h/a": 64800
+    },
+    "outer_twochar_states": 14580,
+    "joint_closures": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_score": 2
+  },
+  "complete_prose_controls": [
+    "The sailor that the poet reads guards the harbor.",
+    "The writers that some guides mark guide the sailors."
+  ],
+  "best_diagnostic": {
+    "score": 2,
+    "left": "a guides that a guides guide a guides",
+    "right": "a area guides a area that a area",
+    "orientation": "subject-pl/object-sg",
+    "outer_seam": true
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-two-comp-opposite-agreement-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "character-cfg-complementizer-embedded-agreement-20260920"
+  },
+  "next_construction": "Pair two complementizer sites with a shared semantic attachment relation, retaining opposite agreement and direct center equality.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

@@ -931,6 +931,21 @@ the search geometry to a full grammar/character product over complete paths,
 rather than adding another local feature axis. Artifact:
 `runs/relative-name-endpoint-phrase-trie-20260920.json`.
 
+### Complete-grammar product automaton
+
+The next reset built complete ordinary-order grammar paths before any
+character intersection: 2,100 SVO, SVO+PP, SVO+relative, and SVO+PP+relative
+paths were materialized, then paired in a weighted product automaton. The
+weight ranked grammatical transitions only; it did not score or repair a
+rendered candidate. The product traversed 14,400 live states, all rejected at
+the first incompatible character, with zero exact closures above 38 letters.
+Two complete prose controls (38 and 40 letters) passed independent
+two-pointer/SHA audits. Because both sides were complete grammar paths before
+the product, this result is distinct from endpoint-seeded schedulers and does
+not grow a damaged near miss. The next construction moves the intersection to
+a typed center seam with complement frames. Artifact:
+`runs/grammar-product-automaton-intersection-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

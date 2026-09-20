@@ -1832,8 +1832,10 @@ The reproducible run is `runs/live-context-infilling-20260920.json` and the
 implementation is `experiments/live_context_infilling_20260920.py`.  It
 starts from grammatical noun-final suffixes (for example, *idea* and *night*)
 and carries an explicit final lexical category while prepending ordinary words
-toward a clause.  It reached 32 live states after 12 rounds and recorded 3,167
-character conflicts;
+toward a clause.  Both edges now carry finite grammar states (subject,
+finite-verb/object, and clause-final), and repeated content-word cycles are
+rejected before beam ranking.  It reached 8 live states after 12 rounds and
+recorded 1,583 character conflicts plus 2,328 repeated-cycle rejections;
 it produced no exact candidate above 38 letters.  The result is useful as a
 constructive discriminator: residuals can remain live across word boundaries,
 but the current continuation inventory needs relative/appositive constructions

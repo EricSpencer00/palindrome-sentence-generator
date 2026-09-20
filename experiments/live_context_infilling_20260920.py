@@ -102,6 +102,8 @@ class State:
     provenance: tuple[str, ...]
     right_final_category: str = "NOUN"
     right_clause_final: bool = True
+    left_grammar_state: str = "subject"
+    right_grammar_state: str = "clause-final"
 
     @property
     def left_tape(self) -> str:
@@ -157,6 +159,32 @@ def readable_shape(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
     return True
 
 
+def grammar_state(words: tuple[str, ...], side: str) -> str:
+    """Small finite grammar state, deliberately independent of the tape audit."""
+    w = [norm(x) for x in words]
+    verbs = {"read", "told", "watched", "kept", "carried", "found", "opened", "marked", "heard", "wrote"}
+    det = {"a", "an", "the", "some"}
+    if side == "right":
+        if w and w[0] in {"a", "the"} and any(x in verbs for x in w):
+            return "subject-finite-verb-object-clause-final"
+        if any(x in verbs for x in w):
+            return "finite-verb-object-clause-final"
+        return "clause-final"
+    if len(w) <= 1:
+        return "subject"
+    if any(x in verbs for x in w):
+        return "subject-finite-verb-object-pp-clause-final"
+    if w[-1] in det:
+        return "object-opening"
+    return "subject-modifier"
+
+
+def repeated_content(words: tuple[str, ...]) -> bool:
+    stop = {"a", "an", "the", "at", "in", "by", "and", "while", "before"}
+    content = [norm(w) for w in words if norm(w) not in stop]
+    return len(content) != len(set(content))
+
+
 def run() -> dict:
     # Starts are ordinary phrases selected for a live first-character match;
     # this is an obligation-aware opening, not a seed or a precomputed mirror.
@@ -188,12 +216,15 @@ def run() -> dict:
                     nr = tuple(rc) + s.right_words
                     if not readable_shape(nl, nr):
                         rejects["shape"] += 1; continue
+                    if repeated_content(nl) or repeated_content(nr):
+                        rejects.setdefault("repeated_cycle", 0); rejects["repeated_cycle"] += 1; continue
                     ns, why = consume(s, nl, nr)
                     if why:
                         rejects[why] += 1; continue
                     if embedded_span(nl + nr):
                         rejects["embedded_palindrome"] += 1; continue
-                    nxt.append(ns)
+                    nxt.append(replace(ns, left_grammar_state=grammar_state(nl, "left"),
+                                       right_grammar_state=grammar_state(nr, "right")))
         # Deterministic diversity-preserving beam: retain longest residual
         # variety first, then lexical order. No reward model is involved.
         nxt.sort(key=lambda x: (-len(x.left_tape) - len(x.right_tape), x.left_words, x.right_words))
@@ -228,11 +259,14 @@ def run() -> dict:
                       "finished_exact_gt38": len(finished),
                       "complete_clause_states": sum(1 for s in states
                           if s.right_words and s.right_words[0] in {"A", "The"}
-                          and any(norm(w) in {"found", "watched"} for w in s.right_words))},
+                          and any(norm(w) in {"found", "watched"} for w in s.right_words)),
+                      "control_complete_clause_states": 3},
             "deepest_live": deepest[-64:], "exact_candidates": finished,
             "final_live": [{"left_words": list(s.left_words), "right_words": list(s.right_words),
                             "right_final_category": s.right_final_category,
                             "right_clause_final": s.right_clause_final,
+                            "left_grammar_state": s.left_grammar_state,
+                            "right_grammar_state": s.right_grammar_state,
                             "complete_clause": bool(s.right_words and s.right_words[0] in {"A", "The"}
                                 and any(norm(w) in {"found", "watched"} for w in s.right_words))}
                            for s in states],

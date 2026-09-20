@@ -1,0 +1,3914 @@
+{
+  "experiment_id": "discourse-graph-object-gap-relative-csp-20260920",
+  "method": "one independently authored left-theme object-gap relative edge in the bilateral discourse graph; an explicit theme antecedent-role feature attaches that to an overt relative subject and finite verb with no relative object, while relation, tense, agreement, attachment, and two-frontier character equations remain live",
+  "signature": "typed-bilateral-discourse-graph|object-gap-relative-attachment-edge|theme-antecedent-role|live-character-equations",
+  "stats": {
+    "new_object_gap_relative_edges": 1,
+    "typed_discourse_states": 8,
+    "online_nodes": 136,
+    "live_character_prunes": 96,
+    "complete_online_closures": 0,
+    "rendered_complete_prose_controls": 192,
+    "raw_exact_online_rows": 0,
+    "exact_clean_above_38": 0,
+    "reader_worthy": 0,
+    "max_rendered_control_letters": 87,
+    "max_exact_letters": 0,
+    "explicit_theme_antecedent_feature_checks": 8,
+    "relative_object_slots": 0
+  },
+  "exact_candidates": [],
+  "raw_exact_rows": [],
+  "strongest_intact_controls": [
+    {
+      "rendered": "the pilots mapped a chart that three sailors followed in haste, as the pilot logs the signal under the arch.",
+      "length": 87,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "a chart",
+        "that",
+        "three sailors",
+        "followed",
+        "in haste",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "the pilot",
+        "logs",
+        "the signal",
+        "under the arch"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 87,
+        "normalized_tape": "thepilotsmappedachartthatthreesailorsfollowedinhasteasthepilotlogsthesignalunderthearch",
+        "pointer_exact": false,
+        "sha256_forward": "75a67d6881d8cd9c851a13ff0db545cac431ce142256bd3d0c025ed75dcf4731",
+        "sha256_reverse": "21dac042330226e82fbce09232bc4ad26603cca12d28fc7759c3e23171b5717c",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "h"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "a chart"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots mapped a chart that three sailors followed under the arch, as the pilot logs the signal in haste.",
+      "length": 87,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "a chart",
+        "that",
+        "three sailors",
+        "followed",
+        "under the arch",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "the pilot",
+        "logs",
+        "the signal",
+        "in haste"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 87,
+        "normalized_tape": "thepilotsmappedachartthatthreesailorsfollowedunderthearchasthepilotlogsthesignalinhaste",
+        "pointer_exact": false,
+        "sha256_forward": "3c3805ddc71c28e0fbeeb0f330698db7ff504109e5fe7f29cf55fb8eb4b97d89",
+        "sha256_reverse": "ec1a0f48a3e36ae1266bddfbe5c877bf28a45ef28d9e43ea6cab5f906145a16d",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "e"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "a chart"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots mapped the cove that three sailors followed at dawn, as the pilot logs the signal near the quay.",
+      "length": 86,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "the cove",
+        "that",
+        "three sailors",
+        "followed",
+        "at dawn",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "the pilot",
+        "logs",
+        "the signal",
+        "near the quay"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 86,
+        "normalized_tape": "thepilotsmappedthecovethatthreesailorsfollowedatdawnasthepilotlogsthesignalnearthequay",
+        "pointer_exact": false,
+        "sha256_forward": "1405a4aeafc2c74e24255f10d2c470af7f68d85b1ccd0bd2c0983aa132c346a2",
+        "sha256_reverse": "352cea30c5a49d28f3c142102f8c37ddac76be6d66ca0b42ec6807d5e8c6c816",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "y"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots mapped the cove that three sailors followed near the quay, as the pilot logs the signal at dawn.",
+      "length": 86,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "the cove",
+        "that",
+        "three sailors",
+        "followed",
+        "near the quay",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "the pilot",
+        "logs",
+        "the signal",
+        "at dawn"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 86,
+        "normalized_tape": "thepilotsmappedthecovethatthreesailorsfollowednearthequayasthepilotlogsthesignalatdawn",
+        "pointer_exact": false,
+        "sha256_forward": "ced4730a46fc5096243d253e5a494f45d7dcd7982236ef3c5e4b8f8f2547cec0",
+        "sha256_reverse": "d40b87704d768e046096bc6a5f762d657dc696dfa6561f26ba8fcea20ec60c8e",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "n"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilot mapped the cove that the poet followed in haste, as three sailors log the signal under the arch.",
+      "length": 85,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilot",
+        "mapped",
+        "the cove",
+        "that",
+        "the poet",
+        "followed",
+        "in haste",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "three sailors",
+        "log",
+        "the signal",
+        "under the arch"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 85,
+        "normalized_tape": "thepilotmappedthecovethatthepoetfollowedinhasteasthreesailorslogthesignalunderthearch",
+        "pointer_exact": false,
+        "sha256_forward": "b3023fd2db8b7f8ee4e98e4f3d1d123e3f129851671a2af4b57b0b186406d31c",
+        "sha256_reverse": "f14cc319fe4410cfbdc87bc7fcb96ceca6ac738fa1cd90950b38306587e768d2",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "h"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "sg",
+          "pl"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "sg",
+          "relative_tense": "past",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilot mapped the cove that the poet followed under the arch, as three sailors log the signal in haste.",
+      "length": 85,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilot",
+        "mapped",
+        "the cove",
+        "that",
+        "the poet",
+        "followed",
+        "under the arch",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "three sailors",
+        "log",
+        "the signal",
+        "in haste"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 85,
+        "normalized_tape": "thepilotmappedthecovethatthepoetfollowedunderthearchasthreesailorslogthesignalinhaste",
+        "pointer_exact": false,
+        "sha256_forward": "3645ff06c0cece3b860dd1b90092aba51348eef43d2e1c2be00e6f143215bec9",
+        "sha256_reverse": "21023773b2ab550b961198def88882aaf1039427c527d37dc03cc8a031a4ebf9",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "e"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "sg",
+          "pl"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "sg",
+          "relative_tense": "past",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilot maps the cove that the poet follows in haste, as three sailors logged the signal under the arch.",
+      "length": 85,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "present"
+      },
+      "left_slots_normal_order": [
+        "the pilot",
+        "maps",
+        "the cove",
+        "that",
+        "the poet",
+        "follows",
+        "in haste",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "three sailors",
+        "logged",
+        "the signal",
+        "under the arch"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 85,
+        "normalized_tape": "thepilotmapsthecovethatthepoetfollowsinhasteasthreesailorsloggedthesignalunderthearch",
+        "pointer_exact": false,
+        "sha256_forward": "42a17b034c98dbdefe471ec16603e55f376e13e12799ba6438e6f0e406884395",
+        "sha256_reverse": "97beb0ef814389d8107a25d8971dfcf5a6d42b61bb390589edb93d815f74b4dd",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "h"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "present",
+          "past"
+        ],
+        "agreement_state": [
+          "sg",
+          "pl"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "sg",
+          "relative_tense": "present",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilot maps the cove that the poet follows under the arch, as three sailors logged the signal in haste.",
+      "length": 85,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "present"
+      },
+      "left_slots_normal_order": [
+        "the pilot",
+        "maps",
+        "the cove",
+        "that",
+        "the poet",
+        "follows",
+        "under the arch",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "three sailors",
+        "logged",
+        "the signal",
+        "in haste"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 85,
+        "normalized_tape": "thepilotmapsthecovethatthepoetfollowsunderthearchasthreesailorsloggedthesignalinhaste",
+        "pointer_exact": false,
+        "sha256_forward": "e88e32fad5cbfc0f76156c1e82f6b73810dc80067e1784d24000f51b9139e62c",
+        "sha256_reverse": "fc61ac1dd3c05a29dd3d883f51ff94b31045420facf04e6b9929e1caaa81328d",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "e"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "present",
+          "past"
+        ],
+        "agreement_state": [
+          "sg",
+          "pl"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "sg",
+          "relative_tense": "present",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots mapped the cove that three sailors followed after rain, as a keeper logs the chart by the gate.",
+      "length": 85,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "the cove",
+        "that",
+        "three sailors",
+        "followed",
+        "after rain",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "a keeper",
+        "logs",
+        "the chart",
+        "by the gate"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 85,
+        "normalized_tape": "thepilotsmappedthecovethatthreesailorsfollowedafterrainasakeeperlogsthechartbythegate",
+        "pointer_exact": false,
+        "sha256_forward": "75925a99da03ab37b1439ba7666ceb07e476a5d2600b424994c52f2659652c89",
+        "sha256_reverse": "fe896c0554bc628d6781bb1f3c42f61ec28b711446aadf258aeb3dd5bbe55595",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "e"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots mapped the cove that three sailors followed by the gate, as a keeper logs the chart after rain.",
+      "length": 85,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "the cove",
+        "that",
+        "three sailors",
+        "followed",
+        "by the gate",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "a keeper",
+        "logs",
+        "the chart",
+        "after rain"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 85,
+        "normalized_tape": "thepilotsmappedthecovethatthreesailorsfollowedbythegateasakeeperlogsthechartafterrain",
+        "pointer_exact": false,
+        "sha256_forward": "0d35a64e484ce838d20d5c3bf5e2070ef0d182090c70f3bc13f0b43bb47f12d3",
+        "sha256_reverse": "f2cab845b5d78925a8059f2858f1a42be5a4d81a2353d584c133e9c3ca765bf5",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "n"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots mapped the cove that two keepers followed after rain, as the pilot logs the signal by the gate.",
+      "length": 85,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "the cove",
+        "that",
+        "two keepers",
+        "followed",
+        "after rain",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "the pilot",
+        "logs",
+        "the signal",
+        "by the gate"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 85,
+        "normalized_tape": "thepilotsmappedthecovethattwokeepersfollowedafterrainasthepilotlogsthesignalbythegate",
+        "pointer_exact": false,
+        "sha256_forward": "b9f5655f13187385dc046ff8f25da08b1601a2a86246c574bb2da45c81a6b624",
+        "sha256_reverse": "4f3fccd0762883ce6ddeb27f9e3c846b668ba3681dec7092a7a43975a3c21542",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "e"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots mapped the cove that two keepers followed by the gate, as the pilot logs the signal after rain.",
+      "length": 85,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "the cove",
+        "that",
+        "two keepers",
+        "followed",
+        "by the gate",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "the pilot",
+        "logs",
+        "the signal",
+        "after rain"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 85,
+        "normalized_tape": "thepilotsmappedthecovethattwokeepersfollowedbythegateasthepilotlogsthesignalafterrain",
+        "pointer_exact": false,
+        "sha256_forward": "a5c01b6950e1f768396052a0c304e026199066f75eee2e7b6a7aab7649342961",
+        "sha256_reverse": "ad7a9a4072e212c9b4aee6307f9ff4efd4d8a478283a64875e74d3470c72afb7",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "n"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots map a chart that three sailors follow in haste, as the pilot logged the signal under the arch.",
+      "length": 84,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "present"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "map",
+        "a chart",
+        "that",
+        "three sailors",
+        "follow",
+        "in haste",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "the pilot",
+        "logged",
+        "the signal",
+        "under the arch"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 84,
+        "normalized_tape": "thepilotsmapachartthatthreesailorsfollowinhasteasthepilotloggedthesignalunderthearch",
+        "pointer_exact": false,
+        "sha256_forward": "dd8d4cd61c116b83aca696c4448f69296256db786d27dfc7c02ddc97926c1e7c",
+        "sha256_reverse": "0aa067a3b0090147ac685ad215ffe702dbb8fe9455616ed7ffe695846c582bef",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "h"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "present",
+          "past"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "present",
+          "antecedent_head": "a chart"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots map a chart that three sailors follow under the arch, as the pilot logged the signal in haste.",
+      "length": 84,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "present"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "map",
+        "a chart",
+        "that",
+        "three sailors",
+        "follow",
+        "under the arch",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "the pilot",
+        "logged",
+        "the signal",
+        "in haste"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 84,
+        "normalized_tape": "thepilotsmapachartthatthreesailorsfollowunderthearchasthepilotloggedthesignalinhaste",
+        "pointer_exact": false,
+        "sha256_forward": "b53d5f45857092156df54c008187423f152e6ca8061e23b9da012b3d92cca0f2",
+        "sha256_reverse": "0a9bcc5841b3f6af82c4fc17e5b22ae9219362c9a7a8b222a03d327224a54e28",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "e"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "present",
+          "past"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "present",
+          "antecedent_head": "a chart"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots mapped the cove that two keepers followed in haste, as a keeper logs the chart under the arch.",
+      "length": 84,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "the cove",
+        "that",
+        "two keepers",
+        "followed",
+        "in haste",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "a keeper",
+        "logs",
+        "the chart",
+        "under the arch"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 84,
+        "normalized_tape": "thepilotsmappedthecovethattwokeepersfollowedinhasteasakeeperlogsthechartunderthearch",
+        "pointer_exact": false,
+        "sha256_forward": "a39be1176c5e448bbf2227eceaa30b9e5f8916923dc8e8fee3988bfa45f7c65a",
+        "sha256_reverse": "995721261d844e572daca255479d331413c6b4524155a4f6b65d944ac184a9c5",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "h"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots mapped the cove that two keepers followed under the arch, as a keeper logs the chart in haste.",
+      "length": 84,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "the cove",
+        "that",
+        "two keepers",
+        "followed",
+        "under the arch",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "a keeper",
+        "logs",
+        "the chart",
+        "in haste"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 84,
+        "normalized_tape": "thepilotsmappedthecovethattwokeepersfollowedunderthearchasakeeperlogsthechartinhaste",
+        "pointer_exact": false,
+        "sha256_forward": "12c61bcc35e14d247882f18fff17ed59579cc4666461c6199bd692bc06146444",
+        "sha256_reverse": "85e744978b71bc845d5f93bb7c9431ddcfe7a06cf9cd854a9242be7c452bda1e",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "e"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilot mapped a chart that the pilot followed in haste, as two keepers log the signal under the arch.",
+      "length": 83,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilot",
+        "mapped",
+        "a chart",
+        "that",
+        "the pilot",
+        "followed",
+        "in haste",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "two keepers",
+        "log",
+        "the signal",
+        "under the arch"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 83,
+        "normalized_tape": "thepilotmappedachartthatthepilotfollowedinhasteastwokeeperslogthesignalunderthearch",
+        "pointer_exact": false,
+        "sha256_forward": "133c0d963b1ad7e5a896bfad979bd2a071defe590f0dabbe22c3ca4445c91ebc",
+        "sha256_reverse": "14e5ba9c738e55b6303fe51720fb4418c64dc61c7d01d1b3597de9b52b8fd143",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "h"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "sg",
+          "pl"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "sg",
+          "relative_tense": "past",
+          "antecedent_head": "a chart"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": false
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilot mapped a chart that the pilot followed under the arch, as two keepers log the signal in haste.",
+      "length": 83,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilot",
+        "mapped",
+        "a chart",
+        "that",
+        "the pilot",
+        "followed",
+        "under the arch",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "two keepers",
+        "log",
+        "the signal",
+        "in haste"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 83,
+        "normalized_tape": "thepilotmappedachartthatthepilotfollowedunderthearchastwokeeperslogthesignalinhaste",
+        "pointer_exact": false,
+        "sha256_forward": "293ac71c57ccdd0cf81f124a6a0b3d62eeca50c79fe37d9c4f3a3d83f2fe91cf",
+        "sha256_reverse": "78f0eff09eb3146af9a382d65b4818596095fed4b527317fe7d9ba466862f5be",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "e"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "sg",
+          "pl"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "sg",
+          "relative_tense": "past",
+          "antecedent_head": "a chart"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": false
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilot maps a chart that the pilot follows in haste, as two keepers logged the signal under the arch.",
+      "length": 83,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "present"
+      },
+      "left_slots_normal_order": [
+        "the pilot",
+        "maps",
+        "a chart",
+        "that",
+        "the pilot",
+        "follows",
+        "in haste",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "two keepers",
+        "logged",
+        "the signal",
+        "under the arch"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 83,
+        "normalized_tape": "thepilotmapsachartthatthepilotfollowsinhasteastwokeepersloggedthesignalunderthearch",
+        "pointer_exact": false,
+        "sha256_forward": "f791695510343891bc9ad0bef7922ebdd689684f6cd99579688d869359074c98",
+        "sha256_reverse": "e447ca730ed4e16bf8193b3cb7e35200c681ea5bdf801ec82e69a9257e8b63f6",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "h"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "present",
+          "past"
+        ],
+        "agreement_state": [
+          "sg",
+          "pl"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "sg",
+          "relative_tense": "present",
+          "antecedent_head": "a chart"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": false
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilot maps a chart that the pilot follows under the arch, as two keepers logged the signal in haste.",
+      "length": 83,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "present"
+      },
+      "left_slots_normal_order": [
+        "the pilot",
+        "maps",
+        "a chart",
+        "that",
+        "the pilot",
+        "follows",
+        "under the arch",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "two keepers",
+        "logged",
+        "the signal",
+        "in haste"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 83,
+        "normalized_tape": "thepilotmapsachartthatthepilotfollowsunderthearchastwokeepersloggedthesignalinhaste",
+        "pointer_exact": false,
+        "sha256_forward": "80155f1c08eae29daceafe949e85d0ea7f52cfa96dc216b5a78711e0f8e1cc58",
+        "sha256_reverse": "3f1dbbe3875a9d7ed149949de2b91f67658c41d19048e8e15c1c2c669fc826ab",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "e"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "present",
+          "past"
+        ],
+        "agreement_state": [
+          "sg",
+          "pl"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "sg",
+          "relative_tense": "present",
+          "antecedent_head": "a chart"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": false
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots map the cove that three sailors follow at dawn, as the pilot logged the signal near the quay.",
+      "length": 83,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "present"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "map",
+        "the cove",
+        "that",
+        "three sailors",
+        "follow",
+        "at dawn",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "the pilot",
+        "logged",
+        "the signal",
+        "near the quay"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 83,
+        "normalized_tape": "thepilotsmapthecovethatthreesailorsfollowatdawnasthepilotloggedthesignalnearthequay",
+        "pointer_exact": false,
+        "sha256_forward": "c2b7cf7acc8513de657ef9a9d3c91f2f978838bce3d22a0dd250cd35f97628ba",
+        "sha256_reverse": "e318985f39bf6074550631972f8fdb2d00c99638ac2d709b869165aedfb9485f",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "y"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "present",
+          "past"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "present",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots map the cove that three sailors follow near the quay, as the pilot logged the signal at dawn.",
+      "length": 83,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "present"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "map",
+        "the cove",
+        "that",
+        "three sailors",
+        "follow",
+        "near the quay",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "the pilot",
+        "logged",
+        "the signal",
+        "at dawn"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 83,
+        "normalized_tape": "thepilotsmapthecovethatthreesailorsfollownearthequayasthepilotloggedthesignalatdawn",
+        "pointer_exact": false,
+        "sha256_forward": "b3397533cf6d21a1bdfd6a34d12a01a7715d8f3de76cd147a9747cc0ed0fbd56",
+        "sha256_reverse": "fc19ded2d24fde26b20f45ada99c41cb2c52395162092e70b770375f4356b6cf",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "n"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "present",
+          "past"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "present",
+          "antecedent_head": "the cove"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": true
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots mapped a chart that the pilots followed in haste, as a keeper logs the signal under the arch.",
+      "length": 83,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "a chart",
+        "that",
+        "the pilots",
+        "followed",
+        "in haste",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "a keeper",
+        "logs",
+        "the signal",
+        "under the arch"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 83,
+        "normalized_tape": "thepilotsmappedachartthatthepilotsfollowedinhasteasakeeperlogsthesignalunderthearch",
+        "pointer_exact": false,
+        "sha256_forward": "09c1665b104c7147b121479fc29481e168a84fadadacf8259e015de66d43bd50",
+        "sha256_reverse": "ba42f812ed1c6c2c54727bf35591bc611d42853ef3cc1a60a37d4877c5fed59d",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "h"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "event",
+          "theme"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "a chart"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": false
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    },
+    {
+      "rendered": "the pilots mapped a chart that the pilots followed under the arch, as a keeper logs the signal in haste.",
+      "length": 83,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "left_slots_normal_order": [
+        "the pilots",
+        "mapped",
+        "a chart",
+        "that",
+        "the pilots",
+        "followed",
+        "under the arch",
+        "as"
+      ],
+      "right_slots_normal_order": [
+        "a keeper",
+        "logs",
+        "the signal",
+        "in haste"
+      ],
+      "source": "object_gap_edge_complete_prose_control",
+      "matched_prefix_before_failure": null,
+      "audit": {
+        "letters": 83,
+        "normalized_tape": "thepilotsmappedachartthatthepilotsfollowedunderthearchasakeeperlogsthesignalinhaste",
+        "pointer_exact": false,
+        "sha256_forward": "4c467f40bba839771eeebaf70d2abba48349109c2638b4ad1dd082a232cea353",
+        "sha256_reverse": "a7b6987e904486c8209f29b466f39b9daf4aabc30886f3403486d07e36a36e2f",
+        "sha_equal": false,
+        "mechanically_exact": false,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "t",
+          "right": "e"
+        },
+        "audit_implementation": "independent two-pointer scan plus independent forward/reverse SHA-256"
+      },
+      "provenance": {
+        "clause_count": 2,
+        "relative_clause_count": 1,
+        "relative_is_object_gap": true,
+        "relative_has_overt_object": false,
+        "two_distinct_clauses": true,
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "mirrored_units": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_tape_edit": false,
+        "posthoc_repair": false,
+        "rlaif_per_search": false,
+        "human_authored_lexicon": true,
+        "independently_authored_object_gap_edge": true,
+        "graph_edge": "object-observation-evidence",
+        "discourse_relation": "evidence",
+        "surface_connector": "as",
+        "tense_state": [
+          "past",
+          "present"
+        ],
+        "agreement_state": [
+          "pl",
+          "sg"
+        ],
+        "attachment_state": [
+          "theme",
+          "event"
+        ],
+        "relative_attachment": {
+          "site": "object",
+          "antecedent_role": "theme",
+          "antecedent_feature": "left_theme_role",
+          "antecedent_number": "sg",
+          "relative_role": "object_gap",
+          "relative_marker": "that",
+          "relative_subject_number": "pl",
+          "relative_tense": "past",
+          "antecedent_head": "a chart"
+        },
+        "lexical_choices_emitted_online": true,
+        "independent_clause_authorship": true,
+        "prior_palindrome_seed_used": false,
+        "lexical_bank_widened": false,
+        "reader_evidence": "not_run; programmatic checks do not certify readability",
+        "programmatic_clean_for_reader_package": false
+      },
+      "reader_eligibility": {
+        "eligible_for_blinded_package": false,
+        "human_readability_certified": false,
+        "reason": "requires intact-versus-shuffled blinded human reading; no study run in this lane"
+      }
+    }
+  ],
+  "state_reports": [
+    {
+      "state_index": 1,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "present"
+      },
+      "online": {
+        "nodes": 17,
+        "live_character_prunes": 12,
+        "complete_closures": 0,
+        "truncated": false,
+        "first_mismatches": [
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "h"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "h"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          }
+        ]
+      },
+      "rendered_controls": 24
+    },
+    {
+      "state_index": 2,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "present"
+      },
+      "online": {
+        "nodes": 17,
+        "live_character_prunes": 12,
+        "complete_closures": 0,
+        "truncated": false,
+        "first_mismatches": [
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          }
+        ]
+      },
+      "rendered_controls": 24
+    },
+    {
+      "state_index": 3,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "past"
+      },
+      "online": {
+        "nodes": 17,
+        "live_character_prunes": 12,
+        "complete_closures": 0,
+        "truncated": false,
+        "first_mismatches": [
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "h"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "h"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          }
+        ]
+      },
+      "rendered_controls": 24
+    },
+    {
+      "state_index": 4,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "sg",
+        "right_number": "pl",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "sg",
+        "relative_tense": "past"
+      },
+      "online": {
+        "nodes": 17,
+        "live_character_prunes": 12,
+        "complete_closures": 0,
+        "truncated": false,
+        "first_mismatches": [
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          }
+        ]
+      },
+      "rendered_controls": 24
+    },
+    {
+      "state_index": 5,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "present"
+      },
+      "online": {
+        "nodes": 17,
+        "live_character_prunes": 12,
+        "complete_closures": 0,
+        "truncated": false,
+        "first_mismatches": [
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "h"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "h"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          }
+        ]
+      },
+      "rendered_controls": 24
+    },
+    {
+      "state_index": 6,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "present",
+        "right_tense": "past",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "present"
+      },
+      "online": {
+        "nodes": 17,
+        "live_character_prunes": 12,
+        "complete_closures": 0,
+        "truncated": false,
+        "first_mismatches": [
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          }
+        ]
+      },
+      "rendered_controls": 24
+    },
+    {
+      "state_index": 7,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "event",
+        "right_attachment": "theme",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "online": {
+        "nodes": 17,
+        "live_character_prunes": 12,
+        "complete_closures": 0,
+        "truncated": false,
+        "first_mismatches": [
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "h"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "h"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          }
+        ]
+      },
+      "rendered_controls": 24
+    },
+    {
+      "state_index": 8,
+      "state": {
+        "edge_id": "object-observation-evidence",
+        "relation": "evidence",
+        "connector": "as",
+        "left_event": "map",
+        "right_event": "log",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_tense": "past",
+        "right_tense": "present",
+        "left_attachment": "theme",
+        "right_attachment": "event",
+        "left_objects": [
+          "a chart",
+          "the cove",
+          "the inlet"
+        ],
+        "right_objects": [
+          "a note",
+          "the chart",
+          "the signal"
+        ],
+        "antecedent_feature": {
+          "feature_name": "left_theme_role",
+          "side": "left",
+          "slot": "object",
+          "role": "theme",
+          "number": "sg",
+          "relative_role": "object_gap"
+        },
+        "relative_marker": "that",
+        "relative_event": "follow",
+        "relative_subject_number": "pl",
+        "relative_tense": "past"
+      },
+      "online": {
+        "nodes": 17,
+        "live_character_prunes": 12,
+        "complete_closures": 0,
+        "truncated": false,
+        "first_mismatches": [
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "reason": "character_equation",
+            "matched_prefix_letters": 0,
+            "left_char": "t",
+            "right_char": "n"
+          }
+        ]
+      },
+      "rendered_controls": 24
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "typed-bilateral-discourse-graph|object-gap-relative-attachment-edge|theme-antecedent-role|live-character-equations",
+    "registry_version": 1,
+    "registry_entry_count": 1471,
+    "exact_signature_collisions": [],
+    "nearest_existing_signatures": [
+      "discourse-graph-bilateral-csp-20260920",
+      "discourse-graph-relative-attachment-csp-20260920",
+      "unequal-center-ditransitive-relative-complement-20260920"
+    ],
+    "distinction": "One independently authored left-theme object-gap relative edge uses an overt relative subject and finite predicate with no overt relative object.  The preceding lexical bank is unchanged.  Its distinct theme antecedent-role feature is carried while relation, tense, agreement, attachment, and bilateral character equations stay live."
+  },
+  "provenance": {
+    "lexicon": "preceding discourse-graph-relative lexical bank copied unchanged; no content-word expansion",
+    "graph": "one independently authored object-observation-evidence edge only",
+    "new_operator": "left theme/object antecedent with an object-gap relative: that + overt subject + finite verb, and no overt relative object",
+    "emission": "left slots forward and right slots from the right frontier; exposed characters compared immediately",
+    "exact_audit": "independent two-pointer scan plus forward/reverse SHA-256 on every rendered row",
+    "forbidden_shortcuts": [
+      "finished-tape reversal",
+      "posthoc repair",
+      "mirrored or self-palindromic units",
+      "word-order-only symmetry",
+      "catalogue or borrowed sentence text",
+      "per-search RLAIF",
+      "overt relative object in the object-gap clause"
+    ],
+    "reader_gate": "closed: no human study in this lane; controls are not readability certification"
+  },
+  "next_construction": "Add one independently authored right-side benefactive-gap relative edge with a distinct recipient antecedent-role feature, retaining the same unchanged lexical bank and live relation/tense/agreement character equations; do not replay this edge or add repair.",
+  "status": "no exact-clean closure above 38; complete object-gap prose controls and mismatch certificates retained"
+}

@@ -50,7 +50,8 @@ def run(limit=180000,max_depth=3):
  for lp,rp,lw,rw in seeds[:8]:
   left=" ".join([lw]+[BANK[x][0] for x in lp[1:]])
   right=" ".join([BANK[x][0] for x in reversed(rp[1:])]+[rw])
-  controls.append({"rendered":left+" "+right,"audit":audit(left+" "+right),"complete_clause_series":True})
+  rendered = left+"; "+right+"."
+  controls.append({"rendered":rendered,"audit":audit(rendered),"complete_clause_series":True})
  for lp,rp,lw,rw in seeds:
   got=consume(letters(lw),letters(rw)[::-1])
   if got is None: continue
@@ -59,7 +60,10 @@ def run(limit=180000,max_depth=3):
    li,ri,left,right,lbuf,rbuf,prov=stack.pop(); states+=1
    if li==len(lp) and ri==len(rp):
     if lbuf or rbuf: pruned+=1; continue
-    text=left+" "+right; a=audit(text)
+    # Punctuation is editorial only: it is excluded by ``letters`` and does
+    # not participate in the character equations, but keeps the two complete
+    # clause series readable when shown to a person.
+    text=left+"; "+right+"."; a=audit(text)
     if a["two_pointer_exact"] and a["letters"]>38 and text not in seen:
      seen.add(text); exact.append({"rendered":text,"audit":a,"provenance":{"left_roles":lp,"right_roles":rp,"recursive_depth":(len(lp)+1)//3,"boundary_class_seed":True,"phrase_bank":"fresh-authored-complete-clause","finished_tape_reversal":False,"posthoc_repair":False,"mirrored_token_units":False,"catalogue_replay":False,"word_path":prov}})
     continue

@@ -778,6 +778,18 @@ above 38 letters. The same punctuated controls remain the only reader-facing
 text. Relative agreement is the next construction; failed strings are not
 repaired. The run is retained in the same boundary-construction artifact.
 
+### Recursive compositional clause series
+
+To address length directly, a recursive grammar `C → SUBJ VP | SUBJ VP CONJ C`
+was searched at depths one through three. Every predicate was a complete
+transitive clause, and boundary-compatible lexicalization plus residual
+consumption happened during construction. The run found 90 compatible seeds and
+tested 180,000 states with 1,128,405 residual rejections; no exact candidate
+above 38 letters closed. Controls are rendered as two punctuated complete clause
+series and independently audited. This is a scalable construction boundary,
+not a reason to repair near misses. Artifact:
+`runs/recursive-clause-series-grammar-20260920.json`.
+
 ### Aspectual auxiliary chart
 
 The recipient branch next carried progressive and perfect auxiliaries (`is/are`,

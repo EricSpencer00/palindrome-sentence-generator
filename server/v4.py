@@ -5128,6 +5128,25 @@ LUNA_PARALLEL_RUNS = [
         "novelty_preflight": "passed; distinct from typed event, center-first, repair, and direct seam-bank lanes",
         "next_construction": "index multi-clause residual signatures before lexical emission while retaining agreement and valency state",
     },
+    {
+        "run_id": "multiclause-residual-signature-join-20260920",
+        "method": "bidirectional residual-signature join over agreement/valency-aware two-clause scenes",
+        "status": "completed_no_exact_closure",
+        "clause_frames": 8,
+        "complete_two_clause_scenes": 64,
+        "signature_buckets": 24,
+        "signature_join_hits": 88,
+        "live_checked": 88,
+        "live_prunes": 88,
+        "exact_candidates_over_38": 0,
+        "reader_eligible": False,
+        "longest_rendered_letters": 152,
+        "complete_prose_controls": 3,
+        "provenance": "fresh agreement/valency-aware scene pairs indexed by residual signatures before live character checks; no reversal, repair, mirrored units, or catalogue text",
+        "independent_validation": ["literal two-pointer audit", "forward/reverse SHA-256"],
+        "novelty_preflight": "passed; distinct from single-clause lexical tries, center-first event grammar, recursive composition, and repair lanes",
+        "next_construction": "join three-clause scenes by residual signatures with one typed attachment edge",
+    },
 ]
 
 LATEST_LUNA_RUN = LUNA_PARALLEL_RUNS[-1]

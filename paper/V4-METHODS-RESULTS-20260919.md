@@ -1474,6 +1474,17 @@ Independent pointer/SHA audits passed; no repair, reversal, mirrored unit,
 catalogue text, or fragment was admitted. Artifact:
 `runs/asymmetric-role-semordnilap-clause-20260920.json`.
 
+The boundary-seeded follow-up changed search order: it first indexed subject /
+object endpoint pairs whose outer characters could agree under the asymmetric
+SVO/OVS reversal, then opened verb and PP choices only for those seeds. Twenty
+five endpoint seeds produced 250 live verb states but no rendered-compatible
+candidate and no exact closure above 38 letters. A separate authored control
+set contained 20 complete contemporary-English sentences (maximum 39 letters),
+including “Alice reviews the report near the station.” Independent pointer/SHA
+audits passed; no repair, reversal, mirrored unit, catalogue text, or fragment
+was admitted. Artifact:
+`runs/boundary-seeded-asymmetric-clause-lattice-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

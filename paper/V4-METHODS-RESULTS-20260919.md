@@ -4023,3 +4023,24 @@ retained 20 complete controls up to 105 letters, with zero exact candidates
 above 38. The next construction adds quotation/reporting scope and
 negative-polarity agreement. Artifact:
 `runs/shared-scene-source-negation-20260920.json`.
+
+The aspect-conditioned clause topology added held-out aspect/voice
+alternations with agreement state to independent full-clause factorization. Its
+bounded run visited 5,000 states, pruned 4,499, and reached no complete
+two-sided parse; the longest intact control was 108 letters and the exact count
+above 38 was zero. The next construction adds polarity/aspect alternations.
+Artifact: `runs/aspect-conditioned-clause-csp-20260920.json`.
+
+The live valency character-residual lane checked a character residual while
+selecting transitive-theme and intransitive-location complements. It evaluated
+36 alternatives, pruned 36, and retained controls up to 64 letters, with zero
+exact candidates above 38. The next construction carries variable-length
+residuals with relation-specific adjuncts. Artifact:
+`runs/valency-live-character-residual-20260920.json`.
+
+The quotation/reporting-scope lane added reporting states and hard
+negative-polarity agreement to the source/negation graph. It checked 31,104
+online prunes and retained 20 complete controls up to 112 letters, with zero
+exact candidates above 38. The next construction adds quotation content
+boundaries and scope islands. Artifact:
+`runs/shared-scene-quotation-reporting-20260920.json`.

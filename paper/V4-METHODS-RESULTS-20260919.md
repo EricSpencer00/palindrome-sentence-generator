@@ -2650,3 +2650,17 @@ at first light.” They are prose controls, not palindrome claims. The next
 construction composes two independent clitic frames through a typed comma or
 relative boundary while retaining the residual vector; no human rating is
 claimed until an exact candidate clears the 38-letter gate.
+
+The typed-central CSP then changed the grammar topology again. It inserted an
+independently authored observation sentence between complete agentive and
+eventive clauses, and indexed the residual boundary state while constructing
+the three-part sentence. The bounded bank yielded 18 typed assignments, two
+indexed residual states, and 18 character transitions. It retained complete
+controls at 99 and 116 letters, including “A careful baker carries warm bread
+to the village; the evening bell sounds, while the village welcomes a careful
+baker.”, but no exact candidate above 38 letters. Every row has independent
+outside-in and forward/reverse SHA-256 audits and explicit anti-shortcut
+provenance. The next construction replaces the fixed center with two
+independently authored typed centers and requires seam-type agreement before
+interior expansion; no reader evidence is claimed for these non-exact
+controls.

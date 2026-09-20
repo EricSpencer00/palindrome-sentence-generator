@@ -855,6 +855,14 @@ construction carries recipient agreement states; no rendered candidate is
 repaired. Artifact:
 `runs/recipient-unequal-attachment-scheduler-20260920.json`.
 
+The agreement-conditioned follow-up carried singular/plural subject and verb
+realizations plus typed recipient number through the same unequal scheduler. It
+tested 906 feature- and boundary-compatible seeds; all failed at the first live
+obligation, with zero closures and no exact row above 38 letters. Two complete
+agreement controls were independently audited. The next construction adds
+recipient case alternants, not a repair pass. Artifact:
+`runs/recipient-agreement-unequal-scheduler-20260920.json`.
+
 ### Negation/clitic polarity chart
 
 The aspectual recipient grammar then added polarity as a first-class state:

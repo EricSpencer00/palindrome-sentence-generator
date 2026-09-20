@@ -2598,6 +2598,14 @@ transition check; both were pruned by residual mismatch before rendering. The
 lane therefore contributes zero candidates, but it tests a real syntactic
 dimension that the singular base grammar could not express.
 
+The corrected weighted grammar automaton also received a beam ablation. With
+the Brown-backed NOUN/VERB/PREP/ADJ banks, beam 180 explored 6,185 states and
+beam 1,000 explored 28,596; the two arms pruned 48,734 and 221,510 residuals
+respectively, with 0 exact closures in either arm. Complete controls such as
+“The quiet poet sees a young keeper while the old sailor follows a bright
+child.” are retained separately; partial grammar fragments are quarantined and
+never treated as readable evidence.
+
 The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row

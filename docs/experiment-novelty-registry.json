@@ -17,7 +17,7 @@
       "run_artifacts": ["runs/weighted-grammar-automaton-20260920.json"],
       "distinction": "Weighted Brown-backed finite-state transitions permit variable-length clauses and function-word paths; independently expanded left/right derivations intersect character residuals online with memoization and diversity beam pruning.",
       "reader_evidence": false,
-      "status": "No exact closure in bounded run; rendered natural partials retained and next relative-clause expansion recorded."
+      "status": "Corrected run uses the actual Brown NOUN/VERB/PREP/ADJ banks: 6,185 states, 48,734 residual prunes, and 133,614 memoized states; 0 exact closures. Twelve retained near-misses are partial diagnostics, not reader prose; next step is a bounded relative-clause expansion."
     },
     {
       "id": "reverse-lexicon-typed-clause-20260919",
@@ -6001,6 +6001,15 @@
       "distinction": "Adds plural agreement and a relative/locative grammar frame to the asynchronous live-buffer scheduler; fresh clause sides are generated forward and pruned online, with no reversal or repair.",
       "reader_evidence": false,
       "status": "2 grammar frames, 2 responses, 2 live transitions, both pruned by residual mismatch, 0 rendered candidates, 0 exact candidates"
+    },
+    {
+      "id": "weighted-grammar-automaton-ablation-20260920",
+      "signature": "weighted-finite-state-grammar|brown-bank-correction|beam-ablation|online-character-intersection",
+      "artifact": "experiments/weighted_grammar_automaton_20260920.py",
+      "run_artifacts": ["runs/weighted-grammar-automaton-ablation-20260920.json"],
+      "distinction": "Ablates beam width after correcting the Brown bank mapper and article gates; complete controls are separated from partial residual fragments, with no finished-tape reversal or reward-driven search.",
+      "reader_evidence": false,
+      "status": "Beam 180: 6,185 states; beam 1,000: 28,596 states; 0 exact closures in either arm; 12 partial fragments quarantined and two complete controls retained"
     }
   ],
   "excluded": [

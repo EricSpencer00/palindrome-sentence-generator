@@ -114,6 +114,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_compositional_terminal_class_center": "9 semantic-frame/terminal-class combinations; all pruned by live residual mismatch, zero rendered candidates",
         "latest_asynchronous_typed_clause_buffer_dp": "9 typed template pairs; 348,335 endpoint-indexed joins and 2,107,452 memoized residual states, zero exact candidates; next step widens grammar after valid controls",
         "latest_async_plural_relative_dp": "2 plural/relative grammar frames and 2 independently authored responses; both live transitions pruned by mismatch, zero rendered or exact candidates",
+        "latest_weighted_grammar_automaton": "Corrected Brown-backed variable grammar: 6,185 states, 48,734 prunes, 133,614 memoized residuals, zero exact closures; partial near-misses quarantined",
         "reader_study": "not run",
     },
 }

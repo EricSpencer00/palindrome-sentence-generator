@@ -11699,6 +11699,17 @@
       "distinction": "Expands the authored non-palindromic chunk graph to 20 left and 20 right scene/dialogue chunks, selects cross-boundary exposed spans, and composes complete four-to-six-chunk frames with valency/agreement checks. Baseline is excluded; no wrapping, repair, finished-tape reversal, token mirroring, catalogue replay, or fragments are used.",
       "reader_evidence": false,
       "status": "20 left/right chunks, 35 compatible spans, and 1,920 complete frame states; 0 fresh exact candidates above 38 letters; independent 38-letter baseline and 37/60-letter prose controls audited; current constructive frontier"
+    },
+    {
+      "id": "seed-conditioned-paired-grammar-dp-20260920",
+      "signature": "seed-conditioned-slot-geometry|fresh-authored-banks|complete-frame-dp|reverse-character-segmentation",
+      "artifact": "experiments/seed_conditioned_paired_grammar_dp_20260920.py",
+      "run_artifacts": [
+        "runs/seed-conditioned-paired-grammar-dp-20260920.json"
+      ],
+      "distinction": "Uses the successful 38-letter slot geometry only as calibration, then generates fresh authored phrase banks and complete left/right frames with valency/agreement before reverse-character DP. The seed is never generated or wrapped; no repair, reversal, token mirroring, catalogue replay, or fragments are used.",
+      "reader_evidence": false,
+      "status": "4,608 fresh frames and 13,824 DP states in the 40–100-letter target; 0 complete reverse parses and 0 fresh exact candidates; independent 38/40/44-letter audits; reader gate closed"
     }
   ]
 }

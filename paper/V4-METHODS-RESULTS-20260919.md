@@ -1200,6 +1200,14 @@ baseline. This is the current constructive frontier: no wrapping, repair,
 finished-tape reversal, catalogue text, or mirrored unit was used. Artifact:
 `runs/authored-phrase-pair-graph-scene-expanded-20260920.json`.
 
+The seed-conditioned paired grammar reused only the successful 38-letter
+slot geometry; all phrase banks and both complete frames were newly authored.
+It tested 4,608 fresh left frames and 13,824 reverse-segmentation DP states in
+the 40–100-letter target, with zero complete reverse parses. The seed was a
+calibration-only control, never generated or wrapped. Complete controls reached
+40 and 44 letters and passed independent audits. Artifact:
+`runs/seed-conditioned-paired-grammar-dp-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

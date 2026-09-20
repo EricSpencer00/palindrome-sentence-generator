@@ -7189,6 +7189,23 @@ LUNA_PARALLEL_RUNS = [
         "novelty_preflight": "passed; distinct from center-shared dependency and relation-overhang families",
         "next_construction": "allow independently selected two-clause scene trees with distinct internal connector boundaries",
     },
+    {
+        "run_id": "shared-scene-dependency-resultative-object-control-20260920",
+        "method": "small-clause resultative object-control with overt predicative complement",
+        "status": "completed_no_exact_closure",
+        "scenes": 3,
+        "states": 9,
+        "character_prunes": 6,
+        "dependency_prunes": 0,
+        "seam_prunes": 0,
+        "exact_candidates_over_38": 0,
+        "reader_eligible": False,
+        "complete_prose_controls": 3,
+        "provenance": "fresh resultative object-control with controlled patient and overt predicative complement; no depictive-adjunct replay, ECM, reversal, repair, catalogue text, or mirrored units",
+        "independent_validation": ["literal outside-in two-pointer", "forward/reverse SHA-256"],
+        "novelty_preflight": "passed; distinct from object-control depictive, finite ECM, and subject-control/raising lanes",
+        "next_construction": "pivot to subject-oriented depictive/resultative alternation with an unaccusative frame",
+    },
 ]
 
 LATEST_LUNA_RUN = LUNA_PARALLEL_RUNS[-1]

@@ -1,0 +1,50 @@
+{
+  "experiment_id": "character-cfg-complementizer-center-20260920",
+  "method": "held-out complementizer center CFG with direct equation and outer-two seam",
+  "grammar": [
+    "S -> NP VP",
+    "NP -> DET NOUN COMP S",
+    "COMP -> that",
+    "VP -> V NP"
+  ],
+  "stats": {
+    "left_derivations": 180,
+    "right_derivations": 180,
+    "left_chart_states": 4913,
+    "right_chart_states": 4913,
+    "center_direct_states": 32400,
+    "center_mismatch_support": {
+      "h/a": 32400
+    },
+    "outer_twochar_states": 16000,
+    "joint_center_outer_closures": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_score": 3
+  },
+  "complete_prose_controls": [
+    "The sailor that the poet reads guards the harbor.",
+    "A keeper that a writer marks guards the garden."
+  ],
+  "best_diagnostic": {
+    "score": 3,
+    "left": "a era that a area guides a era",
+    "right": "a area that a area guides a area",
+    "center": "that",
+    "outer_seam": true
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-complementizer-center-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "character-cfg-relative-pronoun-center-20260920"
+  },
+  "next_construction": "Use a second complete complementizer attachment with a different agreement-bearing embedded clause, keeping direct center equality hard.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

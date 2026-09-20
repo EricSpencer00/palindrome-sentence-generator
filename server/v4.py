@@ -5147,6 +5147,26 @@ LUNA_PARALLEL_RUNS = [
         "novelty_preflight": "passed; distinct from single-clause lexical tries, center-first event grammar, recursive composition, and repair lanes",
         "next_construction": "join three-clause scenes by residual signatures with one typed attachment edge",
     },
+    {
+        "run_id": "character-cfg-shared-center-two-debt-20260920",
+        "method": "shared-center character CFG chart with independent outer and center seam debts",
+        "status": "completed_no_exact_closure",
+        "subject_derivations": 180,
+        "object_derivations": 180,
+        "subject_chart_states": 4105,
+        "object_chart_states": 5508,
+        "center_debt_states": 32400,
+        "outer_debt_states": 0,
+        "both_debts_cross_word_seam": 0,
+        "exact_candidates_over_38": 0,
+        "reader_eligible": False,
+        "longest_mirrored_prefix_letters": 1,
+        "complete_prose_controls": 2,
+        "provenance": "fresh shared-center CFG with subject/object-relative attachment and two live seam debts; lexical terminals fixed; no reversal, repair, mirrored units, or catalogue text",
+        "independent_validation": ["literal two-pointer audit", "forward/reverse SHA-256"],
+        "novelty_preflight": "passed; distinct from asymmetric and object-relative character CFG lanes",
+        "next_construction": "replace the fixed center token with a typed agreement-carrying center nonterminal solved jointly with both debts",
+    },
 ]
 
 LATEST_LUNA_RUN = LUNA_PARALLEL_RUNS[-1]

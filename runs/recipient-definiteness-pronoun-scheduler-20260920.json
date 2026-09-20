@@ -1,0 +1,72 @@
+{
+  "experiment_id": "recipient-definiteness-pronoun-scheduler-20260920",
+  "method": "recipient definiteness/pronoun typed unequal scheduler with live residuals",
+  "path_counts": {
+    "3": 9,
+    "4": 117,
+    "5": 54
+  },
+  "recipient_kind_counts": {
+    "np": 90,
+    "pron": 27,
+    "none": 63
+  },
+  "stats": {
+    "states": 360,
+    "transitions": 0,
+    "seeded": 360,
+    "pruned": 360,
+    "closed": 0,
+    "exact": 0
+  },
+  "exact_candidates": [],
+  "complete_prose_controls": [
+    {
+      "rendered": "a scholar gives the poet an idea at dawn",
+      "audit": {
+        "letters": 32,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          31
+        ],
+        "sha256_forward": "b2cefb28afb81b4623313e5f05cc4f7db1b8df91b3562b85c7d67ba58fd2f6cf",
+        "sha256_reverse": "f25e587ae12de07f781f7fce6750867461cfdaa8955afd4aef00edf78eed088f",
+        "sha_equal": false
+      },
+      "reader_status": "complete definite-recipient control; not exact candidate"
+    },
+    {
+      "rendered": "some writers send them new notes",
+      "audit": {
+        "letters": 27,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          25
+        ],
+        "sha256_forward": "5ac9c435565c8c2ca6f07eceeee225ddd993ff378af7a63f29b1b7e5d7dfe491",
+        "sha256_reverse": "daee82390c1110d2e27734b00c052f060c34a398020333d6d0c1508ea485dbd8",
+        "sha_equal": false
+      },
+      "reader_status": "complete pronoun-recipient control; not exact candidate"
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "recipient-definiteness|pronoun-case|unequal-paths|live-residual",
+    "distinct_from": "to/for case scheduler; recipient NP definiteness and pronoun morphology are explicit compatibility states",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "vocabulary": "authored definite/indefinite NP and pronoun recipient frames",
+    "independent_audit": "two-pointer mismatch plus forward/reverse SHA-256",
+    "reader_evidence": false
+  },
+  "status": "no exact >38 closure",
+  "next_construction": "add recipient animacy/semantic selection states",
+  "reader_gate": "closed until blinded human ratings"
+}

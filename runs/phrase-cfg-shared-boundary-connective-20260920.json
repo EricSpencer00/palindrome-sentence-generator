@@ -1,0 +1,51 @@
+{
+  "experiment_id": "phrase-cfg-shared-boundary-connective-20260920",
+  "method": "shared temporal connective with crossed subordinate/matrix roles",
+  "grammar": [
+    "S -> TEMPORAL_WHILE S , S",
+    "S -> NP VP",
+    "VP -> V NP"
+  ],
+  "connective": {
+    "category": "TEMPORAL_WHILE",
+    "surface": "while",
+    "role": "simultaneous_events"
+  },
+  "stats": {
+    "left_sentences": 240,
+    "right_sentences": 240,
+    "connective_support": 57600,
+    "connective_character_states": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 0
+  },
+  "complete_prose_controls": [
+    "While the sailor guards the letter, the poet reads the harbor.",
+    "While a writer marks the shore, a captain guides the notes."
+  ],
+  "best_diagnostic": {
+    "matched": 0,
+    "left": "",
+    "right": "",
+    "connective": {
+      "category": "TEMPORAL_WHILE",
+      "surface": "while",
+      "role": "simultaneous_events"
+    }
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-shared-boundary-connective-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-crossed-boundary-roles-20260920"
+  },
+  "next_construction": "Use a distinct connective category with the same crossed semantic roles, retaining hard exact admission.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

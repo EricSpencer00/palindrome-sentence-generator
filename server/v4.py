@@ -73,6 +73,13 @@ BEST_KNOWN_PROVENANCE = {
         "latest_morphology_orbit": "16 agreement-valid variants across 8 morphology states; longest 66 letters; zero exact closure",
         "latest_char_orbit_scene_search": "4,608 semantic character-FSM states; two complete prose controls; zero exact closure",
         "latest_live_clause_pair_dfs": "10 live long-form states; short-form calibration independently re-found the 38-letter anchor; zero >38 closure",
+        "latest_language_first_lattice": "46,656 independent clause combinations; strongest intact control 133 letters; zero exact >38 closure",
+        "latest_boundary_conditioned_lattice": "1,000 complete prose walks; longest 67 letters; zero exact >38 closure",
+        "latest_mixed_clause_modes": "56 complete mixed speech-act pairs; longest 105 letters; zero exact >38 closure",
+        "latest_lexical_graph": "992 complete graph-walk renders; longest 61 letters; zero exact >38 closure",
+        "latest_corpus_phrase_pair_dp": "2,832 synchronized transitions; 160 complete controls; longest 90 letters; zero exact >38 closure",
+        "latest_manual_bilateral_author": "63,504 fresh clause pairs; longest 120 letters; zero exact >38 closure",
+        "latest_endpoint_width2": "4,374 width-1 survivors reduced to 1,458 width-2 survivors; longest 104 letters; zero exact >38 closure",
         "reader_study": "not run",
     },
 }

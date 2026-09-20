@@ -1579,6 +1579,21 @@ construction alternates recipient prepositions under an explicit discourse
 relation. Artifact:
 `runs/benefactive-preposition-equations-20260920.json`.
 
+The relation-conditioned recipient lane made the preposition a live discourse
+state: `benefit` selects `for`, while `transfer` selects `to`. It retains
+animate-recipient and inanimate-theme typing, theme number, subject agreement,
+and complete grammatical surface reconstruction. A verb/preposition gate
+keeps destination-only readings such as *show ... for* out of the closure
+grammar. The run explored two relation states and 72 live states, pruned all
+72 at the equation boundary, and produced zero equation completions and zero
+exact candidates above 38 letters. Twenty intact contemporary-English
+controls were independently audited (maximum 71 letters), including “The poet
+gives the letter for the child and the queen sends a book for a friend.” No
+repair, reversal, mirrored unit, catalogue text, or fragment was admitted. The
+next construction conditions the relation on a contrastive discourse
+connective. Artifact:
+`runs/relation-conditioned-preposition-equations-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -2703,3 +2703,16 @@ independent two-pointer and forward/reverse SHA-256 audits plus anti-shortcut
 provenance. The next construction adds a concessive appositive seam with a
 sixth independent clause bank, and no reader evidence is claimed for these
 non-exact controls.
+
+The architecture review then exposed a more important correction. The first
+forward-lexicalized prototype generated 64 tiny atomic S-to-NP-VP derivations
+and independently found “Anna sees Anna.” and “Ava sees Ava.”, but its
+implementation still materialized each complete derivation before checking
+the palindrome equation. Those short exact diagnostics are retained only as a
+differential soundness test, not as scalable search evidence. The corrective
+construction is a fixed-length lexical-edge chart: shared character variables
+are tied across the whole sentence, word boundaries remain free, and grammar,
+agreement, and valency choices are pruned before a complete string exists. It
+must first pass exhaustive tiny-grammar differential tests and rediscover the
+38-letter anchor from atomic vocabulary without injecting the phrase; only
+then will a 39–64 length run be counted as a new frontier.

@@ -59,6 +59,7 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
         right_words: tuple[str, ...],
         shifted: bool,
         word_pairs: tuple[dict[str, object], ...],
+        selected_features: tuple[tuple[str, str], ...] = (),
     ) -> None:
         nonlocal states, pruned
         if len(rendered) >= limit:
@@ -110,6 +111,14 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
             for right in indexed_right:
                 if right in left_words or right in right_words or right == right[::-1] or right == left:
                     continue
+                # Feature-carrying state survives across recursion depth.
+                feats = dict(selected_features)
+                for slot in (template[lo], template[hi]):
+                    if slot.features:
+                        feats[slot.role] = slot.features[0]
+                if feats.get("subject") and feats.get("verb") and feats["subject"] != feats["verb"]:
+                    pruned += 1
+                    continue
                 new_prefix = prefix + letters(left)
                 new_suffix = letters(right) + suffix
                 states += 1
@@ -134,6 +143,7 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
                     (right,) + right_words,
                     shifted or letters(left) != letters(right)[::-1],
                     word_pairs + (pair,),
+                    tuple(feats.items()),
                 )
 
     walk(0, len(template) - 1, "", "", tuple(), tuple(), False, tuple())
@@ -212,8 +222,8 @@ def main() -> None:
     if frame_words.get("DET"): det = tuple(sorted(frame_words["DET"]))[:24]
     if frame_words.get("VERB"): verb = tuple(sorted(frame_words["VERB"]))[:24]
     template = (
-        Slot("det", det), Slot("adj", adj), Slot("subject", noun),
-        Slot("verb", verb), Slot("det", det), Slot("object", obj),
+        Slot("det", det), Slot("adj", adj), Slot("subject", noun, ("sg",)),
+        Slot("verb", verb, ("sg",)), Slot("det", det), Slot("object", obj),
     )
     templates = [template, (
         Slot("det", det), Slot("subject", noun), Slot("verb", verb),

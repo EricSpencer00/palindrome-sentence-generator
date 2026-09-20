@@ -1,0 +1,212 @@
+{
+  "experiment_id": "multiclause-residual-signature-join-20260920",
+  "method": "bidirectional residual-signature join over agreement/valency-aware two-clause scenes",
+  "stats": {
+    "clause_frames": 8,
+    "complete_two_clause_scenes": 64,
+    "signature_buckets": 24,
+    "signature_join_hits": 88,
+    "live_checked": 88,
+    "live_prunes": 88,
+    "live_survivors": 0,
+    "exact_gt38": 0,
+    "reader_eligible": 0,
+    "longest_letters": 152
+  },
+  "controls": [
+    {
+      "rendered": "the weathered sailor studies the northern chart. Then the weathered sailor waits by the harbor. the young scouts return after the rain. Then a patient keeper studies the northern chart.",
+      "left_scene": [
+        {
+          "number": "singular",
+          "valency": "transitive",
+          "text": "the weathered sailor studies the northern chart."
+        },
+        {
+          "number": "singular",
+          "valency": "intransitive",
+          "text": "the weathered sailor waits by the harbor."
+        }
+      ],
+      "right_scene": [
+        {
+          "number": "plural",
+          "valency": "intransitive",
+          "text": "the young scouts return after the rain."
+        },
+        {
+          "number": "singular",
+          "valency": "transitive",
+          "text": "a patient keeper studies the northern chart."
+        }
+      ],
+      "residual_signature": [
+        "t",
+        1,
+        1
+      ],
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "r"
+        ],
+        "max_residual": 3
+      },
+      "audit": {
+        "letters": 152,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "r"
+        ],
+        "sha256_forward": "a5b59e65336c43092a264178dc071c784627ea5b42d28bf3d6353c1855058678",
+        "sha256_reverse": "49769f1ac9659c38a0411954a05463f0a2da8791159605b001d4cf7c5ec84b45",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the weathered sailor studies the northern chart. Then a patient keeper waits by the harbor. the weathered sailor waits by the harbor. Then a patient keeper studies the northern chart.",
+      "left_scene": [
+        {
+          "number": "singular",
+          "valency": "transitive",
+          "text": "the weathered sailor studies the northern chart."
+        },
+        {
+          "number": "singular",
+          "valency": "intransitive",
+          "text": "a patient keeper waits by the harbor."
+        }
+      ],
+      "right_scene": [
+        {
+          "number": "singular",
+          "valency": "intransitive",
+          "text": "the weathered sailor waits by the harbor."
+        },
+        {
+          "number": "singular",
+          "valency": "transitive",
+          "text": "a patient keeper studies the northern chart."
+        }
+      ],
+      "residual_signature": [
+        "t",
+        1,
+        0
+      ],
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "r"
+        ],
+        "max_residual": 3
+      },
+      "audit": {
+        "letters": 150,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "r"
+        ],
+        "sha256_forward": "a038a22045cfc598ea17b8fe1ee0b0d5decafa05691ece3937e0e34b5eb4d04d",
+        "sha256_reverse": "04bf530c23ecbaa794e16728e11fb028157c33661b6c145ffd66ff9d194cc29a",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the weathered sailor studies the northern chart. Then the young scouts return after the rain. a patient keeper waits by the harbor. Then a patient keeper studies the northern chart.",
+      "left_scene": [
+        {
+          "number": "singular",
+          "valency": "transitive",
+          "text": "the weathered sailor studies the northern chart."
+        },
+        {
+          "number": "plural",
+          "valency": "intransitive",
+          "text": "the young scouts return after the rain."
+        }
+      ],
+      "right_scene": [
+        {
+          "number": "singular",
+          "valency": "intransitive",
+          "text": "a patient keeper waits by the harbor."
+        },
+        {
+          "number": "singular",
+          "valency": "transitive",
+          "text": "a patient keeper studies the northern chart."
+        }
+      ],
+      "residual_signature": [
+        "t",
+        1,
+        2
+      ],
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "r"
+        ],
+        "max_residual": 3
+      },
+      "audit": {
+        "letters": 148,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "r"
+        ],
+        "sha256_forward": "a1d8692042966d1776d3867ed786eba28d60e5c03d7b9fafb390716f73bcb8c8",
+        "sha256_reverse": "fc16bd612c1a67ab39fbebc5e01b85af6fcab031d57a012d068bb2c929f895d6",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    }
+  ],
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "two-clause-scenes|bidirectional-residual-join|agreement-valency",
+    "registry_inspected": true,
+    "distinct_from": "single-clause lexical trie, center-first event grammar, recursive event composition, and repair lanes",
+    "catalogue_text_imported": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_units": false
+  },
+  "provenance": {
+    "generator_sha256": "e7bee4b72c1ab3b5ce51be39aa7a2d8e16dbb5c407f6f16053ef863fa718c004",
+    "independent_audits": [
+      "two-pointer mismatch scan",
+      "forward/reverse SHA-256"
+    ],
+    "reader_evidence": false
+  },
+  "status": "no reader-worthy exact closure",
+  "next_construction": "Join three-clause scenes by residual signatures with one typed attachment edge, preserving semantic valency and agreement.",
+  "reader_gate": "closed until exact candidates exist and blinded human ratings are collected"
+}

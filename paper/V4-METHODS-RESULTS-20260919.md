@@ -420,6 +420,12 @@ closures. This is the current construction boundary: every future exact row
 must be fully lexical and grammatical on both sides before it can enter the
 reader queue.
 
+The morphology/adjunct expansion made that parser more permissive without
+relaxing the gate: 4,320 bounded trials added finite-verb variants, plural
+objects, and adjunct vocabulary, yet still produced zero admissible or exact
+closures. We therefore retire that bank rather than widening it indefinitely;
+the next method changes the boundary representation itself.
+
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:
 grammar boundaries and mirrored character orbits must be selected together,

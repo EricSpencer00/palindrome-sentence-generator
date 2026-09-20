@@ -1230,6 +1230,18 @@ the semantic representation again: a role-permuted scene-graph transducer
 with cross-boundary spans, rather than another agreement or morphology toggle.
 Artifact: `runs/dependency-tree-seam-csp-20260920.json`.
 
+The role-permutation chart then generated complete scene graphs independently
+on each side and permuted agent/action/object/recipient/adjunct order before
+carrying character spans across role boundaries. It evaluated 600 left graphs
+against 600 right graphs (360,000 chart pairings), but found zero
+span-compatible pairs and therefore zero fresh exact candidates above 38
+letters. Complete controls at 44 and 50 letters passed the prose-structure
+check and were independently audited with the pointer and forward/reverse
+SHA-256 tests. This is a genuine topology miss rather than a repairable near
+miss; no post-hoc edit, finished-tape reversal, mirrored token, catalogue
+text, or fragment was admitted. Artifact:
+`runs/dependency-role-permutation-chart-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

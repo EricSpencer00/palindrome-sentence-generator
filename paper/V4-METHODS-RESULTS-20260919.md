@@ -1061,6 +1061,15 @@ selection constraints for recipient and relative referents rather than another
 surface attachment variant. Artifact:
 `runs/attachment-conditioned-reverse-parser-20260920.json`.
 
+Semantic selection was then made explicit during reverse parsing: recipients
+had to be animate, `who` relatives required animate antecedents, and object
+relatives required an object attachment. The parser tested 1,401 complete
+forward sentences and 7,017 states; one baseline reverse parse was recovered
+and excluded, with no fresh exact candidate above 38 letters. The next reset
+must change the authored semantic grammar or vocabulary rather than add
+another local constraint. Artifact:
+`runs/semantic-selection-reverse-parser-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -11534,6 +11534,17 @@
       "distinction": "Checks typed object-PP, object-relative, subject-PP, and recipient attachment constraints during reverse-character parsing before emitting a complete right sentence. Baseline recovery is excluded; no post-hoc repair, presentation reversal, token mirror, catalogue replay, or fragment output is used.",
       "reader_evidence": false,
       "status": "1,401 complete left paths and 7,717 parser states; 1 excluded baseline parse, 0 fresh exact parses above 38 letters; reader gate closed; next construction adds semantic selection constraints for recipient/relative referents"
+    },
+    {
+      "id": "semantic-selection-reverse-parser-20260920",
+      "signature": "reverse-trie|animate-recipient-selection|relative-antecedent-attachment",
+      "artifact": "experiments/semantic_selection_reverse_parser_20260920.py",
+      "run_artifacts": [
+        "runs/semantic-selection-reverse-parser-20260920.json"
+      ],
+      "distinction": "Enforces typed animacy and referent-selection constraints during reverse-character parsing: recipients must be animate, relative antecedents must match their attachment, and object relatives require an object. The complete right parse is emitted only after semantic checks; no repair, presentation reversal, token mirror, catalogue replay, or fragment output is used.",
+      "reader_evidence": false,
+      "status": "1,401 complete forward paths and 7,017 parser states; one excluded baseline parse, 0 fresh exact parses above 38 letters; reader gate closed; next construction changes the authored semantic grammar/vocabulary rather than adding a local feature"
     }
   ]
 }

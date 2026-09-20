@@ -1,0 +1,148 @@
+{
+  "experiment_id": "heldout-tense-agreement-growth-20260920",
+  "method": "alternating typed clause/adjunct growth from both sentence ends with live character obligations",
+  "results": [
+    {
+      "states": 1,
+      "prunes": 6,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": [],
+      "rendered_diagnostics": [
+        {
+          "rendered": "the patient sailor studies the chart beside the harbor; the patient sailor studies the chart beside the harbor.",
+          "audit": {
+            "letters": 92,
+            "two_pointer_exact": false,
+            "first_mismatch": [
+              0,
+              "t",
+              "r"
+            ],
+            "sha256_forward": "dba4b78d984c6770a8b4e05f0234e9ef3b20d76cb2bfc7f4051a1c2670839b63",
+            "sha256_reverse": "a8ff9fce42c673967c1c583015c5f7025b310a7052e3bee667139d8b93c45bd4",
+            "sha_equal": false
+          },
+          "provenance": {
+            "growth_pruned": true,
+            "complete_prose": true,
+            "reader_eligible": false
+          }
+        },
+        {
+          "rendered": "the patient sailor studies the chart through the orchard; the patient sailor studies the chart through the orchard.",
+          "audit": {
+            "letters": 96,
+            "two_pointer_exact": false,
+            "first_mismatch": [
+              0,
+              "t",
+              "d"
+            ],
+            "sha256_forward": "70d67558dd91cf42ae4021894a00b51e55aba49ebe0c538256551d57104a1fa3",
+            "sha256_reverse": "fb4e1ab91b73d2a1b9cc668b22a36efe33e75a4217be9197c53f6a279fcb62ba",
+            "sha_equal": false
+          },
+          "provenance": {
+            "growth_pruned": true,
+            "complete_prose": true,
+            "reader_eligible": false
+          }
+        },
+        {
+          "rendered": "a careful gardener carries a lantern beside the harbor; a careful gardener carries a lantern beside the harbor.",
+          "audit": {
+            "letters": 92,
+            "two_pointer_exact": false,
+            "first_mismatch": [
+              0,
+              "a",
+              "r"
+            ],
+            "sha256_forward": "58128742b19e1b74ebb54cdf4bd72a04daa2ac9f08788509c5577144834cb366",
+            "sha256_reverse": "d61c4cc7b4c75ac5139a209325a8f6a795b085e1fcbddf25c38c6143361bf82b",
+            "sha_equal": false
+          },
+          "provenance": {
+            "growth_pruned": true,
+            "complete_prose": true,
+            "reader_eligible": false
+          }
+        },
+        {
+          "rendered": "a careful gardener carries a lantern through the orchard; a careful gardener carries a lantern through the orchard.",
+          "audit": {
+            "letters": 96,
+            "two_pointer_exact": false,
+            "first_mismatch": [
+              0,
+              "a",
+              "d"
+            ],
+            "sha256_forward": "4511fbf38031f27f0aac47a73b70e4e0e9ae4c4f2de01b432dff0cbe9c3af7d2",
+            "sha256_reverse": "9d96d2e58d8024787d790a9d54ab15e382a7bc7246688e840a9de08baca8274f",
+            "sha_equal": false
+          },
+          "provenance": {
+            "growth_pruned": true,
+            "complete_prose": true,
+            "reader_eligible": false
+          }
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "The patient sailor studies the chart beside the harbor; a careful gardener carries a lantern through the orchard.",
+      "audit": {
+        "letters": 94,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "bcd7a77a214b567b9360764bb37468a221b7a4ba9893feba63f823ab88c49817",
+        "sha256_reverse": "9ac48eec3251708a9c2610aaf4dc4e11a72c19364e430eb080243aeaf1dda89c",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "The young scholar copies the letter under the window; a quiet keeper guards the gate near the lighthouse.",
+      "audit": {
+        "letters": 86,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "a27a65083daffe709f401277aad9be1caa7db23617511eb7204ae3674b3860f2",
+        "sha256_reverse": "650453d1ed3e2d8322405ee3407f41c3f92b4ea847459534e7fde59686a627be",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_checked": 629,
+    "signature": "heldout-tense-agreement-growth|plural-past-state|attachment-compatible-pp",
+    "distinct_from": "fixed clause-pair products, center/bridge/relative/endpoint lanes, and scheduler variants: held-out past/plural clauses and attachment-compatible PPs are alternated from opposing frontiers while number/tense/attachment state is carried live; no finished-tape reversal, repeated unit, or repair"
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "source_text": "fresh authored clause and adjunct grammar",
+    "reader_evidence": false,
+    "reader_gate": "closed until exact >38 and blinded ratings"
+  },
+  "next_construction": {
+    "name": "held-out aspect agreement growth",
+    "operator": "Add held-out past-perfect and progressive plural clauses with attachment-compatible PP alternatives; preflight new signature first.",
+    "reader_facing_test": "retain complete prose only, independently audit exact closures above 38, then blinded intact-vs-shuffled ratings"
+  },
+  "status": "diagnostic lane; no exact candidate above 38"
+}

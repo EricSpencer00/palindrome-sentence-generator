@@ -6420,6 +6420,17 @@
       "distinction": "Orders each factor's lexical alternatives by minimum surviving mirrored-support domain and propagates adjacent support before recursion, while one forward grammar assigns variable-length words into exact x[0:N] factors. Distinct from plain position-domain arc consistency; no pair enumeration, reversal, repair, mirrored units, or catalogue replay.",
       "reader_evidence": false,
       "status": "Differential test passed; target lengths 44/52/60: represented forward-language counts recorded, 5,485 states, 30,746 prunes, 0 complete parses and 0 exact candidates above 38; prose controls independently pointer/SHA audited; next is two-factor lookahead"
+    },
+    {
+      "id": "two-factor-lookahead-csp-20260920",
+      "signature": "two-factor-lookahead|adjacent-lexical-support|global-forward-csp",
+      "artifact": "experiments/two_factor_lookahead_csp_20260920.py",
+      "run_artifacts": [
+        "runs/two-factor-lookahead-csp-20260920.json"
+      ],
+      "distinction": "Before assigning a lexical factor, intersects its mirrored position support with an adjacent grammar factor's lexical domain; unlike minimum-domain ordering it can reject a branch using two-factor evidence while retaining one forward variable-boundary grammar. No pair enumeration, reversal, repair, mirrored units, or catalogue replay.",
+      "reader_evidence": false,
+      "status": "Differential test passed; target lengths 44/52/60: 2,137 states, 7,192 lookahead-aware prunes, 0 complete parses and 0 exact candidates above 38; readable controls independently pointer/SHA audited; seam bottleneck unchanged, next must alter grammar topology or lexical support domains"
     }
   ],
   "excluded": [

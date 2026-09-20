@@ -1,0 +1,95 @@
+{
+  "experiment_id": "two-factor-lookahead-csp-20260920",
+  "method": "global forward factorized lexical CSP with minimum-domain factor branching and adjacent support propagation",
+  "differential_test": {
+    "cases": 32,
+    "unequal_word_boundaries": true,
+    "odd_even_centers": true,
+    "status": "passed"
+  },
+  "results": [
+    {
+      "target_length": 44,
+      "states": 231,
+      "represented_forward_language_count": 424619663687118871307716053355803570023356836305645685305298520398307331284506530764615188583021417054489492027883204076320854539507621046820398422264502358980803555003051112660992,
+      "lookahead_prunes": 498,
+      "prunes": 660,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 52,
+      "states": 545,
+      "represented_forward_language_count": 15032094662320946535364948305789254407180953694429578103727476647582916515951060548021224121619222460629856861104867793910929829870173128027348904707896138193430373763315108734502972230809363447452248193420360609351101344649973577269019829968114107808788542894905994953230690997110821615291359786117609909519777520238365318363423657033270160422798525310417450070424896552626262638783910663487879504444510798885900469142135758440804479257280512,
+      "lookahead_prunes": 1060,
+      "prunes": 1940,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 60,
+      "states": 1361,
+      "represented_forward_language_count": 71780591573629951327113746431323762080941893749557062445578738453029273988241219973319000020901791524060307172954460697599014417619391868959959813788900361394451371057266730468435535400502616298297969213841991060238178033312662674969221658826570120189643514929301178718467585014694250141587045056397084201271482130712025470454135307696038254451611532390174641963113548470026870883563123886403089739051435205801390518200243057903078387824797142882756152504990692159230827387025574469093622436627926409667332078098370340432865527256697200560973833316438668670561700442592220413334781380456295280037633995277184403509198429778876138813488870218261578032939506707083284382765740511902121604468347980676428125065570688573270954054927926855311603712549913428815223011291998268361857593749387285597238554679962345591505791677315272735492562026796457801718162019496187643222924028060858607109834279672261331956067525205108510669036906584127702543497386714262229458824301671145148777046298792870982125252155343115669196496875006865621834186746348956951950272182296167861155120632956951561714753322885037300908032,
+      "lookahead_prunes": 2872,
+      "prunes": 4592,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "The patient sailor studies the chart beside the harbor.",
+      "audit": {
+        "letters": 46,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "0c3dd4906d9ec925881690ca8a742f0071d8bbf665649c6dd43936827ca71a1b",
+        "sha256_reverse": "661e7c66bcc23ae7b1d61dc07f1771529ab33435153aef2cb4a14f8409b2ddb9",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "A careful gardener carries a silver lantern through the orchard.",
+      "audit": {
+        "letters": 54,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "d"
+        ],
+        "sha256_forward": "ebef1ad7860256f92a8a5e556df3c3ce75d2feb1926f1f98f6263f067979d5fc",
+        "sha256_reverse": "ca62e87d206bbcb190e435054ed8fa6e9d0e05a5a5b24b2bc2068318255eb684",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_checked": 606,
+    "signature": "two-factor-lookahead|adjacent-lexical-support|global-forward-csp",
+    "distinct_from": "position-domain arc consistency: this lane orders each factor lex alternatives by surviving mirrored-support domain and propagates adjacent-factor support before recursion; one forward grammar still assigns x[0:N] with agreement/valency factors"
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "source_text": "fresh factorized lexical grammar in this script",
+    "reader_evidence": false,
+    "reader_gate": "closed until exact >38 and blinded ratings"
+  },
+  "next_construction": {
+    "name": "held-out lexical support domains",
+    "operator": "Replace the compact inventory with held-out lexical alternatives and retain the two-factor support intersection; if the same seam bottleneck persists, change grammar topology rather than another lexical sweep.",
+    "reader_facing_test": "retain only intact complete prose, independently audit every exact closure above 38, then randomize intact prose against word-shuffled controls for blinded ratings"
+  },
+  "status": "diagnostic lane; no exact candidate above 38"
+}

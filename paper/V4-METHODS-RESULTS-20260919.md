@@ -4309,3 +4309,18 @@ typed center relations and solved outward equations online. It checked 243
 states and pruned 243, retaining controls to 76 letters and promoting zero
 exact rows. Artifact:
 `runs/center-relation-outward-clause-grammar-20260920.json`.
+
+The relation-conditioned voice lane preselected a semantic relation and chose
+active/passive lexicalizations during character emission. It visited 5,550
+states and pruned 768 equations; no complete target rendered. Artifact:
+`runs/relation-conditioned-voice-grammar-20260920.json`.
+
+The odd/even center relation grammar added an explicit center nonterminal. It
+checked 48 derivations and 48 center closures, retained controls to 38 letters,
+and promoted zero exact rows. Artifact:
+`runs/relation-grammar-odd-even-center-20260920.json`.
+
+The two-center-relation scope grammar authored complete clauses around two
+typed relations with a compatibility gate. It checked 648 states and pruned
+648, retaining controls to 91 letters and promoting zero exact rows. Artifact:
+`runs/center-two-relation-scope-20260920.json`.

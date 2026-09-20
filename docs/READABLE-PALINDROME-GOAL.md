@@ -7062,3 +7062,20 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   checked 243 states, pruned 243, retained controls to 76 letters, and
   promoted 0 exact rows. Artifact:
   `runs/center-relation-outward-clause-grammar-20260920.json`.
+
+- **Relation-conditioned voice grammar, 2026-09-20:** preselected a semantic
+  relation and chose active/passive lexicalizations while consuming characters
+  online. It visited 5,550 states and pruned 768 equations; no complete target
+  rendered. Artifact:
+  `runs/relation-conditioned-voice-grammar-20260920.json`.
+
+- **Odd/even center relation grammar, 2026-09-20:** added an explicit odd/even
+  center nonterminal during relation-grammar emission. It checked 48
+  derivations and 48 center closures, retained prose controls to 38 letters,
+  and promoted 0 exact rows. Artifact:
+  `runs/relation-grammar-odd-even-center-20260920.json`.
+
+- **Two-center-relation scope grammar, 2026-09-20:** authored clauses around
+  two typed center relations with a scope-compatibility gate. It checked 648
+  states, pruned 648, retained controls to 91 letters, and promoted 0 exact
+  rows. Artifact: `runs/center-two-relation-scope-20260920.json`.

@@ -1,0 +1,74 @@
+{
+  "experiment_id": "character-cfg-center-residual-earley-20260920",
+  "method": "character CFG chart with retained residual center-character debt",
+  "grammar": [
+    "S -> NPsubject VP",
+    "VP -> V NPobject",
+    "NP -> DET NOUN REL",
+    "REL -> who VP",
+    "CENTER -> onset + residual"
+  ],
+  "center_onset_bank": [
+    {
+      "onset": "th",
+      "surface": "the",
+      "agreement": "sg"
+    },
+    {
+      "onset": "so",
+      "surface": "some",
+      "agreement": "pl"
+    }
+  ],
+  "residual_alphabet": [
+    "t",
+    "h",
+    "s",
+    "o"
+  ],
+  "stats": {
+    "subject_derivations": 540,
+    "object_derivations": 540,
+    "subject_chart_states": 15934,
+    "object_chart_states": 18252,
+    "center_support": {
+      "th": 7744
+    },
+    "residual_support": {
+      "th": 7744
+    },
+    "center_debt_states": 15488,
+    "outer_debt_states": 4048,
+    "both_debts_cross_word_seam": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_two_debt_score": 3
+  },
+  "complete_prose_controls": [
+    "The sailor who reads the area guards the harbor.",
+    "Some guides who keep the era mark a garden."
+  ],
+  "best_diagnostic": {
+    "score": 3,
+    "left": "a area guides the area",
+    "right": "a area guides the area",
+    "onset": "th",
+    "residual": "th",
+    "center_seam": false,
+    "outer_seam": true
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-center-residual-20260920",
+    "catalogue_imported": false,
+    "fixed_bank_sweep": false,
+    "distinct_from": "character-cfg-typed-twochar-center-20260920"
+  },
+  "next_construction": "Promote only residual states that preserve a complete lexical center token, then solve the first outer obligation with a typed center pair; do not widen the alphabet.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

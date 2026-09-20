@@ -2572,6 +2572,16 @@ search therefore performed no transitions and rendered no prose. This is an
 early rejection showing that the endpoint index is active, not a readability
 result or a reason to promote a non-palindrome.
 
+The local-minimum reset then tested two different constructions. A
+reverse-conditioned semantic transducer authored three fresh left scenes and
+parsed the required reverse character stream online with a 40-word
+common-English lexicon. It found zero right-grammar parses, so no finished
+string was rendered. A compositional center lane varied semantic frame and
+terminal-class choices across nine live combinations; all nine were rejected
+by the residual equation before rendering. These failures rule out the current
+lexicon/frame banks, not the broad-English objective, and each records a next
+expansion rather than a relaxed gate.
+
 The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row

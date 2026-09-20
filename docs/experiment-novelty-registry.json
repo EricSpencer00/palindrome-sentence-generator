@@ -5965,6 +5965,24 @@
       "distinction": "Indexes fresh role combinations by endpoint compatibility before expanding the full inward residual; distinct from a fixed seed and from post-hoc sentence repair.",
       "reader_evidence": false,
       "status": "2 by 2 fresh role combinations, 0 endpoint-compatible pairs, 0 inward transitions, 0 rendered candidates, 0 exact candidates"
+    },
+    {
+      "id": "reverse-conditioned-semantic-transducer-20260920",
+      "signature": "reverse-conditioned-semantic-transducer|online-residual-parse|forward-right-generation|common-english-lexicon",
+      "artifact": "reverse_conditioned_semantic_transducer_20260920.py",
+      "run_artifacts": ["runs/reverse-conditioned-semantic-transducer-20260920.json"],
+      "distinction": "Chooses fresh left semantic scenes, then parses the required reverse stream online into independently generated right-side words with grammar state; no finished-tape reversal, catalogue text, mirrored units, or repair.",
+      "reader_evidence": false,
+      "status": "3 left scenes, 40-word lexicon, 0 online parses, 0 rendered candidates, 0 exact candidates; precise zero frontier"
+    },
+    {
+      "id": "compositional-terminal-class-center-20260920",
+      "signature": "compositional-semantic-frame|terminal-character-class|center-crossing|live-residual",
+      "artifact": "compositional_terminal_class_center_20260920.py",
+      "run_artifacts": ["runs/compositional-terminal-class-center-20260920.json"],
+      "distinction": "Varies clause length and terminal character classes jointly with semantic frame selection while consuming a live center residual; all combinations prune before rendering and no unit is mirrored or repaired.",
+      "reader_evidence": false,
+      "status": "3 frames, 3 terminal-class choices, 9 live combinations, all pruned by mismatch, 0 rendered candidates, 0 exact candidates"
     }
   ],
   "excluded": [

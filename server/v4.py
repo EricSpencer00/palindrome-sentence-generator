@@ -110,6 +110,8 @@ BEST_KNOWN_PROVENANCE = {
         "latest_manual_outer8_inward": "2 freshly authored broad-English clause pairs; outer-8 equations admit 0 seeds, best 84-letter control fails at offset 0",
         "latest_role_seeded_scene_inward": "1 fresh role-seeded scene transition pruned immediately by endpoint mismatch; zero surviving states, rendered candidates, or exact rows",
         "latest_indexed_role_bank_inward": "2 by 2 fresh role combinations indexed once; zero endpoint-compatible pairs, so no inward expansion or rendered candidates",
+        "latest_reverse_conditioned_semantic_transducer": "3 fresh left scenes with a 40-word lexicon; zero online right-grammar parses and zero exact candidates",
+        "latest_compositional_terminal_class_center": "9 semantic-frame/terminal-class combinations; all pruned by live residual mismatch, zero rendered candidates",
         "reader_study": "not run",
     },
 }

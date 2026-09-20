@@ -81,7 +81,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_manual_bilateral_author": "63,504 fresh clause pairs; longest 120 letters; zero exact >38 closure",
         "latest_endpoint_width2": "4,374 width-1 survivors reduced to 1,458 width-2 survivors; longest 104 letters; zero exact >38 closure",
         "latest_endpoint_width3": "729 width-1 survivors reduced to 243 width-3 survivors; longest 84 letters; zero exact >38 closure",
-        "latest_width3_interior_boundary": "6,144 width-1 survivors reduced to 256 endpoint-plus-interior survivors; longest 77 letters; zero exact >38 closure",
+        "latest_width3_interior_boundary": "12,288 width-1 survivors reduced to 128 endpoint-plus-two-interior survivors; longest 77 letters; zero exact >38 closure",
         "reader_study": "not run",
     },
 }

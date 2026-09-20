@@ -960,6 +960,20 @@ letters closed. The next seam family is an interrogative complement grammar,
 not a repair pass. Artifact:
 `runs/typed-center-seam-complement-product-20260920.json`.
 
+### Fresh complete-frame length extension
+
+To pursue length without repairing the 38-letter row, the constructor generated
+160 fresh ordinary-order frames with three, four, or five semantic
+constituents (SVO, SVO+adjunct, SVO+finite-complement, and combined forms)
+before any seam equations were evaluated. It tested 26,244 center-seam
+products and pruned 26,242 incompatible joins. No fresh exact candidate above
+38 letters closed. The same run recovered the known 38-letter geometry only in
+two explicitly marked baseline-control rows; it did not wrap or edit those
+rows. Fresh complete prose controls reached 38, 50, and 72 letters and passed
+independent pointer/SHA audits. The next construction changes seam scheduling
+to allow unequal constituent lengths. Artifact:
+`runs/complete-frame-length-extension-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

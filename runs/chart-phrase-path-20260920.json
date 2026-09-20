@@ -1,17 +1,18 @@
 {
   "run_id": "chart-phrase-path-20260920",
-  "method": "bounded chart paths with held-out instrumental-adjunct edges and unequal boundary joins",
+  "method": "bounded chart paths with held-out causal-adjunct edges and unequal boundary joins",
   "stats": {
-    "chart_paths": 224,
-    "states": 49952,
-    "pruned": 49952,
-    "rendered": 49952,
+    "chart_paths": 256,
+    "states": 65280,
+    "pruned": 65280,
+    "rendered": 65280,
     "exact_gt38": 0,
     "max_letters": 120,
     "held_out_relative_paths": 40,
     "held_out_passive_paths": 40,
     "held_out_temporal_paths": 32,
-    "held_out_instrumental_paths": 32
+    "held_out_instrumental_paths": 32,
+    "held_out_causal_paths": 32
   },
   "rendered_candidates": [
     {
@@ -350,7 +351,7 @@
   ],
   "novelty_preflight": {
     "status": "passed",
-    "distinct_from": "prior 192-path temporal chart, 6x6 clause trie, and typed-central lane; held-out instrumental edges and unequal boundary states",
+    "distinct_from": "prior 224-path instrumental chart, 6x6 clause trie, and typed-central lane; held-out causal edges and unequal boundary states",
     "finished_tape_reversal": false,
     "word_order_mirroring": false,
     "repeated_units": false,
@@ -363,12 +364,13 @@
     "held_out_passive_complement": true,
     "held_out_temporal_adjunct": true,
     "held_out_instrumental_adjunct": true,
+    "held_out_causal_adjunct": true,
     "audits": [
       "independent two-pointer outside-in comparison",
       "forward/reverse SHA-256"
     ],
     "reader_gate": "closed unless exact_gt38 appears",
-    "next_construction": "add a held-out causal adjunct edge with an independent transition"
+    "next_construction": "add a held-out concessive adjunct edge with an independent transition"
   },
   "status": "no fresh exact >38 candidate"
 }

@@ -1817,6 +1817,27 @@ Artifact: `runs/live-recursive-grammar-frontier-20260920.json`.
 
 ## Reader evidence and API gate
 
+### Live contextual prefix--suffix infilling (2026-09-20)
+
+This lane keeps both surfaces in ordinary reading order: the left surface is
+extended by appending words and the right surface by prepending words.  Each
+state carries the two word buffers, the unmatched character residual and its
+side, the number of characters paired so far, and the authored continuation
+provenance.  Newly exposed characters are compared immediately, including
+across word boundaries.  A deterministic 16-start, 32-state, 12-round beam
+preserves residual-side diversity; it uses authored sentence continuations,
+not a local model, reward scoring, finished-tape reversal, or repair.
+
+The reproducible run is `runs/live-context-infilling-20260920.json` and the
+implementation is `experiments/live_context_infilling_20260920.py`.  It
+reached 32 live states after 12 rounds and recorded 8,877 character conflicts;
+it produced no exact candidate above 38 letters.  The result is useful as a
+constructive discriminator: residuals can remain live across word boundaries,
+but the current continuation inventory needs relative/appositive constructions
+whose exposed characters can satisfy those residuals.  The next run therefore
+holds out those constructions and indexes them by residual prefix rather than
+increasing the beam or applying repair.  The reader gate remains closed.
+
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded
 pairs: each exact frontier item and each intact prose control is paired with a
 word-shuffled control. A fixed seed randomizes A/B order, while the answer key

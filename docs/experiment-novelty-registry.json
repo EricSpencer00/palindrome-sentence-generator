@@ -5,7 +5,9 @@
       "id": "palindromic-residual-closure-regression-20260920",
       "signature": "implementation-correction|terminal-palindromic-residual|unequal-clause-lengths|odd-centers|exhaustive-differential-proof",
       "artifact": "experiments/palindromic_residual_closure_regression_20260920.py",
-      "run_artifacts": ["runs/palindromic-residual-closure-regression-20260920.json"],
+      "run_artifacts": [
+        "runs/palindromic-residual-closure-regression-20260920.json"
+      ],
       "distinction": "Implementation correction, not a new construction family: complete derivations may close around a palindromic nonempty residual. The previous empty-residual requirement silently excluded odd lengths and unequal clause-length centers. All existing lexical and shortcut constraints remain in force.",
       "reader_evidence": false,
       "status": "900 synthetic pairs: 126 corrected closures agree exactly with the independent oracle, versus 30 under the old rule. Unchanged remote semantic bank: 65,841 states, 456 exact outputs including 200 newly admitted nonempty-center outputs, longest 31 letters, zero above 38. Unchanged constituent bank: 41,280 states and zero closures. No readable candidate or API availability change."
@@ -14,7 +16,9 @@
       "id": "semantic-role-bilateral-20260920",
       "signature": "agent-theme-role-grammar|bilateral-character-residual|typed-transitive-frame",
       "artifact": "experiments/semantic_role_bilateral_20260920.py",
-      "run_artifacts": ["runs/semantic-role-bilateral-20260920.json"],
+      "run_artifacts": [
+        "runs/semantic-role-bilateral-20260920.json"
+      ],
       "distinction": "Curated subject-agent/theme-object lexical roles and determiner/adjective alternatives are expanded on two independently parsed transitive clauses while opposing character residuals are consumed live; no catalogue text, finished-tape reversal, repeated units, or post-hoc repair.",
       "reader_evidence": false,
       "status": "65,841 states, 779,926 live prunes, 56,430 complete states, exact controls to 30 letters, 0 exact candidates above 38; telegraphic controls remain below the reader gate"
@@ -23,7 +27,9 @@
       "id": "ngram-bilateral-csp-20260920",
       "signature": "observed-ngram-transition-lattice|bilateral-grammar-csp|hard-search-constraint",
       "artifact": "ngram_bilateral_csp_20260920.py",
-      "run_artifacts": ["runs/ngram-bilateral-remote-2000-20260920.json"],
+      "run_artifacts": [
+        "runs/ngram-bilateral-remote-2000-20260920.json"
+      ],
       "distinction": "Observed adjacent transitions from intact 3--6-gram phrases constrain both independently parsed clauses before live character residual consumption; transitions are hard search-space edges, never a reward or reranker.",
       "reader_evidence": false,
       "status": "Remote bounded run used 2,000 Brown POS entries and 100,000 n-gram rows: 428 states, 13,652,945 character prunes, 320,313,552 transition prunes, 0 complete closures, and 0 exact candidates above 38"
@@ -32,7 +38,9 @@
       "id": "vocative-bilateral-grammar-20260920",
       "signature": "whole-sentence-vocative|bilateral-character-residual|nested-span-rejection",
       "artifact": "experiments/vocative_bilateral_grammar_20260920.py",
-      "run_artifacts": ["runs/vocative-bilateral-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/vocative-bilateral-grammar-20260920.json"
+      ],
       "distinction": "A whole-sentence VOC+CLAUSE / CLAUSE+VOC grammar is expanded bilaterally with live character residuals; exact closures are independently audited and proper nested word-aligned palindrome spans are rejected before any reader claim.",
       "reader_evidence": false,
       "status": "Remote run: 400,087 states, 4,377,393 prunes, 347,360 complete states, 512 exact closures above 38, and 0 non-nested survivors; longest rejected examples are 42 letters and are retained in the artifact"
@@ -41,7 +49,9 @@
       "id": "wordpath-ngram-csp-20260920",
       "signature": "variable-word-path|observed-bigram-lattice|live-character-residual",
       "artifact": "wordpath_ngram_csp_20260920.py",
-      "run_artifacts": ["runs/wordpath-ngram-remote-100-30000-20260920.json"],
+      "run_artifacts": [
+        "runs/wordpath-ngram-remote-100-30000-20260920.json"
+      ],
       "distinction": "Variable-length left and right word paths are constrained by observed adjacent bigram edges while opposing character residuals are consumed live; no fixed grammar, reranker, finished-tape reversal, or repair is used.",
       "reader_evidence": false,
       "status": "Remote bounded run with 100-word vocabulary, 30,000 observed rows, and eight-word cap: 376 states, 47,771 character prunes, 3,091 repeat prunes, 0 closures"
@@ -50,7 +60,9 @@
       "id": "wordpath-beam-csp-20260920",
       "signature": "variable-word-path|one-sided-residual-advancement|observed-bigram-beam",
       "artifact": "experiments/wordpath_beam_csp_20260920.py",
-      "run_artifacts": ["runs/wordpath-beam-remote-300-100000-20260920.json"],
+      "run_artifacts": [
+        "runs/wordpath-beam-remote-300-100000-20260920.json"
+      ],
       "distinction": "A variable word-path beam advances whichever side has residual character debt, using observed bigram likelihood only to order live states; exact closures terminate rather than being wrapped, and no finished tape or repair is used.",
       "reader_evidence": false,
       "status": "Remote bounded run with 300-word vocabulary, 100,000 observed rows, 5,000 beam, and 12-word cap: 1,631 states, 126,222 character prunes, 4,984 repeat prunes, 0 exact closures"
@@ -59,7 +71,9 @@
       "id": "typed-residual-scheduler-20260920",
       "signature": "typed-svo-pp-grammar|one-sided-character-debt|agreement-valency-frontier",
       "artifact": "experiments/typed_residual_scheduler_20260920.py",
-      "run_artifacts": ["runs/typed-residual-scheduler-20260920.json"],
+      "run_artifacts": [
+        "runs/typed-residual-scheduler-20260920.json"
+      ],
       "distinction": "Keeps subject/object/preposition grammar frontiers and typed lexical roles on both sides while allowing only the side opposite outstanding character debt to advance; exact closures are audited and proper nested spans are rejected before the reader gate.",
       "reader_evidence": false,
       "status": "Remote bounded run with 70 Brown-derived entries per coarse POS plus names/numerals, 250,000-node cap, and 20,000 beam: 6,620 states, 295,080 character prunes, 2,268 repeat prunes, 344 complete states, and 0 exact candidates above 38"
@@ -68,7 +82,9 @@
       "id": "typed-relative-residual-scheduler-20260920",
       "signature": "typed-relative-complement|one-sided-character-debt|subject-gap-grammar",
       "artifact": "experiments/typed_relative_residual_scheduler_20260920.py",
-      "run_artifacts": ["runs/typed-relative-residual-scheduler-20260920.json"],
+      "run_artifacts": [
+        "runs/typed-relative-residual-scheduler-20260920.json"
+      ],
       "distinction": "Adds a subject-gap relative complement to the typed SVO/PP residual scheduler (`DET N REL`, `REL -> RELPRON V N/DET N`) while retaining live character equations and nested-span rejection; no exact survivor is repaired or wrapped.",
       "reader_evidence": false,
       "status": "Remote bounded run with 70 Brown-derived entries per coarse POS plus relative pronouns, 500,000-node cap, and 20,000 beam: 9,341 states, 413,528 character prunes, 2,821 repeat prunes, 344 complete states, and 0 exact candidates above 38"
@@ -77,7 +93,9 @@
       "id": "phrase-path-graph-join-20260920",
       "signature": "observed-bigram-left-paths|typed-reverse-obligation-parser|phrase-first-join",
       "artifact": "experiments/phrase_path_graph_join_20260920.py",
-      "run_artifacts": ["runs/phrase-path-graph-join-remote-70-100k-20260920.json"],
+      "run_artifacts": [
+        "runs/phrase-path-graph-join-remote-70-100k-20260920.json"
+      ],
       "distinction": "Generates intact ordinary left clause paths from observed bigram transitions, then independently parses the required reverse character stream with typed clause patterns; no finished candidate is reversed for rendering, and nested spans/repeated words are rejected.",
       "reader_evidence": false,
       "status": "Remote bounded run with 70 Brown-derived entries per POS, 100,000 observed rows, fanout 20, and 200,000 path cap: 5,913 left paths, 0 exact closures"
@@ -86,7 +104,10 @@
       "id": "qwen-phrase-bank-beam-20260920",
       "signature": "fresh-remote-phrase-bank|exact-outside-in-beam|proposal-unit-scoring",
       "artifact": "experiments/qwen_phrase_bank_beam_20260920.py",
-      "run_artifacts": ["runs/qwen-phrases-20260920.json", "runs/qwen-phrase-bank-beam-20260920.json"],
+      "run_artifacts": [
+        "runs/qwen-phrases-20260920.json",
+        "runs/qwen-phrase-bank-beam-20260920.json"
+      ],
       "distinction": "A fresh Qwen phrase bank supplies ordinary-English units and ranking only; the exact outside-in search, pointer/SHA audit, and repeated/nested-span gates run independently. No model output is accepted as a palindrome without the character equation.",
       "reader_evidence": false,
       "status": "Remote run over 76 fresh proposals and 10 seeds produced 9 exact rows (39--125 letters), 3 mechanical admissions, and 0 reader-worthy outputs; exact rows remain visibly incoherent and are not promoted"
@@ -95,16 +116,20 @@
       "id": "independent-clause-seam-trie-20260920",
       "signature": "independent-clause-derivations|character-trie-cross-boundary|reverse-obligation-index|brown-terminals",
       "artifact": "experiments/independent_clause_seam_trie_20260920.py",
-      "run_artifacts": ["runs/independent-clause-seam-trie-20260920.json"],
+      "run_artifacts": [
+        "runs/independent-clause-seam-trie-20260920.json"
+      ],
       "distinction": "Generates left and right as separate ordinary clause grammar states, then indexes the right live reverse obligation in a character trie whose matches can cross word boundaries; Brown-derived vocabulary is terminal-only.",
       "reader_evidence": false,
-      "status": "No exact closure in bounded 39–120 letter run; complete natural candidates and near-misses retained."
+      "status": "No exact closure in bounded 39\u2013120 letter run; complete natural candidates and near-misses retained."
     },
     {
       "id": "weighted-grammar-automaton-20260920",
       "signature": "weighted-finite-state-grammar|variable-clause|online-bilateral-character-intersection|memoized-residual-beam",
       "artifact": "experiments/weighted_grammar_automaton_20260920.py",
-      "run_artifacts": ["runs/weighted-grammar-automaton-20260920.json"],
+      "run_artifacts": [
+        "runs/weighted-grammar-automaton-20260920.json"
+      ],
       "distinction": "Weighted Brown-backed finite-state transitions permit variable-length clauses and function-word paths; independently expanded left/right derivations intersect character residuals online with memoization and diversity beam pruning.",
       "reader_evidence": false,
       "status": "Corrected run uses the actual Brown NOUN/VERB/PREP/ADJ banks: 6,185 states, 48,734 residual prunes, and 133,614 memoized states; 0 exact closures. Twelve retained near-misses are partial diagnostics, not reader prose; next step is a bounded relative-clause expansion."
@@ -113,7 +138,9 @@
       "id": "reverse-lexicon-typed-clause-20260919",
       "signature": "reverse-character-index|typed-clause|joint-boundary-crossing",
       "artifact": "experiments/reverse_lexicon_typed_clause_20260919.py",
-      "run_artifacts": ["runs/reverse-lexicon-typed-clause-20260919.json"],
+      "run_artifacts": [
+        "runs/reverse-lexicon-typed-clause-20260919.json"
+      ],
       "distinction": "Selects lexical material on both sides jointly from a reverse-character lexicon while consuming outer tape obligations; word boundaries may cross and no aligned token mirrors are used.",
       "reader_evidence": false,
       "status": "Rejected implementation audit: the run pruned 1,978,436 partial states and found 0 closures, but the reverse index was constructed and not queried; do not use its frontier as method evidence until the residual invariant and indexed lookup are repaired"
@@ -122,7 +149,9 @@
       "id": "phrase-boundary-fsm-20260920",
       "signature": "synchronous-authored-constituents|cross-boundary-character-fsm|two-complete-clauses",
       "artifact": "experiments/phrase_boundary_fsm_20260920.py",
-      "run_artifacts": ["runs/phrase-boundary-fsm-20260920.json"],
+      "run_artifacts": [
+        "runs/phrase-boundary-fsm-20260920.json"
+      ],
       "distinction": "Advances both complete English clauses synchronously through human-authored multiword subject, predicate, and adjunct constituents. A finite-state boundary ledger carries character obligations across phrase edges before either clause is complete; no Cartesian whole-clause product, residual repair, anchor wrapping, catalogue sentence, or finished-tape reversal is used.",
       "reader_evidence": false,
       "status": "WITHDRAWN: initial draft audited each clause independently rather than the combined two-sided tape; no admissible evidence. Regression test added; corrected implementation now requires combined audit before any future run."
@@ -137,7 +166,9 @@
       "id": "recursive-cfg-orbit-20260920",
       "signature": "recursive-cfg-productions|single-parse-tree-frontier|live-character-orbit",
       "artifact": "experiments/recursive_cfg_orbit_20260920.py",
-      "run_artifacts": ["runs/recursive-cfg-orbit-20260920.json"],
+      "run_artifacts": [
+        "runs/recursive-cfg-orbit-20260920.json"
+      ],
       "distinction": "Diagnostic recursive CFG tree enumeration with authored relative/coordination productions and independent character-orbit audit. It is explicitly not evidence of a live frontier generator; no clause-pair product, endpoint bank, finished-tape reversal, or repair pass is promoted.",
       "reader_evidence": false,
       "status": "6,000 bounded recursive-tree states, 24 rendered controls (maximum 38 letters), 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -148,7 +179,9 @@
       "id": "clause-product-transitive-intransitive-20260920",
       "signature": "independent-clause-bank|transitive-intransitive|online-character-coupling|cross-boundary-product",
       "artifact": "experiments/clause_product_transitive_intransitive_20260920.py",
-      "run_artifacts": ["runs/clause-product-transitive-intransitive-20260920.json"],
+      "run_artifacts": [
+        "runs/clause-product-transitive-intransitive-20260920.json"
+      ],
       "distinction": "Product of independently authored tense/number/argument clause realizations, coupled online by normalized characters across word boundaries; no mirrored units, seeded text, finished-tape reversal, or post-hoc repair.",
       "reader_evidence": false,
       "status": "100 semantic clause-pair states with independent two-pointer/SHA audit and near-miss retention; reader gate closed unless exact >38 appears"
@@ -157,7 +190,9 @@
       "id": "direct-scene-lattice-authoring-20260920",
       "signature": "independent-narrative-beat-lattice|direct-surface-join|pre-render-provenance",
       "artifact": "experiments/direct_scene_lattice_authoring_20260920.py",
-      "run_artifacts": ["runs/direct-scene-lattice-authoring-20260920.json"],
+      "run_artifacts": [
+        "runs/direct-scene-lattice-authoring-20260920.json"
+      ],
       "distinction": "Joins complete hand-authored narrative beats from independent banks with ordinary seams; it never reverses a finished tape, mirrors word order, or applies a repair pass.",
       "reader_evidence": false,
       "status": "75 intact scenes, longest 117 letters, 0 exact closures above 38; independent pointer/SHA audits retained; next construction selects a second complete beat bank from live seam obligations."
@@ -166,7 +201,9 @@
       "id": "phrase-boundary-valency-equations-20260918",
       "signature": "typed-transitive-frames|slot-boundary-character-equations|pre-render-propagation|independent-two-pointer-sha-audit",
       "artifact": "experiments/phrase_boundary_valency_equations_20260918.py",
-      "run_artifacts": ["runs/phrase-boundary-valency-equations-20260918.json"],
+      "run_artifacts": [
+        "runs/phrase-boundary-valency-equations-20260918.json"
+      ],
       "distinction": "Selects two independently authored complete transitive clauses with typed agent/verb/object/attachment roles, propagating character equations across phrase-slot boundaries before rendering. It never reverses a clause or searches a post-hoc resegmentation.",
       "reader_evidence": false,
       "status": "diagnostic run; 1,562,500 independent frame-pair states, all pruned by pre-render equations, 0 exact closures; intact controls 49--53 letters; reader gate closed; next repair is optional determiner/adjunct boundary carry with held-out frames"
@@ -175,7 +212,9 @@
       "id": "phrase-boundary-live-fsm-20260920",
       "signature": "synchronous-authored-constituents|cross-boundary-character-fsm|live-debt|two-complete-clauses",
       "artifact": "experiments/phrase_boundary_fsm_20260920.py",
-      "run_artifacts": ["runs/phrase-boundary-live-fsm-20260920.json"],
+      "run_artifacts": [
+        "runs/phrase-boundary-live-fsm-20260920.json"
+      ],
       "distinction": "Corrected synchronous constituent traversal consumes both normalized character streams with one-sided debt across constituent edges before opening the next grammar slot; the earlier independent-clause draft remains withdrawn.",
       "reader_evidence": false,
       "status": "Remote replay: 159 live transitions after one held-out complement family, 0 complete clause closures, 0 exact candidates over 38 letters; combined tape audit and independent parser retained; this phrase family is stopped."
@@ -184,7 +223,9 @@
       "id": "dialogue-relation-frame-20260919",
       "signature": "semantic-dialogue-relation-frame|request-answer-confirmation|independent-role-lexicalization|center-out-character-obligations|complete-parse",
       "artifact": "experiments/dialogue_relation_frame_20260919.py",
-      "run_artifacts": ["runs/dialogue-relation-frame-20260919-remote.json"],
+      "run_artifacts": [
+        "runs/dialogue-relation-frame-20260919-remote.json"
+      ],
       "distinction": "Searches independently authored requester, agent, object, answer, and closing role alternatives under a two-sided character obligation while preserving a complete request/answer/confirmation parse; finished frames are controls only and no per-candidate repair is used.",
       "reader_evidence": false,
       "status": "Remote replay tested 243 constructive role states, rendered two intact 77--78-letter controls, and found 0 constructive exact closures; no reader candidate admitted; next construction adds a recipient-obligation relation."
@@ -193,7 +234,9 @@
       "id": "dialogue-recipient-bridge-20260920",
       "signature": "semantic-dialogue-relation-frame|request-answer-confirmation|independent-role-lexicalization|center-out-character-obligations|complete-parse|recipient-obligation-bridge",
       "artifact": "experiments/dialogue_relation_frame_20260919.py",
-      "run_artifacts": ["runs/dialogue-recipient-bridge-20260920.json"],
+      "run_artifacts": [
+        "runs/dialogue-recipient-bridge-20260920.json"
+      ],
       "distinction": "Adds a distinct recipient-obligation bridge relation to the independently authored request/answer/confirmation grammar; the bridge is selected while the live two-sided character obligation and complete parse remain active, before any text is rendered.",
       "reader_evidence": false,
       "status": "Remote replay tested 729 constructive role states, rendered only diagnostic intact frames up to 78 letters, and found 0 constructive exact closures; full audit and novelty preflight passed; the dialogue family is closed rather than extended with repair variants."
@@ -202,7 +245,9 @@
       "id": "luna-char-lm-orbit-20260920",
       "signature": "bilateral-character-lm|typed-svo-grammar|live-mirrored-orbit|pre-render-word-boundaries",
       "artifact": "experiments/luna_char_lm_orbit_20260920.py",
-      "run_artifacts": ["runs/luna-char-lm-orbit-20260920.json"],
+      "run_artifacts": [
+        "runs/luna-char-lm-orbit-20260920.json"
+      ],
       "distinction": "A character 3-gram prior ranks only live transitions in two independently selected ordinary typed clauses; the grammar and mirrored characters are coupled before rendering.",
       "reader_evidence": false,
       "status": "Remote replay expanded 36,134 live states and rendered 1,200 intact diagnostic controls to 69 letters; 0 exact closures; independent SHA audit passed; no candidate admitted."
@@ -211,7 +256,9 @@
       "id": "luna-cfg-semantic-lattice-20260920",
       "signature": "recursive-scene-cfg|weather-agent-purpose-beats|bilateral-terminal-intersection|fresh-scene-paths",
       "artifact": "experiments/luna_cfg_semantic_lattice_20260920.py",
-      "run_artifacts": ["runs/luna-cfg-semantic-lattice-20260920.json"],
+      "run_artifacts": [
+        "runs/luna-cfg-semantic-lattice-20260920.json"
+      ],
       "distinction": "A recursive compositional scene grammar adds independent weather, agent, and purpose beats; terminal choices are audited on the combined tape before any path is promoted.",
       "reader_evidence": false,
       "status": "Eight fresh scene paths at 68--74 letters; 0 exact closures; two-pointer and forward/reverse SHA audits passed; diagnostic-only."
@@ -220,7 +267,9 @@
       "id": "luna-dependency-scene-csp-20260920",
       "signature": "dependency-tree-seam-csp|fresh-ditransitive-valency|reflected-terminal-obligations|independent-audit",
       "artifact": "experiments/luna_dependency_scene_csp_20260920.py",
-      "run_artifacts": ["runs/luna-dependency-scene-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/luna-dependency-scene-csp-20260920.json"
+      ],
       "distinction": "Fresh donor/recipient/theme dependency frames are selected before lexical realization, with every terminal character obligation audited independently; famous catalogue palindromes are excluded.",
       "reader_evidence": false,
       "status": "Four fresh frames at 17--19 letters; 0 exact closures; no catalogue text or repair; diagnostic-only."
@@ -229,7 +278,9 @@
       "id": "pos-bilateral-cfg-orbit-20260920",
       "signature": "hand-authored-pos-slots|bilateral-character-orbit|cross-word-boundary-transitions|independent-grammar",
       "artifact": "experiments/pos_bilateral_cfg_orbit_20260920.py",
-      "run_artifacts": ["runs/pos-bilateral-cfg-orbit-20260920.json"],
+      "run_artifacts": [
+        "runs/pos-bilateral-cfg-orbit-20260920.json"
+      ],
       "distinction": "Two independently selected hand-authored POS-slot clauses consume equal outer characters while word boundaries advance asynchronously; exactness is a transition gate, not a repair score.",
       "reader_evidence": false,
       "status": "Remote replay tested two typed templates and 88 live states, reached 0 complete closures, and rendered no candidate; no catalogue text or shortcut used."
@@ -238,7 +289,10 @@
       "id": "brown-pcfg-bilateral-orbit-20260920",
       "signature": "brown-pos-frequency-domains|bilateral-pcfg|live-character-orbit|novel-composition",
       "artifact": "experiments/brown_pcfg_bilateral_orbit_20260920.py",
-      "run_artifacts": ["runs/brown-pcfg-bilateral-orbit-20260920.json", "data/brown_pcfg_bank_20260920.json"],
+      "run_artifacts": [
+        "runs/brown-pcfg-bilateral-orbit-20260920.json",
+        "data/brown_pcfg_bank_20260920.json"
+      ],
       "distinction": "Brown contributes only POS frequency domains; new clause sequences are composed from them while two independent grammar parses consume equal mirrored characters before rendering.",
       "reader_evidence": false,
       "status": "961 independent template pairs and 179,205 live states; 0 exact closures; no source sentence text copied; diagnostic-only."
@@ -247,7 +301,9 @@
       "id": "luna-relative-cfg-orbit-20260920",
       "signature": "relative-clause-coordination-cfg|heldout-lexical-bank|opposite-pointer-character-equality|complete-parse",
       "artifact": "experiments/luna_relative_cfg_orbit_20260920.py",
-      "run_artifacts": ["runs/luna-relative-cfg-orbit-20260920.json"],
+      "run_artifacts": [
+        "runs/luna-relative-cfg-orbit-20260920.json"
+      ],
       "distinction": "Intersects independent relative-clause and coordination parses while consuming opposite-end characters live; the held-out lexical bank is selected before rendering and no completed tape is edited.",
       "reader_evidence": false,
       "status": "Remote replay tested 200,000 constructive state pairs, found 0 closures, and rendered no prose candidate; two-pointer/SHA audit and novelty exclusions passed."
@@ -256,7 +312,9 @@
       "id": "semordnilap-crossword-resegmentation-20260918",
       "signature": "fresh-scene-left-arm|independent-semordnilap-word-pairs|cross-word-boundary-shifts|typed-clause-realization|two-pointer-sha-audit|no-repeated-units",
       "artifact": "experiments/semordnilap_crossword_resegmentation_20260918.py",
-      "run_artifacts": ["runs/semordnilap-crossword-resegmentation-20260918.json"],
+      "run_artifacts": [
+        "runs/semordnilap-crossword-resegmentation-20260918.json"
+      ],
       "distinction": "A fresh scene arm is paired with independently authored clauses containing role-changing semordnilap vocabulary; every possible right-arm word-boundary shift is audited on the character tape. No completed arm is reversed, no catalogue text is used, and repeated units are rejected.",
       "reader_evidence": false,
       "status": "diagnostic run; 150 crossword boundary probes, 0 exact closures, longest 55 letters; independent SHA audit rejects all rows; next repair is first-residual typed lexical expansion"
@@ -265,7 +323,10 @@
       "id": "cross-attachment-resegmentation-20260918",
       "signature": "cross-attachment-character-carry|determiner-adjunct-resegmentation|typed-valency|independent-two-pointer-hash-audit",
       "artifact": "experiments/cross_attachment_resegmentation_20260918.py",
-      "run_artifacts": ["runs/cross-attachment-resegmentation-20260918.json", "artifacts/cross-attachment-resegmentation-20260918.json"],
+      "run_artifacts": [
+        "runs/cross-attachment-resegmentation-20260918.json",
+        "artifacts/cross-attachment-resegmentation-20260918.json"
+      ],
       "distinction": "Fresh typed transducer permits character obligations to cross object/adjunct attachment boundaries while preserving reciprocal transitive valency and object typing; no fixed lexical sweep or mirrored word units.",
       "reader_evidence": false,
       "status": "diagnostic run; 0 equation nodes and 0 exact closures; intact controls 58-70 letters; reader gate closed; next repair is typed adjunct insertion with boundary carry"
@@ -5370,7 +5431,10 @@
       "id": "agreement-clitic-name-seam-20260918",
       "signature": "agreement-clitic-transducer|two-sided-name-seams|live-character-equations|pre-render-prune",
       "artifact": "experiments/agreement_clitic_name_seam_20260918.py",
-      "run_artifacts": ["runs/agreement-clitic-name-seam-20260918.json", "artifacts/agreement-clitic-name-seam-20260918.json"],
+      "run_artifacts": [
+        "runs/agreement-clitic-name-seam-20260918.json",
+        "artifacts/agreement-clitic-name-seam-20260918.json"
+      ],
       "distinction": "Carries agreement and clitic choices through both name-adjacent seams with a shorter-exposed-tape scheduler, pruning mismatches before rendering.",
       "reader_evidence": false,
       "status": "0 exact closures; next repair is noun-number inflection plus semantic valency at both seams"
@@ -5379,7 +5443,9 @@
       "id": "dream-rsi-round110-20260918",
       "signature": "dream-rsi|round110|agreement-clitic-name-seam|offline-replay",
       "artifact": "experiments/dream_rsi_palindrome_20260917.py",
-      "run_artifacts": ["runs/dream-rsi-palindrome-round110-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-palindrome-round110-20260918.json"
+      ],
       "distinction": "Offline replay after the agreement-clitic name-seam construction; policy routing is recorded separately from construction.",
       "reader_evidence": false,
       "status": "563 worlds and 21,719 audited nodes; 0 admissible exact rows"
@@ -5388,7 +5454,10 @@
       "id": "noun-number-valency-seam-20260918",
       "signature": "noun-number-valency-transducer|two-name-seams|live-equations|pre-render-prune",
       "artifact": "experiments/noun_number_valency_seam_20260918.py",
-      "run_artifacts": ["runs/noun-number-valency-seam-20260918.json", "artifacts/noun-number-valency-seam-20260918.json"],
+      "run_artifacts": [
+        "runs/noun-number-valency-seam-20260918.json",
+        "artifacts/noun-number-valency-seam-20260918.json"
+      ],
       "distinction": "Carries subject number and transitivity as semantic valency state while solving both name-adjacent character seams before rendering.",
       "reader_evidence": false,
       "status": "0 equation-compatible nodes and 0 exact closures; next repair is lexicalized reciprocal frames"
@@ -5397,7 +5466,10 @@
       "id": "dream-rsi-online-round110-20260918",
       "signature": "dream-rsi|round110|online-redeployment|branching-two-region",
       "artifact": "experiments/dream_rsi_palindrome_20260917.py",
-      "run_artifacts": ["runs/dream-rsi-palindrome-round110-online-20260918.json", "runs/dream-rsi-online-dream-rsi-palindrome-round110-online-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-palindrome-round110-online-20260918.json",
+        "runs/dream-rsi-online-dream-rsi-palindrome-round110-online-20260918.json"
+      ],
       "distinction": "Fresh online redeployment of the replay-selected policy with a distinct seed and branching two-region authoring tree; prose remains an independently audited control.",
       "reader_evidence": false,
       "status": "9-node fresh tree; all controls non-exact; no reader gate"
@@ -5406,7 +5478,10 @@
       "id": "dream-rsi-masked-scene-repair-20260918",
       "signature": "dream-rsi|masked-scene-repair|typed-slot-reopen|monotone-mismatch",
       "artifact": "experiments/dream_rsi_masked_scene_repair_20260918.py",
-      "run_artifacts": ["runs/dream-rsi-masked-scene-repair-20260918.json", "artifacts/dream-rsi-masked-scene-repair-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-masked-scene-repair-20260918.json",
+        "artifacts/dream-rsi-masked-scene-repair-20260918.json"
+      ],
       "distinction": "Reopens only a typed semantic slot at the first mirrored mismatch and accepts a repair only when the independently audited mismatch count decreases.",
       "reader_evidence": false,
       "status": "1 monotone repair accepted; 0 exact closures; next repair jointly reopens mirrored verb-object slots"
@@ -5415,7 +5490,10 @@
       "id": "compositional-grammar-spine-20260918",
       "signature": "compositional-grammar-spine|typed-valency-agreement|pre-render-character-equations|scene-first",
       "artifact": "experiments/compositional_grammar_spine_20260918.py",
-      "run_artifacts": ["runs/compositional-grammar-spine-20260918.json", "artifacts/compositional-grammar-spine-20260918.json"],
+      "run_artifacts": [
+        "runs/compositional-grammar-spine-20260918.json",
+        "artifacts/compositional-grammar-spine-20260918.json"
+      ],
       "distinction": "Scene-first compositional grammar spine with typed valency/agreement states and character equations solved before rendering.",
       "reader_evidence": false,
       "status": "36 fresh nodes; 0 exact closures; next repair permits cross-slot noun/adjunct character carry"
@@ -5424,7 +5502,9 @@
       "id": "dream-rsi-round111-20260918",
       "signature": "dream-rsi|round111|noun-number-masked-compositional|offline-replay",
       "artifact": "experiments/dream_rsi_palindrome_20260917.py",
-      "run_artifacts": ["runs/dream-rsi-palindrome-round111-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-palindrome-round111-20260918.json"
+      ],
       "distinction": "Offline replay after three new constructive lanes; fixed policy routing is separated from zero-exact construction results.",
       "reader_evidence": false,
       "status": "564 worlds, 21,729 audited nodes, 12 branching parents; 0 admissible exact rows"
@@ -5433,7 +5513,10 @@
       "id": "reciprocal-plural-frame-seam-20260918",
       "signature": "reciprocal-frame|plural-object-agreement|semantic-valency|pre-render-equation",
       "artifact": "experiments/reciprocal_plural_frame_seam_20260918.py",
-      "run_artifacts": ["runs/reciprocal-plural-frame-seam-20260918.json", "artifacts/reciprocal-plural-frame-seam-20260918.json"],
+      "run_artifacts": [
+        "runs/reciprocal-plural-frame-seam-20260918.json",
+        "artifacts/reciprocal-plural-frame-seam-20260918.json"
+      ],
       "distinction": "Lexicalized reciprocal verb frames carry plural subject/object agreement and semantic valency while solving both name/object seam equations before rendering.",
       "reader_evidence": false,
       "status": "0 equation-compatible nodes and 0 exact closures; next repair adds reciprocal preposition alternations"
@@ -5442,7 +5525,9 @@
       "id": "dream-rsi-round112-20260918",
       "signature": "dream-rsi|round112|reciprocal-plural-frame-seam|offline-replay",
       "artifact": "experiments/dream_rsi_palindrome_20260917.py",
-      "run_artifacts": ["runs/dream-rsi-palindrome-round112-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-palindrome-round112-20260918.json"
+      ],
       "distinction": "Offline replay after the reciprocal plural-frame construction; zero-equation result is kept separate from policy routing.",
       "reader_evidence": false,
       "status": "564 worlds and 21,729 audited nodes; 0 admissible exact rows"
@@ -5451,7 +5536,10 @@
       "id": "reciprocal-prep-typing-seam-20260918",
       "signature": "reciprocal-frame|preposition-alternation|animate-inanimate-typing|pre-render-equation",
       "artifact": "experiments/reciprocal_prep_typing_seam_20260918.py",
-      "run_artifacts": ["runs/reciprocal-prep-typing-seam-20260918.json", "artifacts/reciprocal-prep-typing-seam-20260918.json"],
+      "run_artifacts": [
+        "runs/reciprocal-prep-typing-seam-20260918.json",
+        "artifacts/reciprocal-prep-typing-seam-20260918.json"
+      ],
       "distinction": "Carries preposition valency and animate/inanimate object type through reciprocal states while solving mirrored character equations before rendering.",
       "reader_evidence": false,
       "status": "0 equation-compatible nodes and 0 exact closures; next repair allows typed determiner/adjunct attachment changes"
@@ -5460,7 +5548,9 @@
       "id": "dream-rsi-round113-20260918",
       "signature": "dream-rsi|round113|reciprocal-prep-typing-seam|offline-replay",
       "artifact": "experiments/dream_rsi_palindrome_20260917.py",
-      "run_artifacts": ["runs/dream-rsi-palindrome-round113-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-palindrome-round113-20260918.json"
+      ],
       "distinction": "Offline replay after reciprocal preposition alternation and animate/inanimate typing; zero-equation construction remains separate from policy routing.",
       "reader_evidence": false,
       "status": "564 worlds and 21,729 audited nodes; 0 admissible exact rows"
@@ -5469,7 +5559,10 @@
       "id": "typed-determiner-adjunct-seam-20260918",
       "signature": "typed-attachment|determiner-adjunct-geometry|reciprocal-valency|pre-render-equation",
       "artifact": "experiments/typed_determiner_adjunct_seam_20260918.py",
-      "run_artifacts": ["runs/typed-determiner-adjunct-seam-20260918.json", "artifacts/typed-determiner-adjunct-seam-20260918.json"],
+      "run_artifacts": [
+        "runs/typed-determiner-adjunct-seam-20260918.json",
+        "artifacts/typed-determiner-adjunct-seam-20260918.json"
+      ],
       "distinction": "Changes typed determiner and adjunct attachment geometry while preserving reciprocal semantic valency and animate/inanimate types.",
       "reader_evidence": false,
       "status": "0 equation-compatible nodes and 0 exact closures; next repair is cross-attachment boundary carry"
@@ -5478,7 +5571,9 @@
       "id": "dream-rsi-round114-20260918",
       "signature": "dream-rsi|round114|typed-determiner-adjunct-seam|offline-replay",
       "artifact": "experiments/dream_rsi_palindrome_20260917.py",
-      "run_artifacts": ["runs/dream-rsi-palindrome-round114-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-palindrome-round114-20260918.json"
+      ],
       "distinction": "Offline replay after typed determiner/adjunct attachment geometry; zero-equation construction remains separate from policy routing.",
       "reader_evidence": false,
       "status": "564 worlds and 21,729 audited nodes; 0 admissible exact rows"
@@ -5487,7 +5582,10 @@
       "id": "seed-centered-context-growth-20260918",
       "signature": "seed-centered-context|semantic-scene-growth|mutable-word-boundaries|pre-render-equation",
       "artifact": "experiments/seed_centered_context_growth_20260918.py",
-      "run_artifacts": ["runs/seed-centered-context-growth-20260918.json", "artifacts/seed-centered-context-growth-20260918.json"],
+      "run_artifacts": [
+        "runs/seed-centered-context-growth-20260918.json",
+        "artifacts/seed-centered-context-growth-20260918.json"
+      ],
       "distinction": "Fresh authored scene context grows around a withheld benchmark while separately solving a reverse-facing grammatical suffix across mutable word boundaries.",
       "reader_evidence": false,
       "status": "0 equation-compatible nodes and 0 exact closures; next repair adds semantic adjunct and tense variants at both boundaries"
@@ -5496,7 +5594,9 @@
       "id": "dream-rsi-round115-20260918",
       "signature": "dream-rsi|round115|cross-attachment-resegmentation|offline-replay",
       "artifact": "experiments/dream_rsi_palindrome_20260917.py",
-      "run_artifacts": ["runs/dream-rsi-palindrome-round115-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-palindrome-round115-20260918.json"
+      ],
       "distinction": "Offline replay after cross-attachment character carry and determiner/adjunct seam resegmentation.",
       "reader_evidence": false,
       "status": "565 worlds and 21,735 audited nodes; 0 admissible exact rows"
@@ -5505,7 +5605,9 @@
       "id": "dream-rsi-round116-20260918",
       "signature": "dream-rsi|round116|cross-attachment-seed-centered|offline-replay",
       "artifact": "experiments/dream_rsi_palindrome_20260917.py",
-      "run_artifacts": ["runs/dream-rsi-palindrome-round116-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-palindrome-round116-20260918.json"
+      ],
       "distinction": "Offline replay after cross-attachment resegmentation and seed-centered context growth; neither live lane added a replayable branch.",
       "reader_evidence": false,
       "status": "565 worlds and 21,735 audited nodes; 0 admissible exact rows"
@@ -5514,7 +5616,10 @@
       "id": "seed-adjunct-tense-variation-20260918",
       "signature": "seed-centered-context|semantic-adjunct-tense|mutable-boundaries|pre-render-equation",
       "artifact": "experiments/seed_adjunct_tense_variation_20260918.py",
-      "run_artifacts": ["runs/seed-adjunct-tense-variation-20260918.json", "artifacts/seed-adjunct-tense-variation-20260918.json"],
+      "run_artifacts": [
+        "runs/seed-adjunct-tense-variation-20260918.json",
+        "artifacts/seed-adjunct-tense-variation-20260918.json"
+      ],
       "distinction": "Fresh authored clauses carry semantic adjunct, tense, number, and valency state at both mutable boundaries; the benchmark is withheld and no finished tape is reversed.",
       "reader_evidence": false,
       "status": "0 equation-compatible nodes and 0 exact closures; controls are independently pointer/hash audited; next repair is object-selection plus adjunct-agreement transitions"
@@ -5523,7 +5628,9 @@
       "id": "dream-rsi-round118-20260918",
       "signature": "dream-rsi|round118|registry-corrected-replay|offline-policy-selection",
       "artifact": "experiments/dream_rsi_palindrome_20260917.py",
-      "run_artifacts": ["runs/dream-rsi-palindrome-round118-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-palindrome-round118-20260918.json"
+      ],
       "distinction": "Replay after moving the recent constructive lanes into the canonical registry entries; the controller independently audits every replay node and keeps policy selection separate from exactness and readability.",
       "reader_evidence": false,
       "status": "573 worlds and 21,806 audited nodes; fixed mismatch-first selected on held-out replay; 0 admissible exact rows"
@@ -5532,16 +5639,22 @@
       "id": "dream-rsi-model-guided-span-resynthesis-20260918",
       "signature": "dream-rsi|actual-local-model-span-proposal|mirrored-live-interval|reflected-residual-lexical-chart|independent-exact-audit",
       "artifact": "experiments/dream_rsi_model_guided_span_resynthesis_20260918.py",
-      "run_artifacts": ["runs/dream-rsi-model-guided-span-resynthesis-20260918.json", "artifacts/dream-rsi-model-guided-span-resynthesis-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-model-guided-span-resynthesis-20260918.json",
+        "artifacts/dream-rsi-model-guided-span-resynthesis-20260918.json"
+      ],
       "distinction": "Completes the previously unimplemented denoising hypothesis: a cached GPT-2 policy proposes complete seam spans, a lexical chart resegments the reflected residual, and every transition is independently audited. The user seed is bootstrap structure only; no finished tape or catalogue text is imported.",
       "reader_evidence": false,
-      "status": "12 actual local-model proposals, 12 exact-by-construction longer rows (86–120 letters), 0 lexically segmented reflected residuals and 0 shortcut-free admissions; all model-ranked rows are human-unreviewed; next repair replaces the bootstrap with two independently authored model spans"
+      "status": "12 actual local-model proposals, 12 exact-by-construction longer rows (86\u2013120 letters), 0 lexically segmented reflected residuals and 0 shortcut-free admissions; all model-ranked rows are human-unreviewed; next repair replaces the bootstrap with two independently authored model spans"
     },
     {
       "id": "dream-rsi-online-round118-20260918",
       "signature": "dream-rsi|round118|online-redeployment|fresh-two-region-tree",
       "artifact": "experiments/dream_rsi_palindrome_20260917.py",
-      "run_artifacts": ["runs/dream-rsi-palindrome-round118-online-20260918.json", "runs/dream-rsi-online-dream-rsi-palindrome-round118-online-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-palindrome-round118-online-20260918.json",
+        "runs/dream-rsi-online-dream-rsi-palindrome-round118-online-20260918.json"
+      ],
       "distinction": "Fresh two-region authoring deployment of the held-out replay policy with branching sibling proposals, preserved provenance, and independent exact audits; generated controls are not presented as palindromes.",
       "reader_evidence": false,
       "status": "8 fresh nodes, 0 exact closures; intact controls 130-140 letters; reader gate closed"
@@ -5550,7 +5663,9 @@
       "id": "dream-rsi-round119-20260918",
       "signature": "dream-rsi|round119|model-guided-span-resynthesis|offline-policy-selection",
       "artifact": "experiments/dream_rsi_palindrome_20260917.py",
-      "run_artifacts": ["runs/dream-rsi-palindrome-round119-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-palindrome-round119-20260918.json"
+      ],
       "distinction": "Replay after the first actually model-guided span-resynthesis lane; the controller ingests its saved proposal worlds, keeps exact-but-fragment rows rejected, and evaluates the held-out policy separately from the construction result.",
       "reader_evidence": false,
       "status": "21,990 independently audited nodes; model-guided rows add 120 exact-but-fragment controls and 0 admissible exact rows; held-out mismatch-first remains 0.780; no reader gate triggered"
@@ -5559,7 +5674,10 @@
       "id": "dream-rsi-dual-boundary-model-authoring-20260918",
       "signature": "dream-rsi|dual-independent-model-clauses|first-residual-complete-word-repair|no-seed-scaffold",
       "artifact": "experiments/dream_rsi_dual_boundary_model_authoring_20260918.py",
-      "run_artifacts": ["runs/dream-rsi-dual-boundary-model-authoring-20260918.json", "artifacts/dream-rsi-dual-boundary-model-authoring-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-dual-boundary-model-authoring-20260918.json",
+        "artifacts/dream-rsi-dual-boundary-model-authoring-20260918.json"
+      ],
       "distinction": "Removes the bootstrap sentence entirely: independent local-model clause authoring creates sibling worlds, then the first mirrored mismatch reopens a complete typed word for valency-preserving repair. No exact row is inferred from a score.",
       "reader_evidence": false,
       "status": "8 left and 8 right model proposals, 64 paired worlds, 0 exact closures; longest intact model pair 58 letters; next repair is a complete-word residual transition"
@@ -5568,10 +5686,13 @@
       "id": "dream-rsi-discourse-ellipsis-20260918",
       "signature": "dream-rsi|polar-question-topicalized-answer|cross-word-boundary-resegmentation|strict-subspan-gate",
       "artifact": "experiments/dream_rsi_discourse_ellipsis_20260918.py",
-      "run_artifacts": ["runs/dream-rsi-discourse-ellipsis-20260918.json", "artifacts/dream-rsi-discourse-ellipsis-20260918.json"],
+      "run_artifacts": [
+        "runs/dream-rsi-discourse-ellipsis-20260918.json",
+        "artifacts/dream-rsi-discourse-ellipsis-20260918.json"
+      ],
       "distinction": "A typed discourse operator jointly realizes a polar question and a topicalized answer, allowing mirrored obligations to cross word boundaries; every exact row is checked against word-order, repeated-unit, self-palindromic-subspan, catalogue, and independent pointer/SHA gates.",
       "reader_evidence": false,
-      "status": "148 exact diagnostic rows (42–46 letters), including a 44-letter cross-boundary row, but 0 strict mechanical admissions because every row contains a word-mirror or proper palindromic island; reader gate closed; next repair forbids all proper subspans while generating a complete answer clause"
+      "status": "148 exact diagnostic rows (42\u201346 letters), including a 44-letter cross-boundary row, but 0 strict mechanical admissions because every row contains a word-mirror or proper palindromic island; reader gate closed; next repair forbids all proper subspans while generating a complete answer clause"
     },
     {
       "id": "dream-rsi-role-live-phrase-lattice-20260918",
@@ -5589,7 +5710,9 @@
       "id": "typed-clause-reverse-slot-automaton-20260918",
       "signature": "typed-clause-reverse-slot-order|agreement-carry|live-character-residual|independent-audit",
       "artifact": "experiments/typed_clause_reverse_slot_automaton_20260918.py",
-      "run_artifacts": ["runs/typed-clause-reverse-slot-automaton-20260918.json"],
+      "run_artifacts": [
+        "runs/typed-clause-reverse-slot-automaton-20260918.json"
+      ],
       "distinction": "The right clause is expanded from its outer edge in reverse grammatical slot order while agreement is carried until its governing subject is selected; character debt is compared live across slot boundaries rather than pairing the same grammatical slot on both sides.",
       "reader_evidence": false,
       "status": "462 live character conflicts and 0 exact closures after reverse-slot repair; no candidate promoted; reader gate closed; next repair expands typed phrases into word tokens so residual debt can cross phrase boundaries"
@@ -5598,7 +5721,9 @@
       "id": "typed-word-boundary-clause-automaton-20260918",
       "signature": "typed-word-boundary|cross-phrase-residual|independent-role-clauses|agreement-carry",
       "artifact": "experiments/typed_word_boundary_clause_automaton_20260918.py",
-      "run_artifacts": ["runs/typed-word-boundary-clause-automaton-20260918.json"],
+      "run_artifacts": [
+        "runs/typed-word-boundary-clause-automaton-20260918.json"
+      ],
       "distinction": "Independent typed clauses expand one lexical token at a time; residual character debt may cross determiner, noun, and verb boundaries while reverse grammatical order, agreement, and optional adjunct presence remain live. Known seed tapes are smoke controls only.",
       "reader_evidence": false,
       "status": "1,856 live lexical witnesses, 82 exact terminals (2 seed controls and 80 short name/repetition loops), 0 new mechanically admitted rows; reader gate closed; next repair is semantic event-frame expansion with live uniqueness and proper-span pruning"
@@ -5607,7 +5732,9 @@
       "id": "semantic-event-frame-lane-20260918",
       "signature": "semantic-event-frame|relation-labeled|independent-role-product|two-pointer-sha-audit",
       "artifact": "experiments/semantic_event_frame_lane_20260918.py",
-      "run_artifacts": ["runs/semantic-event-frame-lane-20260918.json"],
+      "run_artifacts": [
+        "runs/semantic-event-frame-lane-20260918.json"
+      ],
       "distinction": "Independent semantic event frames are joined by a relation-labeled transition; actor, action, object, and setting remain explicit frame roles and are audited from the rendered sentence without finished-tape reversal or word-order mirroring.",
       "reader_evidence": false,
       "status": "5,000 bounded event-frame probes, longest intact control 59 letters, 0 exact palindromes, 0 mechanically admitted candidates; reader gate closed; next repair adds typed argument-selection transitions and varies the second setting"
@@ -5616,7 +5743,9 @@
       "id": "semantic-event-argument-csp-20260918",
       "signature": "semantic-event-frame|typed-argument-selection|independent-settings|pre-render-csp",
       "artifact": "experiments/semantic_event_argument_csp_20260918.py",
-      "run_artifacts": ["runs/semantic-event-argument-csp-20260918.json"],
+      "run_artifacts": [
+        "runs/semantic-event-argument-csp-20260918.json"
+      ],
       "distinction": "A bounded typed event-frame CSP independently selects actor, verb, object, setting, and seam before rendering; agreement and valency are enforced in the frame bank, and every rendered row receives independent pointer and forward/reverse SHA audits.",
       "reader_evidence": false,
       "status": "10,000 bounded pair worlds, 2 exact rows, both punctuation variants of the existing 38-letter benchmark; 0 new candidates and 0 reader-eligible rows; next repair carries residual debt through typed argument tokens before frame joining"
@@ -5631,13 +5760,15 @@
       ],
       "distinction": "Jointly expands grammatical token chunks from both edges and checks character residuals before completion; the embedded character-bigram model only orders legal choices and never certifies readability.",
       "reader_evidence": false,
-      "status": "64 character-obligation conflicts; state counts 1→0 after the second slot; 0 exact closures and 0 mechanically admitted rows; intact prose controls retained; next repair allows heterogeneous slot pairings and inflected phrase tokens"
+      "status": "64 character-obligation conflicts; state counts 1\u21920 after the second slot; 0 exact closures and 0 mechanically admitted rows; intact prose controls retained; next repair allows heterogeneous slot pairings and inflected phrase tokens"
     },
     {
       "id": "human-scene-edge-lattice-20260918",
       "signature": "typed-scene-lattice|independent-edge-equations|outer-inward-pruning",
       "artifact": "experiments/human_scene_edge_lattice_20260918.py",
-      "run_artifacts": ["runs/human-scene-edge-lattice-20260918.json"],
+      "run_artifacts": [
+        "runs/human-scene-edge-lattice-20260918.json"
+      ],
       "distinction": "Independently indexed typed scenes choose agent, action, patient, and setting on each side while live outer-edge equations reject mismatches before promotion; no finished tape or word-order mirror is used.",
       "reader_evidence": false,
       "status": "2,304 typed scene pairs, all rejected by live edge equations; 0 exact closures, 0 mechanically admitted rows, and 0 reader-eligible rows; next repair is token-level residual CSP across scene boundaries"
@@ -5652,7 +5783,7 @@
       ],
       "distinction": "Substitutes typed subject, verb, object, and adjunct slots inside intact authored clauses while computing the residual before punctuation is rendered; agreement and valency remain live.",
       "reader_evidence": false,
-      "status": "710 typed clauses and 10,000 bounded pair worlds; 2 exact rows, both punctuation variants of the 38-letter seed; 0 new admissions and 0 reader-eligible rows; next repair adds adjective–noun slots and held-out clauses"
+      "status": "710 typed clauses and 10,000 bounded pair worlds; 2 exact rows, both punctuation variants of the 38-letter seed; 0 new admissions and 0 reader-eligible rows; next repair adds adjective\u2013noun slots and held-out clauses"
     },
     {
       "id": "polar-question-boundary-repair-20260918",
@@ -5718,16 +5849,21 @@
       "id": "typed-reflected-residual-chart-20260918",
       "signature": "typed-live-reflected-residual|scene-frame-chart|agreement-valency-before-closure|independent-exact-audit",
       "artifact": "experiments/typed_reflected_residual_chart_20260918.py",
-      "run_artifacts": ["runs/typed-reflected-residual-chart-20260918.json"],
+      "run_artifacts": [
+        "runs/typed-reflected-residual-chart-20260918.json"
+      ],
       "distinction": "A new chart grows independently typed scene frames from opposite character edges and carries residual debt across lexical boundaries; repeated words, finished-tape reversal, catalogue text, and word-order symmetry are not used.",
       "reader_evidence": false,
-      "status": "3 frame pairs, 3 expanded states, 0 exact closures; fresh complete-clause controls 67–68 letters; withheld seed smoke passes independently but is not promoted; next repair changes lexical category only at a live typed boundary"
+      "status": "3 frame pairs, 3 expanded states, 0 exact closures; fresh complete-clause controls 67\u201368 letters; withheld seed smoke passes independently but is not promoted; next repair changes lexical category only at a live typed boundary"
     },
     {
       "id": "outer-subject-lexical-pair-20260918",
       "signature": "complete-agent-np|terminal-locative-suffix|outer-boundary-co-design|independent-two-pointer-sha-audit",
       "artifact": "experiments/outer_subject_lexical_pair_20260918.py",
-      "run_artifacts": ["runs/outer-subject-lexical-pair-20260918.json", "artifacts/outer-subject-lexical-pair-20260918.json"],
+      "run_artifacts": [
+        "runs/outer-subject-lexical-pair-20260918.json",
+        "artifacts/outer-subject-lexical-pair-20260918.json"
+      ],
       "distinction": "Jointly varies a complete grammatical subject noun phrase and a terminal locative object/preposition suffix around a finite clause; no finished-tape reversal, word mirror, catalogue text, or repeated unit is used.",
       "reader_evidence": false,
       "status": "256 fresh constructions, 0 exact closures, longest 62 letters; best intact probe 48 letters with 42 mismatches; strict exact and reader gates closed; next repair is typed preposition/object replacement at the residual seam"
@@ -5736,16 +5872,21 @@
       "id": "role-labeled-grammar-csp-20260918",
       "signature": "role-labeled-subject-verb-object-adjunct|two-clause-csp|live-opposite-edge-residual|independent-sha-audit",
       "artifact": "experiments/role_labeled_grammar_csp_20260918.py",
-      "run_artifacts": ["runs/role-labeled-grammar-csp-20260918.json", "artifacts/role-labeled-grammar-csp-20260918.json"],
+      "run_artifacts": [
+        "runs/role-labeled-grammar-csp-20260918.json",
+        "artifacts/role-labeled-grammar-csp-20260918.json"
+      ],
       "distinction": "Carries subject, finite transitive verb, object, and adjunct roles through a simultaneous opposite-edge character CSP on fresh complete clauses, rejecting shortcut structures before admission.",
       "reader_evidence": false,
-      "status": "4 fresh complete-clause candidates, 73–76 letters, 0 exact closures and 0 strict admissions; best first mismatch is recorded; next repair is a typed adjunct substitution preserving valency"
+      "status": "4 fresh complete-clause candidates, 73\u201376 letters, 0 exact closures and 0 strict admissions; best first mismatch is recorded; next repair is a typed adjunct substitution preserving valency"
     },
     {
       "id": "exhaustive-pos-lattice-44-tape-20260918",
       "signature": "fixed-diagnostic-tape|exhaustive-dictionary-segmentation|permissive-pos-recognizer|hidden-span-audit",
       "artifact": "experiments/exhaustive_pos_lattice_44_tape_20260918.py",
-      "run_artifacts": ["runs/exhaustive-pos-lattice-44-tape-20260918.json"],
+      "run_artifacts": [
+        "runs/exhaustive-pos-lattice-44-tape-20260918.json"
+      ],
       "distinction": "Exhaustively enumerates every complete dictionary segmentation of the 44-letter diagnostic tape without a language-model beam, then applies a declared POS recognizer and hidden-span gate; it does not claim the tape is readable.",
       "reader_evidence": false,
       "status": "30 dictionary edges but 1 complete segmentation, 0 alternate coherent renderings, 0 strict admissions; internal spans such as anitemmetina close the reader gate; next repair changes an authored outer seam"
@@ -5754,7 +5895,9 @@
       "id": "char-product-automaton-20260918",
       "signature": "typed-clause-dfa|character-obligation-product|heterogeneous-slot-pairs|center-closure",
       "artifact": "experiments/char_product_automaton_20260918.py",
-      "run_artifacts": ["runs/char-product-automaton-20260918.json"],
+      "run_artifacts": [
+        "runs/char-product-automaton-20260918.json"
+      ],
       "distinction": "Crosses independent typed-clause DFA positions with live character obligations and heterogeneous slot pairs, using an explicit transparent character-bigram prior without reversing a completed tape.",
       "reader_evidence": false,
       "status": "1,370 character conflicts after 2 surviving first-step states; 0 exact closures and 0 candidate rows; intact controls retained; next repair is a held-out character-trie phrase inventory with explicit center closure"
@@ -5763,7 +5906,9 @@
       "id": "recursive-scene-grammar-20260918",
       "signature": "recursive-semantic-scene-grammar|depth-one-derivation-product|independent-two-pointer-sha-audit",
       "artifact": "experiments/recursive_scene_grammar_20260918.py",
-      "run_artifacts": ["runs/recursive-scene-grammar-20260918.json"],
+      "run_artifacts": [
+        "runs/recursive-scene-grammar-20260918.json"
+      ],
       "distinction": "Generates recursive semantic scene derivations independently on both sides and tests the whole character equation; provenance trees and exact hashes are retained without finished-tape reversal.",
       "reader_evidence": false,
       "status": "729 derivations per side and 531,441 independent pair probes; 0 equation-compatible closures and 0 exact palindromes; next repair carries the residual into recursive valency choices"
@@ -5772,7 +5917,9 @@
       "id": "scene-lattice-semantic-valency-20260918",
       "signature": "human-authored-scene-lattice|typed-valency|contrastive-two-frame|full-residual-propagation",
       "artifact": "experiments/scene_lattice_semantic_valency_20260918.py",
-      "run_artifacts": ["runs/scene-lattice-semantic-valency-20260918.json"],
+      "run_artifacts": [
+        "runs/scene-lattice-semantic-valency-20260918.json"
+      ],
       "distinction": "Jointly realizes two fresh contrastive semantic scenes with typed agent/action/patient/setting valency before testing the whole tape; fixed tapes, word mirrors, catalogue text, and repeated content are rejected.",
       "reader_evidence": false,
       "status": "26,244 fresh realizations, 0 exact closures and 0 admitted rows; best intact control is 95 letters but repeated-content checks remain closed; next repair propagates the full mirrored residual vector into each valency choice"
@@ -5781,7 +5928,9 @@
       "id": "seed-extension-wrapper-search-20260918",
       "signature": "internal-seed-grammar-state|independent-wrapper-continuations|live-outer-character-equations",
       "artifact": "experiments/seed_extension_wrapper_search_20260918.py",
-      "run_artifacts": ["runs/seed-extension-wrapper-search-20260918.json"],
+      "run_artifacts": [
+        "runs/seed-extension-wrapper-search-20260918.json"
+      ],
       "distinction": "Independently authored grammatical prefix and suffix clauses were grown around an internal seed state while live outer character equations pruned the search; the seed was never rendered as a claimed output, and no finished tape, repeated unit, or catalogue text was used.",
       "reader_evidence": false,
       "status": "25 fresh wrapper pairs, 0 live survivors, 0 exact closures; longest intact control 103 letters; controls human-unreviewed; next repair authors held-out wrappers ending in the first residual character class"
@@ -5790,7 +5939,9 @@
       "id": "reader-first-clause-lattice-20260918",
       "signature": "human-authored-complete-scenes|typed-center-edge-obligations|reader-first-lattice",
       "artifact": "experiments/reader_first_clause_lattice_20260918.py",
-      "run_artifacts": ["artifacts/reader-first-clause-lattice-20260918.json"],
+      "run_artifacts": [
+        "artifacts/reader-first-clause-lattice-20260918.json"
+      ],
       "distinction": "Ten human-authored complete scenes with explicit subject, verb, object, and adjunct roles were indexed before any palindrome search; typed center and edge obligations then formed the lattice. This keeps intact readable prose as the primary search object rather than adding prose after closure.",
       "reader_evidence": false,
       "status": "10 authored scenes, 400 lattice states, 0 exact closures; longest complete-scene control 67 letters; reader gate closed; catalogue preflight still requires an explicit rerun; next repair broadens center vocabulary and carries residuals through typed verb-object transitions"
@@ -5799,7 +5950,9 @@
       "id": "heldout-character-trie-phrase-inventory-product-20260918",
       "signature": "character-trie-phrase-product|borrowed-regression-controls|provenance-quarantine",
       "artifact": "experiments/heldout_character_trie_phrase_inventory_product_20260918.py",
-      "run_artifacts": ["runs/heldout-character-trie-phrase-inventory-product-20260918.json"],
+      "run_artifacts": [
+        "runs/heldout-character-trie-phrase-inventory-product-20260918.json"
+      ],
       "distinction": "The trie product implementation is retained only as a regression fixture because all three exact rows were hard-coded published palindromes. The provenance audit now marks them copied catalogue controls, excludes them from candidate counts, and prevents any paper claim of fresh generation.",
       "reader_evidence": false,
       "status": "3 borrowed exact controls (21, 29, and 51 letters), 0 fresh candidates, 0 admissible rows; quarantined; next repair replaces every control with a fresh held-out POS phrase inventory before counting closures"
@@ -5808,16 +5961,20 @@
       "id": "fresh-phrase-trie-product-20260918",
       "signature": "fresh-authored-pos-inventory|reversed-character-trie-product|typed-complete-clause|independent-audit",
       "artifact": "experiments/fresh_phrase_trie_product_20260918.py",
-      "run_artifacts": ["runs/fresh-phrase-trie-product-20260918.json"],
+      "run_artifacts": [
+        "runs/fresh-phrase-trie-product-20260918.json"
+      ],
       "distinction": "A genuinely fresh POS phrase inventory generates complete clause realizations, then a trie of reversed right-hand realizations is traversed by live left-character obligations before any pair is rendered. No catalogue sentence, finished tape, word-order mirror, or repeated module is used.",
       "reader_evidence": false,
-      "status": "232,320 fresh phrase records and 947,222 trie nodes; 232,320 live obligation walks, 0 terminal pairs, 0 exact closures, 0 admissible rows; controls 23–25 letters; next repair adds a center-state grammar transition and held-out semantic valency frames"
+      "status": "232,320 fresh phrase records and 947,222 trie nodes; 232,320 live obligation walks, 0 terminal pairs, 0 exact closures, 0 admissible rows; controls 23\u201325 letters; next repair adds a center-state grammar transition and held-out semantic valency frames"
     },
     {
       "id": "center-state-grammar-transition-20260918",
       "signature": "fresh-authored-center-transition|live-reversed-character-trie|typed-observation-consequence|independent-audits",
       "artifact": "experiments/center_state_grammar_transition_20260918.py",
-      "run_artifacts": ["runs/center-state-grammar-transition-20260918.json"],
+      "run_artifacts": [
+        "runs/center-state-grammar-transition-20260918.json"
+      ],
       "distinction": "Adds a typed observation-to-consequence center transition to fresh clause realizations while the outer characters are constrained by a live reversed-right trie. It is a construction change, not a wider lexical sweep, and uses no catalogue sentence or seed wrapper.",
       "reader_evidence": false,
       "status": "2,027,520 live trie walks, 48 rendered diagnostic candidates, 0 terminal pairs and 0 exact closures; three disjoint controls; reader gate closed; next repair adds held-out semantic valency agreement across the center transition"
@@ -5826,7 +5983,10 @@
       "id": "held-out-semantic-valency-frame-product-20260918",
       "signature": "held-out-semantic-valency|typed-subject-verb-object-adjunct|live-mirrored-residual|independent-sha-audit",
       "artifact": "experiments/held_out_semantic_valency_frame_product_20260918.py",
-      "run_artifacts": ["runs/held-out-semantic-valency-frame-product-20260918.json", "artifacts/held-out-semantic-valency-frame-product-20260918.json"],
+      "run_artifacts": [
+        "runs/held-out-semantic-valency-frame-product-20260918.json",
+        "artifacts/held-out-semantic-valency-frame-product-20260918.json"
+      ],
       "distinction": "Pairs independently authored typed subject/verb/object/adjunct frames with agreement and valency state live before rendering; mirrored residuals are recorded before exact auditing. It does not wrap the seed, reverse a finished tape, or import catalogue text.",
       "reader_evidence": false,
       "status": "6 complete frame pairs, 0 exact closures, longest rendered pair 72 letters; independent pointer/SHA audits and provenance pass; reader gate closed; next repair adds a held-out adjunct transition at the center seam"
@@ -5835,7 +5995,9 @@
       "id": "fresh-clause-resegmentation-chart-20260918",
       "signature": "fresh-human-authored-clauses|typed-reverse-tape-chart|epsilon-slot-resegmentation|independent-audit",
       "artifact": "experiments/fresh_clause_resegmentation_chart_20260918.py",
-      "run_artifacts": ["runs/fresh-clause-resegmentation-chart-20260918.json"],
+      "run_artifacts": [
+        "runs/fresh-clause-resegmentation-chart-20260918.json"
+      ],
       "distinction": "Consumes live reverse-character obligations from six fresh human-authored clauses through a typed DET/ADJ/N/V/P chart with optional-slot transitions. It preserves intact prose controls and does not present a catalogue sentence as generated output.",
       "reader_evidence": false,
       "status": "6 authored clauses, 0 exact candidates and 0 shortcut-gate survivors; best intact control 42 letters with 20 mirrored mismatches; reader gate closed; next repair adds typed plural and inflectional variants at the first residual chart character"
@@ -5844,7 +6006,9 @@
       "id": "boundary-conditioned-two-ended-clause-20260918",
       "signature": "boundary-conditioned-openings-endings|live-residual|two-ended-grammar-expansion|independent-audit",
       "artifact": "experiments/boundary_conditioned_two_ended_clause_20260918.py",
-      "run_artifacts": ["runs/boundary-conditioned-two-ended-clause-20260918.json"],
+      "run_artifacts": [
+        "runs/boundary-conditioned-two-ended-clause-20260918.json"
+      ],
       "distinction": "Changes the geometry at the actual failure boundary: it freezes only 20 freshly authored opening/ending constituent pairs with at least four matched outer characters, then expands both incomplete grammatical sides with a bounded residual search. The midpoint may fall inside a word; no finished tape or catalogue row is used.",
       "reader_evidence": false,
       "status": "20/20 pairs survive 4 outer characters, but 0 survive 8, 12, or 16; all 20 fail at the first typed continuation, with 0 terminal rows and 0 exact closures; reader gate closed; next repair replaces only the ending constituent whose reverse residual blocks the first continuation"
@@ -5853,7 +6017,10 @@
       "id": "edge-compatible-semantic-valency-20260919",
       "signature": "edge-compatible-semantic-valency|co-designed-subject-prefix|adjunct-suffix|live-residual|independent-audit",
       "artifact": "experiments/edge_compatible_valency_frames_20260919.py",
-      "run_artifacts": ["runs/edge-compatible-valency-frames-20260919.json", "artifacts/edge-compatible-valency-frames-20260919.json"],
+      "run_artifacts": [
+        "runs/edge-compatible-valency-frames-20260919.json",
+        "artifacts/edge-compatible-valency-frames-20260919.json"
+      ],
       "distinction": "Six fresh complete clause pairs co-designed subject prefixes and adjunct suffixes before rendering, while typed valency and live residual equations remained active; no catalogue text, finished-tape reversal, word-order mirror, or repeated unit.",
       "reader_evidence": false,
       "status": "6 complete pairs, maximum live outer match 5 characters, 0 exact closures; longest intact control 58 letters; reader gate closed; next repair replaces the first mismatching ending constituent while preserving the edge-compatible frame"
@@ -5862,7 +6029,9 @@
       "id": "fresh-boundary-ending-replacement-20260919",
       "signature": "boundary-ending-replacement|fresh-constituent-only|outer-match-gates|independent-audit",
       "artifact": "experiments/fresh_boundary_ending_replacement_20260919.py",
-      "run_artifacts": ["runs/fresh-boundary-ending-replacement-20260919.json"],
+      "run_artifacts": [
+        "runs/fresh-boundary-ending-replacement-20260919.json"
+      ],
       "distinction": "A focused repair replaces only the ending constituent of fresh complete scenes after a live outer-character test; each row records 4/8/12/16 reach gates and independent pointer/hash audits without reversing a finished tape.",
       "reader_evidence": false,
       "status": "12 fresh opening/middle/ending combinations, 1 survives 4 outer characters, 0 survive 8/12/16, 0 exact; best intact near-miss is 37 letters; reader gate closed; next repair replaces only that row's first mismatching ending constituent"
@@ -5871,7 +6040,9 @@
       "id": "center-state-boundary-reassessment-20260919",
       "signature": "outer-edge-boundary-preflight|terminal-noun-reversal|center-lane-prune|independent-audit",
       "artifact": "experiments/center_state_boundary_reassessment_20260919.py",
-      "run_artifacts": ["runs/center-state-boundary-reassessment-20260919.json"],
+      "run_artifacts": [
+        "runs/center-state-boundary-reassessment-20260919.json"
+      ],
       "distinction": "A preflight compares fresh natural terminal-noun reversals with fresh clause openings before rendering; it is a lane-pruning test, not a vocabulary sweep, and rejects pseudo-words or finished-tape reversal.",
       "reader_evidence": false,
       "status": "138,240 left records and 105,600 right records, 0 matching four-character prefixes and 0 complete-clause overlaps; lane pruned; next repair moves to productive inflectional/agreement boundaries"
@@ -5880,7 +6051,9 @@
       "id": "cfg-character-product-20260918",
       "signature": "cfg-production-character-product-independent-chart",
       "artifact": "experiments/cfg_character_product_20260918.py",
-      "run_artifacts": ["runs/cfg-character-product-20260918.json"],
+      "run_artifacts": [
+        "runs/cfg-character-product-20260918.json"
+      ],
       "distinction": "A bounded typed CFG is expanded as derivations while an outside character product constrains the independently chart-parsed right side; nonterminal structure and word boundaries are variables, with no RLAIF, catalogue tape, or word-order mirror.",
       "reader_evidence": false,
       "status": "1,500 derivations, 0 independently chart-parsed reflected closures, 0 exact candidates; fresh intact controls retained at 55 and 58 letters; reader gate closed; next repair carries nonterminal and valency state through the live residual seam and adds PP attachment transitions"
@@ -5889,7 +6062,9 @@
       "id": "character-paired-grammar-20260919",
       "signature": "character-paired-grammar|free-word-boundaries|paired-path-search|typed-role-states|independent-audit",
       "artifact": "experiments/character_paired_grammar_20260919.py",
-      "run_artifacts": ["runs/character-paired-grammar-20260919.json"],
+      "run_artifacts": [
+        "runs/character-paired-grammar-20260919.json"
+      ],
       "distinction": "Generates typed lexical choices on both sides online and checks each mirrored character immediately, allowing word boundaries to differ; no completed clause is reversed and no language model proposes the tape.",
       "reader_evidence": false,
       "status": "3 bounded templates and 30 online states; 1 fresh exact 20-letter control, longest candidate 26 letters, no exact closure beyond the 38-letter seed; next repair adds one authored transitive-event state at the failed boundary"
@@ -5898,7 +6073,9 @@
       "id": "semantic-template-lattice-joint-equations-20260919",
       "signature": "semantic-template-lattice|joint-scene-equations|typed-valency|complete-clause-composition|independent-audit",
       "artifact": "experiments/semantic_template_lattice_joint_equations_20260919.py",
-      "run_artifacts": ["runs/semantic-template-lattice-joint-equations-20260919.json"],
+      "run_artifacts": [
+        "runs/semantic-template-lattice-joint-equations-20260919.json"
+      ],
       "distinction": "Selects complete subject/verb/object/adjunct scenes jointly with mirrored character equations before any exact claim; all lexical material is fresh and no seed, catalogue tape, or post-hoc reversal is used.",
       "reader_evidence": false,
       "status": "9 complete scene pairs, 0 equation passes and 0 exact palindromes; longest intact row 62 letters; boundary mismatch is immediate; next repair carries residual character domains through a two-word subject/object lattice"
@@ -5907,7 +6084,9 @@
       "id": "boundary-aware-phrase-transducer-dp-20260919",
       "signature": "boundary-aware-phrase-transducer|residual-dp|compositional-role-chunks|fresh-prose|independent-audit",
       "artifact": "experiments/boundary_aware_phrase_transducer_dp_20260919.py",
-      "run_artifacts": ["runs/boundary-aware-phrase-transducer-dp-20260919.json"],
+      "run_artifacts": [
+        "runs/boundary-aware-phrase-transducer-dp-20260919.json"
+      ],
       "distinction": "Composes fresh role-complete phrase chunks through a finite residual dynamic program while exact character cancellation remains live; it changes phrase boundaries rather than filtering a fixed tape and excludes catalogue, word-order, repeated-unit, and finished-tape shortcuts.",
       "reader_evidence": false,
       "status": "3 DP depths, 128 final residual states, 512 rendered complete-clause candidates, longest 92 letters, 0 exact closures; next repair adds a boundary chunk whose opening character matches the residual closing character"
@@ -5916,34 +6095,42 @@
       "id": "finite-clause-character-orbits-20260919",
       "signature": "finite-svo-clause-language|character-trie-product|live-mirrored-orbit-assignment|terminal-complete-clause-gate",
       "artifact": "experiments/finite_clause_character_orbits_20260919.py",
-      "run_artifacts": ["runs/finite-clause-character-orbits-20260919.json"],
+      "run_artifacts": [
+        "runs/finite-clause-character-orbits-20260919.json"
+      ],
       "distinction": "Two independent finite SVO clause tries assign mirrored character orbits online and admit only simultaneous complete subject/finite-verb/object terminals; it does not enumerate reversible lexical pairs, mirror word order, reverse a finished tape, import catalogue text, or use RLAIF.",
       "reader_evidence": false,
-      "status": "8 orbit states, 7 matched and 5 rejected live transitions, 0 exact closures in the 39–60-letter band; three intact 40–48-letter controls retained with independent pointer/SHA audits; next repair adds one held-out SVO noun bundle at the first orbit frontier"
+      "status": "8 orbit states, 7 matched and 5 rejected live transitions, 0 exact closures in the 39\u201360-letter band; three intact 40\u201348-letter controls retained with independent pointer/SHA audits; next repair adds one held-out SVO noun bundle at the first orbit frontier"
     },
     {
       "id": "two-sided-semantic-orbit-product-20260920",
       "signature": "independent-semantic-scene-paths|two-sided-character-orbit-product|complete-svo-terminal-gate|ordinary-right-rendering",
       "artifact": "experiments/two_sided_semantic_orbit_product_20260920.py",
-      "run_artifacts": ["runs/two-sided-semantic-orbit-product-20260920.json"],
+      "run_artifacts": [
+        "runs/two-sided-semantic-orbit-product-20260920.json"
+      ],
       "distinction": "Builds independent complete semantic story paths on both sides and assigns each mirrored character orbit while both ordinary-order paths remain unfinished; grammar boundaries and semantic roles are selected before rendering, the right path is indexed backwards but rendered normally, and no repair, finished-tape reversal, catalogue text, or RLAIF reward is used.",
       "reader_evidence": false,
-      "status": "12,000 left paths and 10,200 right paths; 34 product states, 20 matched and 140 rejected orbit transitions; 0 exact closures in the 39–60-letter band; four intact 41-letter controls retained with independent pointer/SHA/mechanical audits; next discriminator adds one held-out complete story frame at the first dead frontier"
+      "status": "12,000 left paths and 10,200 right paths; 34 product states, 20 matched and 140 rejected orbit transitions; 0 exact closures in the 39\u201360-letter band; four intact 41-letter controls retained with independent pointer/SHA/mechanical audits; next discriminator adds one held-out complete story frame at the first dead frontier"
     },
     {
       "id": "two-sided-semantic-orbit-product-setting-frame-20260920",
       "signature": "independent-semantic-scene-paths|two-sided-character-orbit-product|complete-svo-terminal-gate|ordinary-right-rendering|initial-setting-frame",
       "artifact": "experiments/two_sided_semantic_orbit_setting_frame_20260920.py",
-      "run_artifacts": ["runs/two-sided-semantic-orbit-product-setting-frame-20260920.json"],
+      "run_artifacts": [
+        "runs/two-sided-semantic-orbit-product-setting-frame-20260920.json"
+      ],
       "distinction": "Adds one held-out initial setting-preposition/object frame to the independent complete story paths at the prior OBJECT/SUBJECT dead frontier; the setting determiner and SVO roles are selected before the same center-out character product, with ordinary-order rendering and no tape repair, reversible lexical pairs, catalogue text, or RLAIF reward.",
       "reader_evidence": false,
-      "status": "2,000 paths per side and 20,000 product states; 37 states, 20 matched and 201 rejected orbit transitions; 0 exact closures in the 39–60-letter band; four intact 59-letter controls retained with independent pointer/SHA/mechanical audits; frontier moved to the setting-preposition/OBJECT boundary"
+      "status": "2,000 paths per side and 20,000 product states; 37 states, 20 matched and 201 rejected orbit transitions; 0 exact closures in the 39\u201360-letter band; four intact 59-letter controls retained with independent pointer/SHA/mechanical audits; frontier moved to the setting-preposition/OBJECT boundary"
     },
     {
       "id": "character-boundary-product-20260920",
       "signature": "lexical-boundary-state-x-mirrored-character-orbit|two-independent-scene-clauses|pre-render",
       "artifact": "experiments/character_boundary_product_20260920.py",
-      "run_artifacts": ["runs/character-boundary-product-20260920.json"],
+      "run_artifacts": [
+        "runs/character-boundary-product-20260920.json"
+      ],
       "distinction": "Selects lexical and inflectional boundary states before rendering two independently authored ordinary-order scene clauses, then records prospective mirrored character locks; it never edits a rendered tape or uses a candidate reward.",
       "reader_evidence": false,
       "status": "4 bounded assignments, 0 exact closures, and a grammatical 78-letter control; no post-hoc repair, catalogue input, word-order mirror, or RLAIF per candidate; next discriminator adds a held-out clitic-state axis"
@@ -5952,7 +6139,9 @@
       "id": "grammar-char-intersection-20260920",
       "signature": "cfg-semantic-closure|live-character-orbit|two-sided-earley-chart|lexicon-order-only",
       "artifact": "experiments/grammar_char_intersection_20260920.py",
-      "run_artifacts": ["runs/grammar-char-intersection-20260920.json"],
+      "run_artifacts": [
+        "runs/grammar-char-intersection-20260920.json"
+      ],
       "distinction": "Intersects a finite semantic CFG chart with live terminal character orbits, requiring agent/action/theme/setting closure; its lexical order is static and never a per-candidate reward, and no finished tape is reversed.",
       "reader_evidence": false,
       "status": "2 complete rendered English clauses, 0 exact closures, 0 admissions; independent pointer/SHA/mechanical audits; next discriminator adds a held-out transitive frame with typed plural agreement"
@@ -5961,7 +6150,9 @@
       "id": "semantic-slot-orbit-product-shakespeare-frame-20260920",
       "signature": "shakespeare-scene-frame|semantic-valency-attachment-slots|simultaneous-mirrored-character-equations|centre-out-orbit-product|agreement-morphology",
       "artifact": "experiments/semantic_slot_orbit_product_20260920.py",
-      "run_artifacts": ["runs/semantic_slot_orbit_product_20260920.json"],
+      "run_artifacts": [
+        "runs/semantic_slot_orbit_product_20260920.json"
+      ],
       "distinction": "Chooses semantic valency, attachment, agreement, and mirrored character equations jointly over finite authored scene frames, while rejecting repeated frame pairs before rendering.",
       "reader_evidence": false,
       "status": "12 agreement-valid complete scene pairs, 0 exact closures, and intact controls to 75 letters; independent pointer/SHA/mechanical audits; next discriminator holds out attachment prepositions by valency frame"
@@ -5970,7 +6161,9 @@
       "id": "large-lexicon-cfg-orbit-20260920",
       "signature": "authored-common-english-trie|finite-svo-pp-cfg|live-character-orbits|ordinary-order-double-ended-intersection",
       "artifact": "experiments/large_lexicon_cfg_orbit_20260920.py",
-      "run_artifacts": ["runs/large_lexicon_cfg_orbit_20260920.json"],
+      "run_artifacts": [
+        "runs/large_lexicon_cfg_orbit_20260920.json"
+      ],
       "distinction": "Expands a 70-word authored/common-English finite SVO+PP CFG into a character trie and assigns two ordinary-order clause paths through live mirrored orbit diagnostics, with word boundaries selected before rendering.",
       "reader_evidence": false,
       "status": "2,781 trie nodes and 200 bounded states, 0 exact closures; distinct complete-clause controls retained; next discriminator adds held-out transitive verbs and compares first-residual depth"
@@ -5979,7 +6172,9 @@
       "id": "morphology-orbit-grammar-20260920",
       "signature": "joint-agreement-tense-clitic-state|independent-complete-english-clauses|mirrored-character-orbits|productive-inflection|shakespearean-cadence-slot",
       "artifact": "experiments/morphology_orbit_grammar_20260920.py",
-      "run_artifacts": ["runs/morphology-orbit-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/morphology-orbit-grammar-20260920.json"
+      ],
       "distinction": "Selects agreement, tense, article-boundary, and cadence states before lexical emission across two complete clauses, then audits mirrored character obligations without repairing a rendered row.",
       "reader_evidence": false,
       "status": "16 agreement-valid variants across 8 morphology states, longest 66 letters, 0 exact closures; two independent prose controls; next discriminator varies a held-out boundary state"
@@ -5988,7 +6183,9 @@
       "id": "char-orbit-scene-search-20260920",
       "signature": "semantic-role-character-fsm|live-center-out-orbits|valency-agreement-boundary-state|complete-clause-terminal-gate",
       "artifact": "experiments/char_orbit_scene_search_20260920.py",
-      "run_artifacts": ["runs/char-orbit-scene-search-20260920.json"],
+      "run_artifacts": [
+        "runs/char-orbit-scene-search-20260920.json"
+      ],
       "distinction": "Carries semantic role, valency, agreement, and word-boundary state on every character transition from the first center-out orbit, with a complete-clause terminal gate and no finished-tape repair.",
       "reader_evidence": false,
       "status": "4,608 bounded states, 0 near-miss rows, 0 exact closures; two complete prose controls retained with independent pointer/SHA audits; next discriminator adds one authored plural agent/object pair"
@@ -5997,7 +6194,9 @@
       "id": "bidirectional-scene-lattice-20260920",
       "signature": "semantic-scene-authoring|role-first-lattice|live-exposed-character-gate|independent-forward-realizations",
       "artifact": "bidirectional_scene_lattice_20260920.py",
-      "run_artifacts": ["runs/bidirectional-scene-lattice-20260920.json"],
+      "run_artifacts": [
+        "runs/bidirectional-scene-lattice-20260920.json"
+      ],
       "distinction": "Fixes semantic roles and argument structure before lexical expansion, then admits fresh lexical choices only through live outer-character checks; no reversal, repair, catalogue borrowing, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "3 complete broad-English scene controls, 0 live closures, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -6006,7 +6205,9 @@
       "id": "semantic-obligation-automaton-20260920",
       "signature": "coherent-scene-obligations|simultaneous-transition|live-character-mismatch|semantic-attachment",
       "artifact": "semantic_obligation_automaton_20260920.py",
-      "run_artifacts": ["runs/semantic-obligation-automaton-20260920.json"],
+      "run_artifacts": [
+        "runs/semantic-obligation-automaton-20260920.json"
+      ],
       "distinction": "Carries scene-level semantic obligations and unequal word-boundary buffers through simultaneous forward generation; the transition is pruned on the first live character mismatch before any rendered candidate.",
       "reader_evidence": false,
       "status": "3 scene clauses, 1 transition attempted, 1 pruned by live mismatch, 0 rendered candidates, 0 exact candidates; zero-frontier construction evidence"
@@ -6015,7 +6216,9 @@
       "id": "typed-clause-mitm-seam-20260920",
       "signature": "typed-clause-halves|meet-in-the-middle-seam|agreement-type-join|joint-outer-selection",
       "artifact": "experiments/typed_clause_mitm_seam_20260920.py",
-      "run_artifacts": ["runs/typed-clause-mitm-seam-20260920.json"],
+      "run_artifacts": [
+        "runs/typed-clause-mitm-seam-20260920.json"
+      ],
       "distinction": "Splits complete independently authored clauses into typed halves and joins left/right halves only when seam characters, agreement, and semantic types are compatible; outer words are selected jointly and no finished tape is reversed or repaired.",
       "reader_evidence": false,
       "status": "800 left and 800 right halves, 60,000 seam joins, 50 complete prose controls, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; next construction carries a two-character seam buffer"
@@ -6024,7 +6227,9 @@
       "id": "mitm-consequence-phrase-grammar-20260920",
       "signature": "agent-action-object-setting|consequence-beat|independent-half-generation|prefix-indexed-join",
       "artifact": "experiments/mitm_consequence_phrase_grammar_20260920.py",
-      "run_artifacts": ["runs/mitm-consequence-phrase-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/mitm-consequence-phrase-grammar-20260920.json"
+      ],
       "distinction": "Adds a fresh consequence beat to independently generated scene halves and probes normalized prefix joins before rendering; no catalogue or mirror-pair import, reversal, repeated unit, or post-hoc repair.",
       "reader_evidence": false,
       "status": "3 left halves, 3 right halves, 3 prefix probes, 0 compatible joins, 0 rendered candidates, 0 exact candidates; zero-frontier construction evidence"
@@ -6033,7 +6238,9 @@
       "id": "manual-outer8-inward-20260920",
       "signature": "manual-fresh-clauses|outer-eight-character-equation|inward-expansion-gate|broad-english-controls",
       "artifact": "experiments/manual_outer8_inward_expansion_20260920.py",
-      "run_artifacts": ["runs/manual-outer8-inward-expansion-20260920.json"],
+      "run_artifacts": [
+        "runs/manual-outer8-inward-expansion-20260920.json"
+      ],
       "distinction": "Authors fresh role-compatible clauses and requires an eight-character outer equation before any interior expansion; no catalogue text, mirror-pair import, reversal, repeated unit, or post-hoc repair.",
       "reader_evidence": false,
       "status": "2 fresh clause pairs, 0 outer seeds, best 84-letter complete prose control failing at offset 0, 0 exact candidates; independent pointer/SHA audits retained"
@@ -6042,7 +6249,9 @@
       "id": "role-seeded-scene-inward-20260920",
       "signature": "role-seeded-scene|endpoint-class-conditioning|global-residual-buffer|fresh-inward-expansion",
       "artifact": "role_seeded_scene_inward_20260920.py",
-      "run_artifacts": ["runs/role-seeded-scene-inward-20260920.json"],
+      "run_artifacts": [
+        "runs/role-seeded-scene-inward-20260920.json"
+      ],
       "distinction": "Chooses fresh semantic roles and endpoint classes before carrying a global residual through inward scene expansion; no control-text reuse, catalogue import, reversal, repeated unit, or post-hoc repair.",
       "reader_evidence": false,
       "status": "1 fresh transition, pruned immediately by endpoint mismatch, 0 surviving states, 0 rendered candidates, 0 exact candidates; precise zero frontier"
@@ -6051,7 +6260,9 @@
       "id": "indexed-role-bank-inward-20260920",
       "signature": "indexed-role-bank|endpoint-compatible-index|inward-residual|global-audit",
       "artifact": "indexed_role_bank_inward_20260920.py",
-      "run_artifacts": ["runs/indexed-role-bank-inward-20260920.json"],
+      "run_artifacts": [
+        "runs/indexed-role-bank-inward-20260920.json"
+      ],
       "distinction": "Indexes fresh role combinations by endpoint compatibility before expanding the full inward residual; distinct from a fixed seed and from post-hoc sentence repair.",
       "reader_evidence": false,
       "status": "2 by 2 fresh role combinations, 0 endpoint-compatible pairs, 0 inward transitions, 0 rendered candidates, 0 exact candidates"
@@ -6060,7 +6271,9 @@
       "id": "reverse-conditioned-semantic-transducer-20260920",
       "signature": "reverse-conditioned-semantic-transducer|online-residual-parse|forward-right-generation|common-english-lexicon",
       "artifact": "reverse_conditioned_semantic_transducer_20260920.py",
-      "run_artifacts": ["runs/reverse-conditioned-semantic-transducer-20260920.json"],
+      "run_artifacts": [
+        "runs/reverse-conditioned-semantic-transducer-20260920.json"
+      ],
       "distinction": "Chooses fresh left semantic scenes, then parses the required reverse stream online into independently generated right-side words with grammar state; no finished-tape reversal, catalogue text, mirrored units, or repair.",
       "reader_evidence": false,
       "status": "3 left scenes, 40-word lexicon, 0 online parses, 0 rendered candidates, 0 exact candidates; precise zero frontier"
@@ -6069,7 +6282,9 @@
       "id": "compositional-terminal-class-center-20260920",
       "signature": "compositional-semantic-frame|terminal-character-class|center-crossing|live-residual",
       "artifact": "compositional_terminal_class_center_20260920.py",
-      "run_artifacts": ["runs/compositional-terminal-class-center-20260920.json"],
+      "run_artifacts": [
+        "runs/compositional-terminal-class-center-20260920.json"
+      ],
       "distinction": "Varies clause length and terminal character classes jointly with semantic frame selection while consuming a live center residual; all combinations prune before rendering and no unit is mirrored or repaired.",
       "reader_evidence": false,
       "status": "3 frames, 3 terminal-class choices, 9 live combinations, all pruned by mismatch, 0 rendered candidates, 0 exact candidates"
@@ -6078,7 +6293,9 @@
       "id": "asynchronous-typed-clause-buffer-dp-20260920",
       "signature": "asynchronous-buffer-scheduler|typed-clause-slots|variable-boundaries|live-residual",
       "artifact": "experiments/asynchronous_typed_clause_buffer_dp_20260920.py",
-      "run_artifacts": ["runs/asynchronous-typed-clause-buffer-dp-20260920.json"],
+      "run_artifacts": [
+        "runs/asynchronous-typed-clause-buffer-dp-20260920.json"
+      ],
       "distinction": "Schedules forward-authored clause expansion by live residual-buffer emptiness, allowing word boundaries to cross asynchronously; distinct from paired-slot products and endpoint-only checks.",
       "reader_evidence": false,
       "status": "9 typed template pairs, 348,335 endpoint-indexed joins, 2,107,452 memoized residual states, 0 exact candidates above 38 letters; grammatical controls retained and next grammar expansion recorded"
@@ -6087,7 +6304,9 @@
       "id": "async-plural-relative-dp-20260920",
       "signature": "asynchronous-buffer-scheduler|plural-agreement|relative-locative-frame|live-residual",
       "artifact": "async_plural_relative_dp_20260920.py",
-      "run_artifacts": ["runs/async-plural-relative-dp-20260920.json"],
+      "run_artifacts": [
+        "runs/async-plural-relative-dp-20260920.json"
+      ],
       "distinction": "Adds plural agreement and a relative/locative grammar frame to the asynchronous live-buffer scheduler; fresh clause sides are generated forward and pruned online, with no reversal or repair.",
       "reader_evidence": false,
       "status": "2 grammar frames, 2 responses, 2 live transitions, both pruned by residual mismatch, 0 rendered candidates, 0 exact candidates"
@@ -6096,7 +6315,9 @@
       "id": "weighted-grammar-automaton-ablation-20260920",
       "signature": "weighted-finite-state-grammar|brown-bank-correction|beam-ablation|online-character-intersection",
       "artifact": "experiments/weighted_grammar_automaton_20260920.py",
-      "run_artifacts": ["runs/weighted-grammar-automaton-ablation-20260920.json"],
+      "run_artifacts": [
+        "runs/weighted-grammar-automaton-ablation-20260920.json"
+      ],
       "distinction": "Ablates beam width after correcting the Brown bank mapper and article gates; complete controls are separated from partial residual fragments, with no finished-tape reversal or reward-driven search.",
       "reader_evidence": false,
       "status": "Beam 180: 6,185 states; beam 1,000: 28,596 states; 0 exact closures in either arm; 12 partial fragments quarantined and two complete controls retained"
@@ -6105,26 +6326,32 @@
       "id": "weighted-brown-relative-beams-20260920",
       "signature": "weighted-brown|finite-relative|complete-clause-gating|beam",
       "artifact": "weighted_brown_relative_beams_20260920.py",
-      "run_artifacts": ["runs/weighted-brown-relative-beams-20260920.json"],
+      "run_artifacts": [
+        "runs/weighted-brown-relative-beams-20260920.json"
+      ],
       "distinction": "Crosses two forward-authored finite who/that relative clauses with two complete matrix-clause tails, using punctuation only as presentation and rejecting incomplete clauses before rendering.",
       "reader_evidence": false,
-      "status": "4 grammatical controls at 61–62 normalized letters, 0 quarantined fragments, 0 exact candidates above 38 letters"
+      "status": "4 grammatical controls at 61\u201362 normalized letters, 0 quarantined fragments, 0 exact candidates above 38 letters"
     },
     {
       "id": "forward-phrase-equation-20260920",
       "signature": "forward-authored-phrase-grammar|online-equation|fresh-scene",
       "artifact": "forward_phrase_equation_20260920.py",
-      "run_artifacts": ["runs/forward-phrase-equation-20260920.json"],
+      "run_artifacts": [
+        "runs/forward-phrase-equation-20260920.json"
+      ],
       "distinction": "Expands independently authored phrase slots while carrying a live residual character equation; it does not reverse a finished tape or repair rendered prose.",
       "reader_evidence": false,
-      "status": "2 left phrases × 2 right phrases, 12 transitions, 10 live mismatches, 0 surviving states, 0 rendered candidates"
+      "status": "2 left phrases \u00d7 2 right phrases, 12 transitions, 10 live mismatches, 0 surviving states, 0 rendered candidates"
     },
     {
       "id": "agreement-valency-wfsa-decoder-20260924",
       "signature": "agreement-valency-wfsa|clause-finality|immediate-character-intersection",
       "artifact": "experiments/agreement_valency_wfsa_decoder_20260924.py",
-      "run_artifacts": ["runs/agreement-valency-wfsa-decoder-20260924.json"],
-      "distinction": "Intersects immediate character obligations with clause-final subject–verb agreement and transitivity states over fresh Brown-derived domains; incomplete clauses never close.",
+      "run_artifacts": [
+        "runs/agreement-valency-wfsa-decoder-20260924.json"
+      ],
+      "distinction": "Intersects immediate character obligations with clause-final subject\u2013verb agreement and transitivity states over fresh Brown-derived domains; incomplete clauses never close.",
       "reader_evidence": false,
       "status": "40-letter gate, 0 exact closures, 0 reader-worthy rows; next step adds tense/aspect and semantic role classes"
     },
@@ -6132,10 +6359,23 @@
       "id": "fresh-heteropalindrome-seam-search-20260920",
       "signature": "fresh-complete-clause|cross-word-seam|heteropalindrome|held-out-anchor",
       "artifact": "fresh_heteropalindrome_seam_search_20260920.py",
-      "run_artifacts": ["runs/fresh-heteropalindrome-seam-search-20260920.json"],
+      "run_artifacts": [
+        "runs/fresh-heteropalindrome-seam-search-20260920.json"
+      ],
       "distinction": "Enumerates independently authored complete clauses and checks their exposed cross-word seam characters without emitting a reversed tape, reusing the anchor, or repairing a rendered sentence.",
       "reader_evidence": false,
       "status": "16 fresh complete-clause controls, best 76 normalized letters, 0 exact closures; held-out 38-letter anchor not emitted"
+    },
+    {
+      "id": "synchronous-clause-relative-transducer-20260920",
+      "signature": "synchronous-clause-composition|optional-object-relative|shared-attachment-transducer",
+      "artifact": "experiments/synchronous_clause_relative_transducer_20260920.py",
+      "run_artifacts": [
+        "runs/synchronous-clause-relative-transducer-20260920.json"
+      ],
+      "distinction": "Pairs complete scene CFG derivations as one lockstep transducer, adding an object-relative nonterminal and one shared attachment state across both sides before terminal characters are consumed. Unlike prior relative CFG lanes that independently enumerate relative slots, this lane never materializes an opposite clause or joins post-hoc buffers; no repair, mirrored units, catalogue replay, or fragments.",
+      "reader_evidence": false,
+      "status": "6 scene pairs, 36 synchronous states, 36 seam prunes, 9 intact relative-clause diagnostics to 127 letters, 0 exact candidates above 38; independent pointer/SHA audits retained; next is a lockstep temporal adjunct operator"
     }
   ],
   "excluded": [
@@ -10909,10 +11149,13 @@
       "id": "seed-centered-context-growth-20260918",
       "signature": "seed-centered-context|semantic-scene-growth|mutable-word-boundaries|pre-render-equation",
       "artifact": "experiments/seed_centered_context_growth_20260918.py",
-      "run_artifacts": ["runs/seed-centered-context-growth-20260918.json", "artifacts/seed-centered-context-growth-20260918.json"],
+      "run_artifacts": [
+        "runs/seed-centered-context-growth-20260918.json",
+        "artifacts/seed-centered-context-growth-20260918.json"
+      ],
       "distinction": "Fresh authored scene context grows around a withheld 38-letter benchmark while separately solving a reverse-facing grammatical suffix across mutable word boundaries; no seed output, finished-tape reversal, catalogue text, or self-palindromic module.",
       "reader_evidence": false,
-      "status": "0 equation-compatible nodes and 0 exact closures; fresh intact controls 89–94 letters with independent pointer/hash audits; reader gate closed; next repair adds semantic adjunct and tense variants at both mutable boundaries"
+      "status": "0 equation-compatible nodes and 0 exact closures; fresh intact controls 89\u201394 letters with independent pointer/hash audits; reader gate closed; next repair adds semantic adjunct and tense variants at both mutable boundaries"
     },
     {
       "id": "dream-rsi-round115-20260918",
@@ -10940,7 +11183,10 @@
       "id": "seed-adjunct-tense-variation-20260918",
       "signature": "seed-centered-context|semantic-adjunct-tense|mutable-boundaries|pre-render-equation",
       "artifact": "experiments/seed_adjunct_tense_variation_20260918.py",
-      "run_artifacts": ["runs/seed-adjunct-tense-variation-20260918.json", "artifacts/seed-adjunct-tense-variation-20260918.json"],
+      "run_artifacts": [
+        "runs/seed-adjunct-tense-variation-20260918.json",
+        "artifacts/seed-adjunct-tense-variation-20260918.json"
+      ],
       "distinction": "Fresh authored clauses carry semantic adjunct, tense, number, and valency state at both mutable boundaries; the 38-letter seed is withheld and no finished tape is reversed.",
       "reader_evidence": false,
       "status": "256 feature-valid combinations, 0 equation-compatible nodes, 0 exact closures; controls independently pointer/hash audited and human-unreviewed; next repair is object-selection plus adjunct-agreement transitions"
@@ -10949,7 +11195,9 @@
       "id": "hst-char-grammar-beam-20260919",
       "signature": "character-level-grammar-beam|two-sided-obligation|typed-role-slots",
       "artifact": "experiments/hst_char_grammar_beam_20260919.py",
-      "run_artifacts": ["runs/hst-char-grammar-beam-20260919.json"],
+      "run_artifacts": [
+        "runs/hst-char-grammar-beam-20260919.json"
+      ],
       "distinction": "Keeps character-level grammar, word-boundary, and semantic-role state in a bounded two-sided beam over fresh clauses; fixed lexical proposal scores only, no per-candidate RLAIF or finished-tape repair.",
       "reader_evidence": false,
       "status": "3,010 bounded expansions over 38/39/40/42/45-letter targets; zero exact closures; retained as a character-level beam discriminator"
@@ -10958,7 +11206,9 @@
       "id": "hst-asymmetric-clause-growth-20260919",
       "signature": "asymmetric-left-six-right-four|boundary-indexed-growth|fresh-authored-inventory",
       "artifact": "experiments/hst_asymmetric_clause_growth_20260919.py",
-      "run_artifacts": ["runs/hst-asymmetric-clause-growth-20260919.json"],
+      "run_artifacts": [
+        "runs/hst-asymmetric-clause-growth-20260919.json"
+      ],
       "distinction": "Tests an asymmetric six-slot left clause against a four-slot right clause with every placement checked against mirrored obligations before rendering; explicitly withholds the 38-letter tape.",
       "reader_evidence": false,
       "status": "150,719 indexed growth nodes and 1,868 terminal grammar leaves; zero exact closures; concrete evidence for expanding boundary-indexed outer slots"
@@ -10967,16 +11217,20 @@
       "id": "hst-boundary-clause-growth-20260919",
       "signature": "boundary-character-indexed-typed-clause-growth|live-two-sided-obligation|fresh-slot-inventory",
       "artifact": "experiments/hst_boundary_clause_growth_20260919.py",
-      "run_artifacts": ["runs/hst-boundary-clause-growth-20260919.json"],
+      "run_artifacts": [
+        "runs/hst-boundary-clause-growth-20260919.json"
+      ],
       "distinction": "Places each lexical choice at its real tape offset and rejects character conflicts before the next slot is opened; fresh subject/verb/number/object/name/adjunct inventory with no finished-tape reversal.",
       "reader_evidence": false,
-      "status": "66,967 bounded nodes and 23,668 terminal leaves across 40–70 letters; zero exact closures; retained as the boundary-indexed next construction discriminator"
+      "status": "66,967 bounded nodes and 23,668 terminal leaves across 40\u201370 letters; zero exact closures; retained as the boundary-indexed next construction discriminator"
     },
     {
       "id": "live-clause-pair-dfs-20260920",
       "signature": "paired-slot-character-obligation|fresh-svo-modifier-clauses|agreement-valid",
       "artifact": "experiments/live_clause_pair_dfs_20260920.py",
-      "run_artifacts": ["runs/live-clause-pair-dfs-20260920.json"],
+      "run_artifacts": [
+        "runs/live-clause-pair-dfs-20260920.json"
+      ],
       "distinction": "Generates both ordinary-order clauses from grammatical slots while carrying a live outer-character obligation and overhang between slots; no finished-tape repair or catalogue scaffold.",
       "reader_evidence": false,
       "status": "Long-form SVO+double-modifier lattice visited 26 live states with 0 exact closures above 38 letters; short-form calibration independently re-found the 38-letter readable bootstrap with pointer and SHA audits; next discriminator expands boundary-indexed outer slots"
@@ -10985,7 +11239,9 @@
       "id": "synchronous-grammar-product-20260919",
       "signature": "typed-clause-trie-intersection|forward-reverse-character-obligation|complete-parse",
       "artifact": "experiments/synchronous_grammar_product_20260919.py",
-      "run_artifacts": ["artifacts/synchronous-grammar-product-20260919.json"],
+      "run_artifacts": [
+        "artifacts/synchronous-grammar-product-20260919.json"
+      ],
       "distinction": "Intersects independently authored transitive, copular, and locative clauses in forward and reverse character tries while retaining complete grammar parses; no rendered-tape repair, anchor wrapping, repeated unit, word-order mirror, or catalogue text.",
       "reader_evidence": false,
       "status": "2,116 utterances and 12 live states; the near-an-arena realization extends the endpoint orbit to aneranar before an r/a conflict, while anerae still conflicts at n/h and th at e/g; zero exact closures; endpoint family exhausted and next construction pivots to a phrase-boundary finite-state grammar"
@@ -10994,7 +11250,9 @@
       "id": "morpheme-scene-composition-20260919",
       "signature": "authored-morpheme-scene|productive-inflection|residual-seam|shakespeare-cadence",
       "artifact": "experiments/morpheme_scene_composition_20260919.py",
-      "run_artifacts": ["runs/morpheme-scene-composition-20260919.json"],
+      "run_artifacts": [
+        "runs/morpheme-scene-composition-20260919.json"
+      ],
       "distinction": "Composes two ordinary-order Shakespearean scene clauses from stems plus productive inflectional morphemes; residual mirrored character obligations are checked live across morpheme boundaries, without catalogue text, word-order symmetry, repeated units, or finished-tape reversal.",
       "reader_evidence": false,
       "status": "32 scene plans, 6,144 bounded pairs, 0 exact/admissible closures; longest audited candidate 45 letters; controls independently pointer/hash audited; next repair adds object/adjunct seam variants and asymmetric tense agreement"
@@ -11117,7 +11375,7 @@
       ],
       "distinction": "Intersects fresh semordnilap token pairs while instantiating typed VNN/NVN/AVN templates from the first character; exact closure is constructive rather than a repair of an off-tape sentence.",
       "reader_evidence": false,
-      "status": "20 exact closures at 26–36 letters; all failed the intact-prose gate as lexical word salads; next construction adds agreement-safe clause frames"
+      "status": "20 exact closures at 26\u201336 letters; all failed the intact-prose gate as lexical word salads; next construction adds agreement-safe clause frames"
     },
     {
       "id": "semordnilap-agreement-clause-20260930",
@@ -11164,7 +11422,7 @@
       ],
       "distinction": "Tests phrase-level opposing segmentation under an exact character obligation instead of aligned semordnilap tokens. The prototype is retained only as a failure record because its greedy fallback emitted single-letter pseudo-words; the next version requires a full lexical and grammatical parse.",
       "reader_evidence": false,
-      "status": "The initial 3 exact 62–64-letter rows were rejected as single-letter gibberish. The strict held-out lexical/scene parser now admits 0 candidates and 0 exact closures; no reader candidate"
+      "status": "The initial 3 exact 62\u201364-letter rows were rejected as single-letter gibberish. The strict held-out lexical/scene parser now admits 0 candidates and 0 exact closures; no reader candidate"
     },
     {
       "id": "cross-boundary-morphology-dp-20260919",
@@ -11208,7 +11466,7 @@
       ],
       "distinction": "Selects independent words for the outer grammar slots and carries unequal prefix/suffix buffers so mirrored obligations can cross word boundaries before the sentence is complete. It does not pair clauses, reverse finished text, or compare aligned whole tokens.",
       "reader_evidence": false,
-      "status": "230 live states (220 pruned) with 1,275 subject and 609 verb word→Penn-feature mappings carried through recursion; no agreement-conflict frontier was reached (agreement_pruned=0) and 0 exact closures; next construction expands feature-conditioned banks and inner states"
+      "status": "230 live states (220 pruned) with 1,275 subject and 609 verb word\u2192Penn-feature mappings carried through recursion; no agreement-conflict frontier was reached (agreement_pruned=0) and 0 exact closures; next construction expands feature-conditioned banks and inner states"
     },
     {
       "id": "penn-feature-slot-product-20260919",
@@ -11259,7 +11517,9 @@
       "id": "synchronous-cfg-intersection-20260919",
       "signature": "whole-grammar|synchronous-character-intersection|det-noun-verb-det-noun-adp-noun",
       "artifact": "experiments/synchronous_cfg_intersection_20260919.py",
-      "run_artifacts": ["runs/synchronous-cfg-intersection-20260919.json"],
+      "run_artifacts": [
+        "runs/synchronous-cfg-intersection-20260919.json"
+      ],
       "distinction": "Generates both outer sides from one seven-role grammatical frame and compares newly exposed character orbits online; no finished-tape reversal, repair, or word-order mirror.",
       "reader_evidence": false,
       "status": "101 complete Brown frame paths produced 8613 synchronous states; all were pruned at live character obligations, with 0 exact closures and no rendered candidate; unequal word lengths use an explicit residual-consumption invariant"
@@ -11425,7 +11685,7 @@
       "run_artifacts": [
         "runs/dual-relative-valency-orbit-20260920.json"
       ],
-      "distinction": "Uses two distinct relative attachment sites—main subject and subordinate object—with explicit valency labels, agreement/tense state, held-out subordinate lexicalizations, and live seam residuals. No finished-tape reversal, token mirror, catalogue replay, or post-hoc repair is used.",
+      "distinction": "Uses two distinct relative attachment sites\u2014main subject and subordinate object\u2014with explicit valency labels, agreement/tense state, held-out subordinate lexicalizations, and live seam residuals. No finished-tape reversal, token mirror, catalogue replay, or post-hoc repair is used.",
       "reader_evidence": false,
       "status": "9 reachable states and 9 character-seam prunes, with 0 feature conflicts, 0 orbit steps, and 0 exact closures. Next construction attaches a relative clause to the bridge conjunction with explicit complement selection."
     },
@@ -11546,9 +11806,9 @@
       "run_artifacts": [
         "runs/recursive-clause-series-grammar-20260920.json"
       ],
-      "distinction": "Recursively composes complete subject–predicate clauses with typed conjunctions at bounded depth, seeding compatible exposed character classes and consuming residual debt after every complete phrase. No finished-tape reversal, token mirror, catalogue replay, or post-hoc repair is used.",
+      "distinction": "Recursively composes complete subject\u2013predicate clauses with typed conjunctions at bounded depth, seeding compatible exposed character classes and consuming residual debt after every complete phrase. No finished-tape reversal, token mirror, catalogue replay, or post-hoc repair is used.",
       "reader_evidence": false,
-      "status": "Depths 1–3 produced 90 compatible boundary seeds; 180,000 states and 1,128,405 residual rejections yielded 0 exact candidates above 38 letters. Punctuated complete clause-series controls were independently audited. The recursive family is stopped pending a typed relative nonterminal."
+      "status": "Depths 1\u20133 produced 90 compatible boundary seeds; 180,000 states and 1,128,405 residual rejections yielded 0 exact candidates above 38 letters. Punctuated complete clause-series controls were independently audited. The recursive family is stopped pending a typed relative nonterminal."
     },
     {
       "id": "recursive-series-typed-relative-20260920",
@@ -11988,7 +12248,7 @@
       ],
       "distinction": "Uses the successful 38-letter slot geometry only as calibration, then generates fresh authored phrase banks and complete left/right frames with valency/agreement before reverse-character DP. The seed is never generated or wrapped; no repair, reversal, token mirroring, catalogue replay, or fragments are used.",
       "reader_evidence": false,
-      "status": "4,608 fresh frames and 13,824 DP states in the 40–100-letter target; 0 complete reverse parses and 0 fresh exact candidates; independent 38/40/44-letter audits; reader gate closed"
+      "status": "4,608 fresh frames and 13,824 DP states in the 40\u2013100-letter target; 0 complete reverse parses and 0 fresh exact candidates; independent 38/40/44-letter audits; reader gate closed"
     },
     {
       "id": "packed-cfg-earley-intersection-20260920",
@@ -12511,7 +12771,9 @@
       "id": "multiconstituent-orbit-20260920",
       "signature": "simultaneous-authored-multiword-constituents|shared-live-character-obligation|independent-two-pointer-sha-audit",
       "artifact": "experiments/multiconstituent_orbit_20260920.py",
-      "run_artifacts": ["runs/multiconstituent-orbit-20260920.json"],
+      "run_artifacts": [
+        "runs/multiconstituent-orbit-20260920.json"
+      ],
       "distinction": "Selects independently authored subject, predicate, object, PP, relative, and coordination constituents on both sides simultaneously while consuming a shared character obligation. It does not reverse a completed clause, wrap the known seed, repair near misses, mirror token units, or admit catalogue text.",
       "reader_evidence": false,
       "status": "168 live states, 0 exact closures above 38 letters; six intact prose controls and independent two-pointer/SHA audits retained; reader gate closed; next construction is a held-out authored constituent expansion"
@@ -12520,7 +12782,9 @@
       "id": "centerout-cfg-frontier-20260920",
       "signature": "center-out-cfg-frontier|alternating-nonterminal-expansion|single-parse-tree|live-character-orbit",
       "artifact": "experiments/centerout_cfg_frontier_20260920.py",
-      "run_artifacts": ["runs/centerout-cfg-frontier-20260920.json"],
+      "run_artifacts": [
+        "runs/centerout-cfg-frontier-20260920.json"
+      ],
       "distinction": "Grows one ordinary-order CFG parse tree from a selected center terminal, alternating left and right nonterminal-frontier expansion while comparing exposed characters. It is not a clause-pair product, endpoint sweep, finished-tape reversal, or repair pass.",
       "reader_evidence": false,
       "status": "259 live states, 73 pruned states, 22 rendered contemporary controls, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12535,12 +12799,14 @@
       "distinction": "Expands paired grammar slots while unknown positions remain holes and prunes character contradictions before completing a tree; no finished-tree reversal, repair, mirrored units, or catalogue text is admitted.",
       "reader_evidence": false,
       "status": "144 live obligation checks, 144 early conflicts, 0 finished candidates, 0 exact candidates above 38 letters; next discriminator is an obligation-aware lexical endpoint index plus relative constituents"
-    }
-    ,{
+    },
+    {
       "id": "two-clause-character-csp-20260920",
       "signature": "outside-in-typed-two-clause-csp|live-character-obligations|optional-pp-relative-grammar",
       "artifact": "experiments/two_clause_character_csp_20260920.py",
-      "run_artifacts": ["runs/two-clause-character-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/two-clause-character-csp-20260920.json"
+      ],
       "distinction": "Selects words from independent typed two-clause derivations while consuming exposed character obligations online; includes optional PP and relative structures and is neither seed-conditioned, reverse-parsed, endpoint-indexed, nor repair-based.",
       "reader_evidence": false,
       "status": "2,464 live states, 3,768 pruned states, 2 authored controls, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12549,7 +12815,9 @@
       "id": "cross-role-clause-csp-20260920",
       "signature": "cross-role-typed-clause-csp|online-residual-consumption|role-crossing",
       "artifact": "experiments/cross_role_clause_csp_20260920.py",
-      "run_artifacts": ["runs/cross-role-clause-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/cross-role-clause-csp-20260920.json"
+      ],
       "distinction": "Selects complete contemporary SVO, PP, quantity, and ditransitive clauses on both sides while crossing grammatical endpoint roles and consuming residual character obligations online; no finished-tape reversal, repair, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "25 typed shape pairs, 1,768 live states, 17,885 pruned obligations, 6 intact controls, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12558,7 +12826,9 @@
       "id": "obligation-relative-csp-20260920",
       "signature": "obligation-index|typed-relative-subject-object|live-character-csp",
       "artifact": "experiments/obligation_relative_csp_20260920.py",
-      "run_artifacts": ["runs/obligation-relative-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/obligation-relative-csp-20260920.json"
+      ],
       "distinction": "Queries independently typed subject/object relative constituents while carrying exposed character obligations; no finished-tape reversal, post-hoc repair, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "59 endpoint keys, 9 live states, 2,460 pruned states, 3 authored controls, and 0 exact candidates above 38 letters; independent mismatch/SHA audits retained; reader gate closed"
@@ -12567,7 +12837,9 @@
       "id": "char-cfg-ngram-intersection-20260920",
       "signature": "live-character-cfg|word-bigram-frontier-order|recursive-pp-relative",
       "artifact": "experiments/char_cfg_ngram_intersection_20260920.py",
-      "run_artifacts": ["runs/char-cfg-ngram-intersection-20260920.json"],
+      "run_artifacts": [
+        "runs/char-cfg-ngram-intersection-20260920.json"
+      ],
       "distinction": "Grows independent CFG slot derivations one word at a time while consuming the exposed character obligation immediately; a word bigram prior orders the bounded frontier but cannot admit, reject, repair, or certify a state. Includes PP and relative plans with authored contemporary-English controls.",
       "reader_evidence": false,
       "status": "9,244 bounded live states, 9,192 pruned obligations, 4 intact controls (maximum 41 letters), 0 completed exact candidates above 38 letters; independent mismatch/SHA audits retained; reader gate closed"
@@ -12576,7 +12848,9 @@
       "id": "semantic-frame-product-20260926",
       "signature": "live-character-semantic-frame-product|valency-agreement|paired-argument-frames",
       "artifact": "experiments/semantic_frame_product_20260926.py",
-      "run_artifacts": ["runs/semantic-frame-product-20260926.json"],
+      "run_artifacts": [
+        "runs/semantic-frame-product-20260926.json"
+      ],
       "distinction": "Pairs independent contemporary transitive/intransitive argument frames with agreement, valency, object, and optional PP structure while checking exposed character obligations during construction; no repair, finished-tape reversal, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "132,634 paired products, 141,966 live opposite-end character comparisons, 132,634 pruned products, 0 fresh exact candidates above 38 letters; 38-letter seed retained only as generated:false calibration; independent pointer/SHA audits retained; reader gate closed"
@@ -12585,7 +12859,9 @@
       "id": "frame-yield-endpoint-buckets-20260926",
       "signature": "frame-yield-endpoint-classes|live-obligation-buckets|agreement-valency",
       "artifact": "experiments/frame_yield_endpoint_buckets_20260926.py",
-      "run_artifacts": ["runs/frame-yield-endpoint-buckets-20260926.json"],
+      "run_artifacts": [
+        "runs/frame-yield-endpoint-buckets-20260926.json"
+      ],
       "distinction": "Indexes semantic argument-frame yields by endpoint character classes plus agreement number and valency, then queries opposite buckets while live character obligations are consumed; distinct from lexical phrase envelopes and clause endpoint sweeps. No repair, finished-tape reversal, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "36 endpoint buckets, 540 bounded live bucket probes, one intact contemporary control, and 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12594,7 +12870,9 @@
       "id": "role-attachment-endpoint-product-20260926",
       "signature": "recipient-theme-locative-attachment|endpoint-bucket-state|live-character-matching",
       "artifact": "experiments/role_attachment_endpoint_product_20260926.py",
-      "run_artifacts": ["runs/role-attachment-endpoint-product-20260926.json"],
+      "run_artifacts": [
+        "runs/role-attachment-endpoint-product-20260926.json"
+      ],
       "distinction": "Adds typed ditransitive recipient/theme and locative attachment features to endpoint bucket keys and states before live opposite-character matching; distinct from SVO/PP sweeps. No repair, finished-tape reversal, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "58 endpoint buckets, 972 bounded probes, one intact ditransitive control, and 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12603,7 +12881,9 @@
       "id": "compositional-non-nested-20260920",
       "signature": "independent-beat-composition|non-nested-spans|live-component-obligations",
       "artifact": "experiments/compositional_non_nested_20260920.py",
-      "run_artifacts": ["runs/compositional-non-nested-20260920.json"],
+      "run_artifacts": [
+        "runs/compositional-non-nested-20260920.json"
+      ],
       "distinction": "Composes independent subject, predicate, and adjunct beats while consuming opposite-end character obligations online; no nested palindrome spans, finished-tape reversal, repair, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "14,400 bounded component pairs, all pruned at live mismatch, one intact diagnostic near-miss, and 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12612,7 +12892,9 @@
       "id": "live-context-infilling-20260920",
       "signature": "live-prefix-suffix-infilling|residual-side|contextual-continuations",
       "artifact": "experiments/live_context_infilling_20260920.py",
-      "run_artifacts": ["runs/live-context-infilling-20260920.json"],
+      "run_artifacts": [
+        "runs/live-context-infilling-20260920.json"
+      ],
       "distinction": "Grows left words by appending and right words by prepending in ordinary order, carrying an unmatched residual and consuming newly exposed characters immediately; distinct from fixed CFG products and n-gram ranking. No repair, finished-tape reversal, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "CORRECTED: complete opening/final lexical words are consumed at initialization, retaining residuals (the prior one-character initialization and deepest traces are withdrawn). Corrected run: 16 starts, 32-state beam, 12 rounds, 0 final live states, 32 initialization/character conflicts, 32 one-sided-stall rejections, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; next method must add residual-indexed paired continuations before relaxing the stall gate"
@@ -12621,7 +12903,9 @@
       "id": "inflectional-clitic-boundary-csp-20260920",
       "signature": "inflectional-clitic-boundary|agreement-carrying|live-opposite-end-obligation",
       "artifact": "experiments/inflectional_clitic_boundary_csp_20260920.py",
-      "run_artifacts": ["runs/inflectional-clitic-boundary-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/inflectional-clitic-boundary-csp-20260920.json"
+      ],
       "distinction": "Carries inflectional and clitic boundary choices while consuming opposite-end character obligations online; no finished-tape reversal, post-hoc repair, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "3 live states, 75 pruned obligations, 3 authored intact controls, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12630,7 +12914,9 @@
       "id": "edge-lexical-compatibility-20260920",
       "signature": "whole-edge-lexical-compatibility|live-residual-growth",
       "artifact": "experiments/edge_lexical_compatibility_20260920.py",
-      "run_artifacts": ["runs/edge-lexical-compatibility-20260920.json"],
+      "run_artifacts": [
+        "runs/edge-lexical-compatibility-20260920.json"
+      ],
       "distinction": "Selects complete natural opening and closing phrases jointly by their exposed character streams before bounded clause growth, retaining full residual obligations; distinct from endpoint buckets and fixed CFG products. No repair, finished-tape reversal, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "33-by-33 edge phrase pairings, 1 compatible calibration pair, full residual 'emos' retained, 144 bounded continuation mismatches, and 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12639,7 +12925,9 @@
       "id": "scene-statement-lattice-20260920",
       "signature": "semantic-beat-lattice|paired-realization|online-outer-letter-obligation",
       "artifact": "experiments/scene_statement_lattice_20260920.py",
-      "run_artifacts": ["runs/scene-statement-lattice-20260920.json"],
+      "run_artifacts": [
+        "runs/scene-statement-lattice-20260920.json"
+      ],
       "distinction": "Uses four fresh human-authored semantic beats with three natural syntactic realizations each; left/right realizations are paired online while outer character obligations are consumed before advancing inward. No catalogue text, repeated controls, finished-tape reversal, mirrored token units, or post-hoc repair.",
       "reader_evidence": false,
       "status": "6,561 paired realization states, all rejected at live outer-letter debt, 0 exact candidates above 38 letters; independent pointer/SHA audits and exact rendered near-misses retained; next repair targets the recorded first debt with one new realization per beat"
@@ -12648,7 +12936,9 @@
       "id": "residual-indexed-phrase-trie-20260920",
       "signature": "residual-indexed-reverse-phrase-trie|independent-grammar-continuations|live-character-debt",
       "artifact": "residual_indexed_phrase_trie_20260920.py",
-      "run_artifacts": ["runs/residual-indexed-phrase-trie-20260920.json"],
+      "run_artifacts": [
+        "runs/residual-indexed-phrase-trie-20260920.json"
+      ],
       "distinction": "Indexes natural opening NPs and terminal phrases by the live residual obligation, then grows independent typed middle clauses; it does not reverse a finished tape, repair a near miss, mirror token units, or import catalogue text.",
       "reader_evidence": false,
       "status": "211 trie nodes, 2,392 bounded walks, 120 complete prose near-misses to 66 letters, 0 fresh exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12657,7 +12947,9 @@
       "id": "language-first-heteropalindrome-20260920",
       "signature": "language-first-heteropalindrome|independent-clause-lattice|outer-equation-prefix",
       "artifact": "language_first_heteropalindrome_20260920.py",
-      "run_artifacts": ["runs/language-first-heteropalindrome-20260920.json"],
+      "run_artifacts": [
+        "runs/language-first-heteropalindrome-20260920.json"
+      ],
       "distinction": "Pairs independently authored complete clauses with a live outer-character equation and preserves ordinary prose before closure; it is distinct from trie products and rejects finished-tape reversal, repairs, mirrored units, repeated units, and catalogue text.",
       "reader_evidence": false,
       "status": "46,656 clause-lattice renderings, strongest complete near-miss 133 letters, first residual conflict at character 1, 0 fresh exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12666,7 +12958,9 @@
       "id": "mixed-clause-modes-20260920",
       "signature": "mixed-speech-act-clause-modes|agreement-attachment-tense-state|online-character-pairing",
       "artifact": "experiments/mixed_clause_modes_20260920.py",
-      "run_artifacts": ["runs/mixed-clause-modes-20260920.json"],
+      "run_artifacts": [
+        "runs/mixed-clause-modes-20260920.json"
+      ],
       "distinction": "Pairs independently authored declarative, imperative, question, copular, and short dialogue clauses while carrying agreement, attachment, and tense metadata through an online two-ended character comparison; no reversal, catalogue text, mirrored units, fragments, or repair.",
       "reader_evidence": false,
       "status": "56 mixed-mode complete clause pairs, longest 105 letters, 0 fresh exact candidates above 38 letters; independent two-pointer/SHA audits retained; next construction adds subordinate and reported-speech variants"
@@ -12675,7 +12969,9 @@
       "id": "boundary-conditioned-lexical-lattice-20260920",
       "signature": "boundary-conditioned-lexical-lattice|2-4-letter-classes|semantic-attachment-states|independent-middle",
       "artifact": "boundary_conditioned_lexical_lattice_20260920.py",
-      "run_artifacts": ["runs/boundary-conditioned-lexical-lattice-20260920.json"],
+      "run_artifacts": [
+        "runs/boundary-conditioned-lexical-lattice-20260920.json"
+      ],
       "distinction": "Indexes 2-4 letter opening classes and semantic attachment states while selecting independent grammatical middles; distinct from whole-edge residuals, mixed speech-act pairs, and lexical graph walks. No repair, finished-tape reversal, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "1,000 complete prose lattice walks, longest 67 letters, strongest boundary prefix 2 letters, 0 fresh exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12684,7 +12980,9 @@
       "id": "novel-wordgraph-clause-intersection-20260920",
       "signature": "weighted-bigram-graph|typed-valency-walk|memoized-two-ended-intersection",
       "artifact": "novel_wordgraph_clause_intersection_20260920.py",
-      "run_artifacts": ["runs/novel-wordgraph-clause-intersection-20260920.json"],
+      "run_artifacts": [
+        "runs/novel-wordgraph-clause-intersection-20260920.json"
+      ],
       "distinction": "Generates independent typed valency walks from a weighted lexical graph and memoizes clause-level character obligations; the complete rendered sentence is separately audited for admission. No repair, finished-tape reversal, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "5,376 independent walks, 992 rendered candidates, longest 61 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; clause intersection remains a diagnostic rather than a palindrome certificate"
@@ -12693,7 +12991,9 @@
       "id": "corpus-phrase-pair-dp-20260920",
       "signature": "corpus-phrase-pair-dp|forward-realization|outer-obligation|contemporary-prose",
       "artifact": "corpus_phrase_pair_dp_20260920.py",
-      "run_artifacts": ["runs/corpus-phrase-pair-dp-20260920.json"],
+      "run_artifacts": [
+        "runs/corpus-phrase-pair-dp-20260920.json"
+      ],
       "distinction": "Assembles two independently authored contemporary-English sides left-to-right in a paired dynamic program and ranks live outer agreement before rendering; distinct from residual tries and boundary-class lattices. No repair, finished-tape reversal, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "2,832 synchronized transitions, 160 retained complete-prose candidates, longest 90 letters (best displayed control 87), 0 fresh exact candidates above 38 letters; independent pointer/SHA audits retained; next method expands phrase banks by outer-letter class"
@@ -12702,7 +13002,9 @@
       "id": "outer-class-conditioned-grammar-20260920",
       "signature": "outer-class-conditioned-grammar-20260920|two-letter-endpoint-index|forward-grammar-product",
       "artifact": "outer_class_conditioned_grammar_20260920.py",
-      "run_artifacts": ["runs/outer-class-conditioned-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/outer-class-conditioned-grammar-20260920.json"
+      ],
       "distinction": "Matches the whole sentence's two-letter left prefix class to the reversed right suffix class before expanding a forward SVO-by-clause grammar product; distinct from internal boundary classes and paired phrase DP. No repair, finished-tape reversal, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "30 endpoint-compatible complete prose candidates, longest 64 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12711,7 +13013,9 @@
       "id": "manual-bilateral-author-20260920",
       "signature": "manual-bilateral-author-20260920|independent-scene-clause-banks|full-tape-audit",
       "artifact": "manual_bilateral_author_20260920.py",
-      "run_artifacts": ["runs/manual-bilateral-author-20260920.json"],
+      "run_artifacts": [
+        "runs/manual-bilateral-author-20260920.json"
+      ],
       "distinction": "Crosses two independently authored banks of complete forward scene clauses before rendering; distinct from endpoint-indexed grammar and corpus phrase DP. No repair, finished-tape reversal, mirrored units, repeated units, or catalogue borrowing.",
       "reader_evidence": false,
       "status": "252 by 252 clause banks, 63,504 rendered candidates, longest 120 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12720,7 +13024,9 @@
       "id": "endpoint-conditioned-clause-author-20260920",
       "signature": "endpoint-conditioned-clause-author-20260920|top-level-prefix-suffix-pruning|forward-interiors",
       "artifact": "endpoint_conditioned_clause_author_20260920.py",
-      "run_artifacts": ["runs/endpoint-conditioned-clause-author-20260920.json"],
+      "run_artifacts": [
+        "runs/endpoint-conditioned-clause-author-20260920.json"
+      ],
       "distinction": "Applies a top-level endpoint equation before expanding independent clause interiors; distinct from full bilateral cross-products and two-letter endpoint grammar. No repair, finished-tape reversal, mirrored units, repeated units, or catalogue borrowing.",
       "reader_evidence": false,
       "status": "216 by 216 fresh clauses, 2,592 endpoint-compatible complete prose candidates, longest 108 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12729,7 +13035,9 @@
       "id": "synchronized-interior-csp-20260920",
       "signature": "synchronized-interior-csp-20260920|endpoint-width-1|four-role-slot-csp",
       "artifact": "synchronized_interior_csp_20260920.py",
-      "run_artifacts": ["runs/synchronized-interior-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/synchronized-interior-csp-20260920.json"
+      ],
       "distinction": "Synchronizes four grammatical roles after a one-letter endpoint filter; its interior_width is explicitly zero until a real character equation is added. Repeated-content rows are flagged and excluded; no repair, reversal, catalogue borrowing, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "8,192 complete prose renders, 3,872 repeated-content rows quarantined, longest disjoint-content control 104 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12738,7 +13046,9 @@
       "id": "width2-bilateral-csp-20260920",
       "signature": "width2-bilateral-csp-20260920|two-character-endpoint-equation|disjoint-forward-banks",
       "artifact": "width2_bilateral_csp_20260920.py",
-      "run_artifacts": ["runs/width2-bilateral-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/width2-bilateral-csp-20260920.json"
+      ],
       "distinction": "Applies a genuine two-character endpoint equation after a one-character filter over fresh disjoint forward clause banks; distinct from role-only synchronization and one-letter endpoint pruning. No repair, reversal, catalogue borrowing, mirrored units, or repeated units.",
       "reader_evidence": false,
       "status": "4,374 width-1 survivors, 1,458 width-2 survivors, longest 104 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12747,7 +13057,9 @@
       "id": "width3-fresh-endpoint-20260920",
       "signature": "width3-fresh-endpoint-20260920|incremental-endpoint-equation|fresh-ordinary-banks",
       "artifact": "width3_fresh_endpoint_20260920.py",
-      "run_artifacts": ["runs/width3-fresh-endpoint-20260920.json"],
+      "run_artifacts": [
+        "runs/width3-fresh-endpoint-20260920.json"
+      ],
       "distinction": "Varies a third endpoint character class after width-one and width-two filtering over fresh forward clause banks; distinct from preselected endpoint classes and width-two banks. No repair, reversal, catalogue text, mirrored units, or repeated units.",
       "reader_evidence": false,
       "status": "729 width-1 survivors, 729 width-2 survivors, 243 width-3 survivors, longest 84 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12756,7 +13068,9 @@
       "id": "width3-interior-boundary-csp-20260920",
       "signature": "width3-interior-boundary-csp-20260920|endpoint-width-3|verb-boundary-equation|disjoint-banks",
       "artifact": "width3_interior_boundary_csp_20260920.py",
-      "run_artifacts": ["runs/width3-interior-boundary-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/width3-interior-boundary-csp-20260920.json"
+      ],
       "distinction": "Carries a varied width-three endpoint class into real verb-boundary and object/tail onset character equations over fresh disjoint forward clause banks; distinct from endpoint-only widths. No repair, reversal, catalogue borrowing, mirrored units, repeated units, or fragments.",
       "reader_evidence": false,
       "status": "12,288 width-1 survivors, 3,072 width-3 survivors, 128 two-equation survivors, longest 77 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12765,7 +13079,9 @@
       "id": "scope-conditioned-event-frames-20260920",
       "signature": "scope-conditioned-event-frames|event-scope|agreement-attachment|forward-realization",
       "artifact": "scope_conditioned_event_frames_20260920.py",
-      "run_artifacts": ["runs/scope-conditioned-event-frames-20260920.json"],
+      "run_artifacts": [
+        "runs/scope-conditioned-event-frames-20260920.json"
+      ],
       "distinction": "Realizes independently authored event frames with subject-number agreement, transitivity, semantic scope, and adjunct attachment checked before surface rendering; distinct from character endpoint equations. No repair, reversal, catalogue borrowing, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "6 typed frames, 22 complete forward-English candidates, longest 91 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12774,7 +13090,9 @@
       "id": "compositional-slot-carry-20260920",
       "signature": "four-slot-composition|carried-character-obligations|slot-pruning|independent-slot-authorship",
       "artifact": "compositional_slot_carry_20260920.py",
-      "run_artifacts": ["runs/compositional-slot-carry-20260920.json"],
+      "run_artifacts": [
+        "runs/compositional-slot-carry-20260920.json"
+      ],
       "distinction": "Propagates mirrored character obligations after each independently generated agent, verb, object, and attachment slot and prunes before complete rendering; unlike the earlier unpruned diagnostic, this lane records the true zero-render outcome. No repair, reversal, catalogue borrowing, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "6,144 slot states, all pruned before rendering by the carried obligation, 0 exact candidates; implementation audit retained as a concrete over-constraint diagnostic"
@@ -12783,7 +13101,9 @@
       "id": "relation-connector-scope-frames-20260920",
       "signature": "relation-connector-scope-frames|semantic-relation|connector-choice|pre-render-outer-obligation",
       "artifact": "relation_connector_scope_frames_20260920.py",
-      "run_artifacts": ["runs/relation-connector-scope-frames-20260920.json"],
+      "run_artifacts": [
+        "runs/relation-connector-scope-frames-20260920.json"
+      ],
       "distinction": "Carries contrast, cause, or sequence relation and connector choice alongside typed event-frame agreement before rendering; distinct from scope-only frames, endpoint classes, boundary lattices, and phrase-pair DP. No repair, reversal, catalogue borrowing, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "3 relations over 4 typed frames, 24 complete prose candidates, longest 73 letters, maximum pre-render outer agreement 5, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12792,7 +13112,9 @@
       "id": "semordnilap-phrase-graph-constructor-20260920",
       "signature": "semordnilap-phrase-graph|typed-phrase-roles|article-agreement|fresh-shells",
       "artifact": "semordnilap_phrase_graph_constructor_20260920.py",
-      "run_artifacts": ["runs/semordnilap-phrase-graph-constructor-20260920.json"],
+      "run_artifacts": [
+        "runs/semordnilap-phrase-graph-constructor-20260920.json"
+      ],
       "distinction": "Uses the mirror-pair file only as a vocabulary search index, then classifies phrase roles and enforces article agreement before any shell is rendered; malformed fragments and catalogue rows are quarantined. No finished-tape reversal, word-order-only symmetry, repeated units, or self-palindromic units.",
       "reader_evidence": false,
       "status": "4,656 indexed pairs, 0 phrase edges surviving role and article-agreement gates, 0 rendered candidates, 0 exact candidates above 38 letters; malformed diagnostics withheld from reader evaluation"
@@ -12801,7 +13123,9 @@
       "id": "dependency-attachment-reset-20260920",
       "signature": "active-passive-locative|attachment-seam-diagnostic|typed-dependency-reset",
       "artifact": "dependency_attachment_reset_20260920.py",
-      "run_artifacts": ["runs/dependency-attachment-reset-20260920.json"],
+      "run_artifacts": [
+        "runs/dependency-attachment-reset-20260920.json"
+      ],
       "distinction": "Pairs active, passive, and locative dependency realizations and measures an attachment seam after independent clause selection; it is explicitly diagnostic rather than a pre-render character gate. No repair, reversal, catalogue borrowing, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "36 complete natural-English candidates, longest 77 letters, 0 exact candidates above 38 letters; attachment seam measured after selection; independent pointer/SHA audits retained; reader gate closed"
@@ -12810,7 +13134,9 @@
       "id": "heldout-endpoint-function-frames-20260920",
       "signature": "heldout-endpoint-function-frames|independent-event-clauses|endpoint-class-gate|heldout-connectors",
       "artifact": "heldout_endpoint_function_frames_20260920.py",
-      "run_artifacts": ["runs/heldout-endpoint-function-frames-20260920.json"],
+      "run_artifacts": [
+        "runs/heldout-endpoint-function-frames-20260920.json"
+      ],
       "distinction": "Applies a bilateral first/last character gate to new independently authored event frames before choosing a held-out connector bank; distinct from relation-only frame scoring. No repair, reversal, catalogue borrowing, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "3 by 3 frame pairs and 3 held-out connectors, 27 complete prose candidates, longest 79 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12819,7 +13145,9 @@
       "id": "inner-character-class-event-frames-20260920",
       "signature": "inner-character-class-event-frames|subject-object-inner-state|pre-render-class-gate|independent-prose",
       "artifact": "inner_character_class_event_frames_20260920.py",
-      "run_artifacts": ["runs/inner-character-class-event-frames-20260920.json"],
+      "run_artifacts": [
+        "runs/inner-character-class-event-frames-20260920.json"
+      ],
       "distinction": "Carries two vowel/consonant obligations across independently authored subject and object boundaries before rendering; distinct from endpoint equality, held-out connectors, and post-selection attachment diagnostics. No repair, reversal, catalogue borrowing, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "9 frame pairs, 8 rejected by the inner class gate, 1 complete prose candidate at 72 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12828,7 +13156,9 @@
       "id": "semantic-relation-frame-orbit-20260920",
       "signature": "semantic-relation-frame-orbit|live-outer-lexical-orbit|independent-realizations",
       "artifact": "semantic_relation_frame_orbit_20260920.py",
-      "run_artifacts": ["runs/semantic-relation-frame-orbit-20260920.json"],
+      "run_artifacts": [
+        "runs/semantic-relation-frame-orbit-20260920.json"
+      ],
       "distinction": "Pairs independently authored agent/relation/object/setting frames and applies a live outer lexical orbit before rendering; distinct from the later multi-family attachment-signature lattice. No repair, reversal, catalogue borrowing, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "9 frame pairings, 8 pruned before rendering, 1 complete 64-letter prose control, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12837,7 +13167,9 @@
       "id": "semantic-relation-lattice-20260920",
       "signature": "semantic-relation-signature|active-passive-locative|pre-render-gate",
       "artifact": "semantic_relation_lattice_20260920.py",
-      "run_artifacts": ["runs/semantic-relation-lattice-20260920.json"],
+      "run_artifacts": [
+        "runs/semantic-relation-lattice-20260920.json"
+      ],
       "distinction": "Uses relation-family attachment signatures to gate active, passive, and locative realizations before rendering; distinct from endpoint classes, inner character classes, and the single-orbit frame lane. No repair, reversal, catalogue borrowing, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "36 relation-pair states, 24 rejected before rendering, 12 complete prose controls, longest 59 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
@@ -12846,7 +13178,9 @@
       "id": "live-residual-relation-slots-20260920",
       "signature": "relation-frame-slots|width1-width2-residual|pre-render-pruning",
       "artifact": "live_residual_relation_slots_20260920.py",
-      "run_artifacts": ["runs/live-residual-relation-slots-20260920.json"],
+      "run_artifacts": [
+        "runs/live-residual-relation-slots-20260920.json"
+      ],
       "distinction": "Carries width-one and width-two residual character equations across independently authored relation/object/setting slots before rendering; no state survives the first gate. Tracked separately from the later diagnostic debt lane.",
       "reader_evidence": false,
       "status": "9 states, 0 width-one survivors, 0 width-two survivors, 0 rendered candidates, 0 exact candidates; constructive state is over-constrained rather than a readable output"
@@ -12855,7 +13189,9 @@
       "id": "cross-word-boundary-grammar-dp-20260920",
       "signature": "cross-word-boundary-grammar-dp|cross-word-boundary-transition|live-residual|fresh-frames",
       "artifact": "cross_word_boundary_grammar_dp_20260920.py",
-      "run_artifacts": ["runs/cross-word-boundary-grammar-dp-20260920.json"],
+      "run_artifacts": [
+        "runs/cross-word-boundary-grammar-dp-20260920.json"
+      ],
       "distinction": "Retains 3-by-3 fresh frame controls and per-word boundary traces, but the audited implementation does not enforce a global residual and is therefore quarantined as diagnostic rather than a constructor. No reversal, catalogue text, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "63 transition states, 9 complete prose controls, longest 77 letters, 0 exact candidates above 38 letters; global residual not enforced; reader gate closed"
@@ -12864,7 +13200,9 @@
       "id": "residual-relation-setting-20260920",
       "signature": "relation-setting|two-slot-debt-diagnostic",
       "artifact": "residual_relation_setting_20260920.py",
-      "run_artifacts": ["runs/residual-relation-setting-20260920.json"],
+      "run_artifacts": [
+        "runs/residual-relation-setting-20260920.json"
+      ],
       "distinction": "Records debt traces after relation and setting slots, but the setting filter is arbitrary and not a validated live character equation; retained as a diagnostic control lane rather than constructive progress. No reversal, repair, catalogue text, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "6 states, 2 filtered by arbitrary setting condition, 4 complete prose controls, longest 90 letters, 0 exact candidates above 38 letters; diagnostic only"
@@ -12873,7 +13211,9 @@
       "id": "center-crossing-unequal-grammar-20260920",
       "signature": "typed-grammar|unequal-center-buffer|forward-emission|exact-prerender-equation",
       "artifact": "center_crossing_unequal_grammar_20260920.py",
-      "run_artifacts": ["runs/center-crossing-unequal-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/center-crossing-unequal-grammar-20260920.json"
+      ],
       "distinction": "Checks a two-character center buffer inside an unequal-length typed clause pair before rendering; distinct from endpoint-only filters. The fresh 4-by-4 bank had no compatible states, so no prose was promoted.",
       "reader_evidence": false,
       "status": "16 typed pairings, 0 center-buffer survivors, 0 rendered candidates, 0 exact candidates; zero-frontier construction evidence"
@@ -12882,7 +13222,9 @@
       "id": "unequal-center-buffer-grammar-20260920",
       "signature": "typed-grammar|unequal-center-buffer|forward-emission|exact-prerender-equation",
       "artifact": "unequal_center_buffer_grammar_20260920.py",
-      "run_artifacts": ["runs/unequal-center-buffer-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/unequal-center-buffer-grammar-20260920.json"
+      ],
       "distinction": "Propagates an exact unmatched buffer across unequal subject/verb slot lengths before rendering; distinct from the smaller center-crossing bank but overlapping in construction family, so retained as a separate higher-width zero-frontier diagnostic.",
       "reader_evidence": false,
       "status": "243 typed states, all pruned before rendering, 0 exact candidates; zero-frontier construction evidence"
@@ -12891,7 +13233,9 @@
       "id": "two-sided-unmatched-buffer-dp-20260920",
       "signature": "two-sided-unmatched-buffer-dp|actual-unmatched-buffers|cross-word-consumption|typed-forward-grammar",
       "artifact": "two_sided_unmatched_buffer_dp_20260920.py",
-      "run_artifacts": ["runs/two-sided-unmatched-buffer-dp-20260920.json"],
+      "run_artifacts": [
+        "runs/two-sided-unmatched-buffer-dp-20260920.json"
+      ],
       "distinction": "Stores actual unmatched character buffers on both independently grown word streams and prunes immediately on mismatch; distinct from the scalar cross-word diagnostic. The explicit buffer frontier reached zero before rendering.",
       "reader_evidence": false,
       "status": "9 orientation-correct transitions, 9 pruned by actual buffer mismatch, 0 surviving states, 0 rendered candidates, 0 exact candidates"
@@ -12900,7 +13244,9 @@
       "id": "variable-buffer-adjunct-trie-dp-20260920",
       "signature": "variable-buffer-adjunct-trie-dp|variable-buffer|adjunct-slot|compatible-word-trie",
       "artifact": "variable_buffer_adjunct_trie_dp_20260920.py",
-      "run_artifacts": ["runs/variable-buffer-adjunct-trie-dp-20260920.json"],
+      "run_artifacts": [
+        "runs/variable-buffer-adjunct-trie-dp-20260920.json"
+      ],
       "distinction": "Extends the explicit unmatched-buffer constructor with variable-length word-trie transitions and independently authored adjunct slots; the live buffer still reaches zero before rendering. No reversal, repair, catalogue text, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "8 slots, 4 transitions, 4 pruned mismatches, 0 surviving states, 0 rendered candidates, 0 exact candidates"
@@ -12909,7 +13255,9 @@
       "id": "scene-buffer-centerout-20260920",
       "signature": "scene-bank|center-out|variable-character-buffers|forward-right-reverse-facing|live-attachments",
       "artifact": "scene_buffer_centerout_20260920.py",
-      "run_artifacts": ["runs/scene-buffer-centerout-20260920.json"],
+      "run_artifacts": [
+        "runs/scene-buffer-centerout-20260920.json"
+      ],
       "distinction": "Grows independently authored event scenes from the center with variable buffers and attachment states while consuming the right side reverse-facing; all three fresh scenes prune before rendering. No reversal, repair, catalogue text, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "3 scene transitions, all pruned at live mismatch, 0 surviving states, 0 rendered candidates, 0 exact candidates"
@@ -12918,7 +13266,9 @@
       "id": "reverse-trie-typed-grammar-20260920",
       "signature": "typed-forward-grammar|reverse-facing-character-trie|deque-residuals|unequal-word-boundaries",
       "artifact": "experiments/reverse_trie_typed_grammar_20260920.py",
-      "run_artifacts": ["runs/reverse-trie-typed-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/reverse-trie-typed-grammar-20260920.json"
+      ],
       "distinction": "Traverses a reverse-facing trie for independently generated right clauses with deque residuals, unequal word boundaries, typed agreement, and center transitions. A diagnostic row is quarantined; no reader candidate or exact closure is promoted.",
       "reader_evidence": false,
       "status": "12,001 nodes, 0 rendered candidates, 1 quarantined malformed diagnostic, 0 exact and 0 reader-eligible exact rows"
@@ -12927,7 +13277,9 @@
       "id": "prosodic-skeleton-search-20260920",
       "signature": "aggregate-prosodic-shape|fresh-clause-controls|post-render-diagnostic",
       "artifact": "prosodic_skeleton_search_20260920.py",
-      "run_artifacts": ["runs/prosodic-skeleton-search-20260920.json"],
+      "run_artifacts": [
+        "runs/prosodic-skeleton-search-20260920.json"
+      ],
       "distinction": "Uses only aggregate catalogue-derived word-length shapes to rank freshly authored clauses after rendering; it has no live character equation and is explicitly a prose diagnostic, not a palindrome constructor. No catalogue surface text, reversal, repair, or mirrored units are used.",
       "reader_evidence": false,
       "status": "16 fresh complete controls, longest 79 letters, 0 exact candidates above 38 letters; post-render diagnostic and reader gate closed"
@@ -12936,7 +13288,9 @@
       "id": "clause-reverse-cfg-center-20260920",
       "signature": "reverse-cfg|optional-adjunct|center-transition|residual-buffer",
       "artifact": "clause_reverse_cfg_center_20260920.py",
-      "run_artifacts": ["runs/clause-reverse-cfg-center-20260920.json"],
+      "run_artifacts": [
+        "runs/clause-reverse-cfg-center-20260920.json"
+      ],
       "distinction": "Uses independently authored clause productions, optional adjunct branches, and reverse-facing right traversal with live residual buffers before rendering; all fresh transitions prune. No reversal, repair, catalogue text, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "2 productions per side, 3 adjunct branches, 2 transitions, all pruned, 0 rendered candidates, 0 exact candidates"
@@ -12945,7 +13299,9 @@
       "id": "live-boundary-shift-grammar-20260920",
       "signature": "live-cross-word-boundary|semantic-slot-expansion|reverse-facing-equation",
       "artifact": "live_boundary_shift_grammar_20260920.py",
-      "run_artifacts": ["runs/live-boundary-shift-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/live-boundary-shift-grammar-20260920.json"
+      ],
       "distinction": "Checks cross-word boundary equations during fresh semantic slot expansion with both clauses authored forward and the right side consumed reverse-facing; no complete boundary closure survives. No repair, catalogue text, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "9 by 9 slot transitions, 0 boundary closures, 0 exact candidates; precise zero frontier"
@@ -12954,7 +13310,9 @@
       "id": "endpoint-seeded-scene-inward-20260920",
       "signature": "authored-scene-bank|endpoint-class-seed|inward-grammar|unequal-boundaries",
       "artifact": "endpoint_seeded_scene_inward_20260920.py",
-      "run_artifacts": ["runs/endpoint-seeded-scene-inward-20260920.json"],
+      "run_artifacts": [
+        "runs/endpoint-seeded-scene-inward-20260920.json"
+      ],
       "distinction": "Seeds two independently authored event scenes with compatible endpoint classes, then keeps full interior grammar, semantic attachments, and unequal buffers live; both seeds prune before interior expansion. No reversal, repair, catalogue text, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "2 endpoint seeds, both pruned before interior expansion, 0 rendered candidates, 0 exact candidates"
@@ -12963,7 +13321,9 @@
       "id": "endpoint-seed-interior-equations-20260920",
       "signature": "authored-endpoint-seed|live-interior-equations|surface-grammar-gate",
       "artifact": "endpoint_seed_interior_equations_20260920.py",
-      "run_artifacts": ["runs/endpoint-seed-interior-equations-20260920.json"],
+      "run_artifacts": [
+        "runs/endpoint-seed-interior-equations-20260920.json"
+      ],
       "distinction": "Authors endpoint-compatible semantic frames, gates article/surface grammar, then solves interior cross-word equations live; all nine endpoint seeds fail at the next character. No catalogue text, repair, reversal, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "9 endpoint seeds, 0 interior closures, 0 exact candidates; malformed article forms excluded before candidate retention"
@@ -12972,7 +13332,9 @@
       "id": "character-clause-trie-csp-20260920",
       "signature": "character-csp|independent-complete-clauses|reverse-trie|exact-join",
       "artifact": "experiments/character_clause_trie_csp_20260920.py",
-      "run_artifacts": ["runs/character-clause-trie-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/character-clause-trie-csp-20260920.json"
+      ],
       "distinction": "Joins independently authored complete English clauses through an indexed reverse character trie; exact tape compatibility is enforced during search, with no reward reranking, repair, catalogue text, mirrored units, or fragments.",
       "reader_evidence": false,
       "status": "6 by 6 authored clauses, 6 trie prefix steps, 0 exact joins, 0 exact candidates; complete prose controls retained"
@@ -12981,7 +13343,9 @@
       "id": "clitic-boundary-residual-lockstep-20260920",
       "signature": "lockstep|clitic-boundary|agreement|full-residual-vector|independent-frames",
       "artifact": "experiments/clitic_boundary_residual_lockstep_20260920.py",
-      "run_artifacts": ["runs/clitic-boundary-residual-lockstep-20260920.json"],
+      "run_artifacts": [
+        "runs/clitic-boundary-residual-lockstep-20260920.json"
+      ],
       "distinction": "Adds independently authored clitic-bearing agreement frames and compares the complete residual vector at every boundary; it changes the boundary state space without repairing rendered prose, reversing a finished tape, mirroring token units, or importing catalogue text.",
       "reader_evidence": false,
       "status": "18 fresh frames, 324 lockstep transitions, 2 complete prose controls to 72 letters, 0 exact candidates above 38 letters; next composes clitic frames through typed comma/relative boundaries"
@@ -12990,7 +13354,9 @@
       "id": "typed-central-residual-clause-csp-20260920",
       "signature": "typed-central|residual-boundary-index|independent-event-clauses|exact-csp",
       "artifact": "experiments/typed_central_residual_clause_csp_20260920.py",
-      "run_artifacts": ["runs/typed-central-residual-clause-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/typed-central-residual-clause-csp-20260920.json"
+      ],
       "distinction": "Inserts an independently authored typed center sentence between complete event clauses and indexes the live residual boundary state while constructing the sentence. It is a new grammar topology, not a larger clause-bank sweep, and forbids repair, reversal, mirrored units, catalogue text, and reward reranking.",
       "reader_evidence": false,
       "status": "3 by 2 by 3 typed assignments, 2 indexed residual states, 18 character transitions, 2 complete controls to 118 letters, 0 exact candidates above 38 letters; next uses two independently authored typed centers with seam-type agreement"
@@ -12999,7 +13365,9 @@
       "id": "chart-phrase-path-20260920",
       "signature": "chart-composed-phrase-path|optional-complement-adjunct|reverse-character-join|unequal-word-boundaries",
       "artifact": "experiments/chart_phrase_path_20260920.py",
-      "run_artifacts": ["runs/chart-phrase-path-20260920.json"],
+      "run_artifacts": [
+        "runs/chart-phrase-path-20260920.json"
+      ],
       "distinction": "Composes independently authored subject/verb/object/complement/adjunct chart paths and joins them through live reverse-character boundary states with optional grammar edges; it is distinct from fixed clause banks and typed-center insertion, with no repair, reversal, mirrored units, catalogue surface text, or reward reranking.",
       "reader_evidence": false,
       "status": "256 chart paths including 40 held-out relative, 40 held-out passive-complement, 32 held-out temporal-adjunct, 32 held-out instrumental-adjunct, and 32 held-out causal-adjunct paths, 65,280 live unequal-boundary states, controls to 120 letters, 0 exact candidates above 38 letters; next adds a held-out concessive adjunct edge"
@@ -13008,7 +13376,9 @@
       "id": "dependency-frame-center-seam-20260920",
       "signature": "dependency-frame|center-complement-seam|valency-agreement|live-opposed-equations",
       "artifact": "experiments/dependency_frame_center_seam_20260920.py",
-      "run_artifacts": ["runs/dependency-frame-center-seam-20260920.json"],
+      "run_artifacts": [
+        "runs/dependency-frame-center-seam-20260920.json"
+      ],
       "distinction": "Independently authored complete dependency frames carry attachment alternatives, valency, and agreement through live outside-in character equations at an authored complement seam; it is distinct from typed-central sentence insertion and clause-bank sweeps.",
       "reader_evidence": false,
       "status": "24 complete prose states including 3 held-out ditransitive, 3 benefactive, 3 agreement-sensitive relative, 3 passive-relative, and 3 modal-passive frames, 24 live transitions, max 119 letters, 0 exact candidates above 38 letters; next adds a causative frame with infinitival complement"
@@ -13017,7 +13387,9 @@
       "id": "apposition-seam-grammar-20260920",
       "signature": "apposition-seam|coordination-boundary|independent-complete-clauses|live-reverse-equation",
       "artifact": "apposition_seam_grammar_20260920.py",
-      "run_artifacts": ["runs/apposition-seam-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/apposition-seam-grammar-20260920.json"
+      ],
       "distinction": "Joins independently authored complete clauses with comma, coordination, or appositive seams and checks the opposing characters live; it is distinct from phrase charts, typed centers, and dependency frames, with no repair, reversal, mirrored units, catalogue text, or reward reranking.",
       "reader_evidence": false,
       "status": "48 baseline plus 64 held-out temporal, 128 causal fourth-clause, and 256 contrastive fifth-clause controls, 0 live closures, longest causal control 144 letters, 0 exact candidates above 38 letters; next adds a concessive seam with a sixth clause bank"
@@ -13026,7 +13398,10 @@
       "id": "bilateral-grammar-csp-20260920",
       "signature": "bilateral-lexicalized-grammar|reverse-edge-expansion|live-character-residual|typed-clause-pair",
       "artifact": "bilateral_grammar_csp_20260920.py",
-      "run_artifacts": ["runs/bilateral-grammar-csp-20260920.json", "runs/bilateral-brown-remote-200-optimized-20260920.json"],
+      "run_artifacts": [
+        "runs/bilateral-grammar-csp-20260920.json",
+        "runs/bilateral-brown-remote-200-optimized-20260920.json"
+      ],
       "distinction": "Expands the first ordinary CLAUSE from the left edge and an independently parsed second CLAUSE from its right edge; each selected right word contributes reversed characters to a live residual before the next edge is selected. No finished-tape reversal, mirrored token units, catalogue text, or post-hoc repair.",
       "reader_evidence": false,
       "status": "159 states, 690 live residual prunes, 22 complete grammar states, and two exact 38-letter anchor-order witnesses. Remote 200-entry Brown envelope exhausted at 2,413 states and 9,385,984 pair prunes with 0 complete closures and 0 exact candidates above 38; next expansion is typed adjunct/relative grammar"
@@ -13035,16 +13410,21 @@
       "id": "forward-lexicalized-grammar-20260920",
       "signature": "forward-lexicalized-grammar|shared-character-equation|free-word-boundaries|grammar-differential",
       "artifact": "forward_lexicalized_grammar_20260920.py",
-      "run_artifacts": ["runs/forward-lexicalized-grammar-20260920.json", "runs/forward-lexicalized-grammar-brown-remote-20260920.json"],
+      "run_artifacts": [
+        "runs/forward-lexicalized-grammar-20260920.json",
+        "runs/forward-lexicalized-grammar-brown-remote-20260920.json"
+      ],
       "distinction": "A bounded lexicalized grammar regression enumerates atomic S-to-NP-VP derivations and checks the shared character equation against an exhaustive differential set; it is retained as a soundness toy, not as scalable SAT evidence because the correction must move pruning before complete-string materialization.",
       "reader_evidence": false,
-      "status": "Corrected fixed-length shared-cell CSP: 3,240 nodes and 6,082 early prunes recover two atomic 38-letter witnesses including the anchor. Remote Brown run (500 entries, 39–64 letters, 5,000-node cap) timed out at 5,000 nodes and 800,966 prunes, with 0 complete closures and 0 exact candidates above 38; next method must change construction dynamics"
+      "status": "Corrected fixed-length shared-cell CSP: 3,240 nodes and 6,082 early prunes recover two atomic 38-letter witnesses including the anchor. Remote Brown run (500 entries, 39\u201364 letters, 5,000-node cap) timed out at 5,000 nodes and 800,966 prunes, with 0 complete closures and 0 exact candidates above 38; next method must change construction dynamics"
     },
     {
       "id": "qwen-direct-palindrome-20260920",
       "signature": "direct-whole-sentence-draft|independent-exact-audit|no-catalogue-acceptance",
       "artifact": "experiments/qwen_direct_palindrome_20260920.py",
-      "run_artifacts": ["runs/qwen-direct-palindrome-20260920.json"],
+      "run_artifacts": [
+        "runs/qwen-direct-palindrome-20260920.json"
+      ],
       "distinction": "A remote language model drafts complete sentences in one pass; exact pointer/SHA validation and shortcut checks are independent of the model. No phrase bank, finished-tape reversal, repair, or borrowed catalogue output is accepted.",
       "reader_evidence": false,
       "status": "12 batches, 158 drafts, 21 exact rows, maximum 20 letters; exact rows were famous short palindromes and 0 passed the structural gate; closed as a model-recall control"
@@ -13053,7 +13433,9 @@
       "id": "two-sided-pcfg-sampler-20260920",
       "signature": "broad-pcfg-sampling|independent-reverse-tape-lexical-dp|live-provenance",
       "artifact": "experiments/two_sided_pcfg_sampler_20260920.py",
-      "run_artifacts": ["runs/two-sided-pcfg-sampler-20260920.json"],
+      "run_artifacts": [
+        "runs/two-sided-pcfg-sampler-20260920.json"
+      ],
       "distinction": "Samples broad ordinary clause derivations, then independently tokenizes the reverse character stream with a scored lexical DP; it does not reverse a finished sentence, mirror word units, import catalogue text, or repair a mismatch.",
       "reader_evidence": false,
       "status": "30,000 draws, 11,814 unique left tapes, 0 exact closures; closed at this sampling bound because one-sided random clauses almost never admit a natural reverse segmentation"
@@ -13062,7 +13444,9 @@
       "id": "cfg-hypergraph-obligation-20260920",
       "signature": "weighted-cfg-hypergraph|memoized-grammar-obligation-state|ordinary-order-frontiers|independent-audit",
       "artifact": "experiments/cfg_hypergraph_obligation_20260920.py",
-      "run_artifacts": ["runs/cfg-hypergraph-obligation-20260920.json"],
+      "run_artifacts": [
+        "runs/cfg-hypergraph-obligation-20260920.json"
+      ],
       "distinction": "Intersects a small weighted CFG with the palindrome character equation as a memoized hypergraph chart. Grammar-stack, residual, semantic-role, and ordinary-order frontier states are merged before lexical expansion; no finished tape reversal, mirrored token units, catalogue text, or post-hoc repair is used.",
       "reader_evidence": false,
       "status": "Bounded Brown lexicon chart: 3,825 unique items, 92 grammar hyperedges, 3,732 terminal edges, 34,509 character prunes, 3,535 complete parses, and 0 exact closures above 38. Closed as a bounded CFG-chart diagnostic; next construction is a semantic-frame hyperedge rather than a wider lexical chart."
@@ -13071,7 +13455,9 @@
       "id": "semantic-frame-hyperedges-20260920",
       "signature": "selectional-frame-hyperedge|role-typed-complete-event|live-equation-before-render",
       "artifact": "experiments/semantic_frame_hyperedges_20260920.py",
-      "run_artifacts": ["runs/semantic-frame-hyperedges-20260920.json"],
+      "run_artifacts": [
+        "runs/semantic-frame-hyperedges-20260920.json"
+      ],
       "distinction": "Selects complete role-typed event hyperedges (animate agent, concrete patient, setting) before ordinary-order lexical emission. The two independently authored event frames advance against a live character equation; no lexical repair, finished-tape reversal, mirrored units, or catalogue text is used.",
       "reader_evidence": false,
       "status": "25 frame-pair hyperedges, 25 frontier states, 25 immediate character prunes, 0 complete closures, and 0 exact candidates above 38. Five intact complete-frame prose controls are retained with independent pointer/SHA audits. Next topology is a typed recipient relation edge, not a lexical sweep."
@@ -13080,7 +13466,9 @@
       "id": "lexicalized-constituent-interior-csp-20260920",
       "signature": "lexicalized-constituent-interior|feature-carrying-synchronous-stack|live-boundary-state",
       "artifact": "experiments/lexicalized_constituent_interior_csp_20260920.py",
-      "run_artifacts": ["runs/lexicalized-constituent-interior-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/lexicalized-constituent-interior-csp-20260920.json"
+      ],
       "distinction": "Generates NP/VP/PP constituent interiors one typed terminal at a time while carrying agreement, semantic role, and pending word-boundary state on both ordinary-order derivations. The mirrored character equation is consumed before either clause is complete; no complete phrase join, finished-tape reversal, repair, mirrored unit, or catalogue text is admitted.",
       "reader_evidence": false,
       "status": "41,280 bounded live states, 4,524 character matches, 25,622 character prunes, deepest frontier 23 letters, 0 complete closures and 0 exact candidates above 38; independent pointer/SHA audits retained; reader gate closed"
@@ -13089,7 +13477,9 @@
       "id": "typed-edge-yield-algebra-20260920",
       "signature": "typed-edge-yield-algebra|monoidal-interface-composition|live-bilateral-character-equation",
       "artifact": "experiments/typed_edge_yield_algebra_20260920.py",
-      "run_artifacts": ["runs/typed-edge-yield-algebra-20260920.json"],
+      "run_artifacts": [
+        "runs/typed-edge-yield-algebra-20260920.json"
+      ],
       "distinction": "Composes ordinary-order dependency edges as typed yields with compatible attachment interfaces before bilateral character matching. This is distinct from complete dependency role-permutation charts: edge paths are algebraically composed first, and only then paired under a live character-prefix equation; no finished-tape reversal, mirrored units, catalogue text, or post-hoc repair is used.",
       "reader_evidence": false,
       "status": "81 typed edge paths, 6,561 bilateral states, all 6,561 character-pruned, 0 compatible frontiers and 0 exact candidates above 38; two intact prose controls retained with independent pointer/SHA audits; reader gate closed"
@@ -13098,7 +13488,9 @@
       "id": "residual-equivalence-edge-quotient-20260920",
       "signature": "residual-equivalence|typed-edge-continuation-key|semantic-obligation-quotient",
       "artifact": "experiments/residual_equivalence_edge_quotient_20260920.py",
-      "run_artifacts": ["runs/residual-equivalence-edge-quotient-20260920.json"],
+      "run_artifacts": [
+        "runs/residual-equivalence-edge-quotient-20260920.json"
+      ],
       "distinction": "Canonicalizes partial typed-edge derivations by future continuation: grammar/edge stacks, attachment interfaces, semantic obligations, residual character debt, and content-word exclusion state. Unlike discontinuous gap filling or asynchronous buffers, it merges continuation-equivalent edge states rather than interleaving fragments or replaying a finished tape.",
       "reader_evidence": false,
       "status": "Existing semantic-role bank: 33 explored states, 9 canonical states, 24 quotient merges, 8 character prunes; fresh authored edge bank: 12 states, 9 canonical states, 3 merges, 8 prunes; 0 exact candidates above 38; controls independently pointer/SHA audited; reader gate closed"
@@ -13107,7 +13499,9 @@
       "id": "residual-language-center-automaton-20260920",
       "signature": "typed-edge-continuation-quotient|finite-center-language|semantic-center-closure|live-character-debt",
       "artifact": "experiments/residual_language_center_automaton_20260920.py",
-      "run_artifacts": ["runs/residual-language-center-automaton-20260920.json"],
+      "run_artifacts": [
+        "runs/residual-language-center-automaton-20260920.json"
+      ],
       "distinction": "Intersects a live residual debt with a fresh finite language of typed grammatical center continuations after edge continuation quotienting. It is not epsilon-boundary closure, discontinuous gap filling, resegmentation, or repair: center edges are selected as a grammatical continuation before rendering.",
       "reader_evidence": false,
       "status": "Existing semantic-role bank: 33 states, 24 quotient merges, 8 prunes; fresh edge bank: 12 states, 3 merges, 8 prunes; center automaton produced 0 compatible frontiers and 0 exact candidates above 38; intact controls independently pointer/SHA audited; reader gate closed"
@@ -13116,7 +13510,9 @@
       "id": "tense-aspect-endpoint-decoder-20260920",
       "signature": "tense-aspect-endpoint|finite-verb-interior|held-out-live-character",
       "artifact": "tense_aspect_endpoint_decoder_20260920.py",
-      "run_artifacts": ["runs/tense-aspect-endpoint-decoder-20260920.json"],
+      "run_artifacts": [
+        "runs/tense-aspect-endpoint-decoder-20260920.json"
+      ],
       "distinction": "Endpoint state carries tense and aspect and selects disjoint finite-verb interiors before rendering; this is distinct from number/attachment typing and uses no reversal, repair, fragments, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "32 rendered candidates, maximum 99 letters, 0 fresh exact candidates above 38; all candidates and controls independently pointer/SHA audited; next is polarity-conditioned auxiliary/negation interiors"
@@ -13125,7 +13521,9 @@
       "id": "agreement-typed-endpoint-decoder-20260920",
       "signature": "agreement-typed-endpoint|attachment-key|held-out-interior-live-character",
       "artifact": "agreement_typed_endpoint_decoder_20260920.py",
-      "run_artifacts": ["runs/agreement-typed-endpoint-decoder-20260920.json"],
+      "run_artifacts": [
+        "runs/agreement-typed-endpoint-decoder-20260920.json"
+      ],
       "distinction": "Carries grammatical number and attachment type in the jointly selected endpoint schema, then chooses held-out interiors whose live characters depend on that agreement state; no reversal, repair, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "32 rendered candidates, maximum 92 letters, 0 fresh exact candidates above 38; all candidates and controls independently pointer/SHA audited; next is tense/aspect endpoint typing"
@@ -13134,7 +13532,9 @@
       "id": "endpoint-conditioned-compositional-decoder-20260920",
       "signature": "joint-endpoint-pair|interior-expansion|outer-equation",
       "artifact": "endpoint_conditioned_compositional_decoder_20260920.py",
-      "run_artifacts": ["runs/endpoint-conditioned-compositional-decoder-20260920.json"],
+      "run_artifacts": [
+        "runs/endpoint-conditioned-compositional-decoder-20260920.json"
+      ],
       "distinction": "Fresh lexical endpoint alternatives are co-designed as paired schemas before ordinary interior constituents are expanded. The outer character equation therefore changes the lexical choices themselves, rather than appending a center to an already mismatched tape; no reversal, repair, mirrored units, or catalogue text is used.",
       "reader_evidence": false,
       "status": "72 rendered candidates from 4 joint endpoint pairs; maximum 79 letters; 0 fresh exact candidates above 38; every candidate and two controls independently two-pointer and forward/reverse SHA audited; reader gate closed; next is agreement-typed endpoint schemas with held-out interiors"
@@ -13143,16 +13543,20 @@
       "id": "composed-typed-center-grammar-20260920",
       "signature": "composed-center-typed-grammar|online-center-edge-emission|attachment-aware-residual",
       "artifact": "experiments/composed_typed_center_grammar_20260920.py",
-      "run_artifacts": ["runs/composed-typed-center-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/composed-typed-center-grammar-20260920.json"
+      ],
       "distinction": "Composes a typed complementizer plus finite subject/verb center into an ordinary left derivation before bilateral character matching, so center characters are emitted against the live residual while the opposing outer path remains unfinished. This is distinct from finite center-list closure, asynchronous buffers, resegmentation, and repair; no finished-tape reversal, mirrored units, or catalogue text is admitted.",
       "reader_evidence": false,
       "status": "20 composed center derivations; existing semantic-role bank 100 left derivations and 511 live states with 499 quotient merges/11 prunes, fresh bank 40 left derivations and 91 states with 79 merges/11 prunes; 0 complete renderings and 0 exact candidates above 38; controls independently pointer/SHA audited; next is a held-out center valency frame"
-    }
-    ,{
+    },
+    {
       "id": "character-lm-grammar-constrained-20260920",
       "signature": "character-ngram-beam|typed-svo-clause|live-cross-boundary-residual|lm-order-only",
       "artifact": "character_lm_grammar_constrained_20260920.py",
-      "run_artifacts": ["runs/character-lm-grammar-constrained-20260920.json"],
+      "run_artifacts": [
+        "runs/character-lm-grammar-constrained-20260920.json"
+      ],
       "distinction": "Character-level n-gram scores order intact terminal emissions while two independently authored typed SVO clauses carry a live cross-boundary character residual. The model cannot repair, reverse, or validate a finished tape.",
       "reader_evidence": false,
       "status": "Novelty preflight passed; 16 clause pairs, 16 live transitions, all 16 pruned before closure, 0 live closures and 0 exact candidates above 38. Independent pointer/SHA audit retained. Next: held-out typed valency bank."
@@ -13161,16 +13565,20 @@
       "id": "center-first-scene-grammar-20260920",
       "signature": "center-first|semantic-center-seeded|paired-outward-expansion|live-obligation-stack|fresh-scene-grammar",
       "artifact": "center_first_scene_grammar_20260920.py",
-      "run_artifacts": ["runs/center-first-scene-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/center-first-scene-grammar-20260920.json"
+      ],
       "distinction": "Selects a fresh semantic event center before lexical outward growth, then expands independently authored scene arms under live paired obligations. It is distinct from appended fixed-center closure and typed edge quotienting; no finished-tape reversal, repair, mirrored units, or catalogue reuse is admitted.",
       "reader_evidence": false,
-      "status": "3 semantic centers, 9 bounded outward transitions, 3 complete prose controls at 58–66 letters, 0 fresh exact candidates above 38; independent pointer/SHA audits retained; next is a two-clause event bridge"
+      "status": "3 semantic centers, 9 bounded outward transitions, 3 complete prose controls at 58\u201366 letters, 0 fresh exact candidates above 38; independent pointer/SHA audits retained; next is a two-clause event bridge"
     },
     {
       "id": "center-bridge-obligation-bank-20260920",
       "signature": "center-first|two-clause-event-bridge|obligation-indexed-bank|live-outward-growth-v2",
       "artifact": "center_bridge_obligation_bank_20260920.py",
-      "run_artifacts": ["runs/center-bridge-obligation-bank-20260920.json"],
+      "run_artifacts": [
+        "runs/center-bridge-obligation-bank-20260920.json"
+      ],
       "distinction": "Chooses a fresh two-clause event bridge first and indexes independently authored scene-arm phrases by the exposed obligation class before live matching. It is distinct from the single-event center lane; no finished-tape reversal, repair, mirrored units, or catalogue reuse is admitted.",
       "reader_evidence": false,
       "status": "3 two-clause bridges, 3 obligation-indexed bank keys, 6 transitions, all pruned at the live mismatch, 0 exact candidates above 38; rendered diagnostics are not reader candidates; next is a third bridge clause with two-character obligation indexing"
@@ -13179,7 +13587,9 @@
       "id": "third-bridge-prefix-index-20260920",
       "signature": "center-first|three-clause-bridge|two-char-obligation-index|hard-fragment-filter",
       "artifact": "third_bridge_prefix_index_20260920.py",
-      "run_artifacts": ["runs/third-bridge-prefix-index-20260920.json"],
+      "run_artifacts": [
+        "runs/third-bridge-prefix-index-20260920.json"
+      ],
       "distinction": "Selects a three-clause event bridge before lexical outward growth, indexes scene-arm choices by a two-character obligation prefix, and applies a hard complete-prose filter before admission; it is distinct from the two-clause bridge and uses no finished-tape reversal, repair, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "2 bridges, 4 live transitions, 4 complete-prose diagnostics to 113 letters, 0 exact candidates above 38; all failed at the first outer character; next is a fourth bridge conditioned on the residual prefix and finite-verb agreement"
@@ -13188,7 +13598,9 @@
       "id": "tense-aspect-endpoint-decoder-20260920",
       "signature": "tense-aspect-endpoint|finite-verb-interior|held-out-live-character",
       "artifact": "tense_aspect_endpoint_decoder_20260920.py",
-      "run_artifacts": ["runs/tense-aspect-endpoint-decoder-20260920.json"],
+      "run_artifacts": [
+        "runs/tense-aspect-endpoint-decoder-20260920.json"
+      ],
       "distinction": "Carries tense and aspect in jointly selected endpoints before expanding disjoint held-out finite-verb interiors; it is distinct from number/attachment endpoint typing and uses no finished-tape reversal, repair, mirrored units, fragments, or catalogue text.",
       "reader_evidence": false,
       "status": "32 diagnostics to 99 letters, 0 exact candidates above 38; first outer mismatch remains t versus y; next is polarity-conditioned auxiliary/negation interiors with complete-clause admission"
@@ -13197,16 +13609,31 @@
       "id": "scene-orbit-joint-equation-20260920",
       "signature": "scene-orbit|joint-event-schedule|live-equation|complete-prose",
       "artifact": "scene_orbit_joint_equation_20260920.py",
-      "run_artifacts": ["runs/scene-orbit-joint-equation-20260920.json"],
+      "run_artifacts": [
+        "runs/scene-orbit-joint-equation-20260920.json"
+      ],
       "distinction": "Jointly selects a complete authored event schedule (left arm, center relation, right arm) and checks its character equation while unfolding the orbit. It is distinct from center-seeded growth, bridge clauses, endpoint schemas, repair, reversal, mirrored units, and catalogue text.",
       "reader_evidence": false,
       "status": "24 complete-prose scene diagnostics to 83 letters, all independently pointer/SHA audited; 0 exact candidates above 38; all expose an outer mismatch; next is residual-prefix keyed scene-arm expansion"
     },
     {
+      "id": "residual-prefix-scene-arm-20260920",
+      "signature": "residual-prefix|scene-arm-lookup|two-character-live-key|complete-prose",
+      "artifact": "residual_prefix_scene_arm_20260920.py",
+      "run_artifacts": [
+        "runs/residual-prefix-scene-arm-20260920.json"
+      ],
+      "distinction": "Uses a two-character residual obligation from an authored opening to select the next independently authored grammatical scene arm before emission. It is distinct from center-first, bridge, endpoint-conditioned, and repair lanes; no reversal, mirrored unit, or catalogue text.",
+      "reader_evidence": false,
+      "status": "3 live key lookups, 6 complete-prose diagnostics to 114 letters, all independently pointer/SHA audited; 0 exact candidates above 38; next is a two-step residual-key transition bank"
+    },
+    {
       "id": "morphological-paradigm-zipper-csp-20260920",
       "signature": "paradigm-zipper|agreement|productive-inflection|live-character-csp",
       "artifact": "morphological_paradigm_zipper_csp_20260920.py",
-      "run_artifacts": ["runs/morphological-paradigm-zipper-csp-20260920.json"],
+      "run_artifacts": [
+        "runs/morphological-paradigm-zipper-csp-20260920.json"
+      ],
       "distinction": "Selects independent productive number/tense/verb paradigms before expanding clause interiors, then applies an outside-in character zipper; unlike repair or word-order symmetry, inflectional choices are grammatical slots and the live equation gates first emission.",
       "reader_evidence": false,
       "status": "324 frames, 104976 paradigm transitions, 0 live-compatible pairs, 2 independently rendered prose controls to 85 letters, 0 exact candidates above 38; next carries residual suffix-class vectors through a three-clause paradigm grammar with held-out auxiliaries"
@@ -13215,7 +13642,9 @@
       "id": "synchronous-scene-cfg-20260920",
       "signature": "synchronous-scene-cfg|role-paired-terminal-transducer|reverse-role-consumption",
       "artifact": "experiments/synchronous_scene_cfg_20260920.py",
-      "run_artifacts": ["runs/synchronous-scene-cfg-20260920.json"],
+      "run_artifacts": [
+        "runs/synchronous-scene-cfg-20260920.json"
+      ],
       "distinction": "Pairs complete semantic-scene CFG nonterminals and consumes their role terminals concurrently at the outer character seam, with the right derivation traversed by reverse role yield; it is distinct from ordinary charting, typed-edge quotienting, endpoint schemas, center-first growth, and LM ordering.",
       "reader_evidence": false,
       "status": "64 synchronous states, 64 seam prunes, 16 intact prose diagnostics to 118 letters, 0 exact candidates above 38; next is a relative-clause nonterminal with shared attachment state"

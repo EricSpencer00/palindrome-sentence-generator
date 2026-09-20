@@ -15704,6 +15704,15 @@
       "distinction": "Traverses two independently authored complete CFG derivations from opposite ends, memoizing terminal and word-boundary offsets before accepting each character pair; unlike prior paired-nonterminal, seam, center, or finished-tape CFG lanes, the product state is two opposing derivation frontiers.",
       "reader_evidence": false,
       "status": "65,536 paired derivations, 81,920 memoized frontier states, 65,536 online prunes, longest complete control 59 letters, 0 exact clean candidates; reader list empty"
+    },
+    {
+      "id": "phrase-lattice-convolution-20260920",
+      "signature": "phrase-lattice|finite-state-convolution|variable-word-boundaries|unmatched-buffer",
+      "artifact": "phrase_lattice_convolution_20260920.py",
+      "run_artifacts": ["runs/phrase-lattice-convolution-20260920.json"],
+      "distinction": "Pairs independently authored complete phrase paths and streams them through an asynchronous character convolution carrying unmatched residual buffers across phrase and word boundaries; it is distinct from endpoint/index filters, direct seams, center/relation/dialogue grammars, repair, reversal, repetition, and catalogue controls.",
+      "reader_evidence": false,
+      "status": "96 x 96 phrase paths, 9,792 character transitions, 9,216 online prunes, longest complete control 124 letters, 0 exact candidates above 38; reader list empty"
     }
   ]
 }

@@ -25,12 +25,13 @@ class RoleEdge:
     role: str
     next_role: str
     provenance: str = "authored"
+    seam_shift: bool = True
 
     def exact(self) -> bool:
         # A one-token semordnilap is a catalogue shortcut, not a sentence
         # construction.  Require a lexical boundary on each side so every
         # admitted edge crosses a word seam during composition.
-        return (len(self.left.split()) >= 2 and len(self.right.split()) >= 2
+        return (self.seam_shift and len(self.left.split()) >= 2 and len(self.right.split()) >= 2
                 and tape(self.left) == tape(self.right)[::-1])
 
 

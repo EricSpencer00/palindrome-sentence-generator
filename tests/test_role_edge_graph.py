@@ -4,7 +4,7 @@ from llm_palindrome.role_edge_graph import RoleEdge, build_graph, novelty_prefli
 def test_edges_and_role_path_are_exact_before_rendering():
     edges = [
         RoleEdge("stressed deliver", "reviled desserts", "subject", "verb"),
-        RoleEdge("drawer reward", "drawer reward", "verb", "object"),
+        RoleEdge("deliver a", "a reviled", "verb", "object"),
         RoleEdge("deliver stressed", "desserts reviled", "object", "end"),
     ]
     paths = search_paths(build_graph(edges), ["subject"], max_edges=3)

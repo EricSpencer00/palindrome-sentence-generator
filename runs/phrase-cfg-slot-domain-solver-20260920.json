@@ -1,0 +1,165 @@
+{
+  "experiment_id": "phrase-cfg-slot-domain-solver-20260920",
+  "method": "slot-level character-domain solving before phrase lexicalization",
+  "grammar": [
+    "S -> NP VP PP",
+    "NP -> DET ADJ NOUN",
+    "VP -> V NP",
+    "PP -> TAIL"
+  ],
+  "shared_scene_roles": {
+    "left": "maritime",
+    "right": "writing"
+  },
+  "slot_domains": {
+    "DET": {
+      "left": [
+        "s"
+      ],
+      "right": [
+        "s"
+      ]
+    },
+    "ADJ": {
+      "left": [
+        "q"
+      ],
+      "right": [
+        "q"
+      ]
+    },
+    "SUBJ": {
+      "left": [
+        "s"
+      ],
+      "right": [
+        "p",
+        "s"
+      ]
+    },
+    "VERB": {
+      "left": [
+        "g",
+        "m"
+      ],
+      "right": [
+        "g",
+        "k",
+        "m",
+        "r",
+        "w"
+      ]
+    },
+    "DET2": {
+      "left": [
+        "a",
+        "s",
+        "t"
+      ],
+      "right": [
+        "a",
+        "s",
+        "t"
+      ]
+    },
+    "OBJ": {
+      "left": [
+        "b",
+        "g",
+        "h",
+        "l",
+        "n",
+        "s",
+        "t"
+      ],
+      "right": [
+        "b",
+        "h",
+        "l",
+        "n",
+        "s",
+        "t"
+      ]
+    },
+    "TAIL": {
+      "left": [
+        "a",
+        "b",
+        "n",
+        "u"
+      ],
+      "right": [
+        "a",
+        "b",
+        "n",
+        "u"
+      ]
+    }
+  },
+  "compatible_slot_first_chars": {
+    "DET": [
+      "s"
+    ],
+    "ADJ": [
+      "q"
+    ],
+    "SUBJ": [
+      "s"
+    ],
+    "VERB": [
+      "g",
+      "m"
+    ],
+    "DET2": [
+      "a",
+      "s",
+      "t"
+    ],
+    "OBJ": [
+      "b",
+      "h",
+      "l",
+      "n",
+      "s",
+      "t"
+    ],
+    "TAIL": [
+      "a",
+      "b",
+      "n",
+      "u"
+    ]
+  },
+  "stats": {
+    "left_phrases": 240,
+    "right_phrases": 240,
+    "slot_domain_states": 41,
+    "lexicalized_character_states": 14400,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 1
+  },
+  "complete_prose_controls": [
+    "The patient sailor guards the harbor at dawn.",
+    "A careful writer reads the letter before rain."
+  ],
+  "best_diagnostic": {
+    "matched": 1,
+    "left": "some quiet sailor guards some harbor at dawn",
+    "right": "some quiet sailor guards some letter under stars"
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-slot-domain-solver-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-shared-role-charfirst-20260920"
+  },
+  "next_construction": "Use slot-specific first/last domains rather than a single global intersection, then solve word-boundary seam lengths before lexicalization.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

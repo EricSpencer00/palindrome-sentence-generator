@@ -18,7 +18,7 @@ ID = "reverse-trie-typed-grammar-20260920"
 BANK = {
     "det": ("a", "the", "this", "each", "one"),
     "adj": ("calm", "bright", "gentle", "plain", "quick", "still"),
-    "noun": ("artist", "baker", "captain", "garden", "harbor", "letter", "river", "writer", "poet", "lantern", "village", "window"),
+    "noun": ("artist", "baker", "captain", "garden", "harbor", "letter", "river", "writer", "poet", "lantern", "village", "window", "area", "idea", "echo", "shore"),
     "noun_s": ("artist", "baker", "captain", "poet", "writer"),
     "noun_p": ("artists", "bakers", "captains", "poets", "writers"),
     "verb": ("charts", "draws", "guides", "marks", "reads", "sends", "writes", "keeps", "opens", "teaches"),
@@ -85,7 +85,7 @@ def _consume(a, b):
     return "".join(x), "".join(y)
 
 def search(max_pairs=12000):
-    candidates, nodes = [], 0
+    candidates, nodes, endpoint_pairs = [], 0, 0
     for grammar in GRAMMARS:
         lefts = [c for c in _clauses(grammar) if _admissible(c)]
         rights = [c for c in _clauses(grammar) if _admissible(c)]
@@ -94,6 +94,15 @@ def search(max_pairs=12000):
         # still selected/generated forward from the independent bank.
         for left in lefts:
             for right in rights:
+                # Author the terminal right noun against the left opening
+                # class before walking the complete reverse-facing grammar.
+                # This is only an index gate; every interior character still
+                # traverses the live residual state below.
+                left_open = letters(left[0])[0]
+                right_terminal = letters(right[-1])[-1]
+                if left_open != right_terminal:
+                    continue
+                endpoint_pairs += 1
                 nodes += 1
                 if nodes > max_pairs: break
                 lb = letters("".join(left)); rb = letters("".join(right))[::-1]
@@ -123,9 +132,10 @@ def search(max_pairs=12000):
             row["quarantine"]["reason"] = "pre-render agreement or repeated-unit rejection"
             diagnostics.append(row)
     return {"experiment_id": ID, "method": "typed forward clause product with reverse-facing character trie and deque residuals",
-            "stats": {"nodes": nodes, "rendered_candidates": len(rows), "diagnostic_rows": len(diagnostics), "exact": 0, "reader_eligible_exact": 0},
+            "stats": {"nodes": nodes, "endpoint_pairs": endpoint_pairs, "rendered_candidates": len(rows), "diagnostic_rows": len(diagnostics), "exact": 0, "reader_eligible_exact": 0},
             "candidates": rows, "diagnostics": diagnostics,
             "status": "frontier_exhausted_no_exact",
+            "endpoint_conditioning": {"authoring_before_expansion": True, "opening_class": "left determiner/subject initial equals right terminal noun final", "full_interior_walk": True},
             "next_expansion": "add typed inflection and center transitions while retaining live residual buffers"}
 
 def run():

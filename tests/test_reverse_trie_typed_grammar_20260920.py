@@ -13,6 +13,9 @@ def test_lane_records_live_unequal_residuals_and_independent_audit():
     assert result["status"] == "frontier_exhausted_no_exact"
     assert result["stats"]["exact"] == 0
     assert result["stats"]["reader_eligible_exact"] == 0
+    assert result["stats"]["endpoint_pairs"] > 0
+    assert result["endpoint_conditioning"]["authoring_before_expansion"]
+    assert result["endpoint_conditioning"]["full_interior_walk"]
     row = (result["candidates"] or result["diagnostics"])[0]
     assert row["residual_left"] or row["residual_right_reverse_facing"]
     assert row["audit"] == audit(row["rendered"])

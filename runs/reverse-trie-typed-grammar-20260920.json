@@ -3,6 +3,7 @@
   "method": "typed forward clause product with reverse-facing character trie and deque residuals",
   "stats": {
     "nodes": 12001,
+    "endpoint_pairs": 12001,
     "rendered_candidates": 0,
     "diagnostic_rows": 1,
     "exact": 0,
@@ -11,57 +12,57 @@
   "candidates": [],
   "diagnostics": [
     {
-      "rendered": "a calm artist charts a baker; a bright captain teaches this lantern.",
-      "residual_left": "acalmartistchartsabaker",
-      "residual_right_reverse_facing": "nretnalsihtsehcaetniatpacthgirba",
+      "rendered": "a calm artist charts a baker; this bright captain teaches this area.",
+      "residual_left": "calmartistchartsabaker",
+      "residual_right_reverse_facing": "erasihtsehcaetniatpacthgirbsiht",
       "audit": {
         "letters": 55,
         "two_pointer_exact": false,
         "exact": false,
         "mismatches": [
           {
-            "index": 0,
-            "left": "a",
-            "right": "n"
-          },
-          {
             "index": 1,
             "left": "c",
-            "right": "r"
+            "right": "e"
           },
           {
             "index": 2,
             "left": "a",
-            "right": "e"
+            "right": "r"
           },
           {
             "index": 3,
             "left": "l",
-            "right": "t"
+            "right": "a"
           },
           {
             "index": 4,
             "left": "m",
-            "right": "n"
+            "right": "s"
+          },
+          {
+            "index": 5,
+            "left": "a",
+            "right": "i"
           },
           {
             "index": 6,
             "left": "r",
-            "right": "l"
+            "right": "h"
           },
           {
-            "index": 7,
-            "left": "t",
+            "index": 8,
+            "left": "i",
             "right": "s"
           },
           {
             "index": 9,
             "left": "s",
-            "right": "h"
+            "right": "e"
           }
         ],
-        "forward_sha256": "d8fa886b22447ff5a2f1a8443a7af8c5e131f0a792fda23342716f16b2a07447",
-        "reverse_sha256": "9d5eb864d81c6ffd938c65268cd800809e76738e8321a39c6d924b3b41f63027"
+        "forward_sha256": "0cbaf88627ef69459f90697bfee23466a73da9dd89153d3b5201da8c3b357a7f",
+        "reverse_sha256": "02881f052e0b1d3282b62a28d8772f73de378ba20f90614398384946224ce497"
       },
       "provenance": {
         "left_forward_bank": true,
@@ -87,5 +88,10 @@
     }
   ],
   "status": "frontier_exhausted_no_exact",
+  "endpoint_conditioning": {
+    "authoring_before_expansion": true,
+    "opening_class": "left determiner/subject initial equals right terminal noun final",
+    "full_interior_walk": true
+  },
   "next_expansion": "add typed inflection and center transitions while retaining live residual buffers"
 }

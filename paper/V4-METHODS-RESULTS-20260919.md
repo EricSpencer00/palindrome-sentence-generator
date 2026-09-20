@@ -71,6 +71,7 @@ multiword palindrome span:
 | Luna relative-clause CFG orbit | Intersects independent relative-clause/coordination parses from a held-out lexical bank while consuming opposite-end characters live | 200,000 constructive states; 0 closures; no prose candidate reached the render gate | 0 / 0 |
 | Brown character decoder center-out | Emits the left half with a Brown-derived character/word-boundary decoder and mirrors each character immediately, rejecting repeated units before rendering | 20 exact 40-letter closures with independent pointer/SHA audits; all failed the human readability gate because the right half was not English-segmentable | 20 / 0 admitted |
 | Right-boundary WFSA decoder | Constrains mirrored right-side word boundaries and POS transitions during character decoding, while retaining immediate exact mirroring and fresh-word rejection | 0 segmented exact closures at 40+ letters; no candidate reached the reader gate | 0 / 0 |
+| Agreement/valency WFSA decoder | Adds subject-number, transitivity, object-role, and clause-finality states to mirrored lexical decoding before a character is accepted | 0 exact closures at 40+ letters; no candidate reached the reader gate | 0 / 0 |
 | Indexed phrase-boundary center-out | Pre-indexes fresh NP/VP phrase pairs by exposed boundary characters and length difference, then consumes full debt before opening the next grammatical seam | 12 index keys, 30 pair options; 0 states reached the frontier; no candidate rendered | 0 / 0 |
 | Boundary-indexed typed clause growth | Places each fresh subject/verb/number/object/name/adjunct at its real tape offset and rejects conflicts before opening the next slot | 66,967 live nodes and 23,668 terminal leaves across 40–70 letters; no exact closure | 0 / 0 |
 | Asymmetric boundary-indexed growth | Tests a six-slot left clause against a four-slot response while carrying every outer character obligation before lexical placement | 150,719 live nodes and 1,868 terminal leaves; the withheld fresh inventory produced no exact closure | 0 / 0 |
@@ -367,6 +368,13 @@ accepted, rather than splitting the finished tape afterward. The held-out
 40+-letter run produced zero segmented exact closures, so it supplies no
 reader-facing output; the next state change is agreement and valency on the
 right WFSA, not a repair pass.
+
+Adding agreement and valency states to that WFSA was a separate held-out
+construction. The fresh singular/plural, transitive/intransitive, object-role,
+and clause-finality frames produced zero exact closures at 40+ letters on
+`hst-bench`; no text was sent to readers. Its next state is tense/aspect and
+semantic-role compatibility, again selected before emission rather than used
+to patch a near miss.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

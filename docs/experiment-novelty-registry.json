@@ -10770,6 +10770,18 @@
       "distinction": "Puts mirrored right-side word boundaries and POS transitions inside character decoding while preserving immediate exact mirroring and fresh-word rejection. It does not split a finished tape, use catalogue text, or repair a near miss.",
       "reader_evidence": false,
       "status": "0 segmented exact closures at 40+ letters and 0 reader-worthy candidates; next construction adds agreement and valency states to the right-side WFSA"
+    },
+    {
+      "id": "agreement-valency-wfsa-decoder-20260924",
+      "signature": "right-wfsa|agreement|valency|clause-finality",
+      "artifact": "experiments/agreement_valency_wfsa_decoder_20260924.py",
+      "run_artifacts": [
+        "artifacts/agreement-valency-wfsa-decoder-20260924-local.json",
+        "artifacts/agreement-valency-wfsa-decoder-20260924-remote.json"
+      ],
+      "distinction": "Carries subject number, transitivity, object role, and clause-finality in the mirrored lexical decoder before character emission; no raw reversal, catalogue text, repeated units, or post-hoc repair.",
+      "reader_evidence": false,
+      "status": "0 exact closures at 40+ letters and 0 reader-worthy candidates; next construction adds tense/aspect and semantic-role compatibility"
     }
   ]
 }

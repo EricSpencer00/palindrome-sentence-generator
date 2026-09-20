@@ -2831,3 +2831,15 @@ lexical dynamic program. It produced zero exact closures in 30,000 draws.
 The lane has no finished-tape reversal or repair, but its random one-sided
 sampling is not competitive with live bilateral construction; it is closed at
 this bound and remains a negative control for the next constructive design.
+
+The next construction changed the state representation rather than widening
+that sampler. A memoized weighted-CFG hypergraph merged equivalent grammar
+stacks, live character residuals, semantic-role state, and ordinary-order
+frontiers before lexical expansion. Its bounded Brown-derived run visited
+3,825 unique chart items, traversed 92 grammar hyperedges and 3,732 terminal
+edges, and recorded 34,509 character-obligation prunes. It reached 3,535
+complete parses but no exact closure above 38 letters. Because no rendered row
+survived the exact gate, there is no reader candidate; the next constructive
+direction is a semantic-frame hyperedge representation, not a larger lexical
+sweep. Artifact:
+`runs/cfg-hypergraph-obligation-20260920.json`.

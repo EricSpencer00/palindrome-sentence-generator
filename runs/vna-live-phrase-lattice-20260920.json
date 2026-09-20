@@ -1,0 +1,87 @@
+{
+  "method": "vna-live-phrase-lattice-20260920",
+  "status": "completed_no_exact_closure",
+  "scenes": 3,
+  "states": 120000,
+  "character_prunes": 114285,
+  "seam_prunes": 0,
+  "state_limit": 120000,
+  "exact_candidates": [],
+  "exact_candidate_count": 0,
+  "rendered_diagnostics": [],
+  "controls": [
+    {
+      "rendered": "At dawn, the sailor marks the lantern bright and keeps the garden silent.",
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "t"
+        },
+        "sha256_forward": "439f7fa6cca8784312d4711e06564705a4a713c303a0982c8c425b6be7f98216",
+        "sha256_reverse": "d05632b61bddcce4d03b95bd7bc5c762dc5dc9ba93c312845ea7d828bf860d84"
+      },
+      "independent_pointer_exact": false,
+      "intact_prose": true,
+      "reader_eligible": false,
+      "provenance": "authored V-N-ADJ control; not generated candidate"
+    },
+    {
+      "rendered": "At noon, the poet carries the letter patient and opens the window narrow.",
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "w"
+        },
+        "sha256_forward": "89676d91d1ca941ce6db247e6921d7a663dd6c28088537ab4904f3b9705a9106",
+        "sha256_reverse": "31a6de6b64ebfb4e8c70c1bc7e68eadebab798f1e22738a89727bf7f509f7ba5"
+      },
+      "independent_pointer_exact": false,
+      "intact_prose": true,
+      "reader_eligible": false,
+      "provenance": "authored V-N-ADJ control; not generated candidate"
+    },
+    {
+      "rendered": "At dusk, the pilot traces the banner ancient and folds the harbor open.",
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "n"
+        },
+        "sha256_forward": "f74a876fbac9e444b7d96dcb0b6e8505d1728628ee86335a59462a4f65ed5b6a",
+        "sha256_reverse": "efa6adbef8f1b637b9ef3b77997f1dd65826eb957b6d3a1521e2fcd98d7fa2f7"
+      },
+      "independent_pointer_exact": false,
+      "intact_prose": true,
+      "reader_eligible": false,
+      "provenance": "authored V-N-ADJ control; not generated candidate"
+    }
+  ],
+  "reader_facing_candidates": [],
+  "reader_eligible": false,
+  "independent_validation": [
+    "literal outside-in two-pointer",
+    "forward/reverse SHA-256"
+  ],
+  "provenance": "fresh authored V-N-ADJ phrase lattice; verb, noun, adjective slots are selected jointly on both sides and checked by live residual equations before rendering; no repair, finished-tape reversal, borrowed catalogue, or mirrored units",
+  "novelty_preflight": {
+    "passed": true,
+    "overlaps_checked": [
+      "verb_noun_adjective_lattice_20260915",
+      "scene_phrase_equations_20260920",
+      "typed_svo_phrase_edges_20260917"
+    ],
+    "unused_dimension": "joint V-N-ADJ slot selection with two-sided residual state and authored scene subject",
+    "reason": "prior V-N-ADJ and phrase-equation lanes used fixed phrase paths or lexical sweeps; this lane couples independently chosen V/N/ADJ slots to a live two-sided residual while retaining complete clauses"
+  },
+  "first_live_diagnostic": "V-N-ADJ character mismatch during online growth",
+  "next_construction": "if closure remains empty, retain the V-N-ADJ semantic lattice but add an optional prepositional adjunct slot rather than widening the Cartesian product"
+}

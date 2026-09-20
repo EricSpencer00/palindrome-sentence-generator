@@ -1,0 +1,95 @@
+{
+  "experiment_id": "habitual-modal-passive-csp-20260920",
+  "method": "global forward stative modal passive embedding grammar CSP over held-out typed lexical factors",
+  "results": [
+    {
+      "target_length": 44,
+      "represented_forward_language_count": "7679688081408",
+      "states": 173,
+      "prunes": 84,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 56,
+      "represented_forward_language_count": "7679688081408",
+      "states": 241,
+      "prunes": 84,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 68,
+      "represented_forward_language_count": "30718752325632",
+      "states": 343,
+      "prunes": 86,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 80,
+      "represented_forward_language_count": "37136692832803461682514620830273503232",
+      "states": 435,
+      "prunes": 166,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "The patient sailor could usually be given the chart by the teacher because a careful gardener carries a lantern through the orchard.",
+      "audit": {
+        "letters": 110,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "2fcc998166945b1edfb2e0ebe645609eb2786ffcb0c59a2a8338b3fe24f4b128",
+        "sha256_reverse": "c4c78a8ee38965c3de81a9d09f136b87ce9d291bc63da1b552937b06191a538c",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "A young scholar could usually be given the lesson by the keeper because a quiet keeper guards the gate near the lighthouse.",
+      "audit": {
+        "letters": 101,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "951da9af519e9913f2a891c931c2839c08ccf6e756aeea37db18e6510659d8e1",
+        "sha256_reverse": "7f01898cfcafa17071c8f5f620c34f09f6d3e45cecd2f38f5b655de9761c8be4",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_checked": 618,
+    "signature": "habitual-modal-passive|habitual-state|beneficiary-agent-theme-state",
+    "distinct_from": "stative/resultative/inchoative/progressive/perfect/modal-passive/active-ditransitive/coordination/finite-complement/relative/center/bridge/endpoint lanes: a habitual usually-being state scopes the passive before beneficiary, agent, and theme roles"
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "source_text": "held-out common-word typed bank",
+    "reader_evidence": false,
+    "reader_gate": "closed until exact >38 and blinded ratings"
+  },
+  "next_construction": {
+    "name": "iterative modal passive topology",
+    "operator": "Add a held-out iterative modal passive frame with explicit beneficiary/agent/theme roles; keep live position factors and preflight a new signature first.",
+    "reader_facing_test": "retain complete prose only, independently audit exact closures above 38, then blinded intact-vs-shuffled ratings"
+  },
+  "status": "diagnostic lane; no exact candidate above 38"
+}

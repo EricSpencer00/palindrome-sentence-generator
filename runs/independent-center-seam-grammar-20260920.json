@@ -1,0 +1,115 @@
+{
+  "method": "independent-center-seam-grammar-20260920",
+  "status": "completed_no_exact_closure",
+  "center_pairs": [
+    {
+      "pair": "river/rest",
+      "overlap": 2,
+      "left_residual": "vir",
+      "right_residual": "st",
+      "whole_word_reverse": false
+    },
+    {
+      "pair": "chart/trade",
+      "overlap": 3,
+      "left_residual": "hc",
+      "right_residual": "de",
+      "whole_word_reverse": false
+    },
+    {
+      "pair": "poet/tell",
+      "overlap": 2,
+      "left_residual": "op",
+      "right_residual": "ll",
+      "whole_word_reverse": false
+    },
+    {
+      "pair": "garden/near",
+      "overlap": 2,
+      "left_residual": "drag",
+      "right_residual": "ar",
+      "whole_word_reverse": false
+    }
+  ],
+  "states": 12,
+  "character_prunes": 24,
+  "semantic_prunes": 0,
+  "seam_prunes": 0,
+  "state_limit": 30000,
+  "exact_candidates": [],
+  "exact_candidate_count": 0,
+  "rendered_diagnostics": [],
+  "controls": [
+    {
+      "rendered": "The patient sailor guards the river; rest by the quiet harbor.",
+      "audit": {
+        "letters": 50,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "r"
+        },
+        "sha256_forward": "d96dddbcea97bbb697adceb7c6e60532c9bc4cad4dad4e041d77a19f749ad98f",
+        "sha256_reverse": "1e8b1d532f32c1c1cd5596315bd0926c29d9112e1159e26c925f8b5bb5b024c7"
+      },
+      "independent_pointer_exact": false,
+      "reader_eligible": false,
+      "provenance": "authored complete clause control; not generated from a center seam"
+    },
+    {
+      "rendered": "A careful keeper studies the chart; trade near the old bridge.",
+      "audit": {
+        "letters": 50,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "e"
+        },
+        "sha256_forward": "1f8fbf528175e0487cbf506f205b3ae776bf7dd7b44e44edab063958cfb85c47",
+        "sha256_reverse": "e2512266caea9c73c4d4a7de3c33be5f7c8ec90301ebb4b7a40cbc3cb70d3cef"
+      },
+      "independent_pointer_exact": false,
+      "reader_eligible": false,
+      "provenance": "authored complete clause control; not generated from a center seam"
+    },
+    {
+      "rendered": "The young poet remembers the garden; keep before the evening rain.",
+      "audit": {
+        "letters": 54,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "bd7ac46be901c6bfc00d0bdd5fb242ba662b8b1481799290f5d5bde1e300214a",
+        "sha256_reverse": "f0e1baa03fe9c3e7a8eea717df584fb680c956c1068fac68e4ea9a04628840ee"
+      },
+      "independent_pointer_exact": false,
+      "reader_eligible": false,
+      "provenance": "authored complete clause control; not generated from a center seam"
+    }
+  ],
+  "reader_facing_candidates": [],
+  "reader_eligible": false,
+  "independent_validation": [
+    "literal outside-in two-pointer",
+    "forward/reverse SHA-256"
+  ],
+  "provenance": "independently selected ordinary center words with proper partial inward overlap and residual overhang; complete SVO/imperative/prepositional clauses grow outward under live equations; no seed embedding, whole-word semordnilap, self-palindromic center, finished-tape reversal, or repair",
+  "novelty_preflight": {
+    "passed": true,
+    "overlaps_checked": [
+      "variable-phrase-grammar-20260920",
+      "fresh-heteropalindrome-seam-search-20260920",
+      "direct-clause-pair-inventory-20260920",
+      "vocative-qa-three-chunk-clarification-20260920"
+    ],
+    "unused_dimension": "partial center-word overlap with residual overhang followed by grammatical outward growth; center pair is neither a whole reversed word nor a copied seed span",
+    "reason": "prior seam lanes paired complete clauses or aligned lexical units; this lane starts from proper character-prefix overlap between independent center words and carries the overhang into complete clause derivation"
+  },
+  "first_live_diagnostic": "center residual overhang mismatch during outward grammar growth",
+  "next_construction": "hold out a center pair with a transitive right clause and retain proper-overlap plus complete-role gates"
+}

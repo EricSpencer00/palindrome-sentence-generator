@@ -622,7 +622,7 @@ cross-role order.
 
 ## Reader evidence and API gate
 
-`experiments/reader_package_v4_20260919.py` creates five deterministic blinded
+`experiments/reader_package_v4_20260919.py` creates six deterministic blinded
 pairs: each exact frontier item and each intact prose control is paired with a
 word-shuffled control. A fixed seed randomizes A/B order, while the answer key
 is held separately from the rater form. The package is ready, but human ratings

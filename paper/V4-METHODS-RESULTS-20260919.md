@@ -1330,6 +1330,17 @@ audited, with the Brown bank hash recorded for reproducibility. No repair,
 finished-tape reversal, mirrored unit, catalogue text, or fragment was used.
 Artifact: `runs/scaled-endpoint-indexed-envelope-20260920.json`.
 
+An implementation audit found that the preceding envelope compared raw phrase
+strings, allowing spaces to enter the character equation. The corrected
+normalized-envelope transducer stores rendered words separately from each
+phrase's letter tape, excludes spaces and punctuation from matching, and
+advances roles only after normalized tapes are exhausted. It explored 50
+corrected states and still produced zero fresh exact candidates above 38
+letters. Complete 38- and 40-letter controls passed independent pointer/SHA
+audits. No repair, finished-tape reversal, mirrored unit, catalogue text, or
+fragment was admitted. Artifact:
+`runs/corrected-normalized-envelope-transducer-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

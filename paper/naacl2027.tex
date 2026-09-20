@@ -400,6 +400,17 @@ useful because the repair changes the construction precondition rather than
 reranking failed tapes; the next step is a new PP/relative template with a
 third endpoint class.
 
+We then revisited two 39-letter exact rows surfaced by an earlier broad POS
+intersection.  They looked longer than the 38-letter benchmark, but both were
+malformed agreement controls: determiner--noun and subject--verb number did not
+unify.  The typed-agreement replay carried those obligations in the residual
+state before character closure rather than checking them after a tape was
+finished.  Across five asymmetric clause templates it visited 1,981 nodes and
+found zero agreement-valid exact closures or reader candidates.  This is a
+concrete false-positive repair: the rows remain in the diagnostic ledger,
+while the next construction adds transitive/intransitive valency to the same
+live residual key.
+
 The implementation also exposes an explicit totality witness for arbitrary
 requested lengths.  This witness is useful for testing the state machine but
 is tagged as non-reader output and cannot satisfy the admission gate.  Thus

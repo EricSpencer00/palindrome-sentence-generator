@@ -509,6 +509,19 @@ provenance is in `runs/synchronous-cfg-intersection-20260919.json`. This is a
 construction boundary, not a readability claim or a reason to promote repair;
 the next lane must change the grammar or lexical character constraints.
 
+### Live-buffer invariant correction
+
+The preceding slot implementation exposed a concrete construction bug: its
+first-character index inspected the newest right word even when an older right
+word still held unmatched character debt. That incorrectly rejected the seed
+at the `Diana`--`inspire` seam. The new live-buffer constructor removes that
+index whenever the buffers differ, carries the complete unmatched prefix and
+suffix, and independently re-audits every closure. It regenerates the exact
+38-letter control and a 37-letter lexical variant from the typed two-clause
+grammar, but finds no closure above 38 letters. This is a valid invariant and
+regression correction, not a new reader result; the rendered control remains
+the only candidate eligible for future blinded comparison.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates five deterministic blinded

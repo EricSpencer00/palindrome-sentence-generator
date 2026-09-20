@@ -64,9 +64,11 @@ class State:
 
 def _consume(a, b):
     """Consume unequal word boundaries through live residual buffers."""
-    x, y = a, b
-    while x and y and x[0] == y[0]: x, y = x[1:], y[1:]
-    return x, y
+    # Deques make the two live obligations explicit; no completed tape is
+    # reversed or repaired after the fact.
+    x, y = deque(a), deque(b)
+    while x and y and x[0] == y[0]: x.popleft(); y.popleft()
+    return "".join(x), "".join(y)
 
 def search(max_pairs=12000):
     candidates, nodes = [], 0

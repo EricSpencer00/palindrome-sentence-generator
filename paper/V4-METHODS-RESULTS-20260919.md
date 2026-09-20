@@ -1886,3 +1886,22 @@ two-pointer and forward/reverse SHA-256 audits, provenance, and anti-shortcut
 flags are retained in `runs/inflectional-clitic-boundary-csp-20260920.json`.
 This is diagnostic construction evidence only; the human reader gate remains
 closed.
+
+## Semantic valency-frame product
+
+This lane pairs complete contemporary argument-frame derivations rather than
+repairing a nearly-palindromic sentence. Transitive and intransitive frames
+carry subject-number agreement, verb valency, object selection, and optional
+PP expansion on both sides. The product checks exposed character obligations
+during construction; no completed tape is reversed or resegmented. A proper
+embedded palindrome-span check rejects structural shortcuts.
+
+The bounded inventory visited 2,927,330 paired character obligations and
+pruned 132,634 incompatible products, yielding zero fresh exact closures above
+38 letters. The exact 38-letter aide/memos/Diana sentence is retained only as
+an independent calibration (`generated: false`), not as a result of this lane.
+The artifact records frame provenance, pointer and forward/reverse SHA-256
+audits, and the next constructive step: enlarge the vivid role lexicon while
+indexing endpoint character classes before optional PP expansion. This is
+construction evidence, not readability evidence; no output enters the reader
+package.

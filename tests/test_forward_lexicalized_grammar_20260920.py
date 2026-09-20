@@ -66,3 +66,8 @@ def test_reverse_trie_is_indexed_and_bounded():
     result = reverse_trie_bilateral((Word("ab", "N"),), max_nodes=20)
     assert result["provenance"]["reverse_trie"]
     assert result["provenance"]["index_keys"] > 0
+
+def test_ngram_lattice_has_observed_transitions():
+    result = ngram_lattice(limit=100)
+    assert result["stats"]["observed_transitions"] > 0
+    assert result["provenance"]["candidate_reranking"] is False

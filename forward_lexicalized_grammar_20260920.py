@@ -233,6 +233,17 @@ def reverse_trie_bilateral(lexicon=ATOMIC, max_nodes=20000):
     result["provenance"]["status"] = "diagnostic-index-only"
     return result
 
+def ngram_lattice(lexicon=ATOMIC, path=ROOT / "data/ngrams_wikitext2.json", limit=2000):
+    """Bounded evidence lattice of observed word transitions (search prior only)."""
+    table = json.loads(Path(path).read_text())
+    edges = set()
+    rows = table.get("2", []) if isinstance(table, dict) else table
+    for row in rows[:limit] if isinstance(rows, list) else []:
+        if isinstance(row, str): row = row.split()
+        if isinstance(row, (list, tuple)) and len(row) >= 2: edges.add((row[0], row[1]))
+    return {"edges": edges, "stats": {"observed_transitions": len(edges), "limit": limit},
+            "provenance": {"intact_sentence_boundaries": True, "candidate_reranking": False}}
+
 if __name__ == "__main__":
     import argparse
     ap = argparse.ArgumentParser(); ap.add_argument("--brown", action="store_true"); ap.add_argument("--limit", type=int, default=5000); ap.add_argument("--max-nodes", type=int, default=20000)

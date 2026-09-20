@@ -708,6 +708,19 @@ repair queue; the next construction changes the grammar's semantic nonterminals
 and keeps the same pre-render residual invariant. Artifact:
 `runs/bottom-up-cfg-character-intersection-20260920.json`.
 
+### Recipient and adjunct semantic chart
+
+The chart was then widened by changing the grammar, not by mutating failed
+strings. New recipient, ditransitive, and adjunct-attachment nonterminals yielded
+12 noun phrases, 13 verbs, 6 recipients, 6 adjuncts, 546 ditransitives, and 546
+adjunct verb phrases. A bounded run tested 6,400 live constituent combinations;
+all were rejected by the character equation before closure. It retained three
+complete ordinary controls, including a 39-letter ditransitive clause, with
+independent pointer/SHA audits. No exact candidate was admitted. The semantic
+recipient family is therefore stopped; the next construction adds feature
+carrying to a different chart state rather than repairing any rendered tape.
+Artifact: `runs/bottom-up-recipient-adjunct-chart-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -2669,34 +2669,35 @@ The chart-composed phrase-path lane widened the searchable grammar without
 copying corpus sentences. Independently authored subject, verb, object,
 complement, and adjunct chunks were composed through optional grammar edges,
 then joined with unequal word-boundary states while the opposing characters
-were consumed live. The held-out relative-, passive-complement, and
-temporal-adjunct expansions reached 192 chart paths (40, 40, and 32 new paths
-respectively) and 36,672 complete states, retaining controls up to 120
-normalized letters, but found zero exact
+were consumed live. The held-out relative-, passive-complement,
+temporal-adjunct, and instrumental-adjunct expansions reached 224 chart paths
+(40, 40, 32, and 32 new paths respectively) and 49,952 complete states,
+retaining controls up to 120 normalized letters, but found zero exact
 palindromes above 38 letters. Its audits are independent outside-in scans and
 forward/reverse SHA-256 hashes; the reader gate stayed closed. The next
-construction adds a held-out instrumental adjunct edge rather than repeating the
+construction adds a held-out causal adjunct edge rather than repeating the
 same phrase bank.
 
 The dependency-frame center-seam lane changed the semantic state space. Three
 independently authored event frames on each side carried attachment, valency,
 and agreement state across a live complement seam. The held-out ditransitive
-expansion reached 18 states (three ditransitive, three benefactive, and three
-agreement-sensitive relative held-out frames) and rendered complete
-ordinary-English controls from 94 to 119 letters; for example, “The patient
-keeper guards a narrow bridge beside the orchard, and the attentive nurse
-follows the guide who waits near the station.” None was exact.
+expansion reached 21 states (three ditransitive, three benefactive, three
+agreement-sensitive relative, and three passive-relative held-out frames) and
+rendered complete ordinary-English controls from 94 to 119 letters; for
+example, “The patient keeper guards a narrow bridge beside the orchard, while
+the tools are used by the careful mason with steady hands.” None was exact.
 Each row has the independent two-pointer and forward/reverse SHA-256 audits,
 with no reversal, repair, mirrored units, or catalogue text. The next
-construction is a passive relative frame with plural agreement and an
-instrument adjunct.
+construction is a modal passive with negation scope and an alternate adjunct
+attachment.
 
 The coordination/apposition lane changed only the sentence-boundary grammar,
 not the lexical bank. Four independently authored complete clauses were joined
 through comma, conjunction, or appositive seams, and each opposing character
 was checked before the next state was admitted. It rendered 48 complete
 controls, with no live closure and no exact candidate above 38 letters; the
-longest held-out control was 110 letters. Every row carries independent
-two-pointer and forward/reverse SHA-256 audits plus anti-shortcut provenance.
-The next construction adds a causal appositive seam with a fourth independent
-clause bank, and no reader evidence is claimed for these non-exact controls.
+longest causal fourth-clause control was 144 letters. Every row carries
+independent two-pointer and forward/reverse SHA-256 audits plus anti-shortcut
+provenance. The next construction adds a contrastive appositive seam with a
+fifth independent clause bank, and no reader evidence is claimed for these
+non-exact controls.

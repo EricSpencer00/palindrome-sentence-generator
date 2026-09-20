@@ -1,0 +1,95 @@
+{
+  "experiment_id": "deontic-modal-passive-csp-20260920",
+  "method": "global forward generic modal passive embedding grammar CSP over held-out typed lexical factors",
+  "results": [
+    {
+      "target_length": 44,
+      "represented_forward_language_count": "7679688081408",
+      "states": 181,
+      "prunes": 84,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 56,
+      "represented_forward_language_count": "7679688081408",
+      "states": 289,
+      "prunes": 84,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 68,
+      "represented_forward_language_count": "2110976585800214120497152",
+      "states": 391,
+      "prunes": 122,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 80,
+      "represented_forward_language_count": "40832225586813046764029294466013456157898316972032",
+      "states": 475,
+      "prunes": 206,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "The patient sailor must be given the chart by the teacher because a careful gardener carries a lantern through the orchard.",
+      "audit": {
+        "letters": 102,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "43a141202bbf128a347e5616644a164a1e72139b3c9087aa2785c2410f7d79fb",
+        "sha256_reverse": "23e31b8573ea454e061e36b683eea2df6da9e4b5bbbea75bbd90a7d60a64f04d",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "A young scholar must be given the lesson by the keeper because a quiet keeper guards the gate near the lighthouse.",
+      "audit": {
+        "letters": 93,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "390d7429abfd1618feee6affd5c30335309f8e7c207af0d33b4d0761812c3506",
+        "sha256_reverse": "afbee1c6db212b16dcaf2d15046fa73807062ab0ab9f9aa436a20772f3a5919f",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_checked": 624,
+    "signature": "deontic-modal-passive|deontic-state|beneficiary-agent-theme-state",
+    "distinct_from": "generic/quantified/distributive/frequentative/iterative/habitual/stative/resultative/inchoative/progressive/perfect/modal-passive/active-ditransitive/coordination/finite-complement/relative/center/bridge/endpoint lanes: a deontic must-being state provides a distinct scope before beneficiary, agent, and theme roles"
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "source_text": "held-out common-word typed bank",
+    "reader_evidence": false,
+    "reader_gate": "closed until exact >38 and blinded ratings"
+  },
+  "next_construction": {
+    "name": "epistemic modal passive topology",
+    "operator": "Add a held-out epistemic modal passive frame with explicit beneficiary/agent/theme roles; keep live position factors and preflight a new signature first.",
+    "reader_facing_test": "retain complete prose only, independently audit exact closures above 38, then blinded intact-vs-shuffled ratings"
+  },
+  "status": "diagnostic lane; no exact candidate above 38"
+}

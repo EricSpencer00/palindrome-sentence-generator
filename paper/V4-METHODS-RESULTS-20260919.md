@@ -601,6 +601,16 @@ because its complete-path invariant is explicit. The next construction must
 change how semantic roles are paired across the center, not repeat this
 two-event state budget.
 
+An independent bilateral word-trie implementation then tested the same
+residual invariant with a different scheduler: variable complete clause paths
+(`NP V OBJ`, optional `PP`/`REL`) were selected independently, and lexical
+units were opened from both outside edges. The held-out role bank produced 105
+live states, 910 transitions, and 841 immediate rejections. It regenerated the
+two 38-letter exact renderings above with identical pointer and SHA audits,
+but no longer row. This cross-implementation agreement is a useful correctness
+win; the next construction changes the semantic center pairing rather than
+adding another duplicate word sweep.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates five deterministic blinded

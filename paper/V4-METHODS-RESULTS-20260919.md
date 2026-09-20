@@ -1301,6 +1301,16 @@ as outputs. No repair, finished-tape reversal, mirrored unit, catalogue text,
 or fragment was admitted. Artifact:
 `runs/ccg-supertagged-seam-20260920.json`.
 
+The broad name-bank generator expanded the lexical inventory while retaining
+complete ordinary-order SVO, ditransitive, and relative frames with semantic
+valency checks. It tested 5,936 complete frames and 1,416,056 paired lexical
+states, but found zero span-compatible pairs and zero fresh exact candidates
+above 38 letters. Complete controls included “Alice guards the crown; Diana
+praises the red letter” (43 letters) and “The young bard writes a quiet song;
+Marie seeks the moon” (45 letters), each independently audited. No catalogue
+sentence text, repair, finished-tape reversal, mirrored token, or fragment was
+used. Artifact: `runs/broad-name-bank-complete-sentence-generator-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

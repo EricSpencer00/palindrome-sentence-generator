@@ -1,0 +1,81 @@
+{
+  "experiment_id": "edge-lexical-compatibility-20260920",
+  "method": "edge-first lexical compatibility followed by bounded live clause growth",
+  "inventory": {
+    "opening_phrases": 33,
+    "closing_phrases": 33,
+    "middle_phrases": 12,
+    "pairings": 1089
+  },
+  "stats": {
+    "compatible_edge_pairs": 1,
+    "growth_states": 1,
+    "growth_pruned": 144,
+    "exact_gt38": 0
+  },
+  "deepest_valid_residuals": [
+    {
+      "residual_length": 4,
+      "opening": "An aide rips nine memos",
+      "closing": "men inspire Diana",
+      "left": "emos",
+      "right": ""
+    }
+  ],
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "An aide rips nine memos; some men inspire Diana.",
+      "audit": {
+        "letters": 38,
+        "exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "provenance": {
+        "generated": false,
+        "source": "authored control"
+      }
+    },
+    {
+      "rendered": "The careful poet reads the letter; the reader hears the poet.",
+      "audit": {
+        "letters": 49,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "b55da17a2c9fdf0b09aa171dd11cfa9d8fa4e9dee1fd84ed5f90570cf40d32bc",
+        "sha256_reverse": "1dcefff235fb72deb8a7105bdf58078e089a61f9ebfe6247d82c742b33c6125a",
+        "sha_equal": false
+      },
+      "provenance": {
+        "generated": false,
+        "source": "authored control"
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "whole-edge-lexical-compatibility|live-residual-growth",
+    "distinct_from": "endpoint buckets, fixed-tape repair, reverse parsing, and mirrored word units",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "inventory": "bounded authored contemporary English phrase bank",
+    "independent_audits": [
+      "two-pointer mismatch scan",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed pending blinded ratings"
+  },
+  "status": "no fresh exact >38 candidate",
+  "next_construction": "expand edge phrase bank by semantic scene and retain full residual obligations"
+}

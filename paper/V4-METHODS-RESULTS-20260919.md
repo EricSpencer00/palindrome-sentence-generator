@@ -2007,3 +2007,24 @@ to add a third independently authored beat bank and solve component terminal
 classes jointly before lexical expansion. Artifact:
 `experiments/compositional_non_nested_20260920.py`; run:
 `runs/compositional-non-nested-20260920.json`.
+
+## Edge-first lexical compatibility
+
+The next construction moved lexical selection to the outside of the sentence.
+Rather than choosing a grammar shape and filling it later, it compared 33
+authored natural opening phrases against 33 authored natural sentence-final
+phrases by their complete exposed character streams. Every compatible pair
+retained both residual strings; no unmatched suffix was discarded. Only those
+survivors entered a bounded cross-product of ordinary clause continuations.
+This is distinct from an endpoint bucket: the opening and closing lexical
+phrases are selected jointly before grammatical growth.
+
+The run examined 1,089 edge pairings and found one compatible calibration pair,
+the known seed split as `An aide rips nine memos` / `men inspire Diana`. The
+online state retained the four-character residual `emos`, rather than claiming
+that the edge was closed. All 144 continuation combinations then conflicted
+with that residual; there were zero exact candidates above 38 letters. The
+rendered seed remains a control, not a fresh result. Independent pointer and
+forward/reverse SHA-256 audits are retained in
+`runs/edge-lexical-compatibility-20260920.json`; the next construction expands
+the edge inventory by semantic scene while preserving residual-indexed growth.

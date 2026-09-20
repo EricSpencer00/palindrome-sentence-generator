@@ -3435,3 +3435,24 @@ prunes and retained 20 ordinary-prose near-miss diagnostics to 186 letters;
 zero exact candidates above 38 survived. The next construction adds a
 since/while duration connector. Artifact:
 `runs/word-boundary-temporal-until-graph-20260920.json`.
+
+The frequentative modal-passive lane introduced a typed `often-being`
+frequentative state before the modal passive beneficiary/agent/theme frame.
+Across target lengths 44, 56, 68, and 80 it visited 1,278 states and made 460
+live factor prunes, with zero complete parses and zero exact candidates above
+38. The next construction is distributive modal passive. Artifact:
+`runs/frequentative-modal-passive-csp-20260920.json`.
+
+The width-two relative residual buffer carried two-character residuals across
+two indexed relative boundaries and checked surface attachment semantics. All
+81 transitions were pruned at the strict width-two gate; complete controls
+reached 94 letters, with zero exact candidates above 38. The next construction
+increases the buffer to width three with typed roles. Artifact:
+`runs/multichar-relative-residual-buffer-20260920.json`.
+
+The since/while duration connector graph added typed durative relations to the
+temporal-until attachment graph. Four frames incurred 2,359,296 live boundary
+prunes and retained 20 ordinary-prose near-miss diagnostics to 186 letters;
+zero exact candidates above 38 survived. The next construction adds a
+causal-subordinator connector edge. Artifact:
+`runs/word-boundary-since-while-graph-20260920.json`.

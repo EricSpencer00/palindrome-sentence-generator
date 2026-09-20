@@ -1,6 +1,6 @@
 {
   "experiment_id": "word-boundary-since-while-graph-20260920",
-  "method": "bounded word-boundary grammar automaton with four finite event relations, explicit attachment graph, and typed temporal-until connector edge",
+  "method": "bounded word-boundary grammar automaton with four finite event relations, explicit attachment graph, and typed since/while duration connector edges",
   "stats": {
     "frames": 4,
     "states_pruned_live": 2359296,
@@ -755,11 +755,11 @@
   "novelty_preflight": {
     "status": "passed",
     "signature": "word-boundary-aware|since-while-duration|connector-edge|live-equations",
-    "distinct_from": "conditional connector graph: adds a typed temporal-until duration relation without increasing the event count"
+    "distinct_from": "temporal-until connector graph: adds typed since/while durative relations without increasing the event count"
   },
   "next_topology": {
-    "if_no_closure": "add a since/while duration connector edge with explicit attachment and tense state",
-    "reason": "current temporal-until connector frame bank has no exact closure above the reader threshold"
+    "if_no_closure": "add a causal-subordinator connector edge with explicit attachment and tense state",
+    "reason": "current since/while duration connector frame bank has no exact closure above the reader threshold"
   },
   "status": "no fresh exact >38 closure; grammatical near-misses and next topology recorded"
 }

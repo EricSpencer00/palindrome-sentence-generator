@@ -11754,6 +11754,28 @@
       "distinction": "Builds complete scene graphs with typed agent/patient/recipient/time/place roles, independently permutes role order, and enforces character equations during lexical selection. No repair, finished-tape reversal, mirrored units, catalogue replay, or fragments are admitted.",
       "reader_evidence": false,
       "status": "3 scene graphs, 5 role orders, 48 compatible boundary seeds, 2,718 states, 12,465 seam rejections, and 0 exact candidates above 38 letters; complete controls independently audited; reader gate closed; next lane must change representation"
+    },
+    {
+      "id": "masked-scene-infill-csp-20260920",
+      "signature": "masked-character-grid|typed-scene-grammar|paired-slot-infill|construction-time-csp",
+      "artifact": "experiments/masked_scene_infill_csp_20260920.py",
+      "run_artifacts": [
+        "runs/masked-scene-infill-csp-20260920.json"
+      ],
+      "distinction": "Fills a full-length paired character grid during independent complete-frame generation, retaining grammar validity at every slot. No post-hoc repair, finished-tape reversal, mirrored units, catalogue replay, or fragments are admitted.",
+      "reader_evidence": false,
+      "status": "144 left/right frames, 20,736 grid states, 12,867 paired-slot conflicts, 7,869 left-fill conflicts, and 0 fresh exact candidates; independent 40/44-letter prose controls audited; reader gate closed; next representation is a complement/coordination hypergraph"
+    },
+    {
+      "id": "blank-verse-parallel-scene-20260920",
+      "signature": "blank-verse-dialogue|parallel-verb-noun-adjective|independent-utterances|live-character-residual",
+      "artifact": "experiments/blank_verse_parallel_scene_20260920.py",
+      "run_artifacts": [
+        "runs/blank-verse-parallel-scene-20260920.json"
+      ],
+      "distinction": "Selects two complete authored dialogue/blank-verse utterances with speaker, adjective, verb, and noun variables in parallel while consuming character residuals. No repair, reversal, mirrored token units, catalogue replay, or fragments are admitted.",
+      "reader_evidence": false,
+      "status": "9 states, 9 outer-seam prunes, 0 inner chart advances, and 0 exact candidates; complete 24/28/25-letter prose controls independently audited; reader gate closed; outer role seam is the representation bottleneck"
     }
   ]
 }

@@ -1253,6 +1253,24 @@ than palindrome outputs. The lane changes the role topology without any
 repair, tape reversal, mirrored unit, catalogue text, or fragment emission.
 Artifact: `runs/role-permuted-scene-graph-20260920.json`.
 
+The masked-scene infill CSP represented every target character as a paired
+variable while independently choosing complete typed scene frames. It tested
+144 left frames against 144 right frames (20,736 length-band grid states), with
+12,867 paired-slot conflicts and 7,869 left-fill conflicts; no fresh exact
+candidate closed. Complete 40- and 44-letter prose controls were independently
+audited. Because conflicts occurred during construction, this lane used no
+post-hoc repair, finished-tape reversal, mirrored units, catalogue text, or
+fragments. Artifact: `runs/masked-scene-infill-csp-20260920.json`.
+
+The parallel blank-verse scene lattice jointly selected speaker, adjective,
+verb, noun, and utterance roles for two authored Shakespearean-style lines.
+The outer seam rejected all 9 states before any inner lexical advance, so it
+produced no exact candidate; complete controls included “my lord sees the
+crimson moon,” “dear friend marks the silent bell,” and “the queen names our
+hidden vow.” This is a representation bottleneck, not a near-miss repair
+case, and no reversal, mirrored token, catalogue text, or fragment output was
+used. Artifact: `runs/blank-verse-parallel-scene-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

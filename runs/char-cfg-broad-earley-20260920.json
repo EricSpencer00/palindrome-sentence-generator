@@ -1,0 +1,102 @@
+{
+  "experiment_id": "char-cfg-broad-earley-20260920",
+  "method": "paired character-level CFG chart join with recursive NP/VP/PP/relative clauses",
+  "grammar": {
+    "S": [
+      [
+        "NP",
+        "VP"
+      ]
+    ],
+    "NP": [
+      [
+        "DET",
+        "N"
+      ],
+      [
+        "DET",
+        "ADJ",
+        "N"
+      ],
+      [
+        "DET",
+        "N",
+        "REL"
+      ]
+    ],
+    "VP": [
+      [
+        "V",
+        "NP"
+      ],
+      [
+        "ADV",
+        "V",
+        "NP"
+      ],
+      [
+        "V",
+        "NP",
+        "PP"
+      ]
+    ],
+    "PP": [
+      [
+        "P",
+        "NP"
+      ]
+    ],
+    "REL": [
+      [
+        "that",
+        "VP"
+      ],
+      [
+        "who",
+        "VP"
+      ]
+    ]
+  },
+  "lexicon_sizes": {
+    "DET": 6,
+    "ADJ": 10,
+    "N": 16,
+    "V": 20,
+    "P": 10,
+    "ADV": 6,
+    "that": 1,
+    "who": 1
+  },
+  "stats": {
+    "chart_derivations": 1200,
+    "paired_character_states": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 0
+  },
+  "complete_prose_controls": [
+    "The quiet writer reads a bright book.",
+    "A kind teacher helps the young student.",
+    "The sailor who guides a child carries the open letter."
+  ],
+  "best_diagnostic": {
+    "matched": 0,
+    "left": "",
+    "right": ""
+  },
+  "candidates": [],
+  "independent_audit": [
+    "paired online character obligations",
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "char-cfg-broad-earley-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-event-ordered-shared-index-20260920"
+  },
+  "next_construction": "Add semantic valency features to the recursive chart and retain only role-compatible NP/VP derivations before paired emission.",
+  "reader_gate": "closed; exactness does not certify human readability"
+}

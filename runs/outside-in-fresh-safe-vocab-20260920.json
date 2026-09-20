@@ -1,0 +1,41 @@
+{
+  "experiment_id": "outside-in-fresh-safe-vocab-20260920",
+  "method": "outside-in WordTries beam overhang with whole-sentence POS plan",
+  "config": {
+    "seeds": 4,
+    "vocabulary_size": 500,
+    "min_zipf": 4.0,
+    "beam": 32,
+    "min_letters": 30,
+    "max_steps": 96
+  },
+  "stats": {
+    "records": 0,
+    "mechanically_admitted": 0,
+    "longest_letters": 0,
+    "exact": 0
+  },
+  "best_rendered_tapes": [],
+  "complete_prose_controls": [
+    "The careful writer reads a quiet book.",
+    "A kind teacher helps the young student."
+  ],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "outside-in-fresh-safe-vocab-20260920",
+    "distinct_from": "char-cfg-broad-earley-20260920",
+    "fresh_safe_vocabulary": true,
+    "catalogue_imported": false,
+    "post_hoc_repair": false
+  },
+  "provenance": {
+    "generator": "experiments/outside_in_sentence_decoder.py",
+    "vocabulary_sha256": "1a79a347a2e60c5916a3c07b930d47ac3bf1fe034cd54051536f72e983c5abf0",
+    "reader_gate": "all outputs are diagnostics until blinded human evaluation"
+  },
+  "next_construction": "Use the best intact overhang tape as a seed for a semantic-valency paired chart, without mutating a finished tape."
+}

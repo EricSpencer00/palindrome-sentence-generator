@@ -98,7 +98,7 @@ def controls() -> list[dict[str, object]]:
         "The poet brings a friend the book and some sailors give the child the seal.",
         "A captain shows the children letters but the guards offer a friend a book.",
         "The sailors send the poet the seals while a queen gives the child a letter.",
-        "Some friends receive the book and the poet sends the child a seal.",
+        "Some friends send the poet a book and the poet sends the child a seal.",
     ]
     return [{"rendered": text, "audit": audit(text),
              "reader_status": "complete contemporary prose control; not exact"} for text in texts]

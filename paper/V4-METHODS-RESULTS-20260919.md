@@ -442,10 +442,11 @@ and a prepositional object), it chooses the first and last words independently,
 compares the exposed prefix and reversed suffix immediately, and retains
 unequal word lengths in buffers so a match may cross a word boundary. With up
 to 24 Brown-PCFG entries per role plus singular-subject, third-person
-transitive-verb, and determiner-object filters, 1,173 live states across the
-three templates were pruned before a complete sentence, with zero exact
-closures. This is the right geometry for scaling the search; explicit tag and
-valency partitions, not an off-tape sentence, must now grow.
+transitive-verb, and determiner-object filters, first-character boundary
+indexing left 71 live states across the three templates. All were pruned
+before a complete sentence, with zero exact closures. The Brown bank has no
+subcategorization metadata, so the next construction must add an independent
+tag/valency partition rather than fabricate one.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

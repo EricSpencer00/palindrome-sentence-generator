@@ -1740,6 +1740,39 @@ artifact is counted. No repair, reversal, mirrored unit, catalogue text, or
 fragment was admitted. Artifact:
 `runs/richer-two-clause-live-buffer-20260920.json`.
 
+The bidirectional phrase-trie join was a separate whole-sentence construction:
+148 independently authored intact sentences were indexed by their exposed
+character prefixes and queried against compatible opposite-end phrase paths.
+It indexed 1,262 prefix states and produced no complementary joins and no
+exact palindrome above 38 letters. The run retains intact prose controls and
+audits every emitted diagnostic with an independent mismatch scan and
+forward/reverse SHA-256. It does not reverse or repair a finished tape, reuse
+catalogue text, or mirror a token list. The result is a constructive inventory
+diagnostic: the phrase bank has ordinary prose but insufficient reverse
+character compatibility. Artifact:
+`runs/phrase-trie-bidirectional-join-20260920.json`.
+
+The typed whole-sentence scene lattice selected both clause-role inventories
+simultaneously while carrying exposed character buffers. Its 17,634 live
+states and 77,050 pruned states yielded no exact palindrome above 38 letters;
+40 partial-lattice witnesses were retained for debugging, and the 38-letter
+seed remained a regression control only. Every state was generated before
+rendering, with independent pointer/SHA auditing and explicit rejection of
+finished-tape reversal, word-order symmetry, repeated units, catalogue text,
+and post-hoc repair. Artifact:
+`runs/whole-sentence-scene-lattice-20260920.json`.
+
+As a deliberately rejected diagnostic, the reverse-stream grammar parser
+enumerated 12,000 complete authored SVO/PP/relative clauses and attempted to
+parse each required opposite-end character stream under an independent
+grammar. It found zero reverse parses and zero exact candidates above 38
+letters. Because this diagnostic materializes a completed clause before
+forming its reverse stream, it is not the admissible generation method and no
+row is promoted to the reader package. The artifact is retained to prevent
+repeating the same dead end; the next constructive method must carry both
+grammar states and the shared character obligation simultaneously. Artifact:
+`runs/reverse-grammar-parser-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

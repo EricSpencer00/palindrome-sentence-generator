@@ -2228,3 +2228,25 @@ record explicitly reports `interior_width=0`—and the full tape was independent
 audited. No exact candidate above 38 letters appeared. The next construction
 must add a real width-two character equation with a disjoint fresh bank; this
 correction prevents slot alignment from being mistaken for palindrome progress.
+
+## Width-two endpoint equation
+
+The next pass implemented the recorded character construction directly. Fresh
+three-by-three-by-three-by-three clause banks were first filtered by the
+one-letter endpoint equation (4,374 survivors), then by a real two-character
+prefix/suffix equation (1,458 survivors). The longest complete forward prose
+control was:
+
+> **A calm baker carries warm bread near the window in spring; our thoughtful friend lights the hall near the shore toward America.**
+
+It has 104 letters. The full rendered tape first mismatches at normalized
+character 2 (`a` versus `i`); the endpoint equation itself matches `ac` on both
+sides. Independent SHA-256 digests are
+`8ab52d84d473194feae96d47ca585fb4e89df80f57e68f6b383b24a63e65d363` and
+`8266e53e85f9e32f76bf53b74107d129de07a9e57d03cb8ec4340486a44951f0`.
+The 1,458 rows are complete prose controls, not palindrome claims; the exact
+count above 38 is zero. Both clauses were generated forward from disjoint
+banks, with no repair, reversal, catalogue borrowing, mirrored units, or
+repeated units. The next construction increases the equation to width three
+only with a fresh bank whose endpoint classes are not preselected to be
+identical.

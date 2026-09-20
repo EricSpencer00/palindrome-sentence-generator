@@ -1,0 +1,77 @@
+{
+  "experiment_id": "character-cfg-semantic-center-relation-20260920",
+  "method": "semantic center relation over complete lexical constituents with outer-two seam",
+  "grammar": [
+    "S -> NPsubject VP",
+    "VP -> V NPobject",
+    "NP -> DET NOUN REL",
+    "REL -> who VP",
+    "CENTERREL -> semantic relation(left_char,right_char)"
+  ],
+  "relation_bank": [
+    {
+      "relation": "contrastive_center",
+      "left_char": "t",
+      "right_char": "e",
+      "surface": "the",
+      "agreement": "sg"
+    },
+    {
+      "relation": "continuative_center",
+      "left_char": "s",
+      "right_char": "e",
+      "surface": "some",
+      "agreement": "pl"
+    }
+  ],
+  "stats": {
+    "subject_derivations": 540,
+    "object_derivations": 540,
+    "subject_chart_states": 15934,
+    "object_chart_states": 18252,
+    "semantic_relation_support": {
+      "contrastive_center": 7744
+    },
+    "outer_twochar_states": 2816,
+    "joint_relation_seam_closures": 2816,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_relation_score": 2
+  },
+  "complete_prose_controls": [
+    "The sailor who reads the area guards the harbor.",
+    "Some guides who keep the era mark a garden."
+  ],
+  "best_diagnostic": {
+    "score": 2,
+    "left": "a area guides the area",
+    "right": "a area guides the area",
+    "relation": "contrastive_center",
+    "semantic_edge": {
+      "relation": "contrastive_center",
+      "left_char": "t",
+      "right_char": "e",
+      "observed": {
+        "left": "t",
+        "right": "e"
+      },
+      "complete_left_center": "the",
+      "complete_right_center": "the"
+    },
+    "outer_seam": true
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-semantic-center-relation-20260920",
+    "catalogue_imported": false,
+    "fixed_bank_sweep": false,
+    "distinct_from": "character-cfg-typed-twosided-center-20260920"
+  },
+  "next_construction": "Use semantic relation choice to select a fresh grammatical center category, then solve its character equation directly; do not use relation labels to forgive mismatches.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

@@ -499,11 +499,11 @@ implemented a seven-role `DET NOUN VERB DET NOUN ADP NOUN` grammar in
 `experiments/synchronous_cfg_intersection_20260919.py`. Both outer roles are
 selected together from frequency-ranked Brown frame partitions; newly exposed
 characters are compared immediately while recursion carries cross-word
-buffers inward. This is one grammatical derivation, not a finished tape
-followed by repair or reversal. With 64-word lexical partitions (16
-determiners, 64 subjects, 64 verbs, 10 object determiners, 64 objects, 14
-prepositions, and 64 complements), 960 synchronous states were visited and
-all were pruned by live character obligations. The independent SHA-256 audit
+buffers inward, consuming matched prefixes and retaining unequal-length
+residuals. This is one grammatical derivation, not a finished tape followed by
+repair or reversal. Pairing 101 complete Brown-attested frame paths produced
+8,613 synchronous states, all pruned by live character obligations. The
+independent SHA-256 audit
 therefore reports zero exact closures and no rendered candidate; complete
 provenance is in `runs/synchronous-cfg-intersection-20260919.json`. This is a
 construction boundary, not a readability claim or a reason to promote repair;

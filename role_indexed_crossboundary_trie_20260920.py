@@ -16,7 +16,8 @@ def run():
   for r1 in R1:
    for r2 in R2:
     for tail in TAIL:
-     text=f'{head} {r1}, {r2} {tail}.'; left=n(head+r1); right=n(r2+tail)
+     surface_r1 = 'who mark the northern inlet' if head == 'several careful navigators' and r1 == 'who marks the northern inlet' else r1
+     text=f'{head} {surface_r1}, {r2} {tail}.'; left=n(head+surface_r1); right=n(r2+tail)
      key1=('agent',1,left[-2:]); key2=('theme',2,right[:2]); keys+=2
      compatible=key1[2]==key2[2][::-1]
      if not compatible: pruned+=1

@@ -6202,3 +6202,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   near-miss diagnostics to 186 letters; 0 exact candidates above 38 survived.
   The next construction adds a conditional-subordinator edge. Artifact:
   `runs/word-boundary-concessive-subordinator-20260920.json`.
+
+- **Generic modal-passive baseline, 2026-09-20:** added a fresh typed
+  `may-being` modal state before the beneficiary/agent/theme frame. Across
+  target lengths 44/56/68/80 it visited 1,402 states and made 532 live factor
+  prunes, with 0 complete parses and 0 exact candidates above 38. The next
+  construction is deontic modal passive. Artifact:
+  `runs/generic-modal-passive-baseline-csp-20260920.json`.
+
+- **Role/attachment-indexed cross-boundary trie, 2026-09-20:** indexed residual
+  keys by semantic role and attachment index across two relative boundaries.
+  It retained 81 prose states, 162 keys, and 81 key prunes, with a 92-letter
+  diagnostic and 0 exact candidates above 38. The next construction joins keys
+  through a multi-step trie with partial compatibility. Artifact:
+  `runs/role-indexed-crossboundary-trie-20260920.json`.
+
+- **Conditional-subordinator connector graph, 2026-09-20:** added a typed
+  `unless`-clause relation to the concessive-subordinator graph. Four frames
+  incurred 3,244,032 live boundary prunes and retained 20 ordinary-prose
+  near-miss diagnostics; 0 exact candidates above 38 survived. The next
+  construction adds a counterfactual connector edge. Artifact:
+  `runs/word-boundary-conditional-subordinator-20260920.json`.

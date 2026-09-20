@@ -1,0 +1,68 @@
+{
+  "experiment_id": "character-cfg-compatible-complementizer-pair-20260920",
+  "method": "compatible distinct complementizer pair with direct center equality and hard outer seam",
+  "grammar": [
+    "S -> NP VP",
+    "NP -> DET NOUN COMP S",
+    "COMP -> that | as",
+    "shared scene relation"
+  ],
+  "complementizers": [
+    {
+      "category": "COMP_THAT",
+      "surface": "that",
+      "agreement": "sg"
+    },
+    {
+      "category": "COMP_AS",
+      "surface": "as",
+      "agreement": "sg"
+    }
+  ],
+  "stats": {
+    "that_derivations": 180,
+    "as_derivations": 180,
+    "chart_states": 18908,
+    "relation_pair_support": {
+      "that/as:writing_scene": 5120,
+      "that/as:maritime_scene": 3173,
+      "as/that:writing_scene": 5120,
+      "as/that:maritime_scene": 3173
+    },
+    "center_mismatch_support": {
+      "t/s": 8293,
+      "a/t": 8293
+    },
+    "outer_twochar_states": 7556,
+    "joint_closures": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_score": 2
+  },
+  "complete_prose_controls": [
+    "The sailor that the poet reads guards the harbor.",
+    "The sailor acts as the poet reads the harbor."
+  ],
+  "best_diagnostic": {
+    "score": 2,
+    "left": "a era that a area guides a era",
+    "right": "a area as a poet guides a area",
+    "pair": "that/as",
+    "relation": "writing_scene",
+    "outer_seam": true
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-compatible-complementizer-pair-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "character-cfg-distinct-complementizer-pair-20260920"
+  },
+  "next_construction": "Pair compatible complementizers with opposite attachment depth, retaining direct center equality and hard seam.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

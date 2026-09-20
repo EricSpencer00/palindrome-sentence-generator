@@ -1,0 +1,152 @@
+{
+  "experiment_id": "shakespeare-complement-pronoun-reverse-lattice-20260920",
+  "method": "Shakespearean complement/pronoun grammar times reverse trie parser",
+  "sentence_paths": 1001,
+  "grammar_paths": [
+    [
+      "NP",
+      "V",
+      "COMP"
+    ],
+    [
+      "NP",
+      "V",
+      "COMP",
+      "PP"
+    ],
+    [
+      "NP",
+      "V",
+      "COMP",
+      "REL"
+    ]
+  ],
+  "trie_sizes": {
+    "NP": 5,
+    "V": 5,
+    "COMP": 5,
+    "PP": 4,
+    "REL": 3
+  },
+  "stats": {
+    "states": 3003,
+    "reverse_parses": 0,
+    "rendered_candidates": 0,
+    "exact": 0
+  },
+  "rendered_candidates": [],
+  "scene_controls": [
+    {
+      "rendered": "the wise king says that she guards the crown beneath the moon",
+      "audit": {
+        "letters": 50,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          49
+        ],
+        "sha256_forward": "a3e31108129223eccc01e3680ce6bcdda63d6c072ad2152f044993718a66996f",
+        "sha256_reverse": "59819dba315940826897936eb13b35a9b0982fe9350daa8457df5d9b0aa2f97f",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "the fair queen hears that he praises the rose within the court",
+      "audit": {
+        "letters": 51,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          49
+        ],
+        "sha256_forward": "b26173df04e38cce97600ca90894a782be4dd22d9ade6587163160dd672d9ab1",
+        "sha256_reverse": "6f639f9439a6ebb3f6a84a7b7c54dc48dd5f6dc95f301e0af5554ffd02e5beb9",
+        "sha_equal": false
+      }
+    }
+  ],
+  "baseline_controls": [
+    {
+      "rendered": "an aide rips nine memos",
+      "right_roles": [
+        "NP",
+        "V",
+        "COMP"
+      ],
+      "parse_count": 0,
+      "audit": {
+        "letters": 19,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          18
+        ],
+        "sha256_forward": "789ebff082e963bbc2fbea1e1c07059b524425e97f5c717fdcc61e835c9f2ef2",
+        "sha256_reverse": "3ff8bb9c3c12bc6124b83c185eeabb371a313612e9e10bf5bddddfd606a28285",
+        "sha_equal": false
+      },
+      "reader_status": "old 38 seed excluded control"
+    },
+    {
+      "rendered": "an aide rips nine memos",
+      "right_roles": [
+        "NP",
+        "V",
+        "COMP",
+        "PP"
+      ],
+      "parse_count": 0,
+      "audit": {
+        "letters": 19,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          18
+        ],
+        "sha256_forward": "789ebff082e963bbc2fbea1e1c07059b524425e97f5c717fdcc61e835c9f2ef2",
+        "sha256_reverse": "3ff8bb9c3c12bc6124b83c185eeabb371a313612e9e10bf5bddddfd606a28285",
+        "sha_equal": false
+      },
+      "reader_status": "old 38 seed excluded control"
+    },
+    {
+      "rendered": "an aide rips nine memos",
+      "right_roles": [
+        "NP",
+        "V",
+        "COMP",
+        "REL"
+      ],
+      "parse_count": 0,
+      "audit": {
+        "letters": 19,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          18
+        ],
+        "sha256_forward": "789ebff082e963bbc2fbea1e1c07059b524425e97f5c717fdcc61e835c9f2ef2",
+        "sha256_reverse": "3ff8bb9c3c12bc6124b83c185eeabb371a313612e9e10bf5bddddfd606a28285",
+        "sha_equal": false
+      },
+      "reader_status": "old 38 seed excluded control"
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "fresh-complement-cadence|pronoun-attachment|reverse-variable-segmentation",
+    "distinct_from": "prior scene SVO lattice; adds authored that-clause cadence and he/she/they complement paths",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "vocabulary": "fresh authored bard/king/queen/crown/rose/moon complements and pronouns",
+    "independent_audit": "two-pointer mismatch plus forward/reverse SHA-256",
+    "reader_evidence": false
+  },
+  "status": "no fresh exact >38 parse",
+  "next_construction": "add authored dialogue response complements",
+  "reader_gate": "closed until blinded human ratings"
+}

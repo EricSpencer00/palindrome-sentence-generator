@@ -3091,3 +3091,14 @@ the old letter by the river; while the bell has sounded; patient poets kept a
 silver map near the garden.” The next operator conditions a fourth clause on
 the full residual vector and finite-verb agreement. Artifact:
 `runs/three-clause-residual-suffix-paradigm-20260920.json`.
+
+The endpoint-indexed common grammar then used a fresh compact typed clause
+bank and queried a right-edge index by the character required by the left
+clause before any interior residual walk. It produced 50 endpoint-compatible
+complete-prose diagnostics up to 114 letters, but zero exact candidates above
+38. A non-repeated example is “The patient sailor studies the chart beside
+market; the young scholar copies the letter under market.” The endpoint gate
+therefore improves the first-character state but still leaves an interior
+mismatch; the next construction is a two-character endpoint trie with
+held-out nouns. Artifact:
+`runs/endpoint-indexed-common-grammar-20260920.json`.

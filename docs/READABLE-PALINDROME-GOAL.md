@@ -5821,3 +5821,10 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   construction conditions a fourth clause on the full residual vector and
   finite-verb agreement. Artifact:
   `runs/three-clause-residual-suffix-paradigm-20260920.json`.
+
+- **Endpoint-indexed common grammar, 2026-09-20:** queried a right-edge
+  character index before expanding clause interiors. It tested 50
+  endpoint-compatible pairs and retained complete-prose diagnostics to 114
+  letters, with 0 exact candidates above 38. The next operator is a
+  two-character endpoint trie with held-out nouns. Artifact:
+  `runs/endpoint-indexed-common-grammar-20260920.json`.

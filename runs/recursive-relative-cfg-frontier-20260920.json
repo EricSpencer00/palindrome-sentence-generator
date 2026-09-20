@@ -1,0 +1,41 @@
+{
+  "experiment_id": "recursive-relative-cfg-frontier-20260920",
+  "method": "recursive relative-clause CFG with memoized opposite-frontier word-boundary state",
+  "grammar": {
+    "S": "NP VP",
+    "NP": "Det N | Det N RC",
+    "RC": "who VP",
+    "VP": "V NP"
+  },
+  "stats": {
+    "left_derivations": 180,
+    "right_derivations": 180,
+    "grammar_derivations_available": 936,
+    "memo_states": 1,
+    "frontier_transitions": 32400,
+    "character_pair_states": 2160,
+    "character_pair_transitions": 2160,
+    "best_mirrored_prefix_letters": 1,
+    "exact": 0,
+    "mechanically_admitted": 0,
+    "reader_eligible": 0,
+    "longest_exact_letters": 0
+  },
+  "complete_prose_controls": [
+    "the sailor guards the harbor.",
+    "the keeper who keeps a sailor guides a sailor."
+  ],
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "recursive-relative-cfg-live-frontier-20260920",
+    "catalogue_imported": false,
+    "fixed-bank_sweep": false
+  },
+  "next_construction": "Expose recursive RC subject and object as separate paired nonterminals, with agreement carried through the memo key; do not widen this lexical bank.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

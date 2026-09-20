@@ -6705,3 +6705,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   letters, with 0 exact candidates above 38. The next construction adds
   modality scope and event-entailment gating. Artifact:
   `runs/shared-scene-causal-concessive-scope-20260920.json`.
+
+- **Argument-structure clause topology, 2026-09-20:** added held-out argument
+  alternation frames with agreement state to the independent full-clause
+  factorization. The bounded run visited 5,000 states, pruned 4,499, and
+  reached no complete two-sided parse; its longest intact control was 108
+  letters and exact count above 38 was 0. The next construction adds semantic
+  frame alternations. Artifact:
+  `runs/argument-structure-clause-csp-20260920.json`.
+
+- **Typed event-to-theme transitions, 2026-09-20:** allowed residuals to cross
+  from event to theme only under an explicit transitive-valency gate. It checked
+  27 typed transitions across 27 scenes, rejected 27 incompatible closures,
+  and retained diagnostics up to 58 letters with 0 exact candidates above 38.
+  The next construction adds intransitive locative transitions. Artifact:
+  `runs/typed-crossrole-event-theme-20260920.json`.
+
+- **Modal/entailment scope, 2026-09-20:** added modal states and event-entailment
+  gating to the causal/concessive two-event graph. It checked 1,458 online
+  prunes and retained 20 complete controls up to 74 letters, with 0 exact
+  candidates above 38. The next construction adds evidential and polarity
+  scope states. Artifact:
+  `runs/shared-scene-modality-entailment-20260920.json`.

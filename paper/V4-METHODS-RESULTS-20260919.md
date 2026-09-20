@@ -3970,3 +3970,23 @@ ordered, tense-compatible two-event graph. It checked 972 online prunes and
 retained 20 complete controls up to 69 letters, with zero exact candidates above
 38. The next construction adds modality scope and event-entailment gating.
 Artifact: `runs/shared-scene-causal-concessive-scope-20260920.json`.
+
+The argument-structure clause topology added held-out argument alternation
+frames with agreement state to independent full-clause factorization. Its
+bounded run visited 5,000 states, pruned 4,499, and reached no complete
+two-sided parse; the longest intact control was 108 letters and the exact count
+above 38 was zero. The next construction adds semantic frame alternations.
+Artifact: `runs/argument-structure-clause-csp-20260920.json`.
+
+The typed event-to-theme lane allowed residuals to cross roles only under an
+explicit transitive-valency gate. It checked 27 typed transitions across 27
+scenes, rejected 27 incompatible closures, and retained diagnostics up to 58
+letters with zero exact candidates above 38. The next construction adds
+intransitive locative transitions. Artifact:
+`runs/typed-crossrole-event-theme-20260920.json`.
+
+The modal/entailment-scope lane added modal states and event-entailment gating
+to the causal/concessive two-event graph. It checked 1,458 online prunes and
+retained 20 complete controls up to 74 letters, with zero exact candidates above
+38. The next construction adds evidential and polarity scope states. Artifact:
+`runs/shared-scene-modality-entailment-20260920.json`.

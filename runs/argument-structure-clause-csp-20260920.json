@@ -1,0 +1,66 @@
+{
+  "experiment_id": "argument-structure-clause-csp-20260920",
+  "method": "factorized independent full-clause grammar coupled by live word-boundary character obligations",
+  "results": [
+    {
+      "states": 5000,
+      "prunes": 4499,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "The patient sailor studies the northern chart beside the harbor; a careful gardener carries a silver lantern through the orchard.",
+      "audit": {
+        "letters": 108,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "fec3af89983ff5d9a9a93733e584910aa03ddbb3840e01de53dc0246ce215ec2",
+        "sha256_reverse": "d216885044d18205985503f47216249159d2ff5d563d3eb8dbe6ec45cd3ac120",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "The young scholar copies the old letter under the window; a quiet keeper guards the narrow gate near the lighthouse.",
+      "audit": {
+        "letters": 95,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "a30e20388f91854a960ef9b18b56adb666da08605fa5746a54c1b2eb7b16a23f",
+        "sha256_reverse": "f7914d3235827c8c1144750245a3c0ed49200989a8a32e8d000edfc831f6c4d1",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_checked": 646,
+    "signature": "argument-structure-clause|argument-alternation-state|word-boundary-obligation",
+    "distinct_from": "cadence adjunct growth, fixed clause pairs, endpoint envelopes, and center/bridge lanes: both full clauses are composed independently from subject/verb/object/locative factors while boundary characters are coupled online; no reversal, repeated units, repair, or catalogue text"
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "source_text": "fresh authored factorized clause grammar",
+    "reader_evidence": false,
+    "reader_gate": "closed until exact >38 and blinded ratings"
+  },
+  "next_construction": {
+    "name": "semantic frame clause topology",
+    "operator": "Add held-out semantic frame alternations with agreement state; preflight a new signature first.",
+    "reader_facing_test": "retain complete vivid prose, independently audit exact closures above 38, then blinded intact-vs-shuffled ratings"
+  },
+  "status": "diagnostic lane; no exact candidate above 38"
+}

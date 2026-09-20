@@ -4182,6 +4182,20 @@ candidates above 38. The next construction adds semantic entailment between
 the event predicate and typed outer setting. Artifact:
 `runs/author-first-semantic-compatibility-20260920.json`.
 
+The dual-owned adjunct CFG lane gave two distinct adjuncts separate semantic
+owners. It checked 162 states and 324 online boundaries, pruned 162, and
+reached zero exact candidates above 38; the longest control was 46 letters. The
+next construction carries paired left/right adjunct ownership with separate
+residual buffers. Artifact:
+`runs/bounded-cfg-dual-owned-adjuncts-20260920.json`.
+
+The author-first event-setting-entailment lane added entailment between the
+center event and typed outer setting roles. It retained 108 entailment-
+compatible diagnostics after 108 online prunes, up to 80 letters, with zero
+exact candidates above 38. The next construction adds typed instrument
+entailment. Artifact:
+`runs/author-first-event-setting-entailment-20260920.json`.
+
 The reader-gate hygiene pass audited 20 historical artifacts and moved every
 non-exact or shortcut-prone control out of `reader_facing_candidates` into
 `diagnostic_controls`, while protecting borrowed/catalogue rows. This makes the

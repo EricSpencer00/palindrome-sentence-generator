@@ -6925,6 +6925,20 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   semantic entailment between the event predicate and typed outer setting.
   Artifact: `runs/author-first-semantic-compatibility-20260920.json`.
 
+- **Dual-owned adjunct CFG, 2026-09-20:** gave two distinct adjuncts separate
+  semantic owners within paired CFG derivations. It checked 162 states and 324
+  online boundaries, pruned 162, and reached 0 exact candidates above 38; the
+  longest control was 46 letters. The next construction carries paired
+  left/right adjunct ownership with separate residual buffers. Artifact:
+  `runs/bounded-cfg-dual-owned-adjuncts-20260920.json`.
+
+- **Author-first event-setting entailment, 2026-09-20:** added entailment
+  between the center event and typed outer setting roles. It retained 108
+  entailment-compatible diagnostics after 108 online prunes, up to 80 letters,
+  with 0 exact candidates above 38. The next construction adds typed instrument
+  entailment. Artifact:
+  `runs/author-first-event-setting-entailment-20260920.json`.
+
 - **Reader-gate hygiene, 2026-09-20:** audited 20 historical run artifacts
   and moved every non-exact or shortcut-prone control out of
   `reader_facing_candidates` into `diagnostic_controls`. Borrowed/catalogue

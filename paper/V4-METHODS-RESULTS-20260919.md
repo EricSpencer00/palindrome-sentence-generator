@@ -1051,6 +1051,16 @@ post-hoc repair or presentation reversal. The next construction adds
 attachment-conditioned role transitions. Artifact:
 `runs/lexical-reverse-independent-role-parser-20260920.json`.
 
+Attachment-conditioned parsing added typed object PPs, object relatives,
+subject PPs, and recipient attachments to the reverse grammar. It tested 1,401
+complete left sentences and 7,717 trie/parser states; attachment validity was
+checked before any right parse was emitted. Only the excluded baseline reverse
+parse survived, with no fresh exact candidate above 38 letters. No tape was
+repaired or reversed for presentation. The next construction adds semantic
+selection constraints for recipient and relative referents rather than another
+surface attachment variant. Artifact:
+`runs/attachment-conditioned-reverse-parser-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -1,0 +1,99 @@
+{
+  "experiment_id": "obligation-relative-csp-20260920",
+  "method": "obligation-aware lexical endpoint index with typed relative subject/object constituents",
+  "plans": [
+    "subj_rel",
+    "obj_rel",
+    "subj_rel_pp"
+  ],
+  "stats": {
+    "endpoint_keys": 59,
+    "indexed_items": 82,
+    "states": 9,
+    "pruned": 2460,
+    "fresh_exact_gt38": 0,
+    "controls": 3
+  },
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "The teacher who reads the book; the author that edits the poem.",
+      "audit": {
+        "letters": 50,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "m"
+        ],
+        "sha256_forward": "98641ae3232e63933da47a03d789d2d97371dc323ff7b294f1872da05e9fa2bc",
+        "sha256_reverse": "d67cbe21bd14fbc85033da2e6479ae9410c4b9f801edbca5a19fc114ce74653e",
+        "sha_equal": false
+      },
+      "provenance": {
+        "generated": false,
+        "source": "authored intact control"
+      },
+      "reader_status": "intact authored control; not generated"
+    },
+    {
+      "rendered": "Alice sees the artist who writes a letter; Marie reads the note.",
+      "audit": {
+        "letters": 51,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "21ffeeaca7281c17aaa11711cce3a7b8cc7ae17fc47b3da97bd81ed85ea1fe6b",
+        "sha256_reverse": "bae5ef267b9ba61df92cc135b81b86828231a4cd9c9ddd9b65d965b9e99f1646",
+        "sha_equal": false
+      },
+      "provenance": {
+        "generated": false,
+        "source": "authored intact control"
+      },
+      "reader_status": "intact authored control; not generated"
+    },
+    {
+      "rendered": "The guide that helps the nurse visits the station.",
+      "audit": {
+        "letters": 41,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "64d63c5b7e36ddd222983e034dfc0ca5ec093dc142f66d0780992153289abb2c",
+        "sha256_reverse": "e75c1846f0b8d2bccaaaea9e7a6474e460477854a0e8b2b56f820f3db3ff8b3a",
+        "sha_equal": false
+      },
+      "provenance": {
+        "generated": false,
+        "source": "authored intact control"
+      },
+      "reader_status": "intact authored control; not generated"
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "obligation-index|typed-relative-subject-object|live-character-csp",
+    "distinct_from": "generic endpoint envelope, reverse parser, finished-clause reversal, and repair lanes",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "inventory": "independently authored small role bank",
+    "independent_audits": [
+      "two-pointer mismatch scan",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed pending blinded human ratings"
+  },
+  "status": "no fresh exact >38 candidate",
+  "next_construction": "expand typed relative role inventory only after an exact closure"
+}

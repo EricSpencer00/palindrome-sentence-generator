@@ -1840,3 +1840,5 @@ prose witnesses are retained in
 `runs/two-clause-character-csp-20260920.json`, with independent two-pointer
 and SHA-256 audits. This is a construction result, not readability evidence;
 the blinded reader gate remains closed.
+
+The obligation-relative CSP is a separate lexical-index construction. It keeps subject-gap and object-gap relative constituents as typed roles, indexes each role inventory by exposed endpoint characters, and queries those inventories while both clause obligations are live. The bounded run indexed 59 endpoint keys, visited 9 live states, and pruned 2,460 incompatible pair expansions. It rendered three authored intact controls and found zero exact candidates above 38 letters. The endpoint index is queried during construction; this is not a completed-clause reverse lookup or a repair pass. Proper-span, repeated-content, catalogue, and finished-tape checks are recorded in `runs/obligation-relative-csp-20260920.json`; no row is promoted to the reader package.

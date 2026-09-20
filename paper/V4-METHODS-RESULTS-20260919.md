@@ -3031,3 +3031,33 @@ semicolon/auxiliary construction is retained only as a construction trace.
 The next operator is a polarity-conditioned auxiliary/negation interior with
 a complete-clause admission check. Artifact:
 `runs/tense-aspect-endpoint-decoder-20260920.json`.
+
+Three additional Luna lanes changed the construction state in different ways.
+The synchronous scene-CFG lane paired semantic-scene nonterminals and consumed
+role terminals concurrently from opposite grammar edges. It recorded 64
+states, 64 seam prunes, and 16 intact prose diagnostics up to 118 letters;
+none closed exactly above 38. A representative rendering is “The patient
+sailor studies the northern chart beside the quiet harbor; a quiet keeper
+guards the narrow gate before the winter dawn.” Its first outer comparison is
+`t` versus `n`. The next construction adds an optional relative-clause
+nonterminal with shared attachment state. Artifact:
+`runs/synchronous-scene-cfg-20260920.json`.
+
+The joint scene-orbit lane selected a complete authored event schedule—left
+scene arm, center relation, and right scene arm—before applying the live
+character equation. It produced 24 complete-prose diagnostics up to 83
+letters, all pruned by an outer mismatch and none exact above 38. For example,
+“At dawn, the watchman opened the gate; as the eastern sky paled, and the boats
+left the quay.” is retained with its `a`/`y` first mismatch and independent
+hashes. The next operator is residual-prefix-keyed alternate scene-arm
+expansion. Artifact: `runs/scene-orbit-joint-equation-20260920.json`.
+
+The productive morphology lane selected number, tense, and verb paradigms
+before the outside-in zipper, rather than editing an already formed sentence.
+It enumerated 324 grammatical frames and 104,976 paradigm transitions; zero
+pairs were live-compatible, so two intact controls at 84--85 letters are
+diagnostics only. One is “The lantern keeper marks the old letter by the river;
+the young poets read the quiet poem at first light.” Its first mismatch is
+`e` versus `g`. The next construction carries residual suffix-class vectors
+through a three-clause paradigm grammar with held-out auxiliaries. Artifact:
+`runs/morphological-paradigm-zipper-csp-20260920.json`.

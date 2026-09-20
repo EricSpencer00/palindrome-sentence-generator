@@ -5775,3 +5775,26 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   is a polarity-conditioned auxiliary/negation interior with a full-clause
   admission check. Artifact:
   `runs/tense-aspect-endpoint-decoder-20260920.json`.
+
+- **Synchronous scene-CFG intersection, 2026-09-20:** paired semantic-scene
+  nonterminals and consumed role terminals concurrently from opposite grammar
+  edges. It recorded 64 states, 64 seam prunes, and 16 intact prose
+  diagnostics up to 118 letters; the representative first mismatch was `t`
+  versus `n`, with 0 exact candidates above 38. The next operator adds a
+  relative-clause nonterminal with shared attachment state. Artifact:
+  `runs/synchronous-scene-cfg-20260920.json`.
+
+- **Joint scene-orbit equation, 2026-09-20:** selected complete event
+  schedules before live character checking. Twenty-four complete-prose
+  diagnostics reached 83 letters, all failing an outer character equation;
+  none was exact above 38. The next construction adds residual-prefix-keyed
+  alternate scene arms while retaining complete-prose filtering. Artifact:
+  `runs/scene-orbit-joint-equation-20260920.json`.
+
+- **Productive morphology zipper, 2026-09-20:** selected independent
+  number/tense/verb paradigms before the outside-in character zipper. It
+  enumerated 324 frames and 104,976 transitions, with 0 live-compatible pairs
+  and two intact 84--85-letter controls. The next operator carries residual
+  suffix-class vectors through a three-clause paradigm grammar with held-out
+  auxiliaries. Artifact:
+  `runs/morphological-paradigm-zipper-csp-20260920.json`.

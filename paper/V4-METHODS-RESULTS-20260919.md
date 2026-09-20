@@ -1118,6 +1118,16 @@ used. The next construction changes grammar geometry to subordination and
 embedded clauses. Artifact:
 `runs/brown-authored-coordination-reverse-decoder-20260920.json`.
 
+The subordination lane composed complete matrix plus embedded `that`-complement
+and `who`-relative frames from Brown-derived word forms, then parsed the
+reverse obligation through a second grammar. It tested 9,000 forward frames
+and 9,000 reverse states, with no complete reverse parse or exact candidate.
+Controls reached 33 and 43 letters. `that` and `who` were admitted only when
+present in the frozen lexical bank; unavailable `whether` was not fabricated.
+No catalogue text, repair, wrapping, or mirrored unit was used. The next
+construction changes to discourse-frame grammar. Artifact:
+`runs/brown-authored-subordination-reverse-decoder-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

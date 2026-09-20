@@ -1,0 +1,43 @@
+{
+  "experiment_id": "phrase-cfg-alternating-shared-referent-20260920",
+  "method": "alternating dialogue turns with shared discourse referent and crossed roles",
+  "grammar": [
+    "D -> TURN REPLY",
+    "TURN -> SPEAKER said QUOTE",
+    "REPLY -> SPEAKER replied QUOTE",
+    "QUOTE -> I V DET REFERENT / You V DET REFERENT"
+  ],
+  "stats": {
+    "left_dialogues": 240,
+    "right_dialogues": 240,
+    "shared_referent_pairs": 8230,
+    "crossed_role_states": 1156,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 1
+  },
+  "complete_prose_controls": [
+    "The sailor said, \"I guard the letter\"; the poet replied, \"You read the letter.\"",
+    "A writer said, \"I mark the shore\"; a captain replied, \"You guide the shore.\""
+  ],
+  "best_diagnostic": {
+    "matched": 1,
+    "left": "some sailor said, \"I guards the notes\"; some poet replied, \"You guards the notes\"",
+    "right": "some poet said, \"I guards the notes\"; some sailor replied, \"You guards the notes\"",
+    "shared_referent": "notes"
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-alternating-shared-referent-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-dialogue-turn-crossed-roles-20260920"
+  },
+  "next_construction": "Try a shared discourse referent with asymmetric pronoun binding, retaining alternating turns and hard exact admission.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

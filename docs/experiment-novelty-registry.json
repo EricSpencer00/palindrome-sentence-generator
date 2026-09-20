@@ -7727,6 +7727,33 @@
       "distinction": "Selects semantic role skeletons and typed lexical choices lazily inside the same opposing-character DP from the first terminal; distinct from clause-pair seam products, reverse tries, and completed-scene re-ranking.",
       "reader_evidence": false,
       "status": "3 skeletons, 90 live character equations, 9 first-character survivors, 81 character prunes, 10 complete prose controls to 39 letters, 0 exact-clean closures; next adds a held-out instrumental or temporal role edge with a two-character boundary state"
+    },
+    {
+      "id": "discourse-graph-relative-attachment-csp-20260920",
+      "signature": "bilateral-discourse-graph|relative-attachment|antecedent-agreement|live-character-equations",
+      "artifact": "experiments/discourse_graph_relative_attachment_csp_20260920.py",
+      "run_artifacts": ["runs/discourse-graph-relative-attachment-csp-20260920.json"],
+      "distinction": "Adds one authored right-subject relative-clause edge with an explicit antecedent-number feature to the bilateral discourse graph; prior lexical bank is unchanged and character equations remain live across relation, tense, and agreement state.",
+      "reader_evidence": false,
+      "status": "1 new relative edge, 8 typed states, 136 online nodes, 96 live character prunes, 192 complete prose controls to 85 letters, 0 exact-clean closures; next adds an object-gap relative edge"
+    },
+    {
+      "id": "unequal-center-ditransitive-relative-complement-20260920",
+      "signature": "typed-seam-machine|heldout-ditransitive|object-relative-complement|unequal-boundaries",
+      "artifact": "experiments/unequal_center_ditransitive_relative_complement_20260920.py",
+      "run_artifacts": ["runs/unequal-center-ditransitive-relative-complement-20260920.json"],
+      "distinction": "Adds held-out ditransitive and theme-headed object-relative complement productions to the unequal-center cursor product while preserving explicit in-word centers and unequal boundaries; distinct from the base clause inventory.",
+      "reader_evidence": false,
+      "status": "96 held-out paths (32 ditransitive, 64 relative), 9,216 paired states, 9,472 equations, 5,632 unequal-word pairs, 8,714 unequal-letter pairs, 20 controls to 142 letters, 0 exact-clean closures; next adds benefactive and subject-relative frames"
+    },
+    {
+      "id": "semantic-role-boundary2-live-csp-20260920",
+      "signature": "semantic-role-skeleton|two-character-boundary|temporal-instrumental-edge|opposing-cursor-csp",
+      "artifact": "experiments/semantic_role_boundary2_live_csp_20260920.py",
+      "run_artifacts": ["runs/semantic-role-boundary2-live-csp-20260920.json"],
+      "distinction": "Extends lazy semantic-role assignment with held-out temporal and instrumental edges and an explicit two-character live seam state, reaching an `an|an` boundary before lexical interiors; no repair or completed-tape reranking.",
+      "reader_evidence": false,
+      "status": "2 held-out edge grammars, 66 live equations, 8 complete prose controls to 46 letters, 0 exact-clean closures; next tests one relative-temporal edge with a three-character seam only after comparing the two-character frontier"
     }
   ],
   "excluded": [

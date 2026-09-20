@@ -1,0 +1,187 @@
+{
+  "experiment_id": "typed-center-seam-complement-product-20260920",
+  "method": "typed center-seam product of complete finite-complement frames",
+  "complete_frames": 127,
+  "stats": {
+    "states": 16133,
+    "seams": 16129,
+    "pruned": 16127,
+    "closed": 2,
+    "exact": 0,
+    "baseline_exact": 2
+  },
+  "exact_candidates": [],
+  "baseline_exact_controls": [
+    {
+      "rendered": "an aide rips nine memos some men inspire Diana",
+      "audit": {
+        "letters": 38,
+        "exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "provenance": {
+        "construction": "typed center-seam complement product",
+        "left_roles": [
+          "baseline_subject",
+          "baseline_verb",
+          "baseline_object"
+        ],
+        "right_roles": [
+          "baseline_subject",
+          "baseline_verb",
+          "baseline_object"
+        ],
+        "complement_type_left": "baseline_control",
+        "complement_type_right": "baseline_control",
+        "seam_trace": [
+          {
+            "left_constituent": "an aide",
+            "right_constituent": "Diana",
+            "left_residual": "e",
+            "right_residual": ""
+          },
+          {
+            "left_constituent": "rips",
+            "right_constituent": "inspire",
+            "left_residual": "",
+            "right_residual": "in"
+          },
+          {
+            "left_constituent": "nine memos",
+            "right_constituent": "some men",
+            "left_residual": "",
+            "right_residual": ""
+          }
+        ],
+        "complete_frames_before_join": true,
+        "endpoint_seed": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_token_units": false,
+        "complete_semantic_clauses": true
+      }
+    },
+    {
+      "rendered": "some men inspire Diana an aide rips nine memos",
+      "audit": {
+        "letters": 38,
+        "exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+        "sha256_reverse": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+        "sha_equal": true
+      },
+      "provenance": {
+        "construction": "typed center-seam complement product",
+        "left_roles": [
+          "baseline_subject",
+          "baseline_verb",
+          "baseline_object"
+        ],
+        "right_roles": [
+          "baseline_subject",
+          "baseline_verb",
+          "baseline_object"
+        ],
+        "complement_type_left": "baseline_control",
+        "complement_type_right": "baseline_control",
+        "seam_trace": [
+          {
+            "left_constituent": "some men",
+            "right_constituent": "nine memos",
+            "left_residual": "",
+            "right_residual": "ni"
+          },
+          {
+            "left_constituent": "inspire",
+            "right_constituent": "rips",
+            "left_residual": "e",
+            "right_residual": ""
+          },
+          {
+            "left_constituent": "Diana",
+            "right_constituent": "an aide",
+            "left_residual": "",
+            "right_residual": ""
+          }
+        ],
+        "complete_frames_before_join": true,
+        "endpoint_seed": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_token_units": false,
+        "complete_semantic_clauses": true
+      }
+    }
+  ],
+  "complete_prose_controls": [
+    {
+      "rendered": "the sailor knows that the poet reads old letters",
+      "audit": {
+        "letters": 40,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          39
+        ],
+        "sha256_forward": "ea6c1881b5a26bf683abda322ed0e8a6c43b1e22e5d34664138a1d0d292d4d81",
+        "sha256_reverse": "4d0105ef98e2eb9ae027910f120d31f8c3bac11edfa1bb318c425d7bdca6f467",
+        "sha_equal": false
+      },
+      "reader_status": "complete complement control; not exact candidate"
+    },
+    {
+      "rendered": "a scholar says that the keeper keeps the lantern",
+      "audit": {
+        "letters": 40,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          39
+        ],
+        "sha256_forward": "f75e971a4d4ca30f85da23c85b8058dcabd9fc45d9dcddc1124d01fdd651af6d",
+        "sha256_reverse": "8072a8a275b477b38981c7bc78e359503024b9293dea7e753ad63765a136fe3e",
+        "sha_equal": false
+      },
+      "reader_status": "complete complement control; not exact candidate"
+    },
+    {
+      "rendered": "some writers believe that the sailor carries a bright book",
+      "audit": {
+        "letters": 49,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          48
+        ],
+        "sha256_forward": "fff43b850eff61a68c6980820bc9b4d4b15e597a2379b488aae6c210a6757cdb",
+        "sha256_reverse": "8e741e74d141b6b93a2034c2b85233e5102339b5d56eed8c6237e30b25ab8ac2",
+        "sha_equal": false
+      },
+      "reader_status": "complete complement control; not exact candidate"
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "typed-center-seam|complete-complement-frames|live-two-pointer-equations",
+    "distinct_from": "complete grammar product automaton; center seam is formed from independently derived matrix/complement frames",
+    "endpoint_seed": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "vocabulary": "authored matrix predicates and finite complement frames plus explicit 38-letter baseline control",
+    "independent_audit": "two-pointer mismatch plus forward/reverse SHA-256",
+    "reader_evidence": false
+  },
+  "status": "no exact >38 closure",
+  "next_construction": "add interrogative complement frames as a separate typed seam family",
+  "reader_gate": "closed until blinded human ratings"
+}

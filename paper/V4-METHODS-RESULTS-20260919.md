@@ -1041,6 +1041,16 @@ independent right-side role permutations while retaining the complete parse
 gate. Artifact:
 `runs/lexical-reverse-segmentation-grammar-20260920.json`.
 
+The reverse parser was then widened to independent right-side role paths:
+SVO, SVO+PP, SVO+relative, and ditransitive frames. It tested 4,159 complete
+left sentences and 19,081 trie/parser states. The known 38-letter geometry was
+recovered and both baseline orientations were explicitly excluded from the
+fresh result set; no fresh exact parse above 38 letters remained. This keeps
+the reverse side grammatical while varying its role sequence, with no
+post-hoc repair or presentation reversal. The next construction adds
+attachment-conditioned role transitions. Artifact:
+`runs/lexical-reverse-independent-role-parser-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

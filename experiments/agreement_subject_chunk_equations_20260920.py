@@ -52,7 +52,7 @@ def controls():
         "The captain opens the book while some poets guard the seal.","A friend marks the letter and the guards keep the gate.",
         "The queens read the message but a sailor opens the book.","Some captains guard the letter while the poet marks the seal.",
         "The poet keeps the book and some readers open the gate.","A captain reads the letter but the guards mark the message.",
-        "The sailors guard the seal while a queen opens the book.","Some friends read the gate and the poet keeps the letter.",
+        "The sailors guard the seal while a queen opens the book.","Some friends open the gate and the poet keeps the letter.",
     ]
     return [{"rendered":t,"audit":audit(t),"reader_status":"complete contemporary prose control; not exact"} for t in texts]
 

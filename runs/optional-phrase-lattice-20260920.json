@@ -1,0 +1,83 @@
+{
+  "method": "optional-phrase-lattice-20260920",
+  "status": "completed_no_exact_closure",
+  "operator": "acyclic optional phrase lattice with asynchronous residual consumption",
+  "nodes": [
+    "ADV",
+    "NP",
+    "PP",
+    "REL",
+    "START",
+    "VP"
+  ],
+  "optional_edge_types": [
+    "PP",
+    "ADV",
+    "REL"
+  ],
+  "states": 5000,
+  "pruned": 29994,
+  "state_limit": 5000,
+  "exact_candidates": [],
+  "exact_candidate_count": 0,
+  "reader_facing_candidates": [],
+  "reader_eligible": false,
+  "controls": [
+    {
+      "rendered": "The patient sailor studies the northern chart by the river at dawn.",
+      "audit": {
+        "letters": 55,
+        "exact": false,
+        "sha256_forward": "db1748240524eab035a3d4b815d4fd0b091fff38bce698f95775a854a32c607c",
+        "sha256_reverse": "7a788588e3a1a3c17164d01007a7e9d727012b903f284f73416751541bc8f596"
+      },
+      "reader_eligible": false,
+      "provenance": "authored intact prose control; not a generated candidate"
+    },
+    {
+      "rendered": "A quiet cartographer marks the distant shore near the quiet harbor.",
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "sha256_forward": "f9f9a65214c708fa319f1075df1ea42344ab1298a00234dea14d4fa13666d02f",
+        "sha256_reverse": "902f0b0573f44dfca0192030b25686b6a9fa3aad1cb8bcda62dd2fa90f3da18d"
+      },
+      "reader_eligible": false,
+      "provenance": "authored intact prose control; not a generated candidate"
+    },
+    {
+      "rendered": "Our young poet remembers the winter garden with care before dusk.",
+      "audit": {
+        "letters": 54,
+        "exact": false,
+        "sha256_forward": "5308dab1f3330adc3bd914b36c13b5d746e282b619b352cda31bde40f1154a35",
+        "sha256_reverse": "849477b9b329f4a6295148d6bc65ce85b4c378563946b7e11aec8065a1598013"
+      },
+      "reader_eligible": false,
+      "provenance": "authored intact prose control; not a generated candidate"
+    },
+    {
+      "rendered": "The careful keeper guards the lantern beside the old bridge.",
+      "audit": {
+        "letters": 50,
+        "exact": false,
+        "sha256_forward": "3b0c497ca59cd6f7eba4964798f56d38f7ce01e4f14a7f96ec84e034e5f2d102",
+        "sha256_reverse": "e0a97160e2137c9afeb1c000b3bccf5b9a63e29d4850115d1aface4c943e35b9"
+      },
+      "reader_eligible": false,
+      "provenance": "authored intact prose control; not a generated candidate"
+    }
+  ],
+  "independent_validation": [
+    "literal outside-in two-pointer",
+    "forward/reverse SHA-256"
+  ],
+  "provenance": "fresh authored ordinary phrase bank and acyclic optional edges; no fixed-slot Cartesian sweep, finished-tape reversal, catalogue text, mirrored units, or repair",
+  "first_live_diagnostic": "outer residual mismatch after optional edge emission",
+  "novelty_preflight": {
+    "overlaps": [],
+    "duplicate_sweep": false,
+    "reason": "graph topology changes phrase count via optional edges rather than widening a fixed path product"
+  },
+  "next_construction": "add one held-out finite relative edge with explicit antecedent agreement and retain optional-edge lattice; do not add another adjunct sweep"
+}

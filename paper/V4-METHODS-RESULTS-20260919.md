@@ -946,6 +946,20 @@ not grow a damaged near miss. The next construction moves the intersection to
 a typed center seam with complement frames. Artifact:
 `runs/grammar-product-automaton-intersection-20260920.json`.
 
+### Typed center-seam complement product
+
+This lane changed the join geometry again: 127 complete matrix/complement
+frames were derived first, then paired at a typed center seam with live
+two-pointer equations. It tested 16,129 seam products and pruned 16,127
+incompatible joins. Crucially, it independently recovered the existing
+38-letter construction in both orientations: “An aide rips nine memos; some
+men inspire Diana.” and its reverse clause order. The recovered rows have
+matching forward/reverse SHA-256 and exact pointer audits; they are retained as
+a baseline recovery, not a new length claim. No new exact candidate above 38
+letters closed. The next seam family is an interrogative complement grammar,
+not a repair pass. Artifact:
+`runs/typed-center-seam-complement-product-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

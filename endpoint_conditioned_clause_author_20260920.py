@@ -34,16 +34,17 @@ def run():
    for t in RIGHT_TAIL: right.append(f'{h} {b} {t}')
  # Only compare endpoints; all interior slots are untouched until this pass.
  pairs=[]
+ width=1
  for l in left:
-  lp=norm(l)[:3]
+  lp=norm(l)[:width]
   for r in right:
-   rp=norm(r)[-3:][::-1]
+   rp=norm(r)[-width:][::-1]
    if lp==rp: pairs.append((l,r))
  rows=[]
  for l,r in pairs:
   a=audit(l+'; '+r+'.')
-  rows.append({'rendered':l+'; '+r+'.','left_clause':l,'right_clause':r,'endpoint_width':3,
-   'endpoint_equation':{'left_prefix':norm(l)[:3],'reverse_right_suffix':norm(r)[-3:][::-1],'matched':True},'audit':a,
+  rows.append({'rendered':l+'; '+r+'.','left_clause':l,'right_clause':r,'endpoint_width':width,
+   'endpoint_equation':{'left_prefix':norm(l)[:width],'reverse_right_suffix':norm(r)[-width:][::-1],'matched':True},'audit':a,
    'provenance':{'left':'fresh authored clause bank','right':'fresh independently authored clause bank','endpoint_filter':'pruning equation only','finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_borrowing':False,'mirrored_units':False,'repeated_units':False,'fragment':False}})
  rows.sort(key=lambda x:-x['audit']['letters']); exact=[x for x in rows if x['audit']['exact'] and x['audit']['letters']>38]
  return {'experiment_id':'endpoint-conditioned-clause-author-20260920','method':'top-level endpoint-class pruning before interior clause expansion','stats':{'left_clauses':len(left),'right_clauses':len(right),'endpoint_pairs':len(pairs),'rendered_candidates':len(rows),'fresh_exact_gt38':len(exact),'max_letters':max((x['audit']['letters'] for x in rows),default=0)},'rendered_candidates':rows[:80],'exact_candidates':exact,'next_construction':'increase endpoint width with fresh clauses whose outer letter classes are deliberately compatible, then retain ordinary interiors; require full independent audit','novelty_preflight':{'status':'passed','distinct_from':'full bilateral cross-product: endpoint equation prunes before interior expansion','finished_tape_reversal':False,'post_hoc_repair':False},'provenance':{'audits':['fresh normalizer','independent two-pointer mismatch','forward/reverse SHA-256'],'reader_gate':'closed unless fresh exact >38 appears'},'status':'fresh exact >38 candidate requires human reading' if exact else 'no fresh exact >38 candidate'}

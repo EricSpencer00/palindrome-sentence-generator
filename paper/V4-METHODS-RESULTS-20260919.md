@@ -125,7 +125,7 @@ multiword palindrome span:
 | Two-sided unmatched-buffer DP | Stores actual unmatched buffers on both word streams in reverse-facing order and prunes on mismatch | 9 orientation-correct transitions; 9 pruned, 0 surviving states, 0 rendered candidates | 0 / 0 |
 | Variable-buffer adjunct-trie DP | Adds variable-length word-trie transitions and independently authored adjunct slots to the live buffer | 8 slots; 4 transitions, 4 pruned, 0 rendered candidates | 0 / 0 |
 | Center-out scene buffer | Grows independently authored event scenes from the center with variable buffers and attachment state | 3 scene transitions; all pruned before rendering | 0 / 0 |
-| Reverse-trie typed grammar | Traverses a reverse-facing right-clause trie with deque residuals and unequal word boundaries | 12,001 nodes; 0 rendered candidates; malformed repeated-unit row quarantined | 0 / 0 |
+| Reverse-trie typed grammar | Traverses a reverse-facing right-clause trie with deque residuals, typed agreement, center transitions, and unequal word boundaries | 12,001 nodes; 0 rendered candidates; diagnostic row quarantined | 0 / 0 |
 | Prosodic-skeleton diagnostic | Ranks fresh clauses by aggregate word-length shapes without a live character equation | 16 fresh controls to 79 letters; post-render diagnostic only | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
@@ -2493,3 +2493,10 @@ probe used only aggregate word-length shapes from the quarantined catalogue to
 rank 16 freshly authored controls (maximum 79 letters). Because that score is
 computed after rendering and never enforces a character equation, it remains a
 prose diagnostic, not generation evidence.
+
+Two compact live-CFG checks followed. The optional-adjunct reverse CFG tried
+two clause productions with three adjunct branches and pruned both transitions
+before rendering. The live boundary-shift grammar tried nine semantic-slot
+transitions and found no complete boundary closure. Both preserve the same
+independent-forward/right-reverse-facing invariant and therefore contribute
+zero reader candidates.

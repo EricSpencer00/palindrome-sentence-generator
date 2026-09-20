@@ -99,7 +99,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_two_sided_unmatched_buffer_dp": "9 orientation-correct explicit-buffer transitions; all pruned, zero live states and zero rendered candidates",
         "latest_variable_buffer_adjunct_trie_dp": "8 slots and 4 variable-buffer transitions; all pruned before rendering, zero exact candidates",
         "latest_scene_buffer_centerout": "3 event-scene transitions; all pruned at live mismatch, zero rendered candidates",
-        "latest_reverse_trie_typed_grammar": "12,001 reverse-trie nodes; zero rendered candidates and one quarantined malformed diagnostic",
+        "latest_reverse_trie_typed_grammar": "12,001 reverse-trie nodes with typed center transitions; zero rendered candidates and one quarantined diagnostic",
         "latest_prosodic_skeleton_diagnostic": "16 fresh controls to 79 letters; post-render prose diagnostic only, zero exact >38 closure",
         "reader_study": "not run",
     },

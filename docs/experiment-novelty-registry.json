@@ -12685,7 +12685,7 @@
       "signature": "typed-forward-grammar|reverse-facing-character-trie|deque-residuals|unequal-word-boundaries",
       "artifact": "experiments/reverse_trie_typed_grammar_20260920.py",
       "run_artifacts": ["runs/reverse-trie-typed-grammar-20260920.json"],
-      "distinction": "Traverses a reverse-facing trie for independently generated right clauses with deque residuals and unequal word boundaries. A malformed repeated-unit diagnostic row is quarantined; no reader candidate or exact closure is promoted.",
+      "distinction": "Traverses a reverse-facing trie for independently generated right clauses with deque residuals, unequal word boundaries, typed agreement, and center transitions. A diagnostic row is quarantined; no reader candidate or exact closure is promoted.",
       "reader_evidence": false,
       "status": "12,001 nodes, 0 rendered candidates, 1 quarantined malformed diagnostic, 0 exact and 0 reader-eligible exact rows"
     },
@@ -12697,6 +12697,24 @@
       "distinction": "Uses only aggregate catalogue-derived word-length shapes to rank freshly authored clauses after rendering; it has no live character equation and is explicitly a prose diagnostic, not a palindrome constructor. No catalogue surface text, reversal, repair, or mirrored units are used.",
       "reader_evidence": false,
       "status": "16 fresh complete controls, longest 79 letters, 0 exact candidates above 38 letters; post-render diagnostic and reader gate closed"
+    },
+    {
+      "id": "clause-reverse-cfg-center-20260920",
+      "signature": "reverse-cfg|optional-adjunct|center-transition|residual-buffer",
+      "artifact": "clause_reverse_cfg_center_20260920.py",
+      "run_artifacts": ["runs/clause-reverse-cfg-center-20260920.json"],
+      "distinction": "Uses independently authored clause productions, optional adjunct branches, and reverse-facing right traversal with live residual buffers before rendering; all fresh transitions prune. No reversal, repair, catalogue text, mirrored units, or fragments.",
+      "reader_evidence": false,
+      "status": "2 productions per side, 3 adjunct branches, 2 transitions, all pruned, 0 rendered candidates, 0 exact candidates"
+    },
+    {
+      "id": "live-boundary-shift-grammar-20260920",
+      "signature": "live-cross-word-boundary|semantic-slot-expansion|reverse-facing-equation",
+      "artifact": "live_boundary_shift_grammar_20260920.py",
+      "run_artifacts": ["runs/live-boundary-shift-grammar-20260920.json"],
+      "distinction": "Checks cross-word boundary equations during fresh semantic slot expansion with both clauses authored forward and the right side consumed reverse-facing; no complete boundary closure survives. No repair, catalogue text, mirrored units, or fragments.",
+      "reader_evidence": false,
+      "status": "9 by 9 slot transitions, 0 boundary closures, 0 exact candidates; precise zero frontier"
     }
   ]
 }

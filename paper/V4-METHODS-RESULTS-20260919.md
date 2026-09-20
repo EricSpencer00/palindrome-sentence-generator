@@ -863,6 +863,15 @@ agreement controls were independently audited. The next construction adds
 recipient case alternants, not a repair pass. Artifact:
 `runs/recipient-agreement-unequal-scheduler-20260920.json`.
 
+The case-alternant follow-up made predicate-conditioned `to` and `for` frames
+explicit while retaining number agreement and unequal SVO/ditransitive/PP/
+relative paths. It tested 331 compatible feature/class seeds; every seed failed
+the first live obligation, with zero closures and no exact row above 38 letters.
+Complete `to` and `for` controls were independently audited. The next
+construction adds definiteness and pronoun-case variants; no rendered string is
+repaired. Artifact:
+`runs/recipient-case-alternant-scheduler-20260920.json`.
+
 ### Negation/clitic polarity chart
 
 The aspectual recipient grammar then added polarity as a first-class state:

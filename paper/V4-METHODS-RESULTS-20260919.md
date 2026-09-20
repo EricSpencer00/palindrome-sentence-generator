@@ -3713,3 +3713,22 @@ prerequisite, the artifact's reader-facing list is empty and its surfaces are
 diagnostics only. The next construction carries typed agreement features into
 a live residual trie. Artifact:
 `runs/dual-relative-graph-antecedents-20260920.json`.
+
+The cadence-compatible aspect branch added held-out aspect-compatible event
+frames while preserving tense, role, and PP attachment state. It retained four
+vivid diagnostics up to 121 letters after eight seam prunes, but zero exact
+candidates above 38; the next construction adds active/passive voice frames.
+Artifact: `runs/cadence-aspect-adjunct-growth-20260920.json`.
+
+The synchronized paired-valency branch shared a typed relative-attachment
+state across left and right tries. It retained 12 ordinary paired-clause
+controls up to 119 letters, with zero exact candidates above 38. The next
+construction carries asymmetric tense across trie boundaries. Artifact:
+`runs/synchronized-valency-tries-relative-20260920.json`.
+
+The typed dual-relative residual trie carried number and semantic-role features
+for both relative obligations through 216 live residual transitions and 72
+complete scenes up to 88 letters, with zero exact candidates above 38. The
+next construction synchronizes typed residual streams at lexical-edge
+boundaries. Artifact:
+`runs/typed-dual-relative-residual-trie-20260920.json`.

@@ -6425,3 +6425,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exactness is a prerequisite. The next construction carries typed agreement
   features into a live residual trie. Artifact:
   `runs/dual-relative-graph-antecedents-20260920.json`.
+
+- **Cadence-compatible aspect adjunct growth, 2026-09-20:** added held-out
+  aspect-compatible event frames while preserving tense, role, and PP
+  attachment state. The depth-three run retained four vivid diagnostics up to
+  121 letters after eight seam prunes, with 0 exact candidates above 38. The
+  next construction adds active/passive voice frames. Artifact:
+  `runs/cadence-aspect-adjunct-growth-20260920.json`.
+
+- **Synchronized paired valency tries, 2026-09-20:** shared a typed
+  relative-attachment state across paired left/right valency tries. It retained
+  12 ordinary paired-clause controls up to 119 letters, with 0 exact
+  candidates above 38. The next construction carries asymmetric tense across
+  trie boundaries. Artifact:
+  `runs/synchronized-valency-tries-relative-20260920.json`.
+
+- **Typed dual-relative residual trie, 2026-09-20:** carried number and
+  semantic-role features for both relative obligations through 216 live
+  residual transitions and 72 complete scenes up to 88 letters, with 0 exact
+  candidates above 38. The next construction synchronizes typed residual
+  streams at lexical-edge boundaries. Artifact:
+  `runs/typed-dual-relative-residual-trie-20260920.json`.

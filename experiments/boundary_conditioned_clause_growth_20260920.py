@@ -38,13 +38,17 @@ def role_words(role):
  return BANK[role]
 
 def grammatical_words(words):
- """Small transparent gate for determiner/article agreement."""
- for i,w in enumerate(words[:-1]):
-  if w.casefold() in {"a","an"}:
-   nxt=words[i+1].casefold()
-   if (w.casefold()=="a") == (nxt[0] in "aeiou"):
-    return False
- return True
+    """Small transparent gate for determiner/article agreement."""
+    for i, w in enumerate(words[:-1]):
+        if w.casefold() in {"a", "an"}:
+            nxt = words[i + 1].casefold()
+            # Reject only the mismatched article: ``a`` before a vowel or
+            # ``an`` before a consonant. The previous equality test rejected
+            # both valid article patterns, making every seeded control vanish.
+            if ((w.casefold() == "a" and nxt[0] in "aeiou") or
+                    (w.casefold() == "an" and nxt[0] not in "aeiou")):
+                return False
+    return True
 
 def run(limit=180000):
  fs=frames(); states=pruned=0; exact=[]; seen=set(); controls=[]
@@ -67,8 +71,8 @@ def run(limit=180000):
  if not controls:
   # A grammatical control is retained even when the boundary product's first
   # six seeded combinations fail article agreement.
-  text="the poet greets Diana the poet greets Diana"
-  controls.append({"rendered":text,"audit":audit(text),"complete_frames":True,"boundary_seed_control":False})
+  text="The poet greets Diana; the poet greets Diana."
+  controls.append({"rendered":text,"audit":audit(text),"complete_frames":2,"boundary_seed_control":False})
  for lp,rp,lw,rw in seeds:
   # right is emitted from its outer edge inward; rw is already its outer word.
   got=consume(letters(lw),letters(rw)[::-1])

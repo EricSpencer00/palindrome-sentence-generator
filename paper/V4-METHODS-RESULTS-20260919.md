@@ -733,6 +733,44 @@ palindrome evidence. The next construction adds typed dialogue complements as a
 new grammar family, not a repair operator. Artifact:
 `runs/earley-scene-chart-orbit-20260920.json`.
 
+### Tense/agreement recipient chart
+
+Feature conditioning was tested as a separate construction: present and past
+realizations, singular/plural subject agreement, and recipient valency were
+carried into the chart before clause pairing. The resulting inventory contained
+9 noun phrases, 14 verb states, 6 recipient states, 504 ditransitives, and 3,612
+agreement-valid clauses. A bounded run tested 1,972 live paired combinations;
+all were pruned and no exact row above 38 letters closed. Three complete prose
+controls were independently audited. This rules out the missing-feature
+hypothesis for this chart family; the next construction changes aspectual
+grammar rather than repairing a candidate. Artifact:
+`runs/typed-tense-agreement-recipient-chart-20260920.json`.
+
+### Typed dialogue quotation chart
+
+The recursive-scene branch then added a typed dialogue grammar: a speaker,
+speech predicate, `that` complement, and a complete quoted clause whose subject
+agreement and valency were carried into the chart. Conjunction alternatives and
+variable phrase boundaries were retained. The run produced 41,616 complete
+dialogue paths and tested 300,000 seam states; every state was pruned and no
+exact closure appeared. Generated dialogue controls (including 39-letter
+controls) remain ordinary prose diagnostics, not palindrome evidence. The next
+construction adds a typed question complement; no rendered string is repaired.
+Artifact: `runs/dialogue-quote-chart-orbit-20260920.json`.
+
+### Boundary-conditioned clause growth
+
+The boundary-conditioned lane changed the search order again: it first indexed
+complete clause frames by compatible exposed characters (including proper-name
+objects), then grew both clauses inward while carrying residual debt across word
+boundaries. It found 69 compatible seeds and tested 180,000 states with
+1,438,093 immediate residual rejections. No exact candidate above 38 letters
+closed. Its retained control is two complete clauses with explicit punctuation;
+the article-agreement gate was corrected before the final run. The next
+construction adds a typed relative frame to the same boundary index; no near
+miss is repaired. Artifact:
+`runs/boundary-conditioned-clause-growth-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

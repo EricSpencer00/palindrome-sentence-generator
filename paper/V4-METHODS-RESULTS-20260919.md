@@ -460,14 +460,15 @@ readability gain; the next state expands feature-conditioned banks and inner
 states.
 
 The feature-conditioned run then used separate Brown Penn-tag banks for
-singular+VBZ, plural+VBP, and past+VBD frames, plus 13,650 observed
-preposition--noun adjunct combinations. It searched two complete templates
-per feature (64/64, 58/53, and 64/64 subject/verb inventories), visited 113
-bounded states, and pruned all 113 before an exact closure. No candidate
-reached the reader gate; the next construction partitions adjuncts by their
-compatible feature frame and adds a prepositional object slot.
+singular+VBZ, plural+VBP, and past+VBD frames. A valid follow-up extracted
+preposition--noun adjuncts only from the same `DET NOUN VERB ADP NOUN` frame,
+kept subject, verb, and object banks separate (64/64/64, 58/53/58, and
+64/64/64), and searched a distinct prepositional-object template. It visited
+82 bounded states and pruned all 82 before an exact closure. No candidate
+reached the reader gate; the next construction adds a second frame-attested
+complement slot.
 
-An adjunct follow-up is explicitly rejected in the audit: it copied one global
+An earlier adjunct follow-up is explicitly rejected in the audit: it copied one global
 preposition--noun inventory into every feature bank rather than extracting
 adjuncts from matching tagged clause frames, and it did not add a distinct
 prepositional-object derivation. It contributes no candidate or method claim;

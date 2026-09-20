@@ -25,6 +25,7 @@ def extract_frames(limit: int = 50_000):
 
     subjects: dict[str, Counter[str]] = defaultdict(Counter)
     verbs: dict[str, Counter[str]] = defaultdict(Counter)
+    objects: dict[str, Counter[str]] = defaultdict(Counter)
     frames = Counter()
     adjuncts = Counter()
     feature_adjuncts = defaultdict(Counter)
@@ -50,12 +51,13 @@ def extract_frames(limit: int = 50_000):
             frame_ids[feature][frame_id] += 1
             subjects[feature][subj.casefold()] += 1
             verbs[feature][verb.casefold()] += 1
+            objects[feature][obj.casefold()] += 1
             if i + 6 < len(sentence):
                 prep, ptag = sentence[i+5]; noun, ntag = sentence[i+6]
                 if ptag == 'IN' and ntag.startswith(('NN','NP')) and prep.isalpha() and noun.isalpha():
                     phrase=f'{prep.casefold()} {noun.casefold()}'; adjuncts[phrase] += 1; feature_adjuncts[feature][phrase] += 1
                     frame_ids[feature][frame_id+' | '+phrase] += 1
-    return subjects, verbs, dict(frames), adjuncts, feature_adjuncts, frame_ids
+    return subjects, verbs, objects, dict(frames), adjuncts, feature_adjuncts, frame_ids
 
 
 def top(counter: Counter[str], limit: int = 64) -> tuple[str, ...]:
@@ -63,27 +65,28 @@ def top(counter: Counter[str], limit: int = 64) -> tuple[str, ...]:
 
 
 def run() -> dict[str, object]:
-    subjects, verbs, frame_counts, adjunct_counts, feature_adjuncts, frame_ids = extract_frames()
+    subjects, verbs, objects, frame_counts, adjunct_counts, feature_adjuncts, frame_ids = extract_frames()
     det = ("a", "the", "this", "that", "one")
     results = []
     feature_stats = {}
     for feature in ("singular_vbz", "plural_vbp", "past_vbd"):
         subject_words = top(subjects[feature])
         verb_words = top(verbs[feature])
+        object_words = top(objects[feature])
         adjunct = tuple(word for word, _ in feature_adjuncts[feature].most_common(32)) or ("near town",)
         if not subject_words or not verb_words:
             feature_stats[feature] = {"subject_words": 0, "verb_words": 0, "states": 0, "pruned": 0, "exact": 0}
             continue
         subject_slot = Slot("subject", subject_words, word_features=tuple((w, feature) for w in subject_words))
         verb_slot = Slot("verb", verb_words, word_features=tuple((w, feature) for w in verb_words))
-        object_slot = Slot("object", subject_words, word_features=tuple((w, feature) for w in subject_words))
+        object_slot = Slot("object", object_words, word_features=tuple((w, feature) for w in object_words))
         templates = [
             (Slot("det", det), subject_slot, verb_slot, Slot("det", det), object_slot),
             (Slot("det", det), subject_slot, verb_slot, Slot("det", det), object_slot, Slot("prep_object", adjunct)),
         ]
         runs = [search(template, limit=16) for template in templates]
         stats = {
-            "subject_words": len(subject_words), "verb_words": len(verb_words),
+            "subject_words": len(subject_words), "verb_words": len(verb_words), "object_words": len(object_words),
             "states": sum(run["stats"]["states"] for run in runs),
             "pruned": sum(run["stats"]["pruned"] for run in runs),
             "agreement_pruned": sum(run["stats"]["agreement_pruned"] for run in runs),

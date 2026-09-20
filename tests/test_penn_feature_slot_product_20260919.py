@@ -14,3 +14,7 @@ def test_penn_feature_slot_product_is_feature_conditioned_and_exact_gated():
     assert all(item["states"] >= 0 for item in data["feature_stats"].values())
     assert data["adjunct_frame_unique"] > 0
     assert data["frame_identity_counts"]
+    assert data["feature_stats"]["singular_vbz"]["states"] == 34
+    assert data["feature_stats"]["plural_vbp"]["states"] == 15
+    assert data["feature_stats"]["past_vbd"]["states"] == 33
+    assert all(item["object_words"] > 0 for item in data["feature_stats"].values())

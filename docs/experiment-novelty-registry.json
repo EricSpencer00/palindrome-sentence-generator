@@ -10931,7 +10931,7 @@
       ],
       "distinction": "Builds singular+VBZ, plural+VBP, and past+VBD subject/verb word banks from original Brown Penn tags, then searches complete sentence slots with word-level feature maps and live cross-word character obligations. No paired clauses, aligned token mirrors, reversal, fallback, or repair.",
       "reader_evidence": false,
-      "status": "64/64, 58/53, and 64/64 feature banks for singular, plural, and past frames; 136/59/227 tagged frame counts and 13,650 adjunct combinations; 113 bounded states, 113 pruned, 0 exact closures; next construction partitions adjuncts by compatible feature frame"
+      "status": "Base Penn feature run; superseded in the same artifact by frame-attested adjunct expansion below; no exact closure"
     },
     {
       "id": "penn-adjunct-feature-expansion-20260919",
@@ -10943,7 +10943,18 @@
       ],
       "distinction": "Attempted to add Brown preposition--noun adjuncts to each Penn feature-conditioned template while retaining live character pruning.",
       "reader_evidence": false,
-      "status": "Rejected: the same global adjunct inventory was copied into each feature bank and no separate prepositional-object derivation was added; retain only as an implementation audit"
+      "status": "Rejected predecessor: the same global adjunct inventory was copied into each feature bank; retained only as an implementation audit"
+    },
+    {
+      "id": "penn-frame-adjunct-product-20260919",
+      "signature": "penn-frame-identity|feature-specific-adjunct|prepositional-object-slot|cross-word-obligation",
+      "artifact": "experiments/penn_feature_slot_product_20260919.py",
+      "run_artifacts": [
+        "runs/penn-feature-slot-product-20260919.json"
+      ],
+      "distinction": "Extracts actual DET-NOUN-VERB-ADP-NOUN frame-attested adjuncts, carries frame identity with Penn feature maps, and searches a separate prepositional-object template under live cross-word character obligations.",
+      "reader_evidence": false,
+      "status": "Feature banks: 64/64/64 singular, 58/53/58 plural, 64/64/64 past subject/verb/object words; 82 bounded states, all pruned, 0 exact closures; next construction adds a second frame-attested complement slot"
     }
   ]
 }

@@ -72,7 +72,7 @@ multiword palindrome span:
 | Two-sided semantic orbit product — held-out setting frame | Adds one initial setting-preposition/object frame at the prior OBJECT/SUBJECT dead frontier, then reruns the same center-out product with determiner and SVO roles fixed before expansion | 2,000 paths per side; 37 product states; 20 matched and 201 rejected orbit transitions; 4 intact 59-letter controls; no exact closure | 0 / 0 |
 | Lexical boundary-state product | Selects inflection/clitic boundary states and mirrored orbit locks before rendering two independent scene clauses | 4 bounded assignments; intact controls to 78 letters; no exact closure | 0 / 0 |
 | CFG/character-orbit chart intersection | Intersects a finite semantic CFG with live terminal character orbits and requires agent/action/theme/setting closure | 2 complete English clauses; no exact closure or admission | 0 / 0 |
-| Semantic slot/orbit product | Chooses valency, attachment, agreement, and center-out character equations jointly over authored Shakespearean scene frames | 12 agreement-valid scene pairs; intact controls to 75 letters; no exact closure | 0 / 0 |
+| Semantic slot/orbit product | Chooses valency, attachment, agreement, and center-out character equations jointly over authored vivid contemporary-English scene frames | 12 agreement-valid scene pairs; intact controls to 75 letters; no exact closure | 0 / 0 |
 | Large-lexicon CFG/trie orbit search | Expands a 70-word finite SVO+PP grammar into a character trie while selecting two ordinary-order clauses and their word boundaries before orbit checking | 2,781 trie nodes; 200 bounded states; complete controls to 63 letters; no exact closure | 0 / 0 |
 | Morphology-first orbit grammar | Selects agreement, tense, article-boundary, and cadence states before lexical emission across two complete clauses | 16 agreement-valid variants; longest 66 letters; no exact closure | 0 / 0 |
 | Semantic-role character FSM | Carries semantic role, valency, agreement, and word-boundary state on every center-out character transition with a complete-clause terminal gate | 4,608 bounded states; two complete prose controls to 36 letters; no exact closure | 0 / 0 |
@@ -2054,3 +2054,88 @@ adds alternative natural clause realizations whose first two exposed letters
 are indexed before the semantic continuation is selected. This is a new
 generation space, not an edit of the displayed near-miss. The run artifact is
 `runs/language-first-heteropalindrome-20260920.json`.
+
+## Boundary-conditioned lexical lattice
+
+The boundary-conditioned lane indexed two-, three-, and four-letter classes of
+fresh opening noun phrases and closing clauses before selecting an independent
+typed middle. This makes the first lexical seam part of construction while
+keeping both sides in ordinary forward order; it does not edit the 133-letter
+language-first near miss. The 10-by-10-by-10 lattice generated 1,000 complete
+prose renderings. Its longest control was:
+
+> **The young cartographer describes the clear route, and records a measured answer.**
+
+The control has 67 letters and fails at normalized character 0 (`t` versus
+`r`); its forward and reverse SHA-256 digests are
+`9979d0a786ce8be5a3c5f9c3d98f2083390e2d8f116bdeaa1d725e5fdc2c46d2` and
+`a9ef86f41e09bcc3e68d89af51b9fcb0986a832c864eda260f012f2b115cbe53`.
+The best boundary-class trace shared two characters before the first conflict:
+
+> **The young cartographer asks a simple question, and keeps the lantern lit.**
+
+It has 60 letters and fails at character 1 (`h` versus `i`). Both sides were
+fresh hand-authored clause/NP realizations, with independent attachment state;
+no row used reversal, catalogue text, mirrored token units, or post-hoc repair.
+No exact candidate above 38 letters appeared, so the reader gate remains
+closed. The next construction expands the lexical classes with held-out
+outer-letter alternatives rather than widening this same bank.
+
+## Mixed speech-act clauses
+
+To test whether ordinary English syntax was too narrowly restricted to
+declaratives, the next lane paired independently authored declarative,
+imperative, question, copular, and short dialogue clauses. Agreement,
+attachment, and tense metadata were carried through the pair, and the complete
+rendering was audited by an independent two-pointer scan and forward/reverse
+SHA-256 comparison. The longest intact control was:
+
+> **The patient archivist labels the weathered charts by lamplight. Those careful gardeners carried fresh water through winter.**
+
+It has 105 letters. Its first mismatch is normalized character 1 (`t` versus
+`r`), with SHA-256 digests
+`ff7bb426b1575331fd2c4722a5f20d821e772d68cc0555b96593fd3a193ac380` and
+`8bf5e0d6e264a5d16644fced4e31f7233dbb32345404fa0b26da64f61bb7a51a`.
+The 56 complete pairs produced zero exact candidates above 38 letters. These
+are broad contemporary-English readability controls, not a literal
+Shakespeare-style constraint; no output enters the reader package without exact
+closure and human ratings. The next construction adds subordinate and
+reported-speech variants while retaining independent forward derivations.
+
+## Typed lexical-graph walks
+
+The lexical-graph lane generated each side as an independent typed POS/valency
+walk through a frequency-ranked graph, then memoized the exposed character
+obligation. Because a connector is added between the two complete clauses, the
+graph intersection is explicitly only a seam diagnostic; admission uses the
+full rendered-tape audit. Among 992 rendered candidates, the longest was:
+
+> **The teacher keeps the quiet garden, and the teacher keeps the quiet lesson.**
+
+It has 61 letters and fails at character 0 (`t` versus `n`), with forward and
+reverse SHA-256 digests
+`3872c31d77874a5dd6b116978cec0fbe3f295e08a30cdfd7f85ab5649e8e20ff` and
+`7d9f4c835ba1886a9eedb774df7133652d549a629a4e716b47b314177ef65c52`.
+No exact candidate above 38 letters appeared. This lane is retained because
+its graph state is genuinely different from the phrase trie and boundary
+lattice; its next construction expands the graph from a corpus bigram table and
+filters for complete English walks before the same two-ended intersection.
+
+## Corpus phrase-pair dynamic program
+
+The corpus phrase-pair lane assembled both sides left-to-right from independent
+contemporary-English phrase banks. A paired dynamic program ranked states by
+the number of currently agreeing outer characters, but this score was never an
+admission test. The 2,832 transitions retained 160 complete prose controls;
+the strongest displayed row was:
+
+> **A young cartographer records a difficult question, and a thoughtful gardener carries the morning train.**
+
+It has 87 letters (the lattice maximum was 90), first mismatching at character
+0 (`a` versus `n`). Its forward and reverse SHA-256 digests are
+`6ff58d7c684e06ce3e7fc22dfc533b40ee5f64906ae4666bf8c00c38b72942de` and
+`20c780e4be2581d6f3206eb8100f60e75e7055502403ed7e2f4d7df0e8474ceb`.
+Both sides are independently forward-generated; neither is a reversal or a
+repair of the other. The exact count above 38 is zero. The next reader-facing
+test is to expand the phrase banks by exposed outer-letter class while keeping
+the same complete-prose and independent-audit contract.

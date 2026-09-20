@@ -4010,3 +4010,16 @@ retained 20 complete controls up to 91 letters, with zero exact candidates
 above 38. The next construction adds speaker/source attribution and negation
 scope attachment.
 Artifact: `runs/shared-scene-evidential-polarity-20260920.json`.
+
+The unified semantic valency lattice jointly selected transitive-theme and
+intransitive-location alternatives with relation-specific complements. It
+retained 36 scene controls up to 64 letters, with zero exact candidates above
+38. The next construction carries the alternatives through a live character
+residual. Artifact: `runs/unified-semantic-valency-lattice-20260920.json`.
+
+The source-attribution/negation lane added source, polarity, modality, and
+negation states to the two-event graph. It checked 19,440 online prunes and
+retained 20 complete controls up to 105 letters, with zero exact candidates
+above 38. The next construction adds quotation/reporting scope and
+negative-polarity agreement. Artifact:
+`runs/shared-scene-source-negation-20260920.json`.

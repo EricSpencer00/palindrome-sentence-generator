@@ -3749,3 +3749,21 @@ The synchronized typed dual-relative lexical-edge branch checked 48 boundary
 keys and rendered 48 diagnostics up to 100 letters, with zero exact candidates
 above 38. Its next construction chains two edge pairs with alternating relative
 roles. Artifact: `runs/sync-typed-dual-relative-edges-20260920.json`.
+
+The cadence-compatible modality branch added held-out modal/deontic voice
+frames while preserving aspect, tense, role, and PP attachment state. It
+retained four vivid diagnostics up to 121 letters after eight seam prunes, but
+zero exact candidates above 38; the next construction adds polarity frames.
+Artifact: `runs/cadence-modality-adjunct-growth-20260920.json`.
+
+The residual-buffer paired-valency branch carried explicit character buffers
+and a hard tense-compatibility gate before relative attachment. It retained 36
+paired controls up to 137 letters, with zero exact candidates above 38. The
+next construction consumes buffers synchronously at relative boundaries.
+Artifact: `runs/synchronized-valency-tries-residual-compatible-20260920.json`.
+
+The chained alternating-role branch linked two lexical-edge pairs while
+alternating agent/theme roles. It retained 72 complete scenes up to 155
+letters, with zero exact candidates above 38; the next construction adds a
+typed third edge event. Artifact:
+`runs/chained-two-edge-relative-roles-20260920.json`.

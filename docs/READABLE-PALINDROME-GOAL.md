@@ -6465,3 +6465,23 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   up to 100 letters, with 0 exact candidates above 38. The next construction
   chains two edge pairs with alternating relative roles. Artifact:
   `runs/sync-typed-dual-relative-edges-20260920.json`.
+
+- **Cadence-compatible modality adjunct growth, 2026-09-20:** added held-out
+  modal/deontic voice frames while preserving aspect, tense, role, and PP
+  attachment state. The depth-three run retained four vivid diagnostics up to
+  121 letters after eight seam prunes, with 0 exact candidates above 38. The
+  next construction adds polarity frames. Artifact:
+  `runs/cadence-modality-adjunct-growth-20260920.json`.
+
+- **Residual-buffer paired valency tries, 2026-09-20:** carried explicit
+  residual character buffers and a hard tense-compatibility gate before
+  relative attachment. It retained 36 paired controls up to 137 letters, with
+  0 exact candidates above 38. The next construction consumes buffers
+  synchronously at relative boundaries. Artifact:
+  `runs/synchronized-valency-tries-residual-compatible-20260920.json`.
+
+- **Chained alternating relative roles, 2026-09-20:** chained two lexical-edge
+  pairs while alternating agent/theme roles, retaining 72 complete scenes up to
+  155 letters and 0 exact candidates above 38. The next construction adds a
+  typed third edge event. Artifact:
+  `runs/chained-two-edge-relative-roles-20260920.json`.

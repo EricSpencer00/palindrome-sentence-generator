@@ -555,6 +555,42 @@ is therefore a valid stopped construction family, not a candidate or a
 readability result. The next lane changes the grammar's phrase-length and
 semantic-frame structure rather than adding a repair pass.
 
+The corrected bilateral word-trie decoder makes the same principle explicit at
+individual word boundaries. It chooses complete lexical words from typed role
+tries on both sides, uses a boundary index only when no residual exists, and
+otherwise lets outstanding character debt cross any number of word boundaries.
+The expanded ordinary bank visited 7,933 live states and pruned 8,022
+transitions. It independently regenerated the exact 38-letter anchor, with
+identical forward/reverse SHA-256, but produced no longer exact row. This is a
+constructive regression—the seam is now represented correctly—yet it is not a
+length or reader win; the next construction must widen the grammar and vary
+phrase lengths while retaining this word-level invariant.
+
+An authored Shakespearean scene lattice tested the semantic side of that
+construction. Six human-written court frames carried explicit subject,
+transitive, adjunct, relative, and object valencies. After correcting its
+residual consumer, all 16 outer frame pairs were pruned at the first character
+equation, with zero orbit steps and zero exact closures. The pre-correction
+run is marked invalid because it retained matched characters; only the corrected
+artifact is evidence. No candidate reached the reader gate.
+
+The variable-length phrase grammar is the first constructive lane to return a
+second intact prose rendering without any repair step. It jointly grows paths
+of lengths two through five (`NP VP`, optional adjuncts, and a second event),
+and consumes the character debt after every phrase addition. In a 150,000-state
+bounded run it evaluated 5,940,178 rejected transitions and independently
+audited two exact 38-letter rows:
+
+> **Some men inspire Diana; an aide rips nine memos.**
+
+> **An aide rips nine memos; some men inspire Diana.**
+
+Both are generated from the transparent authored/Brown-bigram bank, have
+distinct normalized tapes, and pass the independent exact/SHA audit. Neither
+is longer than the existing anchor, and no row above 38 letters closed; this is
+therefore a real readability-preserving construction win and a clear next
+experiment (wider variable phrase banks), not evidence that repair can scale.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates five deterministic blinded

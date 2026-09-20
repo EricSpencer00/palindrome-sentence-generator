@@ -11039,6 +11039,39 @@
       "distinction": "Generates an NP/VP/PP/PP/VP/NP phrase grammar jointly from both outer sides. Reverse-trie keys are derived from the current residual buffer, and every overlap is checked before the next role; no finished-tape reversal, repeated unit, catalogue sentence, or post-hoc repair is used.",
       "reader_evidence": false,
       "status": "Corrected residual invariant; 32,220 branches pruned, 0 complete states, 0 exact closures above 38 letters. This phrase family is stopped; the next construction must vary phrase lengths and semantic frame structure."
+    },
+    {
+      "id": "shakespeare-scene-orbit-20260919",
+      "signature": "authored-semantic-scene-lattice|live-residual-consumption|explicit-valency|independent-pointer-sha",
+      "artifact": "experiments/shakespeare_scene_orbit_20260919.py",
+      "run_artifacts": [
+        "runs/shakespeare-scene-orbit-20260919.json"
+      ],
+      "distinction": "Selects human-authored court-scene frames with explicit subject, transitive, adjunct, relative, and object valencies while consuming the mirrored character orbit after every frame pair. It does not reverse a finished tape, mirror tokens, replay a catalogue, or edit a prose draft.",
+      "reader_evidence": false,
+      "status": "Corrected after an implementation audit that retained matched characters; the corrected run has 16 states, 16 pruned, 0 orbit steps, and 0 exact closures. The pre-correction result is invalid evidence; this stopped family supplies no reader candidate."
+    },
+    {
+      "id": "bilateral-word-trie-decoder-20260920",
+      "signature": "bilateral-word-trie|live-cross-word-residual|typed-clause-boundaries|independent-pointer-sha",
+      "artifact": "experiments/bilateral_word_trie_decoder_20260920.py",
+      "run_artifacts": [
+        "runs/bilateral-word-trie-decoder-20260920.json"
+      ],
+      "distinction": "Chooses complete words from ordinary role tries on both sides, queries a word-boundary index only when no residual exists, and otherwise advances arbitrary cross-word debt before opening the next slot. The exact 38-letter anchor is regenerated as a control; no finished-tape reversal, post-hoc repair, repeated unit, or word-order mirror is used.",
+      "reader_evidence": false,
+      "status": "7,933 live states and 8,022 pruned transitions; the only exact row is the independently audited 38-letter anchor, with no longer closure. This is a valid construction regression and the family is stopped pending a larger variable grammar."
+    },
+    {
+      "id": "variable-phrase-grammar-20260920",
+      "signature": "variable-length-phrase-grammar|authored-brown-bigram-bank|live-residual-consumption|independent-pointer-sha",
+      "artifact": "experiments/variable_phrase_grammar_20260920.py",
+      "run_artifacts": [
+        "runs/variable-phrase-grammar-20260920.json"
+      ],
+      "distinction": "Grows independent ordinary NP/VP/PP/ADV paths with variable phrase counts while consuming character debt after every phrase. The grammar is chosen jointly from both sides; no finished-tape reversal, catalogue sentence replay, repeated unit, or post-hoc repair is used.",
+      "reader_evidence": false,
+      "status": "150,000 states and 5,940,178 pruned transitions; two distinct exact 38-letter renderings were independently audited: 'Some men inspire Diana; an aide rips nine memos.' and the existing anchor. No closure above 38 letters; next construction widens the variable phrase bank and keeps the same residual invariant."
     }
   ]
 }

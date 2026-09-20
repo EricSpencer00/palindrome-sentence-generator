@@ -1070,6 +1070,16 @@ must change the authored semantic grammar or vocabulary rather than add
 another local constraint. Artifact:
 `runs/semantic-selection-reverse-parser-20260920.json`.
 
+To change the lexical geometry rather than add another constraint, a fresh
+Shakespearean scene lattice was authored with bard, king, queen, knight, crown,
+rose, moon, lute, throne, and court vocabulary. It produced 1,681 complete
+scene paths and tested 5,043 reverse-trie states; no reverse parse closed, so no
+fresh exact candidate above 38 letters appeared. The old seed remained an
+excluded control. No catalogue text, repair, wrapping, or mirrored unit was
+used. The next construction adds authored complement cadence and pronoun
+attachment paths. Artifact:
+`runs/shakespearean-scene-reverse-lattice-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -69,6 +69,7 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
         shifted: bool,
         word_pairs: tuple[dict[str, object], ...],
         selected_features: tuple[tuple[str, str], ...] = (),
+        selected_words: tuple[tuple[str, str], ...] = (),
     ) -> None:
         nonlocal states, pruned
         if len(rendered) >= limit:
@@ -122,9 +123,17 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
                     continue
                 # Feature-carrying state survives across recursion depth.
                 feats = dict(selected_features)
+                words = dict(selected_words)
                 for slot in (template[lo], template[hi]):
+                    words[slot.role] = left if slot is template[lo] else right
                     if slot.features:
                         feats[slot.role] = slot.features[0]
+                subj = next((s for s in template if s.role == "subject"), None)
+                verb_slot = next((s for s in template if s.role == "verb"), None)
+                if subj and verb_slot and "subject" in words and "verb" in words:
+                    if not agreement_compatible(subj, words["subject"], verb_slot, words["verb"]):
+                        pruned += 1
+                        continue
                 if feats.get("subject") and feats.get("verb") and feats["subject"] != feats["verb"]:
                     pruned += 1
                     continue
@@ -153,6 +162,7 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
                     shifted or letters(left) != letters(right)[::-1],
                     word_pairs + (pair,),
                     tuple(feats.items()),
+                    tuple(words.items()),
                 )
 
     walk(0, len(template) - 1, "", "", tuple(), tuple(), False, tuple())

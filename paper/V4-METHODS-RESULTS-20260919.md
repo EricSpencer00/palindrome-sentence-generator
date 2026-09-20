@@ -1486,6 +1486,18 @@ station.” Independent pointer/SHA audits passed; no repair, reversal, mirrored
 unit, catalogue text, or fragment was admitted. Artifact:
 `runs/boundary-seeded-asymmetric-clause-lattice-20260920.json`.
 
+The free-center discourse lane changed the object again: one complete discourse
+template was selected around a free semantic pivot (verb, object, or connector),
+then independently chosen phrase chunks grew outward on both sides under a
+center-adjacent character equation. Five pivot positions produced 320 states,
+all pruned at the first boundary comparison, with zero exact candidates. The
+separate authored set contained 20 complete contemporary-English controls,
+including “Mara reads the letter and the sailor marks the seal.” Every control
+and candidate gate received the independent pointer/SHA audit. No repair,
+finished-tape reversal, mirrored unit, catalogue text, or fragment was admitted;
+human reading remains pending until an exact row exists. Artifact:
+`runs/free-center-discourse-growth-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

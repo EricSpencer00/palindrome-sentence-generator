@@ -6378,3 +6378,28 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   candidates above 38 survived. The next construction replaces the hand CFG
   with a typed relative-clause CFG. Artifact:
   `runs/phrase-pair-cfg-boundary-shift-20260920.json`.
+
+- **Semantic cadence scene grammar, 2026-09-20:** added held-out
+  animate/inanimate role alternations and cadence slots to the live scene CSP.
+  Depth three retained four vivid diagnostics up to 121 letters after eight
+  seam prunes, with 0 exact candidates above 38. The next construction carries
+  tense-compatible cadence slots into the same scene grammar. Artifact:
+  `runs/semantic-cadence-scene-csp-20260920.json`.
+
+- **Typed-relative CFG boundary-shift intersection, 2026-09-20:** expanded the
+  phrase inventory to 80 typed relative-clause phrases and tested 309,680
+  variable boundary shifts with live character equations. Every state pruned
+  before a complete rendering; 0 exact candidates above 38 survived. This is
+  a distinct grammar topology, not a larger duplicate sweep. The next
+  construction adds two independently indexed relative attachments. Artifact:
+  `runs/typed-relative-cfg-boundary-shift-20260920.json`.
+
+- **Phrase-graph valency shifts, 2026-09-20:** indexed 180 ordinary phrase-graph
+  edges by valency and tested three boundary shifts across paired finite
+  clauses, yielding 540 rendered diagnostics up to 80 letters and 0 exact
+  candidates above 38. The strongest surface duplicated or fragmented its
+  clause (`The quiet scout walks beside the animals animals, while the guide
+  waits near the slam in a slam in a.`), so it is quarantined rather than
+  shown to readers. The next construction carries valency and boundary state
+  incrementally in an edge trie. Artifact:
+  `runs/phrase-graph-valency-shifts-20260920.json`.

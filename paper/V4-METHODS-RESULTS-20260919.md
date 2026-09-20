@@ -3667,3 +3667,28 @@ equations. Every shift pruned before rendering; zero exact candidates above 38
 survived. The next construction replaces the hand CFG with a typed
 relative-clause CFG. Artifact:
 `runs/phrase-pair-cfg-boundary-shift-20260920.json`.
+
+The semantic cadence scene grammar added held-out animate/inanimate role
+alternations and cadence slots to the live scene CSP. Depth three retained
+four vivid diagnostics up to 121 letters after eight seam prunes, but zero
+exact candidates above 38. The next construction carries tense-compatible
+cadence slots into the same scene grammar. Artifact:
+`runs/semantic-cadence-scene-csp-20260920.json`.
+
+The typed-relative CFG boundary-shift intersection expanded that topology to
+80 typed relative-clause phrases and 309,680 variable boundary shifts. Every
+state pruned before a complete rendering, with zero exact candidates above 38;
+the branch therefore changes the grammar topology without manufacturing a
+reader result. Its next construction adds two independently indexed relative
+attachments. Artifact:
+`runs/typed-relative-cfg-boundary-shift-20260920.json`.
+
+The phrase-graph valency-shift lane indexed 180 ordinary phrase-graph edges by
+valency and tested three independent boundary shifts across paired finite
+clauses. It rendered 540 diagnostics up to 80 letters, but zero exact
+candidates above 38. The strongest surface duplicated and fragmented its
+clauses (`The quiet scout walks beside the animals animals, while the guide
+waits near the slam in a slam in a.`), so it is explicitly quarantined from
+reader evaluation. The next construction carries valency and boundary state
+incrementally in an edge trie. Artifact:
+`runs/phrase-graph-valency-shifts-20260920.json`.

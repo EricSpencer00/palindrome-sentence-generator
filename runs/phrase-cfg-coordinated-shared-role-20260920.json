@@ -1,0 +1,41 @@
+{
+  "experiment_id": "phrase-cfg-coordinated-shared-role-20260920",
+  "method": "coordinated-clause CFG with shared maritime scene role",
+  "grammar": [
+    "S -> S and S",
+    "S -> NP VP",
+    "VP -> V NP"
+  ],
+  "topology": "NP V NP and NP V NP",
+  "stats": {
+    "left_clauses": 240,
+    "right_clauses": 240,
+    "character_states": 7200,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 1
+  },
+  "complete_prose_controls": [
+    "The sailor guards the harbor and the captain guides the boat.",
+    "A keeper marks the shore and a guide reads the tide."
+  ],
+  "best_diagnostic": {
+    "matched": 1,
+    "left": "some sailor guards some harbor and some sailor guards some harbor",
+    "right": "some sailor guards some harbor and some sailor guards some notes"
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-coordinated-shared-role-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-shared-role-variable-path-20260920"
+  },
+  "next_construction": "Use a subordination topology with a shared role and explicit clause boundary state, retaining exact admission.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

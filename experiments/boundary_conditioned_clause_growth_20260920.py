@@ -15,6 +15,7 @@ BANK={
  "V":("rips","inspires","greets","reads","keeps","guides","marks","carries"),
  "OBJ":("memos","letters","books","lantern","garden","child","river","Diana","Ada","Noel"),
  "PREP":("by","near","under","with"),
+ "REL":("who","that"),
 }
 
 def letters(s): return re.sub(r"[^a-z]","",s.casefold())
@@ -31,7 +32,10 @@ def frames():
  # frame has a determiner+noun object. Optional PP is a complete adjunct.
  return (("DET","SUBJ","V","NAME"),
          ("DET","SUBJ","V","DET","OBJ"),
-         ("DET","SUBJ","V","DET","OBJ","PREP","DET","OBJ"))
+         ("DET","SUBJ","V","DET","OBJ","PREP","DET","OBJ"),
+         # Complete relative: subject relative pronoun + transitive verb +
+         # determiner/object. Its final OBJ is boundary-indexed below.
+         ("DET","SUBJ","V","REL","V","DET","OBJ"))
 
 def role_words(role):
  if role=="NAME": return ("Diana","Ada","Noel","Iris","Otto")
@@ -53,14 +57,17 @@ def grammatical_words(words):
 def run(limit=180000):
  fs=frames(); states=pruned=0; exact=[]; seen=set(); controls=[]
  # Boundary index: choose the outermost left/right words by exposed edge.
- seeds=[]
+ seeds=[]; boundary_index={}
  for lp in fs:
   for rp_rendered in fs:
    rp=tuple(reversed(rp_rendered))
    for lw in role_words(lp[0]):
     for rw in role_words(rp[0]):
-     if letters(lw)[0]==letters(rw)[-1]:
-      seeds.append((lp,rp,lw,rw))
+     key=(letters(lw)[0],letters(rw)[-1])
+     boundary_index.setdefault(key,[]).append((lp,rp,lw,rw))
+ for key,items in boundary_index.items():
+  if key[0]==key[1]:
+   seeds.extend(items)
  # Controls are complete grammatical renderings, not admitted palindrome rows.
  for lp,rp,lw,rw in seeds[:6]:
   left=" ".join([lw]+[role_words(x)[0] for x in lp[1:]])
@@ -97,7 +104,7 @@ def run(limit=180000):
      if got is None: pruned+=1; continue
      stack.append((li,ri+1,left,w+" "+right,got[0],got[1],prov+(("R",rp[ri],w),)))
   if states>=limit: break
- return {"method":"boundary-conditioned-clause-growth-20260920","frames":len(fs),"boundary_seeds":len(seeds),"states":states,"pruned":pruned,"controls":controls,"exact_candidates":exact,"candidate_count":len(exact),"status":"reader gate required" if exact else "construction frontier empty","next_construction":"add a typed relative frame whose exposed final object class is indexed before the same inward residual traversal"}
+ return {"method":"boundary-conditioned-clause-growth-20260920","frames":len(fs),"boundary_index_keys":len(boundary_index),"boundary_seeds":len(seeds),"states":states,"pruned":pruned,"controls":controls,"exact_candidates":exact,"candidate_count":len(exact),"status":"reader gate required" if exact else "construction frontier empty","next_construction":"condition the relative verb by subject/object agreement while retaining final-object edge indexing"}
 
 if __name__=="__main__":
  d=run(); (ROOT/"runs/boundary-conditioned-clause-growth-20260920.json").write_text(json.dumps(d,indent=2)+"\n"); print(json.dumps(d,indent=2))

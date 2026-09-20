@@ -1350,6 +1350,18 @@ finished-tape reversal, mirrored unit, catalogue text, or fragment was
 admitted. Artifact:
 `runs/normalized-multiword-slot-envelope-20260920.json`.
 
+The discourse-plan delayed-realization lane changed the search object rather
+than the seam: it first chose one coherent authored Shakespearean scene plan,
+then jointly realized two utterances with shared speaker, events, referents,
+tense, and rhetorical relation while character positions and word boundaries
+remained latent. Eight plans with 3--5 lexical realizations per role yielded
+3,848 attribute/pushdown states and 11,544 residual rejections. It produced 24
+complete prose controls, including a 61-letter scene realization, but no exact
+candidate above 38 letters. All controls and the exact gate use independent
+pointer/SHA audits; no repair, tape reversal, mirrored unit, catalogue text,
+or fragment was admitted. Artifact:
+`runs/discourse-plan-delayed-realization-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

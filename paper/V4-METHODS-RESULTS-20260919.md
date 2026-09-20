@@ -1173,6 +1173,15 @@ character spans before selecting complete grammar roles, rather than widening
 the same beam. Artifact:
 `runs/brown-boundary-transducer-free-offsets-20260920.json`.
 
+The seam-indexed lexical generator moved compatibility earlier: Brown role words
+were bucketed by exposed character and span length before complete grammar
+finish. It explored three residual-compatible seam states and closed no exact
+candidate; complete 38- and 46-letter prose controls were independently
+audited. This is distinct from the live beam/transducer, but the frontier is
+still too sparse. The next construction widens semantic frame topology rather
+than refining the seam index. Artifact:
+`runs/brown-seam-indexed-lexical-generator-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -3889,3 +3889,24 @@ and reached no complete two-sided parse; the longest intact control was 108
 letters and the exact count above 38 was zero. The next construction adds
 held-out ditransitive and intransitive valency frames. Artifact:
 `runs/full-clause-compositional-obligation-csp-20260920.json`.
+
+The number-aware width-two semantic lattice added singular/plural agreement
+states and carried a two-character residual across subject, verb, object, and
+setting slots. It explored 36 scene states and retained diagnostics up to 58
+letters, with zero exact candidates above 38. The next construction carries
+asynchronous width-two buffers through typed adjunct choices. Artifact:
+`runs/semantic-lattice-width2-scene-author-20260920.json`.
+
+The clause-valency alternation CSP added held-out ditransitive/intransitive
+valency and agreement states to independent full-clause factorization. Its
+bounded run visited 5,000 states, pruned 4,499, and reached no complete
+two-sided parse; the longest intact control was 108 letters and the exact count
+above 38 was zero. The next construction adds benefactive and locative valency
+frames. Artifact: `runs/clause-valency-alternation-csp-20260920.json`.
+
+The two-event shared-scene matcher added a second independently typed event to
+the semantic graph and matched both SVO clauses online. It checked 243 online
+prunes and retained 20 complete non-repeated controls up to 53 letters, with
+zero exact candidates above 38. The next construction adds event-order and
+tense compatibility. Artifact:
+`runs/shared-scene-two-event-online-20260920.json`.

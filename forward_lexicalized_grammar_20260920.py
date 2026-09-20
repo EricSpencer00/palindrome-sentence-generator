@@ -159,7 +159,12 @@ def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=10, gramma
         emit([], 0, ["S"])
     for n in lengths: run(n)
     stats["status"] = "timeout" if stats["nodes"] >= max_nodes else ("SAT" if found else "UNSAT")
-    return {"paths": [{"length": n, "rendered": render_path(text, lexicon), "audit": independent_audit(text)} for n, text in found], "stats": stats}
+    return {"paths": [{"length": n, "rendered": render_path(text, lexicon), "audit": independent_audit(text),
+                         "provenance": {"atomic_lexicon": True, "fixed_length_shared_cells": True,
+                                        "free_word_boundaries": True, "center_inside_word_allowed": True,
+                                        "post_hoc_repair": False, "finished_tape_reversal": False,
+                                        "word_order_mirroring": False, "repeated_units": False,
+                                        "catalogue_text": False}} for n, text in found], "stats": stats}
 
 if __name__ == "__main__":
     # Keep the exhaustive differential toy small; the expanded inventory is

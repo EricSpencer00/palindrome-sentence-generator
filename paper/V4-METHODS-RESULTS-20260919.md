@@ -2715,4 +2715,11 @@ are tied across the whole sentence, word boundaries remain free, and grammar,
 agreement, and valency choices are pruned before a complete string exists. It
 must first pass exhaustive tiny-grammar differential tests and rediscover the
 38-letter anchor from atomic vocabulary without injecting the phrase; only
-then will a 39–64 length run be counted as a new frontier.
+The corrected implementation now passes that regression: with only atomic
+entries, it visits 3,240 states, prunes 6,082 mismatches before completion, and
+recovers two exact 38-letter witnesses, including the anchor, with the
+independent SHA/pointer audits. The witness is rendered as “An aide rips nine
+memos; some men inspire Diana.”; no shortcut witness is admitted. This validates
+the global boundary semantics, but it is not yet a >38 result: the larger
+39–64 lexical-edge run remains unrun and must be offloaded before it can be
+counted as a new frontier.

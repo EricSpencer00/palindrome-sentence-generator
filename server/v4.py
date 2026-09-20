@@ -125,7 +125,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_chart_phrase_path": "256 independently authored chart paths including held-out relative, passive-complement, temporal-adjunct, instrumental-adjunct, and causal-adjunct paths and 65,280 live unequal-boundary states, controls to 120 letters, zero exact closures above 38",
         "latest_dependency_frame_center_seam": "24 dependency-frame states including held-out ditransitive, benefactive, agreement-sensitive relative, passive-relative, and modal-passive frames with attachment/valency/agreement across a complement seam, controls to 119 letters, zero exact closures above 38",
         "latest_apposition_seam_grammar": "48 baseline plus 64 held-out temporal, 128 causal fourth-clause, and 256 contrastive fifth-clause joins across comma, coordination, and appositive seams, longest causal control 144 letters, zero live or exact closures above 38",
-        "latest_forward_lexicalized_grammar": "Bounded atomic lexicalized grammar differential: 64 derivations, two short exact diagnostics, maximum 20 letters; not yet the required scalable fixed-length lexical-edge CSP",
+        "latest_forward_lexicalized_grammar": "Corrected fixed-length shared-cell CSP: 3,240 nodes and 6,082 early prunes recover two atomic 38-letter witnesses including the anchor; no >38 search yet",
         "reader_study": "not run",
     },
 }

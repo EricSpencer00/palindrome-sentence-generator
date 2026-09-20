@@ -165,18 +165,27 @@ def main() -> None:
             vals = sorted(counts.get(tag, {}), key=lambda w: (-counts[tag][w], w))
             return tuple(vals[:24]) or fallback
         frame_counts = {"det_noun_verb_det_noun": 0, "det_noun_verb_prep": 0}
+        frame_words = {"DET": set(), "NOUN": set(), "VERB": set(), "ADP": set()}
         from nltk.corpus import brown as _brown
         for sent in _brown.tagged_sents(tagset="universal")[:50000]:
             tags = [tag for _, tag in sent]
             for i in range(len(tags) - 4):
                 if tags[i:i+5] == ["DET", "NOUN", "VERB", "DET", "NOUN"]:
                     frame_counts["det_noun_verb_det_noun"] += 1
+                    for j in (i, i+3): frame_words["DET"].add(sent[j][0].casefold())
+                    for j in (i+1, i+4): frame_words["NOUN"].add(sent[j][0].casefold())
+                    frame_words["VERB"].add(sent[i+2][0].casefold())
             for i in range(len(tags) - 3):
                 if tags[i:i+4] == ["DET", "NOUN", "VERB", "ADP"]:
                     frame_counts["det_noun_verb_prep"] += 1
+                    for j in (i,): frame_words["DET"].add(sent[j][0].casefold())
+                    frame_words["NOUN"].add(sent[i+1][0].casefold())
+                    frame_words["VERB"].add(sent[i+2][0].casefold())
+                    frame_words["ADP"].add(sent[i+3][0].casefold())
     else:
         def tagged_top(tag, fallback): return fallback
         frame_counts = {}
+        frame_words = {}
     def inflected(tag, fallback, predicate):
         values = top(tag, fallback)
         chosen = tuple(word for word in values if predicate(word))
@@ -186,6 +195,11 @@ def main() -> None:
     noun = tagged_top("NOUN", top("NOUN", ("poet", "sailor", "keeper", "reader", "bard", "pilot", "guard")))
     verb = tagged_top("VERB", top("VERB", ("reads", "marks", "guides", "guards", "seeks", "keeps", "hears")))
     obj = top("NOUN", ("letter", "sonnet", "garden", "harbor", "parcel", "secret", "candle"))
+    if frame_words.get("NOUN"):
+        noun = tuple(sorted(frame_words["NOUN"]))[:24]
+        obj = noun
+    if frame_words.get("DET"): det = tuple(sorted(frame_words["DET"]))[:24]
+    if frame_words.get("VERB"): verb = tuple(sorted(frame_words["VERB"]))[:24]
     template = (
         Slot("det", det), Slot("adj", adj), Slot("subject", noun),
         Slot("verb", verb), Slot("det", det), Slot("object", obj),

@@ -24,10 +24,16 @@ def test_bounded_csp_matches_bruteforce_at_each_length():
     assert csp["stats"]["pruned"] >= 0
 
 def test_atomic_38_letter_witness_is_recovered():
-    result = constrained_paths(lengths=[38], max_words=6)
-    anchor = "madam redivider level level redivider madam"
+    anchor_lex = tuple(w for w in ATOMIC if w.text in {"an", "aide", "rips", "nine", "memos", "some", "men", "inspire", "diana"})
+    result = constrained_paths(lexicon=anchor_lex, lengths=[38], max_words=10, max_nodes=20000)
+    anchor = "an aide rips nine memos some men inspire diana"
     assert any(r["rendered"].rstrip(".") == anchor for r in result["paths"])
     assert independent_audit(anchor)["exact"]
+
+def test_shortcut_witnesses_are_rejected():
+    rows = constrained_paths(lengths=[38], max_words=10, max_nodes=1000)["paths"]
+    assert all("ava sees ava ava sees ava" not in r["rendered"] for r in rows)
+    assert all(len(set(r["rendered"].rstrip(".").split())) == len(r["rendered"].rstrip(".").split()) for r in rows)
 
 def test_center_inside_word_and_asymmetric_boundaries_are_supported():
     # "level" has an interior center for N=5; no word-boundary symmetry is assumed.

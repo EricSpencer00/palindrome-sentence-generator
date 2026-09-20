@@ -27,10 +27,15 @@ ATOMIC = (
     # Atomic entries; the 38-letter witness is discovered by the CSP, not stored.
     Word("madam", "N", number="sg"), Word("redivider", "V", number="sg", valency="transitive"),
     Word("a", "DET"), Word("the", "DET"), Word("dog", "N", number="sg"),
+    Word("an", "DET"), Word("some", "DET"), Word("aide", "N"),
+    Word("memos", "N", number="pl"), Word("men", "N", number="pl"),
+    Word("rips", "V", number="sg", valency="transitive"),
+    Word("inspire", "V", number="pl", valency="transitive"),
+    Word("nine", "N"), Word("diana", "PROPN", entity="person"),
 )
 
 GRAMMAR = {"S": (("CLAUSE", "CLAUSE"),), "CLAUSE": (("NP", "V", "NP"),),
-           "NP": (("PROPN",), ("N",)), "VP": (("V", "NP"),)}
+           "NP": (("PROPN",), ("N",), ("DET", "N"), ("N", "N")), "VP": (("V", "NP"),)}
 
 def letters(text):
     return re.sub(r"[^a-z]", "", text.casefold())
@@ -92,7 +97,7 @@ def solve(lexicon=ATOMIC, max_words=4, max_length=64):
                 "next_construction": "expand lexical entries and typed adjunct productions; retain live x constraints"},
             "status": "SAT" if exact else "UNSAT within bound"}
 
-def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=8, grammar=None):
+def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=10, grammar=None, max_nodes=100000):
     """Forward CSP: fixed N cells, mirror equations, and pruning while emitting.
 
     Spaces are boundary metadata and never cells, so boundaries may be placed
@@ -102,13 +107,21 @@ def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=8, grammar
     grammar = grammar or GRAMMAR
     by_pos = {}
     for w in lexicon: by_pos.setdefault(w.pos, []).append(w)
+    def admissible(words):
+        # Exclude degenerate constructions before they become witnesses.
+        if any(len(letters(w)) > 1 and letters(w) == letters(w)[::-1] for w in words): return False
+        if len(words) != len(set(words)): return False
+        mid = len(words) // 2
+        if len(words) % 2 == 0 and words[:mid] == list(reversed(words[mid:])): return False
+        return True
     def run(n):
         cells = [None] * n
         def emit(words, pos, symbols):
+            if stats["nodes"] >= max_nodes: return
             stats["nodes"] += 1
             if pos == n:
                 stats["complete"] += 1
-                if not symbols: found.append((n, " ".join(words)))
+                if not symbols and admissible(words): found.append((n, " ".join(words)))
                 return
             if len(words) >= max_words: return
             if not symbols: return
@@ -126,15 +139,20 @@ def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=8, grammar
                     if cells[i] not in (None, ch) or cells[mirror] not in (None, ch): ok = False; break
                     for k in {i, mirror}:
                         if cells[k] is None: cells[k] = ch; changed.append(k)
-                if ok: emit(words + [word.text], pos + len(text), tail)
+                if ok and admissible(words + [word.text]): emit(words + [word.text], pos + len(text), tail)
                 else: stats["pruned"] += 1
                 for k in changed: cells[k] = None
         emit([], 0, ["S"])
     for n in lengths: run(n)
+    stats["status"] = "timeout" if stats["nodes"] >= max_nodes else ("SAT" if found else "UNSAT")
     return {"paths": [{"length": n, "rendered": text + ".", "audit": independent_audit(text)} for n, text in found], "stats": stats}
 
 if __name__ == "__main__":
-    result = solve(); result["bounded_csp"] = constrained_paths()
+    # Keep the exhaustive differential toy small; the expanded inventory is
+    # exercised only by the propagating CSP below.
+    result = solve(lexicon=ATOMIC[:9]); anchor_lex = tuple(w for w in ATOMIC if w.text in
+        {"an", "aide", "rips", "nine", "memos", "some", "men", "inspire", "diana"})
+    result["bounded_csp"] = constrained_paths(lexicon=anchor_lex, lengths=[38], max_nodes=20000)
     result["provenance"]["csp"] = "fixed-N shared character cells with online mirror propagation"
     OUT.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result["stats"]))

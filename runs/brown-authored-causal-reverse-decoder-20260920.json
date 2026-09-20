@@ -1,0 +1,68 @@
+{
+  "experiment_id": "brown-authored-causal-reverse-decoder-20260920",
+  "method": "authored causal cause/result frames over Brown-derived domains with complete reverse parsing",
+  "stats": {
+    "complete_forward_frames": 10000,
+    "reverse_states": 10000,
+    "complete_reverse_parses": 0,
+    "rendered_candidates": 0,
+    "exact": 0
+  },
+  "rendered_candidates": [],
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "Because the young man found the house, the old woman heard the word.",
+      "audit": {
+        "letters": 54,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "b",
+          "d"
+        ],
+        "sha256_forward": "58d73c44115306f08330cca56f0d27480be63b17f2060a34ae9e2437733d5ef3",
+        "sha256_reverse": "58ff40cfe081789879ebc6c976fa6fe86b64117c973cb351430acf730a55d5d6",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    },
+    {
+      "rendered": "The good boy saw the door, so the new girl held the key.",
+      "audit": {
+        "letters": 42,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "y"
+        ],
+        "sha256_forward": "985e75ce65661bada33fe418a1b241bbff016cc15ff327d872af52bc21ea3695",
+        "sha256_reverse": "c6f24e87bd5114aefb9d322c8f35bb31fc93bcbb6fcaccee8cf97d48ce7865af",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "brown-derived-lexicon|authored-causal-frame|cause-result-role-sequence|variable-boundary-reverse-parse",
+    "distinct_from": "prior clause, coordination, subordination, discourse, and event-chain lanes; causal role relation is newly authored",
+    "catalogue_text": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false
+  },
+  "provenance": {
+    "bank": "data/brown_pcfg_bank_20260920.json",
+    "bank_sha256": "53037c8356cf0bd387985fb085c5d41823ce5ea1d7c27c86c4ad50b25b72d322",
+    "generator_sha256": "54f3675c25cc987d0fede95ac6ebd1435e427827f48f6528eca55839dfaa1f96",
+    "audits": [
+      "independent two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "marker_policy": "because/so/therefore/thus admitted from Brown-derived forms",
+    "next_reader_test": "randomized blinded ratings of intact causal prose versus shuffled controls"
+  },
+  "status": "no fresh exact parse in this lane",
+  "next_construction": "prepare blinded reader package if exact rows survive; otherwise author a new contrast-frame grammar"
+}

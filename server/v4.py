@@ -122,9 +122,9 @@ BEST_KNOWN_PROVENANCE = {
         "latest_character_clause_trie_csp": "Six independently authored complete clauses per side joined through a reverse character trie: six prefix steps, zero exact joins, and complete prose controls retained",
         "latest_clitic_boundary_residual_lockstep": "Eighteen fresh agreement/clitic frames, 324 full residual-vector transitions, and two complete prose controls to 72 letters; zero exact closures above 38",
         "latest_typed_central_residual_clause_csp": "Three-by-two-by-three typed assignments with a complete authored center sentence: 18 character transitions, controls to 118 letters, zero exact closures above 38",
-        "latest_chart_phrase_path": "224 independently authored chart paths including held-out relative, passive-complement, temporal-adjunct, and instrumental-adjunct paths and 49,952 live unequal-boundary states, controls to 120 letters, zero exact closures above 38",
-        "latest_dependency_frame_center_seam": "21 dependency-frame states including held-out ditransitive, benefactive, agreement-sensitive relative, and passive-relative frames with attachment/valency/agreement across a complement seam, controls to 119 letters, zero exact closures above 38",
-        "latest_apposition_seam_grammar": "48 baseline plus 64 held-out temporal and 128 causal fourth-clause joins across comma, coordination, and appositive seams, longest causal control 144 letters, zero live or exact closures above 38",
+        "latest_chart_phrase_path": "256 independently authored chart paths including held-out relative, passive-complement, temporal-adjunct, instrumental-adjunct, and causal-adjunct paths and 65,280 live unequal-boundary states, controls to 120 letters, zero exact closures above 38",
+        "latest_dependency_frame_center_seam": "24 dependency-frame states including held-out ditransitive, benefactive, agreement-sensitive relative, passive-relative, and modal-passive frames with attachment/valency/agreement across a complement seam, controls to 119 letters, zero exact closures above 38",
+        "latest_apposition_seam_grammar": "48 baseline plus 64 held-out temporal, 128 causal fourth-clause, and 256 contrastive fifth-clause joins across comma, coordination, and appositive seams, longest causal control 144 letters, zero live or exact closures above 38",
         "reader_study": "not run",
     },
 }

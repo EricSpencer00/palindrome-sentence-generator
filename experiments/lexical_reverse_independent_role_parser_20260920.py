@@ -53,7 +53,7 @@ def parse(tape,roles,tries,limit=600):
   for end,item in tries[roles[i]].matches(tape,pos): walk(i+1,end,out+[item])
  walk(0,0,[]); return found,states
 def run(state_limit=70000):
- p,right_paths,lefts=grammar(); tries={k:Trie(v) for k,v in p.items()}; states=parses=0; candidates=[]; controls=[]; seed_tape=letters('an aide rips nine memos')
+ p,right_paths,lefts=grammar(); tries={k:Trie(v) for k,v in p.items()}; states=parses=0; candidates=[]; controls=[]; seed_tapes={letters('an aide rips nine memos'),letters('some men inspire Diana')}
  for sent in lefts:
   if states>=state_limit: break
   left=' '.join(x.text for x in sent.phrases); target=letters(left)[::-1]
@@ -62,7 +62,7 @@ def run(state_limit=70000):
    if sent.control: controls.append({'rendered':left,'right_roles':roles,'reverse_parse_count':len(got),'audit':audit(left),'reader_status':'baseline/control input'})
    for right in got:
     text=f'{left} '+' '.join(x.text for x in right); a=audit(text); row={'rendered':text,'audit':a,'provenance':{'construction':'forward complete grammar times independent reverse role parser','left_roles':sent.roles,'right_roles':roles,'right_complete_parse':True,'variable_word_boundaries':True,'baseline_control':sent.control,'finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_token_units':False,'complete_semantic_clauses':True}}
-    if sent.control or letters(left)==seed_tape: continue
+    if sent.control or letters(left) in seed_tapes: continue
     candidates.append(row)
  if not controls: controls=[]
  return {'experiment_id':ID,'method':'lexical reverse segmentation with independent right role permutations','left_sentence_paths':len(lefts),'right_role_paths':right_paths,'trie_sizes':{k:len(v) for k,v in p.items()},'stats':{'states':states,'reverse_parses':sum(x['reverse_parse_count'] for x in controls),'rendered_candidates':len(candidates),'exact':sum(x['audit']['exact'] for x in candidates)},'rendered_candidates':candidates,'baseline_controls':controls,'novelty_preflight':{'status':'passed','signature':'forward-complete-grammar|independent-right-role-permutations|reverse-trie-parse','distinct_from':'fixed-role reverse parser; right side may use a different complete SVO/PP/REL/ditransitive path','finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_token_units':False},'provenance':{'vocabulary':'authored semantic phrase grammar','independent_audit':'two-pointer mismatch plus forward/reverse SHA-256','reader_evidence':False},'status':'fresh exact candidates require blinded reading' if candidates else 'no complete reverse parses','next_construction':'add attachment-conditioned role transitions for right paths','reader_gate':'closed until blinded human ratings'}

@@ -110,6 +110,7 @@ multiword palindrome span:
 | Three-beat alias grammar | Three finite SVO beats with live boundary aliases and conjunction state | 1,344 renderings; longest frontier 81 | 0 / 0 |
 | Scope-conditioned event frames | Independently authored event frames enforce subject-number agreement, transitivity, semantic scope, and adjunct attachment before surface realization | 22 complete forward-English candidates; **“The patient nurses carry a quiet message through town, while a young pilot checks the clear signal before rain.”** (91 letters) | 0 / 0 |
 | Four-slot carried-character grammar | Agent, verb, object, and attachment slots propagate mirrored character obligations after each slot and prune before complete rendering | 6,144 states; all pruned before rendering; no candidate promoted | 0 / 0 |
+| Relation/connector event frames | Carries contrast, cause, or sequence relation choice alongside agreement-valid event frames and scores outer agreement before rendering | 24 complete prose candidates; longest 73 letters; best pre-render outer agreement 5 | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
 discriminator: 16 independently authored clause pairs were rendered above 38
@@ -2325,3 +2326,24 @@ no rendered candidate to promote; the earlier 128-letter row is withdrawn as
 method evidence. This correction keeps the ledger honest and identifies the
 next construction requirement: widen the slot banks while retaining a
 non-empty prefix-compatible state after the first live obligation.
+
+## Relation and connector state
+
+The next forward-language probe added a semantic relation state rather than
+another lexical sweep. Contrast (`although`), cause (`because`), and sequence
+(`after`) were selected together with two independently generated,
+agreement-valid event frames. The relation and the live outer-character
+agreement score were fixed before punctuation or final surface rendering.
+Twenty-four complete prose candidates were produced; the strongest was:
+
+> **Patient nurses carry a quiet message, although the careful teacher marks the new route.**
+
+It has 72 normalized letters, first mismatching at character 0 (`p` versus
+`e`), with forward/reverse SHA-256 digests
+`af9030c54b83d3c637c62e02ca5e98f4e648e63bab5a7370adcd8d74cf4e7073` and
+`86403e191a29d15ca2b9b248309b789237dd8221906d29b0c1b7d7f5a6d3a8d0`.
+The maximum pre-render outer agreement was five characters, but no exact
+candidate above 38 letters appeared. The relation state is therefore a real
+construction discriminator and a readable baseline, not a palindrome claim;
+the next reader-facing test remains a blinded intact-versus-shuffled study
+for any exact closure.

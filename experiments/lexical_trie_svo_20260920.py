@@ -39,9 +39,11 @@ class Trie:
         if not obligation: return tuple(self.words)
         node=self.root; out=[]
         for ch in obligation:
-            if ch not in node: break
+            if ch not in node:
+                return tuple(dict.fromkeys(out))
             node=node[ch]; out.extend(node.get("$",[]))
-        # A shorter word may lawfully leave the remaining debt on the other side.
+        # Longer lexical edges may leave residual debt on the other side.
+        out.extend(self._under(node))
         return tuple(dict.fromkeys(out))
 
 def bank():

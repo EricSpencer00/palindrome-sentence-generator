@@ -28,7 +28,7 @@ def audit(s: str) -> dict[str, object]:
     return {"letters": len(t), "exact": bool(t) and outside, "outside_in": outside,
             "sha256_forward": f, "sha256_reverse": r, "sha_equal": f == r}
 
-def paths(max_paths: int = 96) -> list[tuple[str, ...]]:
+def paths(max_paths: int = 128) -> list[tuple[str, ...]]:
     out = []
     for s in CHART["subject"]:
         for v in CHART["verb"]:

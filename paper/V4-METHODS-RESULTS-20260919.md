@@ -2165,3 +2165,23 @@ with no reversal, repair, catalogue text, mirrored units, or fragments. The
 next test increases endpoint width only after adding a second independent
 interior grammar, so endpoint compatibility cannot be mistaken for a full
 palindrome certificate.
+
+## Manual bilateral scene authoring
+
+As a direct language-first check, a separate lane authored two disjoint banks
+of complete scene clauses and crossed every forward realization before
+rendering. The left bank had 252 clauses and the right bank had 252 clauses;
+63,504 complete candidates were audited. The longest retained prose was:
+
+> **The morning gardener carries warm bread home when the first stars appear; the careful doctor opens the weathered gate and remembers the promise.**
+
+It has 120 letters and fails at normalized character 0 (`t` versus `e`). Its
+forward and reverse SHA-256 digests are
+`b1a5c1459677b27dfb834e2388117227000c392c194515d648deb1f88e92be5f` and
+`a5c96f0e2925d0d1521af3a1e4f383ae61ce6743c57c28ab22266d1b647dafb8`.
+The clauses are fresh, complete, and independently forward-authored; no
+catalogue borrowing, finished-tape reversal, mirrored units, repeated units,
+or repair was used. The full exact count above 38 is zero. This lane confirms
+that readability can be present in long candidates before exact closure, but
+the next construction must condition the clauses' outer letters before
+crossing the interior banks.

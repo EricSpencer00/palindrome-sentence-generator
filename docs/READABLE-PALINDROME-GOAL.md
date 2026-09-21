@@ -84,6 +84,18 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   reference only. No API text or catalogue unit enters the active search, and
   the reader gate stays closed.
 
+- **API-inspired semantic atom transducer.** The useful idea in v3 is the
+  live mirror-state/provenance trail, not its bank of already-closed chunks. A
+  fresh bounded probe selected subject, verb, and object atoms while consuming
+  the opposing character residual, requiring one shared scene frame and six
+  distinct atom IDs. It rendered 54 ordinary grammar controls across three
+  scenes; the live state reached at most one matched character and produced
+  zero exact closures. The failure is concrete: the authored lexical envelope
+  dies at its outer atom seam before a verb can be selected. This is a new
+  construction representation, not a larger bank sweep; the next operator is
+  an independently authored center atom plus a second event relation, retaining
+  atom-distinctness (`runs/api-inspired-semantic-atom-transducer-20260920.json`).
+
 - **Scaled executable event lattice.** The frozen 27-event, 54-realization
   lattice expanded 729 event pairs, rejected 727 on semantic preconditions,
   and left eight live character-obligation states; zero exact closures survived.

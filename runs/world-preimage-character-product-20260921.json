@@ -1,0 +1,267 @@
+{
+  "experiment_id": "world-preimage-character-product-20260921",
+  "method": "executable world-state predecessor relation intersected with shared character equality",
+  "modes": {
+    "semantic": {
+      "status": "exhausted",
+      "product_states": 643,
+      "matched_character_transitions": 634,
+      "pending_states": 0,
+      "enumeration": "one witness per merged character/world state; not all surfaces",
+      "grammar_states": 78,
+      "character_nodes": 994,
+      "character_edges": 1093,
+      "semantic_prunes": 38,
+      "pre_render_rejection_witnesses": [
+        {
+          "partial_stage": "subject emitted; verb/object undecided",
+          "world": 1,
+          "rejected_action": "close",
+          "required_bits": 2
+        },
+        {
+          "partial_stage": "subject emitted; verb/object undecided",
+          "world": 1,
+          "rejected_action": "deliver",
+          "required_bits": 2
+        },
+        {
+          "partial_stage": "subject emitted; verb/object undecided",
+          "world": 1,
+          "rejected_action": "close",
+          "required_bits": 2
+        },
+        {
+          "partial_stage": "subject emitted; verb/object undecided",
+          "world": 1,
+          "rejected_action": "deliver",
+          "required_bits": 2
+        },
+        {
+          "partial_stage": "subject emitted; verb/object undecided",
+          "world": 1,
+          "rejected_action": "close",
+          "required_bits": 2
+        },
+        {
+          "partial_stage": "subject emitted; verb/object undecided",
+          "world": 1,
+          "rejected_action": "deliver",
+          "required_bits": 2
+        },
+        {
+          "partial_stage": "subject emitted; verb/object undecided",
+          "world": 1,
+          "rejected_action": "close",
+          "required_bits": 2
+        },
+        {
+          "partial_stage": "subject emitted; verb/object undecided",
+          "world": 1,
+          "rejected_action": "deliver",
+          "required_bits": 2
+        }
+      ],
+      "rendered_outputs": [
+        {
+          "text": "an aide rips nine memos. some men inspire Diana.",
+          "audit": {
+            "letters": 38,
+            "pointer_exact": true,
+            "first_mismatch": null,
+            "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+            "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+            "repeated_sentences": false,
+            "repeated_words": [],
+            "word_order_symmetry": false,
+            "proper_self_palindromic_spans": [],
+            "self_palindromic_sentences": 0
+          }
+        },
+        {
+          "text": "some men inspire Diana. an aide rips nine memos.",
+          "audit": {
+            "letters": 38,
+            "pointer_exact": true,
+            "first_mismatch": null,
+            "sha256_forward": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+            "sha256_reverse": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+            "repeated_sentences": false,
+            "repeated_words": [],
+            "word_order_symmetry": false,
+            "proper_self_palindromic_spans": [],
+            "self_palindromic_sentences": 0
+          }
+        }
+      ]
+    },
+    "ablated": {
+      "status": "exhausted",
+      "product_states": 1337,
+      "matched_character_transitions": 1334,
+      "pending_states": 0,
+      "enumeration": "one witness per merged character/world state; not all surfaces",
+      "grammar_states": 128,
+      "character_nodes": 1748,
+      "character_edges": 1932,
+      "semantic_prunes": 0,
+      "pre_render_rejection_witnesses": [],
+      "rendered_outputs": [
+        {
+          "text": "an aide rips nine memos. some men inspire Diana.",
+          "audit": {
+            "letters": 38,
+            "pointer_exact": true,
+            "first_mismatch": null,
+            "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+            "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+            "repeated_sentences": false,
+            "repeated_words": [],
+            "word_order_symmetry": false,
+            "proper_self_palindromic_spans": [],
+            "self_palindromic_sentences": 0
+          }
+        },
+        {
+          "text": "some men inspire Diana. an aide rips nine memos.",
+          "audit": {
+            "letters": 38,
+            "pointer_exact": true,
+            "first_mismatch": null,
+            "sha256_forward": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+            "sha256_reverse": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+            "repeated_sentences": false,
+            "repeated_words": [],
+            "word_order_symmetry": false,
+            "proper_self_palindromic_spans": [],
+            "self_palindromic_sentences": 0
+          }
+        }
+      ]
+    }
+  },
+  "fresh_exact_gt38": [],
+  "controls": [
+    {
+      "text": "An aide opens the gate. The porter delivers a parcel.",
+      "world_replay": {
+        "valid": true,
+        "trace": [
+          {
+            "action": "open",
+            "world_after": 3
+          },
+          {
+            "action": "deliver",
+            "world_after": 7
+          }
+        ]
+      },
+      "audit": {
+        "letters": 42,
+        "pointer_exact": false,
+        "first_mismatch": 0,
+        "sha256_forward": "2b49db9f6ca20e040faaf1cafd5325a8481dce2a9a00b8c6f10bdab488f52ee0",
+        "sha256_reverse": "1934f7dfe36aa0d0aef0cb580bfad312d0928d34c4f2012952ddd30d668983a9",
+        "repeated_sentences": false,
+        "repeated_words": [
+          "the"
+        ],
+        "word_order_symmetry": false,
+        "proper_self_palindromic_spans": [],
+        "self_palindromic_sentences": 0
+      },
+      "semantic_graph_accepts": true,
+      "ablated_graph_accepts": true
+    },
+    {
+      "text": "An aide rips nine memos. Some men read nine memos.",
+      "world_replay": {
+        "valid": false,
+        "failed": "read",
+        "world": 0,
+        "required": 1,
+        "trace": [
+          {
+            "action": "rip",
+            "world_after": 0
+          }
+        ]
+      },
+      "audit": {
+        "letters": 39,
+        "pointer_exact": false,
+        "first_mismatch": 0,
+        "sha256_forward": "7a1ed93b02e47d2b61cfda81a296c5af98b313a2b02015e0ff3394cdf652203b",
+        "sha256_reverse": "1c227c99cee674d0a479fb5900f401aa0ba1900d76954b070e3adc304137e741",
+        "repeated_sentences": false,
+        "repeated_words": [
+          "memos",
+          "nine"
+        ],
+        "word_order_symmetry": false,
+        "proper_self_palindromic_spans": [],
+        "self_palindromic_sentences": 0
+      },
+      "semantic_graph_accepts": false,
+      "ablated_graph_accepts": true
+    },
+    {
+      "text": "A nurse closes the gate. The porter delivers a parcel.",
+      "world_replay": {
+        "valid": false,
+        "failed": "close",
+        "world": 1,
+        "required": 2,
+        "trace": []
+      },
+      "audit": {
+        "letters": 43,
+        "pointer_exact": false,
+        "first_mismatch": 0,
+        "sha256_forward": "7b17a8c40c65100d172417ad829ab1519f6ef254d54354937cd08a5d320b490b",
+        "sha256_reverse": "6e0347257c9ef90205afa073471e8450ff4ee85e26cdd55229360b91cadee4b2",
+        "repeated_sentences": false,
+        "repeated_words": [
+          "a",
+          "the"
+        ],
+        "word_order_symmetry": false,
+        "proper_self_palindromic_spans": [],
+        "self_palindromic_sentences": 0
+      },
+      "semantic_graph_accepts": false,
+      "ablated_graph_accepts": true
+    }
+  ],
+  "known_seed_calibration": {
+    "text": "An aide rips nine memos; some men inspire Diana.",
+    "audit": {
+      "letters": 38,
+      "pointer_exact": true,
+      "first_mismatch": null,
+      "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "repeated_sentences": false,
+      "repeated_words": [],
+      "word_order_symmetry": false,
+      "proper_self_palindromic_spans": [],
+      "self_palindromic_sentences": 1
+    },
+    "novel": false
+  },
+  "provenance": {
+    "generator_sha256": "7de52027c11a89784dd9b8f35dc9242b6a7111e3c35fd60a90366b1cb3aa6db6",
+    "vocabulary": "frozen authored actor/action domain; seed vocabulary deliberately overlaps for calibration",
+    "catalogue_material": false,
+    "completed_surface_pair_enumeration": false,
+    "post_hoc_character_repair": false,
+    "mirror_chunk_assembly": false,
+    "reversal_usage": "path reconstruction and independent hash audit only",
+    "semantic_limit": "resource consistency, not reader coherence; inspire has no causal precondition",
+    "shortcut_limit": "all witnesses reported including ineligible repeats; none promoted without audits"
+  },
+  "falsifier": "Semantic ablation must restore read-after-rip and close-before-open branches before full surfaces exist; exact failure bounds this frozen domain only.",
+  "reader_evidence": false,
+  "north_star_met": false
+}

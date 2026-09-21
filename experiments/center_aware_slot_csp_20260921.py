@@ -31,6 +31,8 @@ TEMPLATES = (
  (("DET",2),("N_S",4),("V_S",4),("N_S",4),("DET",3),("N_P",5),("V_P",6),("NAME",5)),
  (("DET",3),("ADJ",4),("N_S",4),("V_S",5),("DET",3),("N_P",5),("V_P",6),("NAME",5)),
  (("DET",3),("N_S",5),("V_S",5),("NUM",4),("N_S",5),("DET",3),("N_P",5),("V_P",7),("NAME",5)),
+ (("DET",3),("ADJ",5),("N_S",5),("V_S",5),("DET",3),("ADJ",5),("N_P",5),("V_P",6),("NAME",5)),
+ (("DET",2),("ADJ",5),("N_S",5),("V_S",6),("DET",4),("N_P",5),("V_P",6),("NAME",5)),
 )
 WORDS["ADJ"] = tuple("calm bright brave quiet kind old young wise red new small clear swift gentle dark deep warm plain early late strong still soft wild honest patient silent narrow open long lost fresh fair green great free true safe cold little large high low hidden broken careful amber distant evening".split())
 
@@ -43,6 +45,20 @@ def audit(s: str) -> dict:
     f=hashlib.sha256(t.encode()).hexdigest(); r=hashlib.sha256(t[::-1].encode()).hexdigest()
     return {"normalized_tape":t,"letters":len(t),"exact":bool(t) and not mism,"first_mismatches":mism[:8],"sha256_forward":f,"sha256_reverse":r,"sha_equal_under_reversal":f==r}
 
+ANIMATE = {"aide","agent","artist","baker","captain","child","doctor","farmer","guard","keeper","mason","medic","pilot","poet","queen","sailor","scholar","singer","teacher","woman","women","writer","friend","king","maker","reader","man","men","fox","wolf"}
+def semantic_ok(roles, assigned):
+    """Incremental agreement and a small subject/valency check."""
+    for i,w in enumerate(assigned):
+        if w is None: continue
+        if roles[i] == "DET" and i+1 < len(assigned) and assigned[i+1] is not None:
+            nxt=assigned[i+1]
+            if w == "an" and nxt[0] not in "aeiou": return False
+            if w == "a" and nxt[0] in "aeiou": return False
+        if roles[i] == "V_S" and i and assigned[i-1] is not None and roles[i-1] == "N_S" and not w.endswith("s"): return False
+        if roles[i] == "V_P" and i and assigned[i-1] is not None and roles[i-1] == "N_P" and w.endswith("s"): return False
+        if roles[i] in {"V_S","V_P"} and i and assigned[i-1] is not None and assigned[i-1] not in ANIMATE: return False
+    return True
+
 def solve(plan, limit=10000):
     roles=[r for r,_ in plan]; lens=[n for _,n in plan]; n=sum(lens)
     domains=[tuple(w for w in WORDS[r] if len(w)==ln) for r,ln in plan]
@@ -52,7 +68,7 @@ def solve(plan, limit=10000):
     pos=[]
     for si,ln in enumerate(lens): pos += [(si,o) for o in range(ln)]
     equations=[(pos[p],pos[n-1-p]) for p in range(n//2)]
-    assigned=[None]*len(plan); grid=[None]*n; states=0; solutions=[]; seen=set()
+    assigned=[None]*len(plan); grid=[None]*n; states=0; solutions=[]; seen=set(); prunes=Counter()
     order=[]
     for p in range((len(plan)+1)//2):
         q=len(plan)-1-p
@@ -90,17 +106,20 @@ def solve(plan, limit=10000):
                 if not compatible(si,w): continue
                 ch=put(si,w)
                 if ch is None: continue
-                assigned[si]=w; place(j+1); assigned[si]=None
+                assigned[si]=w
+                if semantic_ok(roles, assigned): place(j+1)
+                else: prunes["agreement_or_valency"] += 1
+                assigned[si]=None
                 for idx in ch: grid[idx]=None
                 if states>=limit: return
         place(0)
     rec(0)
-    return solutions,{"states":states,"slot_count":len(plan),"letters":n,"midpoint_slot":next((i for i in range(len(lens)) if sum(lens[:i])<=n//2<sum(lens[:i+1])),None)}
+    return solutions,{"states":states,"slot_count":len(plan),"letters":n,"midpoint_slot":next((i for i in range(len(lens)) if sum(lens[:i])<=n//2<sum(lens[:i+1])),None),"prunes":dict(prunes)}
 
 def run():
     rows=[]; stats=Counter(); controls=[]
     for ti,plan in enumerate(TEMPLATES):
-        sols, st=solve(plan); stats.update({"states":st.get("states",0),"templates":1})
+        sols, st=solve(plan); stats.update({"states":st.get("states",0),"templates":1,"agreement_or_valency_prunes":st.get("prunes",{}).get("agreement_or_valency",0)})
         for txt,a,words in sols:
             row={"rendered":txt.capitalize()+".","template_index":ti,"slot_roles":[r for r,_ in plan],"words":words,"audit":audit(txt),"provenance":{"generator":"task-authored center-aware slot CSP","borrowed_catalogue_text":False,"finished_tape_reversal":False,"word_order_symmetry":False,"repeated_content_rejected":True,"novelty_status":"control_seed" if txt=="an aide rips nine memos some men inspire diana" else "candidate"}}
             (controls if ti==0 else rows).append(row)

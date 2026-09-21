@@ -64,6 +64,13 @@ def load():
         ("a woman that found the letter; the old doctor carried a key", ["a","woman","that","found","the","letter","the","old","doctor","carried","a","key"]),
         ("the town where the river turns; a careful teacher wrote the note", ["the","town","where","the","river","turns","a","careful","teacher","wrote","the","note"]),
     ]
+    # Geometry variants keep the relative attachment but change word-length
+    # vectors, so closure is not tied to one lexical realization.
+    heldout += [
+        ("a quiet sailor who carried the lantern; each patient farmer opened the gate", ["a","quiet","sailor","who","carried","the","lantern","each","patient","farmer","opened","the","gate"]),
+        ("the young writer that marked a message; our careful teacher remembered the answer", ["the","young","writer","that","marked","a","message","our","careful","teacher","remembered","the","answer"]),
+        ("the harbor where a small boat waited; another quiet keeper guarded the door", ["the","harbor","where","a","small","boat","waited","another","quiet","keeper","guarded","the","door"]),
+    ]
     rows.extend(("heldout-"+str(i), text, ws) for i,(text,ws) in enumerate(heldout))
     domains=defaultdict(set)
     for _,_,ws in rows:
@@ -140,10 +147,10 @@ def main():
         res=solve(ws,domains,grams)
         got=res[0] if res else []; nodes=res[1] if res else 0; total_nodes+=nodes
         rr=[role(w,i,ws) for i,w in enumerate(ws)]
-        controls.append({"source_id":sid,"source":line,"roles":rr,"valency":valency(rr),"profiles":transition_profiles(rr),"letters":len(tape(line)),"nodes":nodes,"exact_count":len(got)})
+        controls.append({"source_id":sid,"source":line,"roles":rr,"geometry":[len(w) for w in ws],"valency":valency(rr),"profiles":transition_profiles(rr),"letters":len(tape(line)),"nodes":nodes,"exact_count":len(got)})
         for text in got:
             candidates.append({"text":text,"letters":len(tape(text)),"exact":True,"sha":sha(text),"source_id":sid,"roles":[role(w,i,ws) for i,w in enumerate(ws)],"novel_ngrams":True})
     OUT.parent.mkdir(exist_ok=True)
-    OUT.write_text(json.dumps({"method":"corpus role bank with online left/right character propagation","source":str(SRC),"source_count":len(rows),"domain_sizes":{k:len(v) for k,v in domains.items()},"heldout_profiles":["transitive","ditransitive_or_coord","prepositional","relative"],"controls":controls,"candidates":candidates,"total_nodes":total_nodes,"repair":"Held-out transition profiles are now recorded; relative clauses remain obstructed because the authored bank has no REL lexical domain."},indent=2)+"\n")
+    OUT.write_text(json.dumps({"method":"corpus role bank with online left/right character propagation","source":str(SRC),"source_count":len(rows),"domain_sizes":{k:len(v) for k,v in domains.items()},"geometry_variants":6,"heldout_profiles":["transitive","ditransitive_or_coord","prepositional","relative"],"controls":controls,"candidates":candidates,"total_nodes":total_nodes,"repair":"Geometry variants now vary relative-clause word-length vectors; next repair is seam-specific length solving rather than widening lexical domains."},indent=2)+"\n")
     print(json.dumps({"sources":len(rows),"domains":{k:len(v) for k,v in domains.items()},"nodes":total_nodes,"candidates":len(candidates),"max_letters":max((x['letters'] for x in candidates),default=0)}))
 if __name__ == "__main__": main()

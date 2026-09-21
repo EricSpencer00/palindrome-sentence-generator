@@ -1353,6 +1353,14 @@ admissible candidate and none closed exactly above 38.  The next construction
 replaces the two single-character equalities with a typed multi-character
 boundary automaton that can license morphology without another lexical sweep.
 
+The multi-character follow-up made each boundary a small explicit automaton:
+two residual strings were consumed character by character for every one of the
+256 held-out center/adjunct/event transitions.  All transitions were rejected
+by the residual streams, while two complete controls reached 70 letters; no
+exact closure above 38 survived the independent audits.  The next topology
+reverses the residual-consumption orientation and adds typed morphology
+transitions, rather than widening the phrase bank.
+
 \section{Reader-facing evaluation}
 No candidate is called readable by the automatic diagnostics.  The release
 package is gated until a mechanically admitted survivor exists.  The planned

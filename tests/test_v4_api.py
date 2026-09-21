@@ -189,6 +189,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["center_first_mixed_valency_adjunct_run"]["exact_candidates_over_38"] == 0
     assert method.json()["live_adjunct_residual_lattice_run"]["states"] == 256
     assert method.json()["live_adjunct_residual_lattice_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["multichar_boundary_automaton_run"]["states"] == 256
+    assert method.json()["multichar_boundary_automaton_run"]["exact_candidates_over_38"] == 0
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

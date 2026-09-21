@@ -1,0 +1,101 @@
+{
+  "experiment_id": "nine-event-rank-stability-20260921",
+  "method": "nine-event graph with fifth focus bridge and rank-stability perturbation under global endpoint CSP",
+  "stats": {
+    "event_graphs": 1,
+    "online_checks": 1,
+    "max_letters": 202,
+    "exact_gt38": 0,
+    "cycle_basis_rank": 4,
+    "perturbed_rank": 3
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "controls": [
+    {
+      "rendered": "the nurse checked the chart. the doctor called the ward. the driver left the station. the guard watched the gate. the clerk filed the report. the pilot logged the flight. the scout marked the trail. the farmer mended the fence. the baker packed the bread.",
+      "graph": {
+        "events": [
+          {
+            "id": "e1",
+            "focus": "ward"
+          },
+          {
+            "id": "e2",
+            "focus": "ward"
+          },
+          {
+            "id": "e3",
+            "focus": "gate"
+          },
+          {
+            "id": "e4",
+            "focus": "gate"
+          },
+          {
+            "id": "e5",
+            "focus": "report"
+          },
+          {
+            "id": "e6",
+            "focus": "report"
+          },
+          {
+            "id": "e7",
+            "focus": "trail"
+          },
+          {
+            "id": "e8",
+            "focus": "fence"
+          },
+          {
+            "id": "e9",
+            "focus": "bread"
+          }
+        ],
+        "focus_bridges": [
+          "e2.ward->e4.gate",
+          "e4.gate->e6.report",
+          "e6.report->e7.trail",
+          "e7.trail->e8.fence",
+          "e8.fence->e9.bread"
+        ],
+        "cycle_basis_rank": 4,
+        "rank_stability_perturbation": {
+          "remove_bridge": "e7.trail->e8.fence",
+          "expected_rank": 3
+        }
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 1,
+        "frontier_length": 102,
+        "global_invariant": "x[i] == x[N-1-i]"
+      },
+      "audit": {
+        "letters": 202,
+        "pointer_exact": false,
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "nine-event|five-focus-bridges|rank-stability|global-endpoint-csp",
+    "distinct_from": "eight-event graph and single-edge family"
+  },
+  "provenance": {
+    "reader_status": "closed: no exact >=39 candidate",
+    "audits": [
+      "independent pointer",
+      "forward/reverse SHA-256"
+    ],
+    "anti_shortcut_flags": [
+      "no mirrored units",
+      "no reversal",
+      "no repair"
+    ]
+  },
+  "next_operator": "Add a ten-event graph with bridge-cut sensitivity and a two-sided rank witness.",
+  "status": "no exact >=39 closure; intact control retained"
+}

@@ -1,0 +1,105 @@
+{
+  "experiment_id": "semantic-branch-shared-participant-20260921",
+  "status": "completed_no_exact_closure",
+  "method": "two-branch event graph linked by shared participant before consequence",
+  "candidate_count": 2,
+  "exact_count": 0,
+  "reader_eligible": false,
+  "rendered_candidates": [
+    {
+      "rendered": "the guard keeps the lantern and the keeper checks the gate with the harbor master so the harbor stays safe; the watchman holds the lantern and the steward checks the gate with the harbor master so the harbor stays safe.",
+      "left_branch": "guard_keeper_master",
+      "right_branch": "watchman_steward_master",
+      "novel_rendered": true,
+      "semantic_graph": {
+        "branch_count": 2,
+        "shared_participant": "harbor master",
+        "shared_before_convergence": true,
+        "convergence_edge": "so"
+      },
+      "audit": {
+        "letters": 178,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "7949dfb4235348c0cb66054c717c8a6e81aa5bdb4d9aecf9b232e9b032854904",
+        "reverse_sha256": "56914fbaaaee784105bc691724156846bdc24445c8a8096a94e649e2aa9d9304",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "t",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "branching graph with shared participant before convergence",
+        "linear_graph_reused": false,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "a scribe writes the map and a reader studies the route with the teacher so the traveler finds home; a teacher draws the map and a student studies the route with the guide so the traveler finds home.",
+      "left_branch": "scribe_reader_teacher",
+      "right_branch": "teacher_student_guide",
+      "novel_rendered": true,
+      "semantic_graph": {
+        "branch_count": 2,
+        "shared_participant": "teacher/guide",
+        "shared_before_convergence": true,
+        "convergence_edge": "so"
+      },
+      "audit": {
+        "letters": 159,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "89142196d7bf1344a36dada10d157de4d7a38219b76dc5ab8b9444702d2eb5c8",
+        "reverse_sha256": "817fa5ccb1279ecf5909f56c465ea626b1cf585cf44217a12dd6de219e6c22bb",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "a",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "branching graph with shared participant before convergence",
+        "linear_graph_reused": false,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "stats": {
+    "longest_letters": 178
+  },
+  "novelty_preflight": {
+    "hash_source": "all runs/*.json except current artifact",
+    "current_artifact_excluded": true,
+    "all_rendered_new": true,
+    "shared_participant_new": true
+  },
+  "failure_and_repair": {
+    "failure": "shared-participant branches still mismatch live obligations",
+    "next_construction": "add a shared temporal anchor node before the participant link"
+  },
+  "provenance": {
+    "generator_sha256": "1f94cb83ddc4dc376163be684ac3546f301ed215de97e9d84cf9e462dfe60a5e",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "shortcuts_excluded": true
+  }
+}

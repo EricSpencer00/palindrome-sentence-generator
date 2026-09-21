@@ -117,6 +117,18 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   variable-length grammar continuations before the relation hole, not widen
   the same atom bank (`runs/api-inspired-unresolved-relation-hole-20260920.json`).
 
+- **Variable-length CFG frontier.** The API-style residual ledger was then
+  given unresolved `S/NP/VP/PP` stacks, optional noun modifiers, scene keys,
+  and agreement registers; grammar branches were expanded before lexical
+  terminals were chosen. The fresh run visited 33 deduplicated states,
+  pruned 66 character and 132 duplicate branches, and rendered no terminal
+  derivation or exact closure (maximum live match: one character). Optional
+  modifiers and prepositional continuations therefore did not change the
+  reachable outer seam. This retires the current CFG envelope rather than
+  inviting a larger sweep; the next method must change the lexical edge
+  geometry while retaining the API-style provenance record
+  (`runs/api-inspired-variable-cfg-frontier-20260920.json`).
+
 - **Scaled executable event lattice.** The frozen 27-event, 54-realization
   lattice expanded 729 event pairs, rejected 727 on semantic preconditions,
   and left eight live character-obligation states; zero exact closures survived.

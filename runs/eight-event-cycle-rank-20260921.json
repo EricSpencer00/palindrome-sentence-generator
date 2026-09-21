@@ -1,0 +1,97 @@
+{
+  "experiment_id": "eight-event-cycle-rank-20260921",
+  "method": "eight-event graph with four focus bridges and minimal cycle-basis rank under global endpoint CSP",
+  "stats": {
+    "event_graphs": 1,
+    "online_checks": 1,
+    "max_letters": 180,
+    "exact_gt38": 0,
+    "cycle_basis_rank": 3
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "controls": [
+    {
+      "rendered": "the nurse checked the chart. the doctor called the ward. the driver left the station. the guard watched the gate. the clerk filed the report. the pilot logged the flight. the scout marked the trail. the farmer mended the fence.",
+      "graph": {
+        "events": [
+          {
+            "id": "e1",
+            "focus": "ward"
+          },
+          {
+            "id": "e2",
+            "focus": "ward"
+          },
+          {
+            "id": "e3",
+            "focus": "gate"
+          },
+          {
+            "id": "e4",
+            "focus": "gate"
+          },
+          {
+            "id": "e5",
+            "focus": "report"
+          },
+          {
+            "id": "e6",
+            "focus": "report"
+          },
+          {
+            "id": "e7",
+            "focus": "trail"
+          },
+          {
+            "id": "e8",
+            "focus": "fence"
+          }
+        ],
+        "focus_bridges": [
+          "e2.ward->e4.gate",
+          "e4.gate->e6.report",
+          "e6.report->e7.trail",
+          "e7.trail->e8.fence"
+        ],
+        "cycle_basis": [
+          "e1-e3-e5-e1",
+          "e2-e4-e6-e2",
+          "e3-e5-e7-e3",
+          "e4-e6-e8-e4"
+        ],
+        "cycle_basis_rank": 3
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 1,
+        "frontier_length": 91,
+        "global_invariant": "x[i] == x[N-1-i]"
+      },
+      "audit": {
+        "letters": 180,
+        "pointer_exact": false,
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "eight-event|four-focus-bridges|minimal-cycle-rank|global-endpoint-csp",
+    "distinct_from": "seven-event graph and single-edge family"
+  },
+  "provenance": {
+    "reader_status": "closed: no exact >=39 candidate",
+    "audits": [
+      "independent pointer",
+      "forward/reverse SHA-256"
+    ],
+    "anti_shortcut_flags": [
+      "no mirrored units",
+      "no reversal",
+      "no repair"
+    ]
+  },
+  "next_operator": "Add a nine-event graph with a fifth bridge and rank-stability perturbation check.",
+  "status": "no exact >=39 closure; intact control retained"
+}

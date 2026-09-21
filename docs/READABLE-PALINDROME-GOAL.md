@@ -96,6 +96,18 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   an independently authored center atom plus a second event relation, retaining
   atom-distinctness (`runs/api-inspired-semantic-atom-transducer-20260920.json`).
 
+- **Center-event independent clause arcs.** A separate center-first
+  construction selected one of three complete, non-palindromic event
+  utterances before independently authoring a forward clause on each side.
+  Arc characters were checked against the opposing live edge before rendering;
+  no finished tape was reversed and no post-hoc repair was applied. It retained
+  12 complete prose controls up to 96 letters, with pointer/SHA audits and
+  first-mismatch traces, but produced zero exact closures above 38 letters.
+  This is a bounded failure of the fixed center-plus-arc envelope, not a reason
+  to widen the same phrase inventory; the recorded successor indexes held-out
+  arcs by the live two-character residual
+  (`runs/center-event-independent-clause-arcs-20260920.json`).
+
 - **Center-atom/event-relation successor.** The proposed successor was run as
   a frozen, separately audited lane: 864 semantic joins across three scenes,
   with one lexical connective (`while`, `before`, `because`, or `despite`) and

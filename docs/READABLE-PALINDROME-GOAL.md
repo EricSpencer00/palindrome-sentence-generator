@@ -165,6 +165,15 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   preflight and found no exact candidate at the 40-letter target
   (`runs/api-capacity-semantic-index-followup-20260921.json`).
 
+- **Deficit-directed ditransitive WFSA.** A second lexical lane changed the
+  grammar object rather than widening its vocabulary: subject/verb agreement,
+  recipient/object roles, and ditransitive valency were carried in live WFSA
+  state, with dead-frontier character deficits pruning incompatible
+  inflections. It expanded 48 frontiers across 1,072 edges, matched none, and
+  produced no exact candidate at the 40-letter gate; ordinary controls and
+  independent pointer/SHA audits are retained
+  (`runs/lexical-wfsa-ditransitive-deficit-20260921.json`).
+
 - **Historical-artifact re-audit.** The repository also contains a 106-letter
   exact insertion that preserves the 38-letter seed and inserts reverse lexical
   pairs at an ungrammatical seam. It remains explicitly withdrawn; a larger

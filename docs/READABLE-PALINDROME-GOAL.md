@@ -7607,3 +7607,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   with broader but independently grammatical lexicalization. Artifacts:
   `runs/independent-reverse-lexicalization-20260921.json` and
   `runs/lexical-reverse-segmentation-20260921.json`.
+
+- **Independent bidirectional slot product, 2026-09-21:** formed 243
+  independently authored left semantic frames and 81 independently authored
+  right frames. Agreement and transitivity registers were checked before a
+  live left-forward/right-backward character-debt product; mismatches were
+  pruned immediately, without reversing a finished tape, mirrored units,
+  repair, or per-candidate RLAIF. It examined 19,683 agreement-compatible
+  pairs, rendered every surviving control with provenance, and closed 0 exact
+  states (0 at 40+ letters). The known 38-letter benchmark was isolated as a
+  calibration control and is not counted. The ten smallest-debt controls are
+  recorded as near misses for the next independent frame expansion. Artifact:
+  `runs/bidirectional-slot-product-20260921.json`.

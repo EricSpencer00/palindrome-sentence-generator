@@ -239,13 +239,155 @@
       "first_obligation": "elc"
     }
   ],
+  "heldout_repair": {
+    "subject_alternatives": [
+      "red-haired archivist",
+      "red-coated sailor"
+    ],
+    "branches": [
+      {
+        "left_A_B": [
+          "At dusk, the patient cartographer marked a hidden inlet.",
+          "At noon, a careful gardener watered the young lavender."
+        ],
+        "first_obligation": "red",
+        "branch": "red",
+        "alternatives": [
+          "red-haired archivist",
+          "red-coated sailor"
+        ],
+        "deepest_matched_prefix": 3,
+        "parse_count": 0,
+        "ordinary_english_certificate": null,
+        "trace": [
+          {
+            "slot": "subject",
+            "offset": 0,
+            "phrase": "red-haired archivist",
+            "matched_characters": 3,
+            "next_required": "nev",
+            "first_obligation": "red"
+          },
+          {
+            "slot": "subject",
+            "offset": 0,
+            "phrase": "red-coated sailor",
+            "matched_characters": 3,
+            "next_required": "nev",
+            "first_obligation": "red"
+          }
+        ]
+      },
+      {
+        "left_A_B": [
+          "At dusk, the patient cartographer marked a hidden inlet.",
+          "In winter, the quiet mechanic repaired a silver bicycle."
+        ],
+        "first_obligation": "elc",
+        "branch": "elc",
+        "alternatives": [
+          "red-haired archivist",
+          "red-coated sailor"
+        ],
+        "deepest_matched_prefix": 0,
+        "parse_count": 0,
+        "ordinary_english_certificate": "no authored subject begins with elc; branch is grammatically empty",
+        "trace": [
+          {
+            "slot": "subject",
+            "offset": 0,
+            "phrase": "red-haired archivist",
+            "matched_characters": 0,
+            "next_required": "elc",
+            "first_obligation": "elc"
+          },
+          {
+            "slot": "subject",
+            "offset": 0,
+            "phrase": "red-coated sailor",
+            "matched_characters": 0,
+            "next_required": "elc",
+            "first_obligation": "elc"
+          }
+        ]
+      },
+      {
+        "left_A_B": [
+          "By dawn, the village baker carried warm loaves to market.",
+          "At noon, a careful gardener watered the young lavender."
+        ],
+        "first_obligation": "red",
+        "branch": "red",
+        "alternatives": [
+          "red-haired archivist",
+          "red-coated sailor"
+        ],
+        "deepest_matched_prefix": 3,
+        "parse_count": 0,
+        "ordinary_english_certificate": null,
+        "trace": [
+          {
+            "slot": "subject",
+            "offset": 0,
+            "phrase": "red-haired archivist",
+            "matched_characters": 3,
+            "next_required": "nev",
+            "first_obligation": "red"
+          },
+          {
+            "slot": "subject",
+            "offset": 0,
+            "phrase": "red-coated sailor",
+            "matched_characters": 3,
+            "next_required": "nev",
+            "first_obligation": "red"
+          }
+        ]
+      },
+      {
+        "left_A_B": [
+          "By dawn, the village baker carried warm loaves to market.",
+          "In winter, the quiet mechanic repaired a silver bicycle."
+        ],
+        "first_obligation": "elc",
+        "branch": "elc",
+        "alternatives": [
+          "red-haired archivist",
+          "red-coated sailor"
+        ],
+        "deepest_matched_prefix": 0,
+        "parse_count": 0,
+        "ordinary_english_certificate": "no authored subject begins with elc; branch is grammatically empty",
+        "trace": [
+          {
+            "slot": "subject",
+            "offset": 0,
+            "phrase": "red-haired archivist",
+            "matched_characters": 0,
+            "next_required": "elc",
+            "first_obligation": "elc"
+          },
+          {
+            "slot": "subject",
+            "offset": 0,
+            "phrase": "red-coated sailor",
+            "matched_characters": 0,
+            "next_required": "elc",
+            "first_obligation": "elc"
+          }
+        ]
+      }
+    ],
+    "both_banks_widened": false,
+    "next_operator": "author a new grammatical subject family only for the elc certificate, or change the left terminal lexical domain"
+  },
   "novelty_preflight": {
     "status": "passed",
     "signature": "abba|independent-right-lexicon|variable-word-boundary-dp",
     "distinct_from": "single-clause fixed-token reverse segmentation and finished-tape reversal"
   },
   "provenance": {
-    "generator_sha256": "93d1ff12a3bb4fae5f0f208f2d020afcbb2b15521df90948fcc3d132de059d34",
+    "generator_sha256": "98133c4d66acc16e358419e56f6665140c8148c52382e3b71e75f0c47d9f40fe",
     "audits": [
       "independent two-pointer scan",
       "forward/reverse SHA-256"

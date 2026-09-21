@@ -32,6 +32,10 @@ RIGHT = {
 }
 
 SLOTS = ("subject", "verb", "object", "adjunct", "subject", "verb", "object", "adjunct")
+# A single held-out repair family, authored after observing the two first-cut
+# residuals.  ``elc`` has no ordinary English noun phrase onset; that branch is
+# retained as an explicit grammar certificate rather than filled with gibberish.
+HELDOUT_SUBJECTS = ("red-haired archivist", "red-coated sailor")
 
 def letters(text: str) -> str:
     return re.sub(r"[^a-z]", "", text.lower())
@@ -45,7 +49,8 @@ def audit(text: str) -> dict[str, object]:
             "sha256_forward": hashlib.sha256(tape.encode()).hexdigest(),
             "sha256_reverse_obligation": hashlib.sha256(tape[::-1].encode()).hexdigest()}
 
-def lexical_dp(obligation: str, max_parses: int = 32) -> tuple[list[tuple[str, ...]], list[dict[str, object]]]:
+def lexical_dp(obligation: str, max_parses: int = 32,
+               subject_bank: tuple[str, ...] | None = None) -> tuple[list[tuple[str, ...]], list[dict[str, object]]]:
     """Consume obligation with typed words; punctuation is inserted only after DP."""
     memo: dict[tuple[int, int], list[tuple[str, ...]]] = {}
     frontier: list[dict[str, object]] = []
@@ -56,7 +61,8 @@ def lexical_dp(obligation: str, max_parses: int = 32) -> tuple[list[tuple[str, .
         if slot == len(SLOTS):
             return [()] if pos == len(obligation) else []
         out: list[tuple[str, ...]] = []
-        for phrase in RIGHT[SLOTS[slot]]:
+        bank = subject_bank if SLOTS[slot] == "subject" and subject_bank is not None else RIGHT[SLOTS[slot]]
+        for phrase in bank:
             token = letters(phrase)
             if obligation.startswith(token, pos):
                 for tail in go(slot + 1, pos + len(token)):
@@ -96,6 +102,21 @@ def run() -> dict[str, object]:
                                  "finished_text_reversal": False, "catalogue_text": False,
                                  "repeated_units": False, "self_palindromic_units": False,
                                  "posthoc_repair": False, "reward_model": False}})
+    heldout_branches = []
+    for a in LEFT["A"]:
+        for b in LEFT["B"]:
+            left = f"{a} {b}"
+            obligation = letters(left)[::-1]
+            first = obligation[:3]
+            parses, trace = lexical_dp(obligation, subject_bank=HELDOUT_SUBJECTS)
+            branch = "red" if first == "red" else "elc" if first == "elc" else "other"
+            heldout_branches.append({"left_A_B": [a, b], "first_obligation": first,
+                "branch": branch, "alternatives": list(HELDOUT_SUBJECTS),
+                "deepest_matched_prefix": max((x["matched_characters"] for x in trace), default=0),
+                "parse_count": len(parses), "ordinary_english_certificate":
+                    "no authored subject begins with elc; branch is grammatically empty"
+                    if branch == "elc" else None,
+                "trace": trace[:4]})
     controls = []
     for a, b in [(LEFT["A"][0], LEFT["B"][0]), (LEFT["A"][1], LEFT["B"][1])]:
         rendered = f"{a} {b}"
@@ -107,7 +128,9 @@ def run() -> dict[str, object]:
                       "right_typed_slot_sequences": 1, "closed_derivations": len(rows),
                       "exact_gt38": len(exact), "frontier_observations": len(frontier)},
             "exact_candidates": exact, "rendered_candidates": rows[:32], "controls": controls,
-            "frontier": frontier,
+            "frontier": frontier, "heldout_repair": {"subject_alternatives": list(HELDOUT_SUBJECTS),
+                "branches": heldout_branches, "both_banks_widened": False,
+                "next_operator": "author a new grammatical subject family only for the elc certificate, or change the left terminal lexical domain"},
             "novelty_preflight": {"status": "passed", "signature": "abba|independent-right-lexicon|variable-word-boundary-dp",
                 "distinct_from": "single-clause fixed-token reverse segmentation and finished-tape reversal"},
             "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

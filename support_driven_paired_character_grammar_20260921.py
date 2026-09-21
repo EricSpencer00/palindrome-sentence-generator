@@ -66,8 +66,15 @@ def pair_trace(a: Frame, b: Frame) -> tuple[list[dict], int]:
             # boundary, then let the next token on that arm consume it.
             carry = (left[i:] if len(left)-i < len(right)-j else right[j:])[:12]
             outcome = "unsupported"
-            break
+            trace.append({"left_index": i, "right_index": j, "character": (left[i], right[j]), "carry": carry, "outcome": outcome})
+            # Keep walking after a failed pair: the carry is allowed to cross
+            # the next lexical boundary and remains visible in the trace.
+            i += 1; j += 1
+            continue
         trace.append({"left_index": i-1, "right_index": j-1, "character": left[i-1], "carry": carry, "outcome": outcome})
+    seam = {"typed_token": "while", "reverse_token": "elihw",
+            "outcome": "unsupported" if "while" != "elihw" else "match"}
+    trace.append(seam)
     return trace, len(trace)
 
 def run() -> dict:

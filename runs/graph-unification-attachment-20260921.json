@@ -1,16 +1,17 @@
 {
   "experiment_id": "graph-unification-attachment-20260921",
-  "method": "graph-unification dependency solver with held-out concessive-result attachment; bilateral mirrored-character support domains intersected during incremental yield",
+  "method": "graph-unification dependency solver with held-out conditional-result attachment; bilateral mirrored-character support domains intersected during incremental yield",
   "stats": {
-    "trees": 8,
-    "graph_edges": 56,
-    "online_support_checks": 83,
-    "online_prunes": 56,
+    "trees": 9,
+    "graph_edges": 72,
+    "online_support_checks": 105,
+    "online_prunes": 72,
     "rendered_controls": 12,
     "exact_gt38": 0,
     "max_letters": 135,
     "manner_frontier_survives_past_first_support_conflict": true,
-    "resultative_frontier_survives_past_first_support_conflict": true
+    "resultative_frontier_survives_past_first_support_conflict": true,
+    "concessive_frontier_survives_past_first_support_conflict": true
   },
   "exact_candidates": [],
   "reader_facing_candidates": [],
@@ -453,6 +454,69 @@
       }
     },
     {
+      "rendered": "the careful baker delivered the parcel the warm loaf for the night nurse. the alert keeper left the old lamp lit inside if the power held.",
+      "trees": {
+        "left": {
+          "kind": "benefactive",
+          "subject": "the careful baker",
+          "verb": "delivered",
+          "recipient": "the parcel",
+          "theme": "the warm loaf",
+          "prep": "for",
+          "beneficiary": "the night nurse"
+        },
+        "right": {
+          "kind": "conditional_result",
+          "subject": "the alert keeper",
+          "verb": "left",
+          "theme": "the old lamp",
+          "result": "lit inside",
+          "cause": "if the power held",
+          "attachment_index": "event.left.result->condition"
+        }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "event.left.result->condition"
+        ],
+        "event_nodes_unified": true
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 1,
+        "domains": "character intersection while streaming terminals",
+        "frontier_survived": true,
+        "frontier_length": 57,
+        "survives_past_first_support_conflict": false
+      },
+      "complete_prose": true,
+      "audit": {
+        "letters": 111,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "99941f9490b4fa825c3dc5f27c3f091eea0f28b2a4d96e47676946336ed03517",
+        "reverse_sha256": "2efa1ffe29e34fbb17fa249c354c57d96ce6e9ffb68935f549a877a658bb8ddd",
+        "repeated_units": true,
+        "nested_self_palindrome": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false
+      },
+      "provenance": {
+        "fresh_authored_dependency_trees": true,
+        "graph_unification_before_render": true,
+        "heldout_attachment": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "reward_loop": false
+      }
+    },
+    {
       "rendered": "a patient teacher prepared the child a clear lesson for the new class. the careful baker delivered the parcel the warm loaf for the night nurse.",
       "trees": {
         "left": {
@@ -699,76 +763,13 @@
         "word_order_symmetry": false,
         "reward_loop": false
       }
-    },
-    {
-      "rendered": "a patient teacher prepared the child a clear lesson for the new class. the skilled pilot landed the small plane with steady care as the fog lifted.",
-      "trees": {
-        "left": {
-          "kind": "benefactive",
-          "subject": "a patient teacher",
-          "verb": "prepared",
-          "recipient": "the child",
-          "theme": "a clear lesson",
-          "prep": "for",
-          "beneficiary": "the new class"
-        },
-        "right": {
-          "kind": "manner_causal",
-          "subject": "the skilled pilot",
-          "verb": "landed",
-          "theme": "the small plane",
-          "manner": "with steady care",
-          "cause": "as the fog lifted",
-          "attachment_index": "event.landed.manner->cause"
-        }
-      },
-      "graph_unification": {
-        "attachment_indices": [
-          "root->argument",
-          "event.landed.manner->cause"
-        ],
-        "event_nodes_unified": true
-      },
-      "online_support": {
-        "accepted": false,
-        "checks": 1,
-        "domains": "character intersection while streaming terminals",
-        "frontier_survived": true,
-        "frontier_length": 61,
-        "survives_past_first_support_conflict": false
-      },
-      "complete_prose": true,
-      "audit": {
-        "letters": 119,
-        "pointer_exact": false,
-        "sha_equal": false,
-        "forward_sha256": "2f9c28fc30015039c38200e9f3cba61ecdac20b0ea56da200a69680844232643",
-        "reverse_sha256": "9bb18589599a9ec8bb82370ba476a5e616335cec6c09981a38b14835d325cf56",
-        "repeated_units": true,
-        "nested_self_palindrome": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false
-      },
-      "provenance": {
-        "fresh_authored_dependency_trees": true,
-        "graph_unification_before_render": true,
-        "heldout_attachment": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "reward_loop": false
-      }
     }
   ],
   "novelty_preflight": {
     "status": "passed",
     "registry_inspected": true,
-    "signature": "fresh-authored|dependency-graph-unification|concessive-result-event-index|online-character-support",
-    "distinct_from": "resultative-causal edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; concessive result index unifies before lexical yield",
+    "signature": "fresh-authored|dependency-graph-unification|conditional-result-event-index|online-character-support",
+    "distinct_from": "concessive-result edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; conditional result index unifies before lexical yield",
     "forbidden_inputs": [
       "38-letter anchor",
       "finished-tape reversal",
@@ -793,6 +794,6 @@
     ],
     "reader_status": "closed: no exact >=39 candidate"
   },
-  "next_operator": "Hold out a distinct conditional-result event edge only if this concessive frontier survives past its first support conflict.",
+  "next_operator": "Hold out a distinct temporal-result event edge only if this conditional frontier survives past its first support conflict.",
   "status": "no exact >=39 closure; intact ordinary-prose controls retained"
 }

@@ -7926,6 +7926,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   result edge only if this concessive frontier also survives. Artifact:
   `runs/graph-unification-attachment-20260921.json`.
 
+- **Conditional-result graph edge, 2026-09-21:** added the distinct
+  `event.left.result -> condition` attachment after the concessive frontier
+  survived its first support conflict. Nine trees produced 72 incrementally
+  checked graph edges and 12 intact controls (maximum 135 letters), with zero
+  exact closures at or above 39 letters. The next operator is a temporal-
+  result edge only if this conditional frontier likewise survives. Artifact:
+  `runs/graph-unification-attachment-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.

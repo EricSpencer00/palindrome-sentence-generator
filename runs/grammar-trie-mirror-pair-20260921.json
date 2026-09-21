@@ -1,0 +1,65 @@
+{
+  "experiment_id": "grammar-trie-mirror-pair-20260921",
+  "method": "typed SVO adjunct trie prefix plus reverse-obligation DP diagnostic",
+  "stats": {
+    "left_sentences": 81,
+    "right_sentences": 81,
+    "exact_pairs": 0,
+    "deepest_prefix": 0
+  },
+  "exact_pairs": [],
+  "deepest_parse": {
+    "left": "the harbor pilot marks a brass compass before dawn",
+    "right_prefix_candidate": "the evening keeper notices a blue lantern after sunset",
+    "obligation_prefix": "",
+    "trie": {
+      "depth": 0,
+      "candidate": "the evening keeper notices a blue lantern after sunset",
+      "states": 1
+    },
+    "complete_right_matches": [],
+    "provenance": {
+      "authored_svo_adjunct": true,
+      "independent_right_bank": true,
+      "finished_reversal_for_generation": false,
+      "catalogue": false,
+      "self_palindromic_sentence": false,
+      "posthoc_repair": false
+    }
+  },
+  "control": {
+    "sentence": "the harbor pilot marks a brass compass before dawn.",
+    "audit": {
+      "letters": 42,
+      "exact": false,
+      "first_mismatch": [
+        [
+          0,
+          "t",
+          "n"
+        ],
+        [
+          1,
+          "h",
+          "w"
+        ],
+        [
+          2,
+          "e",
+          "a"
+        ]
+      ],
+      "sha256_forward": "d723f0112b40530c6144be82c60e697c760fb92c3c7b8912f51a0745fafd4b33",
+      "sha256_reverse": "514c7a87999fdc67a8330109c361a74bfe391f90305fa78583104974948825d5"
+    }
+  },
+  "provenance": {
+    "generator_sha256": "a355321bffecc2df2f71bd538e7689d9b97a0c0c744e53fdfba8a646ecdd9d1e",
+    "audits": [
+      "two-pointer",
+      "SHA-256"
+    ]
+  },
+  "next_grammar_operator": "Add a typed adjunct beginning with the deepest live prefix, then resume DP without changing existing lexical banks.",
+  "status": "no exact pair; deepest grammar prefix recorded"
+}

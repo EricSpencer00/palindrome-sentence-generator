@@ -8,6 +8,10 @@ ROLES={"det":"a an the our some my each this that".split(),"det_sg":"a an the my
 # makes agreement a construction constraint, not a readability afterthought.
 FRAMES=(("det_sg","agent_sg","verb_sg","det","object"),("det_pl","agent_pl","verb_pl","det","object"),("name","verb_sg","det_sg","adj","object"),("det_sg","agent_sg","verb_sg","prep","det","place"),("det_pl","agent_pl","verb_pl","prep","det","place"),("name","verb_sg","object","prep","name"),("det_sg","agent_sg","verb_past","det","object"),("det_pl","agent_pl","verb_past","det","object"),("name","verb_past","prep","det","place"),("det_sg","agent_sg","verb_past_i","prep","det","place"))
 FUNCTION=frozenset("a an the our some my to from with for".split())
+DOC_OBJECTS=frozenset("answer book chart letter map memo note page plan poem story truth".split())
+PORTABLE_OBJECTS=frozenset("book chart letter map memo note page plan poem story".split())
+DOC_VERBS=frozenset("charts checks draws finds guides helps marks reads sends shows tells teaches watches writes asked carried charted called checked drew found gave guided helped marked read sent showed told taught watched wrote asks brings carries calls checks draws finds gives guides helps marks reads sends shows tells teaches watches writes".split())
+PLACE_PREPS=frozenset({"to","from","with","for"})
 def tape(s): return "".join(c for c in s.casefold() if "a"<=c<="z")
 def audit(s):
  t=tape(s); bad=[]; i,j=0,len(t)-1
@@ -20,6 +24,21 @@ def edge_index():
  for role,words in ROLES.items():
   for w in words: out.setdefault(w[0],[]).append({"role":role,"word":w,"edge":w[-1]})
  return out
+def semantic_valid(frame, words):
+    """Selectional restrictions are applied before tape construction."""
+    roles=dict(zip(range(len(frame)), frame))
+    # All object-bearing frames require a document-compatible object for the
+    # information verbs; transport verbs require a portable object.
+    for i, role in roles.items():
+        if role == "object":
+            verb=next((words[j] for j in range(i-1,-1,-1) if frame[j].startswith("verb")), "")
+            if verb in DOC_VERBS and words[i] not in DOC_OBJECTS: return False
+    # A preposition followed by a location must retain an authored location,
+    # never an object accidentally occupying the boundary slot.
+    for i, role in roles.items():
+        if role == "prep" and i+2 < len(words) and frame[i+2] == "place":
+            if words[i] not in PLACE_PREPS or words[i+2] not in ROLES["place"]: return False
+    return True
 def candidates(limit=250000):
  found=[]; controls=[]; tested=0
  for left in FRAMES:
@@ -30,6 +49,7 @@ def candidates(limit=250000):
     if tested>limit:return found,tested,controls
     nonfun=[w for w in ws if w not in FUNCTION]
     if any(w==w[::-1] for w in nonfun) or len(set(nonfun))<len(nonfun):continue
+    if not semantic_valid(left, ws[:len(left)]) or not semantic_valid(right, ws[len(left):]): continue
     text=" ".join(ws[:len(left)])+"; "+" ".join(ws[len(left):]); a=audit(text)
     rec={"text":text,"frames":[left,right],"words":ws,"boundary_lengths":[len(w) for w in ws],"agreement":"number-carrying frame roles","audit":a}
     if a["pointer_exact"]: rec.update(provenance="boundary_shift_semantic_constructor_v1",novelty="independent role sampling; not catalogue"); found.append(rec)
@@ -37,5 +57,5 @@ def candidates(limit=250000):
  return found,tested,controls
 def main():
  p=argparse.ArgumentParser();p.add_argument("--output",default=str(ROOT/"runs/boundary-shift-semantic-20260921.json"));p.add_argument("--limit",type=int,default=250000);a=p.parse_args();f,t,c=candidates(a.limit)
- payload={"method":"boundary-shifting semantic constructor v3","tested":t,"frame_count":len(FRAMES),"edge_index_size":len(edge_index()),"exact_candidates":f,"controls":c,"independent_audit":"pointer comparison plus forward/reverse SHA-256","readability_gate":"human review required; no programmatic certification","repair":"number agreement plus explicit present/past tense and transitive/intransitive frames","next_repair":"add semantic selectional restrictions to event roles"};Path(a.output).parent.mkdir(parents=True,exist_ok=True);Path(a.output).write_text(json.dumps(payload,indent=2)+"\n");print(json.dumps({"tested":t,"exact":len(f),"max_letters":max((x["audit"]["letters"] for x in f),default=0),"controls":len(c)}))
+ payload={"method":"boundary-shifting semantic constructor v4","tested":t,"frame_count":len(FRAMES),"edge_index_size":len(edge_index()),"exact_candidates":f,"controls":c,"independent_audit":"pointer comparison plus forward/reverse SHA-256","readability_gate":"human review required; no programmatic certification","repair":"number agreement, tense/transitivity, and subject/object/location selectional restrictions","next_repair":"pivot to a compositional center-seam constructor; do not enlarge this lexical sweep"};Path(a.output).parent.mkdir(parents=True,exist_ok=True);Path(a.output).write_text(json.dumps(payload,indent=2)+"\n");print(json.dumps({"tested":t,"exact":len(f),"max_letters":max((x["audit"]["letters"] for x in f),default=0),"controls":len(c)}))
 if __name__=="__main__":main()

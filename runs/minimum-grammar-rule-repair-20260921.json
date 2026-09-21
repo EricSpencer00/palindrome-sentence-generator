@@ -1,0 +1,809 @@
+{
+  "experiment_id": "minimum-grammar-rule-repair-20260921",
+  "method": "hard exact palindrome product with minimum optional grammar-rule activation",
+  "stats": {
+    "optional_rules": 6,
+    "activation_masks": 64,
+    "exact_masks": 16,
+    "minimum_activation_cost": 2,
+    "all_exact_paths": 16,
+    "fresh_reader_exact_over38": 0
+  },
+  "base_certificate": {
+    "mask": 0,
+    "activated_rules": [],
+    "activation_cost": 0,
+    "derivations": 1,
+    "exact_paths": 0,
+    "exact_calibration_paths": 0,
+    "first_obstruction": {
+      "rendered": "The careful baker warms fresh bread ; A quiet sailor studies the harbor.",
+      "productions": [
+        "left_base",
+        "right_base"
+      ],
+      "audit": {
+        "letters": 58,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "d5b15381c84f0c8b1effafdbf9a75f6aa9e59f41358a390a122abfa1de152609",
+        "sha256_reverse": "6b701ad210dae29bedfbd8c7cf3a2b8271cbe21a2365aff0634ead0b346fc097",
+        "sha_equal": false
+      }
+    }
+  },
+  "minimum_certificate": {
+    "mask": 3,
+    "activated_rules": [
+      "cal_left",
+      "cal_right"
+    ],
+    "activation_cost": 2,
+    "derivations": 4,
+    "exact_paths": 1,
+    "exact_calibration_paths": 1,
+    "first_obstruction": {
+      "rendered": "The careful baker warms fresh bread ; A quiet sailor studies the harbor.",
+      "productions": [
+        "left_base",
+        "right_base"
+      ],
+      "audit": {
+        "letters": 58,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "d5b15381c84f0c8b1effafdbf9a75f6aa9e59f41358a390a122abfa1de152609",
+        "sha256_reverse": "6b701ad210dae29bedfbd8c7cf3a2b8271cbe21a2365aff0634ead0b346fc097",
+        "sha_equal": false
+      }
+    }
+  },
+  "rendered_controls": [
+    {
+      "mask": 0,
+      "rendered": "The careful baker warms fresh bread ; A quiet sailor studies the harbor.",
+      "productions": [
+        "left_base",
+        "right_base"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 58,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "d5b15381c84f0c8b1effafdbf9a75f6aa9e59f41358a390a122abfa1de152609",
+        "sha256_reverse": "6b701ad210dae29bedfbd8c7cf3a2b8271cbe21a2365aff0634ead0b346fc097",
+        "sha_equal": false
+      },
+      "calibration_only": false,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 1,
+      "rendered": "The careful baker warms fresh bread ; A quiet sailor studies the harbor.",
+      "productions": [
+        "left_base",
+        "right_base"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 58,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "d5b15381c84f0c8b1effafdbf9a75f6aa9e59f41358a390a122abfa1de152609",
+        "sha256_reverse": "6b701ad210dae29bedfbd8c7cf3a2b8271cbe21a2365aff0634ead0b346fc097",
+        "sha_equal": false
+      },
+      "calibration_only": false,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 1,
+      "rendered": "An aide rips nine memos ; A quiet sailor studies the harbor.",
+      "productions": [
+        "cal_left",
+        "right_base"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 47,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "128ee4317597d6d2c221905543e5c8f2149f69de1223dcade264448145ddec78",
+        "sha256_reverse": "ea1163a5dbe59ed22d1eb99d091c5dc26ccf226ae4782812c2dd57fc76a36639",
+        "sha_equal": false
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 2,
+      "rendered": "The careful baker warms fresh bread ; A quiet sailor studies the harbor.",
+      "productions": [
+        "left_base",
+        "right_base"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 58,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "d5b15381c84f0c8b1effafdbf9a75f6aa9e59f41358a390a122abfa1de152609",
+        "sha256_reverse": "6b701ad210dae29bedfbd8c7cf3a2b8271cbe21a2365aff0634ead0b346fc097",
+        "sha_equal": false
+      },
+      "calibration_only": false,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 2,
+      "rendered": "The careful baker warms fresh bread ; some men inspire Diana.",
+      "productions": [
+        "left_base",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 49,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "a"
+        ],
+        "sha256_forward": "18d947272ba1507448b61226a4e4f6197889d3f0cc0b62d6314b2c05f1e249dd",
+        "sha256_reverse": "66b97ddd7ba8d0df3791dad20e005f97c9fb54eec30b9700d717368cb83fce21",
+        "sha_equal": false
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 3,
+      "rendered": "The careful baker warms fresh bread ; A quiet sailor studies the harbor.",
+      "productions": [
+        "left_base",
+        "right_base"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 58,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "d5b15381c84f0c8b1effafdbf9a75f6aa9e59f41358a390a122abfa1de152609",
+        "sha256_reverse": "6b701ad210dae29bedfbd8c7cf3a2b8271cbe21a2365aff0634ead0b346fc097",
+        "sha_equal": false
+      },
+      "calibration_only": false,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 3,
+      "rendered": "The careful baker warms fresh bread ; some men inspire Diana.",
+      "productions": [
+        "left_base",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 49,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "a"
+        ],
+        "sha256_forward": "18d947272ba1507448b61226a4e4f6197889d3f0cc0b62d6314b2c05f1e249dd",
+        "sha256_reverse": "66b97ddd7ba8d0df3791dad20e005f97c9fb54eec30b9700d717368cb83fce21",
+        "sha_equal": false
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 3,
+      "rendered": "An aide rips nine memos ; A quiet sailor studies the harbor.",
+      "productions": [
+        "cal_left",
+        "right_base"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 47,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "128ee4317597d6d2c221905543e5c8f2149f69de1223dcade264448145ddec78",
+        "sha256_reverse": "ea1163a5dbe59ed22d1eb99d091c5dc26ccf226ae4782812c2dd57fc76a36639",
+        "sha_equal": false
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 4,
+      "rendered": "The careful baker warms fresh bread ; A quiet sailor studies the harbor.",
+      "productions": [
+        "left_base",
+        "right_base"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 58,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "d5b15381c84f0c8b1effafdbf9a75f6aa9e59f41358a390a122abfa1de152609",
+        "sha256_reverse": "6b701ad210dae29bedfbd8c7cf3a2b8271cbe21a2365aff0634ead0b346fc097",
+        "sha_equal": false
+      },
+      "calibration_only": false,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 4,
+      "rendered": "A patient baker warms fresh bread ; A quiet sailor studies the harbor.",
+      "productions": [
+        "left_subject_alt",
+        "right_base"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 56,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "cc7680d1032b2c0981cf80fded6075f94d280b4c108fd3a6b5616856b54e1b20",
+        "sha256_reverse": "9f8927e0cdf457744e76b05b4117b819104a98a8f7d50e295932af03dab23998",
+        "sha_equal": false
+      },
+      "calibration_only": false,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 5,
+      "rendered": "The careful baker warms fresh bread ; A quiet sailor studies the harbor.",
+      "productions": [
+        "left_base",
+        "right_base"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 58,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "d5b15381c84f0c8b1effafdbf9a75f6aa9e59f41358a390a122abfa1de152609",
+        "sha256_reverse": "6b701ad210dae29bedfbd8c7cf3a2b8271cbe21a2365aff0634ead0b346fc097",
+        "sha_equal": false
+      },
+      "calibration_only": false,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 5,
+      "rendered": "An aide rips nine memos ; A quiet sailor studies the harbor.",
+      "productions": [
+        "cal_left",
+        "right_base"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 47,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "128ee4317597d6d2c221905543e5c8f2149f69de1223dcade264448145ddec78",
+        "sha256_reverse": "ea1163a5dbe59ed22d1eb99d091c5dc26ccf226ae4782812c2dd57fc76a36639",
+        "sha_equal": false
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    }
+  ],
+  "calibration_exact_paths": [
+    {
+      "mask": 3,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 7,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 11,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 15,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 19,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 23,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 27,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 31,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 35,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 39,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 43,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 47,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 51,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 55,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 59,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    },
+    {
+      "mask": 63,
+      "rendered": "An aide rips nine memos ; some men inspire Diana.",
+      "productions": [
+        "cal_left",
+        "cal_right"
+      ],
+      "roles": [
+        "SVO",
+        "SVO"
+      ],
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "calibration_only": true,
+      "distinct_surfaces": true,
+      "complete_clauses": true
+    }
+  ],
+  "exact_reader_candidates": [],
+  "synthetic_positive_fixture": {
+    "left": "ab",
+    "right": "ba",
+    "audit": {
+      "letters": 4,
+      "pointer_exact": true,
+      "first_mismatch": null,
+      "sha256_forward": "e22115b5d76640e2389bcac25c46a2df03b2df657c5b3ff32cbaed141f8e8ef0",
+      "sha256_reverse": "e22115b5d76640e2389bcac25c46a2df03b2df657c5b3ff32cbaed141f8e8ef0",
+      "sha_equal": true
+    },
+    "solver_exact": true,
+    "reader_candidate": false,
+    "synthetic_only": true
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "hard-exact|activation-subset|minimum-grammar-repair",
+    "distinct_from": "global character-equality MaxSAT scoring and fixed clause products",
+    "finished_tape_reversal": false,
+    "catalogue_text": false,
+    "rlaif_per_search": false
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer normalized tape",
+      "SHA-256 forward/reverse"
+    ],
+    "grammar_rules": [
+      "left_base",
+      "right_base",
+      "cal_left",
+      "cal_right",
+      "left_subject_alt",
+      "right_subject_alt",
+      "left_adjunct_alt",
+      "right_adjunct_alt"
+    ],
+    "calibration_seed_is_not_claimed": true,
+    "reader_gate": "closed; no fresh exact reader candidate"
+  },
+  "next_operator": "replace calibration toggles with a fresh independently authored production family while preserving hard equality and 64-mask solver/exhaustive cross-check",
+  "status": "calibration solver verified; no fresh reader candidate"
+}

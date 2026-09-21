@@ -229,6 +229,23 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   frame preselection with a character product that prunes before the second
   argument is emitted (`runs/typed-tense-argument-residual-20260921.json`).
 
+- **Reverse-language phrase segmentation.** A genuinely online opposite-tape
+  walk joined two disjoint, hand-authored SVO banks across word boundaries:
+  4,096 phrase pairs were tested and every pair died at a concrete first
+  character mismatch. No complete tape was reversed, no catalogue text or seed
+  was imported, and no exact row reached the reader gate. The next move is to
+  stream nonterminal continuations rather than preselecting complete phrases
+  (`runs/reverse-language-phrase-segmentation-20260921.json`).
+
+- **Incremental character grammar audit.** A second lane tested typed
+  transitive valency and attachment choices with an opposing residual walk.
+  After correcting its audit to include the complete two-arm rendering and
+  disjoint lexical inventories, it retained 60 intact controls up to 79
+  letters, with zero exact rows. Because the tiny phrase inventory is still
+  materialized, this is explicitly a diagnostic rather than a claim of a fully
+  incremental generator; the next operator must carry nonterminal continuations
+  into the walk (`runs/incremental-character-grammar-product-20260921.json`).
+
 - **Overlap-trie source correction.** A reverse-complement overlap prototype
   explored 21,520 boundary states and 153,057 word-interior steps, but its
   fallback controls did not couple opposing characters and recorded zero

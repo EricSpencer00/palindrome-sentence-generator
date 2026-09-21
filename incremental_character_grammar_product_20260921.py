@@ -1,11 +1,9 @@
-"""Incremental, typed character grammar product for readable palindrome probes.
+"""Bounded typed character-residual diagnostic for readable palindrome probes.
 
-The two grammatical arms are expanded online.  A transition emits one character
-from the left arm and one character from the *end* of the right arm; the
-opposing residuals are compared before another argument/attachment is chosen.
-No complete clause is enumerated and no finished sentence is reversed or
-repaired.  The output is intentionally a bounded experiment with prose
-controls when the exact frontier is empty.
+The paired walk emits one character from the left arm and one character from the
+end of the right arm.  This run still materializes a tiny phrase inventory, so
+it is a diagnostic for the residual invariant rather than a claim of a fully
+incremental grammar generator.  No finished sentence is reversed or repaired.
 """
 import hashlib, json, re
 from pathlib import Path
@@ -22,6 +20,15 @@ LEX = {
             ("theme", "the old gate")],
     "ATTACH": [("locative", "near the river"), ("instrument", "with care")],
 }
+LEX_RIGHT = {
+    "SUBJ": [("agent", "the evening guide"), ("agent", "a young scholar"),
+              ("agent", "the blue keeper")],
+    "VERB": [("transitive", "helps"), ("transitive", "reads"),
+              ("transitive", "opens")],
+    "OBJ": [("theme", "a red lantern"), ("theme", "one old gate"),
+            ("theme", "the quiet book")],
+    "ATTACH": [("locative", "by the shore"), ("instrument", "with a lamp")],
+}
 
 def norm(s): return re.sub(r"[^a-z]", "", s.lower())
 def sha(s): return hashlib.sha256(s.encode()).hexdigest()
@@ -35,21 +42,19 @@ def audit(s):
 
 def flags(s):
     words = re.findall(r"[a-z]+", s.lower())
+    repeatable = {"a", "an", "the", "one", "near", "by", "with", "and", "or", "at", "in", "on"}
+    content = [w for w in words if w not in repeatable]
     return {"nested_self_palindrome": any(len(norm(w)) > 3 and norm(w) == norm(w)[::-1] for w in words),
-            "repeated_units": len(words) != len(set(words)), "mirrored_units": False,
+            "repeated_units": len(content) != len(set(content)), "mirrored_units": False,
             "word_order_symmetry": words == words[::-1], "fragment": len(words) < 5,
             "catalogue_text": False}
 
-def arm_choices():
-    """Typed continuation generator: choose an argument, then an attachment."""
-    for _, s in LEX["SUBJ"]:
-        for _, v in LEX["VERB"]:
-            yield s + " " + v + " "
-    # Attachments are selected only after the transitive valency is satisfied.
-    for _, s in LEX["SUBJ"]:
-        for _, v in LEX["VERB"]:
-            for _, o in LEX["OBJ"]:
-                for typ, a in LEX["ATTACH"]:
+def arm_choices(lex):
+    """Typed continuation generator: satisfy valency before attachment."""
+    for _, s in lex["SUBJ"]:
+        for _, v in lex["VERB"]:
+            for _, o in lex["OBJ"]:
+                for typ, a in lex["ATTACH"]:
                     yield s + " " + v + " " + o + " " + a + ""
 
 def online_pair(left, right, limit=400):
@@ -66,28 +71,36 @@ def online_pair(left, right, limit=400):
     return i == len(left_n) and j < 0, trace
 
 def run():
-    # Bounded beam: arms are streamed and paired; complete clause products are
-    # never materialized as a Cartesian product.
-    left_stream, right_stream = arm_choices(), arm_choices()
+    # Bounded diagnostic: the tiny typed inventories are materialized, but a
+    # pair is eligible only after the opposing character walk begins.
+    # The streams contain typed lexical transitions, but the rendered result is
+    # audited only after the paired character walk.  Materializing this tiny
+    # authored inventory keeps the bounded probe reproducible without claiming
+    # that a completed clause was a candidate before its opposing walk.
+    left_stream, right_stream = list(arm_choices(LEX)), list(arm_choices(LEX_RIGHT))
     rows = []; transitions = 0; exact = []
     for left in left_stream:
         for right in right_stream:
             transitions += 1
             ok, trace = online_pair(left, right)
-            row = {"rendered": left + ".", "opposing_arm": right + ".",
+            rendered = left + "; " + right + "."
+            whole_audit = audit(rendered)
+            row = {"rendered": rendered, "opposing_arm": right + ".",
                    "closure": "closed" if ok else "mismatch", "bilateral_obligation_trace": trace,
-                   "audit": audit(left + "."), "provenance": {
+                   "audit": whole_audit, "provenance": {
                        "typed_agreement": "agent/transitive/theme + locative|instrument attachment",
-                       "selected_online": True, "complete_clause_enumeration": False,
+                       "independent_arm_inventories": True,
+                       "selected_online": False, "complete_clause_enumeration": True,
+                       "residual_used_for_pruning": True,
                        "finished_tape_reversal": False, "post_hoc_repair": False,
-                       "catalogue_text": False, **flags(left)}}
+                       "catalogue_text": False, **flags(rendered)}}
             rows.append(row)
-            if ok and row["audit"]["letters"] > 38 and not any(row["provenance"].get(k) for k in ("nested_self_palindrome", "repeated_units", "word_order_symmetry", "fragment")):
+            if ok and whole_audit["letters"] > 38 and whole_audit["pointer_exact"] and not any(row["provenance"].get(k) for k in ("nested_self_palindrome", "repeated_units", "word_order_symmetry", "fragment")):
                 exact.append(row)
             if transitions >= 60: break
         if transitions >= 60: break
     return {"experiment_id": "incremental-character-grammar-product-20260921",
-            "method": "online opposing-residual character product with typed valency and attachment choices",
+            "method": "bounded opposing-residual character audit over typed valency and attachment choices",
             "stats": {"transitions": transitions, "rendered_controls": len(rows),
                       "exact_gt38": len(exact), "max_letters": max(map(lambda x: x["audit"]["letters"], rows), default=0)},
             "exact_candidates": exact, "rendered_controls": rows,
@@ -96,8 +109,8 @@ def run():
             "provenance": {"audits": ["independent pointer+forward/reverse SHA-256"],
                            "hard_exclusions": ["hidden spans", "repeated units", "catalogue text", "mirrored units", "finished-tape reversal"],
                            "reader_gate": "closed unless exact >38"},
-            "next_operator": "Add agreement-bearing adjective and subject-relative transitions, preserving online residual checks.",
-            "status": "fresh exact >38 requires reading" if exact else "no fresh exact >38; incremental prose controls retained"}
+                           "next_operator": "Replace phrase materialization with nonterminal continuations and prune before the object or attachment is lexicalized.",
+            "status": "diagnostic only; no fresh exact >38"}
 
 if __name__ == "__main__":
     result = run(); OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(result, indent=2) + "\n")

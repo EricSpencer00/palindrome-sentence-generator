@@ -1,0 +1,90 @@
+{
+  "experiment_id": "eleven-event-asymmetric-cut-20260921",
+  "method": "eleven-event graph with asymmetric cut and rank-balance witness under global endpoint CSP",
+  "stats": {
+    "event_graphs": 1,
+    "online_checks": 2,
+    "max_letters": 253,
+    "exact_gt38": 0,
+    "left_rank": 3,
+    "right_rank": 2
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "controls": [
+    {
+      "rendered": "the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart.",
+      "graph": {
+        "events": [
+          {
+            "id": "e1"
+          },
+          {
+            "id": "e2"
+          },
+          {
+            "id": "e3"
+          },
+          {
+            "id": "e4"
+          },
+          {
+            "id": "e5"
+          },
+          {
+            "id": "e6"
+          },
+          {
+            "id": "e7"
+          },
+          {
+            "id": "e8"
+          },
+          {
+            "id": "e9"
+          },
+          {
+            "id": "e10"
+          },
+          {
+            "id": "e11"
+          }
+        ],
+        "asymmetric_cut": "e6|e7",
+        "rank_balance_witness": {
+          "left": 3,
+          "right": 2
+        }
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 2,
+        "frontier_length": 128,
+        "global_invariant": "x[i] == x[N-1-i]"
+      },
+      "audit": {
+        "letters": 253,
+        "pointer_exact": false,
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "eleven-event|asymmetric-cut|rank-balance|global-endpoint-csp"
+  },
+  "provenance": {
+    "reader_status": "closed: no exact >=39 candidate",
+    "audits": [
+      "independent pointer",
+      "forward/reverse SHA-256"
+    ],
+    "anti_shortcut_flags": [
+      "no mirrored units",
+      "no reversal",
+      "no repair"
+    ]
+  },
+  "next_operator": "Add a twelve-event graph with a balanced cut and rank perturbation witness.",
+  "status": "no exact >=39 closure; intact control retained"
+}

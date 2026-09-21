@@ -1,0 +1,253 @@
+{
+  "experiment_id": "abba-left-terminal-domain-20260922",
+  "method": "ABBA complete-left terminal-domain selection by live reverse onset",
+  "stats": {
+    "left_A_choices": 2,
+    "left_B_choices": 2,
+    "domain_classes": [
+      "elc",
+      "red"
+    ],
+    "closed_derivations": 0,
+    "exact_gt38": 0,
+    "branches": 4
+  },
+  "exact_candidates": [],
+  "rendered_candidates": [],
+  "controls": [
+    {
+      "rendered": "At dusk, the patient cartographer marked a hidden inlet. At noon, a careful gardener watered the young lavender.",
+      "kind": "intact-authored-AB-control",
+      "reverse_onset": "red",
+      "audit": {
+        "letters": 91,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "a",
+            "r"
+          ],
+          [
+            1,
+            "t",
+            "e"
+          ],
+          [
+            3,
+            "u",
+            "n"
+          ],
+          [
+            4,
+            "s",
+            "e"
+          ]
+        ],
+        "sha256_forward": "dcc0acdd71c769b2dca4d8e575401c4296d97c97c78ab5d699d7669274454a6f",
+        "sha256_reverse_obligation": "3759c594e1e90dac9f93b447b1c415de12b35cd617b5a719889eae447fe65ebb"
+      }
+    },
+    {
+      "rendered": "At dusk, the patient cartographer marked a hidden inlet. In winter, the quiet mechanic repaired a silver bicycle.",
+      "kind": "intact-authored-AB-control",
+      "reverse_onset": "elc",
+      "audit": {
+        "letters": 92,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "a",
+            "e"
+          ],
+          [
+            1,
+            "t",
+            "l"
+          ],
+          [
+            2,
+            "d",
+            "c"
+          ],
+          [
+            3,
+            "u",
+            "y"
+          ]
+        ],
+        "sha256_forward": "7b7860aa48aff2c036e23886619b9b99e92ae51b01631c1067a8b0839c9b2d89",
+        "sha256_reverse_obligation": "5b7ba3f1fd54d22b202a3451aedd5c985cdc56a2b1e0484f99231ea7b3626564"
+      }
+    },
+    {
+      "rendered": "By dawn, the village baker carried warm loaves to market. At noon, a careful gardener watered the young lavender.",
+      "kind": "intact-authored-AB-control",
+      "reverse_onset": "red",
+      "audit": {
+        "letters": 91,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "b",
+            "r"
+          ],
+          [
+            1,
+            "y",
+            "e"
+          ],
+          [
+            3,
+            "a",
+            "n"
+          ],
+          [
+            4,
+            "w",
+            "e"
+          ]
+        ],
+        "sha256_forward": "22a90c34064b74b7a732bd15011816297199638bf1214f366ccac7f93aec9d39",
+        "sha256_reverse_obligation": "654e19e1c8266a30f45d503e330125ef5f8b22f2b3ea5516dc0e6e16b94b4c52"
+      }
+    },
+    {
+      "rendered": "By dawn, the village baker carried warm loaves to market. In winter, the quiet mechanic repaired a silver bicycle.",
+      "kind": "intact-authored-AB-control",
+      "reverse_onset": "elc",
+      "audit": {
+        "letters": 92,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "b",
+            "e"
+          ],
+          [
+            1,
+            "y",
+            "l"
+          ],
+          [
+            2,
+            "d",
+            "c"
+          ],
+          [
+            3,
+            "a",
+            "y"
+          ]
+        ],
+        "sha256_forward": "bf11b1a793cddc82fef4be95ce8c4b7f0c62ec65b39cc4af0d9a325d86f67474",
+        "sha256_reverse_obligation": "0bd99e8779f60e5aea114948f72027444ee5cfecced864ba7f2865d1ea6b99b7"
+      }
+    }
+  ],
+  "terminal_domain_branches": [
+    {
+      "left_A_B": [
+        "At dusk, the patient cartographer marked a hidden inlet.",
+        "At noon, a careful gardener watered the young lavender."
+      ],
+      "reverse_onset": "red",
+      "domain_selected": true,
+      "right_subject_count": 2,
+      "deepest_matched_prefix": 3,
+      "parse_count": 0,
+      "grammar_certificate": null,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "phrase": "red-haired archivist",
+          "matched_characters": 3,
+          "required": "red"
+        },
+        {
+          "slot": "subject",
+          "offset": 0,
+          "phrase": "red-coated sailor",
+          "matched_characters": 3,
+          "required": "red"
+        }
+      ]
+    },
+    {
+      "left_A_B": [
+        "At dusk, the patient cartographer marked a hidden inlet.",
+        "In winter, the quiet mechanic repaired a silver bicycle."
+      ],
+      "reverse_onset": "elc",
+      "domain_selected": true,
+      "right_subject_count": 0,
+      "deepest_matched_prefix": 0,
+      "parse_count": 0,
+      "grammar_certificate": "empty right subject domain",
+      "frontier": []
+    },
+    {
+      "left_A_B": [
+        "By dawn, the village baker carried warm loaves to market.",
+        "At noon, a careful gardener watered the young lavender."
+      ],
+      "reverse_onset": "red",
+      "domain_selected": true,
+      "right_subject_count": 2,
+      "deepest_matched_prefix": 3,
+      "parse_count": 0,
+      "grammar_certificate": null,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "phrase": "red-haired archivist",
+          "matched_characters": 3,
+          "required": "red"
+        },
+        {
+          "slot": "subject",
+          "offset": 0,
+          "phrase": "red-coated sailor",
+          "matched_characters": 3,
+          "required": "red"
+        }
+      ]
+    },
+    {
+      "left_A_B": [
+        "By dawn, the village baker carried warm loaves to market.",
+        "In winter, the quiet mechanic repaired a silver bicycle."
+      ],
+      "reverse_onset": "elc",
+      "domain_selected": true,
+      "right_subject_count": 0,
+      "deepest_matched_prefix": 0,
+      "parse_count": 0,
+      "grammar_certificate": "empty right subject domain",
+      "frontier": []
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "abba|left-terminal-domain|reverse-onset-conditioned-typed-decode",
+    "distinct_from": "right-bank widening, fixed Cartesian ABBA products, and variable-boundary DP",
+    "finished_tape_reversal": false,
+    "catalogue_text": false,
+    "mirrored_units": false
+  },
+  "provenance": {
+    "generator_sha256": "1887f0ec785c65484042d4484e3b9c8b47442e26b1c0c024f4eda1579f7e66c8",
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed pending novel exact output"
+  },
+  "status": "no exact closure; onset-conditioned frontier retained",
+  "next_construction": "replace terminal-word classes with a held-out lexical trie whose next phrase is selected from the full residual, not only its first three letters"
+}

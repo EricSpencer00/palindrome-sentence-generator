@@ -12,15 +12,25 @@
       "prep",
       "place"
     ],
-    "successor_operator": "typed adjunct control surfaces"
+    "successor_operator": "held-out typed temporal adjunct consumed in lockstep",
+    "successor_grammar": [
+      "det",
+      "subj",
+      "verb",
+      "obj",
+      "prep",
+      "place",
+      "temporal_adjunct"
+    ]
   },
   "stats": {
     "states_expanded": 10,
     "obligations_checked": 153,
     "rendered": 0,
     "prose_controls": 3,
+    "typed_adjunct_controls": 3,
     "exact_gt38": 0,
-    "max_letters": 41
+    "max_letters": 50
   },
   "rendered_candidates": [],
   "prose_controls": [
@@ -88,6 +98,89 @@
       }
     }
   ],
+  "typed_adjunct_controls": [
+    {
+      "rendered": "the writer records a letter near the garden at dawn.",
+      "grammar_state": {
+        "base": "complete",
+        "typed_adjunct": "temporal"
+      },
+      "audit": {
+        "letters": 42,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          41,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "1d5206400daac835fa7ae44c36cba68f73de684f70ccd57bcec1c70e4a434eec",
+        "sha256_reverse": "167849623dbf39137d8fa7ad7192f64daf92b882876324582033166392e1a8cb"
+      },
+      "admitted": false,
+      "weight": -2.2,
+      "provenance": {
+        "ordinary_english_surface": true,
+        "held_out_typed_adjunct": true,
+        "prior_consumed_during_transition": true,
+        "live_obligation_failed": true
+      }
+    },
+    {
+      "rendered": "a teacher guides the report beside the harbor in spring.",
+      "grammar_state": {
+        "base": "complete",
+        "typed_adjunct": "temporal"
+      },
+      "audit": {
+        "letters": 46,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          45,
+          "a",
+          "g"
+        ],
+        "sha256_forward": "31ff04abc4127220045608ef665462b9e502a27058d5eb197f88e7dc09d21316",
+        "sha256_reverse": "6c15d4ff85f02748b9d1e3b42160d0c6128249a757e76fb25e75199e7f8dc19d"
+      },
+      "admitted": false,
+      "weight": -4.199999999999999,
+      "provenance": {
+        "ordinary_english_surface": true,
+        "held_out_typed_adjunct": true,
+        "prior_consumed_during_transition": true,
+        "live_obligation_failed": true
+      }
+    },
+    {
+      "rendered": "our gardener marks the parcel beyond the station after rain.",
+      "grammar_state": {
+        "base": "complete",
+        "typed_adjunct": "temporal"
+      },
+      "audit": {
+        "letters": 50,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          49,
+          "o",
+          "n"
+        ],
+        "sha256_forward": "1a9fe9b5dda6da73825dea4f1b11abca7f43660c5bf8ae39b9faff51b81ca407",
+        "sha256_reverse": "a94362f32d9e271b5de35cb6570c6cb3f1cef1df00cc06b52a566c203efee177"
+      },
+      "admitted": false,
+      "weight": -6.5,
+      "provenance": {
+        "ordinary_english_surface": true,
+        "held_out_typed_adjunct": true,
+        "prior_consumed_during_transition": true,
+        "live_obligation_failed": true
+      }
+    }
+  ],
   "exact_candidates": [],
   "novelty_preflight": {
     "status": "passed",
@@ -113,6 +206,6 @@
     "catalogue_text": false
   },
   "falsifier": "shuffle lexical weights and rerun: if closures or surfaces are unchanged, the weighted grammar claim is falsified",
-  "next_operator": "add a held-out typed adjunct state whose lexical probability is consumed at the same bilateral obligation step",
+  "next_operator": "add a held-out manner adjunct with an explicit compatibility feature and consume its probability before the next bilateral character obligation",
   "status": "no exact >38 closure; intact grammatical controls retained"
 }

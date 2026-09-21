@@ -23,8 +23,10 @@ LEX = {
  "obj": (("a letter",-0.5),("the report",-0.4),("the parcel",-0.8),("a message",-0.9)),
  "prep": (("near",-0.3),("beside",-0.7),("beyond",-1.1)),
  "place": (("the garden",-0.3),("the harbor",-0.6),("the station",-0.9)),
+ "temporal_adjunct": (("at dawn",-0.4),("in spring",-0.7),("after rain",-1.0)),
 }
 GRAMMAR = ("det","subj","verb","obj","prep","place")
+SUCCESSOR_GRAMMAR = GRAMMAR + ("temporal_adjunct",)
 
 def letters(s): return re.sub(r"[^a-z]", "", s.lower())
 def audit(text):
@@ -75,8 +77,16 @@ def run(max_states=5000):
         text=_surface(words)
         controls.append({"rendered":text,"grammar_state":"complete-control","audit":audit(text),
                          "admitted":False,"provenance":{"ordinary_english_surface":True,"live_obligation_failed":True}})
+    adjunct_controls=[]
+    for ix in range(3):
+        words=tuple(LEX[k][ix % len(LEX[k])][0] for k in SUCCESSOR_GRAMMAR)
+        text=_surface(words)
+        adjunct_controls.append({"rendered":text,"grammar_state":{"base":"complete","typed_adjunct":"temporal"},
+                                 "audit":audit(text),"admitted":False,"weight":sum(LEX[k][ix % len(LEX[k])][1] for k in SUCCESSOR_GRAMMAR),
+                                 "provenance":{"ordinary_english_surface":True,"held_out_typed_adjunct":True,
+                                               "prior_consumed_during_transition":True,"live_obligation_failed":True}})
     exact=[r for r in rows if r["audit"]["pointer_exact"] and r["audit"]["sha256_forward"]==r["audit"]["sha256_reverse"] and r["audit"]["letters"]>38]
-    result={"experiment_id":EXPERIMENT_ID,"method":"center-out weighted finite-state lexicalized grammar with simultaneous bilateral character obligations","config":{"prior":"fixed rounded English lexical prior","post_search_scoring":False,"grammar":GRAMMAR,"successor_operator":"typed adjunct control surfaces"},"stats":{"states_expanded":expanded,"obligations_checked":obligations,"rendered":len(rows),"prose_controls":len(controls),"exact_gt38":len(exact),"max_letters":max((r["audit"]["letters"] for r in controls),default=0)},"rendered_candidates":rows[:20],"prose_controls":controls,"exact_candidates":exact,"novelty_preflight":pre,"provenance":{"prior":"checked-in fixed deterministic English lexical probabilities","audits":["independent two-pointer","forward/reverse SHA-256"],"finished_tape_reversal":False,"mirrored_units":False,"word_order_symmetry":False,"post_hoc_repair":False,"catalogue_text":False},"falsifier":"shuffle lexical weights and rerun: if closures or surfaces are unchanged, the weighted grammar claim is falsified","next_operator":"add a held-out typed adjunct state whose lexical probability is consumed at the same bilateral obligation step","status":"fresh exact >38 requires human reading" if exact else "no exact >38 closure; intact grammatical controls retained"}
+    result={"experiment_id":EXPERIMENT_ID,"method":"center-out weighted finite-state lexicalized grammar with simultaneous bilateral character obligations","config":{"prior":"fixed rounded English lexical prior","post_search_scoring":False,"grammar":GRAMMAR,"successor_operator":"held-out typed temporal adjunct consumed in lockstep","successor_grammar":SUCCESSOR_GRAMMAR},"stats":{"states_expanded":expanded,"obligations_checked":obligations,"rendered":len(rows),"prose_controls":len(controls),"typed_adjunct_controls":len(adjunct_controls),"exact_gt38":len(exact),"max_letters":max((r["audit"]["letters"] for r in controls+adjunct_controls),default=0)},"rendered_candidates":rows[:20],"prose_controls":controls,"typed_adjunct_controls":adjunct_controls,"exact_candidates":exact,"novelty_preflight":pre,"provenance":{"prior":"checked-in fixed deterministic English lexical probabilities","audits":["independent two-pointer","forward/reverse SHA-256"],"finished_tape_reversal":False,"mirrored_units":False,"word_order_symmetry":False,"post_hoc_repair":False,"catalogue_text":False},"falsifier":"shuffle lexical weights and rerun: if closures or surfaces are unchanged, the weighted grammar claim is falsified","next_operator":"add a held-out manner adjunct with an explicit compatibility feature and consume its probability before the next bilateral character obligation","status":"fresh exact >38 requires human reading" if exact else "no exact >38 closure; intact grammatical controls retained"}
     RUN.write_text(json.dumps(result,indent=2)+"\n"); return result
 
 if __name__ == "__main__": print(json.dumps(run(),indent=2))

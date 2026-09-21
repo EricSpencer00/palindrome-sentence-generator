@@ -8466,7 +8466,7 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   residual. Eight authored, animate controls matched at least five opposing
   characters (maximum twelve) before failing; the strongest is “Was a red lace
   hat what the ranger at the caldera saw?” (42 letters), matching through
-  `aredlacehat` before the residual `a` versus `t`. The roles are coherent and
+  `aredlaceh` before the residual `a` versus `t`. The roles are coherent and
   content words are disjoint; pointer/SHA audits reject every whole tape, so
   no exact or reader candidate is promoted. Artifact:
   `runs/digraph-conditioned-was-np-seam-20260921.json`.

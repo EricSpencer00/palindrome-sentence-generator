@@ -7976,6 +7976,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   attachment and character constraints, not another single-edge bank entry.
   Artifact: `runs/graph-unification-attachment-20260921.json`.
 
+- **Multi-event attachment character CSP, 2026-09-21:** pivoted to two event
+  nodes sharing discourse focus and checked terminals against the true global
+  endpoint invariant (`x[i] == x[N-1-i]`) before rendering. The corrected run
+  retains two paired graphs, two online checks, two prunes, and 78-letter
+  intact controls; zero exact closures reached 39 letters. A tiny exact/non-
+  palindromic regression pair verifies the index invariant. The next topology
+  is a three-event graph with one cross-event temporal attachment. Artifact:
+  `runs/multi-event-attachment-constraint-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.

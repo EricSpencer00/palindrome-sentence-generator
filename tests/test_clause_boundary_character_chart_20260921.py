@@ -12,3 +12,4 @@ def test_clause_boundary_chart_contract():
     assert all(row["provenance"]["outside_in_head_emission"] for row in data["controls"])
     assert all(row["provenance"]["finished_tape_reversal"] is False for row in data["controls"])
     assert all("audit" in row and "chart" in row for row in data["controls"])
+    assert all("while watch" not in row["rendered"] for row in data["controls"])

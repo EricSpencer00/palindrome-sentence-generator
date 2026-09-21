@@ -61,8 +61,8 @@ def main():
     # A tiny, fixed product: one fresh authored sentence per documented seam.
     attachments = {
         "ne": ("who filed the map in spring", "while the bell sounded"),
-        "ni": ("which the foreman praised at noon", "as the rain crossed the yard"),
-        "rimda": ("that the survey team had annotated", "while distant gulls circled"),
+        "ni": ("whom the foreman praised at noon", "as the rain crossed the yard"),
+        "rimda": ("whom the survey team had annotated", "while distant gulls circled"),
     }
     old = set()
     for path in ROOT.glob("runs/*.json"):

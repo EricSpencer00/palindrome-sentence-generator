@@ -23,7 +23,7 @@ def audit(s):
 CLAUSES = (
     ("the careful curator", "records", "a faded map", None, None),
     ("a patient pilot", "charts", "the northern inlet", "then", "greets the keeper"),
-    ("several quiet guides", "carry", "a bright lantern", "while", "watch the harbor"),
+    ("several quiet guides", "carry", "a bright lantern", "while", "they watch the harbor"),
     ("the young archivist", "labels", "an old journal", None, None),
 )
 

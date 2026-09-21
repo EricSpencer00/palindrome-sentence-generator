@@ -7874,6 +7874,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   next operator adds a held-out determiner-bearing PP before expansion.
   Artifact: `runs/cfg-earley-second-heldout-pp-expansion-20260921.json`.
 
+- **Incremental graph-unification attachment, 2026-09-21:** corrected the
+  benefactive/causal dependency lane so terminal characters are assigned
+  incrementally and mirrored support is checked when counterpart positions
+  become available; the earlier complete-yield probe is retained only as
+  evidence. Twelve intact prose controls survived up to 60 terminal
+  assignments before support conflict, with zero exact closures at or above
+  39 letters. The next operator adds a held-out instrumental-causal edge with
+  an explicit event-node attachment index. Artifact:
+  `runs/graph-unification-attachment-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

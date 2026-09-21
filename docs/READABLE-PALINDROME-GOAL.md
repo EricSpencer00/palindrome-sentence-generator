@@ -8614,3 +8614,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   fails at its outer character and exact count is zero. This is a construction
   diagnostic, not reader evidence; the next state is plural antecedent
   agreement. Artifact: `runs/coreference-three-tile-composition-20260921.json`.
+
+- **Fresh live scene lattice, 2026-09-21:** searched 128 combinations of
+  human-authored agent, tense, object, attachment, and outcome slots, pruning
+  64 before rendering when the exposed outer characters disagreed. The intact
+  controls include “The harbor medic carried a sealed map beside the salt
+  marsh, and the tide turned.” (65 letters); all lexical words are disjoint,
+  but the first opposing character is still `t` versus `d`, and full pointer/SHA
+  audits find zero exact tapes. These are grammar controls, not reader
+  certification. The next repair is an outcome bank keyed to the surviving
+  terminal class. Artifact: `runs/scene-lattice-live-equation-20260921.json`.

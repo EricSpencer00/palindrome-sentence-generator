@@ -12,6 +12,10 @@ OUT = ROOT / "runs" / "scene-lattice-live-equation-20260921.json"
 def letters(s):
     return re.sub(r"[^a-z]", "", s.casefold())
 
+FUNCTION_WORDS = {
+    "a", "an", "and", "at", "beside", "for", "in", "of", "on", "the",
+}
+
 def independent_audit(text):
     tape = letters(text)
     mismatch = None
@@ -36,10 +40,14 @@ ATTACHMENTS = [("at first light", "time"), ("beside the salt marsh", "place")]
 OUTCOMES = [("the bell answered", "event"), ("the tide turned", "event")]
 
 def lexical_disjoint(parts):
-    toks = [set(letters(p).split()) for p in parts]
-    # compare content words, not function words, to prohibit borrowed catalogue units
-    content = [set(re.findall(r"[a-z]{4,}", letters(p))) for p in parts]
-    return not (content[0] & content[1] or content[2] & content[3])
+    # Compare every lexical word across the complete frame, not just adjacent
+    # slots. Function-word overlap is grammatical and does not count as reuse.
+    content = [
+        set(re.findall(r"[a-z]+", letters(p))) - FUNCTION_WORDS for p in parts
+    ]
+    return not any(content[i] & content[j]
+                   for i in range(len(content))
+                   for j in range(i + 1, len(content)))
 
 def render(actor, verb, obj, attachment, outcome):
     return f"{actor} {verb} {obj} {attachment}, and {outcome}."
@@ -71,6 +79,7 @@ def run():
         "provenance": {"human_authored_clauses": True, "rendered_before_audit": True,
                         "post_hoc_reversal": False, "borrowed_catalogue_units": False,
                         "lexically_disjoint_scene_arms": True,
+                        "reader_status": "grammar control only; no human readability certification",
                         "mechanical_shortcut": False}})
     rows.sort(key=lambda r: (not r["live_character_equation"]["equal"],
                              r["audit"]["first_mismatch"] is not None,

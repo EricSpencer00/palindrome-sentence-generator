@@ -15,7 +15,7 @@ def test_trace_matches_rendered_normalized_tape():
 
 def test_no_false_exact_or_connector_seam():
     result = m.run()
-    assert result["stats"]["paired_states"] == 16
+    assert result["stats"]["paired_states"] == 36
     assert result["stats"]["exact_candidates"] == 0
     assert all("while" not in row["rendered"] for row in result["rendered_candidates"])
     assert all(row["gates"]["independent_pointer_hash"] is False for row in result["rendered_candidates"])

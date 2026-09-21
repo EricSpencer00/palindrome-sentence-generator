@@ -33,6 +33,7 @@ CENTER = {
     "link": ("and", "for", "that", "while"),
     "det": ("a", "an", "the"),
     "subject": ("artist", "clerk", "farmer", "guide", "keeper", "poet", "sailor", "teacher", "writer"),
+    "rel": ("that", "who"),
     "verb": ("carries", "guides", "helps", "keeps", "marks", "reads", "sees", "writes"),
     "object": ("book", "gate", "lamp", "letter", "map", "memo", "note", "plan"),
 }
@@ -40,7 +41,7 @@ CENTER = {
 # Three authored clause templates. The center clause has a real function-word
 # edge and distinct argument roles; all frames are entered through live debt.
 LFRAME = ("det", "agent", "verb", "num", "object")
-CFRAME = ("link", "det", "subject", "verb", "object")
+CFRAME = ("link", "det", "subject", "rel", "verb", "object")
 RFRAME = ("det", "subject", "verb", "name", "prep", "place")
 LCHAIN = LFRAME + CFRAME
 
@@ -67,7 +68,8 @@ def agreement(left: dict, right: dict) -> bool:
     # take the listed -s verbs; plural right subjects take bare verbs.
     if left["agent"] in {"aide", "artist", "baker", "clerk", "keeper", "pilot", "poet", "teacher", "writer"} and left["verb"] not in {"carries", "guides", "helps", "keeps", "marks", "reads", "rips", "sees", "writes"}: return False
     if right["subject"] in {"men", "artists", "clerks", "farmers", "guides", "keepers", "poets", "sailors", "teachers", "writers"} and right["verb"] not in {"carry", "guide", "help", "keep", "mark", "read", "see", "write"}: return False
-    return left.get("link") in CENTER["link"] and left.get("subject") in CENTER["subject"] and left.get("verb") in CENTER["verb"]
+    return (left.get("link") in CENTER["link"] and left.get("subject") in CENTER["subject"]
+            and left.get("rel") in CENTER["rel"] and left.get("verb") in CENTER["verb"])
 
 def main() -> None:
     reg = json.loads(REG.read_text())
@@ -118,13 +120,13 @@ def main() -> None:
                            "word_order_only": False, "catalogue": False}
     result = {"experiment": "semantic-pair-chain-live-20260921", "signature": SIG,
       "status": "completed_exact_closure" if exact else "completed_no_exact_closure",
-      "method": "Three-frame semantic pair-chain CSP; select complete role words including a connector-bearing center clause while solving live character debt at asymmetric word boundaries.",
+      "method": "Three-frame semantic pair-chain CSP; select complete role words including a connector- and relative-pronoun-bearing center clause while solving live character debt at asymmetric word boundaries.",
       "novelty_preflight": {"registry_entries_read": len(reg.get("entries", [])), "signature_collision": collision,
           "distinct_from": "fixed-slot product, reverse segmentation, post-render repair, catalogue/mirror pair lanes"},
       "stats": {"nodes": nodes, "prunes": prunes, "terminals": terminals, "exact": len(exact), "longest_exact": max((x['audit']['letters'] for x in exact), default=0)},
       "rendered_candidates": exact[:20], "near_candidates": near, "frontier_failures": frontier,
       "reader_status": "not_run; no candidate is reader-admitted without blinded intact-vs-shuffled ratings",
-      "failure_and_repair": {"failure": "No exact closure under the three-frame authored role banks" if not exact else "Exact closures require reader screening", "next_operator": "add an agreement-compatible relative-pronoun edge to the center frame while retaining the same live debt transition"},
+      "failure_and_repair": {"failure": "No exact closure under the relative-pronoun center frame" if not exact else "Exact closures require reader screening", "next_operator": "add a held-out relative object role while retaining the same live debt transition"},
       "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "independent_audits": ["two-pointer", "forward/reverse SHA-256"], "source": "fresh hand-authored semantic role banks"}}
     OUT.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result["stats"], indent=2))

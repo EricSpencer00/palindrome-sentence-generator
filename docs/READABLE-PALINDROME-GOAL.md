@@ -7721,6 +7721,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   complementizer/tense variant on the embedded relative. Artifact:
   `runs/regular-shared-character-20260921.json`.
 
+- **Tense-marked embedded relatives, 2026-09-21:** added feature-checked
+  complementizers (`who`, `that`, `which`), auxiliaries (`has`, `will`,
+  `did`), bare transitive predicates, and object agreement to the same live
+  chart. Across lengths 39--200, all 162 targets reached a one-node root
+  conflict and no exact path rendered. The next operator is a bounded
+  aspectual auxiliary paired with a held-out animate noun. Artifact:
+  `runs/regular-shared-character-20260921.json`.
+
 - **Hand-authored phrase lattice, 2026-09-21:** selected phrase alternatives
   from both ends while debt was live and independently audited the terminal.
   It visited 26 nodes and reached one exact terminal, but that terminal was
@@ -7736,4 +7744,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   segmentation or post-render repair lane. The concrete next operator is a
   third semantic frame with agreement-preserving function-word slots, retaining
   the same live debt transition. Artifact:
+  `runs/semantic-pair-chain-live-20260921.json`.
+
+- **Relative-pronoun center edge, 2026-09-21:** extended the same semantic
+  pair-chain with a role-bearing `who`/`that` edge and explicit agreement
+  validation before terminal acceptance. The bounded run again reached 4 live
+  states and 12 boundary prunes, with no terminal or exact closure; the
+  frontier records show the failure occurs at the initial place-vs-determiner
+  boundary before the center frame is reached. Artifact:
   `runs/semantic-pair-chain-live-20260921.json`.

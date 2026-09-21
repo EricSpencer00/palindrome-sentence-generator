@@ -7698,6 +7698,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   held-out temporal adjunct on the embedded frame selected by live residual
   support. Artifact: `runs/regular-shared-character-20260921.json`.
 
+- **Held-out embedded temporal operator, 2026-09-21:** added fresh temporal
+  terminals (`at sunset`, `before winter`, `during rain`) inside the
+  embedded-relative NFA frame and reran lengths 39--140 with live residual
+  propagation. All 102 targets reached a one-node root conflict; no exact path
+  or rendered candidate was produced. The next operator is a locative adjunct
+  or agreement-compatible relative-pronoun edge, not another larger word bank.
+  Artifact: `runs/regular-shared-character-20260921.json`.
+
 - **Hand-authored phrase lattice, 2026-09-21:** selected phrase alternatives
   from both ends while debt was live and independently audited the terminal.
   It visited 26 nodes and reached one exact terminal, but that terminal was

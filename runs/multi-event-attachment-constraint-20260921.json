@@ -1,0 +1,152 @@
+{
+  "experiment_id": "multi-event-attachment-constraint-20260921",
+  "method": "multi-event dependency graph with shared discourse focus and simultaneous attachment/character constraints",
+  "stats": {
+    "event_templates": 2,
+    "paired_graphs": 2,
+    "online_checks": 2,
+    "online_prunes": 2,
+    "controls": 2,
+    "exact_gt38": 0,
+    "max_letters": 78
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "controls": [
+    {
+      "rendered": "the nurse checked the chart then called the doctor. the ranger found the key and opened the gate.",
+      "graph": {
+        "events": [
+          {
+            "id": "e1",
+            "agent": "the nurse",
+            "theme": "the chart",
+            "focus": "chart"
+          },
+          {
+            "id": "e2",
+            "agent": "the ranger",
+            "theme": "the key",
+            "focus": "chart"
+          }
+        ],
+        "shared_attachment": "e1.focus -> e2.focus",
+        "discourse_continuity": true
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 1,
+        "frontier_length": 40,
+        "before_render": true
+      },
+      "complete_prose": true,
+      "audit": {
+        "letters": 78,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "850dab30cafd4349351ba848c153b69ab0a27433e6fc224d0a10a2da7b598cd8",
+        "reverse_sha256": "073f7d95e0895dda91459893a4a94f76bd6d877103053f6d34039d678c15576a",
+        "repeated_units": true,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false
+      },
+      "provenance": {
+        "fresh_multi_event_graph": true,
+        "simultaneous_attachment_state": true,
+        "incremental_terminal_selection": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "reward_loop": false
+      }
+    },
+    {
+      "rendered": "the ranger found the key and opened the gate. the nurse checked the chart then called the doctor.",
+      "graph": {
+        "events": [
+          {
+            "id": "e1",
+            "agent": "the ranger",
+            "theme": "the key",
+            "focus": "chart"
+          },
+          {
+            "id": "e2",
+            "agent": "the nurse",
+            "theme": "the chart",
+            "focus": "chart"
+          }
+        ],
+        "shared_attachment": "e1.focus -> e2.focus",
+        "discourse_continuity": true
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 1,
+        "frontier_length": 40,
+        "before_render": true
+      },
+      "complete_prose": true,
+      "audit": {
+        "letters": 78,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "257f01f5a56cd1c292bece402eab6ed9b1fe13bf63f838cffcc14cb5a36b1145",
+        "reverse_sha256": "27e6e18f14f2d21101dd4fd0837fb18963fa3444d67c7edb7bab58bdaa9ed915",
+        "repeated_units": true,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false
+      },
+      "provenance": {
+        "fresh_multi_event_graph": true,
+        "simultaneous_attachment_state": true,
+        "incremental_terminal_selection": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "reward_loop": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_inspected": true,
+    "signature": "fresh-authored|multi-event-graph|shared-attachment-focus|simultaneous-character-constraints",
+    "distinct_from": "single-event edge family; two event nodes unify a shared discourse focus before incremental terminal support",
+    "forbidden_inputs": [
+      "single-edge widening",
+      "38-letter anchor",
+      "finished-tape reversal",
+      "mirrored units",
+      "word-order symmetry",
+      "catalogue text",
+      "post-hoc repair",
+      "reward loop"
+    ]
+  },
+  "provenance": {
+    "audits": [
+      "independent two-pointer comparison",
+      "independent forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed unless exact >=39 candidate",
+    "anti_shortcut_flags": [
+      "no mirrored units",
+      "no repeated units",
+      "no word-order symmetry",
+      "no catalogue text",
+      "no repair"
+    ],
+    "reader_status": "closed: no exact >=39 candidate"
+  },
+  "next_operator": "Add a three-event graph with one shared discourse focus and one cross-event temporal attachment, retaining simultaneous character domains.",
+  "status": "no exact >=39 closure; intact controls retained"
+}

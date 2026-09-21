@@ -23,3 +23,20 @@ The run produced no novel output longer than 38 letters. The next concrete
 operator is a typed adjunct production added to the highest-scoring live chart
 frontier, with an independent grammatical-control test and the same audit.
 Evidence: `runs/live-cfg-character-intersection-20260921.json`.
+
+## Typed adjunct continuation
+
+The continuation adds temporal `LAdj`/`RAdj` productions (`at dawn`, `by noon`,
+`near dusk`, `after rain`) to both CFG sides. They are expanded as ordinary
+terminals while obligations remain live. It visited 58 states, pruned 182
+transitions, and reached six terminal derivations. The longest rendered
+frontier was:
+
+> An aide rips nine memos near dusk; some men inspire Diana.
+
+This is 46 letters but not exact; the remaining live debt is `neardusk`.
+Other 44-letter adjunct controls also fail closure. The seed remains the only
+shortcut-clean exact result; these controls are retained as concrete frontiers,
+not promoted candidates. The next operator is a typed adjunct whose lexical
+terminals are selected by the opposing residual rather than appended after a
+complete derivation.

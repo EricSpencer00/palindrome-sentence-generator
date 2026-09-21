@@ -18,16 +18,20 @@ LEX = {
     "Verb": ("rips", "sees", "keeps", "marks", "reads", "helps", "writes"),
     "Num": ("nine", "seven", "one", "two"),
     "Obj": ("memos", "letters", "maps", "notes", "books", "boats", "gate"),
+    # Fresh temporal adjunct inventory; each lexical item is a grammatical
+    # terminal phrase, not a borrowed tape fragment.
+    "LAdj": ("at dawn", "by noon", "near dusk", "after rain"),
     "Person": ("men", "women", "sailors", "artists", "writers", "pilots", "poets"),
     "Pred": ("inspire", "read", "see", "help", "mark", "write", "keep"),
     "Name": ("Diana", "Ada", "Anna", "Nora", "Mira", "Iris", "Leon", "Noah"),
+    "RAdj": ("at dawn", "by noon", "near dusk", "after rain"),
 }
 LEX.update({"Det2": LEX["Det"], "Person": LEX["Person"], "Pred": LEX["Pred"], "Name": LEX["Name"]})
 GRAM = {
     "S": (("NP", "VP"),), "NP": (("Det", "Agent"),),
-    "VP": (("Verb", "Num", "Obj"),),
+    "VP": (("Verb", "Num", "Obj"), ("Verb", "Num", "Obj", "LAdj")),
     "T": (("NP2", "VP2"),), "NP2": (("Det2", "Person"),),
-    "VP2": (("Pred", "Name"),),
+    "VP2": (("Pred", "Name"), ("Pred", "Name", "RAdj")),
 }
 TERMS = set(LEX) | {"Det2", "Person", "Pred", "Name"}
 
@@ -65,10 +69,10 @@ def main():
         seen.add(key)
         if not ls and not rs:
             terminals += 1
-            if not debt:
-                text=" ".join(lw)+"; "+" ".join(reversed(rw))
-                a=audit(text); row={"text":text,"audit":a,"shortcut_reasons":shortcut(text),"provenance":"online_cfg_terminal_expansions","trace":trace}
-                if not row["shortcut_reasons"]: exact.append(row)
+            text=" ".join(lw)+"; "+" ".join(reversed(rw))
+            a=audit(text); row={"text":text,"audit":a,"remaining_live_debt":debt,"shortcut_reasons":shortcut(text),"provenance":"online_cfg_terminal_expansions","trace":trace}
+            if not debt and not row["shortcut_reasons"]: exact.append(row)
+            else: controls.append(row)
             return
         if side=="L" and not ls:
             side="R"

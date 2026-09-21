@@ -199,6 +199,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["center_dependency_relation_graph_run"]["exact_candidates_over_38"] == 0
     assert method.json()["center_two_edge_attachment_graph_run"]["sequential_expansions"] == 256
     assert method.json()["center_two_edge_attachment_graph_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["center_clause_matrix_dependency_run"]["clause_expansions"] == 16
+    assert method.json()["center_clause_matrix_dependency_run"]["exact_candidates_over_38"] == 0
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

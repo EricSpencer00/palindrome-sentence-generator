@@ -1881,6 +1881,25 @@ CENTER_TWO_EDGE_ATTACHMENT_GRAPH_RUN = {
     "next_construction": "introduce a third relation edge only if its attachment ownership changes the live center state; otherwise change semantic topology",
 }
 
+CENTER_CLAUSE_MATRIX_DEPENDENCY_RUN = {
+    "run_id": "center-clause-matrix-dependency-20260920",
+    "method": "clause-level matrix dependency grammar with typed center relations and nonrepeated matrix frames",
+    "status": "completed_no_exact_closure",
+    "states": 16,
+    "clause_expansions": 16,
+    "admitted_products": 0,
+    "boundary_prunes": 16,
+    "longest_rendered_letters": 65,
+    "exact_candidates_over_38": 0,
+    "rendered_complete_controls": 2,
+    "reader_eligible": 0,
+    "example_control": "Mara charts the coast, while the tide rests near shore, and the coast shapes Mara.",
+    "provenance": "fresh clause-level matrix frames with typed center relations and nonrepeated complete clauses; no catalogue/API text, mirrored units, finished-tape reversal, post-hoc repair, fragments, or per-search RLAIF",
+    "independent_validation": ["independent two-pointer audit", "forward SHA-256", "reverse SHA-256"],
+    "novelty_preflight": "passed; clause-level matrix dependency grammar distinct from one/two-edge center graphs and seam orientations",
+    "next_construction": "add an independently typed subordinate relation only if it changes the center obligation state; otherwise pivot to a new grammar family",
+}
+
 LUNA_PARALLEL_RUNS = [
     {
         "run_id": "endpoint-conditioned-compositional-decoder-20260920",
@@ -8934,6 +8953,7 @@ def evidence() -> dict[str, Any]:
         "temporal_subject_relative4_run": TEMPORAL_SUBJECT_RELATIVE4_RUN,
         "center_dependency_relation_graph_run": CENTER_DEPENDENCY_RELATION_GRAPH_RUN,
         "center_two_edge_attachment_graph_run": CENTER_TWO_EDGE_ATTACHMENT_GRAPH_RUN,
+        "center_clause_matrix_dependency_run": CENTER_CLAUSE_MATRIX_DEPENDENCY_RUN,
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -8985,6 +9005,7 @@ def method() -> dict[str, Any]:
         "temporal_subject_relative4_run": TEMPORAL_SUBJECT_RELATIVE4_RUN,
         "center_dependency_relation_graph_run": CENTER_DEPENDENCY_RELATION_GRAPH_RUN,
         "center_two_edge_attachment_graph_run": CENTER_TWO_EDGE_ATTACHMENT_GRAPH_RUN,
+        "center_clause_matrix_dependency_run": CENTER_CLAUSE_MATRIX_DEPENDENCY_RUN,
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN, TYPED_AGREEMENT_CLAUSE_RUN],
         "rlaif_frontier": _rlaif_frontier(),
@@ -9031,6 +9052,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "temporal_subject_relative4_run": TEMPORAL_SUBJECT_RELATIVE4_RUN,
         "center_dependency_relation_graph_run": CENTER_DEPENDENCY_RELATION_GRAPH_RUN,
         "center_two_edge_attachment_graph_run": CENTER_TWO_EDGE_ATTACHMENT_GRAPH_RUN,
+        "center_clause_matrix_dependency_run": CENTER_CLAUSE_MATRIX_DEPENDENCY_RUN,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,

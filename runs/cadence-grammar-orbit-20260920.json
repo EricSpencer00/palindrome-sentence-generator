@@ -1,0 +1,173 @@
+{
+  "experiment_id": "cadence-grammar-orbit-20260920",
+  "method": "human-authored cadence/attachment grammar with live character orbit",
+  "config": {
+    "states": [
+      "cadence",
+      "attachment",
+      "valency"
+    ],
+    "finished_tape_scoring": false,
+    "orbit_accounting": "diagnostic_only",
+    "max_orbits": 80
+  },
+  "stats": {
+    "typed_pairs": 12,
+    "obligations_checked": 422,
+    "orbit_accepts": 1,
+    "rendered": 1,
+    "prose_controls": 4,
+    "exact_gt38": 0,
+    "max_letters": 42
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "By dusk the careful pilot charts the river. At dawn the patient ferryman marks the harbor bell.",
+      "audit": {
+        "letters": 77,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          76,
+          "b",
+          "l"
+        ],
+        "sha256_forward": "a5cc4fffa9736e3c3dc416f3ccdaed917ee422e1e367c8af0ce07d86d8c17afd",
+        "sha256_reverse": "9f97cfce91552e3313cc759cdf1e2d42f2bb429900ea58e9d730dfb9b13636ee"
+      },
+      "rendered_left": "By dusk the careful pilot charts the river.",
+      "rendered_right": "At dawn the patient ferryman marks the harbor bell.",
+      "orbit": 33,
+      "state": {
+        "left": {
+          "cadence": "temporal",
+          "attachment": "scene",
+          "valency": "transitive"
+        },
+        "right": {
+          "cadence": "temporal",
+          "attachment": "scene",
+          "valency": "transitive"
+        }
+      },
+      "obligation": {
+        "left_character": "e",
+        "right_character": "e"
+      },
+      "provenance": {
+        "independent_clause_plans": true,
+        "cadence_state": true,
+        "attachment_state": true,
+        "post_hoc_repair": false
+      }
+    }
+  ],
+  "prose_controls": [
+    {
+      "rendered": "At dawn the patient ferryman marks the harbor bell.",
+      "audit": {
+        "letters": 42,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          41,
+          "a",
+          "l"
+        ],
+        "sha256_forward": "f20d749cdb87f768e1d0e3f67b42452d312bf965d9b06f4164b553f52859b585",
+        "sha256_reverse": "cc30d4bf2ec055cee0391a75448b22819e7850eb52b70817e815b932cf833c2e"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "ordinary_complete_clause": true,
+        "generated_from_typed_plan": true,
+        "exact_frontier_control": true
+      }
+    },
+    {
+      "rendered": "Because the quiet keeper carries a lantern.",
+      "audit": {
+        "letters": 36,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          35,
+          "b",
+          "n"
+        ],
+        "sha256_forward": "3973f859aad65da826b20483d9554325442458fb01f320d8b883c16993a63c0e",
+        "sha256_reverse": "82dbdad297526ca34d399607aabd640c4d7a8c165cfadd55181f3a1a14548039"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "ordinary_complete_clause": true,
+        "generated_from_typed_plan": true,
+        "exact_frontier_control": true
+      }
+    },
+    {
+      "rendered": "By dusk the careful pilot charts the river.",
+      "audit": {
+        "letters": 35,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          34,
+          "b",
+          "r"
+        ],
+        "sha256_forward": "8b210b2cd3d8bc6a99cdfebe8983df0e8dc4c9466e4fa7af671891b26de6660d",
+        "sha256_reverse": "47e36cfe15261e8bb65a55b3faee7c2d06b54b2ed151f1664537f71fda5080fb"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "ordinary_complete_clause": true,
+        "generated_from_typed_plan": true,
+        "exact_frontier_control": true
+      }
+    },
+    {
+      "rendered": "Since the old teacher gives the child a map.",
+      "audit": {
+        "letters": 35,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          34,
+          "s",
+          "p"
+        ],
+        "sha256_forward": "6ccec93e1353eae685750abd6bbc482a816f070035fc5fe646ff5c37176b514c",
+        "sha256_reverse": "390b1602a6290251a62007381e70b3a1b316719675572136d710ae868b5b8166"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "ordinary_complete_clause": true,
+        "generated_from_typed_plan": true,
+        "exact_frontier_control": true
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "excluded_routes": [
+      "finished-tape reversal",
+      "post-hoc repair",
+      "mirrored clause plans",
+      "catalogue import"
+    ]
+  },
+  "provenance": {
+    "independent_audit": "two-pointer plus forward/reverse SHA-256",
+    "catalogue_text": false,
+    "word_order_symmetry": false,
+    "repeated_units": false,
+    "self_palindromic_units": false,
+    "repair": false
+  },
+  "next_operator": "add a held-out concessive cadence with an explicit discourse attachment feature, while retaining live orbit consumption",
+  "status": "no exact >38 closure; complete cadence controls retained"
+}

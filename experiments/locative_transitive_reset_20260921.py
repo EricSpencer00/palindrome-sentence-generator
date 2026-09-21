@@ -13,6 +13,8 @@ def audit(s):
 def main():
  old=set()
  for p in ROOT.glob('runs/*.json'):
+  if p == RUN:
+   continue
   try: old.update(tape(x.get('rendered','')) for x in json.loads(p.read_text()).get('rendered_candidates',[]) if x.get('rendered'))
   except Exception: pass
  rows=[]

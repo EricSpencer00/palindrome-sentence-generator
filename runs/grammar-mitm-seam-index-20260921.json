@@ -1,0 +1,54 @@
+{
+  "experiment_id": "grammar-mitm-seam-index-20260921",
+  "method": "length-indexed grammar MITM seam with residual character and boundary equality",
+  "stats": {
+    "forward_states": 2,
+    "reverse_states": 2,
+    "equal_seam_joins": 0,
+    "exact_gt38": 0
+  },
+  "exact_candidates": [],
+  "joins": [],
+  "controls": [
+    {
+      "rendered": "the orchard keeper counts three ripe pears; the museum clerk files a yellow ticket.",
+      "audit": {
+        "letters": 68,
+        "exact": false,
+        "first_mismatch": [
+          [
+            1,
+            "h",
+            "e"
+          ],
+          [
+            2,
+            "e",
+            "k"
+          ],
+          [
+            3,
+            "o",
+            "c"
+          ]
+        ],
+        "sha256": "987250fad8ef976e0c0ae3e010940a291c25a6cc09b455495faf75c3348f4b5a",
+        "sha256_reverse": "6e712339ddc9563ce4d128cc4102bc0881f17c0900a33514c11e3d37d0c4ca68"
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "fresh-semantic-bank|mitm-residual|boundary-equality",
+    "distinct_from": "whole-tape reverse generation and catalogue search"
+  },
+  "provenance": {
+    "generator_sha256": "a1057d4d4dddf852f469799a0db4b3bcd4851d79e92436d63f5c618bb54dceba",
+    "audits": [
+      "two-pointer",
+      "SHA-256"
+    ]
+  },
+  "next_repair": "Add one fresh transitive clause with a typed seam character matching the longest residual, retaining boundary equality.",
+  "status": "no readable closure; seam index retained"
+}

@@ -8508,3 +8508,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   closes the terminal-word shortcut and sends the next search toward a
   genuinely grammatical copular inversion with an adjective predicate.
   Artifact: `runs/copular-question-seam-20260921.json`.
+
+- **Grammatical `are … in an era?` shell, 2026-09-21:** replaced terminal
+  fragments with a real copular question, yielding controls such as “Are the
+  quiet scout ready in an era?” (28 letters). All nine NP/adjective choices
+  match the outer `are`/`era` shell for three characters, then fail at the NP
+  boundary (`t` versus `n` for the strongest control); whole-tape
+  pointer/SHA audits reject every row. No exact candidate was promoted. The
+  next operator is agreement-bearing plural NP/adjective selection inside this
+  grammatical shell. Artifact:
+  `runs/are-np-adjective-in-an-era-20260921.json`.

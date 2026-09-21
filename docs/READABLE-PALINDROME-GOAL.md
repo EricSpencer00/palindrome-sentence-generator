@@ -7706,6 +7706,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   or agreement-compatible relative-pronoun edge, not another larger word bank.
   Artifact: `runs/regular-shared-character-20260921.json`.
 
+- **Held-out embedded locative operator, 2026-09-21:** added fresh locative
+  terminals (`at harbor`, `beside quay`, `under bridge`) to the same live
+  embedded-relative chart and reran lengths 39--160. All 122 targets reached
+  a one-node root conflict, with no exact candidate rendered. The next
+  operator is an agreement-compatible relative-pronoun edge, not a larger
+  Cartesian sweep. Artifact: `runs/regular-shared-character-20260921.json`.
+
 - **Hand-authored phrase lattice, 2026-09-21:** selected phrase alternatives
   from both ends while debt was live and independently audited the terminal.
   It visited 26 nodes and reached one exact terminal, but that terminal was

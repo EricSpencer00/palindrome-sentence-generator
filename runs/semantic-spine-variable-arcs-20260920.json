@@ -1,240 +1,35 @@
 {
   "experiment_id": "semantic-spine-variable-arcs-20260920",
-  "method": "shared semantic spine factorization with variable-length lexical arcs",
+  "method": "shared semantic spine factorization with held-out arcs and pre-render arc-signature compatibility",
   "stats": {
     "spines": 3,
     "left_arcs": 9,
     "right_arcs": 9,
-    "rendered": 27,
+    "heldout_left": 6,
+    "heldout_right": 6,
+    "signature_prunes": 65,
+    "rendered": 10,
     "exact_gt38": 0,
-    "max_letters": 60
+    "max_letters": 56
   },
   "exact_candidates": [],
   "reader_facing_candidates": [],
   "controls": [
     {
-      "rendered": "along the eastern bank, the pilot follows the river past the cedar bridge.",
-      "factorization": {
-        "spine": "river",
-        "left_arc": 1,
-        "right_arc": 1,
-        "shared_semantic_spine": "the pilot follows the river"
-      },
-      "online_orbit": {
-        "matched_prefix": 0,
-        "closed": false
-      },
-      "audit": {
-        "letters": 60,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "a",
-          "e"
-        ],
-        "sha256_forward": "a4460fb3003a09faabbfbff4e066f053d8ec6aa9e39e55b2e3e7a0816ad7b510",
-        "sha256_reverse": "a1cc520cbac68b04d41f69fc7e0196902f93da6f304cb0529872a09150584ee3"
-      },
-      "provenance": {
-        "nested_self_palindrome": false,
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "independent_left_arc_bank": true,
-        "independent_right_arc_bank": true,
-        "spine_selected_before_lexical_arcs": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false
-      }
-    },
-    {
-      "rendered": "under apple branches, the gardener tends the garden while thrushes call.",
+      "rendered": "beside brick walls, the gardener tends the garden near the iron gate.",
       "factorization": {
         "spine": "garden",
-        "left_arc": 2,
-        "right_arc": 2,
+        "left_arc": 4,
+        "right_arc": 3,
         "shared_semantic_spine": "the gardener tends the garden"
       },
-      "online_orbit": {
-        "matched_prefix": 0,
-        "closed": false
-      },
-      "audit": {
-        "letters": 60,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "u",
-          "l"
-        ],
-        "sha256_forward": "59fdd1579d6752a1dadec3939bb70db09cfd2e47031d43f17226e183723d2ae9",
-        "sha256_reverse": "b85e15768f16e572900d30ea36f8b0b4bbe13562d1a1789ebce12f1543d39ce7"
-      },
-      "provenance": {
-        "nested_self_palindrome": false,
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "independent_left_arc_bank": true,
-        "independent_right_arc_bank": true,
-        "spine_selected_before_lexical_arcs": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false
-      }
-    },
-    {
-      "rendered": "along the eastern bank, the pilot follows the river while clouds gather.",
-      "factorization": {
-        "spine": "river",
-        "left_arc": 1,
-        "right_arc": 2,
-        "shared_semantic_spine": "the pilot follows the river"
-      },
-      "online_orbit": {
-        "matched_prefix": 0,
-        "closed": false
-      },
-      "audit": {
-        "letters": 59,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "a",
-          "r"
-        ],
-        "sha256_forward": "00ba76443742e1fd535b8f2e3e28ca430d89fa7bbd9c16e6bb44645e41de5618",
-        "sha256_reverse": "9fc6b3b5268f465fb80d7723952815feb35fba9a379a297360d6c6d9983a5d55"
-      },
-      "provenance": {
-        "nested_self_palindrome": false,
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "independent_left_arc_bank": true,
-        "independent_right_arc_bank": true,
-        "spine_selected_before_lexical_arcs": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false
-      }
-    },
-    {
-      "rendered": "under apple branches, the gardener tends the garden past the stone gate.",
-      "factorization": {
-        "spine": "garden",
-        "left_arc": 2,
-        "right_arc": 1,
-        "shared_semantic_spine": "the gardener tends the garden"
-      },
-      "online_orbit": {
-        "matched_prefix": 0,
-        "closed": false
-      },
-      "audit": {
-        "letters": 59,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "u",
-          "e"
-        ],
-        "sha256_forward": "9c6332595fa377585bb614130ca709124911f348f9c876841b0eb1ba9b38c703",
-        "sha256_reverse": "4d87d385d6e3e6404017eb50095502660e7b7d0d4f3077fd4286ed2d0391adfd"
-      },
-      "provenance": {
-        "nested_self_palindrome": false,
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "independent_left_arc_bank": true,
-        "independent_right_arc_bank": true,
-        "spine_selected_before_lexical_arcs": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false
-      }
-    },
-    {
-      "rendered": "along the eastern bank, the pilot follows the river with a folded chart.",
-      "factorization": {
-        "spine": "river",
-        "left_arc": 1,
-        "right_arc": 0,
-        "shared_semantic_spine": "the pilot follows the river"
-      },
-      "online_orbit": {
-        "matched_prefix": 0,
-        "closed": false
-      },
-      "audit": {
-        "letters": 58,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "a",
-          "t"
-        ],
-        "sha256_forward": "1d354ee5de655017f0070e0ab358776a82e368be2601ab43f58094c05309f871",
-        "sha256_reverse": "c9ff8a33409ebdd2be6308e0a5f80f7cf919b2afa9c22aab14421a58241c3a2d"
-      },
-      "provenance": {
-        "nested_self_palindrome": false,
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "independent_left_arc_bank": true,
-        "independent_right_arc_bank": true,
-        "spine_selected_before_lexical_arcs": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false
-      }
-    },
-    {
-      "rendered": "under apple branches, the gardener tends the garden with a worn trowel.",
-      "factorization": {
-        "spine": "garden",
-        "left_arc": 2,
-        "right_arc": 0,
-        "shared_semantic_spine": "the gardener tends the garden"
-      },
-      "online_orbit": {
-        "matched_prefix": 0,
-        "closed": false
-      },
-      "audit": {
-        "letters": 58,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "u",
-          "l"
-        ],
-        "sha256_forward": "df79772b5c8ae9b27089d0d17f79670e7f2977cb63d2f6225c236efaa266b660",
-        "sha256_reverse": "25caf9e12f144cf2a83459ec86557b50bde96247165c1cdf1013a6b44e006a05"
-      },
-      "provenance": {
-        "nested_self_palindrome": false,
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "independent_left_arc_bank": true,
-        "independent_right_arc_bank": true,
-        "spine_selected_before_lexical_arcs": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false
-      }
-    },
-    {
-      "rendered": "beside old walls, the gardener tends the garden while thrushes call.",
-      "factorization": {
-        "spine": "garden",
-        "left_arc": 1,
-        "right_arc": 2,
-        "shared_semantic_spine": "the gardener tends the garden"
+      "arc_signature": {
+        "left_first": "b",
+        "right_last": "e",
+        "left_parity": 0,
+        "right_parity": 1,
+        "heldout_left": true,
+        "heldout_right": true
       },
       "online_orbit": {
         "matched_prefix": 0,
@@ -246,10 +41,10 @@
         "first_mismatch": [
           0,
           "b",
-          "l"
+          "e"
         ],
-        "sha256_forward": "b14719692733d2e6f132b182251ff82b6595e25cee91f6785bfc9db6e09092c3",
-        "sha256_reverse": "5fb920407420d91598b6c43eabb73f103600ce5405c09611c96ce6f6198accb6"
+        "sha256_forward": "30004a66897fb92789959c2c717bd354857a256514d549e30d4a4380ed3a1f39",
+        "sha256_reverse": "12820a882e877a2a5f1430dbb1db7517c75858a1934caee1e351c3e01eaaf93c"
       },
       "provenance": {
         "nested_self_palindrome": false,
@@ -265,27 +60,123 @@
       }
     },
     {
-      "rendered": "beside quiet lamps, the keeper marks the harbor near the watchtower.",
+      "rendered": "beside old walls, the gardener tends the garden near the iron gate.",
       "factorization": {
-        "spine": "harbor",
+        "spine": "garden",
         "left_arc": 1,
-        "right_arc": 1,
-        "shared_semantic_spine": "the keeper marks the harbor"
+        "right_arc": 3,
+        "shared_semantic_spine": "the gardener tends the garden"
+      },
+      "arc_signature": {
+        "left_first": "b",
+        "right_last": "e",
+        "left_parity": 0,
+        "right_parity": 1,
+        "heldout_left": false,
+        "heldout_right": true
       },
       "online_orbit": {
         "matched_prefix": 0,
         "closed": false
       },
       "audit": {
-        "letters": 56,
+        "letters": 54,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "b",
+          "e"
+        ],
+        "sha256_forward": "6e138b638a81fa99774a6d4008d95642aee66f0ead812a2ce5a830b2da158a7a",
+        "sha256_reverse": "506f766e347d79d70134c0c8b1a83dc2ea6d2f67d6ee2439143eeed68ca88f49"
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "independent_left_arc_bank": true,
+        "independent_right_arc_bank": true,
+        "spine_selected_before_lexical_arcs": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "under pale stars, the keeper marks the harbor near the watchtower.",
+      "factorization": {
+        "spine": "harbor",
+        "left_arc": 2,
+        "right_arc": 1,
+        "shared_semantic_spine": "the keeper marks the harbor"
+      },
+      "arc_signature": {
+        "left_first": "u",
+        "right_last": "r",
+        "left_parity": 0,
+        "right_parity": 1,
+        "heldout_left": false,
+        "heldout_right": false
+      },
+      "online_orbit": {
+        "matched_prefix": 0,
+        "closed": false
+      },
+      "audit": {
+        "letters": 54,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "u",
+          "r"
+        ],
+        "sha256_forward": "e967c4b05a618a30bf0fc9849604a8d028111c4705d232a188219d5617b68513",
+        "sha256_reverse": "2df1a07c250bfa15e65ab572faad1ae3b2f984a993f7fe3ec54bd12bd2355f98"
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "independent_left_arc_bank": true,
+        "independent_right_arc_bank": true,
+        "spine_selected_before_lexical_arcs": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "beside quiet lamps, the keeper marks the harbor near the old pier.",
+      "factorization": {
+        "spine": "harbor",
+        "left_arc": 1,
+        "right_arc": 3,
+        "shared_semantic_spine": "the keeper marks the harbor"
+      },
+      "arc_signature": {
+        "left_first": "b",
+        "right_last": "r",
+        "left_parity": 0,
+        "right_parity": 0,
+        "heldout_left": false,
+        "heldout_right": true
+      },
+      "online_orbit": {
+        "matched_prefix": 0,
+        "closed": false
+      },
+      "audit": {
+        "letters": 53,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "b",
           "r"
         ],
-        "sha256_forward": "53dd9b0645c657c94f19b2e9c9f9231cc510c2cba16f9c2733dde5781500771e",
-        "sha256_reverse": "67292a5f97ca7473607f43214bdd03c55f2fa9646ec38ba0d4b5773147c05bff"
+        "sha256_forward": "251b56a4bcab3025b3f7d900861b59520144d34642feb9714466657ca04e2c26",
+        "sha256_reverse": "5190395468a60eb4ba0e8d2a42eb7c7f5ea9ac045f38fbe2fd424f1f9fd16754"
       },
       "provenance": {
         "nested_self_palindrome": false,
@@ -301,135 +192,255 @@
       }
     },
     {
-      "rendered": "beside quiet lamps, the keeper marks the harbor with a brass compass.",
-      "factorization": {
-        "spine": "harbor",
-        "left_arc": 1,
-        "right_arc": 0,
-        "shared_semantic_spine": "the keeper marks the harbor"
-      },
-      "online_orbit": {
-        "matched_prefix": 0,
-        "closed": false
-      },
-      "audit": {
-        "letters": 56,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "b",
-          "s"
-        ],
-        "sha256_forward": "a73896839f20edb5b3c3fb0034ba309a6f1fcadf1da727e6ab7e957c83ce0619",
-        "sha256_reverse": "9348e0926806152c39c52c2c29aeb658aff08d4b1fc941a6585caa3fe2f224ad"
-      },
-      "provenance": {
-        "nested_self_palindrome": false,
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "independent_left_arc_bank": true,
-        "independent_right_arc_bank": true,
-        "spine_selected_before_lexical_arcs": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false
-      }
-    },
-    {
-      "rendered": "beside old walls, the gardener tends the garden past the stone gate.",
-      "factorization": {
-        "spine": "garden",
-        "left_arc": 1,
-        "right_arc": 1,
-        "shared_semantic_spine": "the gardener tends the garden"
-      },
-      "online_orbit": {
-        "matched_prefix": 0,
-        "closed": false
-      },
-      "audit": {
-        "letters": 55,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "b",
-          "e"
-        ],
-        "sha256_forward": "e4c22b0252fd979c320a5d517ac4618af7bd50af96c1ecdf43eb608ef864bd0e",
-        "sha256_reverse": "0cc42187b5d08a48f0c8752c92774f453d4eb0cbb8171654a0c72a78688aec61"
-      },
-      "provenance": {
-        "nested_self_palindrome": false,
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "independent_left_arc_bank": true,
-        "independent_right_arc_bank": true,
-        "spine_selected_before_lexical_arcs": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false
-      }
-    },
-    {
-      "rendered": "before sunrise, the pilot follows the river past the cedar bridge.",
+      "rendered": "through reeds, the pilot follows the river past the cedar bridge.",
       "factorization": {
         "spine": "river",
+        "left_arc": 2,
+        "right_arc": 1,
+        "shared_semantic_spine": "the pilot follows the river"
+      },
+      "arc_signature": {
+        "left_first": "t",
+        "right_last": "e",
+        "left_parity": 0,
+        "right_parity": 0,
+        "heldout_left": false,
+        "heldout_right": false
+      },
+      "online_orbit": {
+        "matched_prefix": 0,
+        "closed": false
+      },
+      "audit": {
+        "letters": 53,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "0c23afefbf6b360171816d9d9ae70f6f3dee6b10cbaf4828f515c001354a128d",
+        "sha256_reverse": "87112d9abb981b2397e32b0fe2657406748730293cb6b750f109051add6e4dc0"
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "independent_left_arc_bank": true,
+        "independent_right_arc_bank": true,
+        "spine_selected_before_lexical_arcs": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "at first light, the keeper marks the harbor near the watchtower.",
+      "factorization": {
+        "spine": "harbor",
+        "left_arc": 3,
+        "right_arc": 1,
+        "shared_semantic_spine": "the keeper marks the harbor"
+      },
+      "arc_signature": {
+        "left_first": "a",
+        "right_last": "r",
+        "left_parity": 0,
+        "right_parity": 1,
+        "heldout_left": true,
+        "heldout_right": false
+      },
+      "online_orbit": {
+        "matched_prefix": 0,
+        "closed": false
+      },
+      "audit": {
+        "letters": 52,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "99f93b7b4a738497ce231d6f3efaf2c1c564b42708fd94e2ce3f8b1861ccdf0c",
+        "sha256_reverse": "1b2a2f750c701b620d763f15c33122bc2ef4846a19f65b4bca90c9d4958d9aad"
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "independent_left_arc_bank": true,
+        "independent_right_arc_bank": true,
+        "spine_selected_before_lexical_arcs": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "at first light, the pilot follows the river while clouds gather.",
+      "factorization": {
+        "spine": "river",
+        "left_arc": 3,
+        "right_arc": 2,
+        "shared_semantic_spine": "the pilot follows the river"
+      },
+      "arc_signature": {
+        "left_first": "a",
+        "right_last": "r",
+        "left_parity": 0,
+        "right_parity": 1,
+        "heldout_left": true,
+        "heldout_right": false
+      },
+      "online_orbit": {
+        "matched_prefix": 0,
+        "closed": false
+      },
+      "audit": {
+        "letters": 52,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "3dcbc5b88149fe126e3a4de37c21a5721da0b9f059270b578958e6bbd234b4d8",
+        "sha256_reverse": "b4d268464912f7dcb903b3c3bbdfb5afe45c120a278a57f3b3e5957baf173f2f"
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "independent_left_arc_bank": true,
+        "independent_right_arc_bank": true,
+        "spine_selected_before_lexical_arcs": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "through reeds, the pilot follows the river with a folded chart.",
+      "factorization": {
+        "spine": "river",
+        "left_arc": 2,
+        "right_arc": 0,
+        "shared_semantic_spine": "the pilot follows the river"
+      },
+      "arc_signature": {
+        "left_first": "t",
+        "right_last": "t",
+        "left_parity": 0,
+        "right_parity": 0,
+        "heldout_left": false,
+        "heldout_right": false
+      },
+      "online_orbit": {
+        "matched_prefix": 1,
+        "closed": false
+      },
+      "audit": {
+        "letters": 51,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "r"
+        ],
+        "sha256_forward": "67b1c179e33f28d7b83ebee10dd2be719f6a56b3dc28ea5e65f8af706b557e37",
+        "sha256_reverse": "7469ab041afad5426631e7de56971c6610c469a95db7433c840e77e342d42c4c"
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "independent_left_arc_bank": true,
+        "independent_right_arc_bank": true,
+        "spine_selected_before_lexical_arcs": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "after rain, the gardener tends the garden near the iron gate.",
+      "factorization": {
+        "spine": "garden",
+        "left_arc": 0,
+        "right_arc": 3,
+        "shared_semantic_spine": "the gardener tends the garden"
+      },
+      "arc_signature": {
+        "left_first": "a",
+        "right_last": "e",
+        "left_parity": 1,
+        "right_parity": 1,
+        "heldout_left": false,
+        "heldout_right": true
+      },
+      "online_orbit": {
+        "matched_prefix": 0,
+        "closed": false
+      },
+      "audit": {
+        "letters": 49,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "7f966c385ffcd1a8d81cc9e37be7ad70311d2d36c9fe3ee6163142bf19f620b4",
+        "sha256_reverse": "264063ff568b435c3732d14f6c607af35aef5742ab830d31f30053c41d18dfd6"
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "independent_left_arc_bank": true,
+        "independent_right_arc_bank": true,
+        "spine_selected_before_lexical_arcs": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "at dawn, the keeper marks the harbor near the watchtower.",
+      "factorization": {
+        "spine": "harbor",
         "left_arc": 0,
         "right_arc": 1,
-        "shared_semantic_spine": "the pilot follows the river"
+        "shared_semantic_spine": "the keeper marks the harbor"
+      },
+      "arc_signature": {
+        "left_first": "a",
+        "right_last": "r",
+        "left_parity": 0,
+        "right_parity": 1,
+        "heldout_left": false,
+        "heldout_right": false
       },
       "online_orbit": {
         "matched_prefix": 0,
         "closed": false
       },
       "audit": {
-        "letters": 54,
+        "letters": 46,
         "pointer_exact": false,
         "first_mismatch": [
           0,
-          "b",
-          "e"
+          "a",
+          "r"
         ],
-        "sha256_forward": "53f68d6a4be77a99b7f3f4d7ed44784e63e2f427b3a6ab9b6aa4a97534d8a87c",
-        "sha256_reverse": "e76c941be3d38ea87cc9f19a26cbe059024b20d1e1f4fe4151f18e7f2cbac367"
-      },
-      "provenance": {
-        "nested_self_palindrome": false,
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "independent_left_arc_bank": true,
-        "independent_right_arc_bank": true,
-        "spine_selected_before_lexical_arcs": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false
-      }
-    },
-    {
-      "rendered": "beside old walls, the gardener tends the garden with a worn trowel.",
-      "factorization": {
-        "spine": "garden",
-        "left_arc": 1,
-        "right_arc": 0,
-        "shared_semantic_spine": "the gardener tends the garden"
-      },
-      "online_orbit": {
-        "matched_prefix": 0,
-        "closed": false
-      },
-      "audit": {
-        "letters": 54,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "b",
-          "l"
-        ],
-        "sha256_forward": "446c7df41b031b229cca30460f66c6264182da7eacb9d8cd456c2f5cfb090bef",
-        "sha256_reverse": "c9d5a98c11f18a729dff86f9d8c941cc2e09803a68119f31296029d2b1d4979f"
+        "sha256_forward": "26d8d63f3e3778f19a40f8303622b10d054fd24260fd708447bbabf290809f46",
+        "sha256_reverse": "f25dfa81efd7d249620eeb82b1006cc36a2fceee4753bda0142d3c503713a6f4"
       },
       "provenance": {
         "nested_self_palindrome": false,
@@ -466,6 +477,6 @@
     ],
     "reader_gate": "exact clean >38 only"
   },
-  "next_construction": "Add two independently authored lexical alternatives per spine role and retain arc-length signatures as a pre-render compatibility key.",
+  "next_construction": "Add role-specific two-character residual signatures while preserving held-out arc banks.",
   "status": "no exact clean closure; factorized spine controls retained"
 }

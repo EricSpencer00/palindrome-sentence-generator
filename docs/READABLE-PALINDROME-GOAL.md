@@ -8393,3 +8393,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   were admitted. The concrete successor is feature-bearing tense/agreement
   state in the debt itself, not a larger lexical Cartesian product.
   Artifact: `runs/constructive-qa-character-debt-20260921.json`.
+
+- **Tense/agreement Q/A debt successor, 2026-09-21:** carried explicit
+  present/past and singular/plural features alongside the opposing character
+  debt in four hand-authored question frames and four answer frames. The four
+  compatible controls stayed intact—for example, “we are seeking the trail?
+  the sailors are beside the path.” (46 letters)—but all 16 pairs failed the
+  first online character comparison; independent pointer/SHA audits found no
+  exact tape. Content-word inventories were disjoint, one-letter function words
+  were not misclassified as self-palindromic units, and no candidate was
+  promoted. The next operator is a single aspect feature (progressive versus
+  completed) in this same typed state, not a broad lexical sweep. Artifact:
+  `runs/constructive-qa-tense-agreement-debt-20260921.json`.

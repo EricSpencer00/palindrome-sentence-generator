@@ -8368,3 +8368,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   all 24 emitted states failed exactness at the outer seam; no exact survivor
   reached the reader gate. Artifact:
   `runs/readable-frame-opposing-debt-search-20260921.json`.
+
+- **Question/answer edge-frame probe, 2026-09-21:** tested four authored
+  dialogue edges whose normalized outer tapes close (`am i`/`i'm a`,
+  `is it`/`'tis i`, `eva can i`/`in a cave`, and `are we`/`ew era`) against
+  four typed lexical opposites. The edge equations closed in all 16 rows, but
+  the rendered controls duplicated the same middle words on both sides. For
+  example, “Eva, can I deliver reviled? In a cave deliver reviled.” is 42
+  letters but fails the no-repeated-content gate and is not an exact whole
+  tape (independent pointer and forward/reverse SHA audits both disagree).
+  This is retained as a failed diagnostic, not a candidate or a result: the
+  next operator must select two distinct semantic clauses online while carrying
+  the opposing character debt, rather than repeat a lexical middle.
+  Artifact: `runs/question-answer-edge-palindrome-20260921.json`.

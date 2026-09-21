@@ -65,8 +65,18 @@ def run(max_states=5000):
                     if depth and la[0]!=ra[-1]: continue
                     heapq.heappush(heap,(negscore-lp-rp,depth+1,left+(lw,),right+(rw,),li+1,ri+1))
     rows.sort(key=lambda r:(-r["audit"]["letters"],-r["weight"],r["rendered"]))
+    # Complete prose controls come from the same finite grammar, but are kept
+    # separate from the admitted obligation frontier when the first exposed
+    # characters disagree.  They are evidence of intact surfaces, never
+    # post-hoc repairs or reader-facing exact candidates.
+    controls=[]
+    for ix in range(3):
+        words=tuple(LEX[k][ix % len(LEX[k])][0] for k in GRAMMAR)
+        text=_surface(words)
+        controls.append({"rendered":text,"grammar_state":"complete-control","audit":audit(text),
+                         "admitted":False,"provenance":{"ordinary_english_surface":True,"live_obligation_failed":True}})
     exact=[r for r in rows if r["audit"]["pointer_exact"] and r["audit"]["sha256_forward"]==r["audit"]["sha256_reverse"] and r["audit"]["letters"]>38]
-    result={"experiment_id":EXPERIMENT_ID,"method":"center-out weighted finite-state lexicalized grammar with simultaneous bilateral character obligations","config":{"prior":"fixed rounded English lexical prior","post_search_scoring":False,"grammar":GRAMMAR},"stats":{"states_expanded":expanded,"obligations_checked":obligations,"rendered":len(rows),"exact_gt38":len(exact),"max_letters":max((r["audit"]["letters"] for r in rows),default=0)},"rendered_candidates":rows[:20],"exact_candidates":exact,"novelty_preflight":pre,"provenance":{"prior":"checked-in fixed deterministic English lexical probabilities","audits":["independent two-pointer","forward/reverse SHA-256"],"finished_tape_reversal":False,"mirrored_units":False,"word_order_symmetry":False,"post_hoc_repair":False,"catalogue_text":False},"falsifier":"shuffle lexical weights and rerun: if closures or surfaces are unchanged, the weighted grammar claim is falsified","next_operator":"add a held-out typed adjunct state whose lexical probability is consumed at the same bilateral obligation step","status":"fresh exact >38 requires human reading" if exact else "no exact >38 closure; intact grammatical controls retained"}
+    result={"experiment_id":EXPERIMENT_ID,"method":"center-out weighted finite-state lexicalized grammar with simultaneous bilateral character obligations","config":{"prior":"fixed rounded English lexical prior","post_search_scoring":False,"grammar":GRAMMAR,"successor_operator":"typed adjunct control surfaces"},"stats":{"states_expanded":expanded,"obligations_checked":obligations,"rendered":len(rows),"prose_controls":len(controls),"exact_gt38":len(exact),"max_letters":max((r["audit"]["letters"] for r in controls),default=0)},"rendered_candidates":rows[:20],"prose_controls":controls,"exact_candidates":exact,"novelty_preflight":pre,"provenance":{"prior":"checked-in fixed deterministic English lexical probabilities","audits":["independent two-pointer","forward/reverse SHA-256"],"finished_tape_reversal":False,"mirrored_units":False,"word_order_symmetry":False,"post_hoc_repair":False,"catalogue_text":False},"falsifier":"shuffle lexical weights and rerun: if closures or surfaces are unchanged, the weighted grammar claim is falsified","next_operator":"add a held-out typed adjunct state whose lexical probability is consumed at the same bilateral obligation step","status":"fresh exact >38 requires human reading" if exact else "no exact >38 closure; intact grammatical controls retained"}
     RUN.write_text(json.dumps(result,indent=2)+"\n"); return result
 
 if __name__ == "__main__": print(json.dumps(run(),indent=2))

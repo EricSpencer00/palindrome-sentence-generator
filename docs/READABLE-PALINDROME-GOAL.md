@@ -8266,3 +8266,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   only as a control. The next operator is the split center nonterminal described
   by the center-first lane. Artifact:
   `runs/variable-clause-sequence-20260921.json`.
+
+- **Algebraic semantic-arm decomposition, 2026-09-21:** selected complete
+  semantic clause arms before rendering, then consumed their opposing boundary
+  equations online. The strongest intact near miss was “Mara carries a blue
+  map; while the harbor lanterns fade.” (45 letters), but its first equation
+  already failed (`m` versus `e`); six semantic joins yielded zero exact
+  closures. No reversal, mirrored unit, catalogue text, or post-hoc repair was
+  used. Artifact: `runs/algebraic-boundary-decomposition-20260921.json`.
+
+- **Grammar-first center-out search, 2026-09-21:** expanded 87 typed
+  productions directly from both ends, rejecting 240 states before rendering
+  when their first opposing character could not agree. It retained intact
+  controls up to 108 letters but found zero exact candidates above 38; the
+  next distinct operator is a typed relative clause with residual obligations
+  across boundaries. Artifact: `runs/grammar-first-centerout-20260921.json`.
+
+- **Readable opposing-debt frame search, 2026-09-21:** used paired,
+  independently authored clause frames and online character debt across 9,000
+  states. Two ordinary-English controls were emitted (up to 64 letters), but
+  all 24 emitted states failed exactness at the outer seam; no exact survivor
+  reached the reader gate. Artifact:
+  `runs/readable-frame-opposing-debt-search-20260921.json`.

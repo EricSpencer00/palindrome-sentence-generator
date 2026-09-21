@@ -7573,3 +7573,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   construction lifts the same live obligations into a memoized grammar chart
   so incompatible prefixes are pruned before clause-pair enumeration. Artifact:
   `runs/typed-overhang-center-search-20260921.json`.
+
+- **Independent reverse lexicalization, 2026-09-21:** generated 480 ordinary
+  typed subject–verb–object clauses, then attempted to segment each reverse
+  character tape with an independently defined vocabulary and clause grammar.
+  It produced 0 reverse segmentations (therefore 0 grammatical or exact
+  candidates), with no mirrored word units, catalogue seeds, or repair step.
+  This is a distinct feasibility result: the finite vocabulary cannot express
+  the reverse tapes, so the next construction must use a weighted CFG/trie
+  with broader but independently grammatical lexicalization. Artifact:
+  `runs/independent-reverse-lexicalization-20260921.json`.

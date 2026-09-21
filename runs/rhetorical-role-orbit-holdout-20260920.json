@@ -1,0 +1,2576 @@
+{
+  "experiment_id": "rhetorical-role-orbit-holdout-20260920",
+  "method": "frozen authored semantic-role grammar with live character-orbit search",
+  "parameters": {
+    "roles": [
+      "subject",
+      "question",
+      "evidence",
+      "answer",
+      "qualification"
+    ],
+    "domains": {
+      "subjects": 3,
+      "questions": 3,
+      "evidence": 3,
+      "answers": 3,
+      "qualifications": 3
+    },
+    "center_policy": "evidence and answer slots are checked as ordinary orbit slots; no skipped center"
+  },
+  "stats": {
+    "transitions": 243,
+    "rendered_candidates": 243,
+    "live_orbit_rejections": 243,
+    "strict_admissions": 0,
+    "max_letters": 157
+  },
+  "controls": [
+    {
+      "rendered": "A thoughtful gardener checks the wooden gate before rain.",
+      "control": true,
+      "audit": {
+        "letters": 48,
+        "pointer_exact": false,
+        "sha256_forward": "7cb42dd4fb74fa8f953be758b4ff67c5871978e35c0f87df8505078d606b96f3",
+        "sha256_reverse": "0bb1ecd5fcd382ddbeb71de134bbbbf7ed8074be50c79e347e08558fa20269bd",
+        "sha_equal": false
+      },
+      "first_mismatch": {
+        "index": 0,
+        "left": "a",
+        "right": "n"
+      },
+      "provenance": {
+        "independent_control": true,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "The patient porter carries a small parcel toward shelter.",
+      "control": true,
+      "audit": {
+        "letters": 48,
+        "pointer_exact": false,
+        "sha256_forward": "4cbaf30db7d211b0572006efed13082239f8cbaa9b8706a8df51a0cda141f5e2",
+        "sha256_reverse": "0a0feadde95101bdb6e99ccf3a6499f25e2e1c9d1bbd7984545412594ffcdd97",
+        "sha_equal": false
+      },
+      "first_mismatch": {
+        "index": 0,
+        "left": "t",
+        "right": "r"
+      },
+      "provenance": {
+        "independent_control": true,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "rendered": "The careful keeper asks whether the narrow bridge remains safe, since the evening wind has weakened; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 0,
+        "question": 0,
+        "evidence": 1,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 53,
+          "right_chars": 53,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 83,
+          "right_chars": 83,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 124,
+          "right_chars": 124,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 157,
+          "right_chars": 157,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 157,
+        "pointer_exact": false,
+        "sha256_forward": "c5c3e4d923eb8e96b694c0b7f46a87e892c194203393cb72e1731e080b37d3ff",
+        "sha256_reverse": "e5aa4312eb865db89b0624160b3e887da66924e1911e5fe6aa5ec43b2ba16416",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "A patient teacher asks whether the narrow bridge remains safe, since the evening wind has weakened; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 1,
+        "question": 0,
+        "evidence": 1,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 15,
+          "right_chars": 15,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 52,
+          "right_chars": 52,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 82,
+          "right_chars": 82,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 123,
+          "right_chars": 123,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 156,
+          "right_chars": 156,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 156,
+        "pointer_exact": false,
+        "sha256_forward": "e1cd753b4d6399bde91b86939712fba4a0c06b6bc1d7420e5c4d19317b255dce",
+        "sha256_reverse": "488d62561da8e29d2dd209c2d1144d407af250c9c48470ac8da34e0a021e3dff",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The careful keeper asks whether the narrow bridge remains safe, because the river stones hold firm; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 0,
+        "question": 0,
+        "evidence": 0,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 53,
+          "right_chars": 53,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 82,
+          "right_chars": 82,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 123,
+          "right_chars": 123,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 156,
+          "right_chars": 156,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 156,
+        "pointer_exact": false,
+        "sha256_forward": "80d6a7dab706a81c50afd110ad3fb686164dcb96f6d9f390d5926ccf511680d7",
+        "sha256_reverse": "d51255174497790fa6f95459541b65d777ccc1d26cdaac745f1c3ef3e615406f",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "A patient teacher asks whether the narrow bridge remains safe, because the river stones hold firm; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 1,
+        "question": 0,
+        "evidence": 0,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 15,
+          "right_chars": 15,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 52,
+          "right_chars": 52,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 81,
+          "right_chars": 81,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 122,
+          "right_chars": 122,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 155,
+          "right_chars": 155,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 155,
+        "pointer_exact": false,
+        "sha256_forward": "fec356ea00c4f2e676879d8d11c9072a6588c576f62cd2159fdb7357f612aaa3",
+        "sha256_reverse": "24a9c68fb37a00872ea990a77b91dae8f114d44d8949e10e2b6f29b5f2ba1085",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The careful keeper wonders if the distant bell still carries, since the evening wind has weakened; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 0,
+        "question": 1,
+        "evidence": 1,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 51,
+          "right_chars": 51,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 81,
+          "right_chars": 81,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 122,
+          "right_chars": 122,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 155,
+          "right_chars": 155,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 155,
+        "pointer_exact": false,
+        "sha256_forward": "fe297e6533ac0e0c82f929af52fbfeb1a9e4c9c531e3469fd5cb7124b58498cf",
+        "sha256_reverse": "509f8e77297e2fa8e00fbc7a5680fa2c3fd6150c2c51fa6c914e68d2c52cee9d",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "A patient teacher wonders if the distant bell still carries, since the evening wind has weakened; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 1,
+        "question": 1,
+        "evidence": 1,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 15,
+          "right_chars": 15,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 50,
+          "right_chars": 50,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 80,
+          "right_chars": 80,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 121,
+          "right_chars": 121,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 154,
+          "right_chars": 154,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 154,
+        "pointer_exact": false,
+        "sha256_forward": "642f8e54ae37d0bb85eb8ffc3a6ed18b9ab12d97c69afc7a2d94675e63b6a493",
+        "sha256_reverse": "82f0fe68d7b6d0467906c6895712f33b6515989304e00552957b2d7276b1e583",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The careful keeper asks whether the narrow bridge remains safe, since the evening wind has weakened; the plain answer is that the crossing can wait, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 0,
+        "question": 0,
+        "evidence": 1,
+        "answer": 1,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 53,
+          "right_chars": 53,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 83,
+          "right_chars": 83,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 121,
+          "right_chars": 121,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 154,
+          "right_chars": 154,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 154,
+        "pointer_exact": false,
+        "sha256_forward": "42a16a36d6979e58ef0f859b3321a53e0a2711c06bb34b0b81953e0da18e1898",
+        "sha256_reverse": "9ceb377447314608778ee3c95c67a6a3536b395f745066ee6e10c54cd624a0d4",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The careful keeper wonders if the distant bell still carries, because the river stones hold firm; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 0,
+        "question": 1,
+        "evidence": 0,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 51,
+          "right_chars": 51,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 80,
+          "right_chars": 80,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 121,
+          "right_chars": 121,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 154,
+          "right_chars": 154,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 154,
+        "pointer_exact": false,
+        "sha256_forward": "1911718474e37093c19a4bf6a08188839190c403001801ae1182e5d48f089309",
+        "sha256_reverse": "aefd740b7919600934f36cdff643be93d929e1e991846b126714d1291337f356",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The quiet mason asks whether the narrow bridge remains safe, since the evening wind has weakened; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 2,
+        "question": 0,
+        "evidence": 1,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 13,
+          "right_chars": 13,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 50,
+          "right_chars": 50,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 80,
+          "right_chars": 80,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 121,
+          "right_chars": 121,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 154,
+          "right_chars": 154,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 154,
+        "pointer_exact": false,
+        "sha256_forward": "cdd4e520a69e7d3393499f6b1a3db6ee5e1d9fad8b405a3849dc74feb66a51f3",
+        "sha256_reverse": "5486419f456e25eb3d5d37860e62cbd79caba5eb96bac02c594705cea0db73ad",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "A patient teacher asks whether the narrow bridge remains safe, since the evening wind has weakened; the plain answer is that the crossing can wait, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 1,
+        "question": 0,
+        "evidence": 1,
+        "answer": 1,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 15,
+          "right_chars": 15,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 52,
+          "right_chars": 52,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 82,
+          "right_chars": 82,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 120,
+          "right_chars": 120,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 153,
+          "right_chars": 153,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 153,
+        "pointer_exact": false,
+        "sha256_forward": "9a07b9147f937d4a4567a2bdf99c7921aeef2157d3fdf147bfcdadc18bd58b79",
+        "sha256_reverse": "066078eec32dac635039f3234338bf5034d987fb50a977fd9ad78bc62f71ae9d",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "A patient teacher wonders if the distant bell still carries, because the river stones hold firm; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 1,
+        "question": 1,
+        "evidence": 0,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 15,
+          "right_chars": 15,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 50,
+          "right_chars": 50,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 79,
+          "right_chars": 79,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 120,
+          "right_chars": 120,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 153,
+          "right_chars": 153,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 153,
+        "pointer_exact": false,
+        "sha256_forward": "a2defaa0e1e924dbef716118dce3def3386a696ac7094f2d98dc625ece07bfeb",
+        "sha256_reverse": "0090bc54b7378c7b91482ca24624abb74f858507c1de27fc8e58ec639e6bac21",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The careful keeper asks whether the narrow bridge remains safe, because the river stones hold firm; the plain answer is that the crossing can wait, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 0,
+        "question": 0,
+        "evidence": 0,
+        "answer": 1,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 53,
+          "right_chars": 53,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 82,
+          "right_chars": 82,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 120,
+          "right_chars": 120,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 153,
+          "right_chars": 153,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 153,
+        "pointer_exact": false,
+        "sha256_forward": "a3157d1a407538937efdeb8962600fddd288ca5ae14b05abafc049fec4354ce5",
+        "sha256_reverse": "851b536970a3a256570d8cba98c1dd5ea0ebc767740da296071321429c3c1bbc",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The careful keeper asks whether the narrow bridge remains safe, for the old marker points north; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 0,
+        "question": 0,
+        "evidence": 2,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 53,
+          "right_chars": 53,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 79,
+          "right_chars": 79,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 120,
+          "right_chars": 120,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 153,
+          "right_chars": 153,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 153,
+        "pointer_exact": false,
+        "sha256_forward": "5b470a95db03980e47203f1aee425768ce0254e7d0418127c0a8a4b7f9b4a2bc",
+        "sha256_reverse": "870d3e0dd09cc434606ea60e8ea17180022c3bf52758598139c48c43ad1cc00d",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The careful keeper asks whether the narrow bridge remains safe, since the evening wind has weakened; the honest answer is that the signal remains, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 0,
+        "question": 0,
+        "evidence": 1,
+        "answer": 2,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 53,
+          "right_chars": 53,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 83,
+          "right_chars": 83,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 120,
+          "right_chars": 120,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 153,
+          "right_chars": 153,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 153,
+        "pointer_exact": false,
+        "sha256_forward": "d339a505c313ef0709323903d6ffa3a7cf2db3ecc9836b49ba3b11736f4204e9",
+        "sha256_reverse": "75b2829b792b1b6db664216f6d3c44f65275106dc9b6561b457607ff94c6716d",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The careful keeper asks whether the narrow bridge remains safe, since the evening wind has weakened; the measured reply is that travelers may proceed, although the road is still covered.",
+      "role_indices": {
+        "subject": 0,
+        "question": 0,
+        "evidence": 1,
+        "answer": 0,
+        "qualification": 1
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 53,
+          "right_chars": 53,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 83,
+          "right_chars": 83,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 124,
+          "right_chars": 124,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 153,
+          "right_chars": 153,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 153,
+        "pointer_exact": false,
+        "sha256_forward": "d0b6f03587b0734995d56661ecc4395b6f6b92a1764da5fc97cf7aea5c449903",
+        "sha256_reverse": "de953a38027fbbaa51f5af6e3053ba0d5d073a6fb9ae51180066df19cf80ae8d",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The quiet mason asks whether the narrow bridge remains safe, because the river stones hold firm; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 2,
+        "question": 0,
+        "evidence": 0,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 13,
+          "right_chars": 13,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 50,
+          "right_chars": 50,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 79,
+          "right_chars": 79,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 120,
+          "right_chars": 120,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 153,
+          "right_chars": 153,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 153,
+        "pointer_exact": false,
+        "sha256_forward": "92f2e29fe6ff2be145da3eb93dccbfefe80132cd0dd43fa0b08d1860b5c411f8",
+        "sha256_reverse": "1dbf5f0961c351d0e85405ec8ae4f6cb821ad9742374992a3bb3da6baf29efcf",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "A patient teacher asks whether the narrow bridge remains safe, because the river stones hold firm; the plain answer is that the crossing can wait, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 1,
+        "question": 0,
+        "evidence": 0,
+        "answer": 1,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 15,
+          "right_chars": 15,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 52,
+          "right_chars": 52,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 81,
+          "right_chars": 81,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 119,
+          "right_chars": 119,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 152,
+          "right_chars": 152,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 152,
+        "pointer_exact": false,
+        "sha256_forward": "006b1ffb719988e71da2db3fab50ba5b17ae6006cb98f982965ad163f7e3e18a",
+        "sha256_reverse": "ff4bdf9b06750c001e35b7aa45a1cae94c0aa69507e84bd81e2acf2d20b985f3",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "A patient teacher asks whether the narrow bridge remains safe, for the old marker points north; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 1,
+        "question": 0,
+        "evidence": 2,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 15,
+          "right_chars": 15,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 52,
+          "right_chars": 52,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 78,
+          "right_chars": 78,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 119,
+          "right_chars": 119,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 152,
+          "right_chars": 152,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 152,
+        "pointer_exact": false,
+        "sha256_forward": "01d1ff1e1887d48b2ea04dd55c80841e68deb3327585c303868f54c1e9d30a22",
+        "sha256_reverse": "22562d96e99aa73633cd7324df6ab2d85f4059478d583e8e73e0447079426a3b",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "A patient teacher asks whether the narrow bridge remains safe, since the evening wind has weakened; the honest answer is that the signal remains, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 1,
+        "question": 0,
+        "evidence": 1,
+        "answer": 2,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 15,
+          "right_chars": 15,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 52,
+          "right_chars": 52,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 82,
+          "right_chars": 82,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 119,
+          "right_chars": 119,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 152,
+          "right_chars": 152,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 152,
+        "pointer_exact": false,
+        "sha256_forward": "0d69f822d20758ad2d260335a560f46104c4318879341533ec1577b4c80b0d97",
+        "sha256_reverse": "8a2f7f9f168407ef9aaa81a204b21788af71a120967af481a3f144d9a18ecfc0",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "A patient teacher asks whether the narrow bridge remains safe, since the evening wind has weakened; the measured reply is that travelers may proceed, although the road is still covered.",
+      "role_indices": {
+        "subject": 1,
+        "question": 0,
+        "evidence": 1,
+        "answer": 0,
+        "qualification": 1
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 15,
+          "right_chars": 15,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 52,
+          "right_chars": 52,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 82,
+          "right_chars": 82,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 123,
+          "right_chars": 123,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 152,
+          "right_chars": 152,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 152,
+        "pointer_exact": false,
+        "sha256_forward": "113413ead0f02648a45a690730af326383ff074e82936154b157f3decada6509",
+        "sha256_reverse": "5b50488f3a38b6033469081109ed065426f05b75dd4d78928c51ce48f9588c4c",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The careful keeper asks whether the narrow bridge remains safe, because the river stones hold firm; the honest answer is that the signal remains, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 0,
+        "question": 0,
+        "evidence": 0,
+        "answer": 2,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 53,
+          "right_chars": 53,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 82,
+          "right_chars": 82,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 119,
+          "right_chars": 119,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 152,
+          "right_chars": 152,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 152,
+        "pointer_exact": false,
+        "sha256_forward": "72ef1b73e6207595e49c3cfc723c8ebb59321d8c8489c6edf685e5ae1ddfb1ea",
+        "sha256_reverse": "fcd2fb41d1d7da95da0f8ba8eba0c1e26dc991364c10685eefb7160de98ce1c3",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The careful keeper asks whether the narrow bridge remains safe, because the river stones hold firm; the measured reply is that travelers may proceed, although the road is still covered.",
+      "role_indices": {
+        "subject": 0,
+        "question": 0,
+        "evidence": 0,
+        "answer": 0,
+        "qualification": 1
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 53,
+          "right_chars": 53,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 82,
+          "right_chars": 82,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 123,
+          "right_chars": 123,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 152,
+          "right_chars": 152,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 152,
+        "pointer_exact": false,
+        "sha256_forward": "2cbb34fd0693fb102e20bbef12af09a0f4061c2cc5cefa159f448c81aafa37db",
+        "sha256_reverse": "9b0dbd540f889e2f3366648201e25e48649025a73c9255ee6a60b04a6acebf29",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The careful keeper wonders if the distant bell still carries, since the evening wind has weakened; the plain answer is that the crossing can wait, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 0,
+        "question": 1,
+        "evidence": 1,
+        "answer": 1,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 16,
+          "right_chars": 16,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 51,
+          "right_chars": 51,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 81,
+          "right_chars": 81,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 119,
+          "right_chars": 119,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 152,
+          "right_chars": 152,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 152,
+        "pointer_exact": false,
+        "sha256_forward": "f0cb201382fd090f4bc42b31a891c1701615e023791d0e2e15fd5106db67cab1",
+        "sha256_reverse": "623cbbbda8a595a5367d5a9efa27c0d044cbdebddf915a1ae46f4eb192423d22",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    },
+    {
+      "rendered": "The quiet mason wonders if the distant bell still carries, since the evening wind has weakened; the measured reply is that travelers may proceed, when the first light reaches the valley.",
+      "role_indices": {
+        "subject": 2,
+        "question": 1,
+        "evidence": 1,
+        "answer": 0,
+        "qualification": 0
+      },
+      "semantic_roles": {
+        "question_type": "information-seeking",
+        "evidence_relation": "because/since/for",
+        "answer_type": "explicit-proposition",
+        "qualification_scope": "temporal-or-concessive"
+      },
+      "orbit_trace": [
+        {
+          "slot": "subject",
+          "left_chars": 13,
+          "right_chars": 13,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "question",
+          "left_chars": 48,
+          "right_chars": 48,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "evidence",
+          "left_chars": 78,
+          "right_chars": 78,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "answer",
+          "left_chars": 119,
+          "right_chars": 119,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        },
+        {
+          "slot": "qualification",
+          "left_chars": 152,
+          "right_chars": 152,
+          "matched_prefix": 0,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "accepted": false
+        }
+      ],
+      "live_orbit_closed": false,
+      "audit": {
+        "letters": 152,
+        "pointer_exact": false,
+        "sha256_forward": "9a10110128eacc700b051e1866fa98b2581b7d3f30fdf9cca820d0eeabc892b2",
+        "sha256_reverse": "0cb693820b451160f5abbfbf8b1163924ba2302c65b915b66c33ad295cbeb6ac",
+        "sha_equal": false
+      },
+      "admission": {
+        "strict": false,
+        "reader_eligible": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "proper_name_shortcut": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "all_slots_complete": true,
+        "heldout_domains": true
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "rhetorical-role-orbit|heldout-question-answer|all-slot-center|semantic-role-grammar|live-character-orbit",
+    "distinct_from": "registry lanes using clause pairs, CFG/relative attachments, scene schedules, or residual repair; this run freezes a five-role rhetorical sequence and checks every slot in one orbit state"
+  },
+  "provenance": {
+    "audits": [
+      "independent two-pointer character comparison",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed; no candidate is reader-facing without strict admission and human review",
+    "hard_exclusions": [
+      "catalogue text",
+      "proper-name shortcuts",
+      "finished tape reversal",
+      "post-hoc repair",
+      "repeated or mirrored units",
+      "fragments"
+    ]
+  },
+  "next_operator": {
+    "operator": "two-stage orbit-role substitution",
+    "reason": "the frozen five-role bank has zero strict closures; all live mismatches occur before the center can close",
+    "change": "retain the first three role emissions and substitute a held-out answer+qualification pair keyed by the two-character residual, while preserving all-slot checks",
+    "preflight_required": true
+  },
+  "status": "no strict admitted candidate; controls and near-miss orbit traces retained"
+}

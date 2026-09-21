@@ -60,3 +60,10 @@ valency roles. Targets 39--180 (142 lengths) were rerun under live mirrored
 support. Every target reached a one-node root conflict; no exact or frontier
 candidate was rendered. The next operator is a bounded complementizer/tense
 variant on the embedded relative.
+
+The tense continuation adds a separate feature frame with complementizer,
+auxiliary (`has`, `will`, `did`), bare transitive predicate, and explicit
+object. Targets 39--200 (162 lengths) were rerun under live mirrored support;
+every target reached a one-node root conflict and no exact path was rendered.
+The next operator is a bounded aspectual auxiliary variant paired with a
+held-out animate noun.

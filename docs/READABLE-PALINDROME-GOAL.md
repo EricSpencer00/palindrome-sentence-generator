@@ -72,6 +72,56 @@ that benchmark (with the paper's promotion floor at 100 letters), followed by
 the blinded intact-prose versus shuffled-control study. No wrapper, catalogue
 relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
+## Current frontier (2026-09-21 API audit and constructive reset)
+
+- **Live API audit.** The deployed `/api/v3/health` endpoint reports 499
+  generated entries and 14,500 letters of compositional capacity. A deterministic
+  `/api/v3/composition?letters=1200&seed=12` response, with the 38-letter seed
+  supplied as its centre, is 1,196 letters and 342 words; its reported 81
+  chunks are distinct and its normalized tape passes an independent two-pointer
+  check plus equal forward/reverse SHA-256. It is visibly word salad (about
+  28.7% one- or two-letter words), so it is an architectural/provenance
+  reference only. No API text or catalogue unit enters the active search, and
+  the reader gate stays closed.
+
+- **Scaled executable event lattice.** The frozen 27-event, 54-realization
+  lattice expanded 729 event pairs, rejected 727 on semantic preconditions,
+  and left eight live character-obligation states; zero exact closures survived.
+  The next operator is typed recipient/theme/discourse-focus carried through
+  multi-edge paths before lexical realization (`runs/semantic-event-lattice-scale-20260920.json`).
+
+- **Multi-edge event successor.** Three successive authored event edges carried
+  typed actor, recipient, theme, and discourse focus before realization. After
+  enforcing distinct event paths and grammatical surface templates, one intact
+  74-letter control remained and zero exact rows survived. Its next operator is
+  a held-out fourth edge with concessive focus, not a larger lexical sweep
+  (`runs/semantic-event-lattice-multiedge-20260920.json`).
+
+- **Latent discourse storyboard.** Twelve hand-authored scene/mode states
+  produced nine intact prose candidates (maximum 104 letters) and nine
+  same-scene shuffled controls. The shared latent discourse state pruned three
+  branches, but no exact closure survived; no row is reader-eligible
+  (`runs/latent-discourse-storyboard-20260920.json`).
+
+- **Semantic equivalence-class transducer.** Three semantic continuation
+  classes generated six grammatical controls to 72 letters while sharing a
+  latent mode and live opposing-character variables. All six exact frontiers
+  died at the first mismatch; zero exact >38 rows survived. The next operator
+  splits one class by argument role without changing its future-continuation
+  key (`runs/semantic-parity-class-transducer-20260920.json`).
+
+- **Bounded outside-in decoder check.** The existing sentence-plan decoder was
+  rerun on a frozen 400-word vocabulary (two seeds, beam 16, Zipf floor 4.0)
+  and produced zero grammatical candidates and zero exact audits. This closes
+  that small diagnostic configuration; it is not a reason to relax the reader
+  target (`artifacts/outside-in-sentence-decoder-run-20260920.json`).
+
+These runs are materially different search representations, not reward-model
+rerankings or repeated bank sweeps. They still do not improve the admitted
+38-letter result, so the goal remains active. The next promotion requires an
+actual rendered exact candidate, independent audits, shortcut preflight, and
+then blinded intact-versus-shuffled reader evidence.
+
 ## Current frontier (2026-09-16)
 
 ## Current frontier (2026-09-17 solver-correction reset)

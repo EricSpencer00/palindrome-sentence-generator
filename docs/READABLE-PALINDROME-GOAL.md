@@ -7821,6 +7821,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   without inventing an ungrammatical adjacent-word boundary. Artifact:
   `runs/word-boundary-center-phrase-20260921.json`.
 
+- **Seam-aware adjacent-word grammar, 2026-09-21:** replaced the fixed
+  two-word center with neighboring grammar productions: object--determiner,
+  preposition--place noun, auxiliary--clitic/pronoun, and coordination edges.
+  Each production carries number, category, and valency features; character
+  supports are tested at the seam before live outward expansion. The bounded
+  run found 0 compatible seam roots, 0 search nodes, 0 terminals, and 0 exact
+  candidates for the 39+ target. Root conflict witnesses are retained; this
+  topology needs a licensed seam whose neighboring productions have compatible
+  reverse character supports (next operator: clitic contraction or a
+  lexicalized preposition+noun edge), not a larger modifier bank. Artifact:
+  `runs/seam-adjacent-word-grammar-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

@@ -8025,6 +8025,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   with four focus bridges and a minimal cycle-basis rank check. Artifact:
   `runs/seven-event-cycle-basis-20260921.json`.
 
+- **Eight-event cycle-rank graph, 2026-09-21:** added four focus bridges and
+  recorded a minimal cycle-basis rank of 3 while preserving the global
+  endpoint CSP and incremental paired expansion. One 180-letter intact control
+  produced one online check and zero exact closures above 38. The next
+  topology is a nine-event graph with a fifth bridge and rank-stability
+  perturbation. Artifact: `runs/eight-event-cycle-rank-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.
@@ -8132,6 +8139,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   letters; 171 concrete domain conflicts were retained and zero exact closures
   occurred. The next topology is a temporal `when`-CP attached to the object
   NP. Artifact: `runs/cfg-earley-where-copular-cp-20260921.json`.
+
+- **Object-NP temporal CP Earley seam, 2026-09-21:** attached a temporal
+  `when` CP inside the object NP (`VP -> V [NP_obj -> Det N CP]`) before
+  rendering. Three intact controls were 114, 115, and 117 letters; 156
+  concrete domain conflicts were retained and zero exact closures occurred.
+  The next topology is an object-NP whose-possessive CP. Artifact:
+  `runs/cfg-earley-object-np-when-cp-20260921.json`.
 
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`

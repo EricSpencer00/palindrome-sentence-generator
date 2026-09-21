@@ -1,0 +1,149 @@
+{
+  "experiment": "semantic-frame-crossing-residual-20260921",
+  "method": "bounded semantic frame crossing-seam residual emission",
+  "controls": [
+    {
+      "rendered": "The lantern keeper polishes a brass compass before dusk.",
+      "audit": {
+        "letters": 47,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          46
+        ],
+        "sha256": "6bba2405cf6594eeb06ccb61918b948713d50d6c23e1ec5e6ee346f3e0b38ee2",
+        "reverse_sha256": "5d7b50057958984183269d484972f398c2e879c5e06367e5ce7e0c0084a6e400"
+      },
+      "reader_status": "complete prose control"
+    },
+    {
+      "rendered": "The harbor pilot records the tide mark after rain.",
+      "audit": {
+        "letters": 41,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          40
+        ],
+        "sha256": "49ae68df0338f0963f494120ecbfc89fc99b1ab708e25ad5c0dd34fd5fe11181",
+        "reverse_sha256": "4969ee33e63207eef0ddc5995342d618a244d20e550b9d4c40b176d60230424f"
+      },
+      "reader_status": "complete prose control"
+    }
+  ],
+  "candidates": [
+    {
+      "rendered": "The lantern keeper polishes a brass compass before dusk. The harbor pilot records the tide mark after rain.",
+      "audit": {
+        "letters": 88,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          87
+        ],
+        "sha256": "28fe189c180814898aeaea70c197f24761b795df93797567ec5bf257f2e8454f",
+        "reverse_sha256": "29c79a088cab50420c1d9f4a1b09c4663fdee34dccb0f6c1f0db4c1314e6df03"
+      },
+      "semantic_frame": {
+        "left_event": "polishes",
+        "right_event": "records",
+        "left_roles": [
+          "agent",
+          "action",
+          "theme",
+          "temporal"
+        ],
+        "right_roles": [
+          "agent",
+          "action",
+          "theme",
+          "temporal"
+        ]
+      },
+      "live_residual": {
+        "left_residual": "thelanternkeeperpolishesabrasscompassbeforedusk",
+        "right_residual": "theharborpilotrecordsthetidemarkafterrain",
+        "crossing_pairs": 0
+      },
+      "provenance": {
+        "construction": "one hand-authored semantic frame with internal crossing seam",
+        "variable_residuals_across_word_boundaries": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "broad_phrase_sweep": false,
+        "repeated_unit": false,
+        "word_order_mirror": false,
+        "intact_prose": true
+      },
+      "anti_shortcut": {
+        "hidden_palindromic_span": false,
+        "catalogue_text": false,
+        "finished_tape_reversed": false,
+        "word_order_mirror": false
+      }
+    },
+    {
+      "rendered": "The harbor pilot records the tide mark after rain. The lantern keeper polishes a brass compass before dusk.",
+      "audit": {
+        "letters": 88,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          87
+        ],
+        "sha256": "13829602df962eb6e569b98c7fe1a7cfdccc85559685f73bc7d78e88da2424cf",
+        "reverse_sha256": "8d615b7b2513f86d459386a57cadc04e392a499d291772f401bc94ca33eed65b"
+      },
+      "semantic_frame": {
+        "left_event": "records",
+        "right_event": "polishes",
+        "left_roles": [
+          "agent",
+          "action",
+          "theme",
+          "temporal"
+        ],
+        "right_roles": [
+          "agent",
+          "action",
+          "theme",
+          "temporal"
+        ]
+      },
+      "live_residual": {
+        "left_residual": "theharborpilotrecordsthetidemarkafterrain",
+        "right_residual": "thelanternkeeperpolishesabrasscompassbeforedusk",
+        "crossing_pairs": 0
+      },
+      "provenance": {
+        "construction": "one hand-authored semantic frame with internal crossing seam",
+        "variable_residuals_across_word_boundaries": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "broad_phrase_sweep": false,
+        "repeated_unit": false,
+        "word_order_mirror": false,
+        "intact_prose": true
+      },
+      "anti_shortcut": {
+        "hidden_palindromic_span": false,
+        "catalogue_text": false,
+        "finished_tape_reversed": false,
+        "word_order_mirror": false
+      }
+    }
+  ],
+  "stats": {
+    "states": 2,
+    "exact": 0
+  },
+  "next_operator": "Hold out a third temporal adjunct whose first character satisfies the recorded right residual; rerun the complete two-clause audit without editing normalized tape.",
+  "independent_audits": [
+    "two-pointer comparison",
+    "forward/reverse SHA-256"
+  ]
+}

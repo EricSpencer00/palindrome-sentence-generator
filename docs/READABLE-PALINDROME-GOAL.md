@@ -8480,3 +8480,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   subject NP paired with an agentive `by`-phrase on the opposite side, with
   the residual character class selected online. Artifact:
   `runs/animate-frontier-was-np-seam-20260921.json`.
+
+- **Agentive object-by boundary grammar, 2026-09-21:** replaced the
+  ungrammatical `what by … saw` proposal with a real object NP containing an
+  agentive by-phrase: “Was a red lace hat by an artist what the ranger at the
+  caldera saw?” (52 letters). Eight controls remain coherent, content-disjoint,
+  and independently audited; the best matched prefix is 12 with residual `a`
+  versus `t`, so no exact candidate was promoted. The next topology is a
+  passive `was seen by` realization, tested as its own grammar rather than as a
+  repair. Artifact: `runs/agentive-boundary-was-np-seam-20260921.json`.

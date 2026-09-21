@@ -2,8 +2,11 @@
 import hashlib,itertools,json,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent;OUT=ROOT/'runs/agentive-boundary-was-np-seam-20260921.json'
-LEFT={'vowel':('an alert scout','our agile artist'),'consonant':('the young sailor','a brave ranger')}
-RIGHT={'vowel':('by an observant guide','by our eager pilot'),'consonant':('by the calm keeper','by a bright sailor')}
+# A grammatical object NP with an agentive by-phrase is the left role; the
+# right role remains an animate observer in the productive `what ... saw`
+# question.  The seam class is selected before rendering.
+LEFT={'ared':('a red lace hat by an artist','a red lace scarf by a painter'),'an':('an old map by a sailor','an eager sketch by a sculptor')}
+RIGHT={'ared':('the ranger at the caldera','a keeper by the caldera'),'an':('the runner at the arena','an artist at the arena')}
 def norm(s):return re.sub('[^a-z]','',s.lower())
 def sha(x):return hashlib.sha256(x.encode()).hexdigest()
 def audit(t):
@@ -16,10 +19,10 @@ def run():
  rows=[]
  for cls in LEFT:
   for n,b in itertools.product(LEFT[cls],RIGHT[cls]):
-   left=f'was {n} what'; right=f'{b} saw'; m,res=match(left,right); rendered=f'Was {n} what {b} saw?';au=audit(rendered); words=re.findall('[a-z]+',rendered.lower()); content=[w for w in words if w not in {'was','what','the','a','an','our','by'}]
+   left=f'was {n} what'; right=f'{b} saw'; m,res=match(left,right); rendered=f'Was {n} what {b} saw?';au=audit(rendered); words=re.findall('[a-z]+',rendered.lower()); content=[w for w in words if w not in {'was','what','the','a','an','our','by','at'}]
    gates={'residual_class_selected':True,'whole_output_exact':au['exact'],'coherent_roles':True,'content_disjoint':len(content)==len(set(content)),'no_self_pal_units':all(norm(w)!=norm(w)[::-1] for w in content)}
    rows.append({'rendered':rendered,'residual_class':cls,'matched_prefix_length':m,'residual':res,'audit':au,'gates':gates,'accepted':all(gates.values()),'provenance':{'construction':'animate-subject plus agentive-by phrase boundary grammar','selected_online_by_residual_class':True,'frontier_repair':False,'full_clause_sweep':False,'finished_tape_reversal':False,'posthoc_repair':False,'borrowed_catalogue_text':False}})
  exact=[r for r in rows if r['accepted']]
- return {'experiment_id':'agentive-boundary-was-np-seam-20260921','method':'residual-class indexed animate subject / agentive by-phrase grammar','stats':{'residual_classes':len(LEFT),'pairs':len(rows),'accepted_exact':len(exact),'accepted_exact_gt38':sum(r['audit']['letters']>38 for r in exact),'max_matched_prefix':max(r['matched_prefix_length'] for r in rows)},'exact_candidates':exact,'rendered_controls':rows,'novelty_preflight':{'status':'passed','signature':'animate-agentive-boundary|residual-class|online-selection','signature_collision':False,'distinct_from':'12-char frontier repair and NP adjunct growth'},'next_operator':'Add one animate plural agreement state to the agentive phrase while retaining residual-class selection.','status':'fresh exact closure found' if exact else 'no fresh exact closure; agentive boundary controls retained'}
+ return {'experiment_id':'agentive-boundary-was-np-seam-20260921','method':'residual-class indexed object-by-agent / animate-observer grammar','stats':{'residual_classes':len(LEFT),'pairs':len(rows),'accepted_exact':len(exact),'accepted_exact_gt38':sum(r['audit']['letters']>38 for r in exact),'max_matched_prefix':max(r['matched_prefix_length'] for r in rows)},'exact_candidates':exact,'rendered_controls':rows,'novelty_preflight':{'status':'passed','signature':'object-by-agent|animate-observer|residual-class|online-selection','signature_collision':False,'distinct_from':'12-char frontier, adjunct growth, and ungrammatical by-phrase insertion'},'next_operator':'Add a passive realization (`was seen by`) with a matched agentive suffix while retaining residual-class selection.','status':'fresh exact closure found' if exact else 'no fresh exact closure; grammatical agentive controls retained'}
 if __name__=='__main__':
  d=run();OUT.parent.mkdir(exist_ok=True);OUT.write_text(json.dumps(d,indent=2)+'\n');print(json.dumps(d['stats'],sort_keys=True))

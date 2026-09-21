@@ -7833,6 +7833,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   lexicalized preposition+noun edge), not a larger modifier bank. Artifact:
   `runs/seam-adjacent-word-grammar-20260921.json`.
 
+- **Contraction/lexicalized seam, 2026-09-21:** intersected character
+  supports online over ordinary morphological units (`can`+`not`,
+  `will`+`not`, pronoun+auxiliary) and lexicalized preposition edges
+  (`in`+`side`, `with`+`in`, `in`+`to`, `up`+`on`). The seam productions
+  carried morphology/category features and then attempted live grammatical
+  outward expansion. All eight seams failed at initialization: 0 search
+  nodes, 0 terminals, and 0 exact candidates at or above 39 letters. Root
+  witnesses are retained; the next operator is a broader contraction grammar
+  with surface forms whose two morphological supports are reverse-compatible,
+  not another modifier sweep. Artifact:
+  `runs/contraction-lexicalized-seam-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

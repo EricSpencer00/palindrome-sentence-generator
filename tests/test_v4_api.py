@@ -175,6 +175,10 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["three_char_emission_residual_run"]["exact_candidates_over_38"] == 0
     assert method.json()["seam_indexed_clause_variants_run"]["compatible_pairs"] == 576
     assert method.json()["seam_indexed_clause_variants_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["twochar_outer_family_run"]["compatible_pairs"] == 243
+    assert method.json()["twochar_outer_family_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["recursive_semantic_grammar_csp_run"]["recursive_states"] == 36
+    assert method.json()["recursive_semantic_grammar_csp_run"]["exact_candidates_over_38"] == 0
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

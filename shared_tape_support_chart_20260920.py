@@ -151,6 +151,13 @@ def search(n, max_nodes=100, lexicon=LEXICON, binary=BINARY, unary=UNARY, root='
                     stats['truncated'] = True
                     break
                 text = ' '.join(words) + '.'
+                if ('S', 'C', 'C') in binary:
+                    position = 0
+                    for split, word in enumerate(words[:-1], 1):
+                        position += len(normalize(word))
+                        if ('C', 0, position) in forest and ('C', position, n) in forest:
+                            text = ' '.join(words[:split]) + '; ' + ' '.join(words[split:]) + '.'
+                            break
                 check = audit(text)
                 assert check['exact']
                 outputs.append({'rendered': text, 'audit': check, 'words': words})
@@ -164,6 +171,45 @@ def search(n, max_nodes=100, lexicon=LEXICON, binary=BINARY, unary=UNARY, root='
     stats['status'] = 'SAT' if outputs else ('UNKNOWN' if stats['truncated'] else 'UNSAT')
     return {'target_letters': n, 'stats': stats, 'root_propagation': root_trace,
             'exact_candidates': outputs}
+
+def calibration_grammar(broader=False):
+    """Seed lexical ingredients only; no stored sentence or character tape."""
+    lexicon = {'AN': ('an',), 'AIDE': ('aide',), 'PSG': ('Diana',),
+               'RIPS': ('rips',), 'NUM': ('nine',), 'MEMOS': ('memos',),
+               'SOME': ('some',), 'MEN': ('men',), 'INSPIRE': ('inspire',)}
+    binary = (('PSG', 'AN', 'AIDE'), ('OBJP', 'NUM', 'MEMOS'),
+              ('PPL', 'SOME', 'MEN'), ('VPSG', 'RIPS', 'OBJP'),
+              ('VPPL', 'INSPIRE', 'PSG'), ('C', 'PSG', 'VPSG'),
+              ('C', 'PPL', 'VPPL'), ('S', 'C', 'C'))
+    if broader:
+        lexicon = {**LEXICON, **lexicon}
+        lexicon.update({'AIDE': ('aide', 'actor', 'artist'),
+                        'PSG': ('Diana', 'Leon', 'Mira', 'Nora'),
+                        'RIPS': ('rips', 'tears', 'sorts', 'keeps'),
+                        'NUM': ('nine', 'six', 'ten'),
+                        'MEMOS': ('memos', 'notes', 'letters', 'maps'),
+                        'SOME': ('some', 'several'),
+                        'MEN': ('men', 'poets', 'sailors'),
+                        'INSPIRE': ('inspire', 'admire', 'greet', 'help'),
+                        'SOCIAL': ('inspires', 'admires', 'greets', 'helps')})
+        binary += BINARY + (('VPSG', 'SOCIAL', 'PSG'),)
+    return lexicon, binary, UNARY
+
+def calibrated_run():
+    tiny = calibration_grammar()
+    broad = calibration_grammar(True)
+    calibration = search(38, 1000, *tiny)
+    seed_words = 'an aide rips nine memos some men inspire diana'.split()
+    recovered = any([w.lower() for w in row['words']] == seed_words
+                    for row in calibration['exact_candidates'])
+    assert recovered, 'Known seed must be recovered before interpreting held-out runs'
+    return {'experiment_id': 'shared-tape-support-chart-calibrated-20260920',
+            'calibration_only': calibration, 'seed_recovered': recovered,
+            'held_out_results': [search(n, 100, *broad) for n in (39, 40, 44, 48, 60)],
+            'provenance': {'seed_lexical_inventory_explicit': True,
+                           'calibration_is_promotion': False,
+                           'readability_established': False},
+            'reader_facing_candidates': []}
 
 def run():
     controls = ['The guard reads a letter.', 'Diana writes a poem while Leon studies a map.']
@@ -186,4 +232,5 @@ def run():
             'reader_facing_candidates': []}
 
 if __name__ == '__main__':
-    print(json.dumps(run(), indent=2))
+    import sys
+    print(json.dumps(calibrated_run() if '--calibrate' in sys.argv else run(), indent=2))

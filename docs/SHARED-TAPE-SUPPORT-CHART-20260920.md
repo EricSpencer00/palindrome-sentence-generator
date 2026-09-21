@@ -40,6 +40,28 @@ named objects, changing the final argument category. Increasing the current
 text-noun product does not address this conflict. The chart is a reusable
 correctness foundation, not evidence of readable-palindrome progress.
 
+## Separate calibration and argument-frame repair
+
+The `--calibrate` mode supplies lexical categories for the known 38-letter
+benchmark, without storing its letter tape in the solver. It recovers “an aide
+rips nine memos; some men inspire Diana.” in three search nodes and seven
+propagation rounds. This recovery is explicitly calibration, never promotion.
+The independent regression test verifies its normalized tape.
+
+The follow-up then adds person-object predicates, singular/plural agreement
+frames, quantified plural objects, alternate people and names, and the original
+recursive reading/writing grammar. Target lengths 39, 40, 44, 48, and 60 each
+become UNSAT at the root in three to five propagation rounds. The repair therefore
+removes the initial text-object bottleneck but does not produce a longer result.
+Five tests now pass on `hst-bench`. The separate evidence is
+`runs/shared-tape-support-chart-calibrated-20260920.json`.
+
+The next structural addition should be an object-relative clause with a bound
+object gap. That permits the terminal word to be a finite predicate, rather than
+another noun or name, while retaining an explicit argument dependency. It should
+be accompanied by positive grammatical and negative missing-argument tests,
+then subjected to the same root-support analysis.
+
 Files: `shared_tape_support_chart_20260920.py`,
 `tests/test_shared_tape_support_chart_20260920.py`, and
 `runs/shared-tape-support-chart-20260920.json`.

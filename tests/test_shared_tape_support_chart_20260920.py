@@ -1,5 +1,11 @@
 from shared_tape_support_chart_20260920 import chart, propagate, search, normalize, LEXICON, BINARY, UNARY
 
+def test_seed_recovery_is_separate_calibration():
+    from shared_tape_support_chart_20260920 import calibration_grammar
+    result = search(38, 1000, *calibration_grammar())
+    assert any(normalize(row['rendered']) == 'anaideripsninememossomemeninspirediana'
+               for row in result['exact_candidates'])
+
 def test_variable_boundaries_and_odd_center():
     result = search(5, lexicon={'A': ('ab',), 'B': ('cba',)},
                     binary=(('S', 'A', 'B'),), unary=())

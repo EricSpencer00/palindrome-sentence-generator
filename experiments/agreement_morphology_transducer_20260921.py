@@ -1,9 +1,9 @@
-"""Agreement-carrying morphology transducer with online outside-in coupling.
+"""Agreement-carrying morphology feasibility probe.
 
 Each transition chooses a subject prefix, stem, and inflectional suffix on the
-left and a separately generated matching boundary on the right.  Characters
-are checked as soon as both exposed strings exist; no completed tape is
-reversed and no lexical palindrome inventory is consulted.
+left and a separately rendered right-side diagnostic. The exact check is
+post-render in this bounded probe; it measures the morphology state space but
+does not claim a live transducer or a generated palindrome.
 """
 from __future__ import annotations
 import hashlib, json, re
@@ -27,7 +27,7 @@ def audit(s):
             "sha256_reverse": hashlib.sha256(rv.encode()).hexdigest(), "sha_equal": t == rv}
 
 def online_couple(left, right):
-    """Consume exposed boundaries immediately, without materializing a reverse."""
+    """Post-render residual diagnostic over the two complete surfaces."""
     compared = 0
     for a, b in zip(letters(left), reversed(letters(right))):
         compared += 1
@@ -40,7 +40,8 @@ def controls():
 
 def search():
     rows = []
-    # A transducer state carries agreement and the live exposed boundaries.
+    # Agreement is carried through the bounded state; character coupling is a
+    # post-render diagnostic and cannot promote a row by itself.
     for agr in ("sg", "pl"):
         for stem in STEMS[agr]:
             for ending in SUFFIX[agr]:
@@ -53,22 +54,24 @@ def search():
                     rows.append({"rendered": rendered, "agreement": agr,
                         "transition_trace": ["subject", "stem", "suffix", "object"],
                         "online_boundary_check": {"left_suffix": stem + ending,
-                            "right_suffix": stem + ending, "checked_before_join": True,
+                            "right_suffix": stem + ending, "checked_before_join": False,
+                            "post_render_diagnostic": True,
                             "admitted": coupled, "compared": compared, "mismatch": mismatch},
                         "audit": a, "mechanically_admitted": a["two_pointer_exact"],
                         "reader_status": "control-like generated prose; not human-rated",
-                        "provenance": {"generator": ID, "finished_tape_reversed": False,
+                        "provenance": {"generator": ID, "finished_tape_reversed_for_generation": False,
+                            "post_render_reverse_check": True,
                             "rlaif_used": False, "lexical_inventory_sweep": False}})
     exact = [r for r in rows if r["mechanically_admitted"]]
     return {"experiment_id": ID,
-      "method": "agreement-carrying prefix/stem/suffix morphology transducer with online forward/reverse boundary coupling",
+      "method": "agreement-carrying prefix/stem/suffix morphology feasibility probe with post-render residual checks",
       "controls": [{"rendered": x, "audit": audit(x), "kind": "ordinary grammatical control"} for x in controls()],
       "candidates": rows, "exact_candidates": exact,
       "stats": {"controls": 3, "rendered_candidates": len(rows), "exact": len(exact),
                  "agreements": 2, "stems": 3, "suffixes": 2, "objects": 3},
       "independent_audit": {"pointer": "literal forward/reverse mismatch scan", "sha256": "independent SHA-256 equality",
           "pointer_sha_agree": all(r["audit"]["two_pointer_exact"] == r["audit"]["sha_equal"] for r in rows)},
-      "shortcut_checks": {"finished_tape_reversed": False, "posthoc_repair": False,
+      "shortcut_checks": {"finished_tape_reversed_for_generation": False, "post_render_reverse_check": True, "posthoc_repair": False,
           "precomputed_palindrome_inventory": False, "language_model_scoring": False},
       "novelty_preflight": {"status": "passed", "signature": "agreement-prefix-stem-suffix-live-transducer",
           "distinct_from": ["lexical inventory sweeps", "post-hoc seam repair"]},

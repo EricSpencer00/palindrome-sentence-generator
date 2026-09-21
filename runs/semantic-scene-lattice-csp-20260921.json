@@ -1,10 +1,10 @@
 {
   "experiment_id": "semantic-scene-lattice-csp-20260921",
-  "method": "human-authored semantic scene lattice with typed valency/attachment choices and live character-level CSP",
+  "method": "semantic scene lattice diagnostic with typed valency and explicit shortcut rejection",
   "stats": {
     "nodes": 4,
-    "exact": 4,
-    "novel_exact": 4,
+    "exact_diagnostic": 4,
+    "novel_exact_diagnostic": 4,
     "prior_exact_collisions": 0,
     "mechanically_admitted": 0,
     "longest_exact_letters": 58,
@@ -47,6 +47,12 @@
         "local_catalogue_absent": true
       },
       "mechanically_admitted": false,
+      "candidate_status": "exact_diagnostic_rejected_shortcut_gate",
+      "shortcut_rejections": [
+        "self_palindromic_word_unit",
+        "semordnilap_word_pair",
+        "reversed_attachment_fragment"
+      ],
       "csp": {
         "typed_valency": [
           "locative"
@@ -61,10 +67,10 @@
         "catalogue_imported": false,
         "finished_tape_reversed": false,
         "word_order_mirror": false,
-        "repeated_self_palindromic_unit": false,
+        "repeated_self_palindromic_unit": true,
         "prior_tape_collision": false
       },
-      "reader_status": "unreviewed"
+      "reader_status": "not_run; rejected before reader gate"
     },
     {
       "rendered": "Ada sees a tac in a civic hall; llah civic a ni cat a sees Ada.",
@@ -99,6 +105,12 @@
         "local_catalogue_absent": true
       },
       "mechanically_admitted": false,
+      "candidate_status": "exact_diagnostic_rejected_shortcut_gate",
+      "shortcut_rejections": [
+        "self_palindromic_word_unit",
+        "semordnilap_word_pair",
+        "reversed_attachment_fragment"
+      ],
       "csp": {
         "typed_valency": [
           "locative"
@@ -113,10 +125,10 @@
         "catalogue_imported": false,
         "finished_tape_reversed": false,
         "word_order_mirror": false,
-        "repeated_self_palindromic_unit": false,
+        "repeated_self_palindromic_unit": true,
         "prior_tape_collision": false
       },
-      "reader_status": "unreviewed"
+      "reader_status": "not_run; rejected before reader gate"
     },
     {
       "rendered": "Otto meets a racecar at noon; noon ta racecar a steem Otto.",
@@ -151,6 +163,12 @@
         "local_catalogue_absent": true
       },
       "mechanically_admitted": false,
+      "candidate_status": "exact_diagnostic_rejected_shortcut_gate",
+      "shortcut_rejections": [
+        "self_palindromic_word_unit",
+        "semordnilap_word_pair",
+        "reversed_attachment_fragment"
+      ],
       "csp": {
         "typed_valency": [
           "time"
@@ -165,10 +183,10 @@
         "catalogue_imported": false,
         "finished_tape_reversed": false,
         "word_order_mirror": false,
-        "repeated_self_palindromic_unit": false,
+        "repeated_self_palindromic_unit": true,
         "prior_tape_collision": false
       },
-      "reader_status": "unreviewed"
+      "reader_status": "not_run; rejected before reader gate"
     },
     {
       "rendered": "Ada sees a tac at noon; noon ta cat a sees Ada.",
@@ -203,6 +221,12 @@
         "local_catalogue_absent": true
       },
       "mechanically_admitted": false,
+      "candidate_status": "exact_diagnostic_rejected_shortcut_gate",
+      "shortcut_rejections": [
+        "self_palindromic_word_unit",
+        "semordnilap_word_pair",
+        "reversed_attachment_fragment"
+      ],
       "csp": {
         "typed_valency": [
           "time"
@@ -217,10 +241,10 @@
         "catalogue_imported": false,
         "finished_tape_reversed": false,
         "word_order_mirror": false,
-        "repeated_self_palindromic_unit": false,
+        "repeated_self_palindromic_unit": true,
         "prior_tape_collision": false
       },
-      "reader_status": "unreviewed"
+      "reader_status": "not_run; rejected before reader gate"
     }
   ],
   "independent_audit": [
@@ -229,17 +253,20 @@
     "independent normalized residual equality"
   ],
   "shortcut_gates": {
-    "no_posthoc_finished_tape_reverse": true,
-    "no_catalogue_or_repeated_unit": true,
+    "no_posthoc_finished_tape_reverse": false,
+    "reversed_attachment_fragment": true,
+    "self_palindromic_word_units": true,
+    "no_catalogue_import": true,
     "no_generic_parameter_sweep": true,
-    "live_residual_obligation": true
+    "live_residual_obligation": true,
+    "reader_gate": "closed; all exact rows rejected before readers"
   },
   "novelty_preflight": {
-    "status": "passed",
+    "status": "diagnostic_boundary",
     "prior_run_tapes_scanned": 30,
     "exact_collisions": 0,
-    "no_posthoc_reversal": true,
+    "no_posthoc_reversal": false,
     "no_catalogue_import": true
   },
-  "next_operator": "author a fresh transitive frame whose reverse-compatible object is an ordinary noun, then add an independent blinded readability gate before widening the lattice"
+  "next_operator": "author a fresh transitive frame whose opposing lexicalization is independently grammatical on both sides; do not reverse any emitted phrase fragment"
 }

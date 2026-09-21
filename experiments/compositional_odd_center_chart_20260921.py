@@ -1,8 +1,8 @@
-"""Constructive typed grammar chart for odd-center character palindromes.
+"""Audit an odd-center chart boundary without promoting catalogue text.
 
-The chart composes small, feature-agreeing phrase paths while a deque of
-opposite-character obligations is updated at every token boundary.  It is
-deliberately independent of the word-boundary/product and repair families.
+This early probe uses familiar canonical palindromes as controls.  It is kept
+because it tests the odd-center verifier, but those controls are not generated
+outputs and cannot advance the readable-prose frontier.
 """
 from __future__ import annotations
 import hashlib, json, re
@@ -64,7 +64,7 @@ def main() -> None:
                            "exact": ok, "odd_center": len(norm(rendered)) % 2 == 1,
                            "center": norm(rendered)[len(norm(rendered))//2] if norm(rendered) else None,
                            "obligation_trace": trace, "grammar_path": ["S", "NP", "VP"],
-                           "typed_agreement": True, "candidate_kind":"constructed"})
+                           "typed_agreement": True, "candidate_kind":"catalogue_control"})
     controls=[]
     for row in candidates:
         w=row["rendered"].rstrip(".").split(); w[0],w[-1]=w[-1],w[0]
@@ -74,7 +74,8 @@ def main() -> None:
     for row in candidates + controls:
         n=row["normalized"]; independently = n == n[::-1] and len(n)%2==1
         audited.append({**row,"independent_exact":independently,"pointer_check":{"left":n,"right_reversed":n[::-1],"equal":n==n[::-1]},"sha256":sha(row["rendered"])})
-    out={"experiment_id":EXPERIMENT_ID,"status":"EXACT_SURVIVORS","method":"typed compositional grammar chart with deque opposing-character obligations and explicit odd center","grammar":{"nonterminals":["S","NP","VP"],"typed_agreement":True,"paths":paths},"candidates":audited,"controls":controls,"stats":{"candidate_count":len(candidates),"exact":sum(x["independent_exact"] for x in audited),"odd_center":sum(x["odd_center"] for x in audited if x["candidate_kind"]=="constructed"),"obligation_mismatches":sum(not t["ok"] for x in candidates for t in x["obligation_trace"])},"shortcut_gates":{"equal_length_clause_product":False,"repair":False,"RLAIF":False,"word_boundary_only":False,"opposing_obligations_during_search":True,"grammar_agreement_gate":True,"reader_gate":"open only for independently exact constructed rows"},"provenance":{"seed_corpus":"curated canonical prose controls; no model generation","code_sha256":sha(Path(__file__).read_text()),"independent_verifier":"normalized pointer equality plus SHA-256 of rendered surface","run_path":str(RUN)},"next_construction":"replace curated seed paths with a larger typed clause chart that retains odd centers and audits every prefix obligation"}
+    out={"experiment_id":EXPERIMENT_ID,"status":"DIAGNOSTIC_CATALOGUE_CONTROLS","method":"odd-center verifier preflight over canonical controls; no generated prose is claimed","grammar":{"nonterminals":["S","NP","VP"],"typed_agreement":True,"paths":paths},"catalogue_controls":audited,"controls":controls,"stats":{"control_count":len(candidates),"catalogue_control_exact":sum(x["independent_exact"] for x in audited),"odd_center":sum(x["odd_center"] for x in audited if x["candidate_kind"]=="catalogue_control"),"obligation_mismatches":sum(not t["ok"] for x in candidates for t in x["obligation_trace"])},"shortcut_gates":{"equal_length_clause_product":False,"repair":False,"RLAIF":False,"word_boundary_only":False,"opposing_obligations_during_search":False,"finished_tape_comparison":True,"canonical_catalogue_text":True,"reader_gate":"closed; controls are not generated candidates"},"provenance":{"seed_corpus":"curated canonical palindrome controls; not generated and not reader evidence","code_sha256":sha(Path(__file__).read_text()),"independent_verifier":"normalized pointer equality plus SHA-256 of rendered surface","run_path":str(RUN)},"next_construction":"replace canonical controls with a genuinely generated typed clause chart that expands both sides under live odd-center obligations"}
     RUN.write_text(json.dumps(out,indent=2)+"\n")
-    print(json.dumps({"run":str(RUN),"exact":out["stats"]["exact"],"candidates":len(candidates)}))
-if __name__ == "__main__": main()
+    print(json.dumps({"run":str(RUN),"catalogue_control_exact":out["stats"]["catalogue_control_exact"],"controls":len(candidates)}))
+if __name__ == "__main__":
+    main()

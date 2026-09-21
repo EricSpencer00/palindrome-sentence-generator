@@ -1,7 +1,7 @@
 {
   "experiment_id": "compositional-odd-center-chart-20260921",
-  "status": "EXACT_SURVIVORS",
-  "method": "typed compositional grammar chart with deque opposing-character obligations and explicit odd center",
+  "status": "DIAGNOSTIC_CATALOGUE_CONTROLS",
+  "method": "odd-center verifier preflight over canonical controls; no generated prose is claimed",
   "grammar": {
     "nonterminals": [
       "S",
@@ -72,7 +72,7 @@
       }
     ]
   },
-  "candidates": [
+  "catalogue_controls": [
     {
       "rendered": "A man a plan a canal panama.",
       "normalized": "amanaplanacanalpanama",
@@ -213,7 +213,7 @@
         "VP"
       ],
       "typed_agreement": true,
-      "candidate_kind": "constructed",
+      "candidate_kind": "catalogue_control",
       "independent_exact": true,
       "pointer_check": {
         "left": "amanaplanacanalpanama",
@@ -338,7 +338,7 @@
         "VP"
       ],
       "typed_agreement": true,
-      "candidate_kind": "constructed",
+      "candidate_kind": "catalogue_control",
       "independent_exact": true,
       "pointer_check": {
         "left": "madaminedenimadam",
@@ -475,7 +475,7 @@
         "VP"
       ],
       "typed_agreement": true,
-      "candidate_kind": "constructed",
+      "candidate_kind": "catalogue_control",
       "independent_exact": true,
       "pointer_check": {
         "left": "ablewasiereisawelba",
@@ -545,8 +545,8 @@
     }
   ],
   "stats": {
-    "candidate_count": 3,
-    "exact": 4,
+    "control_count": 3,
+    "catalogue_control_exact": 4,
     "odd_center": 3,
     "obligation_mismatches": 0
   },
@@ -555,15 +555,16 @@
     "repair": false,
     "RLAIF": false,
     "word_boundary_only": false,
-    "opposing_obligations_during_search": true,
-    "grammar_agreement_gate": true,
-    "reader_gate": "open only for independently exact constructed rows"
+    "opposing_obligations_during_search": false,
+    "finished_tape_comparison": true,
+    "canonical_catalogue_text": true,
+    "reader_gate": "closed; controls are not generated candidates"
   },
   "provenance": {
-    "seed_corpus": "curated canonical prose controls; no model generation",
-    "code_sha256": "2e58d3214d806a8cbf5f3292f40563785553eed355507b905e0934f0adb50cdc",
+    "seed_corpus": "curated canonical palindrome controls; not generated and not reader evidence",
+    "code_sha256": "0d0d91f41a6b3df680b0e9817d2f7078b6f7c9f58b2daf0ace0050ef8e77f71f",
     "independent_verifier": "normalized pointer equality plus SHA-256 of rendered surface",
     "run_path": "/Users/eric/GitHub/palindrome-sentence-generator/runs/compositional-odd-center-chart-20260921.json"
   },
-  "next_construction": "replace curated seed paths with a larger typed clause chart that retains odd centers and audits every prefix obligation"
+  "next_construction": "replace canonical controls with a genuinely generated typed clause chart that expands both sides under live odd-center obligations"
 }

@@ -193,6 +193,21 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   its next construction is an adjunct/relative-clause expansion while keeping
   the same exact chart (`runs/grammar-coupled-centerout-chart-real-20260921.json`).
 
+- **Three-lane follow-up audit.** The odd-center chart produced four exact
+  familiar palindromes, but they are canonical controls rather than generated
+  prose and are explicitly excluded
+  (`runs/compositional-odd-center-chart-20260921.json`). The
+  agreement-carrying morphology transducer rendered 36 typed
+  prefix/stem/suffix combinations with zero exact closures
+  (`runs/agreement-morphology-transducer-20260921.json`). The semantic-scene
+  lattice reached exact diagnostic rows up to 58 letters, but every row uses a
+  self-palindromic/semordnilap unit or a reversed attachment fragment (for
+  example, “Otto meets a racecar in a civic hall; llah civic a ni racecar a
+  steem Otto.”); all four were rejected before the reader gate
+  (`runs/semantic-scene-lattice-csp-20260921.json`). These results narrow the
+  next method to independently grammatical opposing lexicalizations rather
+  than accepting larger exact-but-shortcut rows.
+
 - **Historical-artifact re-audit.** The repository also contains a 106-letter
   exact insertion that preserves the 38-letter seed and inserts reverse lexical
   pairs at an ungrammatical seam. It remains explicitly withdrawn; a larger

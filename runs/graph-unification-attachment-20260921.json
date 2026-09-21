@@ -1,14 +1,14 @@
 {
   "experiment_id": "graph-unification-attachment-20260921",
-  "method": "graph-unification dependency solver with held-out benefactive/causal attachment; bilateral mirrored-character support domains intersected during yield streaming",
+  "method": "graph-unification dependency solver with held-out instrumental-causal attachment; bilateral mirrored-character support domains intersected during incremental yield",
   "stats": {
-    "trees": 4,
-    "graph_edges": 12,
-    "online_support_checks": 18,
-    "online_prunes": 12,
+    "trees": 5,
+    "graph_edges": 20,
+    "online_support_checks": 28,
+    "online_prunes": 20,
     "rendered_controls": 12,
     "exact_gt38": 0,
-    "max_letters": 118
+    "max_letters": 131
   },
   "exact_candidates": [],
   "reader_facing_candidates": [],
@@ -34,6 +34,13 @@
           "prep": "for",
           "beneficiary": "the new class"
         }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "root->argument"
+        ],
+        "event_nodes_unified": true
       },
       "online_support": {
         "accepted": false,
@@ -88,6 +95,13 @@
           "cause": "because the signal failed"
         }
       },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "root->argument"
+        ],
+        "event_nodes_unified": true
+      },
       "online_support": {
         "accepted": false,
         "checks": 2,
@@ -141,6 +155,13 @@
           "cause": "when the river rose"
         }
       },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "root->argument"
+        ],
+        "event_nodes_unified": true
+      },
       "online_support": {
         "accepted": false,
         "checks": 2,
@@ -155,6 +176,68 @@
         "sha_equal": false,
         "forward_sha256": "a959f2a1d187c47fb8cf7dfa21e14a8de51918acd66f9d8bd5ce928534ea39fc",
         "reverse_sha256": "27a79cf9eb939b126cd428f92dc13124294b78c428cb45f5e707cf3261037f0b",
+        "repeated_units": true,
+        "nested_self_palindrome": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false
+      },
+      "provenance": {
+        "fresh_authored_dependency_trees": true,
+        "graph_unification_before_render": true,
+        "heldout_attachment": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "reward_loop": false
+      }
+    },
+    {
+      "rendered": "the careful baker delivered the parcel the warm loaf for the night nurse. the careful ranger opened the locked gate with the brass key because the storm passed.",
+      "trees": {
+        "left": {
+          "kind": "benefactive",
+          "subject": "the careful baker",
+          "verb": "delivered",
+          "recipient": "the parcel",
+          "theme": "the warm loaf",
+          "prep": "for",
+          "beneficiary": "the night nurse"
+        },
+        "right": {
+          "kind": "instrumental_causal",
+          "subject": "the careful ranger",
+          "verb": "opened",
+          "theme": "the locked gate",
+          "instrument": "with the brass key",
+          "cause": "because the storm passed",
+          "attachment_index": "event.opened.instrument->cause"
+        }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "event.opened.instrument->cause"
+        ],
+        "event_nodes_unified": true
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 1,
+        "domains": "character intersection while streaming terminals",
+        "frontier_survived": true,
+        "frontier_length": 67
+      },
+      "complete_prose": true,
+      "audit": {
+        "letters": 131,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "e765467a3f74d09e809304e65e344bd662c31523ce48f61a465040975c1a7714",
+        "reverse_sha256": "a98722b547417173e345765fb4665b7340a2aef6d47403c9cdf6d58109bc7b73",
         "repeated_units": true,
         "nested_self_palindrome": false,
         "mirrored_units": false,
@@ -195,6 +278,13 @@
           "prep": "for",
           "beneficiary": "the night nurse"
         }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "root->argument"
+        ],
+        "event_nodes_unified": true
       },
       "online_support": {
         "accepted": false,
@@ -249,6 +339,13 @@
           "cause": "because the signal failed"
         }
       },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "root->argument"
+        ],
+        "event_nodes_unified": true
+      },
       "online_support": {
         "accepted": false,
         "checks": 1,
@@ -302,6 +399,13 @@
           "cause": "when the river rose"
         }
       },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "root->argument"
+        ],
+        "event_nodes_unified": true
+      },
       "online_support": {
         "accepted": false,
         "checks": 1,
@@ -316,6 +420,68 @@
         "sha_equal": false,
         "forward_sha256": "5f9bd03bd65a9501f6ae8988910055547663cd7a00ce2db6553c4ce0ade19cf0",
         "reverse_sha256": "c92f4b405d1f6881032d76d96c23161edd65e1f147a6848a199673a5cab4cc1b",
+        "repeated_units": true,
+        "nested_self_palindrome": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false
+      },
+      "provenance": {
+        "fresh_authored_dependency_trees": true,
+        "graph_unification_before_render": true,
+        "heldout_attachment": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "reward_loop": false
+      }
+    },
+    {
+      "rendered": "a patient teacher prepared the child a clear lesson for the new class. the careful ranger opened the locked gate with the brass key because the storm passed.",
+      "trees": {
+        "left": {
+          "kind": "benefactive",
+          "subject": "a patient teacher",
+          "verb": "prepared",
+          "recipient": "the child",
+          "theme": "a clear lesson",
+          "prep": "for",
+          "beneficiary": "the new class"
+        },
+        "right": {
+          "kind": "instrumental_causal",
+          "subject": "the careful ranger",
+          "verb": "opened",
+          "theme": "the locked gate",
+          "instrument": "with the brass key",
+          "cause": "because the storm passed",
+          "attachment_index": "event.opened.instrument->cause"
+        }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "event.opened.instrument->cause"
+        ],
+        "event_nodes_unified": true
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 2,
+        "domains": "character intersection while streaming terminals",
+        "frontier_survived": true,
+        "frontier_length": 66
+      },
+      "complete_prose": true,
+      "audit": {
+        "letters": 128,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "17e4a776c780c0ff639fb9514d8eea560d306597befbfecfe0785942be36c071",
+        "reverse_sha256": "a51db5108151aedfb031d53be79568017a6d21c209a88b69fe627247f461ecdb",
         "repeated_units": true,
         "nested_self_palindrome": false,
         "mirrored_units": false,
@@ -354,6 +520,13 @@
           "prep": "for",
           "beneficiary": "the night nurse"
         }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "root->argument"
+        ],
+        "event_nodes_unified": true
       },
       "online_support": {
         "accepted": false,
@@ -408,6 +581,13 @@
           "beneficiary": "the new class"
         }
       },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "root->argument"
+        ],
+        "event_nodes_unified": true
+      },
       "online_support": {
         "accepted": false,
         "checks": 1,
@@ -459,6 +639,13 @@
           "cause": "when the river rose"
         }
       },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "root->argument"
+        ],
+        "event_nodes_unified": true
+      },
       "online_support": {
         "accepted": false,
         "checks": 2,
@@ -493,143 +680,46 @@
       }
     },
     {
-      "rendered": "a quiet warning changed the village plan when the river rose. the careful baker delivered the parcel the warm loaf for the night nurse.",
+      "rendered": "the sudden storm delayed the evening train because the signal failed. the careful ranger opened the locked gate with the brass key because the storm passed.",
       "trees": {
         "left": {
           "kind": "causal",
-          "subject": "a quiet warning",
-          "verb": "changed",
-          "theme": "the village plan",
-          "cause": "when the river rose"
+          "subject": "the sudden storm",
+          "verb": "delayed",
+          "theme": "the evening train",
+          "cause": "because the signal failed"
         },
         "right": {
-          "kind": "benefactive",
-          "subject": "the careful baker",
-          "verb": "delivered",
-          "recipient": "the parcel",
-          "theme": "the warm loaf",
-          "prep": "for",
-          "beneficiary": "the night nurse"
+          "kind": "instrumental_causal",
+          "subject": "the careful ranger",
+          "verb": "opened",
+          "theme": "the locked gate",
+          "instrument": "with the brass key",
+          "cause": "because the storm passed",
+          "attachment_index": "event.opened.instrument->cause"
         }
       },
-      "online_support": {
-        "accepted": false,
-        "checks": 2,
-        "domains": "character intersection while streaming terminals",
-        "frontier_survived": true,
-        "frontier_length": 57
-      },
-      "complete_prose": true,
-      "audit": {
-        "letters": 110,
-        "pointer_exact": false,
-        "sha_equal": false,
-        "forward_sha256": "352ee5df5281660e749a670f34c41bd4a53250c04cee6559927f2de53a9ca90e",
-        "reverse_sha256": "2202af28de7f644113b835c4b02dd1a0cb25368d43eb7ba3699a315bd11c6196",
-        "repeated_units": true,
-        "nested_self_palindrome": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false
-      },
-      "provenance": {
-        "fresh_authored_dependency_trees": true,
-        "graph_unification_before_render": true,
-        "heldout_attachment": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "reward_loop": false
-      }
-    },
-    {
-      "rendered": "a quiet warning changed the village plan when the river rose. a patient teacher prepared the child a clear lesson for the new class.",
-      "trees": {
-        "left": {
-          "kind": "causal",
-          "subject": "a quiet warning",
-          "verb": "changed",
-          "theme": "the village plan",
-          "cause": "when the river rose"
-        },
-        "right": {
-          "kind": "benefactive",
-          "subject": "a patient teacher",
-          "verb": "prepared",
-          "recipient": "the child",
-          "theme": "a clear lesson",
-          "prep": "for",
-          "beneficiary": "the new class"
-        }
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "event.opened.instrument->cause"
+        ],
+        "event_nodes_unified": true
       },
       "online_support": {
         "accepted": false,
         "checks": 1,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 55
+        "frontier_length": 66
       },
       "complete_prose": true,
       "audit": {
-        "letters": 107,
+        "letters": 129,
         "pointer_exact": false,
         "sha_equal": false,
-        "forward_sha256": "c9ef9ba98446f0d452d1b7875539adfd78ca932866ad0bc650d2db8cb30bb17f",
-        "reverse_sha256": "21b614e8c83c10d90eadf66f8896e295e4bbfab86e7418f334f59a6f9aee115b",
-        "repeated_units": true,
-        "nested_self_palindrome": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false
-      },
-      "provenance": {
-        "fresh_authored_dependency_trees": true,
-        "graph_unification_before_render": true,
-        "heldout_attachment": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "reward_loop": false
-      }
-    },
-    {
-      "rendered": "a quiet warning changed the village plan when the river rose. the sudden storm delayed the evening train because the signal failed.",
-      "trees": {
-        "left": {
-          "kind": "causal",
-          "subject": "a quiet warning",
-          "verb": "changed",
-          "theme": "the village plan",
-          "cause": "when the river rose"
-        },
-        "right": {
-          "kind": "causal",
-          "subject": "the sudden storm",
-          "verb": "delayed",
-          "theme": "the evening train",
-          "cause": "because the signal failed"
-        }
-      },
-      "online_support": {
-        "accepted": false,
-        "checks": 2,
-        "domains": "character intersection while streaming terminals",
-        "frontier_survived": true,
-        "frontier_length": 56
-      },
-      "complete_prose": true,
-      "audit": {
-        "letters": 108,
-        "pointer_exact": false,
-        "sha_equal": false,
-        "forward_sha256": "f18462a6b93f794af084e94513bd5bc56d01f6a49047b3c90aca7fe65294b67a",
-        "reverse_sha256": "89713e55e6d6ec6c946de13cdef65d86225dcf79ed99ccc4cf0aa07f885b5502",
+        "forward_sha256": "45362c1ccc2fbccb27df50a7779247c43ee45f93ab6e060af13ed1fdda9b060a",
+        "reverse_sha256": "f7bfaf25b91464d643c6e6cb0f366649764903f3e5e950bb3b58b66d13d5a027",
         "repeated_units": true,
         "nested_self_palindrome": false,
         "mirrored_units": false,
@@ -653,8 +743,8 @@
   "novelty_preflight": {
     "status": "passed",
     "registry_inspected": true,
-    "signature": "fresh-authored|dependency-graph-unification|benefactive-causal-holdout|online-character-support",
-    "distinct_from": "dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; complete trees unify attachment arcs before lexical yield",
+    "signature": "fresh-authored|dependency-graph-unification|instrumental-causal-event-index|online-character-support",
+    "distinct_from": "dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; event attachment indices unify before lexical yield",
     "forbidden_inputs": [
       "38-letter anchor",
       "finished-tape reversal",
@@ -679,6 +769,6 @@
     ],
     "reader_status": "closed: no exact >=39 candidate"
   },
-  "next_operator": "Add a held-out instrumental-causal graph edge with an explicit event-node attachment index; preserve pre-render unification and online support domains.",
+  "next_operator": "Add a second event-node attachment index only if the instrumental edge leaves a surviving frontier; otherwise hold out a distinct manner-of-causation edge.",
   "status": "no exact >=39 closure; intact ordinary-prose controls retained"
 }

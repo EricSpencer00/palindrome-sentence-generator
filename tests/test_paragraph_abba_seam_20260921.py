@@ -20,7 +20,7 @@ def test_full_paragraph_audits_and_novelty_preflight():
     assert d['novelty_preflight']['finished_tape_reversal'] is False
     assert d['novelty_preflight']['catalogue_text'] is False
     assert all('seam_solver' in row for row in d['rendered_outputs'])
-    assert d['next_repair']['operator'].startswith('ABBA-specific')
+    assert 'mismatched exposed character' in d['next_repair']['operator']
 
 def test_artifact_matches_run():
  d=m.run(); p=Path(m.OUT); m.OUT.parent.mkdir(exist_ok=True); p.write_text(json.dumps(d,indent=2)+'\n')

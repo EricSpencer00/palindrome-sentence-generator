@@ -49,7 +49,7 @@ def abba_seam_solver(row):
 def resynthesize_existing_frame():
     """Lexically resynthesize the original semantic roles; no new units or tape reversal."""
     by_id=dict(REPAIR_SURFACES)
-    ordered=[by_id[k] for k in ('A1','B1','B2','A2')]
+    ordered=[(k,by_id[k]) for k in ('A1','B1','B2','A2')]
     return make_row([{'id':k,'frame':('departure' if k.startswith('A') else 'repair'),'text':t} for k,t in ordered],['departure','repair','repair','departure'])
 def novelty():
  reg=ROOT/'docs/experiment-novelty-registry.json'

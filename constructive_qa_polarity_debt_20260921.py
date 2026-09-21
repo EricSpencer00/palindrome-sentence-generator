@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent; OUT=ROOT/'runs/constructive-qa-polarity-debt-20260921.json'
 # Small typed frames, deliberately not a lexical Cartesian product.
 QUESTIONS=[
- {'subject':'I','aux':'am','verb':'mapping','object':'a cove','tense':'present','agreement':'singular','aspect':'progressive','polarity':'affirmative','polarity':'negative','polarity':'affirmative'},
+ {'subject':'I','aux':'am','verb':'mapping','object':'a cove','tense':'present','agreement':'singular','aspect':'progressive','polarity':'affirmative'},
  {'subject':'we','aux':'are','verb':'seeking','object':'the trail','tense':'present','agreement':'plural','aspect':'progressive','polarity':'affirmative'},
  {'subject':'she','aux':'was','verb':'carrying','object':'one key','tense':'past','agreement':'singular','aspect':'progressive'},
  {'subject':'they','aux':'were','verb':'watching','object':'a beacon','tense':'past','agreement':'plural','aspect':'progressive'},]

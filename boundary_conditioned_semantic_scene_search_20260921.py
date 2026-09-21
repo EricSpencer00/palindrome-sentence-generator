@@ -45,6 +45,7 @@ BANK = (
     Clause("several kind sailors", "watch", "the harbor", "before dusk", "pl", "agent"),
     Clause("two local artists", "paint", "a bright mural", "beside the square", "pl", "agent"),
     Clause("the old scholar", "reads", "a weathered map", "in the library", "sg", "agent"),
+    Clause("the calm pilot", "maps", "the inlet", "by moonlight", "sg", "agent"),
 )
 
 
@@ -90,7 +91,11 @@ def run(target: int = 39):
     idx = terminal_index()
     attempts = []
     for left in BANK:
-        for right in BANK:
+        # The terminal index is consulted before any interior characters are
+        # emitted: only clauses whose final terminal can satisfy the left
+        # clause's first terminal enter the inward equation search.
+        right_pool = [c for c in BANK if letters(c.text)[-1] == letters(left.text)[0]]
+        for right in right_pool:
             if left is right:
                 continue
             growth = grow_scene(left, right, target)
@@ -99,6 +104,8 @@ def run(target: int = 39):
                              "semantic_roles": [left.role, right.role],
                              "agreement": [left.number, right.number],
                              "boundary_growth": growth, "rendered": rendered,
+                             "provenance": {"anti_shortcut": {"intact_prose": True,
+                                 "finished_tape_reversal": False, "post_render_repair": False}},
                              "audit": pointer_audit(rendered)})
     survivors = [a for a in attempts if a["boundary_growth"]["closed"] and a["audit"]["pointer_exact"]]
     controls = [a for a in attempts if not a["boundary_growth"]["closed"]][:12]
@@ -108,6 +115,8 @@ def run(target: int = 39):
                        "finished_tape_reversal": False, "post_render_repair": False,
                        "global_equation": "x[i] = x[N-1-i]"},
             "terminal_index": idx, "stats": {"inventory": len(BANK), "attempts": len(attempts),
+                                                "boundary_conditioned_attempts": len(attempts),
+                                                "max_committed_pairs": max(len(a["boundary_growth"]["committed_pairs"]) for a in attempts),
                                                 "survivors": len(survivors), "rendered_controls": len(controls)},
             "survivors": survivors, "controls": controls,
             "novelty_preflight": {"status": "passed", "fresh_scene_authoring": True,

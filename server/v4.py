@@ -1705,6 +1705,24 @@ SEMANTIC_RELATION_BILATERAL_ROLES_RUN = {
     "next_construction": "add a genuinely ditransitive relation with explicit case state",
 }
 
+DITRANSITIVE_CASE_BILATERAL_RUN = {
+    "run_id": "ditransitive-case-bilateral-csp-20260920",
+    "method": "bilateral ditransitive case-state CSP",
+    "status": "completed_no_exact_closure",
+    "case_frames": 4,
+    "role_states": 12,
+    "live_equations": 12,
+    "online_mismatch_prunes": 12,
+    "longest_rendered_letters": 92,
+    "example_control": "Mara gives Jon a letter to Iris while Owen listens. Owen gives Iris a letter to Jon while Mara listens.",
+    "exact_candidates_over_38": 0,
+    "reader_eligible": 0,
+    "provenance": "fresh authored ditransitive case frames with independent recipient/theme roles; no catalogue/API text, mirrored units, reversal, post-hoc repair, fragments, or per-search RLAIF",
+    "independent_validation": ["independent pointer audit", "forward/reverse SHA-256"],
+    "novelty_preflight": "passed; recipient-theme-case-state bilateral live-opposing-cursor signature",
+    "next_construction": "change argument realization to a benefactive alternation with agreement state",
+}
+
 RECURSIVE_SEMANTIC_GRAMMAR_CSP_RUN = {
     "run_id": "recursive-semantic-grammar-csp-20260920",
     "method": "recursive typed event-graph CSP with a free discourse center and carried character obligations",
@@ -8998,6 +9016,7 @@ def evidence() -> dict[str, Any]:
         "seam_indexed_clause_variants_run": SEAM_INDEXED_CLAUSE_VARIANTS_RUN,
         "twochar_outer_family_run": TWOCHAR_OUTER_FAMILY_RUN,
         "semantic_relation_bilateral_roles_run": SEMANTIC_RELATION_BILATERAL_ROLES_RUN,
+        "ditransitive_case_bilateral_run": DITRANSITIVE_CASE_BILATERAL_RUN,
         "recursive_semantic_grammar_csp_run": RECURSIVE_SEMANTIC_GRAMMAR_CSP_RUN,
         "dual_obligation_event_graph_run": DUAL_OBLIGATION_EVENT_GRAPH_RUN,
         "center_first_agreement_product_run": CENTER_FIRST_AGREEMENT_PRODUCT_RUN,
@@ -9053,6 +9072,7 @@ def method() -> dict[str, Any]:
         "seam_indexed_clause_variants_run": SEAM_INDEXED_CLAUSE_VARIANTS_RUN,
         "twochar_outer_family_run": TWOCHAR_OUTER_FAMILY_RUN,
         "semantic_relation_bilateral_roles_run": SEMANTIC_RELATION_BILATERAL_ROLES_RUN,
+        "ditransitive_case_bilateral_run": DITRANSITIVE_CASE_BILATERAL_RUN,
         "recursive_semantic_grammar_csp_run": RECURSIVE_SEMANTIC_GRAMMAR_CSP_RUN,
         "dual_obligation_event_graph_run": DUAL_OBLIGATION_EVENT_GRAPH_RUN,
         "center_first_agreement_product_run": CENTER_FIRST_AGREEMENT_PRODUCT_RUN,
@@ -9103,6 +9123,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "seam_indexed_clause_variants_run": SEAM_INDEXED_CLAUSE_VARIANTS_RUN,
         "twochar_outer_family_run": TWOCHAR_OUTER_FAMILY_RUN,
         "semantic_relation_bilateral_roles_run": SEMANTIC_RELATION_BILATERAL_ROLES_RUN,
+        "ditransitive_case_bilateral_run": DITRANSITIVE_CASE_BILATERAL_RUN,
         "recursive_semantic_grammar_csp_run": RECURSIVE_SEMANTIC_GRAMMAR_CSP_RUN,
         "dual_obligation_event_graph_run": DUAL_OBLIGATION_EVENT_GRAPH_RUN,
         "center_first_agreement_product_run": CENTER_FIRST_AGREEMENT_PRODUCT_RUN,

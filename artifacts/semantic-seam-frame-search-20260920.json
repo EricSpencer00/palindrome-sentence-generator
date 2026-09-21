@@ -1,0 +1,56 @@
+{
+  "experiment": "semantic-seam-frame-search-20260920",
+  "method": "live outer-character seam over forward-authored POS frame pairs",
+  "provenance": {
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "source": "Brown POS counts plus held-out authored vocabulary",
+    "audits": [
+      "independent two-pointer comparison",
+      "forward/reverse SHA-256 equality"
+    ],
+    "reader_gate": "closed; exactness and the hidden-span heuristic are not human readability"
+  },
+  "runs": [
+    {
+      "lane": "strict complete-clause frames",
+      "templates": 18,
+      "lex_limit": 1000,
+      "beam": 50000,
+      "exact_count": 112,
+      "longest_exact_letters": 46,
+      "longest_hidden_span_free_letters": 38,
+      "longest_exact_diagnostic": {
+        "text": "ten nose lose no set on an aid; diana notes one sole sonnet",
+        "letters": 46,
+        "sha256": "b877981d321303bce75df71dac62dd78fd64c39d885fe3e987f3d09ce6312a9f",
+        "status": "rejected: hidden palindromic span and malformed first clause"
+      }
+    },
+    {
+      "lane": "poetic and initial-bearing frames",
+      "templates": 4,
+      "lex_limit": 600,
+      "beam": 50000,
+      "exact_count": 15,
+      "longest_exact_letters": 48,
+      "longest_hidden_span_free_letters": 0,
+      "status": "rejected: malformed phrase material with hidden spans"
+    },
+    {
+      "lane": "expanded clause-frame diagnostic",
+      "templates": 30,
+      "lex_limit": 180,
+      "beam": 200000,
+      "exact_count": 1406,
+      "longest_exact_letters": 60,
+      "longest_hidden_span_free_letters": 42,
+      "status": "rejected: longer rows are malformed phrase material"
+    }
+  ],
+  "best_admitted_original": {
+    "text": "An aide rips nine memos; some men inspire Diana.",
+    "letters": 38,
+    "status": "unchanged benchmark"
+  }
+}

@@ -1,0 +1,977 @@
+{
+  "experiment_id": "shared-scene-synchronous-transducer-20260921",
+  "method": "shared typed semantic scene graph; synchronous two-renderer transducer with live inward character obligations",
+  "novelty_preflight": {
+    "status": "passed",
+    "output_hashes_unique": true,
+    "distinct_from": "relative/instrument lanes and typed-CFG frontier: one shared graph emits both sides under lockstep obligations before sentence rendering"
+  },
+  "stats": {
+    "participants": 3,
+    "events": 3,
+    "graph_states": 9,
+    "obligation_steps": 57,
+    "rendered": 9,
+    "exact_gt38": 0,
+    "max_letters": 96
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "diagnostic_controls": [
+    {
+      "scene_graph": {
+        "participant": {
+          "id": "gardener",
+          "det": "the",
+          "adj": "patient",
+          "noun": "gardener",
+          "number": "singular"
+        },
+        "event": {
+          "id": "water",
+          "verb": "waters",
+          "plural_verb": "water",
+          "object": "the orchard",
+          "kind": "transitive"
+        },
+        "shared_edge": {
+          "subject": "gardener",
+          "predicate": "water",
+          "object": "the orchard"
+        }
+      },
+      "rendered": "the patient gardener waters the orchard; the patient gardener waters the orchard beside the clear path.",
+      "left_clause": "the patient gardener waters the orchard",
+      "right_clause": "the patient gardener waters the orchard beside the clear path",
+      "obligations": [
+        {
+          "step": 0,
+          "left_token": "the",
+          "right_token": "path",
+          "left_char": "t",
+          "required_right_char": "h",
+          "compatible": false
+        },
+        {
+          "step": 1,
+          "left_token": "patient",
+          "right_token": "clear",
+          "left_char": "p",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 2,
+          "left_token": "gardener",
+          "right_token": "the",
+          "left_char": "g",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 3,
+          "left_token": "waters",
+          "right_token": "beside",
+          "left_char": "w",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 4,
+          "left_token": "the",
+          "right_token": "orchard",
+          "left_char": "t",
+          "required_right_char": "d",
+          "compatible": false
+        },
+        {
+          "step": 5,
+          "left_token": "orchard",
+          "right_token": "the",
+          "left_char": "o",
+          "required_right_char": "e",
+          "compatible": false
+        }
+      ],
+      "audit": {
+        "letters": 86,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "h"
+        ],
+        "sha256_forward": "c38386c845241610b92e97b43ae23f030425b4c5cd71eda0b2679b649fbc5f0d",
+        "sha256_reverse": "ee794776e33936dfa0881b99366616f4fadd77ba4b07b2cb3a870d3fc6955ab2",
+        "sha_equal": false
+      },
+      "complete_prose": true,
+      "provenance": {
+        "graph_authored_once": true,
+        "synchronous_render": true,
+        "live_character_obligations": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "scene_graph": {
+        "participant": {
+          "id": "gardener",
+          "det": "the",
+          "adj": "patient",
+          "noun": "gardener",
+          "number": "singular"
+        },
+        "event": {
+          "id": "carry",
+          "verb": "carries",
+          "plural_verb": "carry",
+          "object": "a letter",
+          "kind": "transitive"
+        },
+        "shared_edge": {
+          "subject": "gardener",
+          "predicate": "carry",
+          "object": "a letter"
+        }
+      },
+      "rendered": "the patient gardener carries a letter; the patient gardener carries a letter beside the clear path.",
+      "left_clause": "the patient gardener carries a letter",
+      "right_clause": "the patient gardener carries a letter beside the clear path",
+      "obligations": [
+        {
+          "step": 0,
+          "left_token": "the",
+          "right_token": "path",
+          "left_char": "t",
+          "required_right_char": "h",
+          "compatible": false
+        },
+        {
+          "step": 1,
+          "left_token": "patient",
+          "right_token": "clear",
+          "left_char": "p",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 2,
+          "left_token": "gardener",
+          "right_token": "the",
+          "left_char": "g",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 3,
+          "left_token": "carries",
+          "right_token": "beside",
+          "left_char": "c",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 4,
+          "left_token": "a",
+          "right_token": "letter",
+          "left_char": "a",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 5,
+          "left_token": "letter",
+          "right_token": "a",
+          "left_char": "l",
+          "required_right_char": "a",
+          "compatible": false
+        }
+      ],
+      "audit": {
+        "letters": 82,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "h"
+        ],
+        "sha256_forward": "40dc1c168d87c7edd207c207b16af2a00bd0bf267b5a01b5d6838b4666a0f6ed",
+        "sha256_reverse": "12d91efab8827efa8d2716d05279742ae5b8b0f3341c0370cf99fe88e06a5970",
+        "sha_equal": false
+      },
+      "complete_prose": true,
+      "provenance": {
+        "graph_authored_once": true,
+        "synchronous_render": true,
+        "live_character_obligations": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "scene_graph": {
+        "participant": {
+          "id": "gardener",
+          "det": "the",
+          "adj": "patient",
+          "noun": "gardener",
+          "number": "singular"
+        },
+        "event": {
+          "id": "watch",
+          "verb": "watches",
+          "plural_verb": "watch",
+          "object": "the quiet harbor",
+          "kind": "transitive"
+        },
+        "shared_edge": {
+          "subject": "gardener",
+          "predicate": "watch",
+          "object": "the quiet harbor"
+        }
+      },
+      "rendered": "the patient gardener watches the quiet harbor; the patient gardener watches the quiet harbor beside the clear path.",
+      "left_clause": "the patient gardener watches the quiet harbor",
+      "right_clause": "the patient gardener watches the quiet harbor beside the clear path",
+      "obligations": [
+        {
+          "step": 0,
+          "left_token": "the",
+          "right_token": "path",
+          "left_char": "t",
+          "required_right_char": "h",
+          "compatible": false
+        },
+        {
+          "step": 1,
+          "left_token": "patient",
+          "right_token": "clear",
+          "left_char": "p",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 2,
+          "left_token": "gardener",
+          "right_token": "the",
+          "left_char": "g",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 3,
+          "left_token": "watches",
+          "right_token": "beside",
+          "left_char": "w",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 4,
+          "left_token": "the",
+          "right_token": "harbor",
+          "left_char": "t",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 5,
+          "left_token": "quiet",
+          "right_token": "quiet",
+          "left_char": "q",
+          "required_right_char": "t",
+          "compatible": false
+        },
+        {
+          "step": 6,
+          "left_token": "harbor",
+          "right_token": "the",
+          "left_char": "h",
+          "required_right_char": "e",
+          "compatible": false
+        }
+      ],
+      "audit": {
+        "letters": 96,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "h"
+        ],
+        "sha256_forward": "5c16f11a16d9e7ef781b2e6e1efa12f639cb7cd624bb3726b0835c208879b22b",
+        "sha256_reverse": "b257aa412bb0107c3040c08eef33b459d72f0296fabd61d840bca3d4e0184a4f",
+        "sha_equal": false
+      },
+      "complete_prose": true,
+      "provenance": {
+        "graph_authored_once": true,
+        "synchronous_render": true,
+        "live_character_obligations": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "scene_graph": {
+        "participant": {
+          "id": "merchant",
+          "det": "a",
+          "adj": "careful",
+          "noun": "merchant",
+          "number": "singular"
+        },
+        "event": {
+          "id": "water",
+          "verb": "waters",
+          "plural_verb": "water",
+          "object": "the orchard",
+          "kind": "transitive"
+        },
+        "shared_edge": {
+          "subject": "merchant",
+          "predicate": "water",
+          "object": "the orchard"
+        }
+      },
+      "rendered": "a careful merchant waters the orchard; a careful merchant waters the orchard beside the clear path.",
+      "left_clause": "a careful merchant waters the orchard",
+      "right_clause": "a careful merchant waters the orchard beside the clear path",
+      "obligations": [
+        {
+          "step": 0,
+          "left_token": "a",
+          "right_token": "path",
+          "left_char": "a",
+          "required_right_char": "h",
+          "compatible": false
+        },
+        {
+          "step": 1,
+          "left_token": "careful",
+          "right_token": "clear",
+          "left_char": "c",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 2,
+          "left_token": "merchant",
+          "right_token": "the",
+          "left_char": "m",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 3,
+          "left_token": "waters",
+          "right_token": "beside",
+          "left_char": "w",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 4,
+          "left_token": "the",
+          "right_token": "orchard",
+          "left_char": "t",
+          "required_right_char": "d",
+          "compatible": false
+        },
+        {
+          "step": 5,
+          "left_token": "orchard",
+          "right_token": "the",
+          "left_char": "o",
+          "required_right_char": "e",
+          "compatible": false
+        }
+      ],
+      "audit": {
+        "letters": 82,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "h"
+        ],
+        "sha256_forward": "00fbfbb83a2a03085ae6fb6689094402de2cfe0aa2520f4cb0c9f1d7a66fe1ec",
+        "sha256_reverse": "0a2978186b7a8e121beaf7eff0fe7a9abdd524c9e8bec99182b99cb97d34dd18",
+        "sha_equal": false
+      },
+      "complete_prose": true,
+      "provenance": {
+        "graph_authored_once": true,
+        "synchronous_render": true,
+        "live_character_obligations": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "scene_graph": {
+        "participant": {
+          "id": "merchant",
+          "det": "a",
+          "adj": "careful",
+          "noun": "merchant",
+          "number": "singular"
+        },
+        "event": {
+          "id": "carry",
+          "verb": "carries",
+          "plural_verb": "carry",
+          "object": "a letter",
+          "kind": "transitive"
+        },
+        "shared_edge": {
+          "subject": "merchant",
+          "predicate": "carry",
+          "object": "a letter"
+        }
+      },
+      "rendered": "a careful merchant carries a letter; a careful merchant carries a letter beside the clear path.",
+      "left_clause": "a careful merchant carries a letter",
+      "right_clause": "a careful merchant carries a letter beside the clear path",
+      "obligations": [
+        {
+          "step": 0,
+          "left_token": "a",
+          "right_token": "path",
+          "left_char": "a",
+          "required_right_char": "h",
+          "compatible": false
+        },
+        {
+          "step": 1,
+          "left_token": "careful",
+          "right_token": "clear",
+          "left_char": "c",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 2,
+          "left_token": "merchant",
+          "right_token": "the",
+          "left_char": "m",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 3,
+          "left_token": "carries",
+          "right_token": "beside",
+          "left_char": "c",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 4,
+          "left_token": "a",
+          "right_token": "letter",
+          "left_char": "a",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 5,
+          "left_token": "letter",
+          "right_token": "a",
+          "left_char": "l",
+          "required_right_char": "a",
+          "compatible": false
+        }
+      ],
+      "audit": {
+        "letters": 78,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "h"
+        ],
+        "sha256_forward": "49ef6118d77837015a8695e39fab3bae73471a7db4cdf99987afd302f38345ab",
+        "sha256_reverse": "3bb656da447d1818cc573039530c422fd9dbb1b9c25f82710b48a15d99952d52",
+        "sha_equal": false
+      },
+      "complete_prose": true,
+      "provenance": {
+        "graph_authored_once": true,
+        "synchronous_render": true,
+        "live_character_obligations": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "scene_graph": {
+        "participant": {
+          "id": "merchant",
+          "det": "a",
+          "adj": "careful",
+          "noun": "merchant",
+          "number": "singular"
+        },
+        "event": {
+          "id": "watch",
+          "verb": "watches",
+          "plural_verb": "watch",
+          "object": "the quiet harbor",
+          "kind": "transitive"
+        },
+        "shared_edge": {
+          "subject": "merchant",
+          "predicate": "watch",
+          "object": "the quiet harbor"
+        }
+      },
+      "rendered": "a careful merchant watches the quiet harbor; a careful merchant watches the quiet harbor beside the clear path.",
+      "left_clause": "a careful merchant watches the quiet harbor",
+      "right_clause": "a careful merchant watches the quiet harbor beside the clear path",
+      "obligations": [
+        {
+          "step": 0,
+          "left_token": "a",
+          "right_token": "path",
+          "left_char": "a",
+          "required_right_char": "h",
+          "compatible": false
+        },
+        {
+          "step": 1,
+          "left_token": "careful",
+          "right_token": "clear",
+          "left_char": "c",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 2,
+          "left_token": "merchant",
+          "right_token": "the",
+          "left_char": "m",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 3,
+          "left_token": "watches",
+          "right_token": "beside",
+          "left_char": "w",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 4,
+          "left_token": "the",
+          "right_token": "harbor",
+          "left_char": "t",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 5,
+          "left_token": "quiet",
+          "right_token": "quiet",
+          "left_char": "q",
+          "required_right_char": "t",
+          "compatible": false
+        },
+        {
+          "step": 6,
+          "left_token": "harbor",
+          "right_token": "the",
+          "left_char": "h",
+          "required_right_char": "e",
+          "compatible": false
+        }
+      ],
+      "audit": {
+        "letters": 92,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "h"
+        ],
+        "sha256_forward": "191e72c336c14228c569041d4916a36688ef25d97a6ad5a97deabc18291d3705",
+        "sha256_reverse": "314dabcf08700fa73df66287452888e684eba80d9722339309685cb98d49cf40",
+        "sha_equal": false
+      },
+      "complete_prose": true,
+      "provenance": {
+        "graph_authored_once": true,
+        "synchronous_render": true,
+        "live_character_obligations": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "scene_graph": {
+        "participant": {
+          "id": "artists",
+          "det": "the",
+          "adj": "young",
+          "noun": "artists",
+          "number": "plural"
+        },
+        "event": {
+          "id": "water",
+          "verb": "waters",
+          "plural_verb": "water",
+          "object": "the orchard",
+          "kind": "transitive"
+        },
+        "shared_edge": {
+          "subject": "artists",
+          "predicate": "water",
+          "object": "the orchard"
+        }
+      },
+      "rendered": "the young artists water the orchard; the young artists water the orchard beside the clear path.",
+      "left_clause": "the young artists water the orchard",
+      "right_clause": "the young artists water the orchard beside the clear path",
+      "obligations": [
+        {
+          "step": 0,
+          "left_token": "the",
+          "right_token": "path",
+          "left_char": "t",
+          "required_right_char": "h",
+          "compatible": false
+        },
+        {
+          "step": 1,
+          "left_token": "young",
+          "right_token": "clear",
+          "left_char": "y",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 2,
+          "left_token": "artists",
+          "right_token": "the",
+          "left_char": "a",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 3,
+          "left_token": "water",
+          "right_token": "beside",
+          "left_char": "w",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 4,
+          "left_token": "the",
+          "right_token": "orchard",
+          "left_char": "t",
+          "required_right_char": "d",
+          "compatible": false
+        },
+        {
+          "step": 5,
+          "left_token": "orchard",
+          "right_token": "the",
+          "left_char": "o",
+          "required_right_char": "e",
+          "compatible": false
+        }
+      ],
+      "audit": {
+        "letters": 78,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "h"
+        ],
+        "sha256_forward": "248bfbec702632b91372531228e7f913c97e96388fe73c5e7ddff504a0e34509",
+        "sha256_reverse": "9ec8e36db0abd19f6e9450219d701e7e2ae9b9e896d1fec01b9b3a6362d25e25",
+        "sha_equal": false
+      },
+      "complete_prose": true,
+      "provenance": {
+        "graph_authored_once": true,
+        "synchronous_render": true,
+        "live_character_obligations": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "scene_graph": {
+        "participant": {
+          "id": "artists",
+          "det": "the",
+          "adj": "young",
+          "noun": "artists",
+          "number": "plural"
+        },
+        "event": {
+          "id": "carry",
+          "verb": "carries",
+          "plural_verb": "carry",
+          "object": "a letter",
+          "kind": "transitive"
+        },
+        "shared_edge": {
+          "subject": "artists",
+          "predicate": "carry",
+          "object": "a letter"
+        }
+      },
+      "rendered": "the young artists carry a letter; the young artists carry a letter beside the clear path.",
+      "left_clause": "the young artists carry a letter",
+      "right_clause": "the young artists carry a letter beside the clear path",
+      "obligations": [
+        {
+          "step": 0,
+          "left_token": "the",
+          "right_token": "path",
+          "left_char": "t",
+          "required_right_char": "h",
+          "compatible": false
+        },
+        {
+          "step": 1,
+          "left_token": "young",
+          "right_token": "clear",
+          "left_char": "y",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 2,
+          "left_token": "artists",
+          "right_token": "the",
+          "left_char": "a",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 3,
+          "left_token": "carry",
+          "right_token": "beside",
+          "left_char": "c",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 4,
+          "left_token": "a",
+          "right_token": "letter",
+          "left_char": "a",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 5,
+          "left_token": "letter",
+          "right_token": "a",
+          "left_char": "l",
+          "required_right_char": "a",
+          "compatible": false
+        }
+      ],
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "h"
+        ],
+        "sha256_forward": "a84f51caf5be5d83fdfe3306f3651f7af8dad53b9a11146baeff6b15f9e7af2f",
+        "sha256_reverse": "d702fa5d271b64463b2ae48237a6d59ed80faae5b0cd05214f4fdcb9e1eeb1dc",
+        "sha_equal": false
+      },
+      "complete_prose": true,
+      "provenance": {
+        "graph_authored_once": true,
+        "synchronous_render": true,
+        "live_character_obligations": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "scene_graph": {
+        "participant": {
+          "id": "artists",
+          "det": "the",
+          "adj": "young",
+          "noun": "artists",
+          "number": "plural"
+        },
+        "event": {
+          "id": "watch",
+          "verb": "watches",
+          "plural_verb": "watch",
+          "object": "the quiet harbor",
+          "kind": "transitive"
+        },
+        "shared_edge": {
+          "subject": "artists",
+          "predicate": "watch",
+          "object": "the quiet harbor"
+        }
+      },
+      "rendered": "the young artists watch the quiet harbor; the young artists watch the quiet harbor beside the clear path.",
+      "left_clause": "the young artists watch the quiet harbor",
+      "right_clause": "the young artists watch the quiet harbor beside the clear path",
+      "obligations": [
+        {
+          "step": 0,
+          "left_token": "the",
+          "right_token": "path",
+          "left_char": "t",
+          "required_right_char": "h",
+          "compatible": false
+        },
+        {
+          "step": 1,
+          "left_token": "young",
+          "right_token": "clear",
+          "left_char": "y",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 2,
+          "left_token": "artists",
+          "right_token": "the",
+          "left_char": "a",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 3,
+          "left_token": "watch",
+          "right_token": "beside",
+          "left_char": "w",
+          "required_right_char": "e",
+          "compatible": false
+        },
+        {
+          "step": 4,
+          "left_token": "the",
+          "right_token": "harbor",
+          "left_char": "t",
+          "required_right_char": "r",
+          "compatible": false
+        },
+        {
+          "step": 5,
+          "left_token": "quiet",
+          "right_token": "quiet",
+          "left_char": "q",
+          "required_right_char": "t",
+          "compatible": false
+        },
+        {
+          "step": 6,
+          "left_token": "harbor",
+          "right_token": "the",
+          "left_char": "h",
+          "required_right_char": "e",
+          "compatible": false
+        }
+      ],
+      "audit": {
+        "letters": 86,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "h"
+        ],
+        "sha256_forward": "b6c7f8f1109698ac467e5005656d0bfeb940fa0328bdc80d3326fce02a6177b7",
+        "sha256_reverse": "f943f4b95cbefffe99e5820c8b704d85ea1ffcc000e60bd8aa7273a8f7a6263a",
+        "sha_equal": false
+      },
+      "complete_prose": true,
+      "provenance": {
+        "graph_authored_once": true,
+        "synchronous_render": true,
+        "live_character_obligations": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    }
+  ],
+  "complete_prose_controls": [
+    {
+      "rendered": "The patient gardener waters the orchard.",
+      "audit": {
+        "letters": 34,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "1bcfe5a283be08913168da1e19d9a6cb9e256a06fb2e36534fb4bd23b0b129b1",
+        "sha256_reverse": "075ad939c828a8234fa8bb8f93d27efd96efbf3f31cecf43fdeb105cc8f75e95",
+        "sha_equal": false
+      },
+      "control": true
+    },
+    {
+      "rendered": "A careful merchant carries a letter beside the clear path.",
+      "audit": {
+        "letters": 48,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "h"
+        ],
+        "sha256_forward": "90faa8d7ecdc8a20d689fabd39b62190c1512dd160fd1c34d61397a4c4a9c4b8",
+        "sha256_reverse": "77c3b9521a60aa29736d020e64292a079edfab6b0ab1fc54abb2cbd2a2d2f1d2",
+        "sha_equal": false
+      },
+      "control": true
+    }
+  ],
+  "provenance": {
+    "audits": [
+      "independent two-pointer comparison",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed; controls retained",
+    "rendered_output_hashes": [
+      "c38386c845241610b92e97b43ae23f030425b4c5cd71eda0b2679b649fbc5f0d",
+      "40dc1c168d87c7edd207c207b16af2a00bd0bf267b5a01b5d6838b4666a0f6ed",
+      "5c16f11a16d9e7ef781b2e6e1efa12f639cb7cd624bb3726b0835c208879b22b",
+      "00fbfbb83a2a03085ae6fb6689094402de2cfe0aa2520f4cb0c9f1d7a66fe1ec",
+      "49ef6118d77837015a8695e39fab3bae73471a7db4cdf99987afd302f38345ab",
+      "191e72c336c14228c569041d4916a36688ef25d97a6ad5a97deabc18291d3705",
+      "248bfbec702632b91372531228e7f913c97e96388fe73c5e7ddff504a0e34509",
+      "a84f51caf5be5d83fdfe3306f3651f7af8dad53b9a11146baeff6b15f9e7af2f",
+      "b6c7f8f1109698ac467e5005656d0bfeb940fa0328bdc80d3326fce02a6177b7"
+    ]
+  },
+  "next_construction": {
+    "operator": "typed edge-label alternation",
+    "change": "add locative and ditransitive edge labels with distinct right realization while retaining shared participant identity and live obligation rejection",
+    "reason": "current lexical graph has no compatible boundary closure"
+  },
+  "status": "no exact clean closure; complete-prose controls retained"
+}

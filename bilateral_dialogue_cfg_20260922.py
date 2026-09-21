@@ -17,8 +17,11 @@ OUT = ROOT / "runs/bilateral-dialogue-cfg-20260922.json"
 LEX = {
     "det": ("a", "the"), "adj": ("quiet", "patient", "old", "bright"),
     "noun": ("keeper", "pilot", "cartographer", "gardener"),
-    "verb": ("marked", "watched", "charted", "carried"),
-    "obj": ("harbor", "inlet", "garden", "beacon", "plaza"),
+    "verb_base": ("mark", "watch", "chart", "carry"),
+    "verb_past": ("marked", "watched", "charted", "carried"),
+    # All object heads are consonant-initial so the bounded det/object
+    # grammar cannot render the malformed "a inlet" control.
+    "obj": ("harbor", "channel", "garden", "beacon", "plaza"),
     "adv": ("at dawn", "at dusk", "in rain"),
     "wh": ("whether", "if"), "aux": ("did", "could"),
     "reply": ("replied", "answered"), "that": ("that",),
@@ -27,10 +30,10 @@ LEX = {
 # Four roles, expressed as typed slot templates rather than completed prose.
 # A/Z are independent narrative observations; Q/R form the dialogue center.
 ROLES = {
-    "A": (("det", "adj", "noun", "verb", "det", "obj", "."),),
-    "Q": (("det", "noun", "aux", "wh", "det", "noun", "verb", "det", "obj", "?"),),
-    "R": (("det", "noun", "reply", "that", "det", "noun", "verb", "det", "obj", "."),),
-    "Z": (("det", "adj", "noun", "verb", "det", "obj", "."),),
+    "A": (("det", "adj", "noun", "verb_past", "det", "obj", "."),),
+    "Q": (("aux", "det", "noun", "verb_base", "det", "obj", "?"),),
+    "R": (("det", "noun", "reply", "that", "det", "noun", "verb_past", "det", "obj", "."),),
+    "Z": (("det", "adj", "noun", "verb_past", "det", "obj", "."),),
 }
 
 def norm(s: str) -> str:
@@ -57,6 +60,9 @@ def expand(template: tuple[str, ...]):
             else:
                 words.append(value)
         yield " ".join(words)
+
+def sentence_case(text: str) -> str:
+    return text[:1].upper() + text[1:]
 
 def bilateral_prefix(left: str, right: str, width: int = 18) -> dict:
     """Consume both exposed ends; right is read in reversed character order."""
@@ -85,13 +91,16 @@ def run() -> dict:
             outer_pruned += 1
             continue
         for q, r in itertools.product(pools["Q"], pools["R"]):
-            rendered = f"{a} {q} {r} {z}"
+            surfaces = {"A": sentence_case(a), "Q": sentence_case(q),
+                        "R": sentence_case(r), "Z": sentence_case(z)}
+            rendered = f"{surfaces['A']} {surfaces['Q']} {surfaces['R']} {surfaces['Z']}"
             au = audit(rendered)
-            rows.append({"rendered": rendered, "roles": {"A": a, "Q": q, "R": r, "Z": z},
+            rows.append({"rendered": rendered, "roles": surfaces,
                          "outer_support": support, "audit": au,
                          "provenance": {"construction": "bilateral typed CFG with four discourse roles",
                            "slot_expansion": True, "variable_word_boundaries": True,
                            "sentence_boundaries_in_grammar": True, "fixed_completed_sentence_pairs": False,
+                           "question_production": "auxiliary + subject + base verb + object",
                            "posthoc_repair": False, "catalogue_text": False,
                            "repeated_units": False, "self_palindromic_units": False}})
     exact = [row for row in rows if row["audit"]["two_pointer_exact"] and row["audit"]["letters"] > 38]

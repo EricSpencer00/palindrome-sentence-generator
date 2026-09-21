@@ -9,7 +9,7 @@ def test_bilateral_cursor_crosses_word_boundary():
     assert not lane.bilateral_prefix("memos", "some men", width=5)["compatible"]
 
 def test_typed_expansion_is_not_completed_sentence_bank():
-    assert len(tuple(lane.expand(("det", "noun", "verb", "obj", ".")))) > 1
+    assert len(tuple(lane.expand(("det", "noun", "verb_past", "obj", ".")))) > 1
     assert lane.ROLES["A"][0][-1] == "."
 
 def test_run_has_prose_provenance_and_independent_audits():
@@ -21,3 +21,6 @@ def test_run_has_prose_provenance_and_independent_audits():
                for row in result["rendered_candidates"])
     assert all(row["provenance"]["slot_expansion"] for row in result["rendered_candidates"])
     assert all("?" in row["roles"]["Q"] and "." in row["roles"]["R"] for row in result["rendered_candidates"])
+    assert all("a inlet" not in row["rendered"].lower() for row in result["rendered_candidates"])
+    assert all(row["roles"]["Q"].split()[0] in {"Did", "Could"}
+               for row in result["rendered_candidates"])

@@ -1,12 +1,12 @@
 {
-  "method": "boundary-shifting semantic constructor v2",
-  "tested": 30001,
-  "frame_count": 6,
+  "method": "boundary-shifting semantic constructor v3",
+  "tested": 18001,
+  "frame_count": 10,
   "edge_index_size": 22,
   "exact_candidates": [],
   "controls": [
     {
-      "text": "a aide asks a answer; adam brings book to alice",
+      "text": "a aide asks a answer; a artist arrived to a home",
       "frames": [
         [
           "det_sg",
@@ -16,11 +16,12 @@
           "object"
         ],
         [
-          "name",
-          "verb_sg",
-          "object",
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
           "prep",
-          "name"
+          "det",
+          "place"
         ]
       ],
       "words": [
@@ -29,11 +30,12 @@
         "asks",
         "a",
         "answer",
-        "adam",
-        "brings",
-        "book",
+        "a",
+        "artist",
+        "arrived",
         "to",
-        "alice"
+        "a",
+        "home"
       ],
       "boundary_lengths": [
         1,
@@ -41,16 +43,17 @@
         4,
         1,
         6,
-        4,
+        1,
         6,
-        4,
+        7,
         2,
-        5
+        1,
+        4
       ],
       "agreement": "number-carrying frame roles",
       "audit": {
         "letters": 37,
-        "normalized": "aaideasksaansweradambringsbooktoalice",
+        "normalized": "aaideasksaansweraartistarrivedtoahome",
         "pointer_exact": false,
         "mismatches": [
           [
@@ -63,13 +66,19 @@
             1,
             35,
             "a",
-            "c"
+            "m"
+          ],
+          [
+            2,
+            34,
+            "i",
+            "o"
           ],
           [
             3,
             33,
             "d",
-            "l"
+            "h"
           ],
           [
             4,
@@ -88,1117 +97,80 @@
             30,
             "s",
             "t"
-          ],
-          [
-            8,
-            28,
-            "s",
-            "o"
-          ],
-          [
-            9,
-            27,
-            "a",
-            "o"
-          ],
-          [
-            10,
-            26,
-            "a",
-            "b"
-          ],
-          [
-            11,
-            25,
-            "n",
-            "s"
-          ],
-          [
-            12,
-            24,
-            "s",
-            "g"
-          ],
-          [
-            13,
-            23,
-            "w",
-            "n"
-          ],
-          [
-            14,
-            22,
-            "e",
-            "i"
-          ],
-          [
-            16,
-            20,
-            "a",
-            "b"
-          ],
-          [
-            17,
-            19,
-            "d",
-            "m"
-          ]
-        ],
-        "sha256_forward": "dd32d9bd573affc5fb25b1f55ba901b576ab714f6327ec4de277717c251e16cf",
-        "sha256_reverse": "e9948df348bf8b89503f5a1eafb850a9c0543dd7e4feadfb9509def2b7a81304"
-      }
-    },
-    {
-      "text": "a aide asks a answer; adam brings book to ben",
-      "frames": [
-        [
-          "det_sg",
-          "agent_sg",
-          "verb_sg",
-          "det",
-          "object"
-        ],
-        [
-          "name",
-          "verb_sg",
-          "object",
-          "prep",
-          "name"
-        ]
-      ],
-      "words": [
-        "a",
-        "aide",
-        "asks",
-        "a",
-        "answer",
-        "adam",
-        "brings",
-        "book",
-        "to",
-        "ben"
-      ],
-      "boundary_lengths": [
-        1,
-        4,
-        4,
-        1,
-        6,
-        4,
-        6,
-        4,
-        2,
-        3
-      ],
-      "agreement": "number-carrying frame roles",
-      "audit": {
-        "letters": 35,
-        "normalized": "aaideasksaansweradambringsbooktoben",
-        "pointer_exact": false,
-        "mismatches": [
-          [
-            0,
-            34,
-            "a",
-            "n"
-          ],
-          [
-            1,
-            33,
-            "a",
-            "e"
-          ],
-          [
-            2,
-            32,
-            "i",
-            "b"
-          ],
-          [
-            3,
-            31,
-            "d",
-            "o"
-          ],
-          [
-            4,
-            30,
-            "e",
-            "t"
-          ],
-          [
-            5,
-            29,
-            "a",
-            "k"
-          ],
-          [
-            6,
-            28,
-            "s",
-            "o"
           ],
           [
             7,
-            27,
+            29,
             "k",
-            "o"
-          ],
-          [
-            8,
-            26,
-            "s",
-            "b"
-          ],
-          [
-            9,
-            25,
-            "a",
-            "s"
-          ],
-          [
-            10,
-            24,
-            "a",
-            "g"
-          ],
-          [
-            12,
-            22,
-            "s",
-            "i"
-          ],
-          [
-            13,
-            21,
-            "w",
-            "r"
-          ],
-          [
-            14,
-            20,
-            "e",
-            "b"
-          ],
-          [
-            15,
-            19,
-            "r",
-            "m"
-          ]
-        ],
-        "sha256_forward": "09f1b9f51ab030dda9c6e77daa0dadb78042e3ce87f515bf69d9003f7cb8a0b0",
-        "sha256_reverse": "4c33847fce3ede3daf5e3d627c631f1ec5e42b8066a5d2fa82c869ca360e9f9f"
-      }
-    },
-    {
-      "text": "a aide asks a answer; adam brings book to clara",
-      "frames": [
-        [
-          "det_sg",
-          "agent_sg",
-          "verb_sg",
-          "det",
-          "object"
-        ],
-        [
-          "name",
-          "verb_sg",
-          "object",
-          "prep",
-          "name"
-        ]
-      ],
-      "words": [
-        "a",
-        "aide",
-        "asks",
-        "a",
-        "answer",
-        "adam",
-        "brings",
-        "book",
-        "to",
-        "clara"
-      ],
-      "boundary_lengths": [
-        1,
-        4,
-        4,
-        1,
-        6,
-        4,
-        6,
-        4,
-        2,
-        5
-      ],
-      "agreement": "number-carrying frame roles",
-      "audit": {
-        "letters": 37,
-        "normalized": "aaideasksaansweradambringsbooktoclara",
-        "pointer_exact": false,
-        "mismatches": [
-          [
-            1,
-            35,
-            "a",
-            "r"
-          ],
-          [
-            2,
-            34,
-            "i",
-            "a"
-          ],
-          [
-            3,
-            33,
-            "d",
-            "l"
-          ],
-          [
-            4,
-            32,
-            "e",
-            "c"
-          ],
-          [
-            5,
-            31,
-            "a",
-            "o"
-          ],
-          [
-            6,
-            30,
-            "s",
-            "t"
-          ],
-          [
-            8,
-            28,
-            "s",
-            "o"
-          ],
-          [
-            9,
-            27,
-            "a",
-            "o"
-          ],
-          [
-            10,
-            26,
-            "a",
-            "b"
-          ],
-          [
-            11,
-            25,
-            "n",
-            "s"
-          ],
-          [
-            12,
-            24,
-            "s",
-            "g"
-          ],
-          [
-            13,
-            23,
-            "w",
-            "n"
-          ],
-          [
-            14,
-            22,
-            "e",
-            "i"
-          ],
-          [
-            16,
-            20,
-            "a",
-            "b"
-          ],
-          [
-            17,
-            19,
-            "d",
-            "m"
-          ]
-        ],
-        "sha256_forward": "3286e1a730a97b152c62a256990f5266f52da8a7db74a03ea1fae35948aadecb",
-        "sha256_reverse": "9f9572922f36efb4b7384f9cbb43f217d18fc480253e5c294fd97662f3288510"
-      }
-    },
-    {
-      "text": "a aide asks a answer; adam brings book to diana",
-      "frames": [
-        [
-          "det_sg",
-          "agent_sg",
-          "verb_sg",
-          "det",
-          "object"
-        ],
-        [
-          "name",
-          "verb_sg",
-          "object",
-          "prep",
-          "name"
-        ]
-      ],
-      "words": [
-        "a",
-        "aide",
-        "asks",
-        "a",
-        "answer",
-        "adam",
-        "brings",
-        "book",
-        "to",
-        "diana"
-      ],
-      "boundary_lengths": [
-        1,
-        4,
-        4,
-        1,
-        6,
-        4,
-        6,
-        4,
-        2,
-        5
-      ],
-      "agreement": "number-carrying frame roles",
-      "audit": {
-        "letters": 37,
-        "normalized": "aaideasksaansweradambringsbooktodiana",
-        "pointer_exact": false,
-        "mismatches": [
-          [
-            1,
-            35,
-            "a",
-            "n"
-          ],
-          [
-            2,
-            34,
-            "i",
-            "a"
-          ],
-          [
-            3,
-            33,
-            "d",
-            "i"
-          ],
-          [
-            4,
-            32,
-            "e",
             "d"
           ],
           [
-            5,
-            31,
-            "a",
-            "o"
-          ],
-          [
-            6,
-            30,
-            "s",
-            "t"
-          ],
-          [
             8,
             28,
             "s",
-            "o"
+            "e"
           ],
           [
             9,
             27,
-            "a",
-            "o"
-          ],
-          [
-            10,
-            26,
-            "a",
-            "b"
-          ],
-          [
-            11,
-            25,
-            "n",
-            "s"
-          ],
-          [
-            12,
-            24,
-            "s",
-            "g"
-          ],
-          [
-            13,
-            23,
-            "w",
-            "n"
-          ],
-          [
-            14,
-            22,
-            "e",
-            "i"
-          ],
-          [
-            16,
-            20,
-            "a",
-            "b"
-          ],
-          [
-            17,
-            19,
-            "d",
-            "m"
-          ]
-        ],
-        "sha256_forward": "9a18860ac776b4c2837a310bab4971c305a5d4b9b0d461c0e4378449b4ecb3c5",
-        "sha256_reverse": "2b38382c815ae3cb8bf6ce0942085bb11e6c68eed2ff7701da880988f7aaf553"
-      }
-    },
-    {
-      "text": "a aide asks a answer; adam brings book to eva",
-      "frames": [
-        [
-          "det_sg",
-          "agent_sg",
-          "verb_sg",
-          "det",
-          "object"
-        ],
-        [
-          "name",
-          "verb_sg",
-          "object",
-          "prep",
-          "name"
-        ]
-      ],
-      "words": [
-        "a",
-        "aide",
-        "asks",
-        "a",
-        "answer",
-        "adam",
-        "brings",
-        "book",
-        "to",
-        "eva"
-      ],
-      "boundary_lengths": [
-        1,
-        4,
-        4,
-        1,
-        6,
-        4,
-        6,
-        4,
-        2,
-        3
-      ],
-      "agreement": "number-carrying frame roles",
-      "audit": {
-        "letters": 35,
-        "normalized": "aaideasksaansweradambringsbooktoeva",
-        "pointer_exact": false,
-        "mismatches": [
-          [
-            1,
-            33,
             "a",
             "v"
           ],
           [
-            2,
-            32,
-            "i",
-            "e"
-          ],
-          [
-            3,
-            31,
-            "d",
-            "o"
-          ],
-          [
-            4,
-            30,
-            "e",
-            "t"
-          ],
-          [
-            5,
-            29,
-            "a",
-            "k"
-          ],
-          [
-            6,
-            28,
-            "s",
-            "o"
-          ],
-          [
-            7,
-            27,
-            "k",
-            "o"
-          ],
-          [
-            8,
-            26,
-            "s",
-            "b"
-          ],
-          [
-            9,
-            25,
-            "a",
-            "s"
-          ],
-          [
             10,
-            24,
-            "a",
-            "g"
-          ],
-          [
-            12,
-            22,
-            "s",
-            "i"
-          ],
-          [
-            13,
-            21,
-            "w",
-            "r"
-          ],
-          [
-            14,
-            20,
-            "e",
-            "b"
-          ],
-          [
-            15,
-            19,
-            "r",
-            "m"
-          ]
-        ],
-        "sha256_forward": "768efc260a7e3d8c6bb925c326725f5766a179287034eba3d303e5d248253d76",
-        "sha256_reverse": "781a5987947d6aacf7ee85b55113b29e471bc80c9173365c9b3f31d8d2694536"
-      }
-    },
-    {
-      "text": "a aide asks a answer; adam brings book to iris",
-      "frames": [
-        [
-          "det_sg",
-          "agent_sg",
-          "verb_sg",
-          "det",
-          "object"
-        ],
-        [
-          "name",
-          "verb_sg",
-          "object",
-          "prep",
-          "name"
-        ]
-      ],
-      "words": [
-        "a",
-        "aide",
-        "asks",
-        "a",
-        "answer",
-        "adam",
-        "brings",
-        "book",
-        "to",
-        "iris"
-      ],
-      "boundary_lengths": [
-        1,
-        4,
-        4,
-        1,
-        6,
-        4,
-        6,
-        4,
-        2,
-        4
-      ],
-      "agreement": "number-carrying frame roles",
-      "audit": {
-        "letters": 36,
-        "normalized": "aaideasksaansweradambringsbooktoiris",
-        "pointer_exact": false,
-        "mismatches": [
-          [
-            0,
-            35,
-            "a",
-            "s"
-          ],
-          [
-            1,
-            34,
-            "a",
-            "i"
-          ],
-          [
-            2,
-            33,
-            "i",
-            "r"
-          ],
-          [
-            3,
-            32,
-            "d",
-            "i"
-          ],
-          [
-            4,
-            31,
-            "e",
-            "o"
-          ],
-          [
-            5,
-            30,
-            "a",
-            "t"
-          ],
-          [
-            6,
-            29,
-            "s",
-            "k"
-          ],
-          [
-            7,
-            28,
-            "k",
-            "o"
-          ],
-          [
-            8,
-            27,
-            "s",
-            "o"
-          ],
-          [
-            9,
             26,
             "a",
-            "b"
-          ],
-          [
-            10,
-            25,
-            "a",
-            "s"
+            "i"
           ],
           [
             11,
-            24,
+            25,
             "n",
-            "g"
-          ],
-          [
-            12,
-            23,
-            "s",
-            "n"
-          ],
-          [
-            13,
-            22,
-            "w",
-            "i"
-          ],
-          [
-            14,
-            21,
-            "e",
             "r"
           ],
           [
-            15,
-            20,
-            "r",
-            "b"
+            12,
+            24,
+            "s",
+            "r"
           ],
           [
-            16,
-            19,
-            "a",
-            "m"
-          ],
-          [
-            17,
-            18,
-            "d",
-            "a"
-          ]
-        ],
-        "sha256_forward": "19d5bb0c6ef410f0a52947b4a282215edea64eedcdd4c6f6c19aaf0743d79470",
-        "sha256_reverse": "84b0b3e8265132140b806762ecca4d1e1b6254b70c3a363eae9ad5d09a5edfe0"
-      }
-    },
-    {
-      "text": "a aide asks a answer; adam brings book to jane",
-      "frames": [
-        [
-          "det_sg",
-          "agent_sg",
-          "verb_sg",
-          "det",
-          "object"
-        ],
-        [
-          "name",
-          "verb_sg",
-          "object",
-          "prep",
-          "name"
-        ]
-      ],
-      "words": [
-        "a",
-        "aide",
-        "asks",
-        "a",
-        "answer",
-        "adam",
-        "brings",
-        "book",
-        "to",
-        "jane"
-      ],
-      "boundary_lengths": [
-        1,
-        4,
-        4,
-        1,
-        6,
-        4,
-        6,
-        4,
-        2,
-        4
-      ],
-      "agreement": "number-carrying frame roles",
-      "audit": {
-        "letters": 36,
-        "normalized": "aaideasksaansweradambringsbooktojane",
-        "pointer_exact": false,
-        "mismatches": [
-          [
-            0,
-            35,
-            "a",
-            "e"
-          ],
-          [
-            1,
-            34,
-            "a",
-            "n"
-          ],
-          [
-            2,
-            33,
-            "i",
+            13,
+            23,
+            "w",
             "a"
           ],
           [
-            3,
-            32,
-            "d",
-            "j"
-          ],
-          [
-            4,
-            31,
+            14,
+            22,
             "e",
-            "o"
-          ],
-          [
-            5,
-            30,
-            "a",
             "t"
           ],
           [
-            6,
-            29,
-            "s",
-            "k"
-          ],
-          [
-            7,
-            28,
-            "k",
-            "o"
-          ],
-          [
-            8,
-            27,
-            "s",
-            "o"
-          ],
-          [
-            9,
-            26,
-            "a",
-            "b"
-          ],
-          [
-            10,
-            25,
-            "a",
+            15,
+            21,
+            "r",
             "s"
           ],
           [
-            11,
-            24,
-            "n",
-            "g"
-          ],
-          [
-            12,
-            23,
-            "s",
-            "n"
-          ],
-          [
-            13,
-            22,
-            "w",
+            16,
+            20,
+            "a",
             "i"
           ],
           [
-            14,
-            21,
-            "e",
-            "r"
-          ],
-          [
-            15,
-            20,
-            "r",
-            "b"
-          ],
-          [
-            16,
-            19,
-            "a",
-            "m"
-          ],
-          [
             17,
-            18,
-            "d",
-            "a"
-          ]
-        ],
-        "sha256_forward": "7957a82f56f3d990ed49904c63c1e15881cdba8717d4b8808b979833d64707ee",
-        "sha256_reverse": "f4b592f74e421b82550d1329847ecab11488e824b175706c3cd768713c66b004"
-      }
-    },
-    {
-      "text": "a aide asks a answer; adam brings book to leon",
-      "frames": [
-        [
-          "det_sg",
-          "agent_sg",
-          "verb_sg",
-          "det",
-          "object"
-        ],
-        [
-          "name",
-          "verb_sg",
-          "object",
-          "prep",
-          "name"
-        ]
-      ],
-      "words": [
-        "a",
-        "aide",
-        "asks",
-        "a",
-        "answer",
-        "adam",
-        "brings",
-        "book",
-        "to",
-        "leon"
-      ],
-      "boundary_lengths": [
-        1,
-        4,
-        4,
-        1,
-        6,
-        4,
-        6,
-        4,
-        2,
-        4
-      ],
-      "agreement": "number-carrying frame roles",
-      "audit": {
-        "letters": 36,
-        "normalized": "aaideasksaansweradambringsbooktoleon",
-        "pointer_exact": false,
-        "mismatches": [
-          [
-            0,
-            35,
-            "a",
-            "n"
-          ],
-          [
-            1,
-            34,
-            "a",
-            "o"
-          ],
-          [
-            2,
-            33,
-            "i",
-            "e"
-          ],
-          [
-            3,
-            32,
-            "d",
-            "l"
-          ],
-          [
-            4,
-            31,
-            "e",
-            "o"
-          ],
-          [
-            5,
-            30,
+            19,
             "a",
             "t"
-          ],
-          [
-            6,
-            29,
-            "s",
-            "k"
-          ],
-          [
-            7,
-            28,
-            "k",
-            "o"
-          ],
-          [
-            8,
-            27,
-            "s",
-            "o"
-          ],
-          [
-            9,
-            26,
-            "a",
-            "b"
-          ],
-          [
-            10,
-            25,
-            "a",
-            "s"
-          ],
-          [
-            11,
-            24,
-            "n",
-            "g"
-          ],
-          [
-            12,
-            23,
-            "s",
-            "n"
-          ],
-          [
-            13,
-            22,
-            "w",
-            "i"
-          ],
-          [
-            14,
-            21,
-            "e",
-            "r"
-          ],
-          [
-            15,
-            20,
-            "r",
-            "b"
-          ],
-          [
-            16,
-            19,
-            "a",
-            "m"
-          ],
-          [
-            17,
-            18,
-            "d",
-            "a"
           ]
         ],
-        "sha256_forward": "dba1505a43b537b70898d049f8edf30db86920f7160f31460388bcf1faf3120c",
-        "sha256_reverse": "291e9f97a8cce90cfc967a22e6570082cf32315587d18edfd6247faac7cac665"
+        "sha256_forward": "9acb432427eb1c812c28a16ab3eb826fdf0b48016c067ded5a1aaacfe6a19331",
+        "sha256_reverse": "0ce0ffa0a43f1a9373f80cc7a70fcfeb4a09782adb3aee8b7454cfd11d1425b8"
       }
     },
     {
-      "text": "a aide asks a answer; adam brings book from alice",
+      "text": "a aide asks a answer; a artist arrived to a harbor",
       "frames": [
         [
           "det_sg",
@@ -1208,11 +180,12 @@
           "object"
         ],
         [
-          "name",
-          "verb_sg",
-          "object",
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
           "prep",
-          "name"
+          "det",
+          "place"
         ]
       ],
       "words": [
@@ -1221,11 +194,12 @@
         "asks",
         "a",
         "answer",
-        "adam",
-        "brings",
-        "book",
-        "from",
-        "alice"
+        "a",
+        "artist",
+        "arrived",
+        "to",
+        "a",
+        "harbor"
       ],
       "boundary_lengths": [
         1,
@@ -1233,35 +207,42 @@
         4,
         1,
         6,
-        4,
+        1,
         6,
-        4,
-        4,
-        5
+        7,
+        2,
+        1,
+        6
       ],
       "agreement": "number-carrying frame roles",
       "audit": {
         "letters": 39,
-        "normalized": "aaideasksaansweradambringsbookfromalice",
+        "normalized": "aaideasksaansweraartistarrivedtoaharbor",
         "pointer_exact": false,
         "mismatches": [
           [
             0,
             38,
             "a",
-            "e"
+            "r"
           ],
           [
             1,
             37,
             "a",
-            "c"
+            "o"
+          ],
+          [
+            2,
+            36,
+            "i",
+            "b"
           ],
           [
             3,
             35,
             "d",
-            "l"
+            "r"
           ],
           [
             4,
@@ -1273,93 +254,93 @@
             5,
             33,
             "a",
-            "m"
+            "h"
           ],
           [
             6,
             32,
             "s",
-            "o"
+            "a"
           ],
           [
             7,
             31,
             "k",
-            "r"
+            "o"
           ],
           [
             8,
             30,
             "s",
-            "f"
+            "t"
           ],
           [
             9,
             29,
             "a",
-            "k"
+            "d"
           ],
           [
             10,
             28,
             "a",
-            "o"
+            "e"
           ],
           [
             11,
             27,
             "n",
-            "o"
+            "v"
           ],
           [
             12,
             26,
             "s",
-            "b"
+            "i"
           ],
           [
             13,
             25,
             "w",
-            "s"
+            "r"
           ],
           [
             14,
             24,
             "e",
-            "g"
+            "r"
           ],
           [
             15,
             23,
             "r",
-            "n"
+            "a"
           ],
           [
             16,
             22,
             "a",
-            "i"
+            "t"
           ],
           [
             17,
             21,
-            "d",
-            "r"
+            "a",
+            "s"
           ],
           [
             18,
             20,
-            "a",
-            "b"
+            "r",
+            "i"
           ]
         ],
-        "sha256_forward": "fe2078951e96f19477ccc93867ea3a764b7bd6245c981db38bce14f87b480784",
-        "sha256_reverse": "8f96a889850eceb1120bb1755ccba5879282757e766ce4e7a9038d91268d78e5"
+        "sha256_forward": "04e9a04b635a04d86c1505a2d2930d3e9301b7fafc2b9d3ba0ac3108ea18e0f0",
+        "sha256_reverse": "711d70b291ae8783b10050590669f5dc3be47bc841b054a8c41afa62b18d3c2c"
       }
     },
     {
-      "text": "a aide asks a answer; adam brings book from ben",
+      "text": "a aide asks a answer; a artist arrived to a garden",
       "frames": [
         [
           "det_sg",
@@ -1369,11 +350,12 @@
           "object"
         ],
         [
-          "name",
-          "verb_sg",
-          "object",
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
           "prep",
-          "name"
+          "det",
+          "place"
         ]
       ],
       "words": [
@@ -1382,11 +364,12 @@
         "asks",
         "a",
         "answer",
-        "adam",
-        "brings",
-        "book",
-        "from",
-        "ben"
+        "a",
+        "artist",
+        "arrived",
+        "to",
+        "a",
+        "garden"
       ],
       "boundary_lengths": [
         1,
@@ -1394,121 +377,140 @@
         4,
         1,
         6,
-        4,
+        1,
         6,
-        4,
-        4,
-        3
+        7,
+        2,
+        1,
+        6
       ],
       "agreement": "number-carrying frame roles",
       "audit": {
-        "letters": 37,
-        "normalized": "aaideasksaansweradambringsbookfromben",
+        "letters": 39,
+        "normalized": "aaideasksaansweraartistarrivedtoagarden",
         "pointer_exact": false,
         "mismatches": [
           [
             0,
-            36,
+            38,
             "a",
             "n"
           ],
           [
             1,
-            35,
+            37,
             "a",
             "e"
           ],
           [
             2,
-            34,
+            36,
             "i",
-            "b"
+            "d"
           ],
           [
             3,
-            33,
+            35,
             "d",
-            "m"
-          ],
-          [
-            4,
-            32,
-            "e",
-            "o"
-          ],
-          [
-            5,
-            31,
-            "a",
             "r"
           ],
           [
-            6,
-            30,
-            "s",
-            "f"
+            4,
+            34,
+            "e",
+            "a"
           ],
           [
-            8,
-            28,
-            "s",
-            "o"
-          ],
-          [
-            9,
-            27,
+            5,
+            33,
             "a",
-            "o"
-          ],
-          [
-            10,
-            26,
-            "a",
-            "b"
-          ],
-          [
-            11,
-            25,
-            "n",
-            "s"
-          ],
-          [
-            12,
-            24,
-            "s",
             "g"
           ],
           [
-            13,
-            23,
-            "w",
-            "n"
+            6,
+            32,
+            "s",
+            "a"
           ],
           [
-            14,
-            22,
-            "e",
+            7,
+            31,
+            "k",
+            "o"
+          ],
+          [
+            8,
+            30,
+            "s",
+            "t"
+          ],
+          [
+            9,
+            29,
+            "a",
+            "d"
+          ],
+          [
+            10,
+            28,
+            "a",
+            "e"
+          ],
+          [
+            11,
+            27,
+            "n",
+            "v"
+          ],
+          [
+            12,
+            26,
+            "s",
             "i"
           ],
           [
+            13,
+            25,
+            "w",
+            "r"
+          ],
+          [
+            14,
+            24,
+            "e",
+            "r"
+          ],
+          [
+            15,
+            23,
+            "r",
+            "a"
+          ],
+          [
             16,
-            20,
+            22,
             "a",
-            "b"
+            "t"
           ],
           [
             17,
-            19,
-            "d",
-            "m"
+            21,
+            "a",
+            "s"
+          ],
+          [
+            18,
+            20,
+            "r",
+            "i"
           ]
         ],
-        "sha256_forward": "c4e706eabe68748deabe1bc307b203aa3d33bbd58558959257f7bad0ad0751a2",
-        "sha256_reverse": "f7190ec3c7b8bc4c7621f5bd2c40a7b35e899a76aacddb7cde5dceaafa29d810"
+        "sha256_forward": "876b7681f2e46bd233c369807b63d75b15b9a3334c21e4d7a88644b615056b9c",
+        "sha256_reverse": "6c1a8dce9d40c1c7347ea1de23f6593e99fb10b8704641dee094ebd0d2fc25fc"
       }
     },
     {
-      "text": "a aide asks a answer; adam brings book from clara",
+      "text": "a aide asks a answer; a artist arrived to a island",
       "frames": [
         [
           "det_sg",
@@ -1518,11 +520,12 @@
           "object"
         ],
         [
-          "name",
-          "verb_sg",
-          "object",
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
           "prep",
-          "name"
+          "det",
+          "place"
         ]
       ],
       "words": [
@@ -1531,11 +534,12 @@
         "asks",
         "a",
         "answer",
-        "adam",
-        "brings",
-        "book",
-        "from",
-        "clara"
+        "a",
+        "artist",
+        "arrived",
+        "to",
+        "a",
+        "island"
       ],
       "boundary_lengths": [
         1,
@@ -1543,23 +547,30 @@
         4,
         1,
         6,
-        4,
+        1,
         6,
-        4,
-        4,
-        5
+        7,
+        2,
+        1,
+        6
       ],
       "agreement": "number-carrying frame roles",
       "audit": {
         "letters": 39,
-        "normalized": "aaideasksaansweradambringsbookfromclara",
+        "normalized": "aaideasksaansweraartistarrivedtoaisland",
         "pointer_exact": false,
         "mismatches": [
+          [
+            0,
+            38,
+            "a",
+            "d"
+          ],
           [
             1,
             37,
             "a",
-            "r"
+            "n"
           ],
           [
             2,
@@ -1577,99 +588,99 @@
             4,
             34,
             "e",
-            "c"
+            "s"
           ],
           [
             5,
             33,
             "a",
-            "m"
+            "i"
           ],
           [
             6,
             32,
             "s",
-            "o"
+            "a"
           ],
           [
             7,
             31,
             "k",
-            "r"
+            "o"
           ],
           [
             8,
             30,
             "s",
-            "f"
+            "t"
           ],
           [
             9,
             29,
             "a",
-            "k"
+            "d"
           ],
           [
             10,
             28,
             "a",
-            "o"
+            "e"
           ],
           [
             11,
             27,
             "n",
-            "o"
+            "v"
           ],
           [
             12,
             26,
             "s",
-            "b"
+            "i"
           ],
           [
             13,
             25,
             "w",
-            "s"
+            "r"
           ],
           [
             14,
             24,
             "e",
-            "g"
+            "r"
           ],
           [
             15,
             23,
             "r",
-            "n"
+            "a"
           ],
           [
             16,
             22,
             "a",
-            "i"
+            "t"
           ],
           [
             17,
             21,
-            "d",
-            "r"
+            "a",
+            "s"
           ],
           [
             18,
             20,
-            "a",
-            "b"
+            "r",
+            "i"
           ]
         ],
-        "sha256_forward": "52a6a9eeff72ab6f6b6d2dbade7af2f783901cab373728d26da29fd94c86ead7",
-        "sha256_reverse": "8f871675b4b75febe049893fc0887b3f41d60d14e6c0a1657060ed1d7067f821"
+        "sha256_forward": "79dd355b88b612639cf2421377164781726b68ff11e722cafaa3f7c93f5459ae",
+        "sha256_reverse": "c2ca79bd07ccccb5bca07c20aa4bf82b232b7181f2c7cf8000d0f71d3a974117"
       }
     },
     {
-      "text": "a aide asks a answer; adam brings book from diana",
+      "text": "a aide asks a answer; a artist arrived to a river",
       "frames": [
         [
           "det_sg",
@@ -1679,11 +690,12 @@
           "object"
         ],
         [
-          "name",
-          "verb_sg",
-          "object",
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
           "prep",
-          "name"
+          "det",
+          "place"
         ]
       ],
       "words": [
@@ -1692,11 +704,12 @@
         "asks",
         "a",
         "answer",
-        "adam",
-        "brings",
-        "book",
-        "from",
-        "diana"
+        "a",
+        "artist",
+        "arrived",
+        "to",
+        "a",
+        "river"
       ],
       "boundary_lengths": [
         1,
@@ -1704,29 +717,1020 @@
         4,
         1,
         6,
-        4,
+        1,
         6,
-        4,
-        4,
+        7,
+        2,
+        1,
         5
       ],
       "agreement": "number-carrying frame roles",
       "audit": {
-        "letters": 39,
-        "normalized": "aaideasksaansweradambringsbookfromdiana",
+        "letters": 38,
+        "normalized": "aaideasksaansweraartistarrivedtoariver",
         "pointer_exact": false,
         "mismatches": [
           [
-            1,
+            0,
             37,
+            "a",
+            "r"
+          ],
+          [
+            1,
+            36,
+            "a",
+            "e"
+          ],
+          [
+            2,
+            35,
+            "i",
+            "v"
+          ],
+          [
+            3,
+            34,
+            "d",
+            "i"
+          ],
+          [
+            4,
+            33,
+            "e",
+            "r"
+          ],
+          [
+            6,
+            31,
+            "s",
+            "o"
+          ],
+          [
+            7,
+            30,
+            "k",
+            "t"
+          ],
+          [
+            8,
+            29,
+            "s",
+            "d"
+          ],
+          [
+            9,
+            28,
+            "a",
+            "e"
+          ],
+          [
+            10,
+            27,
+            "a",
+            "v"
+          ],
+          [
+            11,
+            26,
+            "n",
+            "i"
+          ],
+          [
+            12,
+            25,
+            "s",
+            "r"
+          ],
+          [
+            13,
+            24,
+            "w",
+            "r"
+          ],
+          [
+            14,
+            23,
+            "e",
+            "a"
+          ],
+          [
+            15,
+            22,
+            "r",
+            "t"
+          ],
+          [
+            16,
+            21,
+            "a",
+            "s"
+          ],
+          [
+            17,
+            20,
+            "a",
+            "i"
+          ],
+          [
+            18,
+            19,
+            "r",
+            "t"
+          ]
+        ],
+        "sha256_forward": "691fc68dedcfb6d74772a3ad5a22a1711741807f4bd027e5ab5fb968054394c5",
+        "sha256_reverse": "5e1004c01a66ec9a50beb54726a92d6f08f95ebf17bf0330a17bca737909027a"
+      }
+    },
+    {
+      "text": "a aide asks a answer; a artist arrived to a village",
+      "frames": [
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_sg",
+          "det",
+          "object"
+        ],
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
+          "prep",
+          "det",
+          "place"
+        ]
+      ],
+      "words": [
+        "a",
+        "aide",
+        "asks",
+        "a",
+        "answer",
+        "a",
+        "artist",
+        "arrived",
+        "to",
+        "a",
+        "village"
+      ],
+      "boundary_lengths": [
+        1,
+        4,
+        4,
+        1,
+        6,
+        1,
+        6,
+        7,
+        2,
+        1,
+        7
+      ],
+      "agreement": "number-carrying frame roles",
+      "audit": {
+        "letters": 40,
+        "normalized": "aaideasksaansweraartistarrivedtoavillage",
+        "pointer_exact": false,
+        "mismatches": [
+          [
+            0,
+            39,
+            "a",
+            "e"
+          ],
+          [
+            1,
+            38,
+            "a",
+            "g"
+          ],
+          [
+            2,
+            37,
+            "i",
+            "a"
+          ],
+          [
+            3,
+            36,
+            "d",
+            "l"
+          ],
+          [
+            4,
+            35,
+            "e",
+            "l"
+          ],
+          [
+            5,
+            34,
+            "a",
+            "i"
+          ],
+          [
+            6,
+            33,
+            "s",
+            "v"
+          ],
+          [
+            7,
+            32,
+            "k",
+            "a"
+          ],
+          [
+            8,
+            31,
+            "s",
+            "o"
+          ],
+          [
+            9,
+            30,
+            "a",
+            "t"
+          ],
+          [
+            10,
+            29,
+            "a",
+            "d"
+          ],
+          [
+            11,
+            28,
+            "n",
+            "e"
+          ],
+          [
+            12,
+            27,
+            "s",
+            "v"
+          ],
+          [
+            13,
+            26,
+            "w",
+            "i"
+          ],
+          [
+            14,
+            25,
+            "e",
+            "r"
+          ],
+          [
+            17,
+            22,
+            "a",
+            "t"
+          ],
+          [
+            18,
+            21,
+            "r",
+            "s"
+          ],
+          [
+            19,
+            20,
+            "t",
+            "i"
+          ]
+        ],
+        "sha256_forward": "a567fd62c537e3b9886a0e10f4989995b1aaf32642290976e21e1ea294031b4e",
+        "sha256_reverse": "8a1b7ec3ee3f814a187651a00e172b529efb929050a1675cf92e2e92c5e4453d"
+      }
+    },
+    {
+      "text": "a aide asks a answer; a artist arrived to an home",
+      "frames": [
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_sg",
+          "det",
+          "object"
+        ],
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
+          "prep",
+          "det",
+          "place"
+        ]
+      ],
+      "words": [
+        "a",
+        "aide",
+        "asks",
+        "a",
+        "answer",
+        "a",
+        "artist",
+        "arrived",
+        "to",
+        "an",
+        "home"
+      ],
+      "boundary_lengths": [
+        1,
+        4,
+        4,
+        1,
+        6,
+        1,
+        6,
+        7,
+        2,
+        2,
+        4
+      ],
+      "agreement": "number-carrying frame roles",
+      "audit": {
+        "letters": 38,
+        "normalized": "aaideasksaansweraartistarrivedtoanhome",
+        "pointer_exact": false,
+        "mismatches": [
+          [
+            0,
+            37,
+            "a",
+            "e"
+          ],
+          [
+            1,
+            36,
+            "a",
+            "m"
+          ],
+          [
+            2,
+            35,
+            "i",
+            "o"
+          ],
+          [
+            3,
+            34,
+            "d",
+            "h"
+          ],
+          [
+            4,
+            33,
+            "e",
+            "n"
+          ],
+          [
+            6,
+            31,
+            "s",
+            "o"
+          ],
+          [
+            7,
+            30,
+            "k",
+            "t"
+          ],
+          [
+            8,
+            29,
+            "s",
+            "d"
+          ],
+          [
+            9,
+            28,
+            "a",
+            "e"
+          ],
+          [
+            10,
+            27,
+            "a",
+            "v"
+          ],
+          [
+            11,
+            26,
+            "n",
+            "i"
+          ],
+          [
+            12,
+            25,
+            "s",
+            "r"
+          ],
+          [
+            13,
+            24,
+            "w",
+            "r"
+          ],
+          [
+            14,
+            23,
+            "e",
+            "a"
+          ],
+          [
+            15,
+            22,
+            "r",
+            "t"
+          ],
+          [
+            16,
+            21,
+            "a",
+            "s"
+          ],
+          [
+            17,
+            20,
+            "a",
+            "i"
+          ],
+          [
+            18,
+            19,
+            "r",
+            "t"
+          ]
+        ],
+        "sha256_forward": "f98caae693dd9d432101b4878a028597d91d0f467992455eff8fcd90d6ccfd87",
+        "sha256_reverse": "098c49c1bc77a2c6332a03de80c2fc4d72c43129fba49a93cd568c7f25b65595"
+      }
+    },
+    {
+      "text": "a aide asks a answer; a artist arrived to an harbor",
+      "frames": [
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_sg",
+          "det",
+          "object"
+        ],
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
+          "prep",
+          "det",
+          "place"
+        ]
+      ],
+      "words": [
+        "a",
+        "aide",
+        "asks",
+        "a",
+        "answer",
+        "a",
+        "artist",
+        "arrived",
+        "to",
+        "an",
+        "harbor"
+      ],
+      "boundary_lengths": [
+        1,
+        4,
+        4,
+        1,
+        6,
+        1,
+        6,
+        7,
+        2,
+        2,
+        6
+      ],
+      "agreement": "number-carrying frame roles",
+      "audit": {
+        "letters": 40,
+        "normalized": "aaideasksaansweraartistarrivedtoanharbor",
+        "pointer_exact": false,
+        "mismatches": [
+          [
+            0,
+            39,
+            "a",
+            "r"
+          ],
+          [
+            1,
+            38,
+            "a",
+            "o"
+          ],
+          [
+            2,
+            37,
+            "i",
+            "b"
+          ],
+          [
+            3,
+            36,
+            "d",
+            "r"
+          ],
+          [
+            4,
+            35,
+            "e",
+            "a"
+          ],
+          [
+            5,
+            34,
+            "a",
+            "h"
+          ],
+          [
+            6,
+            33,
+            "s",
+            "n"
+          ],
+          [
+            7,
+            32,
+            "k",
+            "a"
+          ],
+          [
+            8,
+            31,
+            "s",
+            "o"
+          ],
+          [
+            9,
+            30,
+            "a",
+            "t"
+          ],
+          [
+            10,
+            29,
+            "a",
+            "d"
+          ],
+          [
+            11,
+            28,
+            "n",
+            "e"
+          ],
+          [
+            12,
+            27,
+            "s",
+            "v"
+          ],
+          [
+            13,
+            26,
+            "w",
+            "i"
+          ],
+          [
+            14,
+            25,
+            "e",
+            "r"
+          ],
+          [
+            17,
+            22,
+            "a",
+            "t"
+          ],
+          [
+            18,
+            21,
+            "r",
+            "s"
+          ],
+          [
+            19,
+            20,
+            "t",
+            "i"
+          ]
+        ],
+        "sha256_forward": "7422f5ed9260b7e1eb6872dd3501db02757382fd0b00b620a90503ec0456f1d5",
+        "sha256_reverse": "16a20a1f606a934babafae6e117e9d2fbcce6a109511c5cbe6f83576a184d3a4"
+      }
+    },
+    {
+      "text": "a aide asks a answer; a artist arrived to an garden",
+      "frames": [
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_sg",
+          "det",
+          "object"
+        ],
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
+          "prep",
+          "det",
+          "place"
+        ]
+      ],
+      "words": [
+        "a",
+        "aide",
+        "asks",
+        "a",
+        "answer",
+        "a",
+        "artist",
+        "arrived",
+        "to",
+        "an",
+        "garden"
+      ],
+      "boundary_lengths": [
+        1,
+        4,
+        4,
+        1,
+        6,
+        1,
+        6,
+        7,
+        2,
+        2,
+        6
+      ],
+      "agreement": "number-carrying frame roles",
+      "audit": {
+        "letters": 40,
+        "normalized": "aaideasksaansweraartistarrivedtoangarden",
+        "pointer_exact": false,
+        "mismatches": [
+          [
+            0,
+            39,
+            "a",
+            "n"
+          ],
+          [
+            1,
+            38,
+            "a",
+            "e"
+          ],
+          [
+            2,
+            37,
+            "i",
+            "d"
+          ],
+          [
+            3,
+            36,
+            "d",
+            "r"
+          ],
+          [
+            4,
+            35,
+            "e",
+            "a"
+          ],
+          [
+            5,
+            34,
+            "a",
+            "g"
+          ],
+          [
+            6,
+            33,
+            "s",
+            "n"
+          ],
+          [
+            7,
+            32,
+            "k",
+            "a"
+          ],
+          [
+            8,
+            31,
+            "s",
+            "o"
+          ],
+          [
+            9,
+            30,
+            "a",
+            "t"
+          ],
+          [
+            10,
+            29,
+            "a",
+            "d"
+          ],
+          [
+            11,
+            28,
+            "n",
+            "e"
+          ],
+          [
+            12,
+            27,
+            "s",
+            "v"
+          ],
+          [
+            13,
+            26,
+            "w",
+            "i"
+          ],
+          [
+            14,
+            25,
+            "e",
+            "r"
+          ],
+          [
+            17,
+            22,
+            "a",
+            "t"
+          ],
+          [
+            18,
+            21,
+            "r",
+            "s"
+          ],
+          [
+            19,
+            20,
+            "t",
+            "i"
+          ]
+        ],
+        "sha256_forward": "f36157e522645caf804f2ab924d8fa56bee59de06853436e23b786fc22f44cfd",
+        "sha256_reverse": "b25572112b49534ab27abecfc35a3e437b3799263c2bbbe34a5cdd11cffd514a"
+      }
+    },
+    {
+      "text": "a aide asks a answer; a artist arrived to an island",
+      "frames": [
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_sg",
+          "det",
+          "object"
+        ],
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
+          "prep",
+          "det",
+          "place"
+        ]
+      ],
+      "words": [
+        "a",
+        "aide",
+        "asks",
+        "a",
+        "answer",
+        "a",
+        "artist",
+        "arrived",
+        "to",
+        "an",
+        "island"
+      ],
+      "boundary_lengths": [
+        1,
+        4,
+        4,
+        1,
+        6,
+        1,
+        6,
+        7,
+        2,
+        2,
+        6
+      ],
+      "agreement": "number-carrying frame roles",
+      "audit": {
+        "letters": 40,
+        "normalized": "aaideasksaansweraartistarrivedtoanisland",
+        "pointer_exact": false,
+        "mismatches": [
+          [
+            0,
+            39,
+            "a",
+            "d"
+          ],
+          [
+            1,
+            38,
             "a",
             "n"
           ],
           [
             2,
-            36,
+            37,
             "i",
             "a"
+          ],
+          [
+            3,
+            36,
+            "d",
+            "l"
+          ],
+          [
+            4,
+            35,
+            "e",
+            "s"
+          ],
+          [
+            5,
+            34,
+            "a",
+            "i"
+          ],
+          [
+            6,
+            33,
+            "s",
+            "n"
+          ],
+          [
+            7,
+            32,
+            "k",
+            "a"
+          ],
+          [
+            8,
+            31,
+            "s",
+            "o"
+          ],
+          [
+            9,
+            30,
+            "a",
+            "t"
+          ],
+          [
+            10,
+            29,
+            "a",
+            "d"
+          ],
+          [
+            11,
+            28,
+            "n",
+            "e"
+          ],
+          [
+            12,
+            27,
+            "s",
+            "v"
+          ],
+          [
+            13,
+            26,
+            "w",
+            "i"
+          ],
+          [
+            14,
+            25,
+            "e",
+            "r"
+          ],
+          [
+            17,
+            22,
+            "a",
+            "t"
+          ],
+          [
+            18,
+            21,
+            "r",
+            "s"
+          ],
+          [
+            19,
+            20,
+            "t",
+            "i"
+          ]
+        ],
+        "sha256_forward": "d97b9b5d066fe156b11c0dedfacde55f1bf3b58575016d32adb79853b3295b1f",
+        "sha256_reverse": "7c899d805e43018e96980fc89ac74edbb1680a1945381de396e8e60ac83f8780"
+      }
+    },
+    {
+      "text": "a aide asks a answer; a artist arrived to an river",
+      "frames": [
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_sg",
+          "det",
+          "object"
+        ],
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
+          "prep",
+          "det",
+          "place"
+        ]
+      ],
+      "words": [
+        "a",
+        "aide",
+        "asks",
+        "a",
+        "answer",
+        "a",
+        "artist",
+        "arrived",
+        "to",
+        "an",
+        "river"
+      ],
+      "boundary_lengths": [
+        1,
+        4,
+        4,
+        1,
+        6,
+        1,
+        6,
+        7,
+        2,
+        2,
+        5
+      ],
+      "agreement": "number-carrying frame roles",
+      "audit": {
+        "letters": 39,
+        "normalized": "aaideasksaansweraartistarrivedtoanriver",
+        "pointer_exact": false,
+        "mismatches": [
+          [
+            0,
+            38,
+            "a",
+            "r"
+          ],
+          [
+            1,
+            37,
+            "a",
+            "e"
+          ],
+          [
+            2,
+            36,
+            "i",
+            "v"
           ],
           [
             3,
@@ -1738,100 +1742,264 @@
             4,
             34,
             "e",
-            "d"
+            "r"
           ],
           [
             5,
             33,
             "a",
-            "m"
+            "n"
           ],
           [
             6,
             32,
             "s",
-            "o"
+            "a"
           ],
           [
             7,
             31,
             "k",
-            "r"
+            "o"
           ],
           [
             8,
             30,
             "s",
-            "f"
+            "t"
           ],
           [
             9,
             29,
             "a",
-            "k"
+            "d"
           ],
           [
             10,
             28,
             "a",
-            "o"
+            "e"
           ],
           [
             11,
             27,
             "n",
-            "o"
+            "v"
           ],
           [
             12,
             26,
             "s",
-            "b"
+            "i"
           ],
           [
             13,
             25,
             "w",
-            "s"
+            "r"
           ],
           [
             14,
             24,
             "e",
-            "g"
+            "r"
           ],
           [
             15,
             23,
             "r",
-            "n"
+            "a"
           ],
           [
             16,
             22,
             "a",
-            "i"
+            "t"
           ],
           [
             17,
             21,
-            "d",
-            "r"
+            "a",
+            "s"
           ],
           [
             18,
             20,
-            "a",
-            "b"
+            "r",
+            "i"
           ]
         ],
-        "sha256_forward": "de5e11757ca76ae18a357d9dd9f39c38c04e9679d80f2d26467186bbf7ab7f06",
-        "sha256_reverse": "6c57c9d0384f15b6b3cfe0d171bc536726c31f12c8d33292b142adc2ef47fc89"
+        "sha256_forward": "a3bdc4c842cf20e06763353315e297f932400359ab4a279f290ba2e37fdfd498",
+        "sha256_reverse": "fb62f0c3566dd6f7c947720f8e152ba5ccb1b033f49167e49156d5864f71701a"
+      }
+    },
+    {
+      "text": "a aide asks a answer; a artist arrived to an village",
+      "frames": [
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_sg",
+          "det",
+          "object"
+        ],
+        [
+          "det_sg",
+          "agent_sg",
+          "verb_past_i",
+          "prep",
+          "det",
+          "place"
+        ]
+      ],
+      "words": [
+        "a",
+        "aide",
+        "asks",
+        "a",
+        "answer",
+        "a",
+        "artist",
+        "arrived",
+        "to",
+        "an",
+        "village"
+      ],
+      "boundary_lengths": [
+        1,
+        4,
+        4,
+        1,
+        6,
+        1,
+        6,
+        7,
+        2,
+        2,
+        7
+      ],
+      "agreement": "number-carrying frame roles",
+      "audit": {
+        "letters": 41,
+        "normalized": "aaideasksaansweraartistarrivedtoanvillage",
+        "pointer_exact": false,
+        "mismatches": [
+          [
+            0,
+            40,
+            "a",
+            "e"
+          ],
+          [
+            1,
+            39,
+            "a",
+            "g"
+          ],
+          [
+            2,
+            38,
+            "i",
+            "a"
+          ],
+          [
+            3,
+            37,
+            "d",
+            "l"
+          ],
+          [
+            4,
+            36,
+            "e",
+            "l"
+          ],
+          [
+            5,
+            35,
+            "a",
+            "i"
+          ],
+          [
+            6,
+            34,
+            "s",
+            "v"
+          ],
+          [
+            7,
+            33,
+            "k",
+            "n"
+          ],
+          [
+            8,
+            32,
+            "s",
+            "a"
+          ],
+          [
+            9,
+            31,
+            "a",
+            "o"
+          ],
+          [
+            10,
+            30,
+            "a",
+            "t"
+          ],
+          [
+            11,
+            29,
+            "n",
+            "d"
+          ],
+          [
+            12,
+            28,
+            "s",
+            "e"
+          ],
+          [
+            13,
+            27,
+            "w",
+            "v"
+          ],
+          [
+            14,
+            26,
+            "e",
+            "i"
+          ],
+          [
+            16,
+            24,
+            "a",
+            "r"
+          ],
+          [
+            18,
+            22,
+            "r",
+            "t"
+          ],
+          [
+            19,
+            21,
+            "t",
+            "s"
+          ]
+        ],
+        "sha256_forward": "52140ef90bcbb4a0221e41d81114c28c40ef34d318595d6db5075e3d74487c2d",
+        "sha256_reverse": "2f783e717557910e4f4ba2186804533afeb1501c0a075f6b470a98b5718da8d8"
       }
     }
   ],
   "independent_audit": "pointer comparison plus forward/reverse SHA-256",
   "readability_gate": "human review required; no programmatic certification",
-  "repair": "number-carrying determiner/subject/verb roles",
-  "next_repair": "add tense and transitivity constraints to event frames"
+  "repair": "number agreement plus explicit present/past tense and transitive/intransitive frames",
+  "next_repair": "add semantic selectional restrictions to event roles"
 }

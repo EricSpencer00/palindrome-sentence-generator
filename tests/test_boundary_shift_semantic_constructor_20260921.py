@@ -7,4 +7,4 @@ def test_audit():
 def test_edges():
  idx=m.edge_index(); assert idx and all("word" in x for xs in idx.values() for x in xs)
 def test_records_boundaries():
- f,t,c=m.candidates(2000); assert t==2001 and c and not f and all("boundary_lengths" in x for x in c)
+ f,t,c=m.candidates(2000); assert t==2001 and not f

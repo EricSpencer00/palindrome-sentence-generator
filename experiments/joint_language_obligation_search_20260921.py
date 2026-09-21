@@ -6,7 +6,7 @@ clauses are independently lexicalized; no token is reversed or copied.
 """
 from __future__ import annotations
 
-import hashlib, json, re
+import hashlib, itertools, json, re
 from collections import deque
 from pathlib import Path
 
@@ -60,15 +60,39 @@ def add_word(q: deque[str], word: str, left: bool) -> bool:
         else: return False
     return True
 
+def render_controls(template: list[str], limit: int = 12) -> list[dict]:
+    """Render ordinary forward grammar controls, never admit them as hits."""
+    choices = [LEX[slot] for slot in template]
+    rows = []
+    for left in itertools.islice(itertools.product(*choices), limit):
+        right = next(itertools.product(*choices))
+        text = " ".join(left + right) + "."
+        rows.append({"rendered": text, "candidate_kind": "diagnostic_control",
+                     "provenance": {"left": list(left), "right": list(right),
+                                     "template": " ".join(template),
+                                     "generated_forward": True,
+                                     "admitted_to_live_search": False},
+                     "audit": audit(text),
+                     "shortcut_reasons": shortcut_reasons(text)})
+    return rows
+
+
 def search(template: list[str], max_nodes: int = 200000) -> tuple[list[dict], dict]:
     # State stores independent clause words and the live unmatched obligation deque.
-    rows=[]; nodes=0; pruned=0
+    rows=[]; terminal=[]; nodes=0; pruned=0
     def rec(lidx, ridx, lw, rw, q, left_turn):
         nonlocal nodes, pruned
         nodes += 1
         if nodes > max_nodes: return
         if lidx == len(template) and ridx == len(template):
             rendered = " ".join(lw + rw)
+            terminal.append({"rendered": rendered + ".", "candidate_kind": "live_terminal",
+                             "provenance": {"left": list(lw), "right": list(rw),
+                                             "template": " ".join(template),
+                                             "generated_forward": True,
+                                             "admitted_to_live_search": True},
+                             "audit": audit(rendered),
+                             "shortcut_reasons": shortcut_reasons(rendered)})
             if not q:
                 a=audit(rendered)
                 if a["exact"] and a["letters"] >= 40 and not shortcut_reasons(rendered):
@@ -88,16 +112,20 @@ def search(template: list[str], max_nodes: int = 200000) -> tuple[list[dict], di
                 if is_left: rec(lidx+1,ridx,lw+[w],rw,nq,False)
                 else: rec(lidx,ridx+1,lw,rw+[w],nq,True)
     rec(0,0,[],[],deque(),True)
-    return rows,{"nodes":nodes,"obligation_prunes":pruned}
+    return rows,{"nodes":nodes,"obligation_prunes":pruned,
+                 "terminal_states":len(terminal),"terminal_examples":terminal[:8]}
 
 def main():
-    all_rows=[]; stats=[]
+    all_rows=[]; stats=[]; controls=[]
     for name, slots in TEMPLATES:
         rows, st=search(slots); all_rows.extend(rows); st["template"]=name; stats.append(st)
+        controls.extend(render_controls(slots))
     payload={"run_id":RUN_ID,"status":"SEARCH_COMPLETED","method":"joint grammatical slot expansion with live character obligation deque",
              "constraints":{"independent_clause_lexicalization":True,"post_render_search":False,"reversed_tokens":False,
              "catalogue_text":False,"rlaif_per_candidate":False},"templates":stats,
-             "candidate_count":len(all_rows),"reader_shortlist":[r for r in all_rows if r["audit"]["letters"]>=40],"next_repair":"expand typed semantic frames and choose slots by obligation frontier, preserving live deque checks"}
+             "candidate_count":len(all_rows),"reader_shortlist":[r for r in all_rows if r["audit"]["letters"]>=40],
+             "diagnostic_controls":controls,
+             "next_repair":"expand typed semantic frames and choose slots by obligation frontier, preserving live deque checks"}
     out=ROOT/"runs"/f"{RUN_ID}.json"; out.write_text(json.dumps(payload,indent=2)+"\n")
     print(json.dumps({"run_id":RUN_ID,"candidate_count":len(all_rows),"templates":stats},indent=2))
 

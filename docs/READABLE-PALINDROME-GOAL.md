@@ -7574,12 +7574,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   so incompatible prefixes are pruned before clause-pair enumeration. Artifact:
   `runs/typed-overhang-center-search-20260921.json`.
 
+- **Joint language/obligation search, 2026-09-21:** expanded four typed
+  sentence templates from both sides while carrying a live character-obligation
+  deque. It visited 11,658 states and made 82,447 immediate obligation prunes;
+  no terminal exact state closed. The corrected run now preserves 48 complete
+  forward grammar controls with independent length, pointer, and SHA audits so
+  the zero is inspectable rather than an empty result. It uses no reversed
+  tokens, catalogue prose, repair, or per-candidate RLAIF. The next operator is
+  typed semantic-frame expansion with obligation-frontier slot selection.
+  Artifact: `runs/joint-language-obligation-search-20260921.json`.
+
 - **Independent reverse lexicalization, 2026-09-21:** generated 480 ordinary
   typed subject–verb–object clauses, then attempted to segment each reverse
   character tape with an independently defined vocabulary and clause grammar.
   It produced 0 reverse segmentations (therefore 0 grammatical or exact
   candidates), with no mirrored word units, catalogue seeds, or repair step.
-  This is a distinct feasibility result: the finite vocabulary cannot express
-  the reverse tapes, so the next construction must use a weighted CFG/trie
-  with broader but independently grammatical lexicalization. Artifact:
-  `runs/independent-reverse-lexicalization-20260921.json`.
+  This is a feasibility result, not a readable-output win. A second weighted
+  lexical-DP variant was recognized as the same reverse-segmentation family:
+  it yielded 582 exact 36–38-letter diagnostics, all unreadable, and is not
+  counted as a new topology. The next construction must use a weighted CFG/trie
+  with broader but independently grammatical lexicalization. Artifacts:
+  `runs/independent-reverse-lexicalization-20260921.json` and
+  `runs/lexical-reverse-segmentation-20260921.json`.

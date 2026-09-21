@@ -8055,6 +8055,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   ready-and-willing coordination with an embedded complement. Artifact:
   `runs/cfg-earley-ready-eager-coord-vp-20260921.json`.
 
+- **Ready-and-willing embedded-complement Earley topology, 2026-09-21:**
+  added a true temporal CP seam to the coordinated VP, representing CP items
+  in the Earley chart before rendering. Three intact controls were 202, 207,
+  and 209 letters; 280 concrete domain conflicts were retained and zero exact
+  closures occurred. The next topology is `NP -> Det N CP` with a
+  relative-clause seam. Artifact:
+  `runs/cfg-earley-ready-willing-embedded-complement-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

@@ -1,7 +1,22 @@
 # Construction proposal: shared-character REGULAR propagation
 
-This is an implementation proposal, not a generated-output result. It has no
-new candidate, length record, or human readability evidence.
+The bounded implementation is `experiments/regular_shared_character_20260921.py`;
+the reproducible run is `runs/regular-shared-character-20260921.json`. It has no
+new length record or human readability evidence.
+
+The implemented propagator recovers `An aide rips nine memos; some men inspire
+Diana.` and its clause rotation at 38 letters. Both are calibration-family
+results, not novel discoveries. Each passes separate normalizers, a pointer
+check, and reverse equality/SHA checks. For N=39,40,42,44,48,52 the finite grammar
+loses all support at its root in one to four propagation rounds; no search cap
+was reached. This proves emptiness only for the supplied grammar at those N.
+Exhaustive differential tests at N=2..5 pass for unequal boundaries and odd/even
+centers. The artifact also retains two intact forward grammatical controls.
+
+The implementation uses five typed finite frames with optional adjective slots,
+live word-boundary alternatives, and three clause-order/topology choices. It is
+not yet the richer question/relative-clause grammar described below. That is the
+next concrete construction change required by this failed frontier attempt.
 
 ## Evidence for the change
 

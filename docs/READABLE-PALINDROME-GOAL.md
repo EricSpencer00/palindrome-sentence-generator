@@ -7910,6 +7910,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   this lane leaves a frontier beyond its first support conflict. Artifact:
   `runs/graph-unification-attachment-20260921.json`.
 
+- **Resultative-causation graph edge, 2026-09-21:** added the explicit
+  `event.made.result -> cause` attachment after the manner frontier survived
+  its first support conflict. Seven trees produced 42 incrementally checked
+  graph edges and 12 intact controls (maximum 133 letters), with zero exact
+  closures at or above 39 letters. The next operator is a distinct
+  concessive-result edge only if this resultative frontier likewise survives.
+  Artifact: `runs/graph-unification-attachment-20260921.json`.
+
+- **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
+  determiner-bearing locative PPs before rendering, carrying plural agreement
+  and locative valency in Earley items while pruning mirrored domains online.
+  Three fresh intact controls (111--121 letters) produced 159 concrete domain
+  conflicts and zero exact closures; independent pointer/SHA audits agree.
+  The next operator is a held-out plural auxiliary-bearing clause. Artifact:
+  `runs/cfg-earley-plural-determiner-pp-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

@@ -1,0 +1,229 @@
+{
+  "experiment_id": "lexicalized-macro-grammar-20260921",
+  "signature": "lexicalized-complete-clause-macros|reverse-boundary-signatures|discourse-state-composition",
+  "status": "completed_no_exact_closure",
+  "method": "bounded lexicalized macro-grammar with discourse-state composition",
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_read": true,
+    "overlaps_checked": [
+      "CFG grammar products",
+      "FST/residual automata",
+      "center-out/reservoir lanes",
+      "scene/semantic lattice lanes"
+    ],
+    "collision": false,
+    "reason": "Complete lexicalized clauses are atomic macro objects; discourse state and reverse-boundary signatures are composed before rendering, a distinct operator from token/character frontier search."
+  },
+  "macros": [
+    {
+      "id": "m1",
+      "text": "the calm sailor reads a map",
+      "topic": "sailor",
+      "act": "report",
+      "next": "map",
+      "boundary_signature": {
+        "prefix": "the",
+        "suffix": "map",
+        "reverse_suffix": "pam"
+      },
+      "letters": 22
+    },
+    {
+      "id": "m2",
+      "text": "the calm sailor marks a cove",
+      "topic": "sailor",
+      "act": "report",
+      "next": "cove",
+      "boundary_signature": {
+        "prefix": "the",
+        "suffix": "ove",
+        "reverse_suffix": "evo"
+      },
+      "letters": 23
+    },
+    {
+      "id": "m3",
+      "text": "the wise pilot watches the sea",
+      "topic": "pilot",
+      "act": "report",
+      "next": "sea",
+      "boundary_signature": {
+        "prefix": "the",
+        "suffix": "sea",
+        "reverse_suffix": "aes"
+      },
+      "letters": 25
+    },
+    {
+      "id": "m4",
+      "text": "the old keeper guards a gate",
+      "topic": "keeper",
+      "act": "report",
+      "next": "gate",
+      "boundary_signature": {
+        "prefix": "the",
+        "suffix": "ate",
+        "reverse_suffix": "eta"
+      },
+      "letters": 23
+    },
+    {
+      "id": "m5",
+      "text": "the sailor rests by the cove",
+      "topic": "sailor",
+      "act": "state",
+      "next": "cove",
+      "boundary_signature": {
+        "prefix": "the",
+        "suffix": "ove",
+        "reverse_suffix": "evo"
+      },
+      "letters": 23
+    },
+    {
+      "id": "m7",
+      "text": "the sailor rests by the map",
+      "topic": "sailor",
+      "act": "state",
+      "next": "map",
+      "boundary_signature": {
+        "prefix": "the",
+        "suffix": "map",
+        "reverse_suffix": "pam"
+      },
+      "letters": 22
+    },
+    {
+      "id": "m6",
+      "text": "the pilot waits by the sea",
+      "topic": "pilot",
+      "act": "state",
+      "next": "sea",
+      "boundary_signature": {
+        "prefix": "the",
+        "suffix": "sea",
+        "reverse_suffix": "aes"
+      },
+      "letters": 21
+    }
+  ],
+  "stats": {
+    "macros": 7,
+    "discourse_states": 5,
+    "signature_compatible_compositions": 3,
+    "exact": 0,
+    "longest_letters": 46
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "the calm sailor reads a map; the sailor rests by the map",
+      "audit": {
+        "letters": 44,
+        "exact": false,
+        "sha256": "19e5ded9cd0cf84502a711d2687745378645d55de4d4fe52a23e0dc43179bbf1",
+        "two_pointer_exact": false
+      },
+      "macro_ids": [
+        "m1",
+        "m7"
+      ],
+      "discourse_state": {
+        "topic": "sailor",
+        "acts": [
+          "report",
+          "state"
+        ]
+      },
+      "provenance": {
+        "complete_macros": true,
+        "pre_render_signature_gate": true,
+        "post_hoc_repair": false,
+        "rlaif": false
+      }
+    },
+    {
+      "rendered": "the calm sailor marks a cove; the sailor rests by the cove",
+      "audit": {
+        "letters": 46,
+        "exact": false,
+        "sha256": "068178ad18a7826aeb0adb221a9c89e7c287a5eddf4e436ff29ca7be341466ab",
+        "two_pointer_exact": false
+      },
+      "macro_ids": [
+        "m2",
+        "m5"
+      ],
+      "discourse_state": {
+        "topic": "sailor",
+        "acts": [
+          "report",
+          "state"
+        ]
+      },
+      "provenance": {
+        "complete_macros": true,
+        "pre_render_signature_gate": true,
+        "post_hoc_repair": false,
+        "rlaif": false
+      }
+    },
+    {
+      "rendered": "the wise pilot watches the sea; the pilot waits by the sea",
+      "audit": {
+        "letters": 46,
+        "exact": false,
+        "sha256": "463ae7d9140593c960b90740bf4edd702a353e51baa2fefe0716a40c3f02c36b",
+        "two_pointer_exact": false
+      },
+      "macro_ids": [
+        "m3",
+        "m6"
+      ],
+      "discourse_state": {
+        "topic": "pilot",
+        "acts": [
+          "report",
+          "state"
+        ]
+      },
+      "provenance": {
+        "complete_macros": true,
+        "pre_render_signature_gate": true,
+        "post_hoc_repair": false,
+        "rlaif": false
+      }
+    }
+  ],
+  "complete_prose_controls": [
+    {
+      "rendered": "the calm sailor reads a map",
+      "audit": {
+        "letters": 22,
+        "exact": false,
+        "sha256": "926aedccdc66a0f51cc937fc42b79ced43d9f5938071d84806d4cf6ec29ec6e9",
+        "two_pointer_exact": false
+      }
+    },
+    {
+      "rendered": "the wise pilot watches the sea",
+      "audit": {
+        "letters": 25,
+        "exact": false,
+        "sha256": "ee0c4132ceaaa68cde8f6159fe58de6e0596b830ee3a32df478bbbd8a61cb7aa",
+        "two_pointer_exact": false
+      }
+    }
+  ],
+  "independent_validation": [
+    "normalized outside-in two-pointer scan",
+    "forward SHA-256"
+  ],
+  "provenance": {
+    "generator_sha256": "01ead8356cb8cfaf71bc3d3c003602e73c978182b2171e728157c53fc8790a39",
+    "fresh_authored_macros": true,
+    "catalogue_text": false
+  },
+  "next_construction": "Expand the macro inventory with held-out report/state pairs and a 2-character boundary signature; retain discourse-state gating and reject any post-render repair.",
+  "reader_gate": "closed; no exact reader-eligible candidate"
+}

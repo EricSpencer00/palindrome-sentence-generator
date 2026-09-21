@@ -1,0 +1,113 @@
+{
+  "experiment_id": "locative-transitive-instrument-20260921",
+  "status": "completed_no_exact_closure",
+  "method": "typed instrument argument coupled to locative order in repair/move frames",
+  "candidate_count": 2,
+  "exact_count": 0,
+  "reader_eligible": false,
+  "rendered_candidates": [
+    {
+      "rendered": "the careful carpenter who repairs the gate with a hammer in the workshop beside the river; the patient builder who repairs the gate with a hammer in the workshop beside the river.",
+      "left_arc": "carpenter_repairs",
+      "right_arc": "builder_repairs",
+      "novel_rendered": true,
+      "semantic_state": {
+        "event_frame": "repair",
+        "instrument_preposition": "with",
+        "instrument_argument": true,
+        "locative_order": "place-first",
+        "typed_locatives": [
+          "in",
+          "beside"
+        ],
+        "transitive_object": true
+      },
+      "audit": {
+        "letters": 146,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "a8602d92d9b4e7ae14d232f9c798fb1e27f8dad8507b36520832b9168e95681d",
+        "reverse_sha256": "3d02d4f83e8cab896546fd18903b76208ccf18247c78574d831fff2a32fa5172",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "t",
+          "r"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "new transitive event frame with instrument and locative topology",
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "a quiet merchant who moves the crate with a cart beside the river in the warehouse; a strong porter who moves the crate with a cart beside the river in the warehouse.",
+      "left_arc": "merchant_moves",
+      "right_arc": "porter_moves",
+      "novel_rendered": true,
+      "semantic_state": {
+        "event_frame": "move",
+        "instrument_preposition": "with",
+        "instrument_argument": true,
+        "locative_order": "river-first",
+        "typed_locatives": [
+          "in",
+          "beside"
+        ],
+        "transitive_object": true
+      },
+      "audit": {
+        "letters": 133,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "e66dad0209f40c0ed8e1d3b0f8365328aff095d3674b77f6dcb3b2818e4a73d7",
+        "reverse_sha256": "786c2cf4e87a462a0fab8123cd598aa1ee278e4546112f63a151c694119d281d",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "a",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "new transitive event frame with instrument and locative topology",
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "stats": {
+    "longest_letters": 146
+  },
+  "novelty_preflight": {
+    "hash_source": "all runs/*.json except current artifact",
+    "current_artifact_excluded": true,
+    "all_rendered_new": true,
+    "prior_adjunct_only_reused": false
+  },
+  "failure_and_repair": {
+    "failure": "instrument-bearing transitive frames still mismatch live character obligations",
+    "next_construction": "bind instrument choice to event-specific object semantics before locative emission"
+  },
+  "provenance": {
+    "generator_sha256": "35d983636fd790e367081b204f499934f4d4f7f629ecff7425713b137ebdb376",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "shortcuts_excluded": true
+  }
+}

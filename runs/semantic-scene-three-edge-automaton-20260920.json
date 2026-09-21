@@ -1,0 +1,243 @@
+{
+  "experiment_id": "semantic-scene-three-edge-automaton-20260920",
+  "method": "three-edge complete-clause residual automaton with keyed third edge and subject-number agreement",
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "complete-clause-scene-lattice|three-edge-residual-automaton|agreement",
+    "distinct_from": "two-edge scene transition: a third complete discourse edge is selected only when its two-character residual key agrees with the prior transition"
+  },
+  "stats": {
+    "scenes": 3,
+    "three_edge_states": 3,
+    "keyed_third_edges": 3,
+    "key_prunes": 0,
+    "rendered": 3,
+    "exact_gt38": 0,
+    "max_letters": 124
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "diagnostic_controls": [
+    {
+      "scene": "harbor",
+      "agreement": {
+        "subject_number": "singular",
+        "edge1": true,
+        "edge2": true,
+        "edge3": true
+      },
+      "edges": [
+        "The patient keeper opened the harbor gate",
+        "The careful keeper watched the quiet quay",
+        "The patient keeper marked the channel"
+      ],
+      "residual_trace": [
+        {
+          "key": "th",
+          "opposing": "ya",
+          "matched": 0,
+          "closed": false
+        },
+        {
+          "key": "th",
+          "opposing": "le",
+          "matched": 0,
+          "closed": false
+        }
+      ],
+      "third_edge_selected_by": "th",
+      "selected": true,
+      "rendered": "The patient keeper opened the harbor gate. Then The careful keeper watched the quiet quay. Finally, The patient keeper marked the channel.",
+      "complete_prose": true,
+      "audit": {
+        "letters": 113,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "l"
+        ],
+        "sha256_forward": "c820386b24678a904fc748f2e6a3c3721ba1a015e404ed978825732cfa5fbb02",
+        "sha256_reverse": "e2e29d19b475101df32eef74f68dc5021ca9dbb9db33715c7a6d169cb780dc86",
+        "sha_equal": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "scene": "orchard",
+      "agreement": {
+        "subject_number": "plural",
+        "edge1": true,
+        "edge2": true,
+        "edge3": true
+      },
+      "edges": [
+        "Several young gardeners gathered ripe apples",
+        "Several young gardeners watered the orchard",
+        "Several young gardeners stored the apples"
+      ],
+      "residual_trace": [
+        {
+          "key": "se",
+          "opposing": "dr",
+          "matched": 0,
+          "closed": false
+        },
+        {
+          "key": "se",
+          "opposing": "se",
+          "matched": 2,
+          "closed": true
+        }
+      ],
+      "third_edge_selected_by": "se",
+      "selected": true,
+      "rendered": "Several young gardeners gathered ripe apples. Then Several young gardeners watered the orchard. Finally, Several young gardeners stored the apples.",
+      "complete_prose": true,
+      "audit": {
+        "letters": 124,
+        "pointer_exact": false,
+        "first_mismatch": [
+          2,
+          "v",
+          "l"
+        ],
+        "sha256_forward": "859536ec99c9a5cde1a94901f4f29402399e25fdfba3d8d77d270181893b2e39",
+        "sha256_reverse": "401b18409da3ed44e2db93aac85a2e96429ed6700aacce9909bf925f80af2143",
+        "sha_equal": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "scene": "letter",
+      "agreement": {
+        "subject_number": "singular",
+        "edge1": true,
+        "edge2": true,
+        "edge3": true
+      },
+      "edges": [
+        "The village scribe sealed a long letter",
+        "The village scribe folded a blue map",
+        "The village scribe carried the letter"
+      ],
+      "residual_trace": [
+        {
+          "key": "th",
+          "opposing": "pa",
+          "matched": 0,
+          "closed": false
+        },
+        {
+          "key": "th",
+          "opposing": "re",
+          "matched": 0,
+          "closed": false
+        }
+      ],
+      "third_edge_selected_by": "th",
+      "selected": true,
+      "rendered": "The village scribe sealed a long letter. Then The village scribe folded a blue map. Finally, The village scribe carried the letter.",
+      "complete_prose": true,
+      "audit": {
+        "letters": 106,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "3d87be4fc6a344032ddd94f331222d5908ea09b3d782d663e9e383250b69f61f",
+        "sha256_reverse": "f0256fbf08dad00ceb70c6d0a3b88b1e3a883f526a05bb151e761c2530474637",
+        "sha_equal": false
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    }
+  ],
+  "complete_prose_controls": [
+    {
+      "rendered": "The patient scribe marks the old letter beside the harbor.",
+      "audit": {
+        "letters": 48,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "101521f43786c4acf84caf34895a2720ecc0285a22210e5b055ffcace7668094",
+        "sha256_reverse": "9e88cbbdbc874f86d0afc054ecd0009738f0857fec7b6260ed1471b87df131eb",
+        "sha_equal": false
+      },
+      "provenance": {
+        "control": true,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "Several gardeners carried water through the orchard.",
+      "audit": {
+        "letters": 45,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "s",
+          "d"
+        ],
+        "sha256_forward": "6b1916c155cb8d92e579462f9098b62403a5be833f4269358228b8a6bced4be0",
+        "sha256_reverse": "369b75ffa45ffeec21d8a975d5e7c5ef1613841d18e2acd7bf2557e602119b03",
+        "sha_equal": false
+      },
+      "provenance": {
+        "control": true,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "provenance": {
+    "audits": [
+      "independent two-pointer comparison",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed; controls retained",
+    "hard_exclusions": [
+      "nested self-palindromes",
+      "repeated units",
+      "word-order symmetry",
+      "fragments",
+      "catalogue text",
+      "finished-tape reversal",
+      "post-hoc repair"
+    ]
+  },
+  "next_construction": {
+    "operator": "residual-keyed connector alternatives",
+    "change": "author connector and tense alternatives indexed by each surviving two-character key, while retaining three complete edges and agreement",
+    "reason": "the current third-edge keys do not align, so the automaton has no closure frontier"
+  },
+  "status": "no exact clean closure; complete-prose controls retained"
+}

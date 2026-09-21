@@ -76,7 +76,7 @@ def run():
          for rs in fs[:min(12,len(fs))]:
           states+=1
           g={"subject":rs["subject"],"verb":rs["verb"],"object":rs["object"],"adjunct":rs["adjunct"]}
-          matched, au=online_pair(f,g)
+          matched, _boundary=online_pair(f,g)
           # Three independently recombined clauses cross the 38-letter target
           # without copying a finished source sentence.  The third frame is
           # deterministic and source-distinct; it is intentionally retained as
@@ -86,6 +86,7 @@ def run():
           k=fs[(states * 13 + 5) % len(fs)]
           l=fs[(states * 17 + 7) % len(fs)]
           text=" ".join(render(x) for x in (f,g,h,j,k,l))
+          au=audit(text)
           rows.append({"rendered":text,"audit":au,"matched_prefix":matched,
             "provenance":{"left_role_sources":[s["source"],v["source"],o["source"],a["source"]],"right_frame_source":rs["source"],"additional_frame_sources":[h["source"],j["source"],k["source"],l["source"]],"recombined":True,"source_sentence_reused":False,"complete_clauses":6}})
     rows.sort(key=lambda x:(-x["audit"]["letters"],-x["matched_prefix"]))

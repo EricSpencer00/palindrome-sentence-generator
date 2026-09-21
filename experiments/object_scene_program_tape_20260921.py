@@ -1,9 +1,11 @@
-"""Object-level scene-program search with an online exact tape.
+"""Object-level scene-program admission diagnostic.
 
 Unlike clause banks, this enumerates a tiny executable scene: typed entities
-and two events linked by an object relation.  Each side chooses a topological
-event order and a lexical realization while its characters are consumed
-against the opposite side's tape.  No finished string is reversed or repaired.
+and two events linked by an object relation.  It renders each complete program
+on both sides and then performs an independent character walk over the two
+finished tapes.  That is useful as a bounded object-level closure diagnostic,
+but it is *not* an online character generator and must not be described as
+live pruning.  No finished string is reversed or repaired.
 """
 from __future__ import annotations
 
@@ -66,18 +68,13 @@ def render(order: tuple[Event, ...], forms: tuple[str, ...]) -> str:
     return "; ".join(chunks) + "."
 
 
-def online_pair(left: str, right: str) -> tuple[bool, int]:
-    """Compare characters as soon as both sides expose them."""
-    return online_tape_walk(norm(left), norm(right)[::-1])
+def post_render_pair(left: str, right: str) -> tuple[bool, int]:
+    """Walk two already-rendered tapes and report their common prefix."""
+    return post_render_tape_walk(norm(left), norm(right)[::-1])
 
 
-def online_tape_walk(left: str, right_reversed: str) -> tuple[bool, int]:
-    """The actual tape transition: each exposed pair is checked immediately.
-
-    This is intentionally a separate transition routine from ``audit``.  The
-    program search invokes it before a rendered candidate is admitted, so a
-    mismatch prunes the program state rather than repairing a completed tape.
-    """
+def post_render_tape_walk(left: str, right_reversed: str) -> tuple[bool, int]:
+    """Compare an exposed pair of complete tapes without post-hoc repair."""
     matched = 0
     for x, y in zip(left, right_reversed):
         if x != y:
@@ -99,11 +96,11 @@ def main() -> None:
                 states += 1
                 left = render(left_order, left_forms)
                 right = render(right_order, right_forms)
-                ok, matched = online_pair(left, right)
+                ok, matched = post_render_pair(left, right)
                 rendered = f"{left} {right}"
                 row = {"rendered": rendered, "left_program": [e.ident for e in left_order],
                        "right_program": [e.ident for e in right_order],
-                       "matched_characters": matched, "online_exact": ok,
+                       "matched_characters": matched, "post_render_exact": ok,
                        "audit": audit(rendered),
                        "provenance": {"source": "fresh hand-authored executable scene program",
                                       "entities": [e.ident for e in ENTITIES],
@@ -113,10 +110,11 @@ def main() -> None:
                     exact.append(row)
                 elif len(rows) < 12:
                     rows.append(row)
-    payload = {"method": "object-scene-program-online-tape",
+    payload = {"method": "object-scene-program-post-render-admission",
+               "search_kind": "complete-program enumeration followed by a post-render character walk",
                "states": states, "controls": rows, "exact": exact,
-               "independent_audit": "audit() normalizes letters and compares every mirror position",
-               "next_repair": "add a third event with a typed causal edge and permit a center clause; do not widen banks",
+               "independent_audit": "audit() normalizes letters and compares every mirror position; post_render_tape_walk() is diagnostic only",
+               "next_repair": "compile the typed event alternatives into a true forward/reverse NFA before expansion; do not call this complete-product diagnostic online",
                "reader_evidence": {"status": "not_run", "reason": "no exact candidate passed the mechanical gate"}}
     OUT.write_text(json.dumps(payload, indent=2) + "\n")
     print(json.dumps({"states": states, "controls": len(rows), "exact": len(exact),

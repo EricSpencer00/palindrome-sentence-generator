@@ -121,6 +121,16 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   (`web/functions/api/[[path]].js`). The live public deployment still serves
   the upstream route until that committed gate is deployed.
 
+- **Reproducible API provenance probe.** The new
+  `experiments/api_v3_provenance_readability_audit_20260921.py` fetches the
+  public health and deterministic 420-letter composition endpoints, preserves
+  the rendered response, and independently recomputes normalization, exact
+  equality, and forward/reverse SHA-256. The captured response is 408 letters,
+  117 words, 13 generated pairs, and exact under the independent check; its
+  readability field is deliberately `not_run`, because no programmatic score
+  can certify English. Artifact:
+  `runs/api-v3-provenance-readability-audit-20260921.json`.
+
 - **Online-intersection correction.** A source audit found that several recent
   entries described complete-clause enumeration followed by a palindrome
   check as if they propagated character obligations online. Those claims are
@@ -131,6 +141,13 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   SHA checks. Its fresh 2,304-realization grammar and the agreement-carrying
   follow-up both have zero exact closures; this is a sound construction
   foundation, not a readable candidate or a reason to claim the goal solved.
+
+- **Object-program boundary correction.** The 1,024-state object-scene lane
+  is now explicitly recorded as complete-program enumeration followed by a
+  post-render character walk: 12 intact controls, zero exact rows, and no
+  claim of live pruning. Its next method is a true forward/reverse NFA over
+  typed event alternatives, not a wider complete-program product
+  (`runs/object-scene-program-tape-20260921.json`).
 
 - **Frontier-directed follow-up.** The corrected engine then carried the
   consumed surface text into a narrow role-noun expansion. It reached the

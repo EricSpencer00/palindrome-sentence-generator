@@ -8534,3 +8534,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   `are`/`era` shell; the next residual is still `t` versus `n`, and independent
   pointer/SHA audits reject every tape. No candidate was promoted. Artifact:
   `runs/are-possessive-np-adjective-era-20260921.json`.
+
+- **Demonstrative-NP era shell, 2026-09-21:** corrected the attempted
+  demonstrative lane to complete plural phrases (`these scouts`, `these
+  guides`, `these boats`) and tested nine natural controls, including “Are
+  these scouts ready in an era?” (26 letters). The explicit agreement gate
+  passes, but every row still stops after the three-character `are`/`era`
+  shell at `t` versus `n`; pointer/SHA audits reject all tapes. This closes
+  the era-shell family and points to a fresh transitive adjective-complement
+  topology. Artifact:
+  `runs/are-demonstrative-np-adjective-era-20260921.json`.

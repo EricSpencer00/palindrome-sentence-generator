@@ -2,7 +2,7 @@
 import hashlib,itertools,json,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent;OUT=ROOT/'runs/are-demonstrative-np-adjective-era-20260921.json'
-NPS=("the scout's maps","the guide's notes","the guides' charts"); ADJ=('ready','calm','alert')
+NPS=('these scouts','these guides','these boats'); ADJ=('ready','calm','alert')
 def norm(s):return re.sub('[^a-z]','',s.lower())
 def sha(x):return hashlib.sha256(x.encode()).hexdigest()
 def audit(t):

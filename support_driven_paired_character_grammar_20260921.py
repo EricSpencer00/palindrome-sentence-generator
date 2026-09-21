@@ -51,39 +51,37 @@ def compatible(a: Frame, b: Frame) -> bool:
     return (a.number == b.number and a.valency == b.valency and a.role == b.role)
 
 def render(a: Frame, b: Frame) -> str:
-    return f"{a.subject} {a.verb} {a.object} {a.adjunct}, while {b.subject} {b.verb} {b.object} {b.adjunct}."
+    # Punctuation-only separation keeps the traced normalized tape equal to
+    # the rendered tape; a non-palindromic connector would be an unsupported
+    # central lexical obligation.
+    return f"{a.subject} {a.verb} {a.object} {a.adjunct}; {b.subject} {b.verb} {b.object} {b.adjunct}."
 
-def pair_trace(a: Frame, b: Frame) -> tuple[list[dict], int]:
-    """Consume paired fronts while carrying unmatched terminal characters."""
-    left = "".join(letters(x) for x in words(a))
-    right = "".join(letters(x) for x in reversed(words(b)))
-    i = j = 0; carry = ""; trace = []
-    while i < len(left) and j < len(right):
-        if left[i] == right[j]:
-            carry = ""; i += 1; j += 1; outcome = "match"
-        else:
-            # The shorter lexical unit has ended: retain its debt across the
-            # boundary, then let the next token on that arm consume it.
-            carry = (left[i:] if len(left)-i < len(right)-j else right[j:])[:12]
-            outcome = "unsupported"
-            trace.append({"left_index": i, "right_index": j, "character": (left[i], right[j]), "carry": carry, "outcome": outcome})
-            # Keep walking after a failed pair: the carry is allowed to cross
-            # the next lexical boundary and remains visible in the trace.
-            i += 1; j += 1
-            continue
-        trace.append({"left_index": i-1, "right_index": j-1, "character": left[i-1], "carry": carry, "outcome": outcome})
-    seam = {"typed_token": "while", "reverse_token": "elihw",
-            "outcome": "unsupported" if "while" != "elihw" else "match"}
-    trace.append(seam)
-    return trace, len(trace)
+def pair_trace(a: Frame, b: Frame) -> tuple[list[dict], int, dict | None]:
+    """Consume the actual clause tapes across word boundaries."""
+    left = letters(" ".join(words(a)))
+    right = letters(" ".join(words(b)))[::-1]
+    trace = []
+    matched = 0
+    for i, (left_char, right_char) in enumerate(itertools.zip_longest(left, right)):
+        if left_char is None or right_char is None:
+            mismatch = {"offset": i, "left": left_char, "right": right_char, "kind": "length"}
+            trace.append({"offset": i, "left": left_char, "right": right_char, "outcome": "unsupported"})
+            return trace, matched, mismatch
+        if left_char != right_char:
+            mismatch = {"offset": i, "left": left_char, "right": right_char, "kind": "character"}
+            trace.append({"offset": i, "left": left_char, "right": right_char, "outcome": "unsupported"})
+            return trace, matched, mismatch
+        trace.append({"offset": i, "left": left_char, "right": right_char, "outcome": "match"})
+        matched += 1
+    return trace, matched, None
 
 def run() -> dict:
     rows = []; productive = 0; transitions = 0
     for a, b in itertools.product(FRAMES, repeat=2):
-        tr, depth = pair_trace(a, b); transitions += depth
+        tr, depth, mismatch = pair_trace(a, b); transitions += depth
         # Support is measured before rendering. A state is productive only if
         # grammar constraints and a non-empty continuation remain.
-        support = compatible(a, b) and depth > 0
+        support = compatible(a, b) and mismatch is None
         if support: productive += 1
         surface = render(a, b); au = audit(surface)
         lexical = set(letters(surface).split())
@@ -92,7 +90,8 @@ def run() -> dict:
                  "no_self_palindromic_half": letters(" ".join(words(a))) != letters(" ".join(words(a)))[::-1],
                  "no_tape_mirror": True, "no_post_hoc_repair": True, "semantic_roles_compatible": compatible(a, b)}
         rows.append({"rendered": surface, "left_frame": asdict(a), "right_frame": asdict(b),
-                     "support_depth": depth, "bilateral_obligation_trace": tr, "audit": au,
+                     "support_depth": depth, "first_unsupported": mismatch,
+                     "bilateral_obligation_trace": tr, "audit": au,
                      "gates": gates, "accepted": all(gates.values()),
                      "provenance": {"construction": "support-driven paired-character grammar",
                                     "joint_outside_in": True, "cross_word_residual": True,

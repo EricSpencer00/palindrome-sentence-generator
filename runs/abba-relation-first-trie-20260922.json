@@ -1,0 +1,756 @@
+{
+  "experiment_id": "abba-relation-first-trie-20260922",
+  "method": "relation-first ABBA semantic-state selection with joint full-residual character trie",
+  "stats": {
+    "semantic_states": 3,
+    "branches": 12,
+    "typed_paths": 36,
+    "closed_derivations": 0,
+    "exact_gt38": 0,
+    "deepest_support": 2
+  },
+  "exact_candidates": [],
+  "rendered_candidates": [],
+  "controls": [
+    {
+      "rendered": "At dawn, the ranger marks a narrow trail. A patient guide carries warm bread.",
+      "relation_id": "mapping-present",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 61,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "a",
+            "d"
+          ],
+          [
+            1,
+            "t",
+            "a"
+          ],
+          [
+            2,
+            "d",
+            "e"
+          ],
+          [
+            3,
+            "a",
+            "r"
+          ]
+        ],
+        "sha256_forward": "e53fde72a1736622795a382b4998d0971dd155fb9ee0406cfe2886f08ab6dbae",
+        "sha256_reverse_obligation": "d02a8bcfd825874516a33bcca506703fd96ebff919bdf467f0e140e6a2fab445"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    },
+    {
+      "rendered": "At dawn, the ranger marks a narrow trail. The traveler follows a quiet path.",
+      "relation_id": "mapping-present",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 60,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "a",
+            "h"
+          ],
+          [
+            2,
+            "d",
+            "a"
+          ],
+          [
+            3,
+            "a",
+            "p"
+          ],
+          [
+            4,
+            "w",
+            "t"
+          ]
+        ],
+        "sha256_forward": "c09370e66135601c78c02b4ab66ca862bcaea9a25494201e90cf7975937bc29e",
+        "sha256_reverse_obligation": "4038d408131e9aa8da2e9324f18fbda88dc4df4fe55b8b0d54d5d10e0a118699"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    },
+    {
+      "rendered": "By noon, the ranger checks the marked trail. A patient guide carries warm bread.",
+      "relation_id": "mapping-present",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 64,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "b",
+            "d"
+          ],
+          [
+            1,
+            "y",
+            "a"
+          ],
+          [
+            2,
+            "n",
+            "e"
+          ],
+          [
+            3,
+            "o",
+            "r"
+          ]
+        ],
+        "sha256_forward": "9850d5041ccc2d569ef8dcb476f643fd98b87fc137f60e57b46244f92409fdff",
+        "sha256_reverse_obligation": "77b080f53a84cdf8fe7cc19f2152c2df1cf61ceb666ed5309ceca57324dd8d34"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    },
+    {
+      "rendered": "By noon, the ranger checks the marked trail. The traveler follows a quiet path.",
+      "relation_id": "mapping-present",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 63,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "b",
+            "h"
+          ],
+          [
+            1,
+            "y",
+            "t"
+          ],
+          [
+            2,
+            "n",
+            "a"
+          ],
+          [
+            3,
+            "o",
+            "p"
+          ]
+        ],
+        "sha256_forward": "439263962a98ce971a941375925489af4e274e5076edeee430347746626f4491",
+        "sha256_reverse_obligation": "76a27cef6229dd17b7a91e8e424bc46f0822b8d0ac8f6232e427a8568e35dae2"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    },
+    {
+      "rendered": "At sunset, the sailor repaired a small boat. A careful keeper stored the dry rope.",
+      "relation_id": "harbor-past",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 65,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "a",
+            "e"
+          ],
+          [
+            1,
+            "t",
+            "p"
+          ],
+          [
+            2,
+            "s",
+            "o"
+          ],
+          [
+            3,
+            "u",
+            "r"
+          ]
+        ],
+        "sha256_forward": "d629a5091fd2a16b0b16b394e2242d3908077b447533cd44afbf48a7133946a9",
+        "sha256_reverse_obligation": "9749aa520b7f28285c3dcc34fadf27c881c354c8bfd3c2489f5d2ae6f66600df"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    },
+    {
+      "rendered": "At sunset, the sailor repaired a small boat. The old captain crossed the dark pier.",
+      "relation_id": "harbor-past",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 66,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "a",
+            "r"
+          ],
+          [
+            1,
+            "t",
+            "e"
+          ],
+          [
+            2,
+            "s",
+            "i"
+          ],
+          [
+            3,
+            "u",
+            "p"
+          ]
+        ],
+        "sha256_forward": "7b83e8b983827257d9785d3a5b3b3ee5b85342654f7acbd481619871336fd800",
+        "sha256_reverse_obligation": "e3b144fc51456c24f32bf5dc2544b9f1adb518203d9c21c51a4d504243a1c6cc"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    },
+    {
+      "rendered": "At night, the sailor watched the quiet harbor. A careful keeper stored the dry rope.",
+      "relation_id": "harbor-past",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 67,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "a",
+            "e"
+          ],
+          [
+            1,
+            "t",
+            "p"
+          ],
+          [
+            2,
+            "n",
+            "o"
+          ],
+          [
+            3,
+            "i",
+            "r"
+          ]
+        ],
+        "sha256_forward": "c7826be2b5d3f62998000746f3c13f1a87cd42ec06747d23ba34b3809047e104",
+        "sha256_reverse_obligation": "8241638a34eee8d4f92a24774be331c6023a14e96fd1e9d362e803f5e3bad95d"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    },
+    {
+      "rendered": "At night, the sailor watched the quiet harbor. The old captain crossed the dark pier.",
+      "relation_id": "harbor-past",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 68,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "a",
+            "r"
+          ],
+          [
+            1,
+            "t",
+            "e"
+          ],
+          [
+            2,
+            "n",
+            "i"
+          ],
+          [
+            3,
+            "i",
+            "p"
+          ]
+        ],
+        "sha256_forward": "fd20bee1c5ec61e8f8f941e53037a557c80bb7e06a894a4cc15b01f86dff85d5",
+        "sha256_reverse_obligation": "4afd6d2de95b4a33b3124c2f83829c592965af164086a16af2bf028fd423efde"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    },
+    {
+      "rendered": "Tomorrow, the gardener will plant a young tree. A quiet neighbor will carry fresh soil.",
+      "relation_id": "garden-future",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 70,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "t",
+            "l"
+          ],
+          [
+            1,
+            "o",
+            "i"
+          ],
+          [
+            2,
+            "m",
+            "o"
+          ],
+          [
+            3,
+            "o",
+            "s"
+          ]
+        ],
+        "sha256_forward": "9fd8283291c12798592220c31be88895c877cb8d8602e37e1085a0a8e98f412c",
+        "sha256_reverse_obligation": "c726eb4ecda08b373cfac357a43fbc1e807b8e99846344a88cc506f04b02a4ee"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    },
+    {
+      "rendered": "Tomorrow, the gardener will plant a young tree. The child will watch the bright garden.",
+      "relation_id": "garden-future",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 70,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "t",
+            "n"
+          ],
+          [
+            1,
+            "o",
+            "e"
+          ],
+          [
+            2,
+            "m",
+            "d"
+          ],
+          [
+            3,
+            "o",
+            "r"
+          ]
+        ],
+        "sha256_forward": "bee0c718eed3158fc05853d565e57d667d68a4ce8f65e909b9d249dde88f5672",
+        "sha256_reverse_obligation": "b18c410ddb68921344ba15261186f5518d2776612d5d9f9fbd0b766903d045dc"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    },
+    {
+      "rendered": "Later, the gardener will water the green bed. A quiet neighbor will carry fresh soil.",
+      "relation_id": "garden-future",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 68,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            1,
+            "a",
+            "i"
+          ],
+          [
+            2,
+            "t",
+            "o"
+          ],
+          [
+            3,
+            "e",
+            "s"
+          ],
+          [
+            4,
+            "r",
+            "h"
+          ]
+        ],
+        "sha256_forward": "268478f5d0621c454fa8b0d6a62a98446295843eb79cab21870c45be63596b06",
+        "sha256_reverse_obligation": "68406295684504b5b1e6935049f873a5b505715d6d9c72eed604c45703489636"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    },
+    {
+      "rendered": "Later, the gardener will water the green bed. The child will watch the bright garden.",
+      "relation_id": "garden-future",
+      "kind": "intact-authored-AB-control",
+      "audit": {
+        "letters": 68,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "l",
+            "n"
+          ],
+          [
+            1,
+            "a",
+            "e"
+          ],
+          [
+            2,
+            "t",
+            "d"
+          ],
+          [
+            3,
+            "e",
+            "r"
+          ]
+        ],
+        "sha256_forward": "ce7ee916be50e66145392165a948134de8e003b11a2156f0c4b8777002aa4648",
+        "sha256_reverse_obligation": "bb3b9f34bafdab61fdb9a01e96b7735b9db73929d2cf953e2d69f740cce6a300"
+      },
+      "provenance": {
+        "relation_selected_before_surface": true,
+        "complete_prose": true
+      }
+    }
+  ],
+  "residual_certificates": [
+    {
+      "relation_id": "mapping-present",
+      "semantic_state": {
+        "tense": "present",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "At dawn, the ranger marks a narrow trail.",
+        "A patient guide carries warm bread."
+      ],
+      "residual_prefix": "daerbmrawseirrac",
+      "deepest_support": 0,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 0,
+          "residual": "daerbmrawseirrac",
+          "trie_prefix": ""
+        }
+      ]
+    },
+    {
+      "relation_id": "mapping-present",
+      "semantic_state": {
+        "tense": "present",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "At dawn, the ranger marks a narrow trail.",
+        "The traveler follows a quiet path."
+      ],
+      "residual_prefix": "htapteiuqaswollo",
+      "deepest_support": 0,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 0,
+          "residual": "htapteiuqaswollo",
+          "trie_prefix": ""
+        }
+      ]
+    },
+    {
+      "relation_id": "mapping-present",
+      "semantic_state": {
+        "tense": "present",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "By noon, the ranger checks the marked trail.",
+        "A patient guide carries warm bread."
+      ],
+      "residual_prefix": "daerbmrawseirrac",
+      "deepest_support": 0,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 0,
+          "residual": "daerbmrawseirrac",
+          "trie_prefix": ""
+        }
+      ]
+    },
+    {
+      "relation_id": "mapping-present",
+      "semantic_state": {
+        "tense": "present",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "By noon, the ranger checks the marked trail.",
+        "The traveler follows a quiet path."
+      ],
+      "residual_prefix": "htapteiuqaswollo",
+      "deepest_support": 0,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 0,
+          "residual": "htapteiuqaswollo",
+          "trie_prefix": ""
+        }
+      ]
+    },
+    {
+      "relation_id": "harbor-past",
+      "semantic_state": {
+        "tense": "past",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "At sunset, the sailor repaired a small boat.",
+        "A careful keeper stored the dry rope."
+      ],
+      "residual_prefix": "eporyrdehtderots",
+      "deepest_support": 0,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 0,
+          "residual": "eporyrdehtderots",
+          "trie_prefix": ""
+        }
+      ]
+    },
+    {
+      "relation_id": "harbor-past",
+      "semantic_state": {
+        "tense": "past",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "At sunset, the sailor repaired a small boat.",
+        "The old captain crossed the dark pier."
+      ],
+      "residual_prefix": "reipkradehtdesso",
+      "deepest_support": 2,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 2,
+          "residual": "reipkradehtdesso",
+          "trie_prefix": "re"
+        }
+      ]
+    },
+    {
+      "relation_id": "harbor-past",
+      "semantic_state": {
+        "tense": "past",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "At night, the sailor watched the quiet harbor.",
+        "A careful keeper stored the dry rope."
+      ],
+      "residual_prefix": "eporyrdehtderots",
+      "deepest_support": 0,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 0,
+          "residual": "eporyrdehtderots",
+          "trie_prefix": ""
+        }
+      ]
+    },
+    {
+      "relation_id": "harbor-past",
+      "semantic_state": {
+        "tense": "past",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "At night, the sailor watched the quiet harbor.",
+        "The old captain crossed the dark pier."
+      ],
+      "residual_prefix": "reipkradehtdesso",
+      "deepest_support": 2,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 2,
+          "residual": "reipkradehtdesso",
+          "trie_prefix": "re"
+        }
+      ]
+    },
+    {
+      "relation_id": "garden-future",
+      "semantic_state": {
+        "tense": "future",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "Tomorrow, the gardener will plant a young tree.",
+        "A quiet neighbor will carry fresh soil."
+      ],
+      "residual_prefix": "lioshserfyrracll",
+      "deepest_support": 0,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 0,
+          "residual": "lioshserfyrracll",
+          "trie_prefix": ""
+        }
+      ]
+    },
+    {
+      "relation_id": "garden-future",
+      "semantic_state": {
+        "tense": "future",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "Tomorrow, the gardener will plant a young tree.",
+        "The child will watch the bright garden."
+      ],
+      "residual_prefix": "nedragthgirbehth",
+      "deepest_support": 2,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 2,
+          "residual": "nedragthgirbehth",
+          "trie_prefix": "ne"
+        }
+      ]
+    },
+    {
+      "relation_id": "garden-future",
+      "semantic_state": {
+        "tense": "future",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "Later, the gardener will water the green bed.",
+        "A quiet neighbor will carry fresh soil."
+      ],
+      "residual_prefix": "lioshserfyrracll",
+      "deepest_support": 0,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 0,
+          "residual": "lioshserfyrracll",
+          "trie_prefix": ""
+        }
+      ]
+    },
+    {
+      "relation_id": "garden-future",
+      "semantic_state": {
+        "tense": "future",
+        "valency": "transitive"
+      },
+      "left_AB": [
+        "Later, the gardener will water the green bed.",
+        "The child will watch the bright garden."
+      ],
+      "residual_prefix": "nedragthgirbehth",
+      "deepest_support": 2,
+      "parse_count": 0,
+      "frontier": [
+        {
+          "slot": "subject",
+          "offset": 0,
+          "matched_characters": 2,
+          "residual": "nedragthgirbehth",
+          "trie_prefix": "ne"
+        }
+      ]
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "abba|relation-first|semantic-state|joint-full-residual-trie",
+    "finished_tape_reversal": false,
+    "catalogue_text": false,
+    "mirrored_units": false,
+    "reward_ranking": false
+  },
+  "provenance": {
+    "generator_sha256": "cf1190d7378248d3f6a4d4df008d40e64c87dd679815206e2aa759c9800a4d88",
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed pending novel exact output"
+  },
+  "status": "no exact closure; first unsupported residual retained",
+  "next_construction": "change the relation state so its right-clause subject can consume the first unsupported residual; retain joint trie and do not widen this relation bank"
+}

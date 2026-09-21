@@ -7809,6 +7809,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   token), with explicit syntax for the resulting adjacent words. Artifact:
   `runs/split-center-nonterminal-20260921.json`.
 
+- **Word-boundary center phrase, 2026-09-21:** tested syntax-licensed
+  two-word centers (`is a`, `was an`, `and then`, `can read`, `will see`),
+  placing the seam between words and carrying clause, number, and modality
+  features into live outward expansion. All five centers hit a root seam
+  conflict before clause expansion (0 search nodes, 0 terminals, 0 exact
+  candidates); conflict witnesses are retained in the run artifact. This
+  rules out these ordinary center phrases as a direct seam operator; the next
+  construction must license a center discontinuity (for example an
+  auxiliary--clitic or coordination edge) whose character stream is split
+  without inventing an ungrammatical adjacent-word boundary. Artifact:
+  `runs/word-boundary-center-phrase-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

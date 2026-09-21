@@ -7738,12 +7738,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
 - **Semantic pair-chain CSP, 2026-09-21:** introduced a distinct cross-clause
   topology: an agent--action--object frame is paired with a different
   subject--directed-action--referent/place frame, while character debt is
-  solved at word boundaries before either side is rendered. The authored banks
+  solved at word boundaries before either side is rendered. The first run
   reached 4 live states and 12 boundary prunes, but no terminal or exact
-  sentence; no candidate was reader-eligible. This is not a reverse-
-  segmentation or post-render repair lane. The concrete next operator is a
-  third semantic frame with agreement-preserving function-word slots, retaining
-  the same live debt transition. Artifact:
+  sentence. A third connector-bearing semantic frame and then a role-bearing
+  `who`/`that` center edge were added with agreement validation; both reruns
+  remained at 4 states, 12 prunes, and zero terminal closures. This is not a
+  reverse-segmentation or post-render repair lane; its next operator is a
+  residual-compatible function-word edge. Artifact:
   `runs/semantic-pair-chain-live-20260921.json`.
 
 - **Relative-pronoun center edge, 2026-09-21:** extended the same semantic

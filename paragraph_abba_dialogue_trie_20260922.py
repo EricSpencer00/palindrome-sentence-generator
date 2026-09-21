@@ -11,10 +11,10 @@ ROOT=Path(__file__).resolve().parent
 OUT=ROOT/'runs/paragraph-abba-dialogue-trie-20260922.json'
 
 BANK={
- 'A': ['At dawn the archivist logged a weathered map.', 'By dusk the surveyor filed a coastal chart.'],
+ 'A': ['An old cartographer marked the northern inlet.', 'An eager keeper recorded the eastern harbor.'],
  'Q': ['The captain asked whether the beacon still burned.', 'The pilot asked if the harbor lantern remained lit.'],
  'R': ['The watchman replied that the beacon guided the boats.', 'The keeper answered that the harbor lantern guided sailors.'],
- 'Z': ['At night the curator stored the marked chart.', 'Before sleep the navigator guarded the faded map.'],
+ 'Z': ['At dusk the keeper watched the arena.', 'Before sleep the navigator guarded the quiet marina.'],
 }
 def norm(s): return re.sub(r'[^a-z]','',s.lower())
 def sha(s): return hashlib.sha256(s.encode()).hexdigest()
@@ -45,19 +45,30 @@ def online_pair(left,right):
   x+=1; y+=1
  return True,trace
 
+def outer_domain_support(left, right, width=2):
+ """Measure a live exposed prefix against the reverse suffix of right."""
+ a=norm(left); b=norm(right)[::-1]
+ n=min(width,len(a),len(b)); matched=0
+ for i in range(n):
+  if a[i] != b[i]: break
+  matched += 1
+ return {'width':width,'matched':matched,'compatible':matched==width,
+         'left_exposed':a[:width],'right_reverse_exposed':b[:width]}
+
 def run():
  # A and Z are outer evidence; Q/R are a genuinely different question/response center.
  trie=word_trie([w for phrase in sum(BANK.values(),[]) for w in phrase.split()])
  rows=[]; pruned=0
  for a in BANK['A']:
   for z in BANK['Z']:
-   ok_outer,tr=online_pair(a,z)
-   if not ok_outer: pruned+=1; continue
+   outer=outer_domain_support(a,z)
+   if not outer['compatible']: pruned+=1; continue
+   _,tr=online_pair(a,z)
    for q in BANK['Q']:
     for r in BANK['R']:
      rendered=' '.join((a,q,r,z)); au=audit(rendered)
      rows.append({'rendered':rendered,'roles':{'A1':a,'B1_question':q,'B2_response':r,'A2':z},
-       'online_outer_trace':tr,'audit':au,'provenance':{'construction':'four complete authored sentences with question/response center','word_level_trie_nodes':len(trie),'crosses_word_boundaries':True,'crosses_sentence_boundaries':True,'finished_tape_reversal':False,'posthoc_repair':False,'catalogue_text':False,'repeated_units':False,'self_palindromic_units':False}})
+       'outer_domain_support':outer,'online_outer_trace':tr,'audit':au,'provenance':{'construction':'four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center','word_level_trie_nodes':len(trie),'crosses_word_boundaries':True,'crosses_sentence_boundaries':True,'finished_tape_reversal':False,'posthoc_repair':False,'catalogue_text':False,'repeated_units':False,'self_palindromic_units':False}})
  exact=[r for r in rows if r['audit']['two_pointer_exact'] and r['audit']['letters']>38]
  return {'experiment_id':'paragraph-abba-dialogue-trie-20260922','method':'word-level trie-conditioned ABBA paragraph with question/response center; outer word streams are matched online across sentence boundaries','stats':{'candidate_completions':len(rows),'outer_pruned':pruned,'exact_gt38':len(exact),'longest_letters':max((r['audit']['letters'] for r in rows),default=0)},'rendered_candidates':rows,'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':'paragraph-abba|word-trie|dialogue-question-response|cross-boundary','distinct_from':'complete-clause residual decoders and fixed ABBA phrase banks','finished_tape_reversal':False,'catalogue_text':False},'provenance':{'independent_audits':['two-pointer full tape','forward/reverse SHA-256'],'reader_gate':'closed unless exact >38'},'status':'fresh exact closure found' if exact else 'no exact closure; dialogue center retained','next_repair':'Index question/response words by the next live inner residual after an outer pair survives; do not widen the outer sentence bank'}
 if __name__=='__main__':

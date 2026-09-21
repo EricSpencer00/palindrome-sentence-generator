@@ -13,3 +13,21 @@ def test_similar_phrase_does_not_fake_support():
     # reverse("some men") starts with n, so it must not be admitted as memos.
     ok, _=lane.online_pair('memos','some men')
     assert not ok
+
+def test_outer_domain_condition_is_two_character_reverse_exposure():
+    support=lane.outer_domain_support('An old cartographer marked the inlet.',
+                                      'At dusk the keeper watched the arena.')
+    assert support['compatible']
+    assert support['left_exposed']=='an'
+    assert support['right_reverse_exposed']=='an'
+    rejected=lane.outer_domain_support('An old cartographer marked the inlet.',
+                                       'Before sleep the navigator guarded the quiet cove.')
+    assert not rejected['compatible']
+
+def test_run_keeps_complete_prose_and_independent_hashes():
+    result=lane.run()
+    assert result['stats']['candidate_completions'] == 16
+    assert all(row['rendered'].endswith('.') for row in result['rendered_candidates'])
+    assert all(row['audit']['sha256_forward'] != row['audit']['sha256_reverse']
+               for row in result['rendered_candidates'])
+    assert result['stats']['exact_gt38'] == 0

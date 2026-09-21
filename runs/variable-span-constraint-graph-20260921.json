@@ -1,0 +1,57 @@
+{
+  "experiment_id": "variable-span-constraint-graph-20260921",
+  "method": "bounded global backtracking CSP with shared mirrored character variables, lexical identity/length domains, agreement/valency/dependency links, and learned conflicts",
+  "config": {
+    "token_slots": 10,
+    "lexical_entries": 48,
+    "letter_band": [
+      39,
+      52
+    ],
+    "state_limit": 50000
+  },
+  "found": [],
+  "stats": {
+    "nodes": 2,
+    "conflicts": 13,
+    "learned_nogoods": 13,
+    "complete_assignments": 0,
+    "limit": 50000
+  },
+  "state_model": {
+    "token_identity_variables": 10,
+    "variable_word_boundaries": true,
+    "shared_character_variables": true,
+    "agreement_links": [
+      "det-noun compatibility",
+      "subject-verb valency"
+    ],
+    "dependency_links": [
+      "verb->object",
+      "prep->oblique"
+    ],
+    "conflict_learning": "learned (slot,lexeme) nogoods"
+  },
+  "records": [],
+  "calibration_seed": {
+    "text": "the watcher observes a lantern near the calm keeper",
+    "letters": 43,
+    "used_as_success": false,
+    "purpose": "calibration only"
+  },
+  "independent_pointer_sha_audit": true,
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "variable-span|joint-lexeme-boundary|shared-character-vars|conflict-learning",
+    "anti_shortcut_checks": [
+      "no completed-clause sweep",
+      "no 38-letter seed success",
+      "no mirrored lexical units"
+    ]
+  },
+  "queue_row": {
+    "lane": "Astra",
+    "status": "bounded residual",
+    "next": "expand dependency links only after held-out grammar review"
+  }
+}

@@ -5,8 +5,26 @@
 // streaming rather than being buffered.
 const ORIGIN = "https://palindrome-api.ericspencer.us"
 
+// The upstream service still contains historical generators.  Keep the
+// public API honest at the Pages boundary: health and other diagnostic
+// endpoints remain available, but no generation route may expose material
+// before an independently generated candidate has passed the reader gate.
+const RETIRED_OUTPUT = /^\/api\/(?:generate|v\d+\/(?:generate|paragraph|composition|palindrome|refrain))(?:\/|$)/
+const RETIREMENT = {
+  detail:
+    "Palindrome output is retired: exactness and programmatic filters do not establish readable English. The service will remain unavailable until independently generated candidates have blinded human-reader evidence.",
+}
+
 export async function onRequest(context) {
   const url = new URL(context.request.url)
+
+  if (RETIRED_OUTPUT.test(url.pathname)) {
+    return new Response(JSON.stringify(RETIREMENT), {
+      status: 503,
+      headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+    })
+  }
+
   const upstream = new URL(url.pathname + url.search, ORIGIN)
 
   const res = await fetch(upstream, {

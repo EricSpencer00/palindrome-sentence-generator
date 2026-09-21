@@ -1,0 +1,105 @@
+{
+  "experiment_id": "locative-anaphoric-instrument-20260921",
+  "status": "completed_no_exact_closure",
+  "method": "anaphoric object relative carrying event-specific instrument binding",
+  "candidate_count": 2,
+  "exact_count": 0,
+  "reader_eligible": false,
+  "rendered_candidates": [
+    {
+      "rendered": "the careful smith mends the gate with a hammer which the builder keeps in the workshop beside the river; the patient carpenter mends the gate with a hammer which the builder keeps in the workshop beside the river.",
+      "left_arc": "smith_gate",
+      "right_arc": "carpenter_gate",
+      "novel_rendered": true,
+      "semantic_state": {
+        "event_frame": "mend",
+        "anaphoric_object": "gate",
+        "instrument": "hammer",
+        "binding_carried": true,
+        "typed_locatives": true
+      },
+      "audit": {
+        "letters": 174,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "7aec5da9b1fce2d8668d1dfdccf992d1f2ff0386f9f9ec27f8f0deab8bae3cce",
+        "reverse_sha256": "182ec7950a650216e65e91594ab8be906885c0cb234d354b4c34dc5324980ca0",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "t",
+          "r"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "anaphoric relative object carrying event instrument binding",
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "a quiet porter moves the crate with a cart which the merchant stores beside the river in the warehouse; a strong merchant moves the crate with a cart which the porter stores beside the river in the warehouse.",
+      "left_arc": "porter_crate",
+      "right_arc": "merchant_crate",
+      "novel_rendered": true,
+      "semantic_state": {
+        "event_frame": "move",
+        "anaphoric_object": "crate",
+        "instrument": "cart",
+        "binding_carried": true,
+        "typed_locatives": true
+      },
+      "audit": {
+        "letters": 169,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "e17492793f18c911c4097ee4b63aafc8fbdad095e0a3fbe9eac17121a89cac03",
+        "reverse_sha256": "4c300618a4a7dd5200deaea24b6069ba9f54c5ae2edeeb0cd2d1366489b9c234",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "a",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "anaphoric relative object carrying event instrument binding",
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "stats": {
+    "longest_letters": 174
+  },
+  "novelty_preflight": {
+    "hash_source": "all runs/*.json except current artifact",
+    "current_artifact_excluded": true,
+    "all_rendered_new": true,
+    "anaphoric_binding_new": true
+  },
+  "failure_and_repair": {
+    "failure": "anaphoric binding pairs still mismatch live character obligations",
+    "next_construction": "add an explicit relative marker to the anaphoric object while preserving event binding"
+  },
+  "provenance": {
+    "generator_sha256": "e90568b8fb633966be52ff043400d8f48d81c6ea06a37e2cbe065ce0e8f91e03",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "shortcuts_excluded": true
+  }
+}

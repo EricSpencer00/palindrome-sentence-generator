@@ -4202,12 +4202,18 @@
     }
   ],
   "shortcut_flags": {
+    "word_order_only_symmetry": true,
+    "repeated_units": true,
+    "self_palindromic_units": true,
     "finished_tape_reversal": false,
     "posthoc_repair": false,
     "catalogue_text": false,
     "per_search_rlaif": false,
     "punctuation_changes_letters": false
   },
+  "status": "rejected_shortcut_word_order_mirror",
+  "reader_eligible": 0,
+  "shortcut_reason": "Every row instantiates SUBJ VERB OBJ; OBJ VERB SUBJ, and the lexical object bank is self-palindromic. Exactness is real but this is an excluded word-order/repeated-unit construction, not a readable candidate.",
   "falsifier": "promotion requires exact pointer equality plus equal forward/reverse SHA-256 on the rendered surface",
-  "next_operator": "Add one non-palindromic adjective pair only when its opposing edge letters satisfy the live cursor equation; retain the same coordination frame and reject unmatched states immediately."
+  "next_operator": "Discard this coordination family; the next construction must use non-mirrored clause topology and non-self-palindromic lexical units."
 }

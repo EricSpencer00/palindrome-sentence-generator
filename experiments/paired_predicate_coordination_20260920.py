@@ -74,9 +74,21 @@ def main():
         "counts": {"subjects": len(SUBJECTS), "predicates": len(PREDICATES), "objects": len(OBJECTS), "controls": len(controls), "live_equations": len(traces), "exact": len(exact), "exact_over_38": sum(x["audit"]["exact"] and x["audit"]["letters"] > 38 for x in controls), "max_letters": max(x["audit"]["letters"] for x in controls)},
         "controls": controls,
         "traces": traces,
-        "shortcut_flags": {"finished_tape_reversal": False, "posthoc_repair": False, "catalogue_text": False, "per_search_rlaif": False, "punctuation_changes_letters": False},
+        "shortcut_flags": {
+            "word_order_only_symmetry": True,
+            "repeated_units": True,
+            "self_palindromic_units": True,
+            "finished_tape_reversal": False,
+            "posthoc_repair": False,
+            "catalogue_text": False,
+            "per_search_rlaif": False,
+            "punctuation_changes_letters": False,
+        },
+        "status": "rejected_shortcut_word_order_mirror",
+        "reader_eligible": 0,
+        "shortcut_reason": "Every row instantiates SUBJ VERB OBJ; OBJ VERB SUBJ, and the lexical object bank is self-palindromic. Exactness is real but this is an excluded word-order/repeated-unit construction, not a readable candidate.",
         "falsifier": "promotion requires exact pointer equality plus equal forward/reverse SHA-256 on the rendered surface",
-        "next_operator": "Add one non-palindromic adjective pair only when its opposing edge letters satisfy the live cursor equation; retain the same coordination frame and reject unmatched states immediately.",
+        "next_operator": "Discard this coordination family; the next construction must use non-mirrored clause topology and non-self-palindromic lexical units.",
     }
     Path("runs").mkdir(exist_ok=True)
     Path("runs/" + RUN_ID + ".json").write_text(json.dumps(out, indent=2) + "\n")

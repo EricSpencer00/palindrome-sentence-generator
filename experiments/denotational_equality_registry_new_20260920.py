@@ -215,7 +215,7 @@ def anti_shortcut(text: str) -> dict:
 LIVE_PROBE_DEPTH = 2
 
 
-def live_outer_compatible(left: str, right: str, connector: str) -> bool:
+def live_outer_compatible(left: str, right: str, connector: str, probe_depth: int | None = None) -> bool:
     """Compare the first exposed character pairs before full rendering.
 
     This is a necessary-prefix probe, not a readability or exactness claim;
@@ -223,24 +223,26 @@ def live_outer_compatible(left: str, right: str, connector: str) -> bool:
     """
     left_tape = normalize(left + connector)
     right_tape = normalize(right)
-    depth = min(LIVE_PROBE_DEPTH, len(left_tape), len(right_tape))
+    depth_limit = LIVE_PROBE_DEPTH if probe_depth is None else probe_depth
+    depth = min(depth_limit, len(left_tape), len(right_tape))
     return all(left_tape[i] == right_tape[-i - 1] for i in range(depth))
 
 
-def render_pair(left: dict, right: dict, connector: str) -> dict | None:
-    if not live_outer_compatible(left["text"], right["text"], connector):
+def render_pair(left: dict, right: dict, connector: str, probe_depth: int | None = None) -> dict | None:
+    if not live_outer_compatible(left["text"], right["text"], connector, probe_depth):
         return None
     text = f"{left['text'][:-1]}{connector}{right['text'][0].lower()}{right['text'][1:]}"
     words = re.findall(r"[a-z]+", text.casefold())
     row = audit(text)
     flags = anti_shortcut(text)
-    row.update({"text": text, "words": len(words), "anti_shortcut": flags})
+    row.update({"text": text, "words": len(words), "anti_shortcut": flags,
+                "live_probe_depth": LIVE_PROBE_DEPTH if probe_depth is None else probe_depth})
     row["accepted"] = (row["pointer_exact"] and row["sha256_forward"] == row["sha256_reverse"]
                        and 39 <= row["letters"] <= 100 and all(flags.values()) and len(words) >= 6)
     return row
 
 
-def extract_pairs(classes: list[dict], all_topologies: bool) -> list[dict]:
+def extract_pairs(classes: list[dict], all_topologies: bool, probe_depth: int | None = None) -> list[dict]:
     """Run the same live extractor with or without equality alternatives."""
     rows = []
     for left_class, right_class in itertools.permutations(classes, 2):
@@ -248,7 +250,7 @@ def extract_pairs(classes: list[dict], all_topologies: bool) -> list[dict]:
         right_variants = right_class["variants"] if all_topologies else right_class["variants"][:1]
         for left, right in itertools.product(left_variants, right_variants):
             for connector in (" and ", "; and "):
-                row = render_pair(left, right, connector)
+                row = render_pair(left, right, connector, probe_depth)
                 if row is None:
                     continue
                 row.update({
@@ -336,6 +338,7 @@ def main() -> None:
 
     rows = extract_pairs(classes, all_topologies=True)
     baseline_rows = extract_pairs(classes, all_topologies=False)
+    exhaustive_rows = extract_pairs(classes, all_topologies=True, probe_depth=0)
     exact = [r for r in rows if r["accepted"]]
     controls = [r for r in rows if not r["accepted"]][:40]
 
@@ -353,7 +356,9 @@ def main() -> None:
         "proof_replays": proof_replays, "topology_failures": topology_failures,
         "extraction": {"rendered": len(rows), "accepted": len(exact), "length_band": [39, 100],
                         "unsaturated_baseline_rendered": len(baseline_rows),
-                        "unsaturated_baseline_accepted": sum(r["accepted"] for r in baseline_rows)},
+                        "unsaturated_baseline_accepted": sum(r["accepted"] for r in baseline_rows),
+                        "exhaustive_without_live_probe_rendered": len(exhaustive_rows),
+                        "exhaustive_without_live_probe_accepted": sum(r["accepted"] for r in exhaustive_rows)},
         "provenance": {"rlaif": False, "frozen_vocabulary": True, "catalogue_imported": False},
         "next_construction": "Add one licensed scope-preserving rewrite with a fresh non-isomorphic tree only after a reader-worthy exact extraction appears; do not widen the lexical inventory.",
     }
@@ -369,12 +374,15 @@ def main() -> None:
         "equality_classes": len(classes), "proof_replays": proof_replays,
         "equality_class_records": classes,
         "unsaturated_baseline": {"rendered": len(baseline_rows), "accepted": sum(r["accepted"] for r in baseline_rows)},
+        "exhaustive_without_live_probe": {"rendered": len(exhaustive_rows), "accepted": sum(r["accepted"] for r in exhaustive_rows)},
         "topology_failures": topology_failures, "rows": rows,
         "controls": controls, "exact_candidates": exact,
         "strict_gate": {"rendered": len(rows), "accepted": len(exact), "length_band": [39, 100],
                         "live_probe_depth": LIVE_PROBE_DEPTH,
                         "unsaturated_baseline_rendered": len(baseline_rows),
-                        "unsaturated_baseline_accepted": sum(r["accepted"] for r in baseline_rows)},
+                        "unsaturated_baseline_accepted": sum(r["accepted"] for r in baseline_rows),
+                        "exhaustive_without_live_probe_rendered": len(exhaustive_rows),
+                        "exhaustive_without_live_probe_accepted": sum(r["accepted"] for r in exhaustive_rows)},
         "provenance": {"rlaif": False, "frozen_vocabulary": True, "catalogue_imported": False, "reader_gate": "closed"},
         "falsifier": "If any class lacks two non-isomorphic proof-replayable trees, or extraction only substitutes lexical slots, reject this as a duplicate rather than widening it.",
         "next_construction": "Keep the equality classes fixed; only add a fresh licensed topology after a reader-worthy exact closure, with independent pointer/SHA replay.",

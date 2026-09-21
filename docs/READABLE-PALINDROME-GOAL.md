@@ -129,6 +129,17 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   geometry while retaining the API-style provenance record
   (`runs/api-inspired-variable-cfg-frontier-20260920.json`).
 
+- **Phrase-boundary obligation graph.** A separate Luna lane changed the
+  search geometry rather than widening the CFG: both arms stayed complete
+  forward clauses while exact unmatched character strings crossed alternating
+  word-boundary nodes. Nine fresh clause pairs were rendered, including the
+  89-letter control `Our patient scholar studies an ancient harbor, while
+  every thoughtful teacher answers the final question.`; every row carries its
+  boundary trace, first mismatch, and forward/reverse SHA-256. No exact
+  closure survived. The recorded successor is a typed bridge-preposition node
+  that consumes one residual character without making either arm a mirrored
+  unit (`runs/phrase-boundary-obligation-graph-20260920.json`).
+
 - **Scaled executable event lattice.** The frozen 27-event, 54-realization
   lattice expanded 729 event pairs, rejected 727 on semantic preconditions,
   and left eight live character-obligation states; zero exact closures survived.

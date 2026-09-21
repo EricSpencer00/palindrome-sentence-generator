@@ -1,0 +1,2972 @@
+{
+  "experiment_id": "boundary-shifted-grammar-reverse-segmentation-20260920",
+  "signature": "boundary-shifted-grammar-reverse-segmentation|fresh-pos-valency-grammar|incremental-right-reverse-parser|optional-adjunct-boundary|live-word-boundary-state|independent-pointer-sha",
+  "method": "Boundary-shifted grammar-aware reverse segmentation: generate a complete ordinary left POS/valency clause, feed its characters online to an independent right-clause grammar parser whose cursor consumes the right surface inward, and retain live optional-adjunct word boundaries.",
+  "operator_added": {
+    "name": "incremental right reverse parser with optional locative boundary",
+    "left_grammar": "NP(subject[number]) V(transitive[number]) NP(theme[number]) [PP(locative)]",
+    "right_grammar": "NP(subject[number]) V(transitive[number]) NP(theme[number]) [PP(locative)]",
+    "right_parser_input": "one left character at a time; no materialized reversed tape",
+    "boundary_state": [
+      "word_index",
+      "character_offset",
+      "grammar_slot_index",
+      "boundary_shifts"
+    ],
+    "fresh_pos_valency_grammars": true,
+    "content_banks_disjoint": true,
+    "semordnilap_word_pairing": false
+  },
+  "stats": {
+    "left_clause_paths": 48,
+    "right_clause_paths": 48,
+    "paired_grammar_states": 2304,
+    "online_character_equations": 2304,
+    "mismatch_prunes": 2304,
+    "overhang_prunes": 0,
+    "seam_closures": 0,
+    "right_boundary_shifts": 0,
+    "boundary_contract_shifts": 1,
+    "rendered_controls": 20,
+    "mechanical_exact_candidates": 0,
+    "exact_clean_above_38": 0,
+    "longest_rendered_control_letters": 107,
+    "longest_exact_clean_letters": 0
+  },
+  "rendered_controls": [
+    {
+      "rendered": "The amber historian records a weathered atlas near the river; the distant teacher explains the hidden garden through the meadow.",
+      "letters": 107,
+      "audit": {
+        "normalized_tape": "theamberhistorianrecordsaweatheredatlasneartheriverthedistantteacherexplainsthehiddengardenthroughthemeadow",
+        "letters": 107,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 106,
+          "left_char": "t",
+          "right_char": "w"
+        },
+        "sha256_forward": "f4d6fe5f374008990d95aea17c8a713a9d1e48ea4c143d12c2366294ecdc4bac",
+        "sha256_reverse": "b934e54e8750ed156aaf59daa5e133e4fb46d6d6e8bb7378547a3b09c5e453eb",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "t",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "meadow",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 9,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "t",
+          "right_character": "w"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "meadow",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 9,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 51,
+        "right_remaining": 62
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:sg:historian:record:atlas:locative:river",
+        "right_frame_id": "right:transitive:sg:teacher:explain:garden:locative:meadow",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_locative",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive_plus_locative",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "amber",
+          "historian",
+          "records",
+          "a",
+          "weathered",
+          "atlas",
+          "near",
+          "the",
+          "river"
+        ],
+        "right_clause_words": [
+          "the",
+          "distant",
+          "teacher",
+          "explains",
+          "the",
+          "hidden",
+          "garden",
+          "through",
+          "the",
+          "meadow"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "The amber historian records a weathered atlas; the distant teacher explains the hidden garden through the meadow.",
+      "letters": 95,
+      "audit": {
+        "normalized_tape": "theamberhistorianrecordsaweatheredatlasthedistantteacherexplainsthehiddengardenthroughthemeadow",
+        "letters": 95,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 94,
+          "left_char": "t",
+          "right_char": "w"
+        },
+        "sha256_forward": "b5aacdfc3bbd919847c7d1898822cad36020ab8ba331290ffb27ed67818f25f3",
+        "sha256_reverse": "6ce2823b889a4806fb767c58c2d7040b65012e4764d4c80a009afd1a376e0aba",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "t",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "meadow",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 9,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "t",
+          "right_character": "w"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "meadow",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 9,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 39,
+        "right_remaining": 62
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:sg:historian:record:atlas:bare",
+        "right_frame_id": "right:transitive:sg:teacher:explain:garden:locative:meadow",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "amber",
+          "historian",
+          "records",
+          "a",
+          "weathered",
+          "atlas"
+        ],
+        "right_clause_words": [
+          "the",
+          "distant",
+          "teacher",
+          "explains",
+          "the",
+          "hidden",
+          "garden",
+          "through",
+          "the",
+          "meadow"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "The amber historian records a weathered atlas near the river; the distant teacher explains the hidden garden.",
+      "letters": 91,
+      "audit": {
+        "normalized_tape": "theamberhistorianrecordsaweatheredatlasneartheriverthedistantteacherexplainsthehiddengarden",
+        "letters": 91,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 90,
+          "left_char": "t",
+          "right_char": "n"
+        },
+        "sha256_forward": "6079e8a38e38bd5473b85116e90e7f2d522c558ee5798b060ee1aeb71b9f2cf9",
+        "sha256_reverse": "2aadb4e00284c767aec40bc8e806ee456ae26e6fe567765503486870c81cf64e",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "t",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "garden",
+            "pos": "NP",
+            "role": "theme",
+            "word_index": 6,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "theme"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "t",
+          "right_character": "n"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "garden",
+          "pos": "NP",
+          "role": "theme",
+          "word_index": 6,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "theme"
+        },
+        "left_remaining": 51,
+        "right_remaining": 46
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:sg:historian:record:atlas:locative:river",
+        "right_frame_id": "right:transitive:sg:teacher:explain:garden:bare",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_locative",
+        "right_production": "transitive_bare",
+        "left_valency": "transitive_plus_locative",
+        "right_valency": "transitive",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "left_clause_words": [
+          "the",
+          "amber",
+          "historian",
+          "records",
+          "a",
+          "weathered",
+          "atlas",
+          "near",
+          "the",
+          "river"
+        ],
+        "right_clause_words": [
+          "the",
+          "distant",
+          "teacher",
+          "explains",
+          "the",
+          "hidden",
+          "garden"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "The amber historian records a weathered atlas; the distant teacher explains the hidden garden.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "theamberhistorianrecordsaweatheredatlasthedistantteacherexplainsthehiddengarden",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "t",
+          "right_char": "n"
+        },
+        "sha256_forward": "77cab1ced33dd1fcb20f0a87cb07217d1efc631bcd4066e0e79d4e97e1511485",
+        "sha256_reverse": "631aa7cc4af40f1b1618d946d4c6fffafbc954e9949fd791abdfeeb67fdec98a",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "t",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "garden",
+            "pos": "NP",
+            "role": "theme",
+            "word_index": 6,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "theme"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "t",
+          "right_character": "n"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "garden",
+          "pos": "NP",
+          "role": "theme",
+          "word_index": 6,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "theme"
+        },
+        "left_remaining": 39,
+        "right_remaining": 46
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:sg:historian:record:atlas:bare",
+        "right_frame_id": "right:transitive:sg:teacher:explain:garden:bare",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_bare",
+        "left_valency": "transitive",
+        "right_valency": "transitive",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "left_clause_words": [
+          "the",
+          "amber",
+          "historian",
+          "records",
+          "a",
+          "weathered",
+          "atlas"
+        ],
+        "right_clause_words": [
+          "the",
+          "distant",
+          "teacher",
+          "explains",
+          "the",
+          "hidden",
+          "garden"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "The amber historian carries a weathered atlas; the distant teacher explains the hidden garden.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "theamberhistoriancarriesaweatheredatlasthedistantteacherexplainsthehiddengarden",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "t",
+          "right_char": "n"
+        },
+        "sha256_forward": "b0729445dbd9732b4ad38857c5cdf9905b4631d5714970c652002b2770a2ac85",
+        "sha256_reverse": "516a39c64ad25a289fbd053ce5eb224ef519cd118ef3c8ba08b4a195eb5c1e70",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "t",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "garden",
+            "pos": "NP",
+            "role": "theme",
+            "word_index": 6,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "theme"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "t",
+          "right_character": "n"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "garden",
+          "pos": "NP",
+          "role": "theme",
+          "word_index": 6,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "theme"
+        },
+        "left_remaining": 39,
+        "right_remaining": 46
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:sg:historian:carry:atlas:bare",
+        "right_frame_id": "right:transitive:sg:teacher:explain:garden:bare",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_bare",
+        "left_valency": "transitive",
+        "right_valency": "transitive",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "left_clause_words": [
+          "the",
+          "amber",
+          "historian",
+          "carries",
+          "a",
+          "weathered",
+          "atlas"
+        ],
+        "right_clause_words": [
+          "the",
+          "distant",
+          "teacher",
+          "explains",
+          "the",
+          "hidden",
+          "garden"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Amber historians record bronze lamps; a watchful pilot guards a woven banner beyond the harbor.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "amberhistoriansrecordbronzelampsawatchfulpilotguardsawovenbannerbeyondtheharbor",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "a",
+          "right_char": "r"
+        },
+        "sha256_forward": "759bef8297a39c56c73c02d574b07ac5718b2cecc0e815aaf0cada3e45107a1e",
+        "sha256_reverse": "a2afcaf1a754c697b77ca24617ed1c1f5c10ce046816a7ef794482c56b124099",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "a",
+          "left_location": {
+            "word": "amber",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "harbor",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 9,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "a",
+          "right_character": "r"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "harbor",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 9,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 32,
+        "right_remaining": 53
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:historians:record:lamps:bare",
+        "right_frame_id": "right:transitive:sg:pilot:guard:banner:locative:harbor",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "amber",
+          "historians",
+          "record",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "a",
+          "watchful",
+          "pilot",
+          "guards",
+          "a",
+          "woven",
+          "banner",
+          "beyond",
+          "the",
+          "harbor"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Amber historians record bronze lamps; distant teachers guard woven banners beyond the harbor.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "amberhistoriansrecordbronzelampsdistantteachersguardwovenbannersbeyondtheharbor",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "a",
+          "right_char": "r"
+        },
+        "sha256_forward": "9dbc97d76f306c2117e77d6444cd140b1362b4e99f88a7c5bdc2b98c7577dcb7",
+        "sha256_reverse": "a73787943d5cb6e53dc3b467eabe00942345cc571f47bbab930a86afe6d56b09",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "a",
+          "left_location": {
+            "word": "amber",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "harbor",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 7,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "a",
+          "right_character": "r"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "harbor",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 7,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 32,
+        "right_remaining": 53
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:historians:record:lamps:bare",
+        "right_frame_id": "right:transitive:pl:teachers:guard:banners:locative:harbor",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "amber",
+          "historians",
+          "record",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "distant",
+          "teachers",
+          "guard",
+          "woven",
+          "banners",
+          "beyond",
+          "the",
+          "harbor"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Amber historians record bronze lamps; watchful pilots guard woven banners through the meadow.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "amberhistoriansrecordbronzelampswatchfulpilotsguardwovenbannersthroughthemeadow",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "a",
+          "right_char": "w"
+        },
+        "sha256_forward": "92d8a4868b62a1a3a1551e8cdbfdb5ac829342cb7ed7b57f78081f99037a55a2",
+        "sha256_reverse": "90ea09266c5b895501d39e78d0ab761678ad111fdda5897ac6bc183f31b8b53c",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "a",
+          "left_location": {
+            "word": "amber",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "meadow",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 7,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "a",
+          "right_character": "w"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "meadow",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 7,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 32,
+        "right_remaining": 53
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:historians:record:lamps:bare",
+        "right_frame_id": "right:transitive:pl:pilots:guard:banners:locative:meadow",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "amber",
+          "historians",
+          "record",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "watchful",
+          "pilots",
+          "guard",
+          "woven",
+          "banners",
+          "through",
+          "the",
+          "meadow"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Amber historians record bronze lamps; watchful pilots guard hidden gardens beyond the harbor.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "amberhistoriansrecordbronzelampswatchfulpilotsguardhiddengardensbeyondtheharbor",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "a",
+          "right_char": "r"
+        },
+        "sha256_forward": "4b54b9e18a719157b362021c26a5a907cd10cf961943dbc1686bc8ff7ecc74eb",
+        "sha256_reverse": "cf28d2a4ad6783f55a724b825c65bb8494440d991eedb9a62d91b5ea422068b8",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "a",
+          "left_location": {
+            "word": "amber",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "harbor",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 7,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "a",
+          "right_character": "r"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "harbor",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 7,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 32,
+        "right_remaining": 53
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:historians:record:lamps:bare",
+        "right_frame_id": "right:transitive:pl:pilots:guard:gardens:locative:harbor",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "amber",
+          "historians",
+          "record",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "watchful",
+          "pilots",
+          "guard",
+          "hidden",
+          "gardens",
+          "beyond",
+          "the",
+          "harbor"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Amber historians carry bronze lamps; a watchful pilot guards a woven banner through the meadow.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "amberhistorianscarrybronzelampsawatchfulpilotguardsawovenbannerthroughthemeadow",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "a",
+          "right_char": "w"
+        },
+        "sha256_forward": "b88099562a04194f4ea0dabef63979af3021d32f2086f69c753df38f8c1f28ec",
+        "sha256_reverse": "24aee40c66ca97fa3ee58f5bfec84fc3235da6f2c36ec5c0001ba835cd5bf756",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "a",
+          "left_location": {
+            "word": "amber",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "meadow",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 9,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "a",
+          "right_character": "w"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "meadow",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 9,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 31,
+        "right_remaining": 54
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:historians:carry:lamps:bare",
+        "right_frame_id": "right:transitive:sg:pilot:guard:banner:locative:meadow",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "amber",
+          "historians",
+          "carry",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "a",
+          "watchful",
+          "pilot",
+          "guards",
+          "a",
+          "woven",
+          "banner",
+          "through",
+          "the",
+          "meadow"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Amber historians carry bronze lamps; distant teachers guard woven banners through the meadow.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "amberhistorianscarrybronzelampsdistantteachersguardwovenbannersthroughthemeadow",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "a",
+          "right_char": "w"
+        },
+        "sha256_forward": "3bdb5008744208f1525caf9045c5264a07b29a28ba0898963344a8eb8c226097",
+        "sha256_reverse": "98189d467c351942fd340eb0a7058d2e1826022053626b8ae47df7ecf03d6d3c",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "a",
+          "left_location": {
+            "word": "amber",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "meadow",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 7,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "a",
+          "right_character": "w"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "meadow",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 7,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 31,
+        "right_remaining": 54
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:historians:carry:lamps:bare",
+        "right_frame_id": "right:transitive:pl:teachers:guard:banners:locative:meadow",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "amber",
+          "historians",
+          "carry",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "distant",
+          "teachers",
+          "guard",
+          "woven",
+          "banners",
+          "through",
+          "the",
+          "meadow"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Amber historians carry bronze lamps; distant teachers guard hidden gardens beyond the harbor.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "amberhistorianscarrybronzelampsdistantteachersguardhiddengardensbeyondtheharbor",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "a",
+          "right_char": "r"
+        },
+        "sha256_forward": "960f06211b2bf3737639b7e96d988e816528d6e8cd8c6ee172cbf67b99c9262d",
+        "sha256_reverse": "5e06121d7fb665a43ee6fbbff897b24eda1a658dd92e8d754f5c8f97c51359c9",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "a",
+          "left_location": {
+            "word": "amber",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "harbor",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 7,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "a",
+          "right_character": "r"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "harbor",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 7,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 31,
+        "right_remaining": 54
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:historians:carry:lamps:bare",
+        "right_frame_id": "right:transitive:pl:teachers:guard:gardens:locative:harbor",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "amber",
+          "historians",
+          "carry",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "distant",
+          "teachers",
+          "guard",
+          "hidden",
+          "gardens",
+          "beyond",
+          "the",
+          "harbor"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Amber historians carry bronze lamps; watchful pilots explain woven banners beyond the harbor.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "amberhistorianscarrybronzelampswatchfulpilotsexplainwovenbannersbeyondtheharbor",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "a",
+          "right_char": "r"
+        },
+        "sha256_forward": "ab6105f8dd1a0c740a4c16d098632e72b04b057e9bfed501270bcbb85cfbc7ca",
+        "sha256_reverse": "6a3cbf404ab3aa21e927bdb8dec886800e10348f7d6c77ef8252062064ace14a",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "a",
+          "left_location": {
+            "word": "amber",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "harbor",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 7,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "a",
+          "right_character": "r"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "harbor",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 7,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 31,
+        "right_remaining": 54
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:historians:carry:lamps:bare",
+        "right_frame_id": "right:transitive:pl:pilots:explain:banners:locative:harbor",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "amber",
+          "historians",
+          "carry",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "watchful",
+          "pilots",
+          "explain",
+          "woven",
+          "banners",
+          "beyond",
+          "the",
+          "harbor"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Amber historians carry bronze lamps; watchful pilots guard hidden gardens through the meadow.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "amberhistorianscarrybronzelampswatchfulpilotsguardhiddengardensthroughthemeadow",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "a",
+          "right_char": "w"
+        },
+        "sha256_forward": "67859765c136a57ea7b4a9e6a72d4de16a424d1aeeec6d2b5ee1905d52d068bb",
+        "sha256_reverse": "2bd71ec1edff7f46537e20d7165adbef9a3301f1bd1d68f2bca0b7881266cf8a",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "a",
+          "left_location": {
+            "word": "amber",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "meadow",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 7,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "a",
+          "right_character": "w"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "meadow",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 7,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 31,
+        "right_remaining": 54
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:historians:carry:lamps:bare",
+        "right_frame_id": "right:transitive:pl:pilots:guard:gardens:locative:meadow",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "amber",
+          "historians",
+          "carry",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "watchful",
+          "pilots",
+          "guard",
+          "hidden",
+          "gardens",
+          "through",
+          "the",
+          "meadow"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Brisk violinists record bronze lamps; a watchful pilot guards a woven banner beyond the harbor.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "briskviolinistsrecordbronzelampsawatchfulpilotguardsawovenbannerbeyondtheharbor",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "b",
+          "right_char": "r"
+        },
+        "sha256_forward": "1068fc1011f0254b649b46e6d25dce81ec362dc2ad155bdc4e881940221eb08b",
+        "sha256_reverse": "9874756ce145cd7e7ccc6deb7ebb17c186ef8aed08fcbee786849f2df35381a2",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "b",
+          "left_location": {
+            "word": "brisk",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "harbor",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 9,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "b",
+          "right_character": "r"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "harbor",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 9,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 32,
+        "right_remaining": 53
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:violinists:record:lamps:bare",
+        "right_frame_id": "right:transitive:sg:pilot:guard:banner:locative:harbor",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "brisk",
+          "violinists",
+          "record",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "a",
+          "watchful",
+          "pilot",
+          "guards",
+          "a",
+          "woven",
+          "banner",
+          "beyond",
+          "the",
+          "harbor"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Brisk violinists record bronze lamps; distant teachers guard woven banners beyond the harbor.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "briskviolinistsrecordbronzelampsdistantteachersguardwovenbannersbeyondtheharbor",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "b",
+          "right_char": "r"
+        },
+        "sha256_forward": "d8110fcabd49a63e854a9c6b82fa4b4b112b3635abca764c82b19427303d5271",
+        "sha256_reverse": "9cdbe440a77960e8d51301dadbb44491066328c21059c85340363de3116b4f8d",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "b",
+          "left_location": {
+            "word": "brisk",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "harbor",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 7,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "b",
+          "right_character": "r"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "harbor",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 7,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 32,
+        "right_remaining": 53
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:violinists:record:lamps:bare",
+        "right_frame_id": "right:transitive:pl:teachers:guard:banners:locative:harbor",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "brisk",
+          "violinists",
+          "record",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "distant",
+          "teachers",
+          "guard",
+          "woven",
+          "banners",
+          "beyond",
+          "the",
+          "harbor"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Brisk violinists record bronze lamps; watchful pilots guard woven banners through the meadow.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "briskviolinistsrecordbronzelampswatchfulpilotsguardwovenbannersthroughthemeadow",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "b",
+          "right_char": "w"
+        },
+        "sha256_forward": "5219434e5057af7cef89cec61541a053b16ee38e3e67b787e976c51a58e223ae",
+        "sha256_reverse": "ff8b0122fed627eda4f2b74669ab9d68abf1781d93ec76a95590ed83bf483e1e",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "b",
+          "left_location": {
+            "word": "brisk",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "meadow",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 7,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "b",
+          "right_character": "w"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "meadow",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 7,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 32,
+        "right_remaining": 53
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:violinists:record:lamps:bare",
+        "right_frame_id": "right:transitive:pl:pilots:guard:banners:locative:meadow",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "brisk",
+          "violinists",
+          "record",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "watchful",
+          "pilots",
+          "guard",
+          "woven",
+          "banners",
+          "through",
+          "the",
+          "meadow"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Brisk violinists record bronze lamps; watchful pilots guard hidden gardens beyond the harbor.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "briskviolinistsrecordbronzelampswatchfulpilotsguardhiddengardensbeyondtheharbor",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "b",
+          "right_char": "r"
+        },
+        "sha256_forward": "ca394cb8204a1b6863ca7e260dfb0300255f3cc91500776d9ba3a1f842acf2bd",
+        "sha256_reverse": "674e21e010339a908bdd66bc47d23c6f612c10b9047d95bb8568987903b33177",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "b",
+          "left_location": {
+            "word": "brisk",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "harbor",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 7,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "b",
+          "right_character": "r"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "harbor",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 7,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 32,
+        "right_remaining": 53
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:violinists:record:lamps:bare",
+        "right_frame_id": "right:transitive:pl:pilots:guard:gardens:locative:harbor",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "brisk",
+          "violinists",
+          "record",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "watchful",
+          "pilots",
+          "guard",
+          "hidden",
+          "gardens",
+          "beyond",
+          "the",
+          "harbor"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Brisk violinists carry bronze lamps; a watchful pilot guards a woven banner through the meadow.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "briskviolinistscarrybronzelampsawatchfulpilotguardsawovenbannerthroughthemeadow",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "b",
+          "right_char": "w"
+        },
+        "sha256_forward": "6795898b4966e3547242e535f7562ad9c2fd276d65fdff6baa9500d2384a491a",
+        "sha256_reverse": "90aff4fbced949733b46ecd7cabf57f8ec2255eb950cb39e9c1b239aa90c40b9",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "b",
+          "left_location": {
+            "word": "brisk",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "meadow",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 9,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "b",
+          "right_character": "w"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "meadow",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 9,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 31,
+        "right_remaining": 54
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:violinists:carry:lamps:bare",
+        "right_frame_id": "right:transitive:sg:pilot:guard:banner:locative:meadow",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "brisk",
+          "violinists",
+          "carry",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "a",
+          "watchful",
+          "pilot",
+          "guards",
+          "a",
+          "woven",
+          "banner",
+          "through",
+          "the",
+          "meadow"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    },
+    {
+      "rendered": "Brisk violinists carry bronze lamps; distant teachers guard woven banners through the meadow.",
+      "letters": 79,
+      "audit": {
+        "normalized_tape": "briskviolinistscarrybronzelampsdistantteachersguardwovenbannersthroughthemeadow",
+        "letters": 79,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 78,
+          "left_char": "b",
+          "right_char": "w"
+        },
+        "sha256_forward": "a64340dc296b07aea58118925b29cfe14f7e460ef9fcbb0760090b0480422091",
+        "sha256_reverse": "04c98dad93a28cb56639b1ff3eb292dff178f4665380a2b26c97da04a8485de4",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "reverse_parser": {
+        "status": "mismatch_pruned",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_character": "b",
+          "left_location": {
+            "word": "brisk",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0
+          },
+          "right_location": {
+            "word": "meadow",
+            "pos": "PP",
+            "role": "locative_adjunct",
+            "word_index": 7,
+            "offset": 5,
+            "word_length": 6,
+            "expected_slot": "locative_adjunct"
+          },
+          "reason": "character_mismatch",
+          "expected_character": "b",
+          "right_character": "w"
+        },
+        "right_boundary_shifts": 0,
+        "right_boundary_events": [],
+        "right_parser_location": {
+          "word": "meadow",
+          "pos": "PP",
+          "role": "locative_adjunct",
+          "word_index": 7,
+          "offset": 5,
+          "word_length": 6,
+          "expected_slot": "locative_adjunct"
+        },
+        "left_remaining": 31,
+        "right_remaining": 54
+      },
+      "provenance": {
+        "left_frame_id": "left:transitive:pl:violinists:carry:lamps:bare",
+        "right_frame_id": "right:transitive:pl:teachers:guard:banners:locative:meadow",
+        "left_bank": "left",
+        "right_bank": "right",
+        "left_production": "transitive_bare",
+        "right_production": "transitive_locative",
+        "left_valency": "transitive",
+        "right_valency": "transitive_plus_locative",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_grammar_slots": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "locative_adjunct"
+        ],
+        "left_clause_words": [
+          "brisk",
+          "violinists",
+          "carry",
+          "bronze",
+          "lamps"
+        ],
+        "right_clause_words": [
+          "distant",
+          "teachers",
+          "guard",
+          "woven",
+          "banners",
+          "through",
+          "the",
+          "meadow"
+        ],
+        "fresh_left_pos_valency_grammar": true,
+        "fresh_right_pos_valency_grammar": true,
+        "content_lexical_banks_disjoint": true,
+        "right_boundaries_selected_during_parse": true,
+        "left_characters_fed_incrementally": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "fragment_output": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No exact-clean closure from this bounded lane."
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "exact_clean_candidates": [],
+  "reader_facing_candidates": [],
+  "reader_gate": {
+    "status": "closed",
+    "reason": "No exact-clean candidate from this lane has blinded human readability evidence.",
+    "human_raters": 0
+  },
+  "boundary_transition_contract": {
+    "description": "Parser-only contract; not a sentence candidate or reader control.",
+    "left_words": [
+      "abc",
+      "d"
+    ],
+    "right_words_in_normal_order": [
+      "d",
+      "cba"
+    ],
+    "status": "closed",
+    "matched_characters": 4,
+    "right_boundary_shifts": 1,
+    "boundary_events": [
+      {
+        "from_word": "cba",
+        "from_role": "second",
+        "from_slot": "second",
+        "to_word": "d",
+        "to_role": "first",
+        "to_slot": "first",
+        "consumed_characters": 3
+      },
+      {
+        "from_word": "d",
+        "from_role": "first",
+        "from_slot": "first",
+        "to_word": null,
+        "to_role": null,
+        "to_slot": null,
+        "consumed_characters": 4
+      }
+    ],
+    "expected": {
+      "status": "closed",
+      "right_boundary_shifts": 1,
+      "normal_right_surface": "d cba",
+      "inward_parse_stream": "abc d"
+    }
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_inspected": true,
+    "registry_entries_read": 682,
+    "exact_signature_collision": [],
+    "related_signatures_seen": [
+      "semordnilap-crossword-resegmentation-20260918",
+      "c3-seam-dp-semantic-pairs-20260916",
+      "cp-semantic-grammar-palindrome",
+      "boundary-shift-semordnilap-grammar-20260916",
+      "boundary-shift-scene-equation-lattice-20260916",
+      "heldout-reverse-segmentation-grammar-20260920",
+      "typed-attachment-reverse-segmentation-20260920",
+      "direct-boundary-clause-inventory-20260920"
+    ],
+    "signature": "boundary-shifted-grammar-reverse-segmentation|fresh-pos-valency-grammar|incremental-right-reverse-parser|optional-adjunct-boundary|live-word-boundary-state|independent-pointer-sha",
+    "distinction": "Unlike prior fixed-tape segmentation and lexical reverse-trie lanes, this run feeds each character from a freshly generated ordinary left clause directly into an independently authored right POS/valency grammar. The right parser carries live word/phrase boundaries and an optional locative slot; no finished tape is reversed and no semordnilap unit is paired.",
+    "not_a_duplicate_sweep": true
+  },
+  "provenance": {
+    "generator_sha256": "3182f88fc9a83d5f1b6d2f84744b143ec2f865eff07d1b6f6e774d893625966e",
+    "left_grammar_source": "fresh authored POS/valency slots",
+    "right_grammar_source": "fresh independently authored POS/valency slots",
+    "independent_audits": [
+      "literal outside-in pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "right_reverse_cursor_is_construction_state": true,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "semordnilap_word_pairs": false,
+    "mirrored_or_self_palindromic_units": false,
+    "catalogue_text": false,
+    "fragment_output": false,
+    "word_order_symmetry": false,
+    "per_search_rlaif": false
+  },
+  "status": "completed_no_exact_closure",
+  "next_construction": {
+    "operator": "typed right ditransitive boundary state",
+    "description": "Keep the online reverse parser and fresh left grammar fixed, then add one held-out right-side recipient/theme ditransitive production with an explicit valency slot transition. This is a new grammar state, not a finished-tape reversal, lexical repair, or semordnilap sweep.",
+    "reader_facing_test": "Retain only complete prose; independently audit any exact closure above 38 letters, then randomize intact versus shuffled controls for blinded ratings."
+  }
+}

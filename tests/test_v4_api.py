@@ -182,6 +182,11 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["ditransitive_case_bilateral_run"]["role_states"] == 12
     assert method.json()["ditransitive_case_bilateral_run"]["longest_rendered_letters"] == 92
     assert method.json()["ditransitive_case_bilateral_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["scene_argument_lattice_run"]["lattice_states"] == 729
+    assert method.json()["scene_argument_lattice_run"]["longest_rendered_letters"] == 125
+    assert method.json()["scene_argument_lattice_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["character_cfg_intersection_live_run"]["frontier_pairs"] == 2916
+    assert method.json()["character_cfg_intersection_live_run"]["exact_candidates_over_38"] == 0
     assert method.json()["recursive_semantic_grammar_csp_run"]["recursive_states"] == 36
     assert method.json()["recursive_semantic_grammar_csp_run"]["exact_candidates_over_38"] == 0
     assert method.json()["dual_obligation_event_graph_run"]["candidate_states"] == 96

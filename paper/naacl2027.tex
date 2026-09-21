@@ -1264,6 +1264,23 @@ prose surface was 124 letters, but no exact closure above 38 survived.  The
 next construction indexes connector and tense alternatives by each residual
 class rather than adding another unconditioned scene bank.
 
+The public composition API suggested a different abstraction: retain a
+provenance-carrying sequence of composition units, but make every unit a
+complete clause rather than a catalogue fragment.  Our first implementation
+therefore selected independent word-boundary cuts inside four fresh left and
+four fresh right clauses, and consumed the two sides online before rendering.
+It visited 702 segmentation states and retained two intact controls to 107
+letters, but every state mismatched at the live equation and no exact closure
+above 38 resulted.  A follow-up replaced the fixed cuts with eight fresh
+complete continuations selected by four declared two-character residual keys;
+the residual was carried through both chunks, yet all eight continuations were
+pruned and the longest control was 105 letters.  These are construction
+diagnostics, not reader candidates: the API's generated catalogue was not
+imported, no mirrored chunk was reused, and neither search uses post-hoc repair.
+The next operator derives a three-character key from the actual outer emission
+before selecting a held-out continuation, rather than supplying a residual key
+in advance.
+
 \section{Reader-facing evaluation}
 No candidate is called readable by the automatic diagnostics.  The release
 package is gated until a mechanically admitted survivor exists.  The planned

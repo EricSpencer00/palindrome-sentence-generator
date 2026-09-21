@@ -1601,6 +1601,41 @@ SEMANTIC_SCENE_THREE_EDGE_RUN = {
     "next_construction": "add residual-keyed connector and tense alternatives for each surviving two-character class",
 }
 
+CLAUSE_CHUNK_EQUATION_RUN = {
+    "run_id": "clause-chunk-equation-composer-20260920",
+    "method": "complete authored clause chunks with independent word-boundary segmentation and live two-sided character equations",
+    "status": "completed_no_exact_closure",
+    "left_clauses": 4,
+    "right_clauses": 4,
+    "segment_states": 702,
+    "online_mismatch_prunes": 702,
+    "rendered_complete_controls": 2,
+    "longest_rendered_letters": 107,
+    "exact_candidates_over_38": 0,
+    "reader_eligible": 0,
+    "provenance": "fresh independently authored complete clauses with independent internal word-boundary cuts; no public API/catalogue text, mirrored chunks, finished-tape reversal, post-hoc repair, fragments, or per-search RLAIF",
+    "independent_validation": ["independent two-pointer audit", "forward/reverse SHA-256"],
+    "novelty_preflight": "passed; complete-clause-chunks independent-segmentation online-equation signature",
+    "next_construction": "replace fixed boundary cuts with residual-keyed complete continuation alternatives selected before the second chunk",
+}
+
+TYPED_RESIDUAL_CLAUSE_CONTINUATION_RUN = {
+    "run_id": "typed-residual-clause-continuation-20260920",
+    "method": "two-character residual-keyed complete clause continuations with live two-chunk equation",
+    "status": "completed_no_exact_closure",
+    "left_clauses": 4,
+    "continuation_keys": 4,
+    "continuations": 8,
+    "online_prunes": 8,
+    "longest_rendered_letters": 105,
+    "exact_candidates_over_38": 0,
+    "reader_eligible": 0,
+    "provenance": "fresh complete continuation bank selected by a declared residual key and carried across both chunks; no public API/catalogue text, mirrored chunks, finished-tape reversal, post-hoc repair, fragments, or per-search RLAIF",
+    "independent_validation": ["live residual consumer", "independent two-pointer audit", "forward/reverse SHA-256"],
+    "novelty_preflight": "passed; typed-residual-key complete-continuation-bank two-chunk-carry signature",
+    "next_construction": "replace the arbitrary two-character key with a three-character residual derived from the actual outer emission before choosing a held-out continuation",
+}
+
 LUNA_PARALLEL_RUNS = [
     {
         "run_id": "endpoint-conditioned-compositional-decoder-20260920",
@@ -8638,6 +8673,8 @@ def evidence() -> dict[str, Any]:
         "semantic_scene_residual_run": SEMANTIC_SCENE_RESIDUAL_RUN,
         "double_relative_async_run": DOUBLE_RELATIVE_ASYNC_RUN,
         "semantic_scene_three_edge_run": SEMANTIC_SCENE_THREE_EDGE_RUN,
+        "clause_chunk_equation_run": CLAUSE_CHUNK_EQUATION_RUN,
+        "typed_residual_clause_continuation_run": TYPED_RESIDUAL_CLAUSE_CONTINUATION_RUN,
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -8673,6 +8710,8 @@ def method() -> dict[str, Any]:
         "semantic_scene_residual_run": SEMANTIC_SCENE_RESIDUAL_RUN,
         "double_relative_async_run": DOUBLE_RELATIVE_ASYNC_RUN,
         "semantic_scene_three_edge_run": SEMANTIC_SCENE_THREE_EDGE_RUN,
+        "clause_chunk_equation_run": CLAUSE_CHUNK_EQUATION_RUN,
+        "typed_residual_clause_continuation_run": TYPED_RESIDUAL_CLAUSE_CONTINUATION_RUN,
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN, TYPED_AGREEMENT_CLAUSE_RUN],
         "rlaif_frontier": _rlaif_frontier(),
@@ -8703,6 +8742,8 @@ def frontier_evaluation() -> dict[str, Any]:
         "semantic_scene_residual_run": SEMANTIC_SCENE_RESIDUAL_RUN,
         "double_relative_async_run": DOUBLE_RELATIVE_ASYNC_RUN,
         "semantic_scene_three_edge_run": SEMANTIC_SCENE_THREE_EDGE_RUN,
+        "clause_chunk_equation_run": CLAUSE_CHUNK_EQUATION_RUN,
+        "typed_residual_clause_continuation_run": TYPED_RESIDUAL_CLAUSE_CONTINUATION_RUN,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,

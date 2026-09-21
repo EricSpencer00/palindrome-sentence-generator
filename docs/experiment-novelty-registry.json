@@ -16011,6 +16011,24 @@
       "distinction": "Selects a third complete discourse edge only when its two-character residual key agrees with the prior transition, carrying explicit singular/plural state across all three edges.",
       "reader_evidence": false,
       "status": "3 three-edge states, 3 keyed third-edge selections, 0 key prunes, longest complete prose 124 letters, 0 exact-clean closures above 38; next adds residual-keyed connector and tense alternatives"
+    },
+    {
+      "id": "clause-chunk-equation-composer-20260920",
+      "signature": "fresh-authored|complete-clause-chunks|independent-segmentation|online-equation",
+      "artifact": "experiments/clause_chunk_equation_composer_20260920.py",
+      "run_artifacts": ["runs/clause-chunk-equation-composer-20260920.json"],
+      "distinction": "Composes complete independently authored clauses while independently selecting internal word-boundary cuts and consuming a live two-sided character equation before rendering; it does not import the public API's chunks or mirror finished text.",
+      "reader_evidence": false,
+      "status": "4 by 4 clause banks, 702 segmentation states and 702 online mismatch prunes, 2 complete prose controls to 107 letters, 0 exact closures above 38; next keys fresh continuations from the actual outer residual"
+    },
+    {
+      "id": "typed-residual-clause-continuation-20260920",
+      "signature": "fresh-authored|typed-residual-key|complete-continuation-bank|two-chunk-carry",
+      "artifact": "experiments/typed_residual_clause_continuation_20260920.py",
+      "run_artifacts": ["runs/typed-residual-clause-continuation-20260920.json"],
+      "distinction": "Selects fresh complete continuation clauses from declared two-character residual keys before the second chunk and carries the key through both live equation checks; no catalogue/API text, mirrored chunks, reversal, repair, fragments, or per-search RLAIF.",
+      "reader_evidence": false,
+      "status": "4 residual keys, 8 fresh continuations, 8 online prunes, 2 complete prose controls to 105 letters, 0 exact closures above 38; next derives a three-character key from actual outer emission"
     }
   ]
 }

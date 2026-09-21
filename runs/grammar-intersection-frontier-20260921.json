@@ -1,8 +1,8 @@
 {
   "experiment_id": "grammar-intersection-frontier-20260921",
   "status": "completed_no_exact_closure",
-  "method": "bounded typed-CFG intersection with outside-in character frontiers",
-  "candidate_count": 10,
+  "method": "bounded typed-CFG intersection with two typed PP attachment sites and outside-in character frontiers",
+  "candidate_count": 11,
   "exact_count": 0,
   "reader_eligible": false,
   "rendered_candidates": [
@@ -306,16 +306,48 @@
         "posthoc_repair": false,
         "reversal_in_generator": false
       }
+    },
+    {
+      "rendered": "a brave sailor in harbor guides the boat; the boat in harbor follows a brave sailor.",
+      "left_derivation": "sailor_prepp",
+      "right_derivation": "boat_prepp",
+      "shared_signature": [
+        "NP",
+        "V",
+        "PP",
+        "NP"
+      ],
+      "frontier": {
+        "matched_frontier_pairs": 0,
+        "left_obligation": "a",
+        "right_obligation": "r",
+        "frontier_closed": false
+      },
+      "audit": {
+        "letters": 67,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "c51d9c85ae8bdff9f0c717ad6bb1f5a374d6689d25eb78b639fb3a92b60cf8c6",
+        "reverse_sha256": "9d4c1311baf00b417c0298e84bfe82fdf8f2c95c5669389661e9faca6bdafbde",
+        "sha_equal": false
+      },
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "typed CFG derivation intersection",
+        "posthoc_repair": false,
+        "reversal_in_generator": false
+      }
     }
   ],
   "stats": {
-    "longest_letters": 61,
-    "shared_signature_count": 2
+    "longest_letters": 67,
+    "shared_signature_count": 3
   },
   "novelty_preflight": {
     "topology_new": true,
     "typed_pp_adjunct_added": true,
-    "generator_sha256": "0bcf6c62fefc61e5f7e9e25f595e632cb86e648efe0aeb30ff85287219fb2e68",
+    "second_attachment_site_new": true,
+    "generator_sha256": "fc7fa636544aa5fc23d2a7f5992a8d5d58e4852549d9ec92244a2e944512b93a",
     "not_relative_lexical_expansion": true,
     "not_reward_scoring": true,
     "prior_experiment_ids_checked": [
@@ -328,7 +360,7 @@
     "next_construction": "add one PP adjunct nonterminal with typed attachment, then rerun frontier intersection"
   },
   "provenance": {
-    "generator_sha256": "0bcf6c62fefc61e5f7e9e25f595e632cb86e648efe0aeb30ff85287219fb2e68",
+    "generator_sha256": "fc7fa636544aa5fc23d2a7f5992a8d5d58e4852549d9ec92244a2e944512b93a",
     "independent_audits": [
       "two-pointer",
       "forward/reverse SHA-256"

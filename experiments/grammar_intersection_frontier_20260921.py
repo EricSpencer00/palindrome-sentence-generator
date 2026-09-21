@@ -22,12 +22,14 @@ LEFT = (
     Derivation("teacher", ("NP", "V", "NP"), ("a", "kind", "teacher", "guides", "the", "class")),
     Derivation("artist", ("NP", "V", "NP"), ("a", "calm", "artist", "paints", "the", "vessel")),
     Derivation("pilot_pp", ("NP", "V", "NP", "PP"), ("a", "calm", "pilot", "steers", "the", "boat", "in", "harbor")),
+    Derivation("sailor_prepp", ("NP", "V", "PP", "NP"), ("a", "brave", "sailor", "in", "harbor", "guides", "the", "boat")),
 )
 RIGHT = (
     Derivation("orchard", ("NP", "V", "NP"), ("the", "orchard", "needs", "a", "quiet", "gardener")),
     Derivation("class", ("NP", "V", "NP"), ("the", "class", "needs", "a", "kind", "teacher")),
     Derivation("vessel", ("NP", "V", "NP"), ("the", "vessel", "needs", "a", "calm", "artist")),
     Derivation("harbor_pp", ("NP", "V", "NP", "PP"), ("the", "harbor", "holds", "a", "calm", "pilot", "in", "boat")),
+    Derivation("boat_prepp", ("NP", "V", "PP", "NP"), ("the", "boat", "in", "harbor", "follows", "a", "brave", "sailor")),
 )
 
 def tape(text: str) -> str:
@@ -65,12 +67,13 @@ def main() -> None:
     exact = [x for x in rows if x["audit"]["two_pointer_exact"]]
     out = {"experiment_id": "grammar-intersection-frontier-20260921",
            "status": "completed_exact" if exact else "completed_no_exact_closure",
-           "method": "bounded typed-CFG intersection with outside-in character frontiers",
+           "method": "bounded typed-CFG intersection with two typed PP attachment sites and outside-in character frontiers",
            "candidate_count": len(rows), "exact_count": len(exact), "reader_eligible": False,
            "rendered_candidates": rows,
            "stats": {"longest_letters": max(x["audit"]["letters"] for x in rows),
                      "shared_signature_count": len({x["shared_signature"] for x in rows})},
            "novelty_preflight": {"topology_new": True, "typed_pp_adjunct_added": True,
+                                 "second_attachment_site_new": True,
                                  "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                                  "not_relative_lexical_expansion": True,
                                  "not_reward_scoring": True, "prior_experiment_ids_checked":

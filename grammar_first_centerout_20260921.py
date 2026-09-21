@@ -55,12 +55,12 @@ def obligation(left, right):
 
 def run(limit=240):
     ps = list(productions())
+    clauses = [p for p in ps if p["kind"] == "CLAUSE"]
+    bridges = [p for p in ps if p["kind"] == "BRIDGE"]
     rows, rejected = [], 0
     # Jointly choose a left clause and a right bridge+clause.  The right side is
     # authored in reading order; only its obligation view is reversed.
-    for left, bridge, right in itertools.islice(itertools.product(ps, ps, ps), limit):
-        if left["kind"] != "CLAUSE" or right["kind"] != "CLAUSE" or bridge["kind"] != "BRIDGE":
-            continue
+    for left, bridge, right in itertools.islice(itertools.product(clauses, bridges, clauses), limit):
         right_text = f"{bridge['text']} {right['text']}"
         ok, trace = obligation(left["text"], right_text)
         if not ok:

@@ -2,26 +2,27 @@
   "experiment_id": "outer-character-conditioned-sentence-20260921",
   "method": "joint outer start/end class selection followed by finite outside-in CSP over complete clauses with variable word boundaries and center seam",
   "stats": {
-    "outer_assignments_pruned": 0,
-    "rendered_controls": 972,
-    "center_seam_mismatches": 972,
+    "outer_assignments_pruned": 756,
+    "retained_outer_assignments": 216,
+    "rendered_controls": 216,
+    "center_seam_mismatches": 216,
     "exact_gt38": 0,
     "max_letters": 73
   },
   "exact_gt38_candidates": [],
   "diagnostic_controls": [
     {
-      "rendered": "the harbor medic charts the stranded sailor beside the salt marsh, and the bell answered.",
+      "rendered": "the harbor medic charts the stranded sailor beside the salt marsh, and the bell was quiet.",
       "outer_choice": {
         "start_class": "t",
-        "end_class": "d"
+        "end_class": "t"
       },
       "slots": {
         "det_subject": "the harbor medic",
         "verb": "charts",
         "object": "the stranded sailor",
         "attachment": "beside the salt marsh",
-        "tail": "and the bell answered"
+        "tail": "and the bell was quiet"
       },
       "center_crossing_seam": {
         "left_terminal": "r",
@@ -36,12 +37,12 @@
         "letters": 73,
         "pointer_exact": false,
         "first_mismatch": [
-          0,
-          "t",
-          "d"
+          1,
+          "h",
+          "e"
         ],
-        "sha256_forward": "4dc69750a85bef018e45de4ba78c5e4ac99c16bbac8d4a0ccd00e1ba7e50fdc8",
-        "sha256_reverse": "d5a8fa2b231fa0ed89442262325263118618447342c31124cad2c48ff2d3d303"
+        "sha256_forward": "fffe2752daac561880656bbfe2319b94babb627271caeef5e48dbec5e9aae584",
+        "sha256_reverse": "6e99a5f9d1ebfbd077806c087c78b4af618b8d16d8d6c5ca487ac49c056bf917"
       },
       "provenance": {
         "complete_clause": true,
@@ -54,103 +55,17 @@
       }
     },
     {
-      "rendered": "the harbor medic charts the stranded sailor beside the salt marsh, while the tide turned.",
+      "rendered": "the harbor medic guards the stranded sailor beside the salt marsh, and the bell was quiet.",
       "outer_choice": {
         "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the harbor medic",
-        "verb": "charts",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "while the tide turned"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "307958a376b3306c18eec75c038d57ed0b6d99992e2831db073e3a00f9c99d2c",
-        "sha256_reverse": "a02e337a3bc2b1b04e4359f8951a34674d4af3422353eb6f5761609210a62fd8"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the harbor medic charts the stranded sailor beside the salt marsh, as the lantern dimmed.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the harbor medic",
-        "verb": "charts",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "as the lantern dimmed"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "cbfebbea0be1c5e8d348e85145992c06bde26404f361ca8571f00e5f15d72068",
-        "sha256_reverse": "a6c0700b18ef1cdf67343b6a8b32176e8f823ac1559263b04acdd9fb60226ff6"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the harbor medic guards the stranded sailor beside the salt marsh, and the bell answered.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
+        "end_class": "t"
       },
       "slots": {
         "det_subject": "the harbor medic",
         "verb": "guards",
         "object": "the stranded sailor",
         "attachment": "beside the salt marsh",
-        "tail": "and the bell answered"
+        "tail": "and the bell was quiet"
       },
       "center_crossing_seam": {
         "left_terminal": "r",
@@ -165,12 +80,12 @@
         "letters": 73,
         "pointer_exact": false,
         "first_mismatch": [
-          0,
-          "t",
-          "d"
+          1,
+          "h",
+          "e"
         ],
-        "sha256_forward": "677653bdf067bac7dffbc994e4e42446b26d265b4f00385f54460579a232375e",
-        "sha256_reverse": "bde9299f95e29b31cf19cf7f20b96265e4f8b502e8dcd62651954fa8f25c84ac"
+        "sha256_forward": "9919ec8f166d6aee68ce3d11879dcb60e1feab7add66a7b35e886a087eb01150",
+        "sha256_reverse": "b7e927e58d498525f8092ba6c4ad942a33a1050dba7a3dfcbb62313ab76575c1"
       },
       "provenance": {
         "complete_clause": true,
@@ -183,103 +98,17 @@
       }
     },
     {
-      "rendered": "the harbor medic guards the stranded sailor beside the salt marsh, while the tide turned.",
+      "rendered": "the harbor medic marked the stranded sailor beside the salt marsh, and the bell was quiet.",
       "outer_choice": {
         "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the harbor medic",
-        "verb": "guards",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "while the tide turned"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "98225a26632b804e2a190b3c0729dbe574e5b08cb729bbf53e0942395429126d",
-        "sha256_reverse": "1e4f0442ad999cd538f7eb43fab5ee8efe9f46c72fffbb21dbecbf0ec463949b"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the harbor medic guards the stranded sailor beside the salt marsh, as the lantern dimmed.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the harbor medic",
-        "verb": "guards",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "as the lantern dimmed"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "c5dee8fe8f60c66f7a6a725eee75f2446079ff3ab080dd9e6e77be030df0d442",
-        "sha256_reverse": "5c0acf100131022b1e1ef545eb87766d922bf58879e218d4a757c01799570611"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the harbor medic marked the stranded sailor beside the salt marsh, and the bell answered.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
+        "end_class": "t"
       },
       "slots": {
         "det_subject": "the harbor medic",
         "verb": "marked",
         "object": "the stranded sailor",
         "attachment": "beside the salt marsh",
-        "tail": "and the bell answered"
+        "tail": "and the bell was quiet"
       },
       "center_crossing_seam": {
         "left_terminal": "r",
@@ -294,12 +123,12 @@
         "letters": 73,
         "pointer_exact": false,
         "first_mismatch": [
-          0,
-          "t",
-          "d"
+          1,
+          "h",
+          "e"
         ],
-        "sha256_forward": "7afab0223561140192d5eabb05e2d9d49a7dafb1c16fde6500d50b82ff32f9ae",
-        "sha256_reverse": "6b53e9216e55ff65c02c720a984c6f0d59e805c1611b96c2f554293bad6b33f2"
+        "sha256_forward": "00d4344ede876814f76219c229e56550b85930e608165316c1bc0dd38c16593f",
+        "sha256_reverse": "fd5d0986559f14ac77da5ebbca344b601e4e6627c813518fe838ce550518bb9f"
       },
       "provenance": {
         "complete_clause": true,
@@ -312,17 +141,17 @@
       }
     },
     {
-      "rendered": "the harbor medic marked the stranded sailor beside the salt marsh, while the tide turned.",
+      "rendered": "the harbor medic marked the stranded sailor beside the salt marsh, and the bell was quiet.",
       "outer_choice": {
         "start_class": "t",
-        "end_class": "d"
+        "end_class": "t"
       },
       "slots": {
         "det_subject": "the harbor medic",
         "verb": "marked",
         "object": "the stranded sailor",
         "attachment": "beside the salt marsh",
-        "tail": "while the tide turned"
+        "tail": "and the bell was quiet"
       },
       "center_crossing_seam": {
         "left_terminal": "r",
@@ -337,12 +166,12 @@
         "letters": 73,
         "pointer_exact": false,
         "first_mismatch": [
-          0,
-          "t",
-          "d"
+          1,
+          "h",
+          "e"
         ],
-        "sha256_forward": "f2f4e2d9071052239f7a6ce80bfe7a384afa0fff9d46dec38b8e1674c4b0a8f6",
-        "sha256_reverse": "af021878534bb8f6a03ca92dff57af36df82339c0f58c3e46ece911cbbaef6fe"
+        "sha256_forward": "00d4344ede876814f76219c229e56550b85930e608165316c1bc0dd38c16593f",
+        "sha256_reverse": "fd5d0986559f14ac77da5ebbca344b601e4e6627c813518fe838ce550518bb9f"
       },
       "provenance": {
         "complete_clause": true,
@@ -355,189 +184,17 @@
       }
     },
     {
-      "rendered": "the harbor medic marked the stranded sailor beside the salt marsh, as the lantern dimmed.",
+      "rendered": "the river pilots marked the stranded sailor beside the salt marsh, and the bell was quiet.",
       "outer_choice": {
         "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the harbor medic",
-        "verb": "marked",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "as the lantern dimmed"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "89caad38cb1d506d829670f71656408aa753e3b7fe87c2fa2094ea44ba4f77c5",
-        "sha256_reverse": "fbd5c35769dc569099a7efe011232be57f3741f8b1c02421c607f4acb090ddd9"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the harbor medic marked the stranded sailor beside the salt marsh, and the bell answered.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the harbor medic",
-        "verb": "marked",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "and the bell answered"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "7afab0223561140192d5eabb05e2d9d49a7dafb1c16fde6500d50b82ff32f9ae",
-        "sha256_reverse": "6b53e9216e55ff65c02c720a984c6f0d59e805c1611b96c2f554293bad6b33f2"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the harbor medic marked the stranded sailor beside the salt marsh, while the tide turned.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the harbor medic",
-        "verb": "marked",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "while the tide turned"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "f2f4e2d9071052239f7a6ce80bfe7a384afa0fff9d46dec38b8e1674c4b0a8f6",
-        "sha256_reverse": "af021878534bb8f6a03ca92dff57af36df82339c0f58c3e46ece911cbbaef6fe"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the harbor medic marked the stranded sailor beside the salt marsh, as the lantern dimmed.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the harbor medic",
-        "verb": "marked",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "as the lantern dimmed"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "89caad38cb1d506d829670f71656408aa753e3b7fe87c2fa2094ea44ba4f77c5",
-        "sha256_reverse": "fbd5c35769dc569099a7efe011232be57f3741f8b1c02421c607f4acb090ddd9"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the river pilots marked the stranded sailor beside the salt marsh, and the bell answered.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
+        "end_class": "t"
       },
       "slots": {
         "det_subject": "the river pilots",
         "verb": "marked",
         "object": "the stranded sailor",
         "attachment": "beside the salt marsh",
-        "tail": "and the bell answered"
+        "tail": "and the bell was quiet"
       },
       "center_crossing_seam": {
         "left_terminal": "r",
@@ -552,12 +209,12 @@
         "letters": 73,
         "pointer_exact": false,
         "first_mismatch": [
-          0,
-          "t",
-          "d"
+          1,
+          "h",
+          "e"
         ],
-        "sha256_forward": "4e9bfe6805f17f695afe482c76bce9a5d1f7d77cdba3ef120394b7ba63245fb4",
-        "sha256_reverse": "4a84699f042a7f2ed39bb58821a82a6211eadec7cb6a0ea9a4f11dfbf51fe248"
+        "sha256_forward": "a740024f85ec63acbc3ed0a6c5f2402371bb66a06aff61488f2cbe9a7983ea17",
+        "sha256_reverse": "3cfe1f15c4197aa5064a43b3e1c91493898746ebe476ed4ca08d0440a336be72"
       },
       "provenance": {
         "complete_clause": true,
@@ -570,17 +227,17 @@
       }
     },
     {
-      "rendered": "the river pilots marked the stranded sailor beside the salt marsh, while the tide turned.",
+      "rendered": "the river pilots marked the stranded sailor beside the salt marsh, and the bell was quiet.",
       "outer_choice": {
         "start_class": "t",
-        "end_class": "d"
+        "end_class": "t"
       },
       "slots": {
         "det_subject": "the river pilots",
         "verb": "marked",
         "object": "the stranded sailor",
         "attachment": "beside the salt marsh",
-        "tail": "while the tide turned"
+        "tail": "and the bell was quiet"
       },
       "center_crossing_seam": {
         "left_terminal": "r",
@@ -595,12 +252,12 @@
         "letters": 73,
         "pointer_exact": false,
         "first_mismatch": [
-          0,
-          "t",
-          "d"
+          1,
+          "h",
+          "e"
         ],
-        "sha256_forward": "c4f9c0a4449f302bb8ed422534f4bb4505f9f7d703b4e178287e689a1b53f18e",
-        "sha256_reverse": "33e84cbebdbb169f1fec7f53be01705afeade20f3f18189b7fbb60f5e568303d"
+        "sha256_forward": "a740024f85ec63acbc3ed0a6c5f2402371bb66a06aff61488f2cbe9a7983ea17",
+        "sha256_reverse": "3cfe1f15c4197aa5064a43b3e1c91493898746ebe476ed4ca08d0440a336be72"
       },
       "provenance": {
         "complete_clause": true,
@@ -613,189 +270,17 @@
       }
     },
     {
-      "rendered": "the river pilots marked the stranded sailor beside the salt marsh, as the lantern dimmed.",
+      "rendered": "the quiet keeper charts the stranded sailor beside the salt marsh, and the bell was quiet.",
       "outer_choice": {
         "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the river pilots",
-        "verb": "marked",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "as the lantern dimmed"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "f3cdb315a8cf5c03b92ce9a698481abd7a88c2a41c82971ff1702824e4398894",
-        "sha256_reverse": "4ed1cc188afa93298cc51322959767ddd8384c23851db04210e349e6c8c66258"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the river pilots marked the stranded sailor beside the salt marsh, and the bell answered.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the river pilots",
-        "verb": "marked",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "and the bell answered"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "4e9bfe6805f17f695afe482c76bce9a5d1f7d77cdba3ef120394b7ba63245fb4",
-        "sha256_reverse": "4a84699f042a7f2ed39bb58821a82a6211eadec7cb6a0ea9a4f11dfbf51fe248"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the river pilots marked the stranded sailor beside the salt marsh, while the tide turned.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the river pilots",
-        "verb": "marked",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "while the tide turned"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "c4f9c0a4449f302bb8ed422534f4bb4505f9f7d703b4e178287e689a1b53f18e",
-        "sha256_reverse": "33e84cbebdbb169f1fec7f53be01705afeade20f3f18189b7fbb60f5e568303d"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the river pilots marked the stranded sailor beside the salt marsh, as the lantern dimmed.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
-      },
-      "slots": {
-        "det_subject": "the river pilots",
-        "verb": "marked",
-        "object": "the stranded sailor",
-        "attachment": "beside the salt marsh",
-        "tail": "as the lantern dimmed"
-      },
-      "center_crossing_seam": {
-        "left_terminal": "r",
-        "right_initial": "b",
-        "crossing_equal": false,
-        "boundary_lengths": [
-          37,
-          36
-        ]
-      },
-      "audit": {
-        "letters": 73,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "d"
-        ],
-        "sha256_forward": "f3cdb315a8cf5c03b92ce9a698481abd7a88c2a41c82971ff1702824e4398894",
-        "sha256_reverse": "4ed1cc188afa93298cc51322959767ddd8384c23851db04210e349e6c8c66258"
-      },
-      "provenance": {
-        "complete_clause": true,
-        "rendered_control": true,
-        "outside_in_csp": true,
-        "post_hoc_reversal": false,
-        "borrowed_units": false,
-        "connector_fixed": false,
-        "shortcut": false
-      }
-    },
-    {
-      "rendered": "the quiet keeper charts the stranded sailor beside the salt marsh, and the bell answered.",
-      "outer_choice": {
-        "start_class": "t",
-        "end_class": "d"
+        "end_class": "t"
       },
       "slots": {
         "det_subject": "the quiet keeper",
         "verb": "charts",
         "object": "the stranded sailor",
         "attachment": "beside the salt marsh",
-        "tail": "and the bell answered"
+        "tail": "and the bell was quiet"
       },
       "center_crossing_seam": {
         "left_terminal": "r",
@@ -810,12 +295,12 @@
         "letters": 73,
         "pointer_exact": false,
         "first_mismatch": [
-          0,
-          "t",
-          "d"
+          1,
+          "h",
+          "e"
         ],
-        "sha256_forward": "a088997ee02f3a759801396f76407d4994e9c044e82c8589a02f087cce8f24c5",
-        "sha256_reverse": "74a980f1a997579bb2cd5b0ade32227babae91bd181fd31a46e0390f688b6ea9"
+        "sha256_forward": "66c68d01f9058efc5b3480822f10c99b30c6e959d5a3cbc7e36be06875cc4242",
+        "sha256_reverse": "d91e867ebfcf6b97e48ce2ffdfcddfbbc406976d2a5d17544fc350c4f11ab598"
       },
       "provenance": {
         "complete_clause": true,
@@ -828,17 +313,17 @@
       }
     },
     {
-      "rendered": "the quiet keeper charts the stranded sailor beside the salt marsh, while the tide turned.",
+      "rendered": "the quiet keeper guards the stranded sailor beside the salt marsh, and the bell was quiet.",
       "outer_choice": {
         "start_class": "t",
-        "end_class": "d"
+        "end_class": "t"
       },
       "slots": {
         "det_subject": "the quiet keeper",
-        "verb": "charts",
+        "verb": "guards",
         "object": "the stranded sailor",
         "attachment": "beside the salt marsh",
-        "tail": "while the tide turned"
+        "tail": "and the bell was quiet"
       },
       "center_crossing_seam": {
         "left_terminal": "r",
@@ -853,12 +338,528 @@
         "letters": 73,
         "pointer_exact": false,
         "first_mismatch": [
-          0,
-          "t",
-          "d"
+          1,
+          "h",
+          "e"
         ],
-        "sha256_forward": "449af5e9152cfc915222cb13bca1aa80b5ce762d887854706ad4c2e98993d814",
-        "sha256_reverse": "af469098af7111c4d5178b411b23e3c21554b07bca89107ccc0ca264a40a27ce"
+        "sha256_forward": "d9668209c0f2d010ccef6dbffc59c03818ee33e9af8eeb7461ba79b6062bc0a8",
+        "sha256_reverse": "410f1b313239ac18ced40a8a0b125723b52d4c0fbacc6793bf0313e78cac4831"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the quiet keeper marked the stranded sailor beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the quiet keeper",
+        "verb": "marked",
+        "object": "the stranded sailor",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "r",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          37,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 73,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "aeb9759589cc2020b1ab33c9133c72731be439fee9e58e5d0da6bb3bd0af153c",
+        "sha256_reverse": "c954eca6f2fd559f0fd004275915afeefcc7da01ea7974269130b60b4430651e"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the quiet keeper marked the stranded sailor beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the quiet keeper",
+        "verb": "marked",
+        "object": "the stranded sailor",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "r",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          37,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 73,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "aeb9759589cc2020b1ab33c9133c72731be439fee9e58e5d0da6bb3bd0af153c",
+        "sha256_reverse": "c954eca6f2fd559f0fd004275915afeefcc7da01ea7974269130b60b4430651e"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the harbor medic charts the narrow channel beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the harbor medic",
+        "verb": "charts",
+        "object": "the narrow channel",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "l",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          36,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "9d78689c92f80c898ba3efa09ac76e624ff5b049d93604fbfccccba42ac4b1d7",
+        "sha256_reverse": "59b56c8dbf055cd21813f91c9097f39a0a4e1c3ae6770924128899dfed5de908"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the harbor medic charts a weathered beacon beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the harbor medic",
+        "verb": "charts",
+        "object": "a weathered beacon",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "n",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          36,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "de510128bc14c4dcaeb9d4dd39034e408d96369d02c41b6217e86029be5a1631",
+        "sha256_reverse": "bace8ac8ac970cf57199214e4e7db148e9707550166d16b51e91335b7deeda41"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the harbor medic guards the narrow channel beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the harbor medic",
+        "verb": "guards",
+        "object": "the narrow channel",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "l",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          36,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "42c26ae045dcbda5424f5432e80ac0f3aaa5b82714c35dd499940dade3ca1957",
+        "sha256_reverse": "a2c41f75c32e9cdd11ecf2a913dc857698dbe78929d9c4faa4dd0c279a79ff0e"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the harbor medic guards a weathered beacon beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the harbor medic",
+        "verb": "guards",
+        "object": "a weathered beacon",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "n",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          36,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "38031eb98eb647268e17b3658b12bee1b76a34f030548e1e2e47ad62069f243c",
+        "sha256_reverse": "8aadc781d2c23c21945844f86b7a88b4b86bfb99a29b0be664514d5672e7ac01"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the harbor medic marked the narrow channel beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the harbor medic",
+        "verb": "marked",
+        "object": "the narrow channel",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "l",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          36,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "549fec8b0c2c0a193f0a04b01d7cb5f5b5416cf26c2346ec981edd1e7b38bf61",
+        "sha256_reverse": "ac98f925120be20d28ee72f2ba903ed63f43b5f80dd77adb990934f9b4c56c10"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the harbor medic marked a weathered beacon beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the harbor medic",
+        "verb": "marked",
+        "object": "a weathered beacon",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "n",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          36,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "33d8a2efde26a6f4f92b817270a16688b94dfa43e51642737853772db45907a1",
+        "sha256_reverse": "eca98899afc3f99b19941d0f69c47f015293bb688f4de242c0fe0ae06f704cda"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the harbor medic marked the narrow channel beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the harbor medic",
+        "verb": "marked",
+        "object": "the narrow channel",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "l",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          36,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "549fec8b0c2c0a193f0a04b01d7cb5f5b5416cf26c2346ec981edd1e7b38bf61",
+        "sha256_reverse": "ac98f925120be20d28ee72f2ba903ed63f43b5f80dd77adb990934f9b4c56c10"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the harbor medic marked a weathered beacon beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the harbor medic",
+        "verb": "marked",
+        "object": "a weathered beacon",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "n",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          36,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "33d8a2efde26a6f4f92b817270a16688b94dfa43e51642737853772db45907a1",
+        "sha256_reverse": "eca98899afc3f99b19941d0f69c47f015293bb688f4de242c0fe0ae06f704cda"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the river pilots marked the narrow channel beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the river pilots",
+        "verb": "marked",
+        "object": "the narrow channel",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "l",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          36,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "afc34e27f2ee8bdc9c7b86e779ef9641f286751f38fa659bb68a52c646715768",
+        "sha256_reverse": "bb481811a70dac4995a127adcebfcf08a6b8be09abf16fcb46fb40af96d46bb5"
+      },
+      "provenance": {
+        "complete_clause": true,
+        "rendered_control": true,
+        "outside_in_csp": true,
+        "post_hoc_reversal": false,
+        "borrowed_units": false,
+        "connector_fixed": false,
+        "shortcut": false
+      }
+    },
+    {
+      "rendered": "the river pilots marked a weathered beacon beside the salt marsh, and the bell was quiet.",
+      "outer_choice": {
+        "start_class": "t",
+        "end_class": "t"
+      },
+      "slots": {
+        "det_subject": "the river pilots",
+        "verb": "marked",
+        "object": "a weathered beacon",
+        "attachment": "beside the salt marsh",
+        "tail": "and the bell was quiet"
+      },
+      "center_crossing_seam": {
+        "left_terminal": "n",
+        "right_initial": "b",
+        "crossing_equal": false,
+        "boundary_lengths": [
+          36,
+          36
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "12f9aaa1d084883d591785e48ac7e266e7ab5626f937b77b38c2c4d30d91cf9a",
+        "sha256_reverse": "3d33d5bea1c30be644a2d1c38babe2874e827fc216334f9c4592722ac2a8e6cb"
       },
       "provenance": {
         "complete_clause": true,

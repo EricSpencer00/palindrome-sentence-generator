@@ -8526,3 +8526,11 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   independent pointer/SHA audits find zero exact tapes. The next operator is a
   possessive-NP contrast, not a larger adjective bank. Artifact:
   `runs/are-plural-np-adjective-era-20260921.json`.
+
+- **Possessive-NP era shell, 2026-09-21:** corrected the possessive state to
+  complete phrases (`the scout's maps`, `the guide's notes`, `the guides'
+  charts`) and tested nine natural controls, including “Are the guides' charts
+  ready in an era?” (30 letters). All match only the three-character
+  `are`/`era` shell; the next residual is still `t` versus `n`, and independent
+  pointer/SHA audits reject every tape. No candidate was promoted. Artifact:
+  `runs/are-possessive-np-adjective-era-20260921.json`.

@@ -1,0 +1,818 @@
+{
+  "experiment_id": "semantic-program-reversible-20260921",
+  "method": "online bidirectional character constraint over independently generated, typed semantic event programs",
+  "stats": {
+    "program_pairs": 6,
+    "non_isomorphic_pairs": 4,
+    "online_rejected": 6,
+    "exact_candidates": 0
+  },
+  "rendered_candidates": [
+    {
+      "left_program": {
+        "subject": "Mira",
+        "events": [
+          "unlock",
+          "carry",
+          "deliver"
+        ],
+        "world": {
+          "final": [
+            "delivered",
+            "moved",
+            "open",
+            "parcel"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "carry",
+              "state": [
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "deliver",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel"
+              ]
+            }
+          ]
+        }
+      },
+      "right_program": {
+        "subject": "Lena",
+        "events": [
+          "unlock",
+          "inspect",
+          "seal"
+        ],
+        "world": {
+          "final": [
+            "closed",
+            "inspected",
+            "parcel"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "inspect",
+              "state": [
+                "inspected",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "seal",
+              "state": [
+                "closed",
+                "inspected",
+                "parcel"
+              ]
+            }
+          ]
+        }
+      },
+      "non_isomorphic": false,
+      "rendered": "Mira opens the gate carries the parcel delivers the parcel. Lena opens the gate inspects the gate seals the gate.",
+      "online_constraint": {
+        "consumed": 43,
+        "matched": 0,
+        "first_mismatch": 0,
+        "equal_length": false,
+        "online_rejected": true
+      },
+      "audit": {
+        "letters": 92,
+        "two_pointer_exact": false,
+        "forward_sha256": "a16e0201108e7dadf6447a166b7bde50eff7c0e63c9987bd984154101f2600d0",
+        "reverse_sha256": "695a17a32c9e319835979b88fe710217d2ebb73d22608fec04abda90e0b08dd9",
+        "sha_exact": false,
+        "mismatches": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      "provenance": {
+        "typed_roles": true,
+        "surface_after_world_feasibility": true,
+        "characters_constrained_before_complete_strings": true,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_sweep": false
+      }
+    },
+    {
+      "left_program": {
+        "subject": "Mira",
+        "events": [
+          "unlock",
+          "carry",
+          "deliver"
+        ],
+        "world": {
+          "final": [
+            "delivered",
+            "moved",
+            "open",
+            "parcel"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "carry",
+              "state": [
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "deliver",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel"
+              ]
+            }
+          ]
+        }
+      },
+      "right_program": {
+        "subject": "Omar",
+        "events": [
+          "unlock",
+          "carry",
+          "deliver",
+          "receive"
+        ],
+        "world": {
+          "final": [
+            "delivered",
+            "moved",
+            "open",
+            "parcel",
+            "received"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "carry",
+              "state": [
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "deliver",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "receive",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel",
+                "received"
+              ]
+            }
+          ]
+        }
+      },
+      "non_isomorphic": true,
+      "rendered": "Mira opens the gate carries the parcel delivers the parcel. Omar opens the gate carries the parcel delivers the parcel receives the parcel.",
+      "online_constraint": {
+        "consumed": 49,
+        "matched": 7,
+        "first_mismatch": 0,
+        "equal_length": false,
+        "online_rejected": true
+      },
+      "audit": {
+        "letters": 115,
+        "two_pointer_exact": false,
+        "forward_sha256": "5f45f57d427b62a6c7b9c8d1cbfbe7de69be1d59c752006d48e0a8f76a1ee080",
+        "reverse_sha256": "bb28b747c8f26875a32747c7144afb19b756e5a680ca8a943a12cf1d9054b805",
+        "sha_exact": false,
+        "mismatches": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "provenance": {
+        "typed_roles": true,
+        "surface_after_world_feasibility": true,
+        "characters_constrained_before_complete_strings": true,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_sweep": false
+      }
+    },
+    {
+      "left_program": {
+        "subject": "Lena",
+        "events": [
+          "unlock",
+          "inspect",
+          "seal"
+        ],
+        "world": {
+          "final": [
+            "closed",
+            "inspected",
+            "parcel"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "inspect",
+              "state": [
+                "inspected",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "seal",
+              "state": [
+                "closed",
+                "inspected",
+                "parcel"
+              ]
+            }
+          ]
+        }
+      },
+      "right_program": {
+        "subject": "Mira",
+        "events": [
+          "unlock",
+          "carry",
+          "deliver"
+        ],
+        "world": {
+          "final": [
+            "delivered",
+            "moved",
+            "open",
+            "parcel"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "carry",
+              "state": [
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "deliver",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel"
+              ]
+            }
+          ]
+        }
+      },
+      "non_isomorphic": false,
+      "rendered": "Lena opens the gate inspects the gate seals the gate. Mira opens the gate carries the parcel delivers the parcel.",
+      "online_constraint": {
+        "consumed": 43,
+        "matched": 7,
+        "first_mismatch": 2,
+        "equal_length": false,
+        "online_rejected": true
+      },
+      "audit": {
+        "letters": 92,
+        "two_pointer_exact": false,
+        "forward_sha256": "853752d284a00f58cafa5e4667fafe98689df266c23a7c49683794de28e9c2e7",
+        "reverse_sha256": "94264c1d970700ec645b68871fa991a4c6ce3640e3482b27d673242251d20b20",
+        "sha_exact": false,
+        "mismatches": [
+          2,
+          3,
+          4,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          16,
+          17
+        ]
+      },
+      "provenance": {
+        "typed_roles": true,
+        "surface_after_world_feasibility": true,
+        "characters_constrained_before_complete_strings": true,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_sweep": false
+      }
+    },
+    {
+      "left_program": {
+        "subject": "Lena",
+        "events": [
+          "unlock",
+          "inspect",
+          "seal"
+        ],
+        "world": {
+          "final": [
+            "closed",
+            "inspected",
+            "parcel"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "inspect",
+              "state": [
+                "inspected",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "seal",
+              "state": [
+                "closed",
+                "inspected",
+                "parcel"
+              ]
+            }
+          ]
+        }
+      },
+      "right_program": {
+        "subject": "Omar",
+        "events": [
+          "unlock",
+          "carry",
+          "deliver",
+          "receive"
+        ],
+        "world": {
+          "final": [
+            "delivered",
+            "moved",
+            "open",
+            "parcel",
+            "received"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "carry",
+              "state": [
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "deliver",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "receive",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel",
+                "received"
+              ]
+            }
+          ]
+        }
+      },
+      "non_isomorphic": true,
+      "rendered": "Lena opens the gate inspects the gate seals the gate. Omar opens the gate carries the parcel delivers the parcel receives the parcel.",
+      "online_constraint": {
+        "consumed": 43,
+        "matched": 7,
+        "first_mismatch": 2,
+        "equal_length": false,
+        "online_rejected": true
+      },
+      "audit": {
+        "letters": 109,
+        "two_pointer_exact": false,
+        "forward_sha256": "620b32413df60da2def3e0284dfbc0569620cb737b93c360b5190c58f42afae7",
+        "reverse_sha256": "006ffb9a8f7c97c7bd5fb86bcd8d03b512bd9105b1d11bc554062d1f8de3dcd3",
+        "sha_exact": false,
+        "mismatches": [
+          2,
+          3,
+          4,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          16
+        ]
+      },
+      "provenance": {
+        "typed_roles": true,
+        "surface_after_world_feasibility": true,
+        "characters_constrained_before_complete_strings": true,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_sweep": false
+      }
+    },
+    {
+      "left_program": {
+        "subject": "Omar",
+        "events": [
+          "unlock",
+          "carry",
+          "deliver",
+          "receive"
+        ],
+        "world": {
+          "final": [
+            "delivered",
+            "moved",
+            "open",
+            "parcel",
+            "received"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "carry",
+              "state": [
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "deliver",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "receive",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel",
+                "received"
+              ]
+            }
+          ]
+        }
+      },
+      "right_program": {
+        "subject": "Mira",
+        "events": [
+          "unlock",
+          "carry",
+          "deliver"
+        ],
+        "world": {
+          "final": [
+            "delivered",
+            "moved",
+            "open",
+            "parcel"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "carry",
+              "state": [
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "deliver",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel"
+              ]
+            }
+          ]
+        }
+      },
+      "non_isomorphic": true,
+      "rendered": "Omar opens the gate carries the parcel delivers the parcel receives the parcel. Mira opens the gate carries the parcel delivers the parcel.",
+      "online_constraint": {
+        "consumed": 49,
+        "matched": 10,
+        "first_mismatch": 0,
+        "equal_length": false,
+        "online_rejected": true
+      },
+      "audit": {
+        "letters": 115,
+        "two_pointer_exact": false,
+        "forward_sha256": "d046703d3dbafc68a6cacfabc3e77ac2f2af287164a7ba6ecd8ac9028a45d590",
+        "reverse_sha256": "eab2914dfe33a396732c3907a3b8ae6a472e3264c8c5ccc87e30d7df68956653",
+        "sha_exact": false,
+        "mismatches": [
+          0,
+          1,
+          2,
+          4,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          16
+        ]
+      },
+      "provenance": {
+        "typed_roles": true,
+        "surface_after_world_feasibility": true,
+        "characters_constrained_before_complete_strings": true,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_sweep": false
+      }
+    },
+    {
+      "left_program": {
+        "subject": "Omar",
+        "events": [
+          "unlock",
+          "carry",
+          "deliver",
+          "receive"
+        ],
+        "world": {
+          "final": [
+            "delivered",
+            "moved",
+            "open",
+            "parcel",
+            "received"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "carry",
+              "state": [
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "deliver",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "receive",
+              "state": [
+                "delivered",
+                "moved",
+                "open",
+                "parcel",
+                "received"
+              ]
+            }
+          ]
+        }
+      },
+      "right_program": {
+        "subject": "Lena",
+        "events": [
+          "unlock",
+          "inspect",
+          "seal"
+        ],
+        "world": {
+          "final": [
+            "closed",
+            "inspected",
+            "parcel"
+          ],
+          "trace": [
+            {
+              "event": "unlock",
+              "state": [
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "inspect",
+              "state": [
+                "inspected",
+                "open",
+                "parcel"
+              ]
+            },
+            {
+              "event": "seal",
+              "state": [
+                "closed",
+                "inspected",
+                "parcel"
+              ]
+            }
+          ]
+        }
+      },
+      "non_isomorphic": true,
+      "rendered": "Omar opens the gate carries the parcel delivers the parcel receives the parcel. Lena opens the gate inspects the gate seals the gate.",
+      "online_constraint": {
+        "consumed": 43,
+        "matched": 1,
+        "first_mismatch": 0,
+        "equal_length": false,
+        "online_rejected": true
+      },
+      "audit": {
+        "letters": 109,
+        "two_pointer_exact": false,
+        "forward_sha256": "0f7a004729763fbdbb4d773442d04091114f11f5bc732900052c3416f185920d",
+        "reverse_sha256": "31993359bca578b3436f7aa8e93e9518b0c14e7f5174a421a91ea0a20c282da1",
+        "sha_exact": false,
+        "mismatches": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "provenance": {
+        "typed_roles": true,
+        "surface_after_world_feasibility": true,
+        "characters_constrained_before_complete_strings": true,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_sweep": false
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "novelty_preflight": {
+    "registry_inspected": true,
+    "signature": "typed-event-program|non-isomorphic-valency|online-opposing-character-consumption",
+    "distinct_from": [
+      "world-state orbit probe",
+      "semantic valency/slot sweeps",
+      "reversible clause/template composers"
+    ],
+    "duplicate_found": false
+  },
+  "no_shortcut_gates": {
+    "ordinary_word_order": true,
+    "independent_programs": true,
+    "no_wrappers_or_catalogue_text": true,
+    "no_finished_tape_reversal_in_search": true,
+    "two_pointer_and_forward_reverse_sha_audits": true
+  },
+  "reader_status": "programmatic only; no human readability study",
+  "status": "probe; no exact closure",
+  "next_construction": "add held-out typed role realizations and choose the next event from residual character debt while preserving world-state feasibility",
+  "generator_sha256": "e7f9ef3f519647536352c4256c5c8ac36f1aa7f3f4674a50da5b31834e46a96c"
+}

@@ -1,0 +1,127 @@
+{
+  "experiment_id": "character-wfsa-valency-20260920",
+  "method": "online character WFSA with typed number and transitive/intransitive valency",
+  "config": {
+    "typed_features": [
+      "number",
+      "valency"
+    ],
+    "object_emission": "transitive-only",
+    "post_search_reversal": false,
+    "repair": false
+  },
+  "stats": {
+    "typed_transitions_checked": 16,
+    "rejected_transitions": 16,
+    "rendered_candidates": 0,
+    "prose_controls": 4,
+    "exact_gt38": 0,
+    "max_control_letters": 51
+  },
+  "rendered_candidates": [],
+  "prose_controls": [
+    {
+      "rendered": "the sailor waits; while the teachers smile.",
+      "audit": {
+        "letters": 35,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          34,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "0c53ffc418fb5080ca5aeb0568958e297a19ba92241cb5f3623508bc8d6ff407",
+        "sha256_reverse": "62269b49176663d398ffabfc7c4844a3a3112a0fd39a3d401511debfd5eddf6b"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "complete_typed_valency_surface": true,
+        "shuffled_control_source": "WFSA arcs"
+      }
+    },
+    {
+      "rendered": "our sailors guide the letter; while a teacher marks a station.",
+      "audit": {
+        "letters": 50,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          49,
+          "o",
+          "n"
+        ],
+        "sha256_forward": "73693516593cd0db715e26785e93e0b7875955e4d1043241346a4de06e488a76",
+        "sha256_reverse": "5bef505d9f4ef74d2c299bd68212dfe6e681eab5650cf30f98c47c41b81d2f5c"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "complete_typed_valency_surface": true,
+        "shuffled_control_source": "WFSA arcs"
+      }
+    },
+    {
+      "rendered": "the sailor guides the parcel; while the teachers mark a garden.",
+      "audit": {
+        "letters": 51,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          50,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "b56fb2faaf639f863f2f307a9bb384a98356b3dbc006b9c2cee88dc8aa702b61",
+        "sha256_reverse": "9936635aeded8fdc035fea1d45dd936c2860079250ef204dff753a92dfe1cecb"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "complete_typed_valency_surface": true,
+        "shuffled_control_source": "WFSA arcs"
+      }
+    },
+    {
+      "rendered": "our sailors wait; while a teacher smiles.",
+      "audit": {
+        "letters": 33,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          32,
+          "o",
+          "s"
+        ],
+        "sha256_forward": "73d39320d430429ba6892b419b42663c85e74a35715612296484a9f69fbba6d9",
+        "sha256_reverse": "9c18b986d44f83e60cb3d42150619eb5f4a77a02856c6c28814665f35f6ccb36"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "complete_typed_valency_surface": true,
+        "shuffled_control_source": "WFSA arcs"
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "excluded_routes": [
+      "finished-tape reversal",
+      "repair",
+      "lexical-bank sweep"
+    ]
+  },
+  "provenance": {
+    "independent_audit": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "catalogue_text": false,
+    "mirrored_units": false,
+    "word_order_symmetry": false,
+    "self_palindromic_units": false
+  },
+  "next_operator": "typed argument-role state distinguishing recipient from theme before transitive object emission",
+  "status": "no exact >38 closure; typed valency controls retained"
+}

@@ -31,3 +31,10 @@ the same 120-node cap, with differential toy checks still active. All 62
 targets reached a root conflict at one node and produced no exact candidate.
 The next operator is an embedded object-relative edge or typed adjunct that
 can add length while preserving a nonempty accepting grammar path.
+
+The embedded edge was then added as a live ten-slot frame: an explicit object
+is followed by `that`, a second singular subject, verb, and object. Targets
+39--120 were rerun with residual-indexed branch ordering. All 82 targets still
+reached a one-node root conflict, with no exact path or rendered candidate.
+The next lexical operator is a held-out temporal adjunct on this embedded
+frame, selected by residual support rather than Cartesian expansion.

@@ -155,8 +155,19 @@ def construct():
                 ('relative_verb_sg', ['reads', 'sees', 'helps']),
                 ('relative_det_obj', ['a', 'the']),
                 ('relative_object', ['map', 'book', 'letter'])]
+    embedded_relative = [('embedded_det', ['the', 'a']),
+                         ('embedded_agent_sg', ['artist', 'writer', 'pilot']),
+                         ('embedded_verb_sg', ['reads', 'sees', 'helps']),
+                         ('embedded_det_obj', ['a', 'the']),
+                         ('embedded_object', ['map', 'book', 'letter']),
+                         ('embedded_marker', ['that']),
+                         ('embedded_subject_sg', ['artist', 'writer', 'pilot']),
+                         ('embedded_pred_sg', ['reads', 'sees', 'helps']),
+                         ('embedded_det_obj2', ['a', 'the']),
+                         ('embedded_object2', ['map', 'book', 'letter'])]
     g.frame('question_then_person_event', question+right)
     g.frame('relative_clause_then_person_event', relative+right)
+    g.frame('embedded_object_relative_then_person_event', embedded_relative+right)
     return g
 
 
@@ -286,7 +297,7 @@ def differential():
 def main():
     start = time.monotonic()
     grammar = construct()
-    results = [solve(grammar, n) for n in range(39, 101)]
+    results = [solve(grammar, n) for n in range(39, 121)]
     out = {'experiment_id': ID, 'method': 'forward_NFA_REGULAR_fixed_point_mirrored_domains',
            'differential_checks': differential(), 'grammar': grammar.frames,
            'results': results, 'seconds': time.monotonic()-start,
@@ -303,7 +314,7 @@ def main():
                                         'event_graph_character_sat_20260916.py',
                                         'position_domain_arc_consistency_csp_20260920.py'],
                        'implementation_distinction': 'iterated position-specific forward/backward supports with latent word boundaries'},
-           'next_operator': 'add a typed adjunct or embedded object-relative edge to the residual-indexed question/relative chart; current grammar has no accepting root at 39..100',
+           'next_operator': 'add a typed adjunct with a held-out temporal lexeme to the residual-indexed embedded-relative chart; current grammar has no accepting root at 39..120',
            'reader_gate': 'closed until exact original plausible prose and blinded ratings'}
     (ROOT/'runs'/f'{ID}.json').write_text(json.dumps(out, indent=2)+'\n')
     print(json.dumps([{'N': r['target_letters'], **r['stats'],

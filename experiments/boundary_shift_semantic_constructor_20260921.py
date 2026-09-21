@@ -3,8 +3,10 @@ from __future__ import annotations
 import argparse, hashlib, itertools, json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-ROLES={"det":"a an the our some my each this that".split(),"agent":"aide artist baker captain child doctor farmer guard keeper poet sailor scholar singer teacher writer woman man".split(),"verb":"asks brings carries charts calls checks draws finds gives guides helps marks reads sends shows tells teaches watches writes".split(),"object":"answer book chart letter map memo note page plan poem story truth".split(),"prep":"to from with for".split(),"place":"home harbor garden island river village".split(),"adj":"bright calm careful clear distant fair gentle honest quiet secret small swift wise".split(),"name":"adam alice anna ben clara diana eva iris jane leon lisa maya nina rose ruth sam".split()}
-FRAMES=(("det","agent","verb","det","object"),("name","verb","det","adj","object"),("det","agent","verb","prep","det","place"),("name","verb","object","prep","name"))
+ROLES={"det":"a an the our some my each this that".split(),"det_sg":"a an the my each this that".split(),"det_pl":"the our some my these those".split(),"agent":"aide artist baker captain child doctor farmer guard keeper poet sailor scholar singer teacher writer woman man".split(),"agent_sg":"aide artist baker captain child doctor farmer guard keeper poet sailor scholar singer teacher writer woman man".split(),"agent_pl":"artists bakers captains children doctors farmers guards keepers poets sailors scholars singers teachers writers women men".split(),"verb":"asks brings carries charts calls checks draws finds gives guides helps marks reads sends shows tells teaches watches writes".split(),"verb_sg":"asks brings carries charts calls checks draws finds gives guides helps marks reads sends shows tells teaches watches writes".split(),"verb_pl":"ask bring carry chart call check draw find give guide help mark read send show tell teach watch write".split(),"object":"answer book chart letter map memo note page plan poem story truth".split(),"prep":"to from with for".split(),"place":"home harbor garden island river village".split(),"adj":"bright calm careful clear distant fair gentle honest quiet secret small swift wise".split(),"name":"adam alice anna ben clara diana eva iris jane leon lisa maya nina rose ruth sam".split()}
+# Each frame is a complete event with number carried in the role names. This
+# makes agreement a construction constraint, not a readability afterthought.
+FRAMES=(("det_sg","agent_sg","verb_sg","det","object"),("det_pl","agent_pl","verb_pl","det","object"),("name","verb_sg","det_sg","adj","object"),("det_sg","agent_sg","verb_sg","prep","det","place"),("det_pl","agent_pl","verb_pl","prep","det","place"),("name","verb_sg","object","prep","name"))
 FUNCTION=frozenset("a an the our some my to from with for".split())
 def tape(s): return "".join(c for c in s.casefold() if "a"<=c<="z")
 def audit(s):
@@ -22,18 +24,18 @@ def candidates(limit=250000):
  found=[]; controls=[]; tested=0
  for left in FRAMES:
   for right in FRAMES[::-1]:
-   pools=[ROLES[r][:12] for r in left+right]
+   pools=[ROLES[r][:10] for r in left+right]
    for ws in itertools.product(*pools):
     tested+=1
     if tested>limit:return found,tested,controls
     nonfun=[w for w in ws if w not in FUNCTION]
     if any(w==w[::-1] for w in nonfun) or len(set(nonfun))<len(nonfun):continue
     text=" ".join(ws[:len(left)])+"; "+" ".join(ws[len(left):]); a=audit(text)
-    rec={"text":text,"frames":[left,right],"words":ws,"boundary_lengths":[len(w) for w in ws],"audit":a}
+    rec={"text":text,"frames":[left,right],"words":ws,"boundary_lengths":[len(w) for w in ws],"agreement":"number-carrying frame roles","audit":a}
     if a["pointer_exact"]: rec.update(provenance="boundary_shift_semantic_constructor_v1",novelty="independent role sampling; not catalogue"); found.append(rec)
     elif len(controls)<12: controls.append(rec)
  return found,tested,controls
 def main():
  p=argparse.ArgumentParser();p.add_argument("--output",default=str(ROOT/"runs/boundary-shift-semantic-20260921.json"));p.add_argument("--limit",type=int,default=250000);a=p.parse_args();f,t,c=candidates(a.limit)
- payload={"method":"boundary-shifting semantic constructor","tested":t,"edge_index_size":len(edge_index()),"exact_candidates":f,"controls":c,"independent_audit":"pointer comparison plus forward/reverse SHA-256","readability_gate":"human review required; no programmatic certification","next_repair":"expand authored event frames and agreement constraints"};Path(a.output).parent.mkdir(parents=True,exist_ok=True);Path(a.output).write_text(json.dumps(payload,indent=2)+"\n");print(json.dumps({"tested":t,"exact":len(f),"max_letters":max((x["audit"]["letters"] for x in f),default=0),"controls":len(c)}))
+ payload={"method":"boundary-shifting semantic constructor v2","tested":t,"frame_count":len(FRAMES),"edge_index_size":len(edge_index()),"exact_candidates":f,"controls":c,"independent_audit":"pointer comparison plus forward/reverse SHA-256","readability_gate":"human review required; no programmatic certification","repair":"number-carrying determiner/subject/verb roles","next_repair":"add tense and transitivity constraints to event frames"};Path(a.output).parent.mkdir(parents=True,exist_ok=True);Path(a.output).write_text(json.dumps(payload,indent=2)+"\n");print(json.dumps({"tested":t,"exact":len(f),"max_letters":max((x["audit"]["letters"] for x in f),default=0),"controls":len(c)}))
 if __name__=="__main__":main()

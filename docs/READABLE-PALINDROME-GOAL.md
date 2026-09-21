@@ -218,6 +218,15 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   first character must satisfy the live residual before emission
   (`runs/semantic-frame-crossing-residual-20260921.json`).
 
+- **Typed tense/argument residual join.** The next bounded construction changed
+  the lexical geometry rather than enlarging the prior frame: three tense
+  frames and three typed attachments were selected online, carrying unequal
+  residual strings across the seam. Four semantically licensed controls reached
+  82 letters; all failed exact closure, with independent pointer/SHA audits and
+  no seed wrapping, repair, reversal, or catalogue text. The next concrete move
+  is a second argument role with unequal lexical lengths, preserving the same
+  residual invariant (`runs/typed-tense-argument-residual-20260921.json`).
+
 - **Overlap-trie source correction.** A reverse-complement overlap prototype
   explored 21,520 boundary states and 153,057 word-interior steps, but its
   fallback controls did not couple opposing characters and recorded zero

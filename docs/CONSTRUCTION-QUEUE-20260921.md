@@ -1,5 +1,6 @@
 # Construction queue: 2026-09-21
 
+| coordination graph live mirror | bounded question/answer coordination graph selects speech-act, S/V/O/attachment roles before lexical realization; punctuation and token boundaries vary while mirrored character obligations are checked online | 8 rendered controls, 0 live-prefix passes, 0 exact; longest 42 letters | fresh complete prose; no catalogue, seed wrapping, repeated/self-palindromic units, or post-hoc reversal | add a second answer-attachment edge whose opening character is selected from the exposed residual | `coordination_graph_live_mirror` |
 This ledger records the fresh search-space operators added after the live API
 audit. A row is not a reader claim: only an independently exact, novel,
 intact-prose output can enter the reader package.

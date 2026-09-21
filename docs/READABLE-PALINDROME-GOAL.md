@@ -8111,6 +8111,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   closures occurred. The next topology is a whose-relative possessive CP.
   Artifact: `runs/cfg-earley-that-relative-object-gap-20260921.json`.
 
+- **Whose-relative possessive Earley seam, 2026-09-21:** added
+  `NP -> Det N [whose NP_poss V]`, representing the embedded possessive NP as
+  an explicit CP item before rendering. Three intact controls were 139, 133,
+  and 138 letters; 189 concrete domain conflicts were retained and zero exact
+  closures occurred. The next topology is a relative `where` CP with an
+  overt copular predicate. Artifact:
+  `runs/cfg-earley-whose-possessive-cp-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

@@ -7942,6 +7942,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   edge only if this temporal frontier likewise survives. Artifact:
   `runs/graph-unification-attachment-20260921.json`.
 
+- **Causal-result graph edge, 2026-09-21:** added the distinct
+  `event.kept.result -> cause` attachment after the temporal frontier survived
+  its first support conflict. The incremental run now covers 11 trees and 110
+  graph edges with 161 online support checks, retaining 12 intact controls to
+  135 letters and zero exact closures at or above 39 letters. The next
+  operator is an evidential-result edge only if this causal frontier survives.
+  Artifact: `runs/graph-unification-attachment-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.

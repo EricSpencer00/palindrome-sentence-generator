@@ -223,6 +223,23 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   turning its output into a readability claim
   (`artifacts/brown-phrase-live-overhang-20260920.json`).
 
+- **Factorized semantic-spine lane.** A new search representation selected one
+  shared event/topic spine before independently realizing variable-length left
+  and right lexical arcs. The held-out extension indexed exposed boundary
+  characters and arc-length parity before rendering: 65 combinations were
+  rejected pre-render, 10 complete controls survived to 56 letters, and zero
+  strict exact closures above 38 remained. This is a useful factorization and
+  provenance result, not a readability claim; the next method must change the
+  arc geometry rather than widen this bank
+  (`runs/semantic-spine-variable-arcs-20260920.json`).
+
+- **Prompted API search audit.** The live `/api/generate` endpoint accepted a
+  readability prompt and streamed a 681-letter exact result, but its rendered
+  words were visibly disconnected (`red log no man ...`) despite the endpoint's
+  coherence score. This confirms that prompt-conditioned closure and automatic
+  scores cannot substitute for intact-prose readers; API output remains gated
+  from the paper's candidate set.
+
 These runs are materially different search representations, not reward-model
 rerankings or repeated bank sweeps. They still do not improve the admitted
 38-letter result, so the goal remains active. The next promotion requires an

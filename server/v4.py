@@ -1697,6 +1697,7 @@ RECURSIVE_SEMANTIC_GRAMMAR_CSP_RUN = {
     "exact_candidates_over_38": 0,
     "reader_eligible": 0,
     "provenance": "fresh authored complete event clauses with recursive attachment ownership and a free center; no catalogue/API text, mirrored units, finished-tape reversal, post-hoc repair, fragments, or frequency-based certification",
+    "diagnostic_repetition": "some same-event controls are retained for failure analysis and explicitly excluded from admissible candidates",
     "independent_validation": ["independent two-pointer audit", "forward/reverse SHA-256"],
     "novelty_preflight": "passed; recursive-typed-event-graph free-center carried-obligation signature",
     "next_construction": "add a second obligation slot for agent/theme classes and a held-out center lexicon that discharges both slots",

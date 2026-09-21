@@ -8072,6 +8072,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   relative-clause seam. Artifact:
   `runs/cfg-earley-ready-willing-embedded-complement-20260921.json`.
 
+- **Relative `NP -> Det N CP` Earley seam, 2026-09-21:** added explicit
+  `who`-relative CP items before rendering, preserving agreement/valency and
+  live mirrored domains. Three intact controls were 129, 129, and 128 letters;
+  183 concrete domain conflicts were retained and zero exact closures
+  occurred. The next operator is a held-out `that` relative CP with an overt
+  object gap. Artifact:
+  `runs/cfg-earley-relative-np-cp-seam-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

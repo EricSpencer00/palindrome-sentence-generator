@@ -68,6 +68,12 @@ mirrored support; all reached a one-node root conflict, with no exact or
 rendered path. The next operator is a bounded modal/participle agreement
 variant.
 
+The modal continuation adds fresh modals (`might`, `could`, `must`) and
+animate nouns (`judge`, `clerk`, `guard`) in an agreement-specific frame.
+Targets 39--240 (202 lengths) were rerun through the live mirrored NFA; every
+target reached a one-node root conflict, with no exact or rendered candidate.
+The next operator is a bounded held-out adverbial agreement edge.
+
 The tense continuation adds a separate feature frame with complementizer,
 auxiliary (`has`, `will`, `did`), bare transitive predicate, and explicit
 object. Targets 39--200 (162 lengths) were rerun under live mirrored support;

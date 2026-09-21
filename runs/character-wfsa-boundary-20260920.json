@@ -1,0 +1,134 @@
+{
+  "experiment_id": "character-wfsa-boundary-20260920",
+  "method": "online character WFSA with POS arcs and unmatched word-boundary buffer",
+  "config": {
+    "phases": [
+      "det",
+      "subj",
+      "verb",
+      "objdet",
+      "obj",
+      "prep",
+      "det",
+      "place"
+    ],
+    "lexicon": "checked-in POS arcs",
+    "post_search_reversal": false,
+    "repair": false,
+    "rlaif": false
+  },
+  "stats": {
+    "transitions_checked": 25,
+    "rejected_transitions": 24,
+    "rendered_candidates": 0,
+    "prose_controls": 4,
+    "exact_gt38": 0,
+    "max_control_letters": 85
+  },
+  "rendered_candidates": [],
+  "prose_controls": [
+    {
+      "rendered": "the sailor guides the harbor near the shore; while a teacher marks a letter beside a station.",
+      "audit": {
+        "letters": 75,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          74,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "ffc92e0855a25bbfc7a16c4fcbd93398004f74bf4bab1815eab2fe4082a6f7d9",
+        "sha256_reverse": "f6a5f868d1c557000c0c2def1817a95b2cb961a2ddf0d5f651f2e7ea791e6595"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "complete_grammar_surface": true,
+        "shuffled_control_source": "WFSA arcs"
+      }
+    },
+    {
+      "rendered": "a teacher marks a letter beside a station; while our writer records our parcel beyond our garden.",
+      "audit": {
+        "letters": 79,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          78,
+          "a",
+          "n"
+        ],
+        "sha256_forward": "3efaed8ffff915272491ea4e96be5f80cbf2dca6d28a956d772b5d6c6356e3b5",
+        "sha256_reverse": "c9993da7393397613d9f9b1a24ed6f06fc7a7677c4e6e874090626aaf87fd934"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "complete_grammar_surface": true,
+        "shuffled_control_source": "WFSA arcs"
+      }
+    },
+    {
+      "rendered": "our writer records our parcel beyond our garden; while the gardener carries the garden near the harbor.",
+      "audit": {
+        "letters": 85,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          84,
+          "o",
+          "r"
+        ],
+        "sha256_forward": "76996c61143df98539af142212d902b3b9275df87d912c6c306905990e926ae5",
+        "sha256_reverse": "142a62e71650cd7011e883792fd2700c5c48cf763e3c9d9d12d2df1d5a073e7e"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "complete_grammar_surface": true,
+        "shuffled_control_source": "WFSA arcs"
+      }
+    },
+    {
+      "rendered": "the gardener carries the garden near the harbor; while a sailor guides a harbor beside a shore.",
+      "audit": {
+        "letters": 77,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          76,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "fd55dc64bce7934b2e21626e879a8f47afc8cc14f32be89aa0f531ac718d51fd",
+        "sha256_reverse": "46e8c2f3cd6f1d1853c8dfb7c5841a300a2f47f2b3b31d4762adb27b5c3c959c"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "complete_grammar_surface": true,
+        "shuffled_control_source": "WFSA arcs"
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "excluded_routes": [
+      "finished-tape reversal",
+      "post-search repair",
+      "word-order mirror"
+    ]
+  },
+  "provenance": {
+    "independent_audit": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "catalogue_text": false,
+    "mirrored_units": false,
+    "word_order_symmetry": false,
+    "self_palindromic_units": false
+  },
+  "next_operator": "typed agreement arcs that carry number through the boundary state before lexical emission",
+  "status": "no exact >38 closure; grammatical controls retained"
+}

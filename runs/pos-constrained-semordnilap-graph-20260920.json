@@ -1,0 +1,2979 @@
+{
+  "experiment_id": "pos-constrained-semordnilap-graph-20260920",
+  "method": "independent POS-constrained clause graph with whole-tape character equation",
+  "config": {
+    "skeletons": [
+      [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "obj"
+      ],
+      [
+        "det",
+        "noun",
+        "verb",
+        "prep",
+        "det",
+        "obj"
+      ],
+      [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "prep",
+        "det",
+        "obj"
+      ]
+    ],
+    "lexicon": {
+      "det": [
+        "the",
+        "a",
+        "one"
+      ],
+      "adj": [
+        "calm",
+        "brisk",
+        "old",
+        "kind",
+        "small",
+        "quiet"
+      ],
+      "noun": [
+        "sailor",
+        "pilot",
+        "keeper",
+        "child",
+        "bard",
+        "river",
+        "lantern",
+        "garden"
+      ],
+      "verb": [
+        "sees",
+        "holds",
+        "marks",
+        "needs",
+        "finds",
+        "keeps",
+        "guides",
+        "hears"
+      ],
+      "prep": [
+        "by",
+        "near",
+        "under",
+        "with"
+      ],
+      "obj": [
+        "harbor",
+        "letter",
+        "candle",
+        "map",
+        "bell",
+        "song",
+        "gate",
+        "shore"
+      ]
+    },
+    "min_letters": 39
+  },
+  "stats": {
+    "left_states": 156672,
+    "right_states": 110592,
+    "joined_states_examined": 9216,
+    "controls": 32,
+    "exact_gt38": 0,
+    "max_letters": 58
+  },
+  "exact_candidates": [],
+  "diagnostic_controls": [
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across each castle.",
+      "length": 58,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "each",
+          "castle"
+        ],
+        "text": "this young monk opens across each castle."
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "l"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "t"
+          }
+        ],
+        "sha256_forward": "8e812e808e6c68f7e57b422cb6be9f516f03e9e3a4318387086321eb1ae2149b",
+        "sha256_reverse": "ccc6bdf9628bb1c78819e5d6b2bcf42e24c56d0413fe2a5bf9e4666c3c81cb2b",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across that castle.",
+      "length": 58,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "that",
+          "castle"
+        ],
+        "text": "this young monk opens across that castle."
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "l"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "t"
+          }
+        ],
+        "sha256_forward": "3fcde95f9ce345794dbf3bd129b5224fbeb08e42fb75c8fa35bad82b5a2d4329",
+        "sha256_reverse": "bd95659f862e3e6716fa2d18ec0c366d86096034e3cfcf57f6953c7386bc2a93",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens within that castle.",
+      "length": 58,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "within",
+          "that",
+          "castle"
+        ],
+        "text": "this young monk opens within that castle."
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "l"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "t"
+          }
+        ],
+        "sha256_forward": "882b9456ab04b2b564ced0a045c7c3785c5743733d3e5c8acfd591d5712c4269",
+        "sha256_reverse": "e24847f1c7c88b2915be8374872d11da18332aa806629805da7f1d5b3eb99794",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens above each castle.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "above",
+          "each",
+          "castle"
+        ],
+        "text": "this young monk opens above each castle."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "l"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "t"
+          }
+        ],
+        "sha256_forward": "0ee1791a399fbff68772121f366ac56cec71c294fd9e82ff19769f11c5184c74",
+        "sha256_reverse": "b9948de8f3df7a523744edffb4b2b769f15a053ae4478316740a68874b5821e8",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across each field.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "each",
+          "field"
+        ],
+        "text": "this young monk opens across each field."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "l"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "i"
+          }
+        ],
+        "sha256_forward": "4c38e0752f62615038e894414bd4863faeeaa48358f0428ac6e4a31d13e95c4d",
+        "sha256_reverse": "e8b045444d5c842848c8cfe544874d3bdaddf9bcfa1ee855326efedc835b0b39",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across each flame.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "each",
+          "flame"
+        ],
+        "text": "this young monk opens across each flame."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "m"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "a"
+          }
+        ],
+        "sha256_forward": "ee69b7ab7560b114431e9eff35cabc51fd7684cf292db54d8bb7108f5613a32f",
+        "sha256_reverse": "d0317dce2a685f2ed2570d7bf43a1926bcff9b84929e8957c2130e374e874e11",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across each story.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "each",
+          "story"
+        ],
+        "text": "this young monk opens across each story."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "y"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "o"
+          }
+        ],
+        "sha256_forward": "68b7b05a45772f0c58e65e7ef1cfaaa35e5179f22a5e1d2f98e21448a51bf1f2",
+        "sha256_reverse": "f4354f151046538c4adbcd9ba9e53f5b77b5cbc57ff2738a61354ee73512f826",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across each tower.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "each",
+          "tower"
+        ],
+        "text": "this young monk opens across each tower."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "w"
+          }
+        ],
+        "sha256_forward": "784902609f241545b6689025d4e1222e78e7a2a3ebd6fbdb7ea1c814a1214ca5",
+        "sha256_reverse": "a0b20c7dfc6a9d0c3a43fd29be4d5e0e764847cad280818d55d8288654eb9bb3",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across each voice.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "each",
+          "voice"
+        ],
+        "text": "this young monk opens across each voice."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "i"
+          }
+        ],
+        "sha256_forward": "bfe76814be09258d01febfc34585bb471afcca49641eee713053eb268d9b2750",
+        "sha256_reverse": "162b315f1a7767b8c84d5a2c7fdd44c354d605aaf36c8c9048cb86d0bcdf1504",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across that field.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "that",
+          "field"
+        ],
+        "text": "this young monk opens across that field."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "l"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "i"
+          }
+        ],
+        "sha256_forward": "84d1653b1d69d907b4d63ab5c846a77db3a0107261752c380aa006d012983110",
+        "sha256_reverse": "0b320a807fdf089fd7bc5c62d67ad41569fc4964c9f6b0b03633cac3455f7eed",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across that flame.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "that",
+          "flame"
+        ],
+        "text": "this young monk opens across that flame."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "m"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "a"
+          }
+        ],
+        "sha256_forward": "edf3fc21a29c5a838c2137c3b7ce4d9d58ecf749f21e287c13c170f07e9e2aaf",
+        "sha256_reverse": "5e03e7aa029faab6edfe0a6e7c11e7066ddda4096448863b4735069dd8ac92e1",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across that story.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "that",
+          "story"
+        ],
+        "text": "this young monk opens across that story."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "y"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "o"
+          }
+        ],
+        "sha256_forward": "54a20d8e23120b8a85fc2c8e9c8556e9be600d004986a9367ed7a77fe619489f",
+        "sha256_reverse": "27c4806d9526099b7af093755bc60d40f6a799d6ea06ae6519742b023c514a8d",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across that tower.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "that",
+          "tower"
+        ],
+        "text": "this young monk opens across that tower."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "w"
+          }
+        ],
+        "sha256_forward": "44c0c4baa7c673e5053b6887cde7472c79574112940456f8db113dd1f99b6585",
+        "sha256_reverse": "b485a9a36c0d889fadb0f6a67bc743e82826f9ed5200e5c98f2e72500531c7eb",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across that voice.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "that",
+          "voice"
+        ],
+        "text": "this young monk opens across that voice."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "i"
+          }
+        ],
+        "sha256_forward": "a9f3be560a98290d74e58f5eb01209e91c639b660895391cf17ef8232967babd",
+        "sha256_reverse": "d47052d182a31557010aa0fb32906281d4b13826887e795c3db21f74436aefc8",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens within that field.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "within",
+          "that",
+          "field"
+        ],
+        "text": "this young monk opens within that field."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "l"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "i"
+          }
+        ],
+        "sha256_forward": "00fc56da72b98921833c5768b5a1244e65c5b9338434e0061755289b3a277602",
+        "sha256_reverse": "1356a8314b0d0ceb599bd77ac814cffdd27d0e1454297792df269505595d493b",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens within that flame.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "within",
+          "that",
+          "flame"
+        ],
+        "text": "this young monk opens within that flame."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "m"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "a"
+          }
+        ],
+        "sha256_forward": "88e59175e0fcde7914f17b670b2325a3a00f96849f3bbe128efb0e3992ff22c0",
+        "sha256_reverse": "7d9b96537794f7441e29e79d195c845c0acd1fd086fffdabdaebce7e262e44c5",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens within that story.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "within",
+          "that",
+          "story"
+        ],
+        "text": "this young monk opens within that story."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "y"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "o"
+          }
+        ],
+        "sha256_forward": "35289029efb2a9172df91f4a6025e7378cc65389748f1cbcb90a84250b226891",
+        "sha256_reverse": "479296a6e1a9fbeccda85dce997c0505d65bc6078e72d95c485887ef3f277f74",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens within that tower.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "within",
+          "that",
+          "tower"
+        ],
+        "text": "this young monk opens within that tower."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "w"
+          }
+        ],
+        "sha256_forward": "e25bb308502f85cf4fa7e8e2facfed53d3afe1b25a3effe1750e084858d1d4a9",
+        "sha256_reverse": "a8b65d644fa22733946cf6d2077595583007424c3e31524732e392a569a6bf9b",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens within that voice.",
+      "length": 57,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "within",
+          "that",
+          "voice"
+        ],
+        "text": "this young monk opens within that voice."
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "i"
+          }
+        ],
+        "sha256_forward": "774f947c344cfbaa799c207725015d755c00aac0803aba5c864e828e208fb838",
+        "sha256_reverse": "668b776bbbfadcac3542c638ddec78b853ed72d32ecc1a7506e4705701009b05",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens above each field.",
+      "length": 56,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "above",
+          "each",
+          "field"
+        ],
+        "text": "this young monk opens above each field."
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "l"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "i"
+          }
+        ],
+        "sha256_forward": "9ce0466558c9fa3d36e1b8110da9a68fe03ec5757c369b87db9b85654a0bdc2b",
+        "sha256_reverse": "22a386c48344f3031bf107e9fcb22658f72fc77ebc2d26608141e159d4aa2244",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens above each flame.",
+      "length": 56,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "above",
+          "each",
+          "flame"
+        ],
+        "text": "this young monk opens above each flame."
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "m"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "a"
+          }
+        ],
+        "sha256_forward": "8db5f5525f5808ffbc82a40b6e724ce53baedc66b3da730b445ac3f123ffc8d4",
+        "sha256_reverse": "7afb1ff810e318b6ef26cc90ba12bc09347c3dd3a9ebb310b71c0bc3104af11a",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens above each story.",
+      "length": 56,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "above",
+          "each",
+          "story"
+        ],
+        "text": "this young monk opens above each story."
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "y"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "o"
+          }
+        ],
+        "sha256_forward": "eeca427f3b3a7d4f776cf6f358d87ee78aaf514b6e54ea011d09359f01681567",
+        "sha256_reverse": "c3079895f34eca06bda285cf901a1d83d8a9ee06c5df7f2fff052a31d9eb6373",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens above each tower.",
+      "length": 56,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "above",
+          "each",
+          "tower"
+        ],
+        "text": "this young monk opens above each tower."
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "w"
+          }
+        ],
+        "sha256_forward": "d7d362340387906a433fbb30df7e8c303a5d5def21ba1f45ae3815f550830b2a",
+        "sha256_reverse": "737accfdd8e505a53a60a0d3a40758ac6e981f7fa3d412cbb9cf45e9796bb136",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens above each voice.",
+      "length": 56,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "above",
+          "each",
+          "voice"
+        ],
+        "text": "this young monk opens above each voice."
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "i"
+          }
+        ],
+        "sha256_forward": "55d3cf38484fb5af8503a4b6d9caae58a525c18ed19aed941255f6b366215c12",
+        "sha256_reverse": "64babada2d3c36cef0c147c731b426fb2e7242c1ac0e37ead1c92e1d757f2315",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across each drum.",
+      "length": 56,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "each",
+          "drum"
+        ],
+        "text": "this young monk opens across each drum."
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "m"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "u"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "63d95f6c8edc50e76cc2e6a71a57c9f73e64118bffc73504a62b821a5ae49eb2",
+        "sha256_reverse": "720c82e3de85747d7321de2a0aed514662789b4e323e82d61d42264393a3a226",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across each road.",
+      "length": 56,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "each",
+          "road"
+        ],
+        "text": "this young monk opens across each road."
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "o"
+          }
+        ],
+        "sha256_forward": "071d08d1c6ddf1376c2e49a63c2ff2b8e00668104c0f55b9485181029b6a112a",
+        "sha256_reverse": "dd9217948706c5c0fd108c0c0dde27c807a3b4c82064c693b8765e9546f11941",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across that drum.",
+      "length": 56,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "that",
+          "drum"
+        ],
+        "text": "this young monk opens across that drum."
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "m"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "u"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "5eda0ad2d5a68b7bbc3463e6ada48f44ddecb1340126cda4f599145fbcb7b49a",
+        "sha256_reverse": "0b34fb0403148802e7fca8ca312e68654136bf3c6713e282838155fb10440b34",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens across that road.",
+      "length": 56,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "across",
+          "that",
+          "road"
+        ],
+        "text": "this young monk opens across that road."
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "o"
+          }
+        ],
+        "sha256_forward": "7738af1663550e3e6e49e2b688759327e20fc37c63919ae3146b52771ab618af",
+        "sha256_reverse": "76726f9eddb685d33e09ab6a651b6a8f2e7af5bc4146edbe79a0bdd52ab2a1cf",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens within that drum.",
+      "length": 56,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "within",
+          "that",
+          "drum"
+        ],
+        "text": "this young monk opens within that drum."
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "m"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "u"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "474bfe7f9f8c79b08c3f16a56cf8c4f493d93d2c539454f166f4e97c84869fb4",
+        "sha256_reverse": "0cb1a4bf14ce38b5846ee9d4536579b94c1af2c88e3ac295deca821023133d14",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens within that road.",
+      "length": 56,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "within",
+          "that",
+          "road"
+        ],
+        "text": "this young monk opens within that road."
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "o"
+          }
+        ],
+        "sha256_forward": "f2347fe0e020c3a2b86f3f2dcb57bd5bf3ca956511efe31c739c6162ba236901",
+        "sha256_reverse": "f6dc95658d080cfc9d1928a0af591ea8df87964453b39201af315f6d8a679605",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens above each drum.",
+      "length": 55,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "above",
+          "each",
+          "drum"
+        ],
+        "text": "this young monk opens above each drum."
+      },
+      "audit": {
+        "letters": 55,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "m"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "u"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "139aa996ed5b4a33d31835ca8b190a1181f83efc67e1a46cd85da39d2e45db77",
+        "sha256_reverse": "470d9d7ec71defbd2b2cecdb696494d822c856058a51a6e42e2a970732b5620c",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "the calm sailor sees a harbor. this young monk opens above each road.",
+      "length": 55,
+      "left": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "the",
+          "calm",
+          "sailor",
+          "sees",
+          "a",
+          "harbor"
+        ],
+        "text": "the calm sailor sees a harbor."
+      },
+      "right": {
+        "skeleton": [
+          "det",
+          "adj",
+          "noun",
+          "verb",
+          "prep",
+          "det",
+          "obj"
+        ],
+        "words": [
+          "this",
+          "young",
+          "monk",
+          "opens",
+          "above",
+          "each",
+          "road"
+        ],
+        "text": "this young monk opens above each road."
+      },
+      "audit": {
+        "letters": 55,
+        "exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "o"
+          }
+        ],
+        "sha256_forward": "2215b37e2be559649a5836df292b44a5223863cadc0296896ae028afb46b4675",
+        "sha256_reverse": "9c27e8cabaa5567f4feb702a7ff80aa9e9374bbbceb718572d1c3af1580e8310",
+        "two_pointer_checked": true
+      },
+      "provenance": {
+        "left_source": "fresh typed grammar derivation",
+        "right_source": "fresh independently typed grammar derivation",
+        "search": "POS-state product with live whole-tape audit"
+      },
+      "novelty_preflight": {
+        "status": "passed",
+        "signature": "independent-pos-sides|typed-skeleton-product|whole-tape-equation",
+        "not_duplicate_of": [
+          "reverse-word-pair inventories",
+          "word-order mirrors",
+          "post-hoc repair"
+        ]
+      },
+      "anti_shortcut": {
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "self_palindromic_units": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false
+      }
+    }
+  ],
+  "next_operator": "Add typed adjunct states with agreement features before joining, retaining independent clause authorship and no lexical reverse-pair edges.",
+  "status": "no exact >38 closure; complete POS-typed prose controls retained",
+  "reader_gate": "closed: exact >38 and blinded human readability evidence required"
+}

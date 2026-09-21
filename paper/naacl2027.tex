@@ -1468,6 +1468,19 @@ relations generated 16 complete clause expansions; all 16 failed the live
 boundary obligation, while the two controls reached 60 and 65 letters.  This
 keeps the failure evidence but moves the search away from another copied edge.
 
+A smaller outside-in reset then made the exposed character state explicit rather
+than scoring complete sentences after the fact.  Matching two-character
+prefix classes against the reversed two-character suffix classes retained 81
+complete, lexically disjoint prose controls (maximum 82 letters) from 243
+outer assignments; the remaining 162 assignments were rejected before the
+interior slots were rendered.  Every retained control still failed its
+center seam, and the independent pointer and forward/reverse SHA-256 audits
+admitted zero exact candidates above 38 letters.  The corrected suffix
+orientation is important: a forward suffix match would be a directional bug,
+not an outside-in palindrome constraint.  This lane is therefore a concrete
+construction state for the next repair (a fresh tail with a matching interior
+two-character seam), not reader evidence.
+
 \section{Reader-facing evaluation}
 No candidate is called readable by the automatic diagnostics.  The release
 package is gated until a mechanically admitted survivor exists.  The planned

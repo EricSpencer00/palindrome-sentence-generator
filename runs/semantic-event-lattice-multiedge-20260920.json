@@ -1,0 +1,105 @@
+{
+  "experiment_id": "semantic-event-lattice-multiedge-20260920",
+  "method": "bounded three-edge authored scene lattice carrying typed recipient/theme/discourse-focus state",
+  "stats": {
+    "event_edges": 3,
+    "states": 1,
+    "transitions": 34,
+    "pruned": 63,
+    "rendered_controls": 1,
+    "exact_gt38": 0,
+    "max_letters": 74
+  },
+  "rendered_controls": [
+    {
+      "rendered": "Mara welcomed Ivo by the lantern; Ivo offered a map to Mara; Mara returned the lantern to Ivo.",
+      "complete_prose": true,
+      "edges": [
+        {
+          "actor": "Mara",
+          "verb": "welcomed",
+          "recipient": "Ivo",
+          "theme": "the lantern",
+          "focus": "arrival"
+        },
+        {
+          "actor": "Ivo",
+          "verb": "offered",
+          "recipient": "Mara",
+          "theme": "a map",
+          "focus": "handoff"
+        },
+        {
+          "actor": "Mara",
+          "verb": "returned",
+          "recipient": "Ivo",
+          "theme": "the lantern",
+          "focus": "departure"
+        }
+      ],
+      "discourse_state": {
+        "recipient": "Ivo",
+        "theme": "the lantern",
+        "focus": "departure",
+        "edge_count": 3
+      },
+      "online_obligation": {
+        "checked": 68,
+        "mismatch": [
+          0,
+          "m",
+          "n"
+        ],
+        "closed": false
+      },
+      "audit": {
+        "letters": 74,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "m",
+          "o"
+        ],
+        "sha256_forward": "c7d2ef36f12967ab8d187a52d8b8b2dfbb674f14cd808f1bf3f84464677da6c6",
+        "sha256_reverse": "05c3ead57cd9340c7b84b70a796c777fe0f8163d65fea16c3993b215da38daa5",
+        "sha_equal": false
+      },
+      "provenance": {
+        "fresh_authored_edges": true,
+        "typed_state_prelexical": true,
+        "character_obligation_live": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "repeated_units": false,
+        "mirrored_units": false
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "reader_eligible": false,
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "fresh-authored|multi-edge-event-lattice|typed-recipient-theme-focus|live-obligation",
+    "distinct_from": "single-edge semantic event products: three successive event edges carry and update recipient, theme, and discourse focus before lexical realization"
+  },
+  "provenance": {
+    "audits": [
+      "independent two-pointer comparison",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "exact >38 only",
+    "hard_exclusions": [
+      "nested self-palindromes",
+      "repeated units",
+      "word-order symmetry",
+      "fragments",
+      "catalogue text"
+    ],
+    "no_shortcuts": true
+  },
+  "next_operator": "add a fourth edge with a held-out concessive focus while preserving typed recipient/theme continuity",
+  "status": "no exact >38; intact multi-edge controls retained"
+}

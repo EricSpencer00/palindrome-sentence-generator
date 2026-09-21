@@ -13,6 +13,13 @@ EVENTS = (
     {"actor": "Ivo", "verb": "thanked", "recipient": "Mara", "theme": "the map", "focus": "departure"},
 )
 
+REALIZATIONS = {
+    "welcomed": lambda e: f"{e['actor']} welcomed {e['recipient']} by {e['theme']}",
+    "offered": lambda e: f"{e['actor']} offered {e['theme']} to {e['recipient']}",
+    "returned": lambda e: f"{e['actor']} returned {e['theme']} to {e['recipient']}",
+    "thanked": lambda e: f"{e['actor']} thanked {e['recipient']} for {e['theme']}",
+}
+
 
 def letters(text: str) -> str:
     return re.sub(r"[^a-z]", "", text.lower())
@@ -58,6 +65,9 @@ def run() -> dict:
     transitions = 0
     pruned = 0
     for indices in itertools.product(range(len(EVENTS)), repeat=3):
+        if len(set(indices)) != 3:
+            pruned += 1
+            continue
         state = []
         for idx in indices:
             event = EVENTS[idx]
@@ -68,7 +78,7 @@ def run() -> dict:
             state.append(event)
         if len(state) != 3:
             continue
-        rendered = "; ".join(f"{e['actor']} {e['verb']} {e['recipient']} {e['theme']}" for e in state) + "."
+        rendered = "; ".join(REALIZATIONS[e["verb"]](e) for e in state) + "."
         # A separately authored boundary control is checked before retaining prose.
         control = " ".join(f"{e['recipient']} {e['verb']} {e['actor']} {e['theme']}" for e in reversed(state)) + "."
         boundary = live_obligation(rendered, control)

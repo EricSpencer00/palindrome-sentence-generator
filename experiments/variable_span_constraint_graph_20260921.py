@@ -75,6 +75,13 @@ def _grammatical(words: list[str]) -> bool:
 
 def solve(limit: int = 50_000, targets=range(39, 53)) -> dict:
     nodes = conflicts = complete = 0
+    # Boundary-first repair: skip impossible target tapes before entering the
+    # lexical DFS.  This is exact length propagation, not a widened lexicon.
+    feasible_targets = set()
+    totals = {0}
+    for slot in SLOTS:
+        totals = {n + len(norm(word)) for n in totals for word in LEXICON[slot.cat]}
+    feasible_targets = sorted(set(totals) & set(targets))
     learned: set[tuple[str, str, int, int]] = set()
     found: list[list[str]] = []
 
@@ -133,14 +140,14 @@ def solve(limit: int = 50_000, targets=range(39, 53)) -> dict:
 
         rec(0, 0)
 
-    for target in targets:
+    for target in feasible_targets:
         if nodes >= limit:
             break
         run_target(target)
 
     return {
         "found": found,
-        "stats": {"nodes": nodes, "conflicts": conflicts, "learned_nogoods": len(learned), "complete_assignments": complete, "limit": limit},
+        "stats": {"nodes": nodes, "conflicts": conflicts, "learned_nogoods": len(learned), "complete_assignments": complete, "limit": limit, "targets_requested": len(set(targets)), "feasible_targets": feasible_targets, "length_propagation": "precomputed lexical total-length support"},
         "state_model": {
             "token_identity_variables": len(SLOTS),
             "variable_word_boundaries": True,

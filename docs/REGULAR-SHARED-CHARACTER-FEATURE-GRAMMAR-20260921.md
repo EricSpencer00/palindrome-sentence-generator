@@ -68,6 +68,14 @@ mirrored support; all reached a one-node root conflict, with no exact or
 rendered path. The next operator is a bounded modal/participle agreement
 variant.
 
+The final minor variant in this grammar family adds a position-specific
+adverbial role (`quietly`, `slowly`, `carefully`) between predicate and object,
+with the same modal/relative agreement frame. Targets 39--260 (222 lengths)
+again reach a one-node root conflict and render no exact path. This closes the
+modifier-family sweep; the next construction must pivot topology to a
+variable-length clause sequence or a feature automaton with an explicit center
+nonterminal, rather than add more modifiers.
+
 The modal continuation adds fresh modals (`might`, `could`, `must`) and
 animate nouns (`judge`, `clerk`, `guard`) in an agreement-specific frame.
 Targets 39--240 (202 lengths) were rerun through the live mirrored NFA; every

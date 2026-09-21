@@ -7783,3 +7783,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   semantic pair-chain remained at 4 live states, 12 prunes, and zero terminals
   or exact candidates. No prose or reader claim was made. Artifact:
   `runs/semantic-pair-chain-live-20260921.json`.
+
+- **Center-first feature grammar, 2026-09-21:** started from an explicit
+  grammatical center nonterminal (`and`, `but`, `is`, or `was`) and attempted
+  to grow center-outward clause constituents while carrying live character
+  debt, agreement, and semantic-role features. This is a distinct topology,
+  not a fixed slot sweep, reverse segmentation, repair, catalogue mirror, or
+  per-candidate reward loop. The bounded run reached 6 states and 19 live
+  obligation conflicts, with zero rendered terminals and zero exact outputs.
+  The root conflict is diagnostic: the center lexical tape cannot be consumed
+  by any nearest grammatical determiner/object edge, so the next constructive
+  operator is a split center nonterminal whose lexical material can be emitted
+  on both sides of the seam. Conflict witnesses are retained; no partial state
+  is claimed as prose or reader evidence. Artifact:
+  `runs/center-first-feature-grammar-20260921.json`.

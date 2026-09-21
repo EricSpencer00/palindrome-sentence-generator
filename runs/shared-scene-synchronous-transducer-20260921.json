@@ -1,6 +1,6 @@
 {
   "experiment_id": "shared-scene-synchronous-transducer-20260921",
-  "method": "shared typed semantic scene graph; synchronous two-renderer transducer with live inward obligations, participant edges, and dependent consequence-event edges",
+  "method": "shared typed semantic scene graph; seam-aware synchronous transducer with one emitted discourse seam and live inward obligations",
   "novelty_preflight": {
     "status": "passed",
     "output_hashes_unique": true,
@@ -10,10 +10,11 @@
     "participants": 3,
     "events": 5,
     "graph_states": 15,
-    "obligation_steps": 108,
+    "obligation_steps": 123,
+    "seam_emissions": 15,
     "rendered": 15,
     "exact_gt38": 0,
-    "max_letters": 123,
+    "max_letters": 128,
     "second_edge_states": 6,
     "second_event_edge_states": 15
   },
@@ -50,10 +51,16 @@
           "target": "blooms"
         }
       },
-      "rendered": "the patient gardener waters the orchard; the patient gardener waters the orchard beside the clear path, and the patient gardener blooms.",
+      "rendered": "the patient gardener waters the orchard, while the patient gardener waters the orchard beside the clear path, and the patient gardener blooms.",
       "left_clause": "the patient gardener waters the orchard",
       "right_clause": "the patient gardener waters the orchard beside the clear path, and the patient gardener blooms",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "the",
@@ -103,16 +110,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 113,
+        "letters": 118,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
           "s"
         ],
-        "sha256_forward": "df404eefe96c81491ece13833c7b50077bfac52a7d3d45aa599491ee5c5b9a1c",
-        "sha256_reverse": "c52b19bd209c7e0a43d17519a1b812eccce3ad811ffa335325b5c23c45dfd448",
+        "sha256_forward": "ddee05668acd2a4fc92527a5a09a9c62d0253450d3b9533f5c462dc2b9becccd",
+        "sha256_reverse": "4bc8620f975e77aff168f7d21ee2759c1f39450dc2fc041dc82e18f6c92973cd",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -155,10 +163,16 @@
           "target": "waits"
         }
       },
-      "rendered": "the patient gardener carries a letter; the patient gardener carries a letter beside the clear path, and the patient gardener waits.",
+      "rendered": "the patient gardener carries a letter, while the patient gardener carries a letter beside the clear path, and the patient gardener waits.",
       "left_clause": "the patient gardener carries a letter",
       "right_clause": "the patient gardener carries a letter beside the clear path, and the patient gardener waits",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "the",
@@ -208,16 +222,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 108,
+        "letters": 113,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
           "s"
         ],
-        "sha256_forward": "2f64adfa0b0946ea9f143e878dc235fbddb7ad1a595a5a21c2bc6863c662c150",
-        "sha256_reverse": "453873638a87171e48c1c1390a1c71e796c47ccde9a4d7e4567583889f6d3922",
+        "sha256_forward": "b69502c0f58142c38399a9ebbfe63024011ee9ef524341593cecb0a6da87e69d",
+        "sha256_reverse": "47a8095b355a2d160dae4ce21872be5560479872272bc0979fb8092136990458",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -260,10 +275,16 @@
           "target": "gleams"
         }
       },
-      "rendered": "the patient gardener watches the quiet harbor; the patient gardener watches the quiet harbor beside the clear path, and the patient gardener gleams.",
+      "rendered": "the patient gardener watches the quiet harbor, while the patient gardener watches the quiet harbor beside the clear path, and the patient gardener gleams.",
       "left_clause": "the patient gardener watches the quiet harbor",
       "right_clause": "the patient gardener watches the quiet harbor beside the clear path, and the patient gardener gleams",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "the",
@@ -321,16 +342,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 123,
+        "letters": 128,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
           "s"
         ],
-        "sha256_forward": "d0021dfd044eeade57b3bdf55b7c5be964e8cbe7ac229d83945e5a5c2f76803a",
-        "sha256_reverse": "b7773df875eada9b1ab35a599755b3a17d0dc337eebdad01aba5affe3713b62f",
+        "sha256_forward": "f2496f6112aa5d466b42d8eeb65d6964028ff7decd85c28d0c47600cabbb0309",
+        "sha256_reverse": "cd6e0c928e22293076527ce16800bf26703da1a51598484428d816c222f0744b",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -378,10 +400,16 @@
           "target": "recovers"
         }
       },
-      "rendered": "the patient gardener rests in the old garden; the patient gardener rests in the old garden near the stone wall, and the patient gardener recovers.",
+      "rendered": "the patient gardener rests in the old garden, while the patient gardener rests in the old garden near the stone wall, and the patient gardener recovers.",
       "left_clause": "the patient gardener rests in the old garden",
       "right_clause": "the patient gardener rests in the old garden near the stone wall, and the patient gardener recovers",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "the",
@@ -447,16 +475,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 119,
+        "letters": 124,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
           "s"
         ],
-        "sha256_forward": "9a23e7ffc287a611416198baf1718579f4d50ae7895905ba31b35f98cfefe4ca",
-        "sha256_reverse": "4e9c1a4300ce00c4711572e57a25306fd637740dd31c85121be539aa3e05b4ef",
+        "sha256_forward": "7278729b39fe71b417f38a84496db5b4c53b8a221bb222635a68fab99f6a27fc",
+        "sha256_reverse": "e8f6eae0b2ca7ce22ceb75a55735830fa7bb425398ba541d1bc2531fb9d47bf6",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -504,10 +533,16 @@
           "target": "smiles"
         }
       },
-      "rendered": "the patient gardener gives the child a bright kite; the patient gardener gives the child a bright kite before the open gate, and the child smiles.",
+      "rendered": "the patient gardener gives the child a bright kite, while the patient gardener gives the child a bright kite before the open gate, and the child smiles.",
       "left_clause": "the patient gardener gives the child a bright kite",
       "right_clause": "the patient gardener gives the child a bright kite before the open gate, and the child smiles",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "the",
@@ -581,16 +616,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 118,
+        "letters": 123,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
           "s"
         ],
-        "sha256_forward": "e17efaa6390d6951cedc3fe033206c756a97169a08de73f009b88517704473b4",
-        "sha256_reverse": "f6937a31d72c8b11aeb43473a42b30aa186525422422241f6317ed5fa325e650",
+        "sha256_forward": "b0c8d52b0fcadd4be6ebc60df51bccba945d99b577bc82d3f1c18521c70ac1cd",
+        "sha256_reverse": "d700b6224dffc1ea11381d861ccbd315bdf3ba35ebe0c2bd40b1e6797bdca1d2",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -633,10 +669,16 @@
           "target": "blooms"
         }
       },
-      "rendered": "a careful merchant waters the orchard; a careful merchant waters the orchard beside the clear path, and a careful merchant blooms.",
+      "rendered": "a careful merchant waters the orchard, while a careful merchant waters the orchard beside the clear path, and a careful merchant blooms.",
       "left_clause": "a careful merchant waters the orchard",
       "right_clause": "a careful merchant waters the orchard beside the clear path, and a careful merchant blooms",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "a",
@@ -686,16 +728,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 107,
+        "letters": 112,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "a",
           "s"
         ],
-        "sha256_forward": "289d20417d8f97c6eeb3a94bd5856695f2ad1398a36e2aad88690940f5251c91",
-        "sha256_reverse": "a23567421f6e5be99671980d034f4862f671f70c3d8fb8cb5acd8a39dc0cbef1",
+        "sha256_forward": "47155e571c039a408e98f3e01bcc7a88a75194603c7176b0effbe4a7785384f2",
+        "sha256_reverse": "d983b062f86a45385d6b4eaebe5f7553d3ca134870355889469cbb6529840932",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -738,10 +781,16 @@
           "target": "waits"
         }
       },
-      "rendered": "a careful merchant carries a letter; a careful merchant carries a letter beside the clear path, and a careful merchant waits.",
+      "rendered": "a careful merchant carries a letter, while a careful merchant carries a letter beside the clear path, and a careful merchant waits.",
       "left_clause": "a careful merchant carries a letter",
       "right_clause": "a careful merchant carries a letter beside the clear path, and a careful merchant waits",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "a",
@@ -791,16 +840,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 102,
+        "letters": 107,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "a",
           "s"
         ],
-        "sha256_forward": "70e037b423756d255c1d154872f773f88ddd26d5aadd0629177299ff2ed2c511",
-        "sha256_reverse": "0dad8aa0d88daeb3f956442108e8c28a53a4c9331ea5109760ae65a1ee56daf7",
+        "sha256_forward": "c446ffb6df1e3cc4a09c7d39743470a1354f91f5cf80f69bf8e33cb000d90072",
+        "sha256_reverse": "3c4598a091d3a35846e12d99cfc0ad44caa36a8a37e95b2d5e6baafaa0bbcea0",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -843,10 +893,16 @@
           "target": "gleams"
         }
       },
-      "rendered": "a careful merchant watches the quiet harbor; a careful merchant watches the quiet harbor beside the clear path, and a careful merchant gleams.",
+      "rendered": "a careful merchant watches the quiet harbor, while a careful merchant watches the quiet harbor beside the clear path, and a careful merchant gleams.",
       "left_clause": "a careful merchant watches the quiet harbor",
       "right_clause": "a careful merchant watches the quiet harbor beside the clear path, and a careful merchant gleams",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "a",
@@ -904,16 +960,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 117,
+        "letters": 122,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "a",
           "s"
         ],
-        "sha256_forward": "a3f65a3a260438138264a66b90cf7c05c8bd536033bc660bca74da7d4254858e",
-        "sha256_reverse": "1aae8291f407bd2d49c6e3a0f6ded19456791c0945f8ff9cadb4327be0b3d46f",
+        "sha256_forward": "219f5d40351145e7d47ddee92f13d2338539bf4f70f1f2df828a2153f22df5c7",
+        "sha256_reverse": "aa9cddb37b1ffd4c72413b718343dda27cd31f5f6e010e265acfcc977a5ae58e",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -961,10 +1018,16 @@
           "target": "recovers"
         }
       },
-      "rendered": "a careful merchant rests in the old garden; a careful merchant rests in the old garden near the stone wall, and a careful merchant recovers.",
+      "rendered": "a careful merchant rests in the old garden, while a careful merchant rests in the old garden near the stone wall, and a careful merchant recovers.",
       "left_clause": "a careful merchant rests in the old garden",
       "right_clause": "a careful merchant rests in the old garden near the stone wall, and a careful merchant recovers",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "a",
@@ -1030,16 +1093,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 113,
+        "letters": 118,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "a",
           "s"
         ],
-        "sha256_forward": "c7038eec37405ab2e8048cef1dda698ebd4135f7ce1c838f2f99ad4808c82438",
-        "sha256_reverse": "0259111d03a309f2b07414526afc74297623bb3dd96987dc7e156e96023f14f5",
+        "sha256_forward": "06ac198ac98b08f777173f55903fe47a4fe2780e53eff805c6015a955a841a05",
+        "sha256_reverse": "640a1711ec24ac1ff58aefed02b1a205780cdcc093a2adb046d4d8cf63aa6189",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1087,10 +1151,16 @@
           "target": "smiles"
         }
       },
-      "rendered": "a careful merchant gives the child a bright kite; a careful merchant gives the child a bright kite before the open gate, and the child smiles.",
+      "rendered": "a careful merchant gives the child a bright kite, while a careful merchant gives the child a bright kite before the open gate, and the child smiles.",
       "left_clause": "a careful merchant gives the child a bright kite",
       "right_clause": "a careful merchant gives the child a bright kite before the open gate, and the child smiles",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "a",
@@ -1164,16 +1234,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 114,
+        "letters": 119,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "a",
           "s"
         ],
-        "sha256_forward": "c32ff5361f7d9be94df2702c6ec3ea0a940607229599cdc0a12aa01e6959b63b",
-        "sha256_reverse": "e1f9ebfa38c6ad5f309f2864dbf369cc82299236faa4c2ff03b5ef2c50507ae3",
+        "sha256_forward": "c072a7358a929cfac8090b4b171df11fe9e365680e34e10a3fa8264b0f513fa7",
+        "sha256_reverse": "eef58b1bbfb9394090bcaddc07485ef8c081010ec36d5b2e7f44d6a5f414489c",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1216,10 +1287,16 @@
           "target": "blooms"
         }
       },
-      "rendered": "the young artists water the orchard; the young artists water the orchard beside the clear path, and the young artists bloom.",
+      "rendered": "the young artists water the orchard, while the young artists water the orchard beside the clear path, and the young artists bloom.",
       "left_clause": "the young artists water the orchard",
       "right_clause": "the young artists water the orchard beside the clear path, and the young artists bloom",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "the",
@@ -1269,16 +1346,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 101,
+        "letters": 106,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
           "m"
         ],
-        "sha256_forward": "f1c79567147e8d2e48fdd7c27851cf6056370c5657b16c53f2ab38be06e8111e",
-        "sha256_reverse": "2ec73cbc92eb4d1dbb2df5aee1a388282ebc088308bcc98ca0a854ae833193b6",
+        "sha256_forward": "8dd1e15070f66b82b2a2cde3bb1dc361113c77926bae76d1482c8515a5499f12",
+        "sha256_reverse": "8accb6cb70d95608f3825a839e61eb59ddb7d385f30dd138dd71fe67d10fe07a",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1321,10 +1399,16 @@
           "target": "waits"
         }
       },
-      "rendered": "the young artists carry a letter; the young artists carry a letter beside the clear path, and the young artists wait.",
+      "rendered": "the young artists carry a letter, while the young artists carry a letter beside the clear path, and the young artists wait.",
       "left_clause": "the young artists carry a letter",
       "right_clause": "the young artists carry a letter beside the clear path, and the young artists wait",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "the",
@@ -1374,16 +1458,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 94,
+        "letters": 99,
         "pointer_exact": false,
         "first_mismatch": [
           1,
           "h",
           "i"
         ],
-        "sha256_forward": "48351bd9e913f5e907cfbcd6dff92252334c2b1d3b746efd044f0f6b0cfbf792",
-        "sha256_reverse": "bf5896b7a3d3a6ac4ab3db01bd5282fb08c9026da8cf6b1cb2ddad6d4c21f697",
+        "sha256_forward": "6783222392a29a3f1955a76fdc6757dc9133df7840976dd423b7a1dd97be5153",
+        "sha256_reverse": "903226bc670ac9b20aba23b22e67f31afd5da68bcd68929963daf4abc0a44236",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1426,10 +1511,16 @@
           "target": "gleams"
         }
       },
-      "rendered": "the young artists watch the quiet harbor; the young artists watch the quiet harbor beside the clear path, and the young artists gleam.",
+      "rendered": "the young artists watch the quiet harbor, while the young artists watch the quiet harbor beside the clear path, and the young artists gleam.",
       "left_clause": "the young artists watch the quiet harbor",
       "right_clause": "the young artists watch the quiet harbor beside the clear path, and the young artists gleam",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "the",
@@ -1487,16 +1578,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 109,
+        "letters": 114,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
           "m"
         ],
-        "sha256_forward": "555f0394faa6b61aae73f74eafa93f83d5cbe54d6b9c2f3e1df22a393a0adf8d",
-        "sha256_reverse": "151c2c92ec2780c593cec32ef742a6d3c2c8ab8a92e334f91b83507797fd6c57",
+        "sha256_forward": "4f51c0ab66268a7e72adc885b281da315057c85958751d794e5187cc7c4f5f75",
+        "sha256_reverse": "e6143f8d56a53f5db194afd51c40a924c18f83a143151f80a5f607a1baac029c",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1544,10 +1636,16 @@
           "target": "recovers"
         }
       },
-      "rendered": "the young artists rest in the old garden; the young artists rest in the old garden near the stone wall, and the young artists recover.",
+      "rendered": "the young artists rest in the old garden, while the young artists rest in the old garden near the stone wall, and the young artists recover.",
       "left_clause": "the young artists rest in the old garden",
       "right_clause": "the young artists rest in the old garden near the stone wall, and the young artists recover",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "the",
@@ -1613,16 +1711,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 107,
+        "letters": 112,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
           "r"
         ],
-        "sha256_forward": "6ac928636bece65388d7698e2b3043f1900e86f53fc04720998257aa38faea4b",
-        "sha256_reverse": "b51d1dac40ebaff343d7595c5fc72ebb1cedfbc2e0924ed5f48ea62e504b06e3",
+        "sha256_forward": "0b46caf6b47d624566a591a3bacbefadf7e0e73f60d113be07dd60692cfcbdf8",
+        "sha256_reverse": "f2ac9d207f3b8583b24d17afc8e7942b3366ff50d92c01b4dee9c0d0baffa105",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1670,10 +1769,16 @@
           "target": "smiles"
         }
       },
-      "rendered": "the young artists give the child a bright kite; the young artists give the child a bright kite before the open gate, and the child smiles.",
+      "rendered": "the young artists give the child a bright kite, while the young artists give the child a bright kite before the open gate, and the child smiles.",
       "left_clause": "the young artists give the child a bright kite",
       "right_clause": "the young artists give the child a bright kite before the open gate, and the child smiles",
       "obligations": [
+        {
+          "step": "seam",
+          "token": "while",
+          "seam_once": true,
+          "compatible": true
+        },
         {
           "step": 0,
           "left_token": "the",
@@ -1747,16 +1852,17 @@
           "compatible": false
         }
       ],
+      "seam": "while",
       "audit": {
-        "letters": 110,
+        "letters": 115,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
           "s"
         ],
-        "sha256_forward": "63be596f7d7fccd7301f8e99273915343bdfa31185d3d43daddf4b434132d84b",
-        "sha256_reverse": "2d9f803ef0d5100e13dbd7b7a2447faca204ceb14053037743df7527b40e2355",
+        "sha256_forward": "05fb15e2f459bd63567c61826eabfdd352bc84604085e55cf7adbcd7a0264425",
+        "sha256_reverse": "ded4798a88f5965def8984e2a4b146731c30eed9bb473df2ab46c59cb7415392",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1811,27 +1917,27 @@
     ],
     "reader_gate": "closed; controls retained",
     "rendered_output_hashes": [
-      "df404eefe96c81491ece13833c7b50077bfac52a7d3d45aa599491ee5c5b9a1c",
-      "2f64adfa0b0946ea9f143e878dc235fbddb7ad1a595a5a21c2bc6863c662c150",
-      "d0021dfd044eeade57b3bdf55b7c5be964e8cbe7ac229d83945e5a5c2f76803a",
-      "9a23e7ffc287a611416198baf1718579f4d50ae7895905ba31b35f98cfefe4ca",
-      "e17efaa6390d6951cedc3fe033206c756a97169a08de73f009b88517704473b4",
-      "289d20417d8f97c6eeb3a94bd5856695f2ad1398a36e2aad88690940f5251c91",
-      "70e037b423756d255c1d154872f773f88ddd26d5aadd0629177299ff2ed2c511",
-      "a3f65a3a260438138264a66b90cf7c05c8bd536033bc660bca74da7d4254858e",
-      "c7038eec37405ab2e8048cef1dda698ebd4135f7ce1c838f2f99ad4808c82438",
-      "c32ff5361f7d9be94df2702c6ec3ea0a940607229599cdc0a12aa01e6959b63b",
-      "f1c79567147e8d2e48fdd7c27851cf6056370c5657b16c53f2ab38be06e8111e",
-      "48351bd9e913f5e907cfbcd6dff92252334c2b1d3b746efd044f0f6b0cfbf792",
-      "555f0394faa6b61aae73f74eafa93f83d5cbe54d6b9c2f3e1df22a393a0adf8d",
-      "6ac928636bece65388d7698e2b3043f1900e86f53fc04720998257aa38faea4b",
-      "63be596f7d7fccd7301f8e99273915343bdfa31185d3d43daddf4b434132d84b"
+      "ddee05668acd2a4fc92527a5a09a9c62d0253450d3b9533f5c462dc2b9becccd",
+      "b69502c0f58142c38399a9ebbfe63024011ee9ef524341593cecb0a6da87e69d",
+      "f2496f6112aa5d466b42d8eeb65d6964028ff7decd85c28d0c47600cabbb0309",
+      "7278729b39fe71b417f38a84496db5b4c53b8a221bb222635a68fab99f6a27fc",
+      "b0c8d52b0fcadd4be6ebc60df51bccba945d99b577bc82d3f1c18521c70ac1cd",
+      "47155e571c039a408e98f3e01bcc7a88a75194603c7176b0effbe4a7785384f2",
+      "c446ffb6df1e3cc4a09c7d39743470a1354f91f5cf80f69bf8e33cb000d90072",
+      "219f5d40351145e7d47ddee92f13d2338539bf4f70f1f2df828a2153f22df5c7",
+      "06ac198ac98b08f777173f55903fe47a4fe2780e53eff805c6015a955a841a05",
+      "c072a7358a929cfac8090b4b171df11fe9e365680e34e10a3fa8264b0f513fa7",
+      "8dd1e15070f66b82b2a2cde3bb1dc361113c77926bae76d1482c8515a5499f12",
+      "6783222392a29a3f1955a76fdc6757dc9133df7840976dd423b7a1dd97be5153",
+      "4f51c0ab66268a7e72adc885b281da315057c85958751d794e5187cc7c4f5f75",
+      "0b46caf6b47d624566a591a3bacbefadf7e0e73f60d113be07dd60692cfcbdf8",
+      "05fb15e2f459bd63567c61826eabfdd352bc84604085e55cf7adbcd7a0264425"
     ]
   },
   "next_construction": {
-    "operator": "typed edge-label agreement",
-    "change": "carry preposition and recipient agreement through a second participant edge while retaining shared participant identity and live obligation rejection",
-    "reason": "the expanded edge labels remain semantically intact but have no compatible boundary closure"
+    "operator": "seam-conditioned clause alternation",
+    "change": "vary only seam-conditioned clause order after a nonempty closure frontier exists",
+    "reason": "the seam-aware alignment remains exact-zero and should not be widened lexically"
   },
   "status": "no exact clean closure; complete-prose controls retained"
 }

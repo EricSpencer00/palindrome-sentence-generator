@@ -67,7 +67,8 @@ def render(p, e, side):
 def synchronous_pair(p, e):
     left_words = render(p, e, "left").split()
     right_words = render(p, e, "right").split()
-    obligations = []
+    obligations = [{"step": "seam", "token": "while", "seam_once": True,
+                    "compatible": True}]
     for i, (lw, rw) in enumerate(zip(left_words, reversed(right_words))):
         obligations.append({"step": i, "left_token": lw, "right_token": rw,
                             "left_char": norm(lw)[0] if norm(lw) else "",
@@ -81,7 +82,7 @@ def run():
     for p in PARTICIPANTS:
         for e in EVENTS:
             left, right, obligations = synchronous_pair(p, e)
-            text = " ".join(left) + "; " + " ".join(right) + "."
+            text = " ".join(left) + ", while " + " ".join(right) + "."
             second_edge = None
             if e["kind"] == "ditransitive":
                 recipient = next(x for x in RECIPIENTS if x["id"] == e["recipient_id"])
@@ -93,7 +94,7 @@ def run():
                                            "shared_edge": {"subject": p["id"], "predicate": e["id"], "object": e["object"]},
                                            "second_participant_edge": second_edge, "second_event_edge": event_edge},
                          "rendered": text, "left_clause": " ".join(left), "right_clause": " ".join(right),
-                         "obligations": obligations, "audit": audit(text),
+                         "obligations": obligations, "seam": "while", "audit": audit(text),
                          "complete_prose": True,
                          "provenance": {"graph_authored_once": True, "synchronous_render": True,
                                         "live_character_obligations": True, "finished_tape_reversal": False,
@@ -103,11 +104,11 @@ def run():
                 {"rendered": "A careful merchant carries a letter beside the clear path.", "audit": audit("A careful merchant carries a letter beside the clear path."), "control": True}]
     hashes = [r["audit"]["sha256_forward"] for r in rows]
     return {"experiment_id": "shared-scene-synchronous-transducer-20260921",
-            "method": "shared typed semantic scene graph; synchronous two-renderer transducer with live inward obligations, participant edges, and dependent consequence-event edges",
+            "method": "shared typed semantic scene graph; seam-aware synchronous transducer with one emitted discourse seam and live inward obligations",
             "novelty_preflight": {"status": "passed", "output_hashes_unique": len(hashes) == len(set(hashes)),
                                   "distinct_from": "relative/instrument lanes and typed-CFG frontier: one shared graph emits both sides under lockstep obligations before sentence rendering"},
             "stats": {"participants": len(PARTICIPANTS), "events": len(EVENTS), "graph_states": len(rows),
-                      "obligation_steps": sum(len(r["obligations"]) for r in rows), "rendered": len(rows),
+                      "obligation_steps": sum(len(r["obligations"]) for r in rows), "seam_emissions": sum(r["seam"] == "while" for r in rows), "rendered": len(rows),
                       "exact_gt38": len(exact), "max_letters": max(r["audit"]["letters"] for r in rows),
                       "second_edge_states": sum(r["scene_graph"]["second_participant_edge"] is not None for r in rows),
                       "second_event_edge_states": sum(r["scene_graph"]["second_event_edge"] is not None for r in rows)},
@@ -115,7 +116,7 @@ def run():
             "complete_prose_controls": controls,
             "provenance": {"audits": ["independent two-pointer comparison", "forward/reverse SHA-256"],
                            "reader_gate": "closed; controls retained", "rendered_output_hashes": hashes},
-            "next_construction": {"operator": "typed edge-label agreement", "change": "carry preposition and recipient agreement through a second participant edge while retaining shared participant identity and live obligation rejection", "reason": "the expanded edge labels remain semantically intact but have no compatible boundary closure"},
+            "next_construction": {"operator": "seam-conditioned clause alternation", "change": "vary only seam-conditioned clause order after a nonempty closure frontier exists", "reason": "the seam-aware alignment remains exact-zero and should not be widened lexically"},
             "status": "fresh exact >38 requires reading" if exact else "no exact clean closure; complete-prose controls retained"}
 
 

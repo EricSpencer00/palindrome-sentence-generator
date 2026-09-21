@@ -41,3 +41,5 @@ def test_run_keeps_complete_prose_and_independent_hashes():
     assert all('An earnest archivist' in row['rendered'] and
                'At dawn the keeper surveyed the arena.' in row['rendered']
                for row in result['fresh_outer_pair_candidates'])
+    assert result['fresh_residual_probe']['status'] == 'no_natural_fresh_pair_above_three'
+    assert result['fresh_residual_probe']['max_new_support_depth'] == 3

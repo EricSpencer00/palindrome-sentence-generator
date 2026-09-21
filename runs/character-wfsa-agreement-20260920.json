@@ -1,0 +1,111 @@
+{
+  "experiment_id": "character-wfsa-agreement-20260920",
+  "method": "online character WFSA with typed number-carrying agreement arcs",
+  "config": {
+    "typed_features": [
+      "number"
+    ],
+    "phase_order": [
+      "det",
+      "subject",
+      "agreeing_verb",
+      "object"
+    ],
+    "lexical_bank_sweep": false,
+    "post_search_reversal": false
+  },
+  "stats": {
+    "typed_transitions_checked": 20736,
+    "rejected_transitions": 20736,
+    "rendered_candidates": 0,
+    "prose_controls": 3,
+    "exact_gt38": 0,
+    "max_control_letters": 52
+  },
+  "rendered_candidates": [],
+  "prose_controls": [
+    {
+      "rendered": "the sailor guides the harbor; while our sailors guide a shore.",
+      "audit": {
+        "letters": 50,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          49,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "4c20b087626524249d89e312d869c25a3476c364ee955295332108ca0e5440dd",
+        "sha256_reverse": "2aaca6c8dbd189d9fce57d466d3ae9d7d3b329ecb2faf9a426cb5ab815394ec0"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "complete_agreement_surface": true,
+        "shuffled_control_source": "typed WFSA arcs"
+      }
+    },
+    {
+      "rendered": "our sailors guide the letter; while the sailor guides a station.",
+      "audit": {
+        "letters": 52,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          51,
+          "o",
+          "n"
+        ],
+        "sha256_forward": "1e6843fd51ed04cd62a644972821270a9c79e4a091ce0771771cec71f7c61aac",
+        "sha256_reverse": "a0891eb76ab6eed64e7f0ee6470dcf7e05178efb72f371e6d3bc6a1641e2593e"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "complete_agreement_surface": true,
+        "shuffled_control_source": "typed WFSA arcs"
+      }
+    },
+    {
+      "rendered": "the sailor guides the parcel; while our sailors guide a garden.",
+      "audit": {
+        "letters": 51,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          50,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "615befd4ea2c616998227176a3a679884d7f56c30e082e8c3276e6ea71a9a8ee",
+        "sha256_reverse": "fd9a3391667c080e7b0cbf14ad17134e297bd26655d351e515d56391d99f1182"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "complete_agreement_surface": true,
+        "shuffled_control_source": "typed WFSA arcs"
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "excluded_routes": [
+      "finished-tape reversal",
+      "post-search repair",
+      "lexical-bank sweep"
+    ]
+  },
+  "provenance": {
+    "independent_audit": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "catalogue_text": false,
+    "mirrored_units": false,
+    "word_order_symmetry": false,
+    "self_palindromic_units": false
+  },
+  "next_operator": "carry typed semantic valency through the same agreement state before object emission",
+  "status": "no exact >38 closure; agreement controls retained"
+}

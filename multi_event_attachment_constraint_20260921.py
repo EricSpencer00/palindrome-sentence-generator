@@ -7,18 +7,15 @@ def n(s): return re.sub('[^a-z]','',s.lower())
 def audit(s):
  x=n(s); return {'letters':len(x),'pointer_exact':x==x[::-1],'sha_equal':hashlib.sha256(x.encode()).hexdigest()==hashlib.sha256(x[::-1].encode()).hexdigest(),'forward_sha256':hashlib.sha256(x.encode()).hexdigest(),'reverse_sha256':hashlib.sha256(x[::-1].encode()).hexdigest(),'repeated_units':len(s.split())!=len(set(s.split())),'mirrored_units':False,'word_order_symmetry':False,'fragment':len(s.split())<8,'catalogue_text':False}
 def stream(a,b):
- seen={}; checks=0; frontier=0
- # Consume independently selected terminal tokens; never build a joined tape.
- for token in (a.rstrip('.').split()+b.rstrip('.').split()):
-  for ch in n(token):
-   i=frontier; frontier+=1
-   seen[i]=ch
-   j=0 # resolved after the opposite terminal arrives
-   j=frontier-1-i
-   # The support domain is represented by assigned positions; conflicts are
-   # checked only when the counterpart position has been selected.
-   j=frontier-1-i
-   if j in seen and j!=i:
+ left=''.join(n(t) for t in a.rstrip('.').split()); right=''.join(n(t) for t in b.rstrip('.').split())
+ N=len(left)+len(right); seen={}; checks=0; frontier=0
+ # Left terminals assign global positions from the start; right terminals
+ # assign global positions from the end. No finished tape is materialized.
+ for side, chars in ((0,left),(1,right[::-1])):
+  for ch in chars:
+   i=frontier if side==0 else N-1-frontier+len(left)
+   frontier+=1; seen[i]=ch; j=N-1-i
+   if j in seen:
     checks+=1
     if seen[j]!=ch:return False,checks,frontier
  return True,checks,frontier

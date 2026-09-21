@@ -7967,6 +7967,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   likewise survives. Artifact:
   `runs/graph-unification-attachment-20260921.json`.
 
+- **Epistemic-result graph edge, 2026-09-21:** added the final single-edge
+  holdout, `event.judged.result -> epistemic`, after the inferential frontier
+  survived its first support conflict. Fourteen trees produced 182
+  incrementally checked graph edges and 12 intact controls (maximum 136
+  letters), with zero exact closures at or above 39 letters. The next step is
+  explicitly a topology pivot: a multi-event graph with simultaneous
+  attachment and character constraints, not another single-edge bank entry.
+  Artifact: `runs/graph-unification-attachment-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.
@@ -8022,6 +8031,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact closures occurred. The next operator is a held-out
   `are prepared and willing to V` frame. Artifact:
   `runs/cfg-earley-are-eager-frame-20260921.json`.
+
+- **Coordinated `are prepared and willing to V` Earley VP, 2026-09-21:**
+  changed the grammar topology to an internal coordinated VP rather than
+  another adjective substitution. Three intact controls were 166, 170, and
+  166 letters; 233 concrete domain conflicts were retained and zero exact
+  closures occurred. The next topology is ready-and-eager VP coordination.
+  Artifact: `runs/cfg-earley-prepared-willing-coord-vp-20260921.json`.
 
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`

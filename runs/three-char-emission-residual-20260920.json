@@ -1,0 +1,386 @@
+{
+  "experiment_id": "three-char-emission-residual-20260920",
+  "method": "three-character key derived from emitted outer clause chunk, selecting held-out complete continuations before second-chunk emission",
+  "acceptance_gate": "online residual closure plus pointer/SHA exactness above 38 letters; no shortcut exclusions",
+  "stats": {
+    "left_clauses": 3,
+    "heldout_clauses": 7,
+    "derived_keys": 5,
+    "rendered": 5,
+    "missing_key_emissions": 0,
+    "online_prunes": 5,
+    "exact_above_38": 0,
+    "max_letters": 105
+  },
+  "derived_key_trace": [
+    "aca",
+    "our",
+    "the"
+  ],
+  "diagnostic_candidates": [
+    {
+      "rendered": "the patient cartographer marks a quiet inlet before sunrise; meanwhile, the evening keeper folds a blue sail near the pier.",
+      "emitted_outer_chunk": "the patient cartographer marks",
+      "derived_key": "the",
+      "chunks": {
+        "left": [
+          "the patient cartographer marks",
+          "a quiet inlet before sunrise"
+        ],
+        "right": [
+          "the evening keeper folds a blue sail",
+          "near the pier"
+        ]
+      },
+      "live_equation": {
+        "first": {
+          "checked": 1,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "r"
+          },
+          "residual": "hepatientcartographermarks"
+        },
+        "second": {
+          "checked": 1,
+          "mismatch": {
+            "offset": 0,
+            "left": "h",
+            "right": "l"
+          },
+          "residual": "epatientcartographermarksaquietinletbeforesunrise"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 101,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "edc4b416d5991532eddc51200ebe6685776810e98d0d986c8d3acfd5113f3aa3",
+        "sha256_reverse": "e21ac90761ac43def3bc09999f9e9b238521c3fdad55594420268488713c77d2"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "heldout_complete_clause": true,
+        "key_derived_from_outer_emission": true,
+        "three_character_key": true,
+        "residual_carried": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false
+      }
+    },
+    {
+      "rendered": "the patient cartographer marks a quiet inlet before sunrise; meanwhile, the local baker shares a fresh loaf with neighbors.",
+      "emitted_outer_chunk": "the patient cartographer marks",
+      "derived_key": "the",
+      "chunks": {
+        "left": [
+          "the patient cartographer marks",
+          "a quiet inlet before sunrise"
+        ],
+        "right": [
+          "the local baker shares a fresh",
+          "loaf with neighbors"
+        ]
+      },
+      "live_equation": {
+        "first": {
+          "checked": 1,
+          "mismatch": {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          "residual": "hepatientcartographermarks"
+        },
+        "second": {
+          "checked": 2,
+          "mismatch": {
+            "offset": 1,
+            "left": "e",
+            "right": "s"
+          },
+          "residual": "patientcartographermarksaquietinletbeforesunrise"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 102,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "sha256_forward": "e8a1422f6973c28dd576b88bf45a0e43761550256f7a58c4abe7c90a1e5e18a5",
+        "sha256_reverse": "dbbcd64189909fb9ba349735c7046e497cfe565790fa3b1645d0637699a45a6b"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "heldout_complete_clause": true,
+        "key_derived_from_outer_emission": true,
+        "three_character_key": true,
+        "residual_carried": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false
+      }
+    },
+    {
+      "rendered": "a careful beekeeper carries warm honey toward the shed; meanwhile, a careful teacher opens a green atlas after supper.",
+      "emitted_outer_chunk": "a careful beekeeper carries",
+      "derived_key": "aca",
+      "chunks": {
+        "left": [
+          "a careful beekeeper carries",
+          "warm honey toward the shed"
+        ],
+        "right": [
+          "a careful teacher opens a green",
+          "atlas after supper"
+        ]
+      },
+      "live_equation": {
+        "first": {
+          "checked": 1,
+          "mismatch": {
+            "offset": 0,
+            "left": "a",
+            "right": "r"
+          },
+          "residual": "carefulbeekeepercarries"
+        },
+        "second": {
+          "checked": 1,
+          "mismatch": {
+            "offset": 0,
+            "left": "c",
+            "right": "n"
+          },
+          "residual": "arefulbeekeepercarrieswarmhoneytowardtheshed"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 97,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "2b748b2030242c16d259f7944c65429bed471d4ba5d1a8419059346795a586ec",
+        "sha256_reverse": "063234c36733e27b0b776e5d5b2c90f79bfd6339468ade8ce8f7ee8387678607"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "heldout_complete_clause": true,
+        "key_derived_from_outer_emission": true,
+        "three_character_key": true,
+        "residual_carried": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false
+      }
+    },
+    {
+      "rendered": "our young astronomer records a faint comet above the ridge; meanwhile, our alert ranger follows a silver trail beyond the creek.",
+      "emitted_outer_chunk": "our young astronomer records",
+      "derived_key": "our",
+      "chunks": {
+        "left": [
+          "our young astronomer records",
+          "a faint comet above the ridge"
+        ],
+        "right": [
+          "our alert ranger follows a silver trail",
+          "beyond the creek"
+        ]
+      },
+      "live_equation": {
+        "first": {
+          "checked": 1,
+          "mismatch": {
+            "offset": 0,
+            "left": "o",
+            "right": "k"
+          },
+          "residual": "uryoungastronomerrecords"
+        },
+        "second": {
+          "checked": 1,
+          "mismatch": {
+            "offset": 0,
+            "left": "u",
+            "right": "l"
+          },
+          "residual": "ryoungastronomerrecordsafaintcometabovetheridge"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 105,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "o",
+          "k"
+        ],
+        "sha256_forward": "95e4a0b29c2bebe911684385c132f31e088a16905d9c173b0f669c65124641bb",
+        "sha256_reverse": "7be43eab8bd6d1a5eee52811d905c5a04da1879d82de06aef70711bf3c5ae5d7"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "heldout_complete_clause": true,
+        "key_derived_from_outer_emission": true,
+        "three_character_key": true,
+        "residual_carried": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false
+      }
+    },
+    {
+      "rendered": "our young astronomer records a faint comet above the ridge; meanwhile, our patient guide studies a red marker beside the bridge.",
+      "emitted_outer_chunk": "our young astronomer records",
+      "derived_key": "our",
+      "chunks": {
+        "left": [
+          "our young astronomer records",
+          "a faint comet above the ridge"
+        ],
+        "right": [
+          "our patient guide studies a red marker",
+          "beside the bridge"
+        ]
+      },
+      "live_equation": {
+        "first": {
+          "checked": 1,
+          "mismatch": {
+            "offset": 0,
+            "left": "o",
+            "right": "e"
+          },
+          "residual": "uryoungastronomerrecords"
+        },
+        "second": {
+          "checked": 1,
+          "mismatch": {
+            "offset": 0,
+            "left": "u",
+            "right": "r"
+          },
+          "residual": "ryoungastronomerrecordsafaintcometabovetheridge"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 105,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "o",
+          "e"
+        ],
+        "sha256_forward": "4d8876599f1738d4e587156dcb69e3cc6164432b7623fd7542774b654af2d077",
+        "sha256_reverse": "d06857dc218cb2e7cd9e04a30524ee34fd4dd1c5d1f6ea6511fa6e45d6b415ca"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "heldout_complete_clause": true,
+        "key_derived_from_outer_emission": true,
+        "three_character_key": true,
+        "residual_carried": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "controls": [
+    {
+      "rendered": "the patient cartographer marks a quiet inlet before sunrise, while the evening keeper folds a blue sail near the pier.",
+      "audit": {
+        "letters": 97,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "cc3c6affe3babc8bd37d679ae3dc5c1fcec1c6aa90c9c9167e46eb7d207d1836",
+        "sha256_reverse": "3c41a37094f514cd778afc6a1e013f5415350d3ce0b33c51b4be50284ee97159"
+      },
+      "control": true,
+      "provenance": {
+        "equation_selected": false,
+        "heldout": false
+      }
+    },
+    {
+      "rendered": "a careful beekeeper carries warm honey toward the shed, while a gentle teacher opens the old atlas after supper.",
+      "audit": {
+        "letters": 92,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "d03e50da724cb6cbd13d202c3a34e856a8764193856ccfb4379c1e3d96cd9822",
+        "sha256_reverse": "58b59d4c9b9db26c814ef1cc9b014640bded9fd69e89052325e45ee982b2e71f"
+      },
+      "control": true,
+      "provenance": {
+        "equation_selected": false,
+        "heldout": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "fresh-authored|emission-derived-3char-key|heldout-complete-continuations|two-stage-residual",
+    "distinct_from": "prior typed residual bank used authored key labels; this run derives the key from the actual emitted outer chunk and uses held-out clauses grouped independently by observed key",
+    "catalogue_text_reused": false,
+    "mirrored_chunk_pairs": false
+  },
+  "provenance": {
+    "audits": [
+      "live residual consumer",
+      "independent pointer audit",
+      "forward/reverse SHA-256"
+    ],
+    "controls_are": "fresh complete prose, not equation-selected",
+    "hard_exclusions": [
+      "catalogue/API text",
+      "mirrored chunks",
+      "finished tape reversal",
+      "post-hoc repair"
+    ]
+  },
+  "next_repair": {
+    "operator": "typed continuation by residual suffix class",
+    "reason": "three-character emission keys select clauses, but every held-out continuation mismatches before residual closure",
+    "change": "derive a suffix-class key after the first chunk and author two agreement-compatible complete clauses for each class; this changes key position and grammar, not sweep size"
+  },
+  "status": "no exact >38; diagnostic only"
+}

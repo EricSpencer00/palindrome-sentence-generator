@@ -21,11 +21,11 @@ RECIPIENTS = (
     {"id": "students", "det": "the", "noun": "students", "number": "plural"},
 )
 EVENTS = (
-    {"id": "water", "verb": "waters", "plural_verb": "water", "object": "the orchard", "kind": "transitive"},
-    {"id": "carry", "verb": "carries", "plural_verb": "carry", "object": "a letter", "kind": "transitive"},
-    {"id": "watch", "verb": "watches", "plural_verb": "watch", "object": "the quiet harbor", "kind": "transitive"},
-    {"id": "rest", "verb": "rests", "plural_verb": "rest", "prep": "in", "object": "the old garden", "kind": "locative"},
-    {"id": "give", "verb": "gives", "plural_verb": "give", "recipient_id": "child", "object": "a bright kite", "kind": "ditransitive"},
+    {"id": "water", "verb": "waters", "plural_verb": "water", "object": "the orchard", "kind": "transitive", "consequence": "blooms"},
+    {"id": "carry", "verb": "carries", "plural_verb": "carry", "object": "a letter", "kind": "transitive", "consequence": "waits"},
+    {"id": "watch", "verb": "watches", "plural_verb": "watch", "object": "the quiet harbor", "kind": "transitive", "consequence": "gleams"},
+    {"id": "rest", "verb": "rests", "plural_verb": "rest", "prep": "in", "object": "the old garden", "kind": "locative", "consequence": "recovers"},
+    {"id": "give", "verb": "gives", "plural_verb": "give", "recipient_id": "child", "object": "a bright kite", "kind": "ditransitive", "consequence": "smiles"},
 )
 
 
@@ -56,11 +56,11 @@ def render(p, e, side):
     tails = {"transitive": "beside the clear path", "locative": "near the stone wall",
              "ditransitive": "before the open gate"}
     if e["kind"] == "locative":
-        return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['prep']} {e['object']} {tails[e['kind']]}"
+        return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['prep']} {e['object']} {tails[e['kind']]}, and {p['det']} {p['adj']} {p['noun']} {e['consequence']}"
     if e["kind"] == "ditransitive":
         recipient = next(x for x in RECIPIENTS if x["id"] == e["recipient_id"])
-        return f"{p['det']} {p['adj']} {p['noun']} {verb} {recipient['det']} {recipient['noun']} {e['object']} {tails[e['kind']]}"
-    return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['object']} {tails[e['kind']]}"
+        return f"{p['det']} {p['adj']} {p['noun']} {verb} {recipient['det']} {recipient['noun']} {e['object']} {tails[e['kind']]}, and {recipient['det']} {recipient['noun']} {e['consequence']}"
+    return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['object']} {tails[e['kind']]}, and {p['det']} {p['adj']} {p['noun']} {e['consequence']}"
 
 
 def synchronous_pair(p, e):
@@ -87,9 +87,10 @@ def run():
                 second_edge = {"subject": e["recipient_id"], "predicate": "recipient", "agreement": recipient["number"]}
             elif e["kind"] == "locative":
                 second_edge = {"subject": p["id"], "predicate": "located-at", "preposition": e["prep"]}
+            event_edge = {"source": e["id"], "relation": "causes", "target": e["consequence"]}
             rows.append({"scene_graph": {"participant": p, "event": e,
                                            "shared_edge": {"subject": p["id"], "predicate": e["id"], "object": e["object"]},
-                                           "second_participant_edge": second_edge},
+                                           "second_participant_edge": second_edge, "second_event_edge": event_edge},
                          "rendered": text, "left_clause": " ".join(left), "right_clause": " ".join(right),
                          "obligations": obligations, "audit": audit(text),
                          "complete_prose": True,
@@ -101,13 +102,14 @@ def run():
                 {"rendered": "A careful merchant carries a letter beside the clear path.", "audit": audit("A careful merchant carries a letter beside the clear path."), "control": True}]
     hashes = [r["audit"]["sha256_forward"] for r in rows]
     return {"experiment_id": "shared-scene-synchronous-transducer-20260921",
-            "method": "shared typed semantic scene graph; synchronous two-renderer transducer with live inward character obligations, typed prepositions, and recipient agreement",
+            "method": "shared typed semantic scene graph; synchronous two-renderer transducer with live inward obligations, participant edges, and dependent consequence-event edges",
             "novelty_preflight": {"status": "passed", "output_hashes_unique": len(hashes) == len(set(hashes)),
                                   "distinct_from": "relative/instrument lanes and typed-CFG frontier: one shared graph emits both sides under lockstep obligations before sentence rendering"},
             "stats": {"participants": len(PARTICIPANTS), "events": len(EVENTS), "graph_states": len(rows),
                       "obligation_steps": sum(len(r["obligations"]) for r in rows), "rendered": len(rows),
                       "exact_gt38": len(exact), "max_letters": max(r["audit"]["letters"] for r in rows),
-                      "second_edge_states": sum(r["scene_graph"]["second_participant_edge"] is not None for r in rows)},
+                      "second_edge_states": sum(r["scene_graph"]["second_participant_edge"] is not None for r in rows),
+                      "second_event_edge_states": sum(r["scene_graph"]["second_event_edge"] is not None for r in rows)},
             "exact_candidates": exact, "reader_facing_candidates": [], "diagnostic_controls": rows,
             "complete_prose_controls": controls,
             "provenance": {"audits": ["independent two-pointer comparison", "forward/reverse SHA-256"],

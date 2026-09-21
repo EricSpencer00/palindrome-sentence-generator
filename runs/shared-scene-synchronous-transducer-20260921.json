@@ -1,6 +1,6 @@
 {
   "experiment_id": "shared-scene-synchronous-transducer-20260921",
-  "method": "shared typed semantic scene graph; synchronous two-renderer transducer with live inward character obligations, typed prepositions, and recipient agreement",
+  "method": "shared typed semantic scene graph; synchronous two-renderer transducer with live inward obligations, participant edges, and dependent consequence-event edges",
   "novelty_preflight": {
     "status": "passed",
     "output_hashes_unique": true,
@@ -13,8 +13,9 @@
     "obligation_steps": 108,
     "rendered": 15,
     "exact_gt38": 0,
-    "max_letters": 101,
-    "second_edge_states": 6
+    "max_letters": 123,
+    "second_edge_states": 6,
+    "second_event_edge_states": 15
   },
   "exact_candidates": [],
   "reader_facing_candidates": [],
@@ -33,31 +34,37 @@
           "verb": "waters",
           "plural_verb": "water",
           "object": "the orchard",
-          "kind": "transitive"
+          "kind": "transitive",
+          "consequence": "blooms"
         },
         "shared_edge": {
           "subject": "gardener",
           "predicate": "water",
           "object": "the orchard"
         },
-        "second_participant_edge": null
+        "second_participant_edge": null,
+        "second_event_edge": {
+          "source": "water",
+          "relation": "causes",
+          "target": "blooms"
+        }
       },
-      "rendered": "the patient gardener waters the orchard; the patient gardener waters the orchard beside the clear path.",
+      "rendered": "the patient gardener waters the orchard; the patient gardener waters the orchard beside the clear path, and the patient gardener blooms.",
       "left_clause": "the patient gardener waters the orchard",
-      "right_clause": "the patient gardener waters the orchard beside the clear path",
+      "right_clause": "the patient gardener waters the orchard beside the clear path, and the patient gardener blooms",
       "obligations": [
         {
           "step": 0,
           "left_token": "the",
-          "right_token": "path",
+          "right_token": "blooms",
           "left_char": "t",
-          "required_right_char": "h",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "patient",
-          "right_token": "clear",
+          "right_token": "gardener",
           "left_char": "p",
           "required_right_char": "r",
           "compatible": false
@@ -65,15 +72,15 @@
         {
           "step": 2,
           "left_token": "gardener",
-          "right_token": "the",
+          "right_token": "patient",
           "left_char": "g",
-          "required_right_char": "e",
+          "required_right_char": "t",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "waters",
-          "right_token": "beside",
+          "right_token": "the",
           "left_char": "w",
           "required_right_char": "e",
           "compatible": false
@@ -81,7 +88,7 @@
         {
           "step": 4,
           "left_token": "the",
-          "right_token": "orchard",
+          "right_token": "and",
           "left_char": "t",
           "required_right_char": "d",
           "compatible": false
@@ -89,22 +96,22 @@
         {
           "step": 5,
           "left_token": "orchard",
-          "right_token": "the",
+          "right_token": "path,",
           "left_char": "o",
-          "required_right_char": "e",
+          "required_right_char": "h",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 86,
+        "letters": 113,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
-          "h"
+          "s"
         ],
-        "sha256_forward": "c38386c845241610b92e97b43ae23f030425b4c5cd71eda0b2679b649fbc5f0d",
-        "sha256_reverse": "ee794776e33936dfa0881b99366616f4fadd77ba4b07b2cb3a870d3fc6955ab2",
+        "sha256_forward": "df404eefe96c81491ece13833c7b50077bfac52a7d3d45aa599491ee5c5b9a1c",
+        "sha256_reverse": "c52b19bd209c7e0a43d17519a1b812eccce3ad811ffa335325b5c23c45dfd448",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -131,31 +138,37 @@
           "verb": "carries",
           "plural_verb": "carry",
           "object": "a letter",
-          "kind": "transitive"
+          "kind": "transitive",
+          "consequence": "waits"
         },
         "shared_edge": {
           "subject": "gardener",
           "predicate": "carry",
           "object": "a letter"
         },
-        "second_participant_edge": null
+        "second_participant_edge": null,
+        "second_event_edge": {
+          "source": "carry",
+          "relation": "causes",
+          "target": "waits"
+        }
       },
-      "rendered": "the patient gardener carries a letter; the patient gardener carries a letter beside the clear path.",
+      "rendered": "the patient gardener carries a letter; the patient gardener carries a letter beside the clear path, and the patient gardener waits.",
       "left_clause": "the patient gardener carries a letter",
-      "right_clause": "the patient gardener carries a letter beside the clear path",
+      "right_clause": "the patient gardener carries a letter beside the clear path, and the patient gardener waits",
       "obligations": [
         {
           "step": 0,
           "left_token": "the",
-          "right_token": "path",
+          "right_token": "waits",
           "left_char": "t",
-          "required_right_char": "h",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "patient",
-          "right_token": "clear",
+          "right_token": "gardener",
           "left_char": "p",
           "required_right_char": "r",
           "compatible": false
@@ -163,15 +176,15 @@
         {
           "step": 2,
           "left_token": "gardener",
-          "right_token": "the",
+          "right_token": "patient",
           "left_char": "g",
-          "required_right_char": "e",
+          "required_right_char": "t",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "carries",
-          "right_token": "beside",
+          "right_token": "the",
           "left_char": "c",
           "required_right_char": "e",
           "compatible": false
@@ -179,30 +192,30 @@
         {
           "step": 4,
           "left_token": "a",
-          "right_token": "letter",
+          "right_token": "and",
           "left_char": "a",
-          "required_right_char": "r",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 5,
           "left_token": "letter",
-          "right_token": "a",
+          "right_token": "path,",
           "left_char": "l",
-          "required_right_char": "a",
+          "required_right_char": "h",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 82,
+        "letters": 108,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
-          "h"
+          "s"
         ],
-        "sha256_forward": "40dc1c168d87c7edd207c207b16af2a00bd0bf267b5a01b5d6838b4666a0f6ed",
-        "sha256_reverse": "12d91efab8827efa8d2716d05279742ae5b8b0f3341c0370cf99fe88e06a5970",
+        "sha256_forward": "2f64adfa0b0946ea9f143e878dc235fbddb7ad1a595a5a21c2bc6863c662c150",
+        "sha256_reverse": "453873638a87171e48c1c1390a1c71e796c47ccde9a4d7e4567583889f6d3922",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -229,31 +242,37 @@
           "verb": "watches",
           "plural_verb": "watch",
           "object": "the quiet harbor",
-          "kind": "transitive"
+          "kind": "transitive",
+          "consequence": "gleams"
         },
         "shared_edge": {
           "subject": "gardener",
           "predicate": "watch",
           "object": "the quiet harbor"
         },
-        "second_participant_edge": null
+        "second_participant_edge": null,
+        "second_event_edge": {
+          "source": "watch",
+          "relation": "causes",
+          "target": "gleams"
+        }
       },
-      "rendered": "the patient gardener watches the quiet harbor; the patient gardener watches the quiet harbor beside the clear path.",
+      "rendered": "the patient gardener watches the quiet harbor; the patient gardener watches the quiet harbor beside the clear path, and the patient gardener gleams.",
       "left_clause": "the patient gardener watches the quiet harbor",
-      "right_clause": "the patient gardener watches the quiet harbor beside the clear path",
+      "right_clause": "the patient gardener watches the quiet harbor beside the clear path, and the patient gardener gleams",
       "obligations": [
         {
           "step": 0,
           "left_token": "the",
-          "right_token": "path",
+          "right_token": "gleams",
           "left_char": "t",
-          "required_right_char": "h",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "patient",
-          "right_token": "clear",
+          "right_token": "gardener",
           "left_char": "p",
           "required_right_char": "r",
           "compatible": false
@@ -261,15 +280,15 @@
         {
           "step": 2,
           "left_token": "gardener",
-          "right_token": "the",
+          "right_token": "patient",
           "left_char": "g",
-          "required_right_char": "e",
+          "required_right_char": "t",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "watches",
-          "right_token": "beside",
+          "right_token": "the",
           "left_char": "w",
           "required_right_char": "e",
           "compatible": false
@@ -277,38 +296,38 @@
         {
           "step": 4,
           "left_token": "the",
-          "right_token": "harbor",
+          "right_token": "and",
           "left_char": "t",
-          "required_right_char": "r",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 5,
           "left_token": "quiet",
-          "right_token": "quiet",
+          "right_token": "path,",
           "left_char": "q",
-          "required_right_char": "t",
+          "required_right_char": "h",
           "compatible": false
         },
         {
           "step": 6,
           "left_token": "harbor",
-          "right_token": "the",
+          "right_token": "clear",
           "left_char": "h",
-          "required_right_char": "e",
+          "required_right_char": "r",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 96,
+        "letters": 123,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
-          "h"
+          "s"
         ],
-        "sha256_forward": "5c16f11a16d9e7ef781b2e6e1efa12f639cb7cd624bb3726b0835c208879b22b",
-        "sha256_reverse": "b257aa412bb0107c3040c08eef33b459d72f0296fabd61d840bca3d4e0184a4f",
+        "sha256_forward": "d0021dfd044eeade57b3bdf55b7c5be964e8cbe7ac229d83945e5a5c2f76803a",
+        "sha256_reverse": "b7773df875eada9b1ab35a599755b3a17d0dc337eebdad01aba5affe3713b62f",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -336,7 +355,8 @@
           "plural_verb": "rest",
           "prep": "in",
           "object": "the old garden",
-          "kind": "locative"
+          "kind": "locative",
+          "consequence": "recovers"
         },
         "shared_edge": {
           "subject": "gardener",
@@ -347,64 +367,69 @@
           "subject": "gardener",
           "predicate": "located-at",
           "preposition": "in"
+        },
+        "second_event_edge": {
+          "source": "rest",
+          "relation": "causes",
+          "target": "recovers"
         }
       },
-      "rendered": "the patient gardener rests in the old garden; the patient gardener rests in the old garden near the stone wall.",
+      "rendered": "the patient gardener rests in the old garden; the patient gardener rests in the old garden near the stone wall, and the patient gardener recovers.",
       "left_clause": "the patient gardener rests in the old garden",
-      "right_clause": "the patient gardener rests in the old garden near the stone wall",
+      "right_clause": "the patient gardener rests in the old garden near the stone wall, and the patient gardener recovers",
       "obligations": [
         {
           "step": 0,
           "left_token": "the",
-          "right_token": "wall",
+          "right_token": "recovers",
           "left_char": "t",
-          "required_right_char": "l",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "patient",
-          "right_token": "stone",
+          "right_token": "gardener",
           "left_char": "p",
-          "required_right_char": "e",
+          "required_right_char": "r",
           "compatible": false
         },
         {
           "step": 2,
           "left_token": "gardener",
-          "right_token": "the",
+          "right_token": "patient",
           "left_char": "g",
-          "required_right_char": "e",
+          "required_right_char": "t",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "rests",
-          "right_token": "near",
+          "right_token": "the",
           "left_char": "r",
-          "required_right_char": "r",
-          "compatible": true
+          "required_right_char": "e",
+          "compatible": false
         },
         {
           "step": 4,
           "left_token": "in",
-          "right_token": "garden",
+          "right_token": "and",
           "left_char": "i",
-          "required_right_char": "n",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 5,
           "left_token": "the",
-          "right_token": "old",
+          "right_token": "wall,",
           "left_char": "t",
-          "required_right_char": "d",
+          "required_right_char": "l",
           "compatible": false
         },
         {
           "step": 6,
           "left_token": "old",
-          "right_token": "the",
+          "right_token": "stone",
           "left_char": "o",
           "required_right_char": "e",
           "compatible": false
@@ -412,22 +437,22 @@
         {
           "step": 7,
           "left_token": "garden",
-          "right_token": "in",
+          "right_token": "the",
           "left_char": "g",
-          "required_right_char": "n",
+          "required_right_char": "e",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 90,
+        "letters": 119,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
-          "l"
+          "s"
         ],
-        "sha256_forward": "5002fa3c9467a9f7651758e58eb8d1e6b26e84deb8d89c61687b9b10ef2ae46f",
-        "sha256_reverse": "43970e93429ee8e3161137013db7cc9a6812580ae155d804c582b08b46e452cf",
+        "sha256_forward": "9a23e7ffc287a611416198baf1718579f4d50ae7895905ba31b35f98cfefe4ca",
+        "sha256_reverse": "4e9c1a4300ce00c4711572e57a25306fd637740dd31c85121be539aa3e05b4ef",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -455,7 +480,8 @@
           "plural_verb": "give",
           "recipient_id": "child",
           "object": "a bright kite",
-          "kind": "ditransitive"
+          "kind": "ditransitive",
+          "consequence": "smiles"
         },
         "shared_edge": {
           "subject": "gardener",
@@ -466,26 +492,31 @@
           "subject": "child",
           "predicate": "recipient",
           "agreement": "singular"
+        },
+        "second_event_edge": {
+          "source": "give",
+          "relation": "causes",
+          "target": "smiles"
         }
       },
-      "rendered": "the patient gardener gives the child a bright kite; the patient gardener gives the child a bright kite before the open gate.",
+      "rendered": "the patient gardener gives the child a bright kite; the patient gardener gives the child a bright kite before the open gate, and the child smiles.",
       "left_clause": "the patient gardener gives the child a bright kite",
-      "right_clause": "the patient gardener gives the child a bright kite before the open gate",
+      "right_clause": "the patient gardener gives the child a bright kite before the open gate, and the child smiles",
       "obligations": [
         {
           "step": 0,
           "left_token": "the",
-          "right_token": "gate",
+          "right_token": "smiles",
           "left_char": "t",
-          "required_right_char": "e",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "patient",
-          "right_token": "open",
+          "right_token": "child",
           "left_char": "p",
-          "required_right_char": "n",
+          "required_right_char": "d",
           "compatible": false
         },
         {
@@ -499,15 +530,15 @@
         {
           "step": 3,
           "left_token": "gives",
-          "right_token": "before",
+          "right_token": "and",
           "left_char": "g",
-          "required_right_char": "e",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 4,
           "left_token": "the",
-          "right_token": "kite",
+          "right_token": "gate,",
           "left_char": "t",
           "required_right_char": "e",
           "compatible": false
@@ -515,46 +546,46 @@
         {
           "step": 5,
           "left_token": "child",
-          "right_token": "bright",
+          "right_token": "open",
           "left_char": "c",
-          "required_right_char": "t",
+          "required_right_char": "n",
           "compatible": false
         },
         {
           "step": 6,
           "left_token": "a",
-          "right_token": "a",
+          "right_token": "the",
           "left_char": "a",
-          "required_right_char": "a",
-          "compatible": true
+          "required_right_char": "e",
+          "compatible": false
         },
         {
           "step": 7,
           "left_token": "bright",
-          "right_token": "child",
+          "right_token": "before",
           "left_char": "b",
-          "required_right_char": "d",
+          "required_right_char": "e",
           "compatible": false
         },
         {
           "step": 8,
           "left_token": "kite",
-          "right_token": "the",
+          "right_token": "kite",
           "left_char": "k",
           "required_right_char": "e",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 101,
+        "letters": 118,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
-          "e"
+          "s"
         ],
-        "sha256_forward": "bb00235598022e726be54f47c3a17c564d8b9da89a5f18192671c4475b1fe2ff",
-        "sha256_reverse": "a00baecfecb13267a8f063c1ab9550001e616406180369c78b32dee996d133d5",
+        "sha256_forward": "e17efaa6390d6951cedc3fe033206c756a97169a08de73f009b88517704473b4",
+        "sha256_reverse": "f6937a31d72c8b11aeb43473a42b30aa186525422422241f6317ed5fa325e650",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -581,55 +612,61 @@
           "verb": "waters",
           "plural_verb": "water",
           "object": "the orchard",
-          "kind": "transitive"
+          "kind": "transitive",
+          "consequence": "blooms"
         },
         "shared_edge": {
           "subject": "merchant",
           "predicate": "water",
           "object": "the orchard"
         },
-        "second_participant_edge": null
+        "second_participant_edge": null,
+        "second_event_edge": {
+          "source": "water",
+          "relation": "causes",
+          "target": "blooms"
+        }
       },
-      "rendered": "a careful merchant waters the orchard; a careful merchant waters the orchard beside the clear path.",
+      "rendered": "a careful merchant waters the orchard; a careful merchant waters the orchard beside the clear path, and a careful merchant blooms.",
       "left_clause": "a careful merchant waters the orchard",
-      "right_clause": "a careful merchant waters the orchard beside the clear path",
+      "right_clause": "a careful merchant waters the orchard beside the clear path, and a careful merchant blooms",
       "obligations": [
         {
           "step": 0,
           "left_token": "a",
-          "right_token": "path",
+          "right_token": "blooms",
           "left_char": "a",
-          "required_right_char": "h",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "careful",
-          "right_token": "clear",
+          "right_token": "merchant",
           "left_char": "c",
-          "required_right_char": "r",
+          "required_right_char": "t",
           "compatible": false
         },
         {
           "step": 2,
           "left_token": "merchant",
-          "right_token": "the",
+          "right_token": "careful",
           "left_char": "m",
-          "required_right_char": "e",
+          "required_right_char": "l",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "waters",
-          "right_token": "beside",
+          "right_token": "a",
           "left_char": "w",
-          "required_right_char": "e",
+          "required_right_char": "a",
           "compatible": false
         },
         {
           "step": 4,
           "left_token": "the",
-          "right_token": "orchard",
+          "right_token": "and",
           "left_char": "t",
           "required_right_char": "d",
           "compatible": false
@@ -637,22 +674,22 @@
         {
           "step": 5,
           "left_token": "orchard",
-          "right_token": "the",
+          "right_token": "path,",
           "left_char": "o",
-          "required_right_char": "e",
+          "required_right_char": "h",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 82,
+        "letters": 107,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "a",
-          "h"
+          "s"
         ],
-        "sha256_forward": "00fbfbb83a2a03085ae6fb6689094402de2cfe0aa2520f4cb0c9f1d7a66fe1ec",
-        "sha256_reverse": "0a2978186b7a8e121beaf7eff0fe7a9abdd524c9e8bec99182b99cb97d34dd18",
+        "sha256_forward": "289d20417d8f97c6eeb3a94bd5856695f2ad1398a36e2aad88690940f5251c91",
+        "sha256_reverse": "a23567421f6e5be99671980d034f4862f671f70c3d8fb8cb5acd8a39dc0cbef1",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -679,78 +716,84 @@
           "verb": "carries",
           "plural_verb": "carry",
           "object": "a letter",
-          "kind": "transitive"
+          "kind": "transitive",
+          "consequence": "waits"
         },
         "shared_edge": {
           "subject": "merchant",
           "predicate": "carry",
           "object": "a letter"
         },
-        "second_participant_edge": null
+        "second_participant_edge": null,
+        "second_event_edge": {
+          "source": "carry",
+          "relation": "causes",
+          "target": "waits"
+        }
       },
-      "rendered": "a careful merchant carries a letter; a careful merchant carries a letter beside the clear path.",
+      "rendered": "a careful merchant carries a letter; a careful merchant carries a letter beside the clear path, and a careful merchant waits.",
       "left_clause": "a careful merchant carries a letter",
-      "right_clause": "a careful merchant carries a letter beside the clear path",
+      "right_clause": "a careful merchant carries a letter beside the clear path, and a careful merchant waits",
       "obligations": [
         {
           "step": 0,
           "left_token": "a",
-          "right_token": "path",
+          "right_token": "waits",
           "left_char": "a",
-          "required_right_char": "h",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "careful",
-          "right_token": "clear",
+          "right_token": "merchant",
           "left_char": "c",
-          "required_right_char": "r",
+          "required_right_char": "t",
           "compatible": false
         },
         {
           "step": 2,
           "left_token": "merchant",
-          "right_token": "the",
+          "right_token": "careful",
           "left_char": "m",
-          "required_right_char": "e",
+          "required_right_char": "l",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "carries",
-          "right_token": "beside",
+          "right_token": "a",
           "left_char": "c",
-          "required_right_char": "e",
+          "required_right_char": "a",
           "compatible": false
         },
         {
           "step": 4,
           "left_token": "a",
-          "right_token": "letter",
+          "right_token": "and",
           "left_char": "a",
-          "required_right_char": "r",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 5,
           "left_token": "letter",
-          "right_token": "a",
+          "right_token": "path,",
           "left_char": "l",
-          "required_right_char": "a",
+          "required_right_char": "h",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 78,
+        "letters": 102,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "a",
-          "h"
+          "s"
         ],
-        "sha256_forward": "49ef6118d77837015a8695e39fab3bae73471a7db4cdf99987afd302f38345ab",
-        "sha256_reverse": "3bb656da447d1818cc573039530c422fd9dbb1b9c25f82710b48a15d99952d52",
+        "sha256_forward": "70e037b423756d255c1d154872f773f88ddd26d5aadd0629177299ff2ed2c511",
+        "sha256_reverse": "0dad8aa0d88daeb3f956442108e8c28a53a4c9331ea5109760ae65a1ee56daf7",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -777,86 +820,92 @@
           "verb": "watches",
           "plural_verb": "watch",
           "object": "the quiet harbor",
-          "kind": "transitive"
+          "kind": "transitive",
+          "consequence": "gleams"
         },
         "shared_edge": {
           "subject": "merchant",
           "predicate": "watch",
           "object": "the quiet harbor"
         },
-        "second_participant_edge": null
+        "second_participant_edge": null,
+        "second_event_edge": {
+          "source": "watch",
+          "relation": "causes",
+          "target": "gleams"
+        }
       },
-      "rendered": "a careful merchant watches the quiet harbor; a careful merchant watches the quiet harbor beside the clear path.",
+      "rendered": "a careful merchant watches the quiet harbor; a careful merchant watches the quiet harbor beside the clear path, and a careful merchant gleams.",
       "left_clause": "a careful merchant watches the quiet harbor",
-      "right_clause": "a careful merchant watches the quiet harbor beside the clear path",
+      "right_clause": "a careful merchant watches the quiet harbor beside the clear path, and a careful merchant gleams",
       "obligations": [
         {
           "step": 0,
           "left_token": "a",
-          "right_token": "path",
+          "right_token": "gleams",
           "left_char": "a",
-          "required_right_char": "h",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "careful",
-          "right_token": "clear",
+          "right_token": "merchant",
           "left_char": "c",
-          "required_right_char": "r",
+          "required_right_char": "t",
           "compatible": false
         },
         {
           "step": 2,
           "left_token": "merchant",
-          "right_token": "the",
+          "right_token": "careful",
           "left_char": "m",
-          "required_right_char": "e",
+          "required_right_char": "l",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "watches",
-          "right_token": "beside",
+          "right_token": "a",
           "left_char": "w",
-          "required_right_char": "e",
+          "required_right_char": "a",
           "compatible": false
         },
         {
           "step": 4,
           "left_token": "the",
-          "right_token": "harbor",
+          "right_token": "and",
           "left_char": "t",
-          "required_right_char": "r",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 5,
           "left_token": "quiet",
-          "right_token": "quiet",
+          "right_token": "path,",
           "left_char": "q",
-          "required_right_char": "t",
+          "required_right_char": "h",
           "compatible": false
         },
         {
           "step": 6,
           "left_token": "harbor",
-          "right_token": "the",
+          "right_token": "clear",
           "left_char": "h",
-          "required_right_char": "e",
+          "required_right_char": "r",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 92,
+        "letters": 117,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "a",
-          "h"
+          "s"
         ],
-        "sha256_forward": "191e72c336c14228c569041d4916a36688ef25d97a6ad5a97deabc18291d3705",
-        "sha256_reverse": "314dabcf08700fa73df66287452888e684eba80d9722339309685cb98d49cf40",
+        "sha256_forward": "a3f65a3a260438138264a66b90cf7c05c8bd536033bc660bca74da7d4254858e",
+        "sha256_reverse": "1aae8291f407bd2d49c6e3a0f6ded19456791c0945f8ff9cadb4327be0b3d46f",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -884,7 +933,8 @@
           "plural_verb": "rest",
           "prep": "in",
           "object": "the old garden",
-          "kind": "locative"
+          "kind": "locative",
+          "consequence": "recovers"
         },
         "shared_edge": {
           "subject": "merchant",
@@ -895,64 +945,69 @@
           "subject": "merchant",
           "predicate": "located-at",
           "preposition": "in"
+        },
+        "second_event_edge": {
+          "source": "rest",
+          "relation": "causes",
+          "target": "recovers"
         }
       },
-      "rendered": "a careful merchant rests in the old garden; a careful merchant rests in the old garden near the stone wall.",
+      "rendered": "a careful merchant rests in the old garden; a careful merchant rests in the old garden near the stone wall, and a careful merchant recovers.",
       "left_clause": "a careful merchant rests in the old garden",
-      "right_clause": "a careful merchant rests in the old garden near the stone wall",
+      "right_clause": "a careful merchant rests in the old garden near the stone wall, and a careful merchant recovers",
       "obligations": [
         {
           "step": 0,
           "left_token": "a",
-          "right_token": "wall",
+          "right_token": "recovers",
           "left_char": "a",
-          "required_right_char": "l",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "careful",
-          "right_token": "stone",
+          "right_token": "merchant",
           "left_char": "c",
-          "required_right_char": "e",
+          "required_right_char": "t",
           "compatible": false
         },
         {
           "step": 2,
           "left_token": "merchant",
-          "right_token": "the",
+          "right_token": "careful",
           "left_char": "m",
-          "required_right_char": "e",
+          "required_right_char": "l",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "rests",
-          "right_token": "near",
+          "right_token": "a",
           "left_char": "r",
-          "required_right_char": "r",
-          "compatible": true
+          "required_right_char": "a",
+          "compatible": false
         },
         {
           "step": 4,
           "left_token": "in",
-          "right_token": "garden",
+          "right_token": "and",
           "left_char": "i",
-          "required_right_char": "n",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 5,
           "left_token": "the",
-          "right_token": "old",
+          "right_token": "wall,",
           "left_char": "t",
-          "required_right_char": "d",
+          "required_right_char": "l",
           "compatible": false
         },
         {
           "step": 6,
           "left_token": "old",
-          "right_token": "the",
+          "right_token": "stone",
           "left_char": "o",
           "required_right_char": "e",
           "compatible": false
@@ -960,22 +1015,22 @@
         {
           "step": 7,
           "left_token": "garden",
-          "right_token": "in",
+          "right_token": "the",
           "left_char": "g",
-          "required_right_char": "n",
+          "required_right_char": "e",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 86,
+        "letters": 113,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "a",
-          "l"
+          "s"
         ],
-        "sha256_forward": "cda3a220b763f97e3124ebcf68cc3c4a1c936a063d698e00c7e0acc7e870b0ce",
-        "sha256_reverse": "896fd994dc599022d58299d8799f113fee3258b41a468292611617a4a1337297",
+        "sha256_forward": "c7038eec37405ab2e8048cef1dda698ebd4135f7ce1c838f2f99ad4808c82438",
+        "sha256_reverse": "0259111d03a309f2b07414526afc74297623bb3dd96987dc7e156e96023f14f5",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1003,7 +1058,8 @@
           "plural_verb": "give",
           "recipient_id": "child",
           "object": "a bright kite",
-          "kind": "ditransitive"
+          "kind": "ditransitive",
+          "consequence": "smiles"
         },
         "shared_edge": {
           "subject": "merchant",
@@ -1014,26 +1070,31 @@
           "subject": "child",
           "predicate": "recipient",
           "agreement": "singular"
+        },
+        "second_event_edge": {
+          "source": "give",
+          "relation": "causes",
+          "target": "smiles"
         }
       },
-      "rendered": "a careful merchant gives the child a bright kite; a careful merchant gives the child a bright kite before the open gate.",
+      "rendered": "a careful merchant gives the child a bright kite; a careful merchant gives the child a bright kite before the open gate, and the child smiles.",
       "left_clause": "a careful merchant gives the child a bright kite",
-      "right_clause": "a careful merchant gives the child a bright kite before the open gate",
+      "right_clause": "a careful merchant gives the child a bright kite before the open gate, and the child smiles",
       "obligations": [
         {
           "step": 0,
           "left_token": "a",
-          "right_token": "gate",
+          "right_token": "smiles",
           "left_char": "a",
-          "required_right_char": "e",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "careful",
-          "right_token": "open",
+          "right_token": "child",
           "left_char": "c",
-          "required_right_char": "n",
+          "required_right_char": "d",
           "compatible": false
         },
         {
@@ -1047,15 +1108,15 @@
         {
           "step": 3,
           "left_token": "gives",
-          "right_token": "before",
+          "right_token": "and",
           "left_char": "g",
-          "required_right_char": "e",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 4,
           "left_token": "the",
-          "right_token": "kite",
+          "right_token": "gate,",
           "left_char": "t",
           "required_right_char": "e",
           "compatible": false
@@ -1063,46 +1124,46 @@
         {
           "step": 5,
           "left_token": "child",
-          "right_token": "bright",
+          "right_token": "open",
           "left_char": "c",
-          "required_right_char": "t",
+          "required_right_char": "n",
           "compatible": false
         },
         {
           "step": 6,
           "left_token": "a",
-          "right_token": "a",
+          "right_token": "the",
           "left_char": "a",
-          "required_right_char": "a",
-          "compatible": true
+          "required_right_char": "e",
+          "compatible": false
         },
         {
           "step": 7,
           "left_token": "bright",
-          "right_token": "child",
+          "right_token": "before",
           "left_char": "b",
-          "required_right_char": "d",
+          "required_right_char": "e",
           "compatible": false
         },
         {
           "step": 8,
           "left_token": "kite",
-          "right_token": "the",
+          "right_token": "kite",
           "left_char": "k",
           "required_right_char": "e",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 97,
+        "letters": 114,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "a",
-          "e"
+          "s"
         ],
-        "sha256_forward": "8e1c2e04c0dfb197a0d6edddc56001dc52ac1463f1d153a9f61d88f66674b10b",
-        "sha256_reverse": "cef4300addc74de1d0727627770be1661c12513e713ca93f421e6848013064c9",
+        "sha256_forward": "c32ff5361f7d9be94df2702c6ec3ea0a940607229599cdc0a12aa01e6959b63b",
+        "sha256_reverse": "e1f9ebfa38c6ad5f309f2864dbf369cc82299236faa4c2ff03b5ef2c50507ae3",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1129,47 +1190,53 @@
           "verb": "waters",
           "plural_verb": "water",
           "object": "the orchard",
-          "kind": "transitive"
+          "kind": "transitive",
+          "consequence": "blooms"
         },
         "shared_edge": {
           "subject": "artists",
           "predicate": "water",
           "object": "the orchard"
         },
-        "second_participant_edge": null
+        "second_participant_edge": null,
+        "second_event_edge": {
+          "source": "water",
+          "relation": "causes",
+          "target": "blooms"
+        }
       },
-      "rendered": "the young artists water the orchard; the young artists water the orchard beside the clear path.",
+      "rendered": "the young artists water the orchard; the young artists water the orchard beside the clear path, and the young artists blooms.",
       "left_clause": "the young artists water the orchard",
-      "right_clause": "the young artists water the orchard beside the clear path",
+      "right_clause": "the young artists water the orchard beside the clear path, and the young artists blooms",
       "obligations": [
         {
           "step": 0,
           "left_token": "the",
-          "right_token": "path",
+          "right_token": "blooms",
           "left_char": "t",
-          "required_right_char": "h",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "young",
-          "right_token": "clear",
+          "right_token": "artists",
           "left_char": "y",
-          "required_right_char": "r",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 2,
           "left_token": "artists",
-          "right_token": "the",
+          "right_token": "young",
           "left_char": "a",
-          "required_right_char": "e",
+          "required_right_char": "g",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "water",
-          "right_token": "beside",
+          "right_token": "the",
           "left_char": "w",
           "required_right_char": "e",
           "compatible": false
@@ -1177,7 +1244,7 @@
         {
           "step": 4,
           "left_token": "the",
-          "right_token": "orchard",
+          "right_token": "and",
           "left_char": "t",
           "required_right_char": "d",
           "compatible": false
@@ -1185,22 +1252,22 @@
         {
           "step": 5,
           "left_token": "orchard",
-          "right_token": "the",
+          "right_token": "path,",
           "left_char": "o",
-          "required_right_char": "e",
+          "required_right_char": "h",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 78,
+        "letters": 102,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
-          "h"
+          "s"
         ],
-        "sha256_forward": "248bfbec702632b91372531228e7f913c97e96388fe73c5e7ddff504a0e34509",
-        "sha256_reverse": "9ec8e36db0abd19f6e9450219d701e7e2ae9b9e896d1fec01b9b3a6362d25e25",
+        "sha256_forward": "0b2dd279b2bdf5a31fd00497f30492d5a985695f3959277c923e2164a2a39ab5",
+        "sha256_reverse": "c0b5fffe26ea46d1bf4f5b94c54257bbad31f0b743e216f4e579dc7ea2356898",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1227,47 +1294,53 @@
           "verb": "carries",
           "plural_verb": "carry",
           "object": "a letter",
-          "kind": "transitive"
+          "kind": "transitive",
+          "consequence": "waits"
         },
         "shared_edge": {
           "subject": "artists",
           "predicate": "carry",
           "object": "a letter"
         },
-        "second_participant_edge": null
+        "second_participant_edge": null,
+        "second_event_edge": {
+          "source": "carry",
+          "relation": "causes",
+          "target": "waits"
+        }
       },
-      "rendered": "the young artists carry a letter; the young artists carry a letter beside the clear path.",
+      "rendered": "the young artists carry a letter; the young artists carry a letter beside the clear path, and the young artists waits.",
       "left_clause": "the young artists carry a letter",
-      "right_clause": "the young artists carry a letter beside the clear path",
+      "right_clause": "the young artists carry a letter beside the clear path, and the young artists waits",
       "obligations": [
         {
           "step": 0,
           "left_token": "the",
-          "right_token": "path",
+          "right_token": "waits",
           "left_char": "t",
-          "required_right_char": "h",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "young",
-          "right_token": "clear",
+          "right_token": "artists",
           "left_char": "y",
-          "required_right_char": "r",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 2,
           "left_token": "artists",
-          "right_token": "the",
+          "right_token": "young",
           "left_char": "a",
-          "required_right_char": "e",
+          "required_right_char": "g",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "carry",
-          "right_token": "beside",
+          "right_token": "the",
           "left_char": "c",
           "required_right_char": "e",
           "compatible": false
@@ -1275,30 +1348,30 @@
         {
           "step": 4,
           "left_token": "a",
-          "right_token": "letter",
+          "right_token": "and",
           "left_char": "a",
-          "required_right_char": "r",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 5,
           "left_token": "letter",
-          "right_token": "a",
+          "right_token": "path,",
           "left_char": "l",
-          "required_right_char": "a",
+          "required_right_char": "h",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 72,
+        "letters": 95,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
-          "h"
+          "s"
         ],
-        "sha256_forward": "a84f51caf5be5d83fdfe3306f3651f7af8dad53b9a11146baeff6b15f9e7af2f",
-        "sha256_reverse": "d702fa5d271b64463b2ae48237a6d59ed80faae5b0cd05214f4fdcb9e1eeb1dc",
+        "sha256_forward": "56e51aeb72910e522b96c57ba5302205062370df87fe2e731429c165609420eb",
+        "sha256_reverse": "8bfcd50303f334cf0b0dd92e2f3587292f0fd6629171e3e10e5c00ca4cb6ad06",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1325,47 +1398,53 @@
           "verb": "watches",
           "plural_verb": "watch",
           "object": "the quiet harbor",
-          "kind": "transitive"
+          "kind": "transitive",
+          "consequence": "gleams"
         },
         "shared_edge": {
           "subject": "artists",
           "predicate": "watch",
           "object": "the quiet harbor"
         },
-        "second_participant_edge": null
+        "second_participant_edge": null,
+        "second_event_edge": {
+          "source": "watch",
+          "relation": "causes",
+          "target": "gleams"
+        }
       },
-      "rendered": "the young artists watch the quiet harbor; the young artists watch the quiet harbor beside the clear path.",
+      "rendered": "the young artists watch the quiet harbor; the young artists watch the quiet harbor beside the clear path, and the young artists gleams.",
       "left_clause": "the young artists watch the quiet harbor",
-      "right_clause": "the young artists watch the quiet harbor beside the clear path",
+      "right_clause": "the young artists watch the quiet harbor beside the clear path, and the young artists gleams",
       "obligations": [
         {
           "step": 0,
           "left_token": "the",
-          "right_token": "path",
+          "right_token": "gleams",
           "left_char": "t",
-          "required_right_char": "h",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "young",
-          "right_token": "clear",
+          "right_token": "artists",
           "left_char": "y",
-          "required_right_char": "r",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 2,
           "left_token": "artists",
-          "right_token": "the",
+          "right_token": "young",
           "left_char": "a",
-          "required_right_char": "e",
+          "required_right_char": "g",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "watch",
-          "right_token": "beside",
+          "right_token": "the",
           "left_char": "w",
           "required_right_char": "e",
           "compatible": false
@@ -1373,38 +1452,38 @@
         {
           "step": 4,
           "left_token": "the",
-          "right_token": "harbor",
+          "right_token": "and",
           "left_char": "t",
-          "required_right_char": "r",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 5,
           "left_token": "quiet",
-          "right_token": "quiet",
+          "right_token": "path,",
           "left_char": "q",
-          "required_right_char": "t",
+          "required_right_char": "h",
           "compatible": false
         },
         {
           "step": 6,
           "left_token": "harbor",
-          "right_token": "the",
+          "right_token": "clear",
           "left_char": "h",
-          "required_right_char": "e",
+          "required_right_char": "r",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 86,
+        "letters": 110,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
-          "h"
+          "s"
         ],
-        "sha256_forward": "b6c7f8f1109698ac467e5005656d0bfeb940fa0328bdc80d3326fce02a6177b7",
-        "sha256_reverse": "f943f4b95cbefffe99e5820c8b704d85ea1ffcc000e60bd8aa7273a8f7a6263a",
+        "sha256_forward": "969d1d446e4afe46ec32d135a7cdebac00a482ba585a29e7c1e1eff01f9e77b9",
+        "sha256_reverse": "fdebc31bada0f75092981473166c996ccf295e1cf34b306d5a1e1f6e305b5151",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1432,7 +1511,8 @@
           "plural_verb": "rest",
           "prep": "in",
           "object": "the old garden",
-          "kind": "locative"
+          "kind": "locative",
+          "consequence": "recovers"
         },
         "shared_edge": {
           "subject": "artists",
@@ -1443,64 +1523,69 @@
           "subject": "artists",
           "predicate": "located-at",
           "preposition": "in"
+        },
+        "second_event_edge": {
+          "source": "rest",
+          "relation": "causes",
+          "target": "recovers"
         }
       },
-      "rendered": "the young artists rest in the old garden; the young artists rest in the old garden near the stone wall.",
+      "rendered": "the young artists rest in the old garden; the young artists rest in the old garden near the stone wall, and the young artists recovers.",
       "left_clause": "the young artists rest in the old garden",
-      "right_clause": "the young artists rest in the old garden near the stone wall",
+      "right_clause": "the young artists rest in the old garden near the stone wall, and the young artists recovers",
       "obligations": [
         {
           "step": 0,
           "left_token": "the",
-          "right_token": "wall",
+          "right_token": "recovers",
           "left_char": "t",
-          "required_right_char": "l",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "young",
-          "right_token": "stone",
+          "right_token": "artists",
           "left_char": "y",
-          "required_right_char": "e",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 2,
           "left_token": "artists",
-          "right_token": "the",
+          "right_token": "young",
           "left_char": "a",
-          "required_right_char": "e",
+          "required_right_char": "g",
           "compatible": false
         },
         {
           "step": 3,
           "left_token": "rest",
-          "right_token": "near",
+          "right_token": "the",
           "left_char": "r",
-          "required_right_char": "r",
-          "compatible": true
+          "required_right_char": "e",
+          "compatible": false
         },
         {
           "step": 4,
           "left_token": "in",
-          "right_token": "garden",
+          "right_token": "and",
           "left_char": "i",
-          "required_right_char": "n",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 5,
           "left_token": "the",
-          "right_token": "old",
+          "right_token": "wall,",
           "left_char": "t",
-          "required_right_char": "d",
+          "required_right_char": "l",
           "compatible": false
         },
         {
           "step": 6,
           "left_token": "old",
-          "right_token": "the",
+          "right_token": "stone",
           "left_char": "o",
           "required_right_char": "e",
           "compatible": false
@@ -1508,22 +1593,22 @@
         {
           "step": 7,
           "left_token": "garden",
-          "right_token": "in",
+          "right_token": "the",
           "left_char": "g",
-          "required_right_char": "n",
+          "required_right_char": "e",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 82,
+        "letters": 108,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
-          "l"
+          "s"
         ],
-        "sha256_forward": "edf429b371ba63caeabded1807d13c8e0ee96e50f4c2a0f2342f0ce231fbde00",
-        "sha256_reverse": "0dd6371c9c5a3e635b360d808a78cf31bfb802a38d9706fbd33039c7a8c02bd7",
+        "sha256_forward": "72a6e6bcca2db0d342e007726e66da232a73903f235140e84f3f38db647dfefd",
+        "sha256_reverse": "61ef14cfdf312d3055c86bbd912dd6f29775c2b6b15ebe108065c6f53256c307",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1551,7 +1636,8 @@
           "plural_verb": "give",
           "recipient_id": "child",
           "object": "a bright kite",
-          "kind": "ditransitive"
+          "kind": "ditransitive",
+          "consequence": "smiles"
         },
         "shared_edge": {
           "subject": "artists",
@@ -1562,26 +1648,31 @@
           "subject": "child",
           "predicate": "recipient",
           "agreement": "singular"
+        },
+        "second_event_edge": {
+          "source": "give",
+          "relation": "causes",
+          "target": "smiles"
         }
       },
-      "rendered": "the young artists give the child a bright kite; the young artists give the child a bright kite before the open gate.",
+      "rendered": "the young artists give the child a bright kite; the young artists give the child a bright kite before the open gate, and the child smiles.",
       "left_clause": "the young artists give the child a bright kite",
-      "right_clause": "the young artists give the child a bright kite before the open gate",
+      "right_clause": "the young artists give the child a bright kite before the open gate, and the child smiles",
       "obligations": [
         {
           "step": 0,
           "left_token": "the",
-          "right_token": "gate",
+          "right_token": "smiles",
           "left_char": "t",
-          "required_right_char": "e",
+          "required_right_char": "s",
           "compatible": false
         },
         {
           "step": 1,
           "left_token": "young",
-          "right_token": "open",
+          "right_token": "child",
           "left_char": "y",
-          "required_right_char": "n",
+          "required_right_char": "d",
           "compatible": false
         },
         {
@@ -1595,15 +1686,15 @@
         {
           "step": 3,
           "left_token": "give",
-          "right_token": "before",
+          "right_token": "and",
           "left_char": "g",
-          "required_right_char": "e",
+          "required_right_char": "d",
           "compatible": false
         },
         {
           "step": 4,
           "left_token": "the",
-          "right_token": "kite",
+          "right_token": "gate,",
           "left_char": "t",
           "required_right_char": "e",
           "compatible": false
@@ -1611,46 +1702,46 @@
         {
           "step": 5,
           "left_token": "child",
-          "right_token": "bright",
+          "right_token": "open",
           "left_char": "c",
-          "required_right_char": "t",
+          "required_right_char": "n",
           "compatible": false
         },
         {
           "step": 6,
           "left_token": "a",
-          "right_token": "a",
+          "right_token": "the",
           "left_char": "a",
-          "required_right_char": "a",
-          "compatible": true
+          "required_right_char": "e",
+          "compatible": false
         },
         {
           "step": 7,
           "left_token": "bright",
-          "right_token": "child",
+          "right_token": "before",
           "left_char": "b",
-          "required_right_char": "d",
+          "required_right_char": "e",
           "compatible": false
         },
         {
           "step": 8,
           "left_token": "kite",
-          "right_token": "the",
+          "right_token": "kite",
           "left_char": "k",
           "required_right_char": "e",
           "compatible": false
         }
       ],
       "audit": {
-        "letters": 93,
+        "letters": 110,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
-          "e"
+          "s"
         ],
-        "sha256_forward": "c98bbf9f6691885db85c912e3383cab76e2ea1eb3d08664b0123b2c9e4c5c2bd",
-        "sha256_reverse": "09f420358930d8e6eeaf8ca91d4e60c5ba5c5e44b88b2b7d119efa2562939208",
+        "sha256_forward": "63be596f7d7fccd7301f8e99273915343bdfa31185d3d43daddf4b434132d84b",
+        "sha256_reverse": "2d9f803ef0d5100e13dbd7b7a2447faca204ceb14053037743df7527b40e2355",
         "sha_equal": false
       },
       "complete_prose": true,
@@ -1705,21 +1796,21 @@
     ],
     "reader_gate": "closed; controls retained",
     "rendered_output_hashes": [
-      "c38386c845241610b92e97b43ae23f030425b4c5cd71eda0b2679b649fbc5f0d",
-      "40dc1c168d87c7edd207c207b16af2a00bd0bf267b5a01b5d6838b4666a0f6ed",
-      "5c16f11a16d9e7ef781b2e6e1efa12f639cb7cd624bb3726b0835c208879b22b",
-      "5002fa3c9467a9f7651758e58eb8d1e6b26e84deb8d89c61687b9b10ef2ae46f",
-      "bb00235598022e726be54f47c3a17c564d8b9da89a5f18192671c4475b1fe2ff",
-      "00fbfbb83a2a03085ae6fb6689094402de2cfe0aa2520f4cb0c9f1d7a66fe1ec",
-      "49ef6118d77837015a8695e39fab3bae73471a7db4cdf99987afd302f38345ab",
-      "191e72c336c14228c569041d4916a36688ef25d97a6ad5a97deabc18291d3705",
-      "cda3a220b763f97e3124ebcf68cc3c4a1c936a063d698e00c7e0acc7e870b0ce",
-      "8e1c2e04c0dfb197a0d6edddc56001dc52ac1463f1d153a9f61d88f66674b10b",
-      "248bfbec702632b91372531228e7f913c97e96388fe73c5e7ddff504a0e34509",
-      "a84f51caf5be5d83fdfe3306f3651f7af8dad53b9a11146baeff6b15f9e7af2f",
-      "b6c7f8f1109698ac467e5005656d0bfeb940fa0328bdc80d3326fce02a6177b7",
-      "edf429b371ba63caeabded1807d13c8e0ee96e50f4c2a0f2342f0ce231fbde00",
-      "c98bbf9f6691885db85c912e3383cab76e2ea1eb3d08664b0123b2c9e4c5c2bd"
+      "df404eefe96c81491ece13833c7b50077bfac52a7d3d45aa599491ee5c5b9a1c",
+      "2f64adfa0b0946ea9f143e878dc235fbddb7ad1a595a5a21c2bc6863c662c150",
+      "d0021dfd044eeade57b3bdf55b7c5be964e8cbe7ac229d83945e5a5c2f76803a",
+      "9a23e7ffc287a611416198baf1718579f4d50ae7895905ba31b35f98cfefe4ca",
+      "e17efaa6390d6951cedc3fe033206c756a97169a08de73f009b88517704473b4",
+      "289d20417d8f97c6eeb3a94bd5856695f2ad1398a36e2aad88690940f5251c91",
+      "70e037b423756d255c1d154872f773f88ddd26d5aadd0629177299ff2ed2c511",
+      "a3f65a3a260438138264a66b90cf7c05c8bd536033bc660bca74da7d4254858e",
+      "c7038eec37405ab2e8048cef1dda698ebd4135f7ce1c838f2f99ad4808c82438",
+      "c32ff5361f7d9be94df2702c6ec3ea0a940607229599cdc0a12aa01e6959b63b",
+      "0b2dd279b2bdf5a31fd00497f30492d5a985695f3959277c923e2164a2a39ab5",
+      "56e51aeb72910e522b96c57ba5302205062370df87fe2e731429c165609420eb",
+      "969d1d446e4afe46ec32d135a7cdebac00a482ba585a29e7c1e1eff01f9e77b9",
+      "72a6e6bcca2db0d342e007726e66da232a73903f235140e84f3f38db647dfefd",
+      "63be596f7d7fccd7301f8e99273915343bdfa31185d3d43daddf4b434132d84b"
     ]
   },
   "next_construction": {

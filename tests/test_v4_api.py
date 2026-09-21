@@ -171,6 +171,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["clause_chunk_equation_run"]["exact_candidates_over_38"] == 0
     assert method.json()["typed_residual_clause_continuation_run"]["continuation_keys"] == 4
     assert method.json()["typed_residual_clause_continuation_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["three_char_emission_residual_run"]["derived_keys"] == 5
+    assert method.json()["three_char_emission_residual_run"]["exact_candidates_over_38"] == 0
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

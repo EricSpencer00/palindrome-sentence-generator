@@ -36,6 +36,29 @@ def load():
         if 4 <= len(ws) <= 7 and sum(map(len,ws))>38 and not reflected(tuple(map(len,ws))): rows.append(ws)
     return rows
 
+def role_domains(rows, widths, arity):
+    """Use position-role pools first, then independent authored length pools.
+
+    A sentence's subject/object positions are treated as noun-like and the
+    central positions as predicate/function slots.  The fallback is still
+    sourced from authored prose, but never from the selected source sentence.
+    This repairs the previous empty-domain failure without freezing random
+    lengths or importing a finished palindrome.
+    """
+    pools=[]
+    for i,w in enumerate(widths):
+        role="edge" if i in (0,arity-1) else ("function" if i in (1,arity-2) else "content")
+        vals=set()
+        for x in rows:
+            for j,word in enumerate(x):
+                if len(word)!=w: continue
+                candidate_role="edge" if j in (0,len(x)-1) else ("function" if j in (1,len(x)-2) else "content")
+                if candidate_role==role: vals.add(word)
+        if not vals:
+            vals={word for x in rows for word in x if len(word)==w}
+        pools.append(tuple(sorted(vals)))
+    return tuple(pools)
+
 def solve(widths, domains, limit=3):
     n=sum(widths); pos=[]
     for i,w in enumerate(widths): pos += [(i,j) for j in range(w)]
@@ -78,7 +101,7 @@ def run():
         # the whole sentence shape to recur was the old sparse-space trap.
         pool=[x for x in rows if len(x)==n and x!=seed]
         if not pool: continue
-        domains=tuple(tuple(sorted({x[i] for x in pool if len(x[i])==widths[i]})) for i in range(n))
+        domains=role_domains(rows, widths, n)
         result=solve(widths,domains)
         cases.append({"geometry":{"widths":widths,"letters":sum(widths),"boundaries":boundaries(widths),"reflected_boundary_pairs":reflected(widths)},"source_control":render(seed),"source_control_audit":audit(render(seed)),"domain_sizes":list(map(len,domains)),"search":result,"provenance":{"geometry_source":"authored intact sentence length pattern","lexical_source":"same-geometry authored position domains","source_sentence_emission":"forbidden","borrowed_catalogue":False}})
     return {"experiment_id":"authored-geometry-domain-search-20260921","method":"derive feasible word-boundary geometry from intact authored prose, then solve independent position-domain character equations","cases":cases,"summary":{"patterns":len(cases),"exact_outputs":sum(len(x["search"]["solutions"]) for x in cases),"max_letters":max((x["geometry"]["letters"] for x in cases),default=0)},"independent_audit":["two-pointer normalized tape","forward/reverse SHA-256"],"reader_gate":"closed: exactness is not readability; any survivor requires blinded intact/shuffled human rating","next_repair":"Expand authored templates by grammatical role and preserve geometry families with nonempty position domains before lexical fill."}

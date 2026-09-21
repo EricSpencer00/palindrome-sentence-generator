@@ -1,0 +1,126 @@
+{
+  "experiment_id": "api-inspired-unresolved-relation-hole-20260920",
+  "method": "lazy bilateral grammar atoms with unresolved semantic relation terminal",
+  "stats": {
+    "scenes": 3,
+    "exact": 0,
+    "exact_over_38": 0,
+    "clean_exact": 0,
+    "ordinary_controls": 3,
+    "states": 9,
+    "pruned": 18
+  },
+  "scene_stats": {
+    "harbor": {
+      "states": 3,
+      "deduplicated_states": 3,
+      "pruned": 6,
+      "best": {
+        "matched": 1,
+        "rendered": "the sailor; the inlet.",
+        "reason": "live atom seam"
+      }
+    },
+    "clinic": {
+      "states": 5,
+      "deduplicated_states": 5,
+      "pruned": 6,
+      "best": {
+        "matched": 1,
+        "rendered": "the nurse; the chart.",
+        "reason": "live atom seam"
+      }
+    },
+    "workshop": {
+      "states": 1,
+      "deduplicated_states": 1,
+      "pruned": 6,
+      "best": {
+        "matched": 0,
+        "rendered": null,
+        "reason": "no live character pair"
+      }
+    }
+  },
+  "exact_candidates": [],
+  "ordinary_controls": [
+    {
+      "rendered": "The sailor marks the inlet while the keeper notes the buoy.",
+      "audit": {
+        "letters": 48,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "y"
+        ],
+        "sha256_forward": "e172bcf186026a60d999cbf50a23bc7f091409d9d7b0ef5e88dfd37276d52787",
+        "sha256_reverse": "e135454ba1fa18dc0975ad7d325c9b5b39b02774f85f1f30f89282a1b49236e1"
+      },
+      "provenance": {
+        "fresh_authored_control": true,
+        "reader_eligible": false
+      }
+    },
+    {
+      "rendered": "The nurse checks the chart before the doctor opens the cabinet.",
+      "audit": {
+        "letters": 52,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "2f62fcb8bed357fc8121143a7d936554c509cad1cf451178286bd066fa47174e",
+        "sha256_reverse": "d7bea5550b8ecd52193de4337499b45a7b9d8bb377c0085388bea5bb545f24d6"
+      },
+      "provenance": {
+        "fresh_authored_control": true,
+        "reader_eligible": false
+      }
+    },
+    {
+      "rendered": "A baker warms the oven after the miller moves the tray.",
+      "audit": {
+        "letters": 44,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "y"
+        ],
+        "sha256_forward": "700e3fda90eed310dce67ebac1c33cc14fec8954365b2ecec01ab848718b3e49",
+        "sha256_reverse": "ccf84072c4b43d7295b50ed15590583ecd01cec3a42f038f21c76c4e5035865d"
+      },
+      "provenance": {
+        "fresh_authored_control": true,
+        "reader_eligible": false
+      }
+    }
+  ],
+  "reader_facing_candidates": [],
+  "provenance": {
+    "fresh_authored_inventory": true,
+    "relation_chosen_after_character_filter": true,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "repeated_units": false,
+    "independent_audits": [
+      "two-pointer normalized tape",
+      "forward/reverse SHA-256"
+    ]
+  },
+  "novelty_preflight": {
+    "signature": "api-mirror-state|lazy-grammar-stacks|unresolved-relation-hole|online-filter",
+    "registry_inspected": true,
+    "distinct_from": [
+      "complete center-relation frame product",
+      "complete semantic seam pair"
+    ],
+    "falsifier": "if leaving the relation terminal unresolved changes no reachable state versus pre-resolved terminals, retire this representation"
+  },
+  "status": "no exact closure",
+  "next_construction": "permit variable-length grammar continuations after the relation hole while retaining online option filtering"
+}

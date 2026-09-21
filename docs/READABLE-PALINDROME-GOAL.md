@@ -106,6 +106,17 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   unresolved character-level grammar states under the same relation constraint
   (`runs/api-inspired-center-relation-transducer-20260920.json`).
 
+- **Unresolved relation-hole frontier.** The next implementation kept the
+  connective as a typed set of five authored terminals rather than choosing a
+  complete relation word up front. Subject/verb/object atoms were expanded
+  lazily and the hole was filtered by opposing characters only when a grammar
+  stack reached it. The three ordinary controls remain readable, but the
+  outer atom seam pruned all branches after at most one matched character
+  (`9` visited states, `18` prunes, `0` exact closures). This is a concrete
+  failure of the current lexical envelope; the next state must allow
+  variable-length grammar continuations before the relation hole, not widen
+  the same atom bank (`runs/api-inspired-unresolved-relation-hole-20260920.json`).
+
 - **Scaled executable event lattice.** The frozen 27-event, 54-realization
   lattice expanded 729 event pairs, rejected 727 on semantic preconditions,
   and left eight live character-obligation states; zero exact closures survived.

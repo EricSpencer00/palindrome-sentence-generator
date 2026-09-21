@@ -1,15 +1,16 @@
 {
   "experiment_id": "graph-unification-attachment-20260921",
-  "method": "graph-unification dependency solver with held-out resultative-causation attachment; bilateral mirrored-character support domains intersected during incremental yield",
+  "method": "graph-unification dependency solver with held-out concessive-result attachment; bilateral mirrored-character support domains intersected during incremental yield",
   "stats": {
-    "trees": 7,
-    "graph_edges": 42,
-    "online_support_checks": 60,
-    "online_prunes": 42,
+    "trees": 8,
+    "graph_edges": 56,
+    "online_support_checks": 83,
+    "online_prunes": 56,
     "rendered_controls": 12,
     "exact_gt38": 0,
-    "max_letters": 133,
-    "manner_frontier_survives_past_first_support_conflict": true
+    "max_letters": 135,
+    "manner_frontier_survives_past_first_support_conflict": true,
+    "resultative_frontier_survives_past_first_support_conflict": true
   },
   "exact_candidates": [],
   "reader_facing_candidates": [],
@@ -389,6 +390,69 @@
       }
     },
     {
+      "rendered": "the careful baker delivered the parcel the warm loaf for the night nurse. the calm gardener kept the young tree alive still although the summer burned.",
+      "trees": {
+        "left": {
+          "kind": "benefactive",
+          "subject": "the careful baker",
+          "verb": "delivered",
+          "recipient": "the parcel",
+          "theme": "the warm loaf",
+          "prep": "for",
+          "beneficiary": "the night nurse"
+        },
+        "right": {
+          "kind": "concessive_result",
+          "subject": "the calm gardener",
+          "verb": "kept",
+          "theme": "the young tree",
+          "result": "alive still",
+          "cause": "although the summer burned",
+          "attachment_index": "event.kept.result->concession"
+        }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "event.kept.result->concession"
+        ],
+        "event_nodes_unified": true
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 2,
+        "domains": "character intersection while streaming terminals",
+        "frontier_survived": true,
+        "frontier_length": 64,
+        "survives_past_first_support_conflict": true
+      },
+      "complete_prose": true,
+      "audit": {
+        "letters": 124,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "57c5e15e21c78239885639ee8d57d6f93a47d2c8a719717008a1c8f1dc8e17f9",
+        "reverse_sha256": "ff3bbe6ab9a0d303f924dd4f21311618e6b467c64de63113cd8e5b6a1654f27a",
+        "repeated_units": true,
+        "nested_self_palindrome": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false
+      },
+      "provenance": {
+        "fresh_authored_dependency_trees": true,
+        "graph_unification_before_render": true,
+        "heldout_attachment": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "reward_loop": false
+      }
+    },
+    {
       "rendered": "a patient teacher prepared the child a clear lesson for the new class. the careful baker delivered the parcel the warm loaf for the night nurse.",
       "trees": {
         "left": {
@@ -698,76 +762,13 @@
         "word_order_symmetry": false,
         "reward_loop": false
       }
-    },
-    {
-      "rendered": "a patient teacher prepared the child a clear lesson for the new class. the patient mason made the old wall strong again after the rain stopped.",
-      "trees": {
-        "left": {
-          "kind": "benefactive",
-          "subject": "a patient teacher",
-          "verb": "prepared",
-          "recipient": "the child",
-          "theme": "a clear lesson",
-          "prep": "for",
-          "beneficiary": "the new class"
-        },
-        "right": {
-          "kind": "resultative_causal",
-          "subject": "the patient mason",
-          "verb": "made",
-          "theme": "the old wall",
-          "result": "strong again",
-          "cause": "after the rain stopped",
-          "attachment_index": "event.made.result->cause"
-        }
-      },
-      "graph_unification": {
-        "attachment_indices": [
-          "root->argument",
-          "event.made.result->cause"
-        ],
-        "event_nodes_unified": true
-      },
-      "online_support": {
-        "accepted": false,
-        "checks": 2,
-        "domains": "character intersection while streaming terminals",
-        "frontier_survived": true,
-        "frontier_length": 60,
-        "survives_past_first_support_conflict": true
-      },
-      "complete_prose": true,
-      "audit": {
-        "letters": 116,
-        "pointer_exact": false,
-        "sha_equal": false,
-        "forward_sha256": "df5a6131a615a43902cc9feab9826768340e5e7523ff1e2b25c4f972b1462e41",
-        "reverse_sha256": "2f6fd3ffe3354968d884b1e4f9647b388f67383817ee24cd5dcab5ea2b3c7b66",
-        "repeated_units": true,
-        "nested_self_palindrome": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false
-      },
-      "provenance": {
-        "fresh_authored_dependency_trees": true,
-        "graph_unification_before_render": true,
-        "heldout_attachment": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "reward_loop": false
-      }
     }
   ],
   "novelty_preflight": {
     "status": "passed",
     "registry_inspected": true,
-    "signature": "fresh-authored|dependency-graph-unification|resultative-causal-event-index|online-character-support",
-    "distinct_from": "manner-causal edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; result attachment index unifies before lexical yield",
+    "signature": "fresh-authored|dependency-graph-unification|concessive-result-event-index|online-character-support",
+    "distinct_from": "resultative-causal edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; concessive result index unifies before lexical yield",
     "forbidden_inputs": [
       "38-letter anchor",
       "finished-tape reversal",
@@ -792,6 +793,6 @@
     ],
     "reader_status": "closed: no exact >=39 candidate"
   },
-  "next_operator": "Hold out a distinct concessive-result event edge only if the resultative frontier survives past its first support conflict.",
+  "next_operator": "Hold out a distinct conditional-result event edge only if this concessive frontier survives past its first support conflict.",
   "status": "no exact >=39 closure; intact ordinary-prose controls retained"
 }

@@ -1,4 +1,4 @@
-"""Lane 5: CFG/Earley character intersection (independent state model).
+"""Fixed-tape chart diagnostic (not an Earley intersection implementation).
 
 The chart state is (nonterminal, production, dot, origin, tape position,
 reverse position); it is deliberately not a word-pair or boundary sweep.
@@ -51,7 +51,7 @@ def main():
     OUT.parent.mkdir(exist_ok=True)
     data = {"experiment_id":"cfg-earley-character-intersection-20260916",
       "signature":"cfg-earley-product|earley-item-dot-origin|character-level-forward-reverse-intersection|epsilon-closure|independent-pointer-hash-audit",
-      "status":"completed_honest_near_miss", "method":"Independent CFG Earley charts retain (nonterminal, production, dot, origin, position) and intersect terminal character obligations against the reversed chart; no word-pair inventory or post-hoc decoder.",
+      "status":"completed_honest_near_miss", "method":"A fixed authored tape is scanned by a minimal character-prefix chart; this implementation does not predict productions or intersect independent Earley charts.",
       "novelty_preflight":{"status":"passed","registry_entries_before_run":178,"signature_overlaps":[],"artifact_collisions":[],"manual_review_required":False},
       "config":{"min_letters":100,"candidate_letters":len(tape),"grammar_nonterminals":len(GRAMMAR),"terminal_mode":"character prefix obligations","post_hoc_decoder":False},
       "candidate":{"text":candidate,"normalized":tape,"letters":len(tape),"intact_prose":True,"classification":"honest near miss (final normalized character differs from its mirror)","provenance":{"source":"authored six-sentence scene seed, fixed before scan","seed":"cfg-earley-character-intersection-20260916","generated_by":"chart_scan + reversed chart intersection"}},

@@ -1,7 +1,8 @@
-"""Joint semantic-slot lattice experiment (no reverse-text realization).
+"""Joint semantic-slot Cartesian-product diagnostic (no reverse-text realization).
 
-The solver assigns lexical items to both sides while propagating character
-equations from the outside inward.  It intentionally reports failures as
+The diagnostic assigns lexical items to both sides in a complete Cartesian
+product and audits finished strings. It does not invoke SMT or propagate
+partial character equations. It intentionally reports failures as
 evidence: a right-hand word is never manufactured by reversing a left string.
 """
 from __future__ import annotations
@@ -50,7 +51,7 @@ def main():
              if not c["is_palindrome"]: pruned += 1
     out = ROOT / "runs/semantic-slot-lattice-smt-20260916"
     out.mkdir(parents=True, exist_ok=True)
-    result = {"method":"semantic slot lattice + global character-equation pruning", "states":states, "pruned":pruned, "rendered_candidates":rendered, "accepted": [x for x in rendered if x["gate"]], "next_repair":"Expand attested lexical inventories and solve residual character equations with a weighted SAT/SMT backend; current tiny inventory demonstrates joint selection but cannot reach 100 letters."}
+    result = {"method":"semantic slot Cartesian product + complete-string audit (SMT not invoked)", "states":states, "pruned":pruned, "rendered_candidates":rendered, "accepted": [x for x in rendered if x["gate"]], "next_repair":"Replace complete-string enumeration with a real transition-level residual-domain solver; only then evaluate whether a SAT/SMT backend is useful. This run does not substantiate online equation propagation."}
     (out / "run.json").write_text(json.dumps(result, indent=2) + "\n")
-    (out / "RESULTS.md").write_text("# Semantic-slot lattice + global character equations\n\n" + f"States: {states}; character-pruned: {pruned}; rendered: {len(rendered)}; accepted (>100 letters): 0.\n\n" + "The joint lattice selects distinct subject/verb/object/adjunct pairs on both sides and applies independent two-pointer and hash checks. No candidate is claimed; the next repair is to add a larger attested inventory and weighted SMT residual solving.\n")
+    (out / "RESULTS.md").write_text("# Semantic-slot Cartesian product diagnostic\n\n" + f"States: {states}; complete strings rendered: {len(rendered)}; accepted (>100 letters): 0. The implementation does not invoke SMT and does not propagate partial character equations.\n\n" + "The nested loops select subject/verb/object/adjunct pairs, then audit each complete concatenation with two-pointer and hash checks. No candidate is claimed. A genuinely new follow-up must attach residual character domains to lexical transitions before rendering; expanding this Cartesian product is not that follow-up.\n")
 if __name__ == "__main__": main()

@@ -1002,12 +1002,12 @@
     },
     {
       "id": "semantic-slot-lattice-smt-20260916",
-      "signature": "semantic-slot-lattice|global-character-equation-pruning|joint-left-right-selection|weighted-residual-repair|independent-audit",
+      "signature": "semantic-slot-cartesian-product|complete-string-palindrome-audit|joint-left-right-selection|no-smt|independent-audit",
       "artifact": "experiments/semantic_slot_lattice_smt.py",
       "run_artifacts": [
         "runs/semantic-slot-lattice-smt-20260916/run.json"
       ],
-      "distinction": "Both sides select typed semantic slots jointly while global character equations prune states before realization; this is not post-hoc reversal or a duplicate seam sweep.",
+      "distinction": "Both sides select typed semantic slots in a complete-string Cartesian product and audit the concatenation; no SMT backend or partial character-equation propagation is implemented, so this is not evidence for an online solver.",
       "reader_evidence": false,
       "status": "diagnostic run; 108 rendered states, 0 accepted"
     },
@@ -3387,7 +3387,7 @@
     },
     {
       "id": "cfg-earley-character-intersection-20260916",
-      "signature": "cfg-earley-product|earley-item-dot-origin|character-level-forward-reverse-intersection|epsilon-closure|independent-pointer-hash-audit",
+      "signature": "fixed-authored-tape-character-scan|nonpredictive-chart-diagnostic|independent-pointer-hash-audit",
       "artifact": "experiments/cfg_earley_character_intersection_20260916.py",
       "run_artifacts": [
         "runs/cfg-earley-character-intersection-20260916.json"
@@ -3396,7 +3396,7 @@
         "cfg-earley-joint-intersection-20260916",
         "earley-finite-state-grammar-intersection-20260916"
       ],
-      "distinction": "Independent forward and reversed Earley item charts intersect terminal character obligations during parsing, with no word-pair inventory or post-hoc decoder; one six-sentence scene is retained.",
+      "distinction": "A fixed authored six-sentence tape is scanned character-by-character by a minimal diagnostic chart; the implementation does not predict productions or intersect two Earley charts, so it is not evidence for an Earley palindrome generator.",
       "reader_evidence": false,
       "status": "run; 270-letter intact prose near miss; 0 exact and 0 mechanically admitted"
     },

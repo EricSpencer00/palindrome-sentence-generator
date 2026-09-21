@@ -1,5 +1,5 @@
-# Semantic-slot lattice + global character equations
+# Semantic-slot Cartesian product diagnostic
 
-States: 108; character-pruned: 108; rendered: 108; accepted (>100 letters): 0.
+States: 108; complete strings rendered: 108; accepted (>100 letters): 0. The implementation does not invoke SMT and does not propagate partial character equations.
 
-The joint lattice selects distinct subject/verb/object/adjunct pairs on both sides and applies independent two-pointer and hash checks. No candidate is claimed; the next repair is to add a larger attested inventory and weighted SMT residual solving.
+The nested loops select subject/verb/object/adjunct pairs, then audit each complete concatenation with two-pointer and hash checks. No candidate is claimed. A genuinely new follow-up must attach residual character domains to lexical transitions before rendering; expanding this Cartesian product is not that follow-up.

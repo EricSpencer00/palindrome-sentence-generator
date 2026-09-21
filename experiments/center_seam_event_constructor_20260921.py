@@ -31,6 +31,7 @@ TEMPLATES = [
     ("two_event_arc", ("det", "subj", "verb", "det", "obj", "prep", "det", "obj")),
     ("named_two_event_arc", ("name", "verb", "det", "obj", "prep", "det", "subj")),
     ("narrative_arc", ("det", "subj", "verb", "det", "obj", "prep", "det", "subj", "verb", "obj")),
+    ("extended_arc", ("det", "subj", "verb", "det", "obj", "prep", "det", "subj", "verb", "prep", "det", "obj")),
 ]
 
 def tape(s: str) -> str:

@@ -8447,3 +8447,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   prefixes and suffixes against the seam character classes before rendering,
   rather than keep adding adjuncts to mismatched endpoints. Artifact:
   `runs/was-np-temporal-np1-seam-20260921.json`.
+
+- **Endpoint-conditioned productive NP seam, 2026-09-21:** replaced generic
+  adjunct growth with two small prefix/suffix classes whose exposed letters
+  were chosen to agree before rendering. All eight pairs genuinely matched
+  beyond the `was`/`saw` shell (the metric counts only successful comparisons;
+  maximum matched prefix: 9 characters). The strongest intact control is
+  “Was a red lantern what the guide near the caldera saw?” (43 letters): its
+  first nine opposing characters match, then `n` versus `c` fails. Content
+  words are disjoint, pointer/SHA audits reject the whole tape, and zero exact
+  candidates were promoted. This is the first seam-level progress in this
+  branch; the next operator is a digraph-conditioned continuation, not another
+  unconditioned phrase sweep. Artifact:
+  `runs/endpoint-conditioned-was-np-seam-20260921.json`.

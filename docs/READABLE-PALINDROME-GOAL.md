@@ -7608,6 +7608,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   `runs/independent-reverse-lexicalization-20260921.json` and
   `runs/lexical-reverse-segmentation-20260921.json`.
 
+- **Independent scene overhang lattice v2, 2026-09-21 (rejected):** the
+  implementation rendered 8,748 complete clause pairs and only then compared
+  the right text with the reversed left stream. It produced 0 exact rows; the
+  longest intact diagnostic was 34 letters (`Otto keeps the note. Nora reads
+  the letter.`). Because this is post-render checking rather than live slot
+  construction, its shortcut gate is explicitly failed and it is not counted
+  as a constructive result. The replacement is the corrected left-forward,
+  right-final-slot-backward product in
+  `runs/bidirectional-slot-product-20260921.json`.
+
 - **Independent bidirectional slot product, 2026-09-21:** formed 243
   independently authored left semantic frames and 81 independently authored
   right frames. Agreement and transitivity registers were checked before a

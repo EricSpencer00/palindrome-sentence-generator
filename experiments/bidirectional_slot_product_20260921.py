@@ -118,7 +118,12 @@ def main():
         "frames": {"left": LEFT_FRAME, "right": RIGHT_FRAME}, "banks": {"left": LEFT, "right": RIGHT},
         "counts": {"left_frames": len(lefts), "right_frames": len(rights), "agreement_pairs_examined": len(rows),
                    "generated_exact": len(exact), "generated_exact_ge_40": sum(x["exact"] and x["letters"] >= 40 for x in rows)},
-        "candidates": rows, "near_misses": near, "calibration": cal,
+        # Keep the run inspectable without committing a 40 MB copy of every
+        # rejected Cartesian row.  The generator is deterministic, so the
+        # script recreates the full product; the retained rows are the ten
+        # smallest-debt controls plus a wider reproducible sample.
+        "candidate_count": len(rows),
+        "candidates": near[:200], "near_misses": near, "calibration": cal,
         "shortcut_gates": {"reverse_tape_segmentation": False, "mirrored_units": False, "repair": False,
                             "word_order_only": False, "borrowed_catalogue": False, "RLAIF_per_candidate": False,
                             "live_character_debt": True, "independent_banks": True},

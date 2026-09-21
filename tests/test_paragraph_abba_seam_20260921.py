@@ -10,9 +10,9 @@ def test_abba_units_are_intact_and_semantically_paired():
  assert all(len(u['text'].split()) >= 8 for u in m.UNITS)
 
 def test_full_paragraph_audits_and_novelty_preflight():
-    d=m.run(); assert d['stats']['candidates']==3
+    d=m.run(); assert d['stats']['candidates']==4
     assert d['rendered_outputs'][2]['frames']==['witness','release','release','witness']
-    assert len({r['audit']['sha256_forward'] for r in d['rendered_outputs']})==3
+    assert len({r['audit']['sha256_forward'] for r in d['rendered_outputs']})==4
     r=d['rendered_outputs'][0]; a=r['audit']
     assert a['outside_in']['pairs_checked'] == a['letters']//2
     assert len(a['sha256_forward']) == 64 and len(a['sha256_reverse']) == 64

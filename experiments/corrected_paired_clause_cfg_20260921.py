@@ -16,6 +16,9 @@ LEFT = ("The baker marks a map.", "A nurse carries the chart.",
         "The sailor guards a beacon.", "A poet reads the letter.")
 RIGHT = ("The teacher hears the singer.", "A clerk keeps the memo.",
          "The writer finds a note.", "A guard helps the nurse.")
+# Held out from the original compact bank: one passive and one coordinated
+# object production on each side.  They remain complete clauses.
+HELDOUT = ("The map is marked by the baker.", "A nurse carries the chart and the memo.")
 
 def letters(text: str) -> str:
     return re.sub(r"[^a-z]", "", text.lower())
@@ -40,8 +43,13 @@ def pair_clause(left: str, right: str) -> dict:
     # particular, a and b are not required to be palindromes independently.
     trace = [{"offset": i, "left": full[i], "right": full[-1-i],
               "obligation": "cross-arm-equal"} for i in range(len(full)//2)]
+    support_depth = 0
+    for item in trace:
+        if item["left"] != item["right"]: break
+        support_depth += 1
     return {"rendered": rendered, "left_clause": left, "right_clause": right,
             "word_boundaries": word_boundaries(rendered),
+            "mirrored_support_depth": support_depth,
             "left_half_palindromic": bool(a) and a == a[::-1],
             "right_half_palindromic": bool(b) and b == b[::-1],
             "bilateral_trace": trace, "audit": audit(rendered),
@@ -53,13 +61,16 @@ def pair_clause(left: str, right: str) -> dict:
 
 def run() -> dict:
     rows = [pair_clause(l, r) for l in LEFT for r in RIGHT]
+    heldout_rows = [pair_clause(l, r) for l in HELDOUT for r in HELDOUT]
     exact = [x for x in rows if x["audit"]["pointer_exact"]]
     return {"experiment_id": ID,
             "method": "paired complete CFG clauses with live cross-arm character obligations",
             "changed_invariant": "accept iff normalized(left + separator + right) mirrors; never test either arm alone",
-            "stats": {"pairs": len(rows), "exact": len(exact), "controls": len(rows)-len(exact)},
+            "stats": {"pairs": len(rows), "exact": len(exact), "controls": len(rows)-len(exact),
+                      "heldout_pairs": len(heldout_rows),
+                      "max_mirrored_support_depth": max(x["mirrored_support_depth"] for x in rows + heldout_rows)},
             "exact_candidates": exact, "reader_facing_controls": rows[:8],
-            "controls": rows[:8],
+            "controls": rows[:8], "heldout_typed_expansion": heldout_rows,
             "novelty_preflight": {"status": "passed", "signature": "fresh-authored|paired-clause|cross-arm-only|word-boundary-aware",
                                   "distinct_from": "corrects the prior half-palindrome CFG lane; no catalogue sweep or repeated CFG search"},
             "provenance": {"audits": ["independent two-pointer full-tape comparison", "forward/reverse SHA-256"],

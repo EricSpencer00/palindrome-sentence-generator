@@ -1,0 +1,435 @@
+{
+  "experiment_id": "semantic-frame-outside-in-paragraph-20260921",
+  "method": "semantic frame/role planning with residual-selected outside-in spans",
+  "rendered_candidates": [
+    {
+      "rendered": "At dawn, the archivist labels a map. By the river, the pilot hears a bell. Through the rain, the keeper guards a lamp.",
+      "semantic_plan": [
+        {
+          "name": "dawn_archive",
+          "role": "orientation",
+          "actor": "archivist",
+          "event": "labels a map",
+          "setting": "at dawn",
+          "prose": "At dawn, the archivist labels a map."
+        },
+        {
+          "name": "river_signal",
+          "role": "causal",
+          "actor": "pilot",
+          "event": "hears a bell",
+          "setting": "by the river",
+          "prose": "By the river, the pilot hears a bell."
+        },
+        {
+          "name": "lamp_watch",
+          "role": "evidence",
+          "actor": "keeper",
+          "event": "guards a lamp",
+          "setting": "through the rain",
+          "prose": "Through the rain, the keeper guards a lamp."
+        }
+      ],
+      "residual_decisions": [
+        {
+          "selected": "dawn_archive",
+          "role": "orientation",
+          "residual": {
+            "left_boundary": "",
+            "right_boundary": "",
+            "available": [
+              "dawn_archive",
+              "river_signal",
+              "lamp_watch"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map.",
+          "right_span": ""
+        },
+        {
+          "selected": "lamp_watch",
+          "role": "evidence",
+          "residual": {
+            "left_boundary": "p",
+            "right_boundary": "",
+            "available": [
+              "river_signal",
+              "lamp_watch"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map.",
+          "right_span": "Through the rain, the keeper guards a lamp."
+        },
+        {
+          "selected": "river_signal",
+          "role": "causal",
+          "residual": {
+            "left_boundary": "p",
+            "right_boundary": "t",
+            "available": [
+              "river_signal"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map. By the river, the pilot hears a bell.",
+          "right_span": "Through the rain, the keeper guards a lamp."
+        }
+      ],
+      "audit": {
+        "letters": 90,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "p"
+        ],
+        "sha256_forward": "072344c37ade942722b50bbc67528e7b3f55c9a470e9db995d08a7408bea8373",
+        "sha256_reverse": "10e52767277f84d11159f408c87be1aa947c53f962988643ebf856e41befe207"
+      },
+      "gates": {
+        "independent_frames": true,
+        "semantic_roles_distinct": true,
+        "no_unit_reversal": true,
+        "no_post_hoc_repair": true,
+        "scalable_scheduler": true
+      },
+      "provenance": {
+        "construction": "semantic role plan -> live residual -> paired outside-in spans",
+        "authored_units": [
+          "dawn_archive",
+          "lamp_watch",
+          "river_signal"
+        ],
+        "finished_tape_reversal": false,
+        "catalogue_text": false,
+        "repair_passes": 0
+      }
+    },
+    {
+      "rendered": "At dawn, the archivist labels a map. Through the rain, the keeper guards a lamp. By the river, the pilot hears a bell. Near the harbor, the captain chooses a route.",
+      "semantic_plan": [
+        {
+          "name": "dawn_archive",
+          "role": "orientation",
+          "actor": "archivist",
+          "event": "labels a map",
+          "setting": "at dawn",
+          "prose": "At dawn, the archivist labels a map."
+        },
+        {
+          "name": "river_signal",
+          "role": "causal",
+          "actor": "pilot",
+          "event": "hears a bell",
+          "setting": "by the river",
+          "prose": "By the river, the pilot hears a bell."
+        },
+        {
+          "name": "lamp_watch",
+          "role": "evidence",
+          "actor": "keeper",
+          "event": "guards a lamp",
+          "setting": "through the rain",
+          "prose": "Through the rain, the keeper guards a lamp."
+        },
+        {
+          "name": "harbor_choice",
+          "role": "decision",
+          "actor": "captain",
+          "event": "chooses a route",
+          "setting": "near the harbor",
+          "prose": "Near the harbor, the captain chooses a route."
+        }
+      ],
+      "residual_decisions": [
+        {
+          "selected": "dawn_archive",
+          "role": "orientation",
+          "residual": {
+            "left_boundary": "",
+            "right_boundary": "",
+            "available": [
+              "dawn_archive",
+              "river_signal",
+              "lamp_watch",
+              "harbor_choice"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map.",
+          "right_span": ""
+        },
+        {
+          "selected": "harbor_choice",
+          "role": "decision",
+          "residual": {
+            "left_boundary": "p",
+            "right_boundary": "",
+            "available": [
+              "river_signal",
+              "lamp_watch",
+              "harbor_choice"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map.",
+          "right_span": "Near the harbor, the captain chooses a route."
+        },
+        {
+          "selected": "lamp_watch",
+          "role": "evidence",
+          "residual": {
+            "left_boundary": "p",
+            "right_boundary": "n",
+            "available": [
+              "river_signal",
+              "lamp_watch"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map. Through the rain, the keeper guards a lamp.",
+          "right_span": "Near the harbor, the captain chooses a route."
+        },
+        {
+          "selected": "river_signal",
+          "role": "causal",
+          "residual": {
+            "left_boundary": "p",
+            "right_boundary": "n",
+            "available": [
+              "river_signal"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map. Through the rain, the keeper guards a lamp.",
+          "right_span": "By the river, the pilot hears a bell. Near the harbor, the captain chooses a route."
+        }
+      ],
+      "audit": {
+        "letters": 126,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "b39d541344e0c94a2940aeefb83abdfd6042c1cbea82e1328c9ab0d76ba9e11c",
+        "sha256_reverse": "257b28b8b43ff210acb0df8ae36af85bc4e6aa59f8ef3bf57b352f040124129a"
+      },
+      "gates": {
+        "independent_frames": true,
+        "semantic_roles_distinct": true,
+        "no_unit_reversal": true,
+        "no_post_hoc_repair": true,
+        "scalable_scheduler": true
+      },
+      "provenance": {
+        "construction": "semantic role plan -> live residual -> paired outside-in spans",
+        "authored_units": [
+          "dawn_archive",
+          "harbor_choice",
+          "lamp_watch",
+          "river_signal"
+        ],
+        "finished_tape_reversal": false,
+        "catalogue_text": false,
+        "repair_passes": 0
+      }
+    },
+    {
+      "rendered": "At dawn, the archivist labels a map. Near the harbor, the captain chooses a route. Before dusk, the messenger returns a key. By the river, the pilot hears a bell. Through the rain, the keeper guards a lamp. After the storm, the writer keeps a note.",
+      "semantic_plan": [
+        {
+          "name": "dawn_archive",
+          "role": "orientation",
+          "actor": "archivist",
+          "event": "labels a map",
+          "setting": "at dawn",
+          "prose": "At dawn, the archivist labels a map."
+        },
+        {
+          "name": "river_signal",
+          "role": "causal",
+          "actor": "pilot",
+          "event": "hears a bell",
+          "setting": "by the river",
+          "prose": "By the river, the pilot hears a bell."
+        },
+        {
+          "name": "lamp_watch",
+          "role": "evidence",
+          "actor": "keeper",
+          "event": "guards a lamp",
+          "setting": "through the rain",
+          "prose": "Through the rain, the keeper guards a lamp."
+        },
+        {
+          "name": "harbor_choice",
+          "role": "decision",
+          "actor": "captain",
+          "event": "chooses a route",
+          "setting": "near the harbor",
+          "prose": "Near the harbor, the captain chooses a route."
+        },
+        {
+          "name": "garden_note",
+          "role": "reflection",
+          "actor": "writer",
+          "event": "keeps a note",
+          "setting": "after the storm",
+          "prose": "After the storm, the writer keeps a note."
+        },
+        {
+          "name": "quiet_return",
+          "role": "resolution",
+          "actor": "messenger",
+          "event": "returns a key",
+          "setting": "before dusk",
+          "prose": "Before dusk, the messenger returns a key."
+        }
+      ],
+      "residual_decisions": [
+        {
+          "selected": "dawn_archive",
+          "role": "orientation",
+          "residual": {
+            "left_boundary": "",
+            "right_boundary": "",
+            "available": [
+              "dawn_archive",
+              "river_signal",
+              "lamp_watch",
+              "harbor_choice",
+              "garden_note",
+              "quiet_return"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map.",
+          "right_span": ""
+        },
+        {
+          "selected": "garden_note",
+          "role": "reflection",
+          "residual": {
+            "left_boundary": "p",
+            "right_boundary": "",
+            "available": [
+              "river_signal",
+              "lamp_watch",
+              "harbor_choice",
+              "garden_note",
+              "quiet_return"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map.",
+          "right_span": "After the storm, the writer keeps a note."
+        },
+        {
+          "selected": "harbor_choice",
+          "role": "decision",
+          "residual": {
+            "left_boundary": "p",
+            "right_boundary": "a",
+            "available": [
+              "river_signal",
+              "lamp_watch",
+              "harbor_choice",
+              "quiet_return"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map. Near the harbor, the captain chooses a route.",
+          "right_span": "After the storm, the writer keeps a note."
+        },
+        {
+          "selected": "lamp_watch",
+          "role": "evidence",
+          "residual": {
+            "left_boundary": "e",
+            "right_boundary": "a",
+            "available": [
+              "river_signal",
+              "lamp_watch",
+              "quiet_return"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map. Near the harbor, the captain chooses a route.",
+          "right_span": "Through the rain, the keeper guards a lamp. After the storm, the writer keeps a note."
+        },
+        {
+          "selected": "quiet_return",
+          "role": "resolution",
+          "residual": {
+            "left_boundary": "e",
+            "right_boundary": "t",
+            "available": [
+              "river_signal",
+              "quiet_return"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map. Near the harbor, the captain chooses a route. Before dusk, the messenger returns a key.",
+          "right_span": "Through the rain, the keeper guards a lamp. After the storm, the writer keeps a note."
+        },
+        {
+          "selected": "river_signal",
+          "role": "causal",
+          "residual": {
+            "left_boundary": "y",
+            "right_boundary": "t",
+            "available": [
+              "river_signal"
+            ]
+          },
+          "left_span": "At dawn, the archivist labels a map. Near the harbor, the captain chooses a route. Before dusk, the messenger returns a key.",
+          "right_span": "By the river, the pilot hears a bell. Through the rain, the keeper guards a lamp. After the storm, the writer keeps a note."
+        }
+      ],
+      "audit": {
+        "letters": 191,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "ab0dcd7408c2f37144189dfeea68617d8d8e9c355eff53d8badddaf1f6efee93",
+        "sha256_reverse": "a93cbd16e66131134b9b7aa3a126355ca2ddf94abed42d1b11b60f64c3cd9706"
+      },
+      "gates": {
+        "independent_frames": true,
+        "semantic_roles_distinct": true,
+        "no_unit_reversal": true,
+        "no_post_hoc_repair": true,
+        "scalable_scheduler": true
+      },
+      "provenance": {
+        "construction": "semantic role plan -> live residual -> paired outside-in spans",
+        "authored_units": [
+          "dawn_archive",
+          "garden_note",
+          "harbor_choice",
+          "lamp_watch",
+          "quiet_return",
+          "river_signal"
+        ],
+        "finished_tape_reversal": false,
+        "catalogue_text": false,
+        "repair_passes": 0
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "stats": {
+    "candidates": 3,
+    "exact": 0,
+    "max_letters": 191
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "semantic-frame|role-plan|live-residual|outside-in-span",
+    "distinct_from": [
+      "Cartesian ABBA banks",
+      "word-order symmetry",
+      "catalogue prose",
+      "post-hoc repair"
+    ]
+  },
+  "next_repair": {
+    "status": "concrete",
+    "action": "add held-out frame variants indexed by the two boundary letters; retain role and tense constraints while widening the residual choice set"
+  }
+}

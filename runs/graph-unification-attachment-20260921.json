@@ -1,14 +1,14 @@
 {
   "experiment_id": "graph-unification-attachment-20260921",
-  "method": "graph-unification dependency solver with held-out instrumental-causal attachment; bilateral mirrored-character support domains intersected during incremental yield",
+  "method": "graph-unification dependency solver with held-out manner-of-causation attachment; bilateral mirrored-character support domains intersected during incremental yield",
   "stats": {
-    "trees": 5,
-    "graph_edges": 20,
-    "online_support_checks": 28,
-    "online_prunes": 20,
+    "trees": 6,
+    "graph_edges": 30,
+    "online_support_checks": 44,
+    "online_prunes": 30,
     "rendered_controls": 12,
     "exact_gt38": 0,
-    "max_letters": 131
+    "max_letters": 133
   },
   "exact_candidates": [],
   "reader_facing_candidates": [],
@@ -238,6 +238,68 @@
         "sha_equal": false,
         "forward_sha256": "e765467a3f74d09e809304e65e344bd662c31523ce48f61a465040975c1a7714",
         "reverse_sha256": "a98722b547417173e345765fb4665b7340a2aef6d47403c9cdf6d58109bc7b73",
+        "repeated_units": true,
+        "nested_self_palindrome": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false
+      },
+      "provenance": {
+        "fresh_authored_dependency_trees": true,
+        "graph_unification_before_render": true,
+        "heldout_attachment": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "reward_loop": false
+      }
+    },
+    {
+      "rendered": "the careful baker delivered the parcel the warm loaf for the night nurse. the skilled pilot landed the small plane with steady care as the fog lifted.",
+      "trees": {
+        "left": {
+          "kind": "benefactive",
+          "subject": "the careful baker",
+          "verb": "delivered",
+          "recipient": "the parcel",
+          "theme": "the warm loaf",
+          "prep": "for",
+          "beneficiary": "the night nurse"
+        },
+        "right": {
+          "kind": "manner_causal",
+          "subject": "the skilled pilot",
+          "verb": "landed",
+          "theme": "the small plane",
+          "manner": "with steady care",
+          "cause": "as the fog lifted",
+          "attachment_index": "event.landed.manner->cause"
+        }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "event.landed.manner->cause"
+        ],
+        "event_nodes_unified": true
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 2,
+        "domains": "character intersection while streaming terminals",
+        "frontier_survived": true,
+        "frontier_length": 63
+      },
+      "complete_prose": true,
+      "audit": {
+        "letters": 122,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "e6aa91f22011f6d4fa54a3b61fb18d55223c572b9f7685bab17cfbf1a3ed4b8b",
+        "reverse_sha256": "bd5479b873a3d255f7e67d9e9c15d35ec520d1d8018e27c288c3d1b5143ac222",
         "repeated_units": true,
         "nested_self_palindrome": false,
         "mirrored_units": false,
@@ -502,6 +564,68 @@
       }
     },
     {
+      "rendered": "a patient teacher prepared the child a clear lesson for the new class. the skilled pilot landed the small plane with steady care as the fog lifted.",
+      "trees": {
+        "left": {
+          "kind": "benefactive",
+          "subject": "a patient teacher",
+          "verb": "prepared",
+          "recipient": "the child",
+          "theme": "a clear lesson",
+          "prep": "for",
+          "beneficiary": "the new class"
+        },
+        "right": {
+          "kind": "manner_causal",
+          "subject": "the skilled pilot",
+          "verb": "landed",
+          "theme": "the small plane",
+          "manner": "with steady care",
+          "cause": "as the fog lifted",
+          "attachment_index": "event.landed.manner->cause"
+        }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "event.landed.manner->cause"
+        ],
+        "event_nodes_unified": true
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 1,
+        "domains": "character intersection while streaming terminals",
+        "frontier_survived": true,
+        "frontier_length": 61
+      },
+      "complete_prose": true,
+      "audit": {
+        "letters": 119,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "2f9c28fc30015039c38200e9f3cba61ecdac20b0ea56da200a69680844232643",
+        "reverse_sha256": "9bb18589599a9ec8bb82370ba476a5e616335cec6c09981a38b14835d325cf56",
+        "repeated_units": true,
+        "nested_self_palindrome": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false
+      },
+      "provenance": {
+        "fresh_authored_dependency_trees": true,
+        "graph_unification_before_render": true,
+        "heldout_attachment": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "reward_loop": false
+      }
+    },
+    {
       "rendered": "the sudden storm delayed the evening train because the signal failed. the careful baker delivered the parcel the warm loaf for the night nurse.",
       "trees": {
         "left": {
@@ -620,131 +744,13 @@
         "word_order_symmetry": false,
         "reward_loop": false
       }
-    },
-    {
-      "rendered": "the sudden storm delayed the evening train because the signal failed. a quiet warning changed the village plan when the river rose.",
-      "trees": {
-        "left": {
-          "kind": "causal",
-          "subject": "the sudden storm",
-          "verb": "delayed",
-          "theme": "the evening train",
-          "cause": "because the signal failed"
-        },
-        "right": {
-          "kind": "causal",
-          "subject": "a quiet warning",
-          "verb": "changed",
-          "theme": "the village plan",
-          "cause": "when the river rose"
-        }
-      },
-      "graph_unification": {
-        "attachment_indices": [
-          "root->argument",
-          "root->argument"
-        ],
-        "event_nodes_unified": true
-      },
-      "online_support": {
-        "accepted": false,
-        "checks": 2,
-        "domains": "character intersection while streaming terminals",
-        "frontier_survived": true,
-        "frontier_length": 56
-      },
-      "complete_prose": true,
-      "audit": {
-        "letters": 108,
-        "pointer_exact": false,
-        "sha_equal": false,
-        "forward_sha256": "bc9684f0587249272e3d4a42d2ba0b180d13c50143e1aa15a7c3c4e943bce8d9",
-        "reverse_sha256": "31770d7ca5f644260ee4a58fe5576e1a72c22a8b48c58f655cb7d3610d856af6",
-        "repeated_units": true,
-        "nested_self_palindrome": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false
-      },
-      "provenance": {
-        "fresh_authored_dependency_trees": true,
-        "graph_unification_before_render": true,
-        "heldout_attachment": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "reward_loop": false
-      }
-    },
-    {
-      "rendered": "the sudden storm delayed the evening train because the signal failed. the careful ranger opened the locked gate with the brass key because the storm passed.",
-      "trees": {
-        "left": {
-          "kind": "causal",
-          "subject": "the sudden storm",
-          "verb": "delayed",
-          "theme": "the evening train",
-          "cause": "because the signal failed"
-        },
-        "right": {
-          "kind": "instrumental_causal",
-          "subject": "the careful ranger",
-          "verb": "opened",
-          "theme": "the locked gate",
-          "instrument": "with the brass key",
-          "cause": "because the storm passed",
-          "attachment_index": "event.opened.instrument->cause"
-        }
-      },
-      "graph_unification": {
-        "attachment_indices": [
-          "root->argument",
-          "event.opened.instrument->cause"
-        ],
-        "event_nodes_unified": true
-      },
-      "online_support": {
-        "accepted": false,
-        "checks": 1,
-        "domains": "character intersection while streaming terminals",
-        "frontier_survived": true,
-        "frontier_length": 66
-      },
-      "complete_prose": true,
-      "audit": {
-        "letters": 129,
-        "pointer_exact": false,
-        "sha_equal": false,
-        "forward_sha256": "45362c1ccc2fbccb27df50a7779247c43ee45f93ab6e060af13ed1fdda9b060a",
-        "reverse_sha256": "f7bfaf25b91464d643c6e6cb0f366649764903f3e5e950bb3b58b66d13d5a027",
-        "repeated_units": true,
-        "nested_self_palindrome": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false
-      },
-      "provenance": {
-        "fresh_authored_dependency_trees": true,
-        "graph_unification_before_render": true,
-        "heldout_attachment": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "reward_loop": false
-      }
     }
   ],
   "novelty_preflight": {
     "status": "passed",
     "registry_inspected": true,
-    "signature": "fresh-authored|dependency-graph-unification|instrumental-causal-event-index|online-character-support",
-    "distinct_from": "dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; event attachment indices unify before lexical yield",
+    "signature": "fresh-authored|dependency-graph-unification|manner-causal-event-index|online-character-support",
+    "distinct_from": "instrumental-causal edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; manner attachment index unifies before lexical yield",
     "forbidden_inputs": [
       "38-letter anchor",
       "finished-tape reversal",
@@ -769,6 +775,6 @@
     ],
     "reader_status": "closed: no exact >=39 candidate"
   },
-  "next_operator": "Add a second event-node attachment index only if the instrumental edge leaves a surviving frontier; otherwise hold out a distinct manner-of-causation edge.",
+  "next_operator": "Hold out a distinct resultative-causation event edge, only if this manner frontier survives beyond the first support conflict.",
   "status": "no exact >=39 closure; intact ordinary-prose controls retained"
 }

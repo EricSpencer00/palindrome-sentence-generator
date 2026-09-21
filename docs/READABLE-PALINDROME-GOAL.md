@@ -8199,6 +8199,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   overt copular predicate. Artifact:
   `runs/cfg-earley-object-np-which-cp-20260921.json`.
 
+- **Object-NP where-copular Earley seam, 2026-09-21:** attached
+  `where NP Cop Predicate` inside the object NP with explicit copular CP items
+  before rendering. Three intact controls were 120, 122, and 120 letters; 162
+  concrete domain conflicts were retained and zero exact closures occurred.
+  The next topology is a temporal object-NP CP with a finite progressive
+  predicate. Artifact: `runs/cfg-earley-object-np-where-cp-20260921.json`.
+
 - **Boundary-conditioned semantic scene search, 2026-09-21:** indexed fresh
   SVO/PP alternatives by first/last terminal characters and grew paired clause
   yields inward under `x[i] = x[N-1-i]`. The second-PP expansion produced 228

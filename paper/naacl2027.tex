@@ -1386,6 +1386,13 @@ dependency expansions all pruned before exact admission, but the two complete
 controls reached 66 and 72 letters.  This records a structural pivot rather
 than another seam sweep; the next state adds a second owned dependency edge.
 
+The second-edge extension expanded the center relation sequentially through
+two independently owned dependency edges.  Of 256 expansions, four produced
+grammatical products and two complete controls reached 70 letters; none closed
+exactly above 38.  The ownership traces make the failure actionable: a third
+edge is warranted only if it changes the live center state, otherwise the
+semantic topology must change again.
+
 \section{Reader-facing evaluation}
 No candidate is called readable by the automatic diagnostics.  The release
 package is gated until a mechanically admitted survivor exists.  The planned

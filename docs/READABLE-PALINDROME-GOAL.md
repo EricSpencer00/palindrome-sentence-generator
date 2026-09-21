@@ -174,6 +174,31 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   independent pointer/SHA audits are retained
   (`runs/lexical-wfsa-ditransitive-deficit-20260921.json`).
 
+- **Seed-centered outward growth.** The verified 38-letter Diana sentence was
+  used only as a replay scaffold while jointly selecting semantic left/right
+  expansions with residual character debt crossing word boundaries. Nine
+  expansion pairs rendered ordinary-prose controls up to 75 letters, with
+  independent pointer/SHA audits and strict hidden-seed, repeated-unit,
+  reversal, and post-hoc-repair checks. No expansion closed exactly. This is a
+  decisive failure of the fixed outward envelope, not evidence for admitting a
+  wrapped seed; the next construction keeps the seed only as a regression
+  oracle and changes the center geometry (`runs/seed-centered-outward-growth-20260921.json`).
+
+- **Paired seam reconstruction.** A separate lane jointly selected variable-
+  length lexical seams on both sides and checked each opposing character online
+  before rendering. Sixteen seam pairs produced readable controls (including
+  a 33-letter partial Diana-lineage control) but zero online closures and zero
+  admitted exact rows. The artifact preserves each residual, first mismatch,
+  provenance, and independent pointer/SHA result; it is not a larger duplicate
+  sweep (`runs/paired-seam-reconstruction-20260921.json`).
+
+- **Seed-lineage frame audit.** Replaying the opposing-debt frame lineage found
+  no invariant or scoring bugs across 24 rows, but the highest-scoring controls
+  reused content nouns and all failed the no-repeated-content gate. Zero strict
+  exact rows survived. The next test must enforce held-out semantic nouns before
+  emission, rather than reward another frame variant
+  (`artifacts/readable_frame_seed_lineage_audit_20260921.json`).
+
 - **Overlap-trie source correction.** A reverse-complement overlap prototype
   explored 21,520 boundary states and 153,057 word-interior steps, but its
   fallback controls did not couple opposing characters and recorded zero

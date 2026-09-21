@@ -1,16 +1,16 @@
 {
   "experiment_id": "graph-unification-attachment-20260921",
-  "method": "graph-unification dependency solver with held-out causal-result attachment; bilateral mirrored-character support domains intersected during incremental yield",
+  "method": "graph-unification dependency solver with held-out evidential-result attachment; bilateral mirrored-character support domains intersected during incremental yield",
   "stats": {
-    "trees": 11,
-    "graph_edges": 110,
-    "online_support_checks": 161,
-    "online_prunes": 110,
+    "trees": 12,
+    "graph_edges": 132,
+    "online_support_checks": 196,
+    "online_prunes": 132,
     "rendered_controls": 12,
     "exact_gt38": 0,
     "max_letters": 135,
-    "temporal_frontier_survives_past_first_support_conflict": true,
-    "conditional_frontier_survives_past_first_support_conflict": true
+    "causal_frontier_survives_past_first_support_conflict": true,
+    "temporal_frontier_survives_past_first_support_conflict": true
   },
   "exact_candidates": [],
   "reader_facing_candidates": [],
@@ -642,6 +642,69 @@
       }
     },
     {
+      "rendered": "the careful baker delivered the parcel the warm loaf for the night nurse. the wise judge called the claim true enough as the records showed.",
+      "trees": {
+        "left": {
+          "kind": "benefactive",
+          "subject": "the careful baker",
+          "verb": "delivered",
+          "recipient": "the parcel",
+          "theme": "the warm loaf",
+          "prep": "for",
+          "beneficiary": "the night nurse"
+        },
+        "right": {
+          "kind": "evidential_result",
+          "subject": "the wise judge",
+          "verb": "called",
+          "theme": "the claim",
+          "result": "true enough",
+          "cause": "as the records showed",
+          "attachment_index": "event.called.result->evidence"
+        }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "event.called.result->evidence"
+        ],
+        "event_nodes_unified": true
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 2,
+        "domains": "character intersection while streaming terminals",
+        "frontier_survived": true,
+        "frontier_length": 59,
+        "survives_past_first_support_conflict": true
+      },
+      "complete_prose": true,
+      "audit": {
+        "letters": 114,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "bfcb942e7eef730bffd2aa5be75c5c10138656167cf2a5fee922efdab079c1f8",
+        "reverse_sha256": "b97479df62163e3ea749ee0fa231c269b91a5727c0544e9349585ef7b0131c9d",
+        "repeated_units": true,
+        "nested_self_palindrome": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false
+      },
+      "provenance": {
+        "fresh_authored_dependency_trees": true,
+        "graph_unification_before_render": true,
+        "heldout_attachment": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "reward_loop": false
+      }
+    },
+    {
       "rendered": "a patient teacher prepared the child a clear lesson for the new class. the careful baker delivered the parcel the warm loaf for the night nurse.",
       "trees": {
         "left": {
@@ -703,74 +766,13 @@
         "word_order_symmetry": false,
         "reward_loop": false
       }
-    },
-    {
-      "rendered": "a patient teacher prepared the child a clear lesson for the new class. the sudden storm delayed the evening train because the signal failed.",
-      "trees": {
-        "left": {
-          "kind": "benefactive",
-          "subject": "a patient teacher",
-          "verb": "prepared",
-          "recipient": "the child",
-          "theme": "a clear lesson",
-          "prep": "for",
-          "beneficiary": "the new class"
-        },
-        "right": {
-          "kind": "causal",
-          "subject": "the sudden storm",
-          "verb": "delayed",
-          "theme": "the evening train",
-          "cause": "because the signal failed"
-        }
-      },
-      "graph_unification": {
-        "attachment_indices": [
-          "root->argument",
-          "root->argument"
-        ],
-        "event_nodes_unified": true
-      },
-      "online_support": {
-        "accepted": false,
-        "checks": 1,
-        "domains": "character intersection while streaming terminals",
-        "frontier_survived": true,
-        "frontier_length": 59,
-        "survives_past_first_support_conflict": false
-      },
-      "complete_prose": true,
-      "audit": {
-        "letters": 115,
-        "pointer_exact": false,
-        "sha_equal": false,
-        "forward_sha256": "a20a78f1c38ca662695823d764a96bcb5fc163b33f38fd169acf19c4a9e9d36f",
-        "reverse_sha256": "e03fc9e9a4551a301369c6a87479ef3586e51a9fb381c20e4c1ca1ed7833be80",
-        "repeated_units": true,
-        "nested_self_palindrome": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false
-      },
-      "provenance": {
-        "fresh_authored_dependency_trees": true,
-        "graph_unification_before_render": true,
-        "heldout_attachment": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "reward_loop": false
-      }
     }
   ],
   "novelty_preflight": {
     "status": "passed",
     "registry_inspected": true,
-    "signature": "fresh-authored|dependency-graph-unification|causal-result-event-index|online-character-support",
-    "distinct_from": "temporal-result edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; causal result index unifies before lexical yield",
+    "signature": "fresh-authored|dependency-graph-unification|evidential-result-event-index|online-character-support",
+    "distinct_from": "causal-result edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; evidential result index unifies before lexical yield",
     "forbidden_inputs": [
       "38-letter anchor",
       "finished-tape reversal",
@@ -795,6 +797,6 @@
     ],
     "reader_status": "closed: no exact >=39 candidate"
   },
-  "next_operator": "Hold out a distinct evidential-result event edge only if this causal frontier survives past its first support conflict.",
+  "next_operator": "Hold out a distinct inferential-result event edge only if this evidential frontier survives past its first support conflict.",
   "status": "no exact >=39 closure; intact ordinary-prose controls retained"
 }

@@ -46,3 +46,10 @@ expanded by the NFA before mirrored support is propagated. Targets 39--140
 one-node root conflict, with no exact path or rendered candidate. The next
 operator is a held-out locative adjunct or an agreement-compatible relative
 pronoun variant.
+
+The locative continuation adds fresh embedded terminals `at harbor`, `beside
+quay`, and `under bridge`. Targets 39--160 (122 lengths) were run with live
+residual ranking and the strict cap. Every target reached a one-node root
+conflict; no exact candidate was rendered. The next operator is an
+agreement-compatible relative-pronoun edge, with no change to the audit or
+reader gate.

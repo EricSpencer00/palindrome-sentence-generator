@@ -168,7 +168,9 @@ def construct():
                          # Held-out temporal terminals, distinct from the
                          # earlier top-level adjunct lane.
                          ('embedded_temporal', ['at sunset', 'before winter',
-                                                'during rain'])]
+                                                'during rain']),
+                         ('embedded_locative', ['at harbor', 'beside quay',
+                                                'under bridge'])]
     g.frame('question_then_person_event', question+right)
     g.frame('relative_clause_then_person_event', relative+right)
     g.frame('embedded_object_relative_then_person_event', embedded_relative+right)
@@ -301,7 +303,7 @@ def differential():
 def main():
     start = time.monotonic()
     grammar = construct()
-    results = [solve(grammar, n) for n in range(39, 141)]
+    results = [solve(grammar, n) for n in range(39, 161)]
     out = {'experiment_id': ID, 'method': 'forward_NFA_REGULAR_fixed_point_mirrored_domains',
            'differential_checks': differential(), 'grammar': grammar.frames,
            'results': results, 'seconds': time.monotonic()-start,
@@ -318,7 +320,7 @@ def main():
                                         'event_graph_character_sat_20260916.py',
                                         'position_domain_arc_consistency_csp_20260920.py'],
                        'implementation_distinction': 'iterated position-specific forward/backward supports with latent word boundaries'},
-           'next_operator': 'add a held-out locative adjunct or agreement-compatible relative pronoun variant; current grammar has no accepting root at 39..140',
+           'next_operator': 'add an agreement-compatible relative pronoun variant or a bounded locative alternate; current grammar has no accepting root at 39..160',
            'reader_gate': 'closed until exact original plausible prose and blinded ratings'}
     (ROOT/'runs'/f'{ID}.json').write_text(json.dumps(out, indent=2)+'\n')
     print(json.dumps([{'N': r['target_letters'], **r['stats'],

@@ -32,7 +32,10 @@ def word_trie(words):
 
 def online_pair(left,right):
  """Consume complete word streams from opposite sides, crossing boundaries."""
- a=[norm(w) for w in left.split()]; b=[norm(w) for w in right.split()][::-1]
+ # Reverse the character stream, not merely the word order.  Keeping each
+ # reversed word separate makes crossing word boundaries explicit.
+ a=[norm(w) for w in left.split()]
+ b=[norm(w)[::-1] for w in right.split()[::-1]]
  i=j=0; x=y=0; trace=[]
  while i<len(a) and j<len(b):
   if x==len(a[i]): i+=1; x=0; continue

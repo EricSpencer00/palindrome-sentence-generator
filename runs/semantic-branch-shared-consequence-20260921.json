@@ -1,0 +1,104 @@
+{
+  "experiment_id": "semantic-branch-shared-consequence-20260921",
+  "status": "completed_no_exact_closure",
+  "method": "branching semantic event graph with shared consequence node",
+  "candidate_count": 2,
+  "exact_count": 0,
+  "reader_eligible": false,
+  "rendered_candidates": [
+    {
+      "rendered": "the guard keeps the lantern and the keeper checks the gate so the harbor stays safe; the watchman holds the lantern and the steward checks the gate so the harbor stays safe.",
+      "left_branch": "guard_keeper_harbor",
+      "right_branch": "watchman_stable_harbor",
+      "novel_rendered": true,
+      "semantic_graph": {
+        "branch_count": 2,
+        "shared_consequence": "harbor-safe",
+        "convergence_edge": "so"
+      },
+      "audit": {
+        "letters": 140,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "1548cdc3639ae829a1338af0bedb5b0117bbb1f8f126fa38674dfae7b7f3a4fe",
+        "reverse_sha256": "91a94c274c9a4a129e0c125dfc27aca5f738e19b5b7c8e99ab442829e5945e0c",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "t",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "branching two-event graph converging on one consequence",
+        "linear_connector_graph": false,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "a scribe writes the map and a reader studies the route so the traveler finds home; a teacher draws the map and a student studies the route so the traveler finds home.",
+      "left_branch": "scribe_reader_road",
+      "right_branch": "teacher_student_road",
+      "novel_rendered": true,
+      "semantic_graph": {
+        "branch_count": 2,
+        "shared_consequence": "traveler-home",
+        "convergence_edge": "so"
+      },
+      "audit": {
+        "letters": 133,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "ffd09a3ccaa57b5f44b9fc25f1cdd3e7a12ddb9e16daaa042dbcb146c03628f6",
+        "reverse_sha256": "e89ae699906e911b2e664fd0cde166ebe989f81a698898ecc6b9b11c0eba7731",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "a",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "branching two-event graph converging on one consequence",
+        "linear_connector_graph": false,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "stats": {
+    "longest_letters": 140
+  },
+  "novelty_preflight": {
+    "hash_source": "all runs/*.json except current artifact",
+    "current_artifact_excluded": true,
+    "all_rendered_new": true,
+    "linear_graph_reused": false,
+    "topology_reset": true
+  },
+  "failure_and_repair": {
+    "failure": "branching graphs still mismatch live obligations",
+    "next_construction": "add a shared participant node linking the two branches before convergence"
+  },
+  "provenance": {
+    "generator_sha256": "23f119a36ebd971b032306b9782e9bf732722e718d83041ddd20c9b0378fb792",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "shortcuts_excluded": true
+  }
+}

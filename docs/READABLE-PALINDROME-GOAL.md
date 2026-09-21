@@ -7656,3 +7656,21 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   classified it as the already-quarantined reverse-segmentation family, so it
   is retained as a negative control rather than counted as new construction.
   Artifact: `runs/variable-boundary-lattice-decoder-20260926.json`.
+
+- **Shared-character grammar propagation, 2026-09-21:** implemented the
+  previously missing solver rather than another complete-sentence audit. A
+  forward typed grammar NFA maintains latent word boundaries; position-specific
+  forward/backward supports are iterated to a fixed point under
+  `x[i] = x[N-1-i]`, then the smallest mirrored character domain is branched.
+  Exhaustive odd/even toy-language differentials pass. The finite hand-authored
+  grammar recovers both orientations of the known 38-letter calibration, while
+  lengths 39, 40, 42, 44, 48, and 52 reach root infeasibility in 1--4 rounds.
+  This is a solver-validation result, not a novel readable output; the next
+  construction expands the feature grammar with questions and relative clauses.
+  Artifact: `runs/regular-shared-character-20260921.json`.
+
+- **Hand-authored phrase lattice, 2026-09-21:** selected phrase alternatives
+  from both ends while debt was live and independently audited the terminal.
+  It visited 26 nodes and reached one exact terminal, but that terminal was
+  only the known 38-letter seed; no novel candidate was admitted. Artifact:
+  `runs/human-phrase-lattice-20260921.json`.

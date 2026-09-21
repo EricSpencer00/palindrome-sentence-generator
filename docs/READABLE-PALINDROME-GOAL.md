@@ -7584,6 +7584,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   typed semantic-frame expansion with obligation-frontier slot selection.
   Artifact: `runs/joint-language-obligation-search-20260921.json`.
 
+- **Brown semantic-frame obligation lattice, 2026-09-21:** repeated the live
+  construction with five Brown-PCFG POS frames, independently generated from
+  the two sentence sides and expanded from the correct outer slot inward. The
+  corrected run made 180 immediate obligation prunes, closed 0 terminal
+  states, and retained 40 complete forward controls with exact pointer/SHA
+  diagnostics. Brown frequency only ranks lexical alternatives; it is not a
+  per-candidate language-model reward. The next construction adds agreement
+  and valency registers while allowing the two sides to choose different frame
+  shapes. Artifact:
+  `runs/brown-semantic-frame-obligation-lattice-20260921.json`.
+
 - **Independent reverse lexicalization, 2026-09-21:** generated 480 ordinary
   typed subject–verb–object clauses, then attempted to segment each reverse
   character tape with an independently defined vocabulary and clause grammar.

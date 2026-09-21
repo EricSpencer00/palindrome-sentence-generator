@@ -8,6 +8,7 @@ palindrome candidates.
 """
 from __future__ import annotations
 from collections import deque
+import itertools
 import hashlib, json, re
 from pathlib import Path
 
@@ -51,13 +52,28 @@ def put(q,word,left,origin):
         if q.popleft()!=c: return False,origin
     return True, (0 if not q else origin)
 
+def render_controls(frame, limit=8):
+    """Keep complete forward grammar examples separate from live hits."""
+    choices=[LEX.get(slot,[]) for slot in frame]
+    rows=[]
+    for left in itertools.islice(itertools.product(*choices), limit):
+        right=next(itertools.product(*choices))
+        text=' '.join(left+right)+'.'
+        rows.append({'rendered':text,'candidate_kind':'diagnostic_control',
+                     'provenance':{'left_words':list(left),'right_words':list(right),
+                                   'frame':frame,'generated_forward':True,
+                                   'admitted_to_live_search':False},
+                     'audit':audit(text),'shortcut_reasons':shortcuts(text)})
+    return rows
+
+
 def search(frame,limit=50000):
     nodes=prunes=terminals=0; outputs=[]
     def rec(li,ri,lw,rw,q,origin,left):
         nonlocal nodes,prunes,terminals
         nodes+=1
         if nodes>limit:return
-        if li==len(frame) and ri==len(frame):
+        if li==len(frame) and ri<0:
             terminals+=1
             if not q:
                 text=' '.join(lw+rw); a=audit(text)
@@ -68,24 +84,25 @@ def search(frame,limit=50000):
         # while exposing character obligations as soon as a slot is lexicalized.
         is_left=left
         idx=li if is_left else ri
-        if idx>=len(frame): return
+        if idx>=len(frame) or idx<0: return
         for w in LEX.get(frame[idx],[]):
             nq=deque(q)
             ok,no=put(nq,norm(w),is_left,origin)
             if not ok: prunes+=1; continue
             if is_left: rec(li+1,ri,lw+[w],rw,nq,no,False)
-            else: rec(li,ri+1,lw,rw+[w],nq,no,True)
-    rec(0,0,[],[],deque(),0,True)
+            else: rec(li,ri-1,lw,[w]+rw,nq,no,True)
+    rec(0,len(frame)-1,[],[],deque(),0,True)
     return outputs,{'nodes':nodes,'obligation_prunes':prunes,'complete_terminals':terminals}
 
 def main():
-    allrows=[]; stats=[]
+    allrows=[]; stats=[]; controls=[]
     for frame in FRAMES:
-        rows,st=search(frame); st['frame']=' '.join(frame); stats.append(st); allrows.extend(rows)
+        rows,st=search(frame); st['frame']=' '.join(frame); stats.append(st); allrows.extend(rows); controls.extend(render_controls(frame))
     payload={'run_id':'brown-semantic-frame-obligation-lattice-20260921','status':'SEARCH_COMPLETED',
       'method':'forward-generated independent Brown PCFG semantic frames with live character obligations',
       'constraints':{'post_render_search':False,'reversed_tokens':False,'catalogue_text':False,'rlaif_per_candidate':False,'independent_side_frames':True,'brown_frequency_only_for_lexical_rank':True},
       'top_k_per_pos':TOP,'frame_stats':stats,'candidate_count':len(allrows),'reader_shortlist':[x for x in allrows if x['audit']['letters']>=40],
+      'diagnostic_controls':controls,
       'next_repair':'add agreement/valency registers to the frame lattice and vary left/right frames independently before lexical expansion'}
     out=ROOT/'runs'/'brown-semantic-frame-obligation-lattice-20260921.json';out.write_text(json.dumps(payload,indent=2)+'\n')
     print(json.dumps({'candidate_count':len(allrows),'frame_stats':stats},indent=2))

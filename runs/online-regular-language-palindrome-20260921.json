@@ -1,0 +1,397 @@
+{
+  "candidates": [],
+  "stats": {
+    "states": 19,
+    "matched_transitions": 19,
+    "dead_frontiers": 6,
+    "deepest_matched_pairs": 5,
+    "nfa_edges": 146
+  },
+  "dead_frontier_examples": [
+    {
+      "depth": 2,
+      "left_state": 2,
+      "right_state": 125,
+      "required_from_left": [
+        "r"
+      ],
+      "available_from_right": [
+        "e"
+      ]
+    },
+    {
+      "depth": 2,
+      "left_state": 12,
+      "right_state": 118,
+      "required_from_left": [
+        "e"
+      ],
+      "available_from_right": [
+        "r"
+      ]
+    },
+    {
+      "depth": 4,
+      "left_state": 14,
+      "right_state": 115,
+      "required_from_left": [
+        "a",
+        "h"
+      ],
+      "available_from_right": [
+        "e",
+        "k",
+        "p",
+        "t"
+      ]
+    },
+    {
+      "depth": 5,
+      "left_state": 15,
+      "right_state": 115,
+      "required_from_left": [
+        "s"
+      ],
+      "available_from_right": [
+        "e",
+        "k",
+        "p",
+        "t"
+      ]
+    },
+    {
+      "depth": 5,
+      "left_state": 18,
+      "right_state": 115,
+      "required_from_left": [
+        "s"
+      ],
+      "available_from_right": [
+        "e",
+        "k",
+        "p",
+        "t"
+      ]
+    },
+    {
+      "depth": 5,
+      "left_state": 24,
+      "right_state": 115,
+      "required_from_left": [
+        "d"
+      ],
+      "available_from_right": [
+        "e",
+        "k",
+        "p",
+        "t"
+      ]
+    }
+  ],
+  "enumeration": "One witness per (left state, right state, depth); complete for existence, not all surface variants.",
+  "experiment_id": "online-regular-language-palindrome-20260921",
+  "method": "Online equal-character product of forward and reverse lexical NFA paths",
+  "invariant": "Every queued path consumes equal characters at opposing positions before rendering; a candidate requires a connected even or odd center.",
+  "slots": [
+    [
+      "Nora ",
+      "Diana ",
+      "Leon ",
+      "Noel "
+    ],
+    [
+      "asks ",
+      "assists ",
+      "admires ",
+      "helps "
+    ],
+    [
+      "a careful clerk; ",
+      "an honest sailor; ",
+      "a quiet aide; "
+    ],
+    [
+      "some clerks ",
+      "the sailors ",
+      "several aides "
+    ],
+    [
+      "ask ",
+      "assist ",
+      "admire ",
+      "help "
+    ],
+    [
+      "Aaron.",
+      "Diana.",
+      "Leon.",
+      "Noel."
+    ]
+  ],
+  "language_size": 2304,
+  "controls": [
+    {
+      "text": "Nora asks a careful clerk; some clerks ask Aaron.",
+      "audit": {
+        "letters": 39,
+        "two_pointer_exact": false,
+        "forward_sha256": "fcf0195af9727202c88f5acac9449bb52bb51b1d66245d94ac26b3a445788241",
+        "reverse_sha256": "bfba532a48438d3918a13a46e51f6638420ae92f43373e45b0119db2c4c916c1",
+        "hash_equal": false
+      }
+    },
+    {
+      "text": "Nora asks a careful clerk; some clerks ask Diana.",
+      "audit": {
+        "letters": 39,
+        "two_pointer_exact": false,
+        "forward_sha256": "e9d15f1e00973cef3fb8f492eff75d56cfa3e1645764cbf217886cfd8ae9bad3",
+        "reverse_sha256": "6134d47f1b7dbfd5f329feaf013e07286cb4bbe7be3b5408623296b779733a8e",
+        "hash_equal": false
+      }
+    },
+    {
+      "text": "Nora asks a careful clerk; some clerks ask Leon.",
+      "audit": {
+        "letters": 38,
+        "two_pointer_exact": false,
+        "forward_sha256": "6c33de993af26a4ba83f0cd2e37d21d96ebc53e14c22fe3d50d02a4819aec449",
+        "reverse_sha256": "26c748a38cb71fe0a072469764377f2e701532bb216f2039a415263d0da98f80",
+        "hash_equal": false
+      }
+    }
+  ],
+  "provenance": {
+    "source": "Fresh hand-authored finite clause grammar; no catalogue sentence or seed in generation inventory.",
+    "seed_used_only_for_regression": true,
+    "generator_sha256": "a509d909007cb925febd8234b3ee0baef2faee007c85dcac0c34b0403760af94"
+  },
+  "novelty_preflight": {
+    "status": "implementation correction, not a new theoretical family",
+    "compared_sources": [
+      "shared_tape_finite_automata_role_ledger_20260921.py",
+      "semantic_slot_lattice_smt.py",
+      "cfg_earley_character_intersection_20260916.py"
+    ],
+    "distinction": "Those inspected scripts evaluate pre-rendered prose; this program only reaches rendering through live equal-character edges and an accepting path."
+  },
+  "verification": {
+    "tiny_exhaustive_oracles": 3,
+    "declared_seed_regression": true
+  },
+  "reader_evidence": null,
+  "construction_followup": {
+    "reason": "The depth-five conflict is caused by plural verb endings. A singular subject plus its agreeing verb is now one atomic alternative.",
+    "slots": [
+      [
+        "Nora ",
+        "Diana ",
+        "Leon ",
+        "Noel "
+      ],
+      [
+        "asks ",
+        "assists ",
+        "admires ",
+        "helps "
+      ],
+      [
+        "a careful clerk; ",
+        "an honest sailor; ",
+        "a quiet aide; "
+      ],
+      [
+        "a careful clerk asks ",
+        "an honest sailor assists ",
+        "a quiet aide admires ",
+        "a careful clerk helps "
+      ],
+      [
+        "Aaron.",
+        "Diana.",
+        "Leon.",
+        "Noel."
+      ]
+    ],
+    "result": {
+      "candidates": [],
+      "stats": {
+        "states": 32,
+        "matched_transitions": 32,
+        "dead_frontiers": 14,
+        "deepest_matched_pairs": 9,
+        "nfa_edges": 168
+      },
+      "dead_frontier_examples": [
+        {
+          "depth": 2,
+          "left_state": 2,
+          "right_state": 149,
+          "required_from_left": [
+            "r"
+          ],
+          "available_from_right": [
+            "e"
+          ]
+        },
+        {
+          "depth": 2,
+          "left_state": 12,
+          "right_state": 142,
+          "required_from_left": [
+            "e"
+          ],
+          "available_from_right": [
+            "r"
+          ]
+        },
+        {
+          "depth": 4,
+          "left_state": 14,
+          "right_state": 139,
+          "required_from_left": [
+            "a",
+            "h"
+          ],
+          "available_from_right": [
+            "s"
+          ]
+        },
+        {
+          "depth": 5,
+          "left_state": 24,
+          "right_state": 139,
+          "required_from_left": [
+            "d"
+          ],
+          "available_from_right": [
+            "s"
+          ]
+        },
+        {
+          "depth": 6,
+          "left_state": 16,
+          "right_state": 105,
+          "required_from_left": [
+            "k"
+          ],
+          "available_from_right": [
+            "t"
+          ]
+        },
+        {
+          "depth": 6,
+          "left_state": 16,
+          "right_state": 121,
+          "required_from_left": [
+            "k"
+          ],
+          "available_from_right": [
+            "e"
+          ]
+        },
+        {
+          "depth": 6,
+          "left_state": 16,
+          "right_state": 138,
+          "required_from_left": [
+            "k"
+          ],
+          "available_from_right": [
+            "p"
+          ]
+        },
+        {
+          "depth": 6,
+          "left_state": 19,
+          "right_state": 85,
+          "required_from_left": [
+            "s"
+          ],
+          "available_from_right": [
+            "k"
+          ]
+        },
+        {
+          "depth": 6,
+          "left_state": 19,
+          "right_state": 105,
+          "required_from_left": [
+            "s"
+          ],
+          "available_from_right": [
+            "t"
+          ]
+        },
+        {
+          "depth": 6,
+          "left_state": 19,
+          "right_state": 121,
+          "required_from_left": [
+            "s"
+          ],
+          "available_from_right": [
+            "e"
+          ]
+        },
+        {
+          "depth": 6,
+          "left_state": 19,
+          "right_state": 138,
+          "required_from_left": [
+            "s"
+          ],
+          "available_from_right": [
+            "p"
+          ]
+        },
+        {
+          "depth": 9,
+          "left_state": 35,
+          "right_state": 82,
+          "required_from_left": [
+            "c"
+          ],
+          "available_from_right": [
+            "k"
+          ]
+        },
+        {
+          "depth": 9,
+          "left_state": 47,
+          "right_state": 82,
+          "required_from_left": [
+            "n"
+          ],
+          "available_from_right": [
+            "k"
+          ]
+        },
+        {
+          "depth": 9,
+          "left_state": 60,
+          "right_state": 82,
+          "required_from_left": [
+            "q"
+          ],
+          "available_from_right": [
+            "k"
+          ]
+        }
+      ],
+      "enumeration": "One witness per (left state, right state, depth); complete for existence, not all surface variants."
+    },
+    "control": {
+      "text": "Nora asks a careful clerk; a careful clerk asks Aaron.",
+      "audit": {
+        "letters": 43,
+        "two_pointer_exact": false,
+        "forward_sha256": "d1ac7ab4c06005314707555a7433617b3ae6b3223906b0b096ab5a086084ca8c",
+        "reverse_sha256": "e06090551ceeb75223ac4e6228747121cf8f0ea8dc3fc57e45b37e4ffcaf08f3",
+        "hash_equal": false
+      }
+    }
+  },
+  "reader_gate": "Closed until a longer exact candidate passes provenance/shortcut review and blinded readers.",
+  "next_construction": "Use the recorded dead-frontier letters to jointly synthesize additional inflected verb/argument alternatives with semantic compatibility; rerun the identical automaton product. No completed candidate is repaired."
+}

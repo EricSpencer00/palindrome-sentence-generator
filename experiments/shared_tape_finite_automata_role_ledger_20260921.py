@@ -1,9 +1,8 @@
-"""Bounded shared-tape product: finite lexical automata × shallow role ledger.
+"""Historical complete-clause Cartesian enumeration with a post-render audit.
 
-The two sides emit ordinary words asynchronously.  A product transition is
-admitted only when the next exposed characters satisfy the palindrome tape
-relation; semantic roles are carried as a small ledger, never inferred from
-the rendered string.  This is intentionally a bounded structural probe.
+Despite the filename, this does not implement shared-tape automata or online
+character propagation. Preserve its outputs as a baseline, not evidence that
+an online automaton method was tested.
 """
 from __future__ import annotations
 import hashlib, json
@@ -57,14 +56,14 @@ def main() -> None:
                          "audit": a, "tape_relation": "post-render diagnostic"})
     rows.sort(key=lambda r: (-r["audit"]["letters"], r["text"]))
     exact = [r for r in rows if r["audit"]["pointer_exact"] and r["audit"]["letters"] > 38]
-    result = {"experiment_id": ID, "method": "shared character tape product of finite lexical automata with a shallow semantic role ledger",
+    result = {"experiment_id": ID, "method": "complete-clause Cartesian enumeration with distinct role labels and post-render palindrome audit",
       "stats": {"left_automaton_paths": len(left), "right_automaton_paths": len(right), "product_transitions": transitions,
                 "role_prunes": pruned, "rendered_controls": len(rows), "fresh_exact_gt38": len(exact),
                 "max_letters": max((r["audit"]["letters"] for r in rows), default=0)},
       "rendered_candidates": rows[:24], "exact_candidates": exact,
-      "novelty_preflight": {"status": "passed", "signature": SIG, "registry_inspected": True,
-        "distinct_from": "bilateral CFG/Earley/FST, center-out, character-LM, and prior role-lattice lanes: lexical options are finite automaton states coupled to a shared tape with an explicit role ledger"},
-      "provenance": {"audits": ["independent normalized forward/reverse pointer comparison", "forward/reverse SHA-256"],
+      "novelty_preflight": {"status": "retracted_after_source_audit", "signature": SIG, "registry_inspected": True,
+        "correction": "No live character transition or shared tape exists in this implementation. It enumerates completed clause pairs, then audits their concatenation."},
+      "provenance": {"audits": ["normalized string/reversed-string comparison", "forward/reverse SHA-256"],
         "reader_gate": "exact intact English prose >38 only", "hard_exclusions": ["finished-tape reversal", "posthoc repair", "mirrored units", "catalogue text"]},
       "falsifier": "If replacing automaton state with flat phrase enumeration yields the same frontier and role-prune profile, this product adds no causal search dimension.",
       "next_construction": "Replace complete-path states with prefix tries whose accepting states carry a second role ledger field; consume asynchronous tape characters before word completion.",

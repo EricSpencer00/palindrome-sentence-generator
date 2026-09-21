@@ -39,10 +39,10 @@ SEAMS = {
 }
 
 RIGHT = {
-    "some": ("some men inspire Diana.", "some patient sailors mend nets."),
-    "an": ("an eager artist studies maps.", "an old keeper opens gates."),
-    "no": ("no quiet child disturbs birds.", "no careful clerk loses letters."),
-    "a": ("a young pilot carries charts.", "a patient teacher opens books."),
+    "some": ("Some men inspire Diana.", "Some patient sailors mend nets."),
+    "an": ("An eager artist studies maps.", "An old keeper opens gates."),
+    "no": ("No quiet child disturbs birds.", "No careful clerk loses letters."),
+    "a": ("A young pilot carries charts.", "A patient teacher opens books."),
 }
 
 def seam_support(left: str, right: str) -> tuple[int, str]:

@@ -8544,3 +8544,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the era-shell family and points to a fresh transitive adjective-complement
   topology. Artifact:
   `runs/are-demonstrative-np-adjective-era-20260921.json`.
+
+- **Transitive adjective-complement topology, 2026-09-21:** authored 81
+  grammatical controls such as “Did the scout find the gate open?” (26
+  letters), with correct base-form morphology after `did`. An audit exposed a
+  construction error: the prototype compared the left clause with only its
+  adjective, so it had no paired right arm and could not be a live palindrome
+  search. The run is now explicitly grammar-only (`paired_right_arm_controls =
+  0`) and contributes no seam or exactness claim. The next method must build
+  two complete transitive/adjective arms before measuring residual debt.
+  Artifact: `runs/transitive-adjective-complement-debt-20260921.json`.

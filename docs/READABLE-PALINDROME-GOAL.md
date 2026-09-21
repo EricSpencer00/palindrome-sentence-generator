@@ -8563,3 +8563,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   pointer/SHA audits find zero exact closures. No candidate was promoted. The
   next connector must change the outer arm classes rather than add more lexical
   arms. Artifact: `runs/dual-transitive-connector-debt-20260921.json`.
+
+- **Endpoint-conditioned adversative dual arms, 2026-09-21:** changed the
+  connector and selected finite two-arm clauses jointly before rendering,
+  producing ordinary controls such as “The young sailor kept one map safe,
+  but a brave ranger left the harbor quiet.” (61 letters). The best opposing
+  prefix is only one character; content-disjointness is computed over lexical
+  words (function-word overlap is not falsely rejected), and independent
+  pointer/SHA audits find zero exact tapes. This is a clean negative for the
+  `but` topology, not a readable candidate. The next move is typed edge-state
+  composition, not another connector sweep. Artifact:
+  `runs/adversative-endpoint-dual-arm-20260921.json`.
+
+- **Semantic tile composition with live boundary obligations, 2026-09-21:**
+  used three distinct scene tiles and two discourse centers, composing 12
+  content-disjoint controls before rendering rather than repairing completed
+  text. Full-tape audits find zero exact closures and every left/right
+  boundary obligation is zero; controls such as “The scout maps a quiet cove
+  while dawn settles; our guide carries one brass key.” are retained with
+  provenance, not presented as generated palindromes. The concrete next
+  construction is typed subject/object/tense edge states on the tiles.
+  Artifact: `runs/orthogonal-tile-composition-20260921.json`.

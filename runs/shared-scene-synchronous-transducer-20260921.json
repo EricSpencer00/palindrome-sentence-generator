@@ -1,6 +1,6 @@
 {
   "experiment_id": "shared-scene-synchronous-transducer-20260921",
-  "method": "shared typed semantic scene graph; synchronous two-renderer transducer with live inward character obligations and locative/ditransitive edge labels",
+  "method": "shared typed semantic scene graph; synchronous two-renderer transducer with live inward character obligations, typed prepositions, and recipient agreement",
   "novelty_preflight": {
     "status": "passed",
     "output_hashes_unique": true,
@@ -13,7 +13,8 @@
     "obligation_steps": 108,
     "rendered": 15,
     "exact_gt38": 0,
-    "max_letters": 101
+    "max_letters": 101,
+    "second_edge_states": 6
   },
   "exact_candidates": [],
   "reader_facing_candidates": [],
@@ -38,7 +39,8 @@
           "subject": "gardener",
           "predicate": "water",
           "object": "the orchard"
-        }
+        },
+        "second_participant_edge": null
       },
       "rendered": "the patient gardener waters the orchard; the patient gardener waters the orchard beside the clear path.",
       "left_clause": "the patient gardener waters the orchard",
@@ -135,7 +137,8 @@
           "subject": "gardener",
           "predicate": "carry",
           "object": "a letter"
-        }
+        },
+        "second_participant_edge": null
       },
       "rendered": "the patient gardener carries a letter; the patient gardener carries a letter beside the clear path.",
       "left_clause": "the patient gardener carries a letter",
@@ -232,7 +235,8 @@
           "subject": "gardener",
           "predicate": "watch",
           "object": "the quiet harbor"
-        }
+        },
+        "second_participant_edge": null
       },
       "rendered": "the patient gardener watches the quiet harbor; the patient gardener watches the quiet harbor beside the clear path.",
       "left_clause": "the patient gardener watches the quiet harbor",
@@ -330,13 +334,19 @@
           "id": "rest",
           "verb": "rests",
           "plural_verb": "rest",
-          "object": "in the old garden",
+          "prep": "in",
+          "object": "the old garden",
           "kind": "locative"
         },
         "shared_edge": {
           "subject": "gardener",
           "predicate": "rest",
-          "object": "in the old garden"
+          "object": "the old garden"
+        },
+        "second_participant_edge": {
+          "subject": "gardener",
+          "predicate": "located-at",
+          "preposition": "in"
         }
       },
       "rendered": "the patient gardener rests in the old garden; the patient gardener rests in the old garden near the stone wall.",
@@ -443,13 +453,19 @@
           "id": "give",
           "verb": "gives",
           "plural_verb": "give",
-          "object": "the child a bright kite",
+          "recipient_id": "child",
+          "object": "a bright kite",
           "kind": "ditransitive"
         },
         "shared_edge": {
           "subject": "gardener",
           "predicate": "give",
-          "object": "the child a bright kite"
+          "object": "a bright kite"
+        },
+        "second_participant_edge": {
+          "subject": "child",
+          "predicate": "recipient",
+          "agreement": "singular"
         }
       },
       "rendered": "the patient gardener gives the child a bright kite; the patient gardener gives the child a bright kite before the open gate.",
@@ -571,7 +587,8 @@
           "subject": "merchant",
           "predicate": "water",
           "object": "the orchard"
-        }
+        },
+        "second_participant_edge": null
       },
       "rendered": "a careful merchant waters the orchard; a careful merchant waters the orchard beside the clear path.",
       "left_clause": "a careful merchant waters the orchard",
@@ -668,7 +685,8 @@
           "subject": "merchant",
           "predicate": "carry",
           "object": "a letter"
-        }
+        },
+        "second_participant_edge": null
       },
       "rendered": "a careful merchant carries a letter; a careful merchant carries a letter beside the clear path.",
       "left_clause": "a careful merchant carries a letter",
@@ -765,7 +783,8 @@
           "subject": "merchant",
           "predicate": "watch",
           "object": "the quiet harbor"
-        }
+        },
+        "second_participant_edge": null
       },
       "rendered": "a careful merchant watches the quiet harbor; a careful merchant watches the quiet harbor beside the clear path.",
       "left_clause": "a careful merchant watches the quiet harbor",
@@ -863,13 +882,19 @@
           "id": "rest",
           "verb": "rests",
           "plural_verb": "rest",
-          "object": "in the old garden",
+          "prep": "in",
+          "object": "the old garden",
           "kind": "locative"
         },
         "shared_edge": {
           "subject": "merchant",
           "predicate": "rest",
-          "object": "in the old garden"
+          "object": "the old garden"
+        },
+        "second_participant_edge": {
+          "subject": "merchant",
+          "predicate": "located-at",
+          "preposition": "in"
         }
       },
       "rendered": "a careful merchant rests in the old garden; a careful merchant rests in the old garden near the stone wall.",
@@ -976,13 +1001,19 @@
           "id": "give",
           "verb": "gives",
           "plural_verb": "give",
-          "object": "the child a bright kite",
+          "recipient_id": "child",
+          "object": "a bright kite",
           "kind": "ditransitive"
         },
         "shared_edge": {
           "subject": "merchant",
           "predicate": "give",
-          "object": "the child a bright kite"
+          "object": "a bright kite"
+        },
+        "second_participant_edge": {
+          "subject": "child",
+          "predicate": "recipient",
+          "agreement": "singular"
         }
       },
       "rendered": "a careful merchant gives the child a bright kite; a careful merchant gives the child a bright kite before the open gate.",
@@ -1104,7 +1135,8 @@
           "subject": "artists",
           "predicate": "water",
           "object": "the orchard"
-        }
+        },
+        "second_participant_edge": null
       },
       "rendered": "the young artists water the orchard; the young artists water the orchard beside the clear path.",
       "left_clause": "the young artists water the orchard",
@@ -1201,7 +1233,8 @@
           "subject": "artists",
           "predicate": "carry",
           "object": "a letter"
-        }
+        },
+        "second_participant_edge": null
       },
       "rendered": "the young artists carry a letter; the young artists carry a letter beside the clear path.",
       "left_clause": "the young artists carry a letter",
@@ -1298,7 +1331,8 @@
           "subject": "artists",
           "predicate": "watch",
           "object": "the quiet harbor"
-        }
+        },
+        "second_participant_edge": null
       },
       "rendered": "the young artists watch the quiet harbor; the young artists watch the quiet harbor beside the clear path.",
       "left_clause": "the young artists watch the quiet harbor",
@@ -1396,13 +1430,19 @@
           "id": "rest",
           "verb": "rests",
           "plural_verb": "rest",
-          "object": "in the old garden",
+          "prep": "in",
+          "object": "the old garden",
           "kind": "locative"
         },
         "shared_edge": {
           "subject": "artists",
           "predicate": "rest",
-          "object": "in the old garden"
+          "object": "the old garden"
+        },
+        "second_participant_edge": {
+          "subject": "artists",
+          "predicate": "located-at",
+          "preposition": "in"
         }
       },
       "rendered": "the young artists rest in the old garden; the young artists rest in the old garden near the stone wall.",
@@ -1509,13 +1549,19 @@
           "id": "give",
           "verb": "gives",
           "plural_verb": "give",
-          "object": "the child a bright kite",
+          "recipient_id": "child",
+          "object": "a bright kite",
           "kind": "ditransitive"
         },
         "shared_edge": {
           "subject": "artists",
           "predicate": "give",
-          "object": "the child a bright kite"
+          "object": "a bright kite"
+        },
+        "second_participant_edge": {
+          "subject": "child",
+          "predicate": "recipient",
+          "agreement": "singular"
         }
       },
       "rendered": "the young artists give the child a bright kite; the young artists give the child a bright kite before the open gate.",

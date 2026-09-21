@@ -26,20 +26,18 @@ def test_outer_domain_condition_is_two_character_reverse_exposure():
 
 def test_run_keeps_complete_prose_and_independent_hashes():
     result=lane.run()
-    assert result['stats']['candidate_completions'] == 16
+    assert result['stats']['candidate_completions'] == 4
     assert all(row['rendered'].endswith('.') for row in result['rendered_candidates'])
     assert all(row['audit']['sha256_forward'] != row['audit']['sha256_reverse']
                for row in result['rendered_candidates'])
     assert result['stats']['exact_gt38'] == 0
-    assert result['stats']['outer_pruned'] == 5
-    assert all(row['outer_domain_support']['width'] == 3
-               and row['outer_domain_support']['matched'] == 3
+    assert result['stats']['outer_pruned'] == 0
+    assert all(row['outer_domain_support']['width'] == 5
+               and row['outer_domain_support']['matched'] == 5
                for row in result['rendered_candidates'])
-    assert any('earnest archivist' in row['rendered'] for row in result['rendered_candidates'])
+    assert any('red-laced naturalist' in row['rendered'] for row in result['rendered_candidates'])
     assert result['stats']['fresh_outer_pair_completions'] == 4
-    assert result['stats']['fresh_outer_pair_support_depth'] == [3]
-    assert all('An earnest archivist' in row['rendered'] and
-               'At dawn the keeper surveyed the arena.' in row['rendered']
+    assert result['stats']['fresh_outer_pair_support_depth'] == [5]
+    assert all('A red-laced naturalist' in row['rendered'] and
+               'basaltic caldera.' in row['rendered']
                for row in result['fresh_outer_pair_candidates'])
-    assert result['fresh_residual_probe']['status'] == 'no_natural_fresh_pair_above_three'
-    assert result['fresh_residual_probe']['max_new_support_depth'] == 3

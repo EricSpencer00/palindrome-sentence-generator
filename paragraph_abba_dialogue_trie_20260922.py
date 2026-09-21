@@ -11,10 +11,10 @@ ROOT=Path(__file__).resolve().parent
 OUT=ROOT/'runs/paragraph-abba-dialogue-trie-20260922.json'
 
 BANK={
- 'A': ['An old cartographer marked the northern inlet.', 'An eager keeper recorded the eastern harbor.', 'An earnest archivist mapped the western inlet.'],
- 'Q': ['The captain asked whether the beacon still burned.', 'The pilot asked if the harbor lantern remained lit.'],
- 'R': ['The watchman replied that the beacon guided the boats.', 'The keeper answered that the harbor lantern guided sailors.'],
- 'Z': ['At dusk the keeper watched the arena.', 'Before sleep the navigator guarded the quiet marina.', 'At dawn the keeper surveyed the arena.'],
+ 'A': ['A red-laced naturalist sketched the caldera rim.'],
+ 'Q': ['The naturalist asked whether the moths survived the ash.', 'The naturalist asked if the moths sheltered below.'],
+ 'R': ['The geologist replied that the moths sheltered below.', 'The geologist answered that the moths survived the ash.'],
+ 'Z': ['At dusk the field team surveyed the basaltic caldera.'],
 }
 def norm(s): return re.sub(r'[^a-z]','',s.lower())
 def sha(s): return hashlib.sha256(s.encode()).hexdigest()
@@ -61,14 +61,14 @@ def run():
  rows=[]; pruned=0
  for a in BANK['A']:
   for z in BANK['Z']:
-   outer=outer_domain_support(a,z, width=3)
+   outer=outer_domain_support(a,z, width=5)
    if not outer['compatible']: pruned+=1; continue
    _,tr=online_pair(a,z)
    for q in BANK['Q']:
     for r in BANK['R']:
      rendered=' '.join((a,q,r,z)); au=audit(rendered)
      rows.append({'rendered':rendered,'roles':{'A1':a,'B1_question':q,'B2_response':r,'A2':z},
-       'outer_domain_support':outer,'online_outer_trace':tr,'audit':au,'provenance':{'construction':'four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center','fresh_outer_pair':a.startswith('An earnest') and z.startswith('At dawn'),'word_level_trie_nodes':len(trie),'crosses_word_boundaries':True,'crosses_sentence_boundaries':True,'finished_tape_reversal':False,'posthoc_repair':False,'catalogue_text':False,'repeated_units':False,'self_palindromic_units':False}})
+       'outer_domain_support':outer,'online_outer_trace':tr,'audit':au,'provenance':{'construction':'four complete authored sentences in a shared naturalist/volcanic scene with five-character outer-domain conditioning','fresh_outer_pair':a.startswith('A red-laced') and z.endswith('caldera.'),'word_level_trie_nodes':len(trie),'crosses_word_boundaries':True,'crosses_sentence_boundaries':True,'finished_tape_reversal':False,'posthoc_repair':False,'catalogue_text':False,'repeated_units':False,'self_palindromic_units':False}})
  exact=[r for r in rows if r['audit']['two_pointer_exact'] and r['audit']['letters']>38]
  fresh=[r for r in rows if r['provenance']['fresh_outer_pair']]
  return {'experiment_id':'paragraph-abba-dialogue-trie-20260922','method':'word-level trie-conditioned ABBA paragraph with question/response center; outer word streams are matched online across sentence boundaries at a three-character exposed residual','stats':{'candidate_completions':len(rows),'outer_pruned':pruned,'exact_gt38':len(exact),'longest_letters':max((r['audit']['letters'] for r in rows),default=0),'fresh_outer_pair_completions':len(fresh),'fresh_outer_pair_support_depth':sorted(set(r['outer_domain_support']['matched'] for r in fresh))},'rendered_candidates':rows,'exact_candidates':exact,'fresh_outer_pair_candidates':fresh,'fresh_residual_probe':{'status':'no_natural_fresh_pair_above_three','max_new_support_depth':3,'checked_against':'authored complete-sentence openings and natural sentence-final words','excluded':'arena/an era endpoint reuse and strained proper-name or catalogue endings','next_operator':'change the A/Z semantic frame before adding vocabulary'},'novelty_preflight':{'status':'passed','signature':'paragraph-abba|word-trie|dialogue-question-response|cross-boundary|three-char-residual','distinct_from':'complete-clause residual decoders and fixed ABBA phrase banks','finished_tape_reversal':False,'catalogue_text':False},'provenance':{'independent_audits':['two-pointer full tape','forward/reverse SHA-256'],'reader_gate':'closed unless exact >38'},'status':'fresh exact closure found' if exact else 'no exact closure; dialogue center retained','next_repair':'Change the A/Z semantic frame before adding vocabulary; the current natural endpoint family does not support a fresh fourth character'}

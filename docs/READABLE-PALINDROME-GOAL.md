@@ -8381,3 +8381,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   next operator must select two distinct semantic clauses online while carrying
   the opposing character debt, rather than repeat a lexical middle.
   Artifact: `runs/question-answer-edge-palindrome-20260921.json`.
+
+- **Constructive disjoint Q/A character-debt search, 2026-09-21:** replaced
+  the repeated-middle probe with 64 typed question clauses and 64 disjoint
+  typed answer clauses. Each pair consumed the two exposed tapes online before
+  rendering; no finished tape was reversed and no repair was applied. It
+  rendered intact controls such as “am I ready to map a hidden cove? the
+  answer is calm near a quiet inlet.” (54 letters; pointer and
+  forward/reverse SHA audits disagree at the first character). All 4,096
+  pairs failed at the outer debt equation, so zero exact or reader candidates
+  were admitted. The concrete successor is feature-bearing tense/agreement
+  state in the debt itself, not a larger lexical Cartesian product.
+  Artifact: `runs/constructive-qa-character-debt-20260921.json`.

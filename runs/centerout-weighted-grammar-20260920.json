@@ -1,0 +1,51 @@
+{
+  "experiment_id": "centerout-weighted-grammar-20260920",
+  "method": "center-out weighted finite-state lexicalized grammar with simultaneous bilateral character obligations",
+  "config": {
+    "prior": "fixed rounded English lexical prior",
+    "post_search_scoring": false,
+    "grammar": [
+      "det",
+      "subj",
+      "verb",
+      "obj",
+      "prep",
+      "place"
+    ]
+  },
+  "stats": {
+    "states_expanded": 10,
+    "obligations_checked": 153,
+    "rendered": 0,
+    "exact_gt38": 0,
+    "max_letters": 0
+  },
+  "rendered_candidates": [],
+  "exact_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_before_run": 678,
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "excluded_routes": [
+      "finished-tape reversal",
+      "post-search scoring",
+      "word-order-only symmetry"
+    ]
+  },
+  "provenance": {
+    "prior": "checked-in fixed deterministic English lexical probabilities",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "finished_tape_reversal": false,
+    "mirrored_units": false,
+    "word_order_symmetry": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false
+  },
+  "falsifier": "shuffle lexical weights and rerun: if closures or surfaces are unchanged, the weighted grammar claim is falsified",
+  "next_operator": "add a held-out typed adjunct state whose lexical probability is consumed at the same bilateral obligation step",
+  "status": "no exact >38 closure; intact grammatical controls retained"
+}

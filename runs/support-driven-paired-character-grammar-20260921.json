@@ -2,16 +2,18 @@
   "experiment_id": "support-driven-paired-character-grammar-20260921",
   "method": "joint outside-in authored grammar with residual carry and typed semantic state",
   "stats": {
-    "frames": 4,
-    "paired_states": 16,
+    "frames": 6,
+    "held_out_frames": 2,
+    "paired_states": 36,
     "productive_states": 0,
-    "transitions": 2,
+    "transitions": 5,
     "support_depth_frontier": 1,
     "exact_candidates": 0
   },
   "rendered_candidates": [
     {
       "rendered": "a careful pilot marked the weathered chart at sunset; a careful pilot marked the weathered chart at sunset.",
+      "traced_tape": "acarefulpilotmarkedtheweatheredchartatsunsetacarefulpilotmarkedtheweatheredchartatsunset",
       "left_frame": {
         "subject": "a careful pilot",
         "verb": "marked",
@@ -78,6 +80,7 @@
     },
     {
       "rendered": "a careful pilot marked the weathered chart at sunset; our patient guides carried a brass compass through the harbor.",
+      "traced_tape": "acarefulpilotmarkedtheweatheredchartatsunsetourpatientguidescarriedabrasscompassthroughtheharbor",
       "left_frame": {
         "subject": "a careful pilot",
         "verb": "marked",
@@ -144,6 +147,7 @@
     },
     {
       "rendered": "a careful pilot marked the weathered chart at sunset; the young botanist studied a rare flower beneath the stars.",
+      "traced_tape": "acarefulpilotmarkedtheweatheredchartatsunsettheyoungbotaniststudiedarareflowerbeneaththestars",
       "left_frame": {
         "subject": "a careful pilot",
         "verb": "marked",
@@ -210,6 +214,7 @@
     },
     {
       "rendered": "a careful pilot marked the weathered chart at sunset; sailors found the hidden inlet near the island.",
+      "traced_tape": "acarefulpilotmarkedtheweatheredchartatsunsetsailorsfoundthehiddeninletneartheisland",
       "left_frame": {
         "subject": "a careful pilot",
         "verb": "marked",
@@ -275,7 +280,142 @@
       }
     },
     {
+      "rendered": "a careful pilot marked the weathered chart at sunset; a careful pilot marked the chart and compass at sunset.",
+      "traced_tape": "acarefulpilotmarkedtheweatheredchartatsunsetacarefulpilotmarkedthechartandcompassatsunset",
+      "left_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the weathered chart",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "a",
+        "right": "t",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "t",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 89,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "t"
+        ],
+        "sha256_forward": "5a4b9348d874b0873542a0c24cf07f804648e2aa70ab98146a9475a018d7923c",
+        "sha256_reverse": "4b054c28ee34729d90c261451a6b1714dd4ce3cf38613c650f8da65b05086603"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": true
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "a careful pilot marked the weathered chart at sunset; the map was carried by patient guides through the harbor.",
+      "traced_tape": "acarefulpilotmarkedtheweatheredchartatsunsetthemapwascarriedbypatientguidesthroughtheharbor",
+      "left_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the weathered chart",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "a",
+        "right": "r",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "r",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 91,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "94cab91150fe0a1835813cd5c2759b45131c2f4f61305c49a74bfdf34d1aec44",
+        "sha256_reverse": "0ec989d6f54f175e5abe509309b64f36199158019ac40be33ccfea7b9ed42399"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
       "rendered": "our patient guides carried a brass compass through the harbor; a careful pilot marked the weathered chart at sunset.",
+      "traced_tape": "ourpatientguidescarriedabrasscompassthroughtheharboracarefulpilotmarkedtheweatheredchartatsunset",
       "left_frame": {
         "subject": "our patient guides",
         "verb": "carried",
@@ -342,6 +482,7 @@
     },
     {
       "rendered": "our patient guides carried a brass compass through the harbor; our patient guides carried a brass compass through the harbor.",
+      "traced_tape": "ourpatientguidescarriedabrasscompassthroughtheharborourpatientguidescarriedabrasscompassthroughtheharbor",
       "left_frame": {
         "subject": "our patient guides",
         "verb": "carried",
@@ -408,6 +549,7 @@
     },
     {
       "rendered": "our patient guides carried a brass compass through the harbor; the young botanist studied a rare flower beneath the stars.",
+      "traced_tape": "ourpatientguidescarriedabrasscompassthroughtheharbortheyoungbotaniststudiedarareflowerbeneaththestars",
       "left_frame": {
         "subject": "our patient guides",
         "verb": "carried",
@@ -474,6 +616,7 @@
     },
     {
       "rendered": "our patient guides carried a brass compass through the harbor; sailors found the hidden inlet near the island.",
+      "traced_tape": "ourpatientguidescarriedabrasscompassthroughtheharborsailorsfoundthehiddeninletneartheisland",
       "left_frame": {
         "subject": "our patient guides",
         "verb": "carried",
@@ -539,7 +682,142 @@
       }
     },
     {
+      "rendered": "our patient guides carried a brass compass through the harbor; a careful pilot marked the chart and compass at sunset.",
+      "traced_tape": "ourpatientguidescarriedabrasscompassthroughtheharboracarefulpilotmarkedthechartandcompassatsunset",
+      "left_frame": {
+        "subject": "our patient guides",
+        "verb": "carried",
+        "object": "a brass compass",
+        "adjunct": "through the harbor",
+        "number": "plural",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "o",
+        "right": "t",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "o",
+          "right": "t",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 97,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "o",
+          "t"
+        ],
+        "sha256_forward": "703a65e05fdbc8ef1635b6710e7cdf742153d487500de9e034822cce85d653d5",
+        "sha256_reverse": "3a0c009be9d6c1f3460aa352ff30b4c4839936ea9fd7c676add9f69756a38893"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "our patient guides carried a brass compass through the harbor; the map was carried by patient guides through the harbor.",
+      "traced_tape": "ourpatientguidescarriedabrasscompassthroughtheharborthemapwascarriedbypatientguidesthroughtheharbor",
+      "left_frame": {
+        "subject": "our patient guides",
+        "verb": "carried",
+        "object": "a brass compass",
+        "adjunct": "through the harbor",
+        "number": "plural",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "o",
+        "right": "r",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "o",
+          "right": "r",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 99,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "o",
+          "r"
+        ],
+        "sha256_forward": "9cef9048f53a0552402201a92645fbe339886ac417021a1c854977df3cd8f822",
+        "sha256_reverse": "d01e3c011e3155a6d91523b262f584c26a051b7502c23f2191f4a6f5c2226112"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
       "rendered": "the young botanist studied a rare flower beneath the stars; a careful pilot marked the weathered chart at sunset.",
+      "traced_tape": "theyoungbotaniststudiedarareflowerbeneaththestarsacarefulpilotmarkedtheweatheredchartatsunset",
       "left_frame": {
         "subject": "the young botanist",
         "verb": "studied",
@@ -612,6 +890,7 @@
     },
     {
       "rendered": "the young botanist studied a rare flower beneath the stars; our patient guides carried a brass compass through the harbor.",
+      "traced_tape": "theyoungbotaniststudiedarareflowerbeneaththestarsourpatientguidescarriedabrasscompassthroughtheharbor",
       "left_frame": {
         "subject": "the young botanist",
         "verb": "studied",
@@ -678,6 +957,7 @@
     },
     {
       "rendered": "the young botanist studied a rare flower beneath the stars; the young botanist studied a rare flower beneath the stars.",
+      "traced_tape": "theyoungbotaniststudiedarareflowerbeneaththestarstheyoungbotaniststudiedarareflowerbeneaththestars",
       "left_frame": {
         "subject": "the young botanist",
         "verb": "studied",
@@ -744,6 +1024,7 @@
     },
     {
       "rendered": "the young botanist studied a rare flower beneath the stars; sailors found the hidden inlet near the island.",
+      "traced_tape": "theyoungbotaniststudiedarareflowerbeneaththestarssailorsfoundthehiddeninletneartheisland",
       "left_frame": {
         "subject": "the young botanist",
         "verb": "studied",
@@ -809,7 +1090,148 @@
       }
     },
     {
+      "rendered": "the young botanist studied a rare flower beneath the stars; a careful pilot marked the chart and compass at sunset.",
+      "traced_tape": "theyoungbotaniststudiedarareflowerbeneaththestarsacarefulpilotmarkedthechartandcompassatsunset",
+      "left_frame": {
+        "subject": "the young botanist",
+        "verb": "studied",
+        "object": "a rare flower",
+        "adjunct": "beneath the stars",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 1,
+      "first_unsupported": {
+        "offset": 1,
+        "left": "h",
+        "right": "e",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "t",
+          "right": "t",
+          "outcome": "match"
+        },
+        {
+          "offset": 1,
+          "left": "h",
+          "right": "e",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 94,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "bb3db1353a0af758b8d660ba258821a9896ef7f1eab39e31ece80bc0b4b7c9eb",
+        "sha256_reverse": "c65bdd81a44eb543300fd30b9cd213cd03c0e26ac630dc51eb7b1f934eb14984"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": true
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "the young botanist studied a rare flower beneath the stars; the map was carried by patient guides through the harbor.",
+      "traced_tape": "theyoungbotaniststudiedarareflowerbeneaththestarsthemapwascarriedbypatientguidesthroughtheharbor",
+      "left_frame": {
+        "subject": "the young botanist",
+        "verb": "studied",
+        "object": "a rare flower",
+        "adjunct": "beneath the stars",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "t",
+        "right": "r",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "t",
+          "right": "r",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 96,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "0381a9130f89545df1c6f22931685fc291159fbf2e53a4d731cd3ba80e4f3df4",
+        "sha256_reverse": "4902eb785955017a08274eae839845f99d5920d5106fdd88b4e7d66aaff6be11"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
       "rendered": "sailors found the hidden inlet near the island; a careful pilot marked the weathered chart at sunset.",
+      "traced_tape": "sailorsfoundthehiddeninletneartheislandacarefulpilotmarkedtheweatheredchartatsunset",
       "left_frame": {
         "subject": "sailors",
         "verb": "found",
@@ -876,6 +1298,7 @@
     },
     {
       "rendered": "sailors found the hidden inlet near the island; our patient guides carried a brass compass through the harbor.",
+      "traced_tape": "sailorsfoundthehiddeninletneartheislandourpatientguidescarriedabrasscompassthroughtheharbor",
       "left_frame": {
         "subject": "sailors",
         "verb": "found",
@@ -942,6 +1365,7 @@
     },
     {
       "rendered": "sailors found the hidden inlet near the island; the young botanist studied a rare flower beneath the stars.",
+      "traced_tape": "sailorsfoundthehiddeninletneartheislandtheyoungbotaniststudiedarareflowerbeneaththestars",
       "left_frame": {
         "subject": "sailors",
         "verb": "found",
@@ -1014,6 +1438,7 @@
     },
     {
       "rendered": "sailors found the hidden inlet near the island; sailors found the hidden inlet near the island.",
+      "traced_tape": "sailorsfoundthehiddeninletneartheislandsailorsfoundthehiddeninletneartheisland",
       "left_frame": {
         "subject": "sailors",
         "verb": "found",
@@ -1058,6 +1483,956 @@
         ],
         "sha256_forward": "95845cd88885e752f4edfe33a47de510899f92c9e9b0d331a2c3b0396376d738",
         "sha256_reverse": "8e82fcee31acb60fc9f6d5f0a4037d91eca0e2c027bd9e782eff13653c3fc99e"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": true
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "sailors found the hidden inlet near the island; a careful pilot marked the chart and compass at sunset.",
+      "traced_tape": "sailorsfoundthehiddeninletneartheislandacarefulpilotmarkedthechartandcompassatsunset",
+      "left_frame": {
+        "subject": "sailors",
+        "verb": "found",
+        "object": "the hidden inlet",
+        "adjunct": "near the island",
+        "number": "plural",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "s",
+        "right": "t",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "s",
+          "right": "t",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 84,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "s",
+          "t"
+        ],
+        "sha256_forward": "40d42a3663fd32ec329caf439a63779b3eb9479a34428a8eafef2d1796a88a31",
+        "sha256_reverse": "18a809a34351e5886b68c09cf57e5a79c12626556792be5bc1ac00a28860c882"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "sailors found the hidden inlet near the island; the map was carried by patient guides through the harbor.",
+      "traced_tape": "sailorsfoundthehiddeninletneartheislandthemapwascarriedbypatientguidesthroughtheharbor",
+      "left_frame": {
+        "subject": "sailors",
+        "verb": "found",
+        "object": "the hidden inlet",
+        "adjunct": "near the island",
+        "number": "plural",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "s",
+        "right": "r",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "s",
+          "right": "r",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 86,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "s",
+          "r"
+        ],
+        "sha256_forward": "0a4d9fa58ed8d98df5e5bf201b7fe6800b9402bcbe48e35d498bf5a158d676bf",
+        "sha256_reverse": "685c7602c706403d22d30f8d153f4544c679ef4133bc9fd56cdb65d3a50a136d"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "a careful pilot marked the chart and compass at sunset; a careful pilot marked the weathered chart at sunset.",
+      "traced_tape": "acarefulpilotmarkedthechartandcompassatsunsetacarefulpilotmarkedtheweatheredchartatsunset",
+      "left_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the weathered chart",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "a",
+        "right": "t",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "t",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 89,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "t"
+        ],
+        "sha256_forward": "9fe8d3ef6d44130ed08e831688cad814c77ef3d2bacc9eaf9e96e06220cf4d68",
+        "sha256_reverse": "7a971312ddc4e25c0be624711a0245ea545b9b752cd02b6ea8c91cc678931aa2"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": true
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "a careful pilot marked the chart and compass at sunset; our patient guides carried a brass compass through the harbor.",
+      "traced_tape": "acarefulpilotmarkedthechartandcompassatsunsetourpatientguidescarriedabrasscompassthroughtheharbor",
+      "left_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "our patient guides",
+        "verb": "carried",
+        "object": "a brass compass",
+        "adjunct": "through the harbor",
+        "number": "plural",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "a",
+        "right": "r",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "r",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 97,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "6f02b793a2fa3e77b876ba2700e197704aae0abac74eaecee37aaccae3a446ad",
+        "sha256_reverse": "044f54c29d08da579a9abb9a4c3fe766a5ef65546095ecfec8dd2d8f9190bfe6"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "a careful pilot marked the chart and compass at sunset; the young botanist studied a rare flower beneath the stars.",
+      "traced_tape": "acarefulpilotmarkedthechartandcompassatsunsettheyoungbotaniststudiedarareflowerbeneaththestars",
+      "left_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "the young botanist",
+        "verb": "studied",
+        "object": "a rare flower",
+        "adjunct": "beneath the stars",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "a",
+        "right": "s",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "s",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 94,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "s"
+        ],
+        "sha256_forward": "230838a798b5b74917eb7e1162bbe700146ad597bd9de8ec28cc6f907b9434e6",
+        "sha256_reverse": "80cbf88359d8b29c468032e5553ac3ca1bc13a7056014fbc2def4e48b9ecefcd"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": true
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "a careful pilot marked the chart and compass at sunset; sailors found the hidden inlet near the island.",
+      "traced_tape": "acarefulpilotmarkedthechartandcompassatsunsetsailorsfoundthehiddeninletneartheisland",
+      "left_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "sailors",
+        "verb": "found",
+        "object": "the hidden inlet",
+        "adjunct": "near the island",
+        "number": "plural",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "a",
+        "right": "d",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "d",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 84,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "d"
+        ],
+        "sha256_forward": "dd3186e9e98a3e1d828d7938bb7c047a28ce9342eca772f5f31e5b25ddace647",
+        "sha256_reverse": "b51c4d1e2493c808ae896d33eac33a39587b30c6e6a5a5bf8e461436e1327c33"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "a careful pilot marked the chart and compass at sunset; a careful pilot marked the chart and compass at sunset.",
+      "traced_tape": "acarefulpilotmarkedthechartandcompassatsunsetacarefulpilotmarkedthechartandcompassatsunset",
+      "left_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "a",
+        "right": "t",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "t",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 90,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "t"
+        ],
+        "sha256_forward": "b234c29fd7349156d0b90c8c4125fae39d10a71e96434d17601611644698880a",
+        "sha256_reverse": "fd4b51e893305771df7e56325da0580f2c98d9168d167d8d2d999065dc45b5df"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": true
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "a careful pilot marked the chart and compass at sunset; the map was carried by patient guides through the harbor.",
+      "traced_tape": "acarefulpilotmarkedthechartandcompassatsunsetthemapwascarriedbypatientguidesthroughtheharbor",
+      "left_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "right_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "a",
+        "right": "r",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "r",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 92,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "a5a5955b29e02e979556f6b545e64ba74fa192efff66aa5bdd4cd905886ce2bd",
+        "sha256_reverse": "3403f115adb4e44cd7c53e85952af8d2defa06c836b09c2c139b41be46d4f298"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "the map was carried by patient guides through the harbor; a careful pilot marked the weathered chart at sunset.",
+      "traced_tape": "themapwascarriedbypatientguidesthroughtheharboracarefulpilotmarkedtheweatheredchartatsunset",
+      "left_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "right_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the weathered chart",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 1,
+      "first_unsupported": {
+        "offset": 1,
+        "left": "h",
+        "right": "e",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "t",
+          "right": "t",
+          "outcome": "match"
+        },
+        {
+          "offset": 1,
+          "left": "h",
+          "right": "e",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 91,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "b96c682d0731cc486f4ccabfa19a0cadf4ad463721e5519bfa7d538d5874748d",
+        "sha256_reverse": "7c875b29fece1d288c428cbc88ee6fd2227845d6a9bdeea921b7613a0fb640df"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "the map was carried by patient guides through the harbor; our patient guides carried a brass compass through the harbor.",
+      "traced_tape": "themapwascarriedbypatientguidesthroughtheharborourpatientguidescarriedabrasscompassthroughtheharbor",
+      "left_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "right_frame": {
+        "subject": "our patient guides",
+        "verb": "carried",
+        "object": "a brass compass",
+        "adjunct": "through the harbor",
+        "number": "plural",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "t",
+        "right": "r",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "t",
+          "right": "r",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 99,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "18917c8c66d95402ffcc3eb263f487ff4498cc19cd9b7e048f7f70fafcdb1b39",
+        "sha256_reverse": "9cd89c93aa39e890a5961572b29e2e63823b720812164babcca6758fcbe05d03"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "the map was carried by patient guides through the harbor; the young botanist studied a rare flower beneath the stars.",
+      "traced_tape": "themapwascarriedbypatientguidesthroughtheharbortheyoungbotaniststudiedarareflowerbeneaththestars",
+      "left_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "right_frame": {
+        "subject": "the young botanist",
+        "verb": "studied",
+        "object": "a rare flower",
+        "adjunct": "beneath the stars",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "t",
+        "right": "s",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "t",
+          "right": "s",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 96,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "sha256_forward": "e5c9d98deda89e83743b6bb4121961f81069c05639d238553fb5e15eb9a0e0e7",
+        "sha256_reverse": "c85750169d759816a6d2a802f4b385e074e4c64b662ebcf56be70ba68a2c5637"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "the map was carried by patient guides through the harbor; sailors found the hidden inlet near the island.",
+      "traced_tape": "themapwascarriedbypatientguidesthroughtheharborsailorsfoundthehiddeninletneartheisland",
+      "left_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "right_frame": {
+        "subject": "sailors",
+        "verb": "found",
+        "object": "the hidden inlet",
+        "adjunct": "near the island",
+        "number": "plural",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "t",
+        "right": "d",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "t",
+          "right": "d",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 86,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "5b949d8fc53df52cf60380351263e3cd98ce828f81eb5b0b9f1d628d5d612265",
+        "sha256_reverse": "6bf327d0ddd79d2b65b87704adc18ee439bb5d7161036186928d093fe8759c48"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "the map was carried by patient guides through the harbor; a careful pilot marked the chart and compass at sunset.",
+      "traced_tape": "themapwascarriedbypatientguidesthroughtheharboracarefulpilotmarkedthechartandcompassatsunset",
+      "left_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "right_frame": {
+        "subject": "a careful pilot",
+        "verb": "marked",
+        "object": "the chart and compass",
+        "adjunct": "at sunset",
+        "number": "singular",
+        "valency": "transitive",
+        "role": "agent"
+      },
+      "support_depth": 1,
+      "first_unsupported": {
+        "offset": 1,
+        "left": "h",
+        "right": "e",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "t",
+          "right": "t",
+          "outcome": "match"
+        },
+        {
+          "offset": 1,
+          "left": "h",
+          "right": "e",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 92,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "487d99673196fa13a898d2dca26a2dc5978beeb78b32005b3df1481389f448a2",
+        "sha256_reverse": "79bb1a09222a4859fe2f33b62c2afe03a183a26321127b4b810666fcc5d5b9ad"
+      },
+      "gates": {
+        "supported_state": false,
+        "complete_ordinary_english": true,
+        "whole_output_exact": false,
+        "independent_pointer_hash": false,
+        "no_self_palindromic_half": true,
+        "no_tape_mirror": true,
+        "no_post_hoc_repair": true,
+        "semantic_roles_compatible": false
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "support-driven paired-character grammar",
+        "joint_outside_in": true,
+        "cross_word_residual": true,
+        "rendered_after_support_pruning": true,
+        "lm_reward_used": false
+      }
+    },
+    {
+      "rendered": "the map was carried by patient guides through the harbor; the map was carried by patient guides through the harbor.",
+      "traced_tape": "themapwascarriedbypatientguidesthroughtheharborthemapwascarriedbypatientguidesthroughtheharbor",
+      "left_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "right_frame": {
+        "subject": "the map was",
+        "verb": "carried by",
+        "object": "patient guides",
+        "adjunct": "through the harbor",
+        "number": "singular",
+        "valency": "passive",
+        "role": "patient"
+      },
+      "support_depth": 0,
+      "first_unsupported": {
+        "offset": 0,
+        "left": "t",
+        "right": "r",
+        "kind": "character"
+      },
+      "bilateral_obligation_trace": [
+        {
+          "offset": 0,
+          "left": "t",
+          "right": "r",
+          "outcome": "unsupported"
+        }
+      ],
+      "audit": {
+        "letters": 94,
+        "exact": false,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "0499eaee7b407081f6ecd221ba38976351159c24f9b1313eedfea63c92125291",
+        "sha256_reverse": "91f2536644de681802d88cc8bb7508b4503be24821edf31a8e5f0e4bec06de95"
       },
       "gates": {
         "supported_state": false,

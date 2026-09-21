@@ -8053,6 +8053,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   with a balanced cut and rank-perturbation witness. Artifact:
   `runs/eleven-event-asymmetric-cut-20260921.json`.
 
+- **Twelve-event balanced-cut graph, 2026-09-21:** kept the balanced cut at
+  `e6 | e7` and recorded rank 3 with a perturbation dropping to rank 2 under
+  the global endpoint CSP. One 276-letter intact control produced two online
+  checks and zero exact closures above 38. The next topology is a thirteen-
+  event graph with dual balanced cuts and perturbation intersection. Artifact:
+  `runs/twelve-event-balanced-cut-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.

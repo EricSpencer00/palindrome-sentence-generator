@@ -28,9 +28,11 @@ LEX = {
 }
 LEX.update({"Det2": LEX["Det"], "Person": LEX["Person"], "Pred": LEX["Pred"], "Name": LEX["Name"]})
 GRAM = {
-    "S": (("NP", "VP"),), "NP": (("Det", "Agent"),),
+    # Adjunct position is a grammar choice, not a post-render insertion:
+    # temporal framing may precede the subject or follow the object.
+    "S": (("NP", "VP"), ("LAdj", "NP", "VP")), "NP": (("Det", "Agent"),),
     "VP": (("Verb", "Num", "Obj"), ("Verb", "Num", "Obj", "LAdj")),
-    "T": (("NP2", "VP2"),), "NP2": (("Det2", "Person"),),
+    "T": (("NP2", "VP2"), ("NP2", "VP2", "RAdj")), "NP2": (("Det2", "Person"),),
     "VP2": (("Pred", "Name"), ("Pred", "Name", "RAdj")),
 }
 TERMS = set(LEX) | {"Det2", "Person", "Pred", "Name"}

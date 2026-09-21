@@ -39,4 +39,10 @@ Other 44-letter adjunct controls also fail closure. The seed remains the only
 shortcut-clean exact result; these controls are retained as concrete frontiers,
 not promoted candidates. The next operator is a typed adjunct whose lexical
 terminals are selected by the opposing residual rather than appended after a
-complete derivation.
+complete derivation. A follow-up grammar expansion makes adjunct placement
+explicitly variable: the left CFG permits a temporal frame before the subject
+or after the object, while the right CFG permits a frame after the predicate
+argument. The bounded run visited 83 states and pruned 262 transitions. It
+still recovers the 38-letter seed and records the same 44--47-letter temporal
+frontiers, but no new exact candidate; no output is promoted as readable
+evidence.

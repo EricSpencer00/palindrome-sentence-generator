@@ -11,7 +11,7 @@ SUB=[('harbor medic','singular'),('river pilots','plural'),('quiet keeper','sing
 VERBS={'singular':['charts','guards','marked'],'plural':['chart','guard','marked']}
 OBJECTS=['the narrow channel','a weathered beacon','the stranded sailor']
 ATTACH=['before dawn','beside the salt marsh','under clear stars']
-TAILS=[('and the crew chose truth','ht'),('while the sailors saw you','uo'),('and the crew met a caravan','na')]
+TAILS=[('and the crew saw bright','ht'),('while the watch remained bright','ht'),('and the harbor stayed bright','ht')]
 def disjoint(a,b): return not(set(re.findall(r'[a-z]{4,}',tape(a))) & set(re.findall(r'[a-z]{4,}',tape(b))))
 def run():
  rows=[]; outer_prunes=lex_prunes=seam_misses=0; retained=0

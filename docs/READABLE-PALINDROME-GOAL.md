@@ -7713,6 +7713,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   operator is an agreement-compatible relative-pronoun edge, not a larger
   Cartesian sweep. Artifact: `runs/regular-shared-character-20260921.json`.
 
+- **Agreement-compatible relative pronouns, 2026-09-21:** added live
+  embedded-relative markers `that`, `which`, and animate-subject `who`, with
+  the same mirrored-domain support and independent audit pipeline. Across
+  lengths 39--180, all 142 targets reached a one-node root conflict; no exact
+  or frontier candidate was rendered. The next operator is a bounded
+  complementizer/tense variant on the embedded relative. Artifact:
+  `runs/regular-shared-character-20260921.json`.
+
 - **Hand-authored phrase lattice, 2026-09-21:** selected phrase alternatives
   from both ends while debt was live and independently audited the terminal.
   It visited 26 nodes and reached one exact terminal, but that terminal was

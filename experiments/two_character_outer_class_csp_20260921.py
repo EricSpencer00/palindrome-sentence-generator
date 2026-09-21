@@ -16,7 +16,7 @@ def disjoint(a,b): return not(set(re.findall(r'[a-z]{4,}',tape(a))) & set(re.fin
 def run():
  rows=[]; outer_prunes=lex_prunes=seam_misses=0; retained=0
  for (det,klass),(sub,num),obj,att,(tail,tailklass) in itertools.product(PREFIX,SUB,OBJECTS,ATTACH,TAILS):
-  if klass!=tailklass or tape(det)[:2]!=klass or tape(tail)[-2:][::-1]!=klass: outer_prunes+=1; continue
+  if tape(det)[:2]!=klass or tape(tail)[-2:][::-1]!=klass: outer_prunes+=1; continue
   retained+=1; verb=VERBS[num][0]
   left=f'{det} {sub} {verb} {obj}'; right=f'{att}, {tail}.'
   if not disjoint(left,right): lex_prunes+=1; continue

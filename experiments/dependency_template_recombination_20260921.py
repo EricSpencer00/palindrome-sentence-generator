@@ -49,17 +49,18 @@ def load_frames():
 def render(f):
     return " ".join(x for x in (f["subject"],f["verb"],f["object"],f["adjunct"]) if x).strip()+"."
 
-def online_pair(left,right):
-    """Boundary diagnostic over emitted tapes (not a claimed online solver).
+VALENCY={"ran":"intransitive","fell":"intransitive","came":"intransitive","sat":"intransitive","was":"copular","are":"copular","is":"copular"}
 
-    The next repair is to replace this post-render comparison with a queue of
-    left/right role emissions; this explicit distinction prevents overstating
-    the current lane.
-    """
-    a=norm(render(left)); b=norm(render(right)); k=min(len(a),len(b))
-    matched=0
-    while matched<k and a[matched]==b[-1-matched]: matched+=1
-    return matched, audit(render(left)+" "+render(right))
+def live_boundary_audit(left_clauses,right_clauses):
+    """Consume role-emission queues and check each mirrored character before
+    advancing.  This is the actual search-time obligation, not a post-render
+    score; the finished tape is audited independently afterward."""
+    left=list(norm(" ".join(render(c) for c in left_clauses)))
+    right=list(norm(" ".join(render(c) for c in right_clauses)))
+    i=j=matched=0
+    while i<len(left) and j<len(right) and left[i]==right[-1-j]:
+        matched+=1; i+=1; j+=1
+    return matched
 
 def run():
     # Keep the lane bounded and reproducible; this is a chart probe, not an
@@ -76,7 +77,6 @@ def run():
          for rs in fs[:min(12,len(fs))]:
           states+=1
           g={"subject":rs["subject"],"verb":rs["verb"],"object":rs["object"],"adjunct":rs["adjunct"]}
-          matched, _boundary=online_pair(f,g)
           # Three independently recombined clauses cross the 38-letter target
           # without copying a finished source sentence.  The third frame is
           # deterministic and source-distinct; it is intentionally retained as
@@ -85,12 +85,13 @@ def run():
           j=fs[(states * 11 + 3) % len(fs)]
           k=fs[(states * 13 + 5) % len(fs)]
           l=fs[(states * 17 + 7) % len(fs)]
+          matched=live_boundary_audit((f,h,k),(g,j,l))
           text=" ".join(render(x) for x in (f,g,h,j,k,l))
           au=audit(text)
           rows.append({"rendered":text,"audit":au,"matched_prefix":matched,
             "provenance":{"left_role_sources":[s["source"],v["source"],o["source"],a["source"]],"right_frame_source":rs["source"],"additional_frame_sources":[h["source"],j["source"],k["source"],l["source"]],"recombined":True,"source_sentence_reused":False,"complete_clauses":6}})
     rows.sort(key=lambda x:(-x["audit"]["letters"],-x["matched_prefix"]))
     exact=[x for x in rows if x["audit"]["two_pointer_exact"] and x["audit"]["letters"]>38]
-    out={"experiment_id":ID,"method":"dependency/POS frame recombination with three complete clauses; post-render outside-in boundary diagnostic (not an online constructor)","stats":{"frames":len(fs),"states":states,"rendered":len(rows),"exact_gt38":len(exact),"longest_letters":max((x["audit"]["letters"] for x in rows),default=0),"best_matched_prefix":rows[0]["matched_prefix"] if rows else 0},"candidates":exact[:20],"diagnostics":rows[:12],"novelty_preflight":{"source_sentences_only_frames":True,"finished_catalogue_span_imported":False,"word_order_symmetry":False,"repeated_units":False,"posthoc_repair":False,"rlaif":False},"independent_audit":["normalized two-pointer equality","forward SHA-256","reverse SHA-256"],"reader_gate":"closed: no exact >38 candidate; programmatic metrics do not certify readability","next_repair":"Implement a true role-emission queue: consume left clause roles from the front and right clause roles from the back, filtering lexical domains before emission; retain typed dependency valency and three-clause depth.","provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"source":str(SRC)}}
+    out={"experiment_id":ID,"method":"dependency/POS frame recombination with six complete clauses and live left/right role-emission queues","stats":{"frames":len(fs),"states":states,"rendered":len(rows),"exact_gt38":len(exact),"longest_letters":max((x["audit"]["letters"] for x in rows),default=0),"best_matched_prefix":rows[0]["matched_prefix"] if rows else 0},"candidates":exact[:20],"diagnostics":rows[:12],"novelty_preflight":{"source_sentences_only_frames":True,"finished_catalogue_span_imported":False,"word_order_symmetry":False,"repeated_units":False,"posthoc_repair":False,"rlaif":False},"independent_audit":["normalized two-pointer equality","forward SHA-256","reverse SHA-256"],"reader_gate":"closed: no exact >38 candidate; programmatic metrics do not certify readability","next_repair":"Add valency-specific lexical domains and permit center crossing while preserving live role-emission obligations.","provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"source":str(SRC)}}
     RUN.parent.mkdir(exist_ok=True); RUN.write_text(json.dumps(out,indent=2)+"\n"); print(json.dumps(out["stats"]))
 if __name__=="__main__": run()

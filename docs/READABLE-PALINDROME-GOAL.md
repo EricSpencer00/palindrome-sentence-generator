@@ -8126,6 +8126,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   overt copular predicate. Artifact:
   `runs/cfg-earley-whose-possessive-cp-20260921.json`.
 
+- **Where-copular CP Earley seam, 2026-09-21:** added the place-denoting
+  `NP -> Det N [where NP Cop Predicate]` topology with overt copular predicates
+  represented before rendering. Three intact controls were 123, 125, and 126
+  letters; 171 concrete domain conflicts were retained and zero exact closures
+  occurred. The next topology is a temporal `when`-CP attached to the object
+  NP. Artifact: `runs/cfg-earley-where-copular-cp-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

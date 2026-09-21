@@ -8640,3 +8640,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact-clean tapes remain. The strongest rendered controls are ordinary
   template sentences, not reader-certified outputs. Artifact:
   `runs/character-cfg-phrase-lattice-residual-20260921.json`.
+
+- **Outer-character-conditioned sentence CSP, 2026-09-21:** reset the search
+  around the first real obligation instead of adding another connector. Start
+  and end character classes are selected jointly before interior slots; the
+  corrected run prunes 756 incompatible assignments, retains 216 complete
+  controls up to 73 letters, and verifies that every retained tape actually
+  starts and ends in its claimed class. The best control begins “The harbor
+  medic marked the stranded sailor …” and ends “... the bell was quiet.”;
+  its next mismatch is `h` versus `e`, and full pointer/SHA checks find zero
+  exact tapes above 38. The next repair is a two-character outer class, not
+  more one-letter variants. Artifact:
+  `runs/outer-character-conditioned-sentence-20260921.json`.

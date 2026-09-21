@@ -56,6 +56,15 @@ def load():
                 if len(rows)>=40: break
             if len(rows)>=40: break
         if len(rows)>=40: break
+    # Held-out relative grammar: these templates are not drawn from the
+    # authored corpus.  They force an antecedent -> marker -> finite-verb
+    # attachment seam and exercise agreement-aware typed slots.
+    heldout = [
+        ("the sailor who saw the boat; the quiet farmer kept the map", ["the","sailor","who","saw","the","boat","the","quiet","farmer","kept","the","map"]),
+        ("a woman that found the letter; the old doctor carried a key", ["a","woman","that","found","the","letter","the","old","doctor","carried","a","key"]),
+        ("the town where the river turns; a careful teacher wrote the note", ["the","town","where","the","river","turns","a","careful","teacher","wrote","the","note"]),
+    ]
+    rows.extend(("heldout-"+str(i), text, ws) for i,(text,ws) in enumerate(heldout))
     domains=defaultdict(set)
     for _,_,ws in rows:
         for i,w in enumerate(ws): domains[role(w,i,ws)].add(w)

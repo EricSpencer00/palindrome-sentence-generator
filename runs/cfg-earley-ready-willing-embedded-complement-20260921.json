@@ -1,0 +1,1443 @@
+{
+  "experiment_id": "cfg-earley-ready-willing-embedded-complement-20260921",
+  "signature": "earley-coordinated-vp-embedded-complement|ready-and-willing|temporal-cp-seam|live-mirrored-domain",
+  "method": "pre-render ready-and-willing VP with temporal CP Earley expansion and live mirrored domains",
+  "novelty_preflight": {
+    "entries_inspected": 696,
+    "exact_signature_collisions": [],
+    "passed": true,
+    "distinction": "ready-and-willing VP is extended with a true temporal CP seam before rendering; CP items and mirrored domains are live"
+  },
+  "rows": [
+    {
+      "rank": 1,
+      "rendered": "The watchful wardens are ready and willing to repair the iron gates beside some cedar bridges when the morning bell sounds. The skilled carpenters are ready and willing to carry some sturdy chairs under some willow arches when the market opens.",
+      "letters": 202,
+      "provenance": {
+        "left_clause": "wardens-ready-willing-repair",
+        "right_clause": "carpenters-ready-willing-carry",
+        "left_pp": "pp-beside-some-cedar-bridges",
+        "right_pp": "pp-under-some-willow-arches",
+        "topology": "ready-and-willing VP plus embedded temporal CP",
+        "source": "fresh authored grammar terminals"
+      },
+      "left_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP CP",
+          "CP -> when S",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 5,
+            "features": {
+              "number": "pl",
+              "coordination": "ready-and-willing",
+              "embedded": "temporal-CP"
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 2,
+            "features": {
+              "tense": "present",
+              "seam": "when-clause"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "right_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP CP",
+          "CP -> when S",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 5,
+            "features": {
+              "number": "pl",
+              "coordination": "ready-and-willing",
+              "embedded": "temporal-CP"
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 2,
+            "features": {
+              "tense": "present",
+              "seam": "when-clause"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "mirrored_domains": {
+        "algorithm": "online_mirrored_domain_intersection",
+        "invariant": "each support belongs to an emitted embedded-CP Earley item; empty domains remain conflicts",
+        "pairs_checked": 100,
+        "surviving_pairs": 7,
+        "conflict_count": 93,
+        "first_conflict": {
+          "position": 0,
+          "opposing_position": 99,
+          "left_owner": "left_embedded_CP_item",
+          "right_owner": "right_embedded_CP_item",
+          "left_support": "t",
+          "right_support": "s",
+          "domain": [],
+          "survives": false
+        },
+        "ledger": [
+          {
+            "position": 0,
+            "opposing_position": 99,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "t",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 1,
+            "opposing_position": 98,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "h",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 2,
+            "opposing_position": 97,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "e",
+            "domain": [
+              "e"
+            ],
+            "survives": true
+          },
+          {
+            "position": 3,
+            "opposing_position": 96,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "w",
+            "right_support": "p",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 4,
+            "opposing_position": 95,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "a",
+            "right_support": "o",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 5,
+            "opposing_position": 94,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "t",
+            "right_support": "t",
+            "domain": [
+              "t"
+            ],
+            "survives": true
+          },
+          {
+            "position": 6,
+            "opposing_position": 93,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "c",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 7,
+            "opposing_position": 92,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "h",
+            "right_support": "k",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 8,
+            "opposing_position": 91,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "f",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 9,
+            "opposing_position": 90,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "u",
+            "right_support": "a",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 10,
+            "opposing_position": 89,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "l",
+            "right_support": "m",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 11,
+            "opposing_position": 88,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "w",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 12,
+            "opposing_position": 87,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "a",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 13,
+            "opposing_position": 86,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "r",
+            "right_support": "t",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 14,
+            "opposing_position": 85,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "d",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 15,
+            "opposing_position": 84,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "e",
+            "domain": [
+              "e"
+            ],
+            "survives": true
+          },
+          {
+            "position": 16,
+            "opposing_position": 83,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "n",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 17,
+            "opposing_position": 82,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "s",
+            "right_support": "w",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 18,
+            "opposing_position": 81,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "a",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 19,
+            "opposing_position": 80,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "r",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 20,
+            "opposing_position": 79,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 21,
+            "opposing_position": 78,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "r",
+            "right_support": "c",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 22,
+            "opposing_position": 77,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 23,
+            "opposing_position": 76,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "a",
+            "right_support": "a",
+            "domain": [
+              "a"
+            ],
+            "survives": true
+          }
+        ]
+      },
+      "exact_check_pointer": {
+        "algorithm": "independent_pointer",
+        "exact": false,
+        "letters": 202,
+        "mismatch_count": 94,
+        "mismatches": [
+          {
+            "i": 0,
+            "j": 201,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "i": 1,
+            "j": 200,
+            "left": "h",
+            "right": "n"
+          },
+          {
+            "i": 3,
+            "j": 198,
+            "left": "w",
+            "right": "p"
+          },
+          {
+            "i": 4,
+            "j": 197,
+            "left": "a",
+            "right": "o"
+          },
+          {
+            "i": 6,
+            "j": 195,
+            "left": "c",
+            "right": "e"
+          },
+          {
+            "i": 7,
+            "j": 194,
+            "left": "h",
+            "right": "k"
+          },
+          {
+            "i": 8,
+            "j": 193,
+            "left": "f",
+            "right": "r"
+          },
+          {
+            "i": 9,
+            "j": 192,
+            "left": "u",
+            "right": "a"
+          },
+          {
+            "i": 10,
+            "j": 191,
+            "left": "l",
+            "right": "m"
+          },
+          {
+            "i": 11,
+            "j": 190,
+            "left": "w",
+            "right": "e"
+          },
+          {
+            "i": 12,
+            "j": 189,
+            "left": "a",
+            "right": "h"
+          },
+          {
+            "i": 13,
+            "j": 188,
+            "left": "r",
+            "right": "t"
+          }
+        ]
+      },
+      "exact_check_sha": {
+        "algorithm": "independent_sha_forward_reverse",
+        "exact": false,
+        "forward": "3fbece3054c8f542a1cc27acea1abb2dd2affdcb63565880218a3b8aa626a0db",
+        "reverse": "e79ab320ecbf5459c8745d8386c79720792d8fc4f6c42e2556e964563b6fe1d3"
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "post_render_repair": false,
+        "reverse_decoder": false,
+        "mirrored_units": false,
+        "word_order_mirror": false,
+        "catalogue_text": false,
+        "reward_loop": false,
+        "complete_constituents": true,
+        "embedded_cp_pre_render": true,
+        "plural_agreement_checked": true,
+        "valency_checked": true
+      },
+      "mechanically_admitted": false,
+      "next_operator": "Pivot to a relative-clause seam: introduce a held-out NP -> Det N CP relative production before chart expansion, retaining independent exact audits."
+    },
+    {
+      "rank": 2,
+      "rendered": "The skilled carpenters are ready and willing to carry some sturdy chairs under some willow arches when the market opens. The patient keepers are ready and willing to record the morning ledgers beyond some stone gardens when the evening watch begins.",
+      "letters": 207,
+      "provenance": {
+        "left_clause": "carpenters-ready-willing-carry",
+        "right_clause": "keepers-ready-willing-record",
+        "left_pp": "pp-under-some-willow-arches",
+        "right_pp": "pp-beyond-some-stone-gardens",
+        "topology": "ready-and-willing VP plus embedded temporal CP",
+        "source": "fresh authored grammar terminals"
+      },
+      "left_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP CP",
+          "CP -> when S",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 5,
+            "features": {
+              "number": "pl",
+              "coordination": "ready-and-willing",
+              "embedded": "temporal-CP"
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 2,
+            "features": {
+              "tense": "present",
+              "seam": "when-clause"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "right_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP CP",
+          "CP -> when S",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 5,
+            "features": {
+              "number": "pl",
+              "coordination": "ready-and-willing",
+              "embedded": "temporal-CP"
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 2,
+            "features": {
+              "tense": "present",
+              "seam": "when-clause"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "mirrored_domains": {
+        "algorithm": "online_mirrored_domain_intersection",
+        "invariant": "each support belongs to an emitted embedded-CP Earley item; empty domains remain conflicts",
+        "pairs_checked": 100,
+        "surviving_pairs": 7,
+        "conflict_count": 93,
+        "first_conflict": {
+          "position": 0,
+          "opposing_position": 106,
+          "left_owner": "left_embedded_CP_item",
+          "right_owner": "right_embedded_CP_item",
+          "left_support": "t",
+          "right_support": "s",
+          "domain": [],
+          "survives": false
+        },
+        "ledger": [
+          {
+            "position": 0,
+            "opposing_position": 106,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "t",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 1,
+            "opposing_position": 105,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "h",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 2,
+            "opposing_position": 104,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 3,
+            "opposing_position": 103,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "s",
+            "right_support": "g",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 4,
+            "opposing_position": 102,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "k",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 5,
+            "opposing_position": 101,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "i",
+            "right_support": "b",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 6,
+            "opposing_position": 100,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "l",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 7,
+            "opposing_position": 99,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "l",
+            "right_support": "c",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 8,
+            "opposing_position": 98,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "t",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 9,
+            "opposing_position": 97,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "d",
+            "right_support": "a",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 10,
+            "opposing_position": 96,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "c",
+            "right_support": "w",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 11,
+            "opposing_position": 95,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "a",
+            "right_support": "g",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 12,
+            "opposing_position": 94,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "r",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 13,
+            "opposing_position": 93,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "p",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 14,
+            "opposing_position": 92,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 15,
+            "opposing_position": 91,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "n",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 16,
+            "opposing_position": 90,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "t",
+            "right_support": "v",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 17,
+            "opposing_position": 89,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "e",
+            "domain": [
+              "e"
+            ],
+            "survives": true
+          },
+          {
+            "position": 18,
+            "opposing_position": 88,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "r",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 19,
+            "opposing_position": 87,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "s",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 20,
+            "opposing_position": 86,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "a",
+            "right_support": "t",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 21,
+            "opposing_position": 85,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "r",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 22,
+            "opposing_position": 84,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "e",
+            "domain": [
+              "e"
+            ],
+            "survives": true
+          },
+          {
+            "position": 23,
+            "opposing_position": 83,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "r",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          }
+        ]
+      },
+      "exact_check_pointer": {
+        "algorithm": "independent_pointer",
+        "exact": false,
+        "letters": 207,
+        "mismatch_count": 96,
+        "mismatches": [
+          {
+            "i": 0,
+            "j": 206,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "i": 1,
+            "j": 205,
+            "left": "h",
+            "right": "n"
+          },
+          {
+            "i": 2,
+            "j": 204,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "i": 3,
+            "j": 203,
+            "left": "s",
+            "right": "g"
+          },
+          {
+            "i": 4,
+            "j": 202,
+            "left": "k",
+            "right": "e"
+          },
+          {
+            "i": 5,
+            "j": 201,
+            "left": "i",
+            "right": "b"
+          },
+          {
+            "i": 6,
+            "j": 200,
+            "left": "l",
+            "right": "h"
+          },
+          {
+            "i": 7,
+            "j": 199,
+            "left": "l",
+            "right": "c"
+          },
+          {
+            "i": 8,
+            "j": 198,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "i": 9,
+            "j": 197,
+            "left": "d",
+            "right": "a"
+          },
+          {
+            "i": 10,
+            "j": 196,
+            "left": "c",
+            "right": "w"
+          },
+          {
+            "i": 11,
+            "j": 195,
+            "left": "a",
+            "right": "g"
+          }
+        ]
+      },
+      "exact_check_sha": {
+        "algorithm": "independent_sha_forward_reverse",
+        "exact": false,
+        "forward": "04cc1cc61fb90903aa3d0ec9fb955158dec169c77acedfefcc90561de8c481d7",
+        "reverse": "28a377e76b71099350d5956ea45ef5ea2b971ea371d086f95d15ea2c5bd68110"
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "post_render_repair": false,
+        "reverse_decoder": false,
+        "mirrored_units": false,
+        "word_order_mirror": false,
+        "catalogue_text": false,
+        "reward_loop": false,
+        "complete_constituents": true,
+        "embedded_cp_pre_render": true,
+        "plural_agreement_checked": true,
+        "valency_checked": true
+      },
+      "mechanically_admitted": false,
+      "next_operator": "Pivot to a relative-clause seam: introduce a held-out NP -> Det N CP relative production before chart expansion, retaining independent exact audits."
+    },
+    {
+      "rank": 3,
+      "rendered": "The patient keepers are ready and willing to record the morning ledgers beyond some stone gardens when the evening watch begins. The watchful wardens are ready and willing to repair the iron gates beside some cedar bridges when the morning bell sounds.",
+      "letters": 209,
+      "provenance": {
+        "left_clause": "keepers-ready-willing-record",
+        "right_clause": "wardens-ready-willing-repair",
+        "left_pp": "pp-beyond-some-stone-gardens",
+        "right_pp": "pp-beside-some-cedar-bridges",
+        "topology": "ready-and-willing VP plus embedded temporal CP",
+        "source": "fresh authored grammar terminals"
+      },
+      "left_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP CP",
+          "CP -> when S",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 5,
+            "features": {
+              "number": "pl",
+              "coordination": "ready-and-willing",
+              "embedded": "temporal-CP"
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 2,
+            "features": {
+              "tense": "present",
+              "seam": "when-clause"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "right_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP CP",
+          "CP -> when S",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 5,
+            "features": {
+              "number": "pl",
+              "coordination": "ready-and-willing",
+              "embedded": "temporal-CP"
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 2,
+            "features": {
+              "tense": "present",
+              "seam": "when-clause"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "mirrored_domains": {
+        "algorithm": "online_mirrored_domain_intersection",
+        "invariant": "each support belongs to an emitted embedded-CP Earley item; empty domains remain conflicts",
+        "pairs_checked": 102,
+        "surviving_pairs": 8,
+        "conflict_count": 94,
+        "first_conflict": {
+          "position": 0,
+          "opposing_position": 101,
+          "left_owner": "left_embedded_CP_item",
+          "right_owner": "right_embedded_CP_item",
+          "left_support": "t",
+          "right_support": "s",
+          "domain": [],
+          "survives": false
+        },
+        "ledger": [
+          {
+            "position": 0,
+            "opposing_position": 101,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "t",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 1,
+            "opposing_position": 100,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "h",
+            "right_support": "d",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 2,
+            "opposing_position": 99,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 3,
+            "opposing_position": 98,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "p",
+            "right_support": "u",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 4,
+            "opposing_position": 97,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "a",
+            "right_support": "o",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 5,
+            "opposing_position": 96,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "t",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 6,
+            "opposing_position": 95,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "i",
+            "right_support": "l",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 7,
+            "opposing_position": 94,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "l",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 8,
+            "opposing_position": 93,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "n",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 9,
+            "opposing_position": 92,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "t",
+            "right_support": "b",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 10,
+            "opposing_position": 91,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "k",
+            "right_support": "g",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 11,
+            "opposing_position": 90,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 12,
+            "opposing_position": 89,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 13,
+            "opposing_position": 88,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "p",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 14,
+            "opposing_position": 87,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 15,
+            "opposing_position": 86,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "r",
+            "right_support": "o",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 16,
+            "opposing_position": 85,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "s",
+            "right_support": "m",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 17,
+            "opposing_position": 84,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "a",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 18,
+            "opposing_position": 83,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "r",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 19,
+            "opposing_position": 82,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "t",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 20,
+            "opposing_position": 81,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "r",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 21,
+            "opposing_position": 80,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "e",
+            "right_support": "e",
+            "domain": [
+              "e"
+            ],
+            "survives": true
+          },
+          {
+            "position": 22,
+            "opposing_position": 79,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "a",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 23,
+            "opposing_position": 78,
+            "left_owner": "left_embedded_CP_item",
+            "right_owner": "right_embedded_CP_item",
+            "left_support": "d",
+            "right_support": "w",
+            "domain": [],
+            "survives": false
+          }
+        ]
+      },
+      "exact_check_pointer": {
+        "algorithm": "independent_pointer",
+        "exact": false,
+        "letters": 209,
+        "mismatch_count": 96,
+        "mismatches": [
+          {
+            "i": 0,
+            "j": 208,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "i": 1,
+            "j": 207,
+            "left": "h",
+            "right": "d"
+          },
+          {
+            "i": 2,
+            "j": 206,
+            "left": "e",
+            "right": "n"
+          },
+          {
+            "i": 3,
+            "j": 205,
+            "left": "p",
+            "right": "u"
+          },
+          {
+            "i": 4,
+            "j": 204,
+            "left": "a",
+            "right": "o"
+          },
+          {
+            "i": 5,
+            "j": 203,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "i": 6,
+            "j": 202,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "i": 7,
+            "j": 201,
+            "left": "e",
+            "right": "l"
+          },
+          {
+            "i": 8,
+            "j": 200,
+            "left": "n",
+            "right": "e"
+          },
+          {
+            "i": 9,
+            "j": 199,
+            "left": "t",
+            "right": "b"
+          },
+          {
+            "i": 10,
+            "j": 198,
+            "left": "k",
+            "right": "g"
+          },
+          {
+            "i": 11,
+            "j": 197,
+            "left": "e",
+            "right": "n"
+          }
+        ]
+      },
+      "exact_check_sha": {
+        "algorithm": "independent_sha_forward_reverse",
+        "exact": false,
+        "forward": "9c141d5504483561614d63e77cd8543cb50a7025dc9ad533fe5e8ce4664e282c",
+        "reverse": "20dc14a9cbf10c31f470e2ea71efe6389d7992339f5125efd7e632680ada8631"
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "post_render_repair": false,
+        "reverse_decoder": false,
+        "mirrored_units": false,
+        "word_order_mirror": false,
+        "catalogue_text": false,
+        "reward_loop": false,
+        "complete_constituents": true,
+        "embedded_cp_pre_render": true,
+        "plural_agreement_checked": true,
+        "valency_checked": true
+      },
+      "mechanically_admitted": false,
+      "next_operator": "Pivot to a relative-clause seam: introduce a held-out NP -> Det N CP relative production before chart expansion, retaining independent exact audits."
+    }
+  ],
+  "stats": {
+    "states_examined": 3,
+    "over_39": 3,
+    "exact": 0,
+    "agreement_unified": 3,
+    "domain_conflicts": 280,
+    "rendered_lengths": [
+      202,
+      207,
+      209
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "1c7991cfdb94485ec6a02a7534034bdf2f29a2f34c6a6c3b22dc9923c6ed8849",
+    "independent_audits": [
+      "pointer",
+      "forward/reverse SHA",
+      "Earley chart",
+      "live mirrored-domain ledger"
+    ],
+    "brown_usage": "none; no borrowed prose"
+  },
+  "anti_shortcut_policy": "No post-render repair, fixed tape, reverse decoder, mirrored units, word-order symmetry, catalogue text, or reward loop.",
+  "next_operator": "Pivot to a relative-clause seam with NP -> Det N CP before expansion."
+}

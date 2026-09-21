@@ -1,0 +1,181 @@
+{
+  "experiment_id": "inflectional-boundary-graph-20260921",
+  "method": "bounded complete-clause graph jointly selecting terminal morphology and right-opening function words",
+  "stats": {
+    "frames": 4,
+    "rendered": 4,
+    "exact": 0,
+    "max_support": 5
+  },
+  "rendered_outputs": [
+    {
+      "frame": "past-plural",
+      "rendered": "the patient pilots charted a quiet inlet memos; some maps continue.",
+      "state": {
+        "number": "plural",
+        "tense": "past"
+      },
+      "boundary": {
+        "terminal": "memos",
+        "right_opening": "some maps"
+      },
+      "seam": {
+        "depth": 5,
+        "next_left": null,
+        "next_right": "a",
+        "residual": {
+          "terminal_reverse": "",
+          "opening": "aps"
+        }
+      },
+      "audit": {
+        "letters": 55,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "c8d00519fb10b358d8f4a7eb125716a98bfb5c47bdd41487f2b5283fa23d067e",
+        "sha256_reverse": "094ff2c3ecd36942a724d20f9d9e23fe5c2f2a6f6d1fe3ed809756501da80c13"
+      },
+      "provenance": {
+        "fresh_authored_frames": true,
+        "complete_clause": true,
+        "inflection_carried_in_state": true,
+        "catalogue_used": false,
+        "finished_reversal": false,
+        "posthoc_repair": false,
+        "repeated_units": false
+      }
+    },
+    {
+      "frame": "present-singular",
+      "rendered": "a patient pilot charts the quiet inlet arena; an era continue.",
+      "state": {
+        "number": "singular",
+        "tense": "present"
+      },
+      "boundary": {
+        "terminal": "arena",
+        "right_opening": "an era"
+      },
+      "seam": {
+        "depth": 5,
+        "next_left": null,
+        "next_right": null,
+        "residual": {
+          "terminal_reverse": "",
+          "opening": ""
+        }
+      },
+      "audit": {
+        "letters": 50,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "c14b5908f19d6da41c2fb8361181c6f90683a31976fb6078b1272007525c77bd",
+        "sha256_reverse": "ba18240c274fc7bbaa52e3a9cee267a89600de1227cc667b5446c5f36975c061"
+      },
+      "provenance": {
+        "fresh_authored_frames": true,
+        "complete_clause": true,
+        "inflection_carried_in_state": true,
+        "catalogue_used": false,
+        "finished_reversal": false,
+        "posthoc_repair": false,
+        "repeated_units": false
+      }
+    },
+    {
+      "frame": "past-singular",
+      "rendered": "the careful clerk filed a fresh report reason; no sailor continue.",
+      "state": {
+        "number": "singular",
+        "tense": "past"
+      },
+      "boundary": {
+        "terminal": "reason",
+        "right_opening": "no sailor"
+      },
+      "seam": {
+        "depth": 4,
+        "next_left": "e",
+        "next_right": "i",
+        "residual": {
+          "terminal_reverse": "er",
+          "opening": "ilor"
+        }
+      },
+      "audit": {
+        "letters": 54,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "656a4a35ea0028d1789978d2e39ae3e157e40bd1e5775cb10ce87250689b9c67",
+        "sha256_reverse": "a01f7d35859a0773ecdc42d23e1fd9c25f72dd03e1d6cb69957f0a5f5ce560d5"
+      },
+      "provenance": {
+        "fresh_authored_frames": true,
+        "complete_clause": true,
+        "inflection_carried_in_state": true,
+        "catalogue_used": false,
+        "finished_reversal": false,
+        "posthoc_repair": false,
+        "repeated_units": false
+      }
+    },
+    {
+      "frame": "present-plural",
+      "rendered": "the careful clerks file fresh reports data; a tad continue.",
+      "state": {
+        "number": "plural",
+        "tense": "present"
+      },
+      "boundary": {
+        "terminal": "data",
+        "right_opening": "a tad"
+      },
+      "seam": {
+        "depth": 4,
+        "next_left": null,
+        "next_right": null,
+        "residual": {
+          "terminal_reverse": "",
+          "opening": ""
+        }
+      },
+      "audit": {
+        "letters": 48,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "1321730fc5fbb6eecbbf1ac275b8d068b7fdde333afc6118bf4bde54e68c4246",
+        "sha256_reverse": "2a187e6e4894a9888e95d5833a853c96e7b4985eb57c07818946a26bcd721b16"
+      },
+      "provenance": {
+        "fresh_authored_frames": true,
+        "complete_clause": true,
+        "inflection_carried_in_state": true,
+        "catalogue_used": false,
+        "finished_reversal": false,
+        "posthoc_repair": false,
+        "repeated_units": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "orthogonal_to": "phrase-bank widening, semordnilap/catalogue, repeated units, post-hoc repair"
+  },
+  "next_repair": "Condition the right verb on the full residual after an opening phrase; retain tense/number state and do not widen this frame bank."
+}

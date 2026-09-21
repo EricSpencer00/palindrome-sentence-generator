@@ -2,8 +2,8 @@
   "experiment_id": "relative-arc-twochar-trie-20260921",
   "status": "completed_no_exact_closure",
   "method": "relative-clause semantic arc trie indexed by internal predicate class plus object agreement",
-  "candidate_count": 7,
-  "indexed_pair_count": 7,
+  "candidate_count": 8,
+  "indexed_pair_count": 8,
   "exact_count": 0,
   "reader_eligible": false,
   "rendered_candidates": [
@@ -349,13 +349,62 @@
         "catalogue_text": false,
         "word_order_symmetry": false
       }
+    },
+    {
+      "rendered": "a patient mentor who answers the hard question; the clear speaker who answers a hard question.",
+      "left_arc": "mentor_answers",
+      "right_arc": "speaker_answers",
+      "semantic_valency": {
+        "left": "agent-question",
+        "right": "agent-question"
+      },
+      "boundary_index": {
+        "left_first2": "ap",
+        "right_last2": "on"
+      },
+      "internal_predicate_index": {
+        "key": [
+          "definite",
+          "an"
+        ],
+        "left_predicate_class": "an",
+        "right_predicate_class": "an",
+        "agreement": "definite"
+      },
+      "audit": {
+        "letters": 77,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "55c4152d09720007d5c19e5b26e35ce6836bb1441c40a1190178258b07cbaa6c",
+        "reverse_sha256": "7b35732e7184dbedf236c888f709464c60ea681289745369f16a935e9ed28b66",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "seam_position": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "a",
+          "n"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; programmatic measures do not certify readability",
+      "provenance": {
+        "construction": "two-character indexed relative-clause arcs",
+        "borrowed_text": false,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false
+      }
     }
   ],
   "stats": {
     "longest_letters": 77,
-    "left_arcs": 11,
-    "right_arcs": 13,
-    "index_buckets": 11
+    "left_arcs": 12,
+    "right_arcs": 14,
+    "index_buckets": 12
   },
   "novelty_preflight": {
     "prior_event_frame_sweep_reused": false,
@@ -366,10 +415,10 @@
   },
   "failure_and_repair": {
     "failure": "no exact closure after two-character boundary filtering",
-    "next_construction": "add relative-clause arcs with a two-character internal predicate index and agreement-carrying object features"
+    "next_construction": "pivot to a relative-marker/subject boundary class (the two letters straddling who and the head noun) while retaining predicate and agreement keys"
   },
   "provenance": {
-    "generator_sha256": "6d5ea40a07731aebe8b7b7b807ab230bbe245b061097d64d0f3fe8b31a6b3e86",
+    "generator_sha256": "d26da5cbcc4a554d9084c300e8253ed12856b7abfd35f2a69a97a12ea3d52855",
     "independent_audits": [
       "two-pointer normalized comparison",
       "forward/reverse SHA-256"

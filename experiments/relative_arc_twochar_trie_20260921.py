@@ -40,6 +40,7 @@ LEFT=(
  RelativeArc('archivist_stores',('the','calm','archivist','who','stores','a','sealed','letter'),'archivist','stores','agent-object'),
  RelativeArc('baker_bakes',('a','bright','baker','who','bakes','the','warm','bread'),'baker','bakes','agent-object'),
  RelativeArc('doctor_heals',('the','kind','doctor','who','heals','a','young','patient'),'doctor','heals','agent-patient'),
+ RelativeArc('mentor_answers',('a','patient','mentor','who','answers','the','hard','question'),'mentor','answers','agent-question'),
 )
 RIGHT=(
  RelativeArc('reader_hears',('the','reader','who','hears','a','clear','story'),'reader','hears','perceiver-object'),
@@ -58,6 +59,7 @@ RIGHT=(
  RelativeArc('scholar_studies',('the','patient','scholar','who','studies','a','clear','record'),'scholar','studies','agent-object'),
  RelativeArc('cook_balances',('a','careful','cook','who','balances','the','warm','bread'),'cook','balances','agent-object'),
  RelativeArc('nurse_heals',('the','quiet','nurse','who','heals','a','young','patient'),'nurse','heals','agent-patient'),
+ RelativeArc('speaker_answers',('the','clear','speaker','who','answers','a','hard','question'),'speaker','answers','agent-question'),
 )
 
 def exposed(a):
@@ -71,7 +73,7 @@ def object_agreement(a):
             return 'plural' if noun.endswith('s') and w == 'the' else ('singular' if w in {'a','an'} else 'definite')
     return 'unknown'
 def predicate_class(a):
-    return next((w for w in a.words if w in {'watches','describes','finds','guides','crosses','builds','keeps','carries','hears','opens','reads','paints','leads','studies','waters','sends','lights','stores','bakes','heals','balances'}), '')[:2]
+    return next((w for w in a.words if w in {'watches','describes','finds','guides','crosses','builds','keeps','carries','hears','opens','reads','paints','leads','studies','waters','sends','lights','stores','bakes','heals','balances','answers'}), '')[:2]
 def agreement_compatible(a,b):
     # Definite articles license either number; indefinite features must agree.
     x,y=object_agreement(a),object_agreement(b)
@@ -124,7 +126,7 @@ def main():
       'novelty_preflight':{'prior_event_frame_sweep_reused':False,'boundary_only_index_reused':False,'completed_arc_join':False,
                            'semordnilap_token_mirror':False,'repair':False},
       'failure_and_repair':{'failure':'no exact closure after two-character boundary filtering' if not exact else 'none',
-        'next_construction':'add relative-clause arcs with a two-character internal predicate index and agreement-carrying object features'},
+        'next_construction':'pivot to a relative-marker/subject boundary class (the two letters straddling who and the head noun) while retaining predicate and agreement keys'},
       'provenance':{'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                     'independent_audits':['two-pointer normalized comparison','forward/reverse SHA-256'],
                     'shortcuts_excluded':True}}

@@ -192,6 +192,9 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["character_cfg_nullable_relative_holdout_run"]["intact_pairs"] == 1024
     assert method.json()["character_cfg_nullable_relative_holdout_run"]["shuffled_pairs"] == 32
     assert method.json()["character_cfg_nullable_relative_holdout_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["character_cfg_two_typed_relative_subjects_run"]["intact_pairs"] == 4096
+    assert method.json()["character_cfg_two_typed_relative_subjects_run"]["shuffled_pairs"] == 64
+    assert method.json()["character_cfg_two_typed_relative_subjects_run"]["exact_candidates_over_38"] == 0
     assert method.json()["recursive_semantic_grammar_csp_run"]["recursive_states"] == 36
     assert method.json()["recursive_semantic_grammar_csp_run"]["exact_candidates_over_38"] == 0
     assert method.json()["dual_obligation_event_graph_run"]["candidate_states"] == 96

@@ -1,0 +1,44 @@
+{
+  "experiment": "api-capacity-semantic-index-followup-20260921",
+  "novelty_preflight": {
+    "materially_distinct": false,
+    "delta": "one extra grammatical role (OBJECT/RECIPIENT/TEMPORAL) over committed lane; same index/join operator"
+  },
+  "controls": {
+    "prose_controls": [
+      "the baker reads the note",
+      "the nurse records the result",
+      "at noon the baker waits",
+      "the guide gives the map",
+      "the bell rings at noon"
+    ],
+    "capacity": {
+      "max_chars": 96,
+      "min_target_letters": 40,
+      "max_fragments": 6
+    },
+    "negative_control": "the baker reads the note."
+  },
+  "index": {
+    "buckets": 5,
+    "paths": 5,
+    "key": "(first_character,last_character,normalized_length)"
+  },
+  "exact_candidates": [],
+  "checks": {
+    "direct_reverse_negative_control": true,
+    "residual_dp_negative_control": true,
+    "sha256_control": "5bf119b95a14aaea4f3ef26611ac04133dd98c473ff5a0c75e47e0af4fc98125"
+  },
+  "acceptance_frontier": {
+    "changed": false,
+    "reason": "no intact-prose exact candidate reached 40 normalized letters"
+  },
+  "no_shortcut_gates": {
+    "reused_13_letter_witness": false,
+    "reused_38_letter_seed": false,
+    "nested_mirror_bank": false,
+    "normalization_only": false
+  },
+  "next_operator": "add a typed recipient/temporal path with a fresh terminal-class bucket, then re-run the same residual join"
+}

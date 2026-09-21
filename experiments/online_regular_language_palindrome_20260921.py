@@ -107,13 +107,16 @@ def intersect(slots):
                         advanced = True
         if not advanced and not centers:
             dead += 1
-            if len(trace) < 20:
-                trace.append(dict(depth=len(lp), left_state=left, right_state=right,
-                                  required_from_left=sorted(forward[left]),
-                                  available_from_right=sorted(backward[right])))
+            trace.append(dict(depth=len(lp), left_state=left, right_state=right,
+                              left_consumed=''.join(edges[e][2] for e in lp),
+                              right_consumed=''.join(edges[e][2] for e in rp[::-1]),
+                              left_started_words=''.join(edges[e][3] for e in lp),
+                              right_started_words=''.join(edges[e][3] for e in rp[::-1]),
+                              required_from_left=sorted(forward[left]),
+                              available_from_right=sorted(backward[right])))
     return dict(candidates=results, stats=dict(states=expanded, matched_transitions=matched,
                 dead_frontiers=dead, deepest_matched_pairs=deepest, nfa_edges=len(edges)),
-                dead_frontier_examples=trace,
+                dead_frontier_examples=sorted(trace, key=lambda r: -r['depth'])[:20],
                 enumeration='One witness per (left state, right state, depth); complete for existence, not all surface variants.')
 
 

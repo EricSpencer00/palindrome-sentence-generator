@@ -7729,6 +7729,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   aspectual auxiliary paired with a held-out animate noun. Artifact:
   `runs/regular-shared-character-20260921.json`.
 
+- **Aspectual/participle relative frame, 2026-09-21:** added held-out animate
+  nouns (`doctor`, `nurse`, `poet`), auxiliaries (`has been`, `will have`), and
+  participle predicates (`reading`, `seeing`, `helping`) with explicit role
+  features. Across lengths 39--220, all 182 targets reached a one-node root
+  conflict; no exact or rendered path appeared. The next operator is a bounded
+  modal/participle agreement variant. Artifact:
+  `runs/regular-shared-character-20260921.json`.
+
 - **Hand-authored phrase lattice, 2026-09-21:** selected phrase alternatives
   from both ends while debt was live and independently audited the terminal.
   It visited 26 nodes and reached one exact terminal, but that terminal was
@@ -7753,4 +7761,10 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   states and 12 boundary prunes, with no terminal or exact closure; the
   frontier records show the failure occurs at the initial place-vs-determiner
   boundary before the center frame is reached. Artifact:
+  `runs/semantic-pair-chain-live-20260921.json`.
+
+- **Modal center function-word edge, 2026-09-21:** added `can`/`will` after the
+  center relative pronoun with bare-verb agreement validation. The distinct
+  semantic pair-chain remained at 4 live states, 12 prunes, and zero terminals
+  or exact candidates. No prose or reader claim was made. Artifact:
   `runs/semantic-pair-chain-live-20260921.json`.

@@ -105,6 +105,25 @@ def transition_profiles(roles):
     if "REL" in roles: out.append("relative")
     return out or ["intransitive"]
 
+def geometry_csp(roles, domains, target=24):
+    """Choose a length vector before lexical fill.  Prefix boundaries are
+    constrained online: mirrored internal boundaries are rejected, avoiding
+    centered whole-word mirror islands while retaining grammatical roles."""
+    choices={r:sorted({len(w) for w in domains.get(r,[]) if 1 <= len(w) <= 10}) for r in set(roles)}
+    out=[]
+    def rec(i,lens,total):
+        if len(out)>=target: return
+        if i==len(roles):
+            if total>38:
+                b={0}; s=0
+                for x in lens: s+=x; b.add(s)
+                if not any(0<x<total and x*2!=total and total-x in b for x in b): out.append(lens[:])
+            return
+        for n in choices.get(roles[i],[]):
+            if total+n+sum(min(choices.get(r,[1])) for r in roles[i+1:])>38 or total+n+sum(max(choices.get(r,[1])) for r in roles[i+1:])<39: continue
+            rec(i+1,lens+[n],total+n)
+    rec(0,[],0); return out
+
 def solve(ws, domains, source_grams, limit=2):
     """Assign words left-to-right; each assignment immediately checks all
     character equations whose opposite endpoint is already assigned."""
@@ -142,7 +161,7 @@ def solve(ws, domains, source_grams, limit=2):
 
 def main():
     rows,domains=load(); grams={n:set(tape(line)[i:i+n] for _,line,_ in rows for i in range(len(tape(line))-n+1)) for n in (1,2,3)}
-    controls=[]; candidates=[]; total_nodes=0
+    controls=[]; candidates=[]; total_nodes=0; geometry_controls=[]
     for sid,line,ws in rows:
         res=solve(ws,domains,grams)
         got=res[0] if res else []; nodes=res[1] if res else 0; total_nodes+=nodes
@@ -150,7 +169,10 @@ def main():
         controls.append({"source_id":sid,"source":line,"roles":rr,"geometry":[len(w) for w in ws],"valency":valency(rr),"profiles":transition_profiles(rr),"letters":len(tape(line)),"nodes":nodes,"exact_count":len(got)})
         for text in got:
             candidates.append({"text":text,"letters":len(tape(text)),"exact":True,"sha":sha(text),"source_id":sid,"roles":[role(w,i,ws) for i,w in enumerate(ws)],"novel_ngrams":True})
+        rr=[role(w,i,ws) for i,w in enumerate(ws)]
+        if sid.startswith("heldout"):
+            geometry_controls.append({"source_id":sid,"roles":rr,"geometries":geometry_csp(rr,domains)})
     OUT.parent.mkdir(exist_ok=True)
-    OUT.write_text(json.dumps({"method":"corpus role bank with online left/right character propagation","source":str(SRC),"source_count":len(rows),"domain_sizes":{k:len(v) for k,v in domains.items()},"geometry_variants":6,"heldout_profiles":["transitive","ditransitive_or_coord","prepositional","relative"],"controls":controls,"candidates":candidates,"total_nodes":total_nodes,"repair":"Geometry variants now vary relative-clause word-length vectors; next repair is seam-specific length solving rather than widening lexical domains."},indent=2)+"\n")
+    OUT.write_text(json.dumps({"method":"corpus role bank with online left/right character propagation","source":str(SRC),"source_count":len(rows),"domain_sizes":{k:len(v) for k,v in domains.items()},"geometry_variants":6,"geometry_controls":geometry_controls,"heldout_profiles":["transitive","ditransitive_or_coord","prepositional","relative"],"controls":controls,"candidates":candidates,"total_nodes":total_nodes,"repair":"Geometry CSP now chooses role lengths online before lexical fill; next step is lexical forward-checking over these selected vectors."},indent=2)+"\n")
     print(json.dumps({"sources":len(rows),"domains":{k:len(v) for k,v in domains.items()},"nodes":total_nodes,"candidates":len(candidates),"max_letters":max((x['letters'] for x in candidates),default=0)}))
 if __name__ == "__main__": main()

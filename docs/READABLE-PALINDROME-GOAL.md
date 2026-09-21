@@ -182,6 +182,17 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   center-out bidirectional chart with character obligations
   (`runs/grammar-coupled-reverse-overlap-20260921.json`).
 
+- **Executable center-out chart.** The successor now compiles 28,712 typed,
+  agreement-checked clause paths into independent forward and reversed-tape
+  tries. Its chart advances only on equal opposing characters; 48 live states,
+  47 character edges, and 112 early mismatches were audited independently.
+  The only terminal joins are the two orientations of the held-out 38-letter
+  seed, both explicitly excluded from admission. It therefore produced zero
+  new exact candidates at the 40-letter gate, but this artifact is a real
+  character-coupled grammar join rather than the former complete-path check;
+  its next construction is an adjunct/relative-clause expansion while keeping
+  the same exact chart (`runs/grammar-coupled-centerout-chart-real-20260921.json`).
+
 - **Historical-artifact re-audit.** The repository also contains a 106-letter
   exact insertion that preserves the 38-letter seed and inserts reverse lexical
   pairs at an ungrammatical seam. It remains explicitly withdrawn; a larger

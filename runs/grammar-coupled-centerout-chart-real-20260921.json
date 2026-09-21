@@ -1,7 +1,7 @@
 {
-  "status": "grammar_coupled_centerout_chart_real_complete",
+  "status": "grammar_coupled_centerout_chart_executed",
   "family_id": "grammar-coupled-centerout-chart-real-20260921",
-  "state_space_signature": "typed-clause-path-trie|center-out-equal-character-chart|terminal-length-product",
+  "state_space_signature": "typed-grammar-paths|forward-reverse-character-trie-join|equal-length-terminals",
   "novelty_audit": {
     "registry_entries_read_before_run": 683,
     "signature_overlap": [],
@@ -9,34 +9,74 @@
   },
   "config": {
     "target_letters": ">=40",
-    "grammar_variants": [
-      "DET NOUN VERB",
-      "DET NOUN VERB DET NOUN",
-      "DET NOUN VERB NUM NOUN",
-      "DET NOUN VERB PROPER"
-    ],
-    "terminal_equal_normalized_length": true,
-    "required_character": "equal exposed characters only"
+    "finite_typed_grammar": true,
+    "forward_trie_nodes": 127394,
+    "reverse_trie_nodes": 134701,
+    "paths_compiled": 28712,
+    "required_character_condition": "same character on every opposing edge",
+    "terminal_condition": "both grammar paths end at the same chart depth"
   },
   "search_accounting": {
-    "states": 0,
-    "character_edges": 0,
-    "early_prunes": 0,
-    "rendered_controls": 2,
+    "states": 48,
+    "character_edges": 47,
+    "early_prunes": 112,
+    "terminal_pairs": 2,
     "exact_candidates": 0
   },
+  "held_out_seed_recovery": {
+    "checked": true,
+    "recoveries": [
+      {
+        "left": "an aide rips nine memos",
+        "right": "some men inspire diana",
+        "exact": true,
+        "excluded_from_admission": true
+      },
+      {
+        "left": "some men inspire diana",
+        "right": "an aide rips nine memos",
+        "exact": true,
+        "excluded_from_admission": true
+      }
+    ],
+    "excluded_from_admission": true
+  },
+  "exact_candidates": [],
   "rendered_controls": [
     {
-      "rendered": "The pilot helps the artist; The pilot helps the raven.",
-      "letters": 43,
-      "normalized_sha256": "7e5b7aaff1d5324134d092f6605bf5e1a03982ba03fb21fe8ea621facdb2af9b",
-      "independent_pointer_audit": {
-        "pairs_checked": 21
-      },
+      "rendered": "The pilot helps the artist.",
+      "letters": 22,
+      "normalized_sha256": "75d61a950caa1ff9f83199389b6c6ee4669cc15d7ed36f5e2fc0f7209fea1215",
       "independent_exact_audit": {
         "exact": false,
-        "letters": 43,
-        "mismatch_count": 18,
+        "letters": 22,
+        "mismatch_count": 10,
+        "first_mismatches": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "pointer_pairs_checked": 11,
+        "forward_sha256": "75d61a950caa1ff9f83199389b6c6ee4669cc15d7ed36f5e2fc0f7209fea1215",
+        "reverse_tape_sha256": "7016a973b9276ad515f943e977639115170673e3dff7900d6cb5cdc7dde647a5",
+        "sha_equal_after_reverse": false
+      },
+      "candidate_status": "diagnostic_control",
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "Some writers admire a raven.",
+      "letters": 23,
+      "normalized_sha256": "0180c04066aef605937bf2cce592f4f2c1ff253259696847dd5d5401b342938e",
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 23,
+        "mismatch_count": 11,
         "first_mismatches": [
           0,
           1,
@@ -45,53 +85,35 @@
           4,
           5,
           6,
-          8
-        ]
+          7
+        ],
+        "pointer_pairs_checked": 11,
+        "forward_sha256": "0180c04066aef605937bf2cce592f4f2c1ff253259696847dd5d5401b342938e",
+        "reverse_tape_sha256": "f3e4031214d7c4900c30c1a1b45918811cf5b9ede51f838ef0de2b81202e70cd",
+        "sha_equal_after_reverse": false
       },
-      "chart_provenance": {
-        "equal_character_edges": false,
-        "early_prunes": 1
-      },
-      "shortcut_rejections": [
-        "seed_pair_held_out",
-        "no_finished_tape_reversal"
-      ],
+      "candidate_status": "diagnostic_control",
       "reader_status": "not_run"
     },
     {
-      "rendered": "The writer finds one raven; The writer finds two raven.",
-      "letters": 44,
-      "normalized_sha256": "965061dbbdb073f4809ca4d80cb0b47f0bfd4fdd58681fbd27ba8b051ef162d3",
-      "independent_pointer_audit": {
-        "pairs_checked": 22
-      },
+      "rendered": "An aide rips nine memos; some men inspire Diana.",
+      "letters": 38,
+      "normalized_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
       "independent_exact_audit": {
-        "exact": false,
-        "letters": 44,
-        "mismatch_count": 20,
-        "first_mismatches": [
-          0,
-          1,
-          2,
-          3,
-          5,
-          6,
-          7,
-          8
-        ]
+        "exact": true,
+        "letters": 38,
+        "mismatch_count": 0,
+        "first_mismatches": [],
+        "pointer_pairs_checked": 19,
+        "forward_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "reverse_tape_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal_after_reverse": true
       },
-      "chart_provenance": {
-        "equal_character_edges": false,
-        "early_prunes": 1
-      },
-      "shortcut_rejections": [
-        "seed_pair_held_out",
-        "no_finished_tape_reversal"
-      ],
+      "candidate_status": "diagnostic_control",
       "reader_status": "not_run"
     }
   ],
   "acceptance_frontier_changed": false,
   "reader_status": "not_run",
-  "next_construction": "held-out typed adjunct path with two-character required edge buffer"
+  "next_construction": "expand the typed grammar with adjunct and agreement-preserving clause paths; retain this chart as the exact character join"
 }

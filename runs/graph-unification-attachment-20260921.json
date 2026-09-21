@@ -1,16 +1,16 @@
 {
   "experiment_id": "graph-unification-attachment-20260921",
-  "method": "graph-unification dependency solver with held-out evidential-result attachment; bilateral mirrored-character support domains intersected during incremental yield",
+  "method": "graph-unification dependency solver with held-out inferential-result attachment; bilateral mirrored-character support domains intersected during incremental yield",
   "stats": {
-    "trees": 12,
-    "graph_edges": 132,
-    "online_support_checks": 196,
-    "online_prunes": 132,
+    "trees": 13,
+    "graph_edges": 156,
+    "online_support_checks": 230,
+    "online_prunes": 156,
     "rendered_controls": 12,
     "exact_gt38": 0,
-    "max_letters": 135,
-    "causal_frontier_survives_past_first_support_conflict": true,
-    "temporal_frontier_survives_past_first_support_conflict": true
+    "max_letters": 136,
+    "evidential_frontier_survives_past_first_support_conflict": true,
+    "causal_frontier_survives_past_first_support_conflict": true
   },
   "exact_candidates": [],
   "reader_facing_candidates": [],
@@ -705,18 +705,9 @@
       }
     },
     {
-      "rendered": "a patient teacher prepared the child a clear lesson for the new class. the careful baker delivered the parcel the warm loaf for the night nurse.",
+      "rendered": "the careful baker delivered the parcel the warm loaf for the night nurse. the careful analyst marked the signal likely false since the data conflicted.",
       "trees": {
         "left": {
-          "kind": "benefactive",
-          "subject": "a patient teacher",
-          "verb": "prepared",
-          "recipient": "the child",
-          "theme": "a clear lesson",
-          "prep": "for",
-          "beneficiary": "the new class"
-        },
-        "right": {
           "kind": "benefactive",
           "subject": "the careful baker",
           "verb": "delivered",
@@ -724,12 +715,21 @@
           "theme": "the warm loaf",
           "prep": "for",
           "beneficiary": "the night nurse"
+        },
+        "right": {
+          "kind": "inferential_result",
+          "subject": "the careful analyst",
+          "verb": "marked",
+          "theme": "the signal",
+          "result": "likely false",
+          "cause": "since the data conflicted",
+          "attachment_index": "event.marked.result->inference"
         }
       },
       "graph_unification": {
         "attachment_indices": [
           "root->argument",
-          "root->argument"
+          "event.marked.result->inference"
         ],
         "event_nodes_unified": true
       },
@@ -738,16 +738,16 @@
         "checks": 1,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 60,
+        "frontier_length": 64,
         "survives_past_first_support_conflict": false
       },
       "complete_prose": true,
       "audit": {
-        "letters": 117,
+        "letters": 125,
         "pointer_exact": false,
         "sha_equal": false,
-        "forward_sha256": "d1bbfc2e581e0494199ac5a58854b987468eeaa7786911ca8748c3c46de9d1fe",
-        "reverse_sha256": "356dd308e91d6eb22a771f793e60df08ff49137fc3e2c0b4cf6e97d9b0537e46",
+        "forward_sha256": "2acbb359483daeb965e719343ff0049cedc3d16ea49e70fdba21a022f6454bd4",
+        "reverse_sha256": "fb511504334bc393400e819f9026d7493bbb490d0b651b9f0e4d3e8301e9128a",
         "repeated_units": true,
         "nested_self_palindrome": false,
         "mirrored_units": false,
@@ -771,8 +771,8 @@
   "novelty_preflight": {
     "status": "passed",
     "registry_inspected": true,
-    "signature": "fresh-authored|dependency-graph-unification|evidential-result-event-index|online-character-support",
-    "distinct_from": "causal-result edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; evidential result index unifies before lexical yield",
+    "signature": "fresh-authored|dependency-graph-unification|inferential-result-event-index|online-character-support",
+    "distinct_from": "evidential-result edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; inferential result index unifies before lexical yield",
     "forbidden_inputs": [
       "38-letter anchor",
       "finished-tape reversal",
@@ -797,6 +797,6 @@
     ],
     "reader_status": "closed: no exact >=39 candidate"
   },
-  "next_operator": "Hold out a distinct inferential-result event edge only if this evidential frontier survives past its first support conflict.",
+  "next_operator": "Hold out a distinct epistemic-result event edge only if this inferential frontier survives past its first support conflict.",
   "status": "no exact >=39 closure; intact ordinary-prose controls retained"
 }

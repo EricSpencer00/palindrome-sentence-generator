@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1];RUN=ROOT/'runs/relative-instrument-morp
 @dataclass(frozen=True)
 class Arc:name:str;words:tuple[str,...];number:str;stem:str
 L=(Arc('smith_tool',('the','patient','smith','who','carves','with','a','sharp','tool'),'singular','tool'),Arc('makers_tools',('the','skilled','makers','who','work','with','the','fine','tools'),'plural','tool'))
-R=(Arc('artists_brushes',('the','careful','artists','who','paint','with','the','fine','brushes'),'plural','brush'),Arc('pilot_compass',('the','calm','pilot','who','navigates','with','a','old','compass'),'singular','compass'))
+R=(Arc('artists_brushes',('the','careful','artists','who','paint','with','the','fine','brushes'),'plural','brush'),Arc('pilot_compass',('the','calm','pilot','who','navigates','with','an','old','compass'),'singular','compass'))
 def tape(s):return re.sub(r'[^a-z]','',s.casefold())
 def audit(s):
  t=tape(s);n=len(t);bad=next((i for i in range(n//2) if t[i]!=t[n-1-i]),None);h=hashlib.sha256(t.encode()).hexdigest();rh=hashlib.sha256(t[::-1].encode()).hexdigest();return {'letters':n,'two_pointer_exact':bad is None,'first_mismatch':bad,'forward_sha256':h,'reverse_sha256':rh,'sha_equal':h==rh}

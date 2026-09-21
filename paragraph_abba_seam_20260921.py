@@ -28,6 +28,12 @@ REPAIR_SURFACES=[
  ('B1','Meanwhile, the mechanic secured a loose wheel beside the workshop.'),
  ('B2','Later, the apprentice repaired a frayed strap behind the tool shed.'),
 ]
+JOINT_REPAIR_SURFACES=[
+ ('A1','At first light, the pilot left the quay to measure a narrow channel.'),
+ ('B1','Meanwhile, the cooper braced a split barrel beside the shed.'),
+ ('B2','Later, the steward patched a torn sail behind the boathouse.'),
+ ('A2','At last light, the navigator returned from the dock after sounding a hidden cove.'),
+]
 
 def letters(s): return re.sub('[^a-z]','',s.lower())
 def sha(s): return hashlib.sha256(s.encode()).hexdigest()
@@ -51,6 +57,8 @@ def resynthesize_existing_frame():
     by_id=dict(REPAIR_SURFACES)
     ordered=[(k,by_id[k]) for k in ('A1','B1','B2','A2')]
     return make_row([{'id':k,'frame':('departure' if k.startswith('A') else 'repair'),'text':t} for k,t in ordered],['departure','repair','repair','departure'])
+def joint_resynthesize_existing_frame():
+    return make_row([{'id':k,'frame':('departure' if k.startswith('A') else 'repair'),'text':t} for k,t in JOINT_REPAIR_SURFACES],['departure','repair','repair','departure'])
 def novelty():
  reg=ROOT/'docs/experiment-novelty-registry.json'
  data=json.loads(reg.read_text()) if reg.exists() else {'entries':[]}
@@ -73,6 +81,9 @@ def run():
  rows=[make_row([UNITS[0],UNITS[2],UNITS[3],UNITS[1]],['departure','repair','repair','departure']),make_row(SECOND_UNITS,['discovery','shelter','shelter','discovery']),make_row(THIRD_UNITS,['witness','release','release','witness'])]
  for row in rows: row['seam_solver']=abba_seam_solver(row)
  repair=resynthesize_existing_frame(); repair['seam_solver']=abba_seam_solver(repair); repair['provenance']['repair_pass']='live mismatch-guided lexical resynthesis of existing A/B roles'
- return {'experiment_id':'paragraph-abba-seam-20260921','method':'paragraph-level ABBA semantic frame topology with live full-paragraph character obligations','novelty_preflight':novelty(),'actual_paragraph_candidates':rows+[repair],'rendered_outputs':rows+[repair],'repair_attempts':[repair],'stats':{'candidates':len(rows)+1,'exact':sum(r['audit']['two_pointer_exact'] for r in rows+[repair]),'lengths':[r['audit']['letters'] for r in rows+[repair]]},'status':'exact closure found' if any(r['audit']['two_pointer_exact'] for r in rows+[repair]) else 'no exact closure; repair resynthesis retained','next_repair':{'operator':'derive lexical choices from the first mismatched exposed character while preserving complete semantic frames','reason':'mismatch-guided resynthesis changed lexical surfaces but did not yet close the full tape'},'provenance':{'generator_sha256':sha(Path(__file__).read_text()),'independent_audits':['outside-in two-pointer scan','forward/reverse SHA-256','ABBA-specific seam obligation solver'],'reader_status':'intact prose candidates; exact closure required before reader-facing admission'}}
+ joint=joint_resynthesize_existing_frame(); joint['seam_solver']=abba_seam_solver(joint); joint['provenance']['repair_pass']='joint exposed-left/right lexical resynthesis of existing A/B roles'
+ all_rows=rows+[repair,joint]
+ exact=any(r['audit']['two_pointer_exact'] for r in all_rows)
+ return {'experiment_id':'paragraph-abba-seam-20260921','method':'paragraph-level ABBA semantic frame topology with live full-paragraph character obligations','novelty_preflight':novelty(),'actual_paragraph_candidates':all_rows,'rendered_outputs':all_rows,'repair_attempts':[repair,joint],'stats':{'candidates':len(all_rows),'exact':sum(r['audit']['two_pointer_exact'] for r in all_rows),'lengths':[r['audit']['letters'] for r in all_rows]},'status':'exact closure found' if exact else 'no exact closure; reset relation topology','next_repair':{'operator':'reset to a different paragraph relation topology (ABAC) with fresh semantic roles','reason':'joint exposed-side ABBA resynthesis still yields zero exact closures; do not add another ABBA modifier'},'provenance':{'generator_sha256':sha(Path(__file__).read_text()),'independent_audits':['outside-in two-pointer scan','forward/reverse SHA-256','ABBA-specific seam obligation solver'],'reader_status':'intact prose candidates; exact closure required before reader-facing admission'}}
 if __name__=='__main__':
  d=run();OUT.parent.mkdir(exist_ok=True);OUT.write_text(json.dumps(d,indent=2)+'\n');print(json.dumps({'status':d['status'],'stats':d['stats'],'rendered':d['rendered_outputs'][0]['rendered']},sort_keys=True))

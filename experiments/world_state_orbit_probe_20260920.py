@@ -52,7 +52,7 @@ def main():
     handoff=[]
     for left_plan,right_plan in pairs:
         lok,lw=feasible(left_plan,{'closed','parcel','empty'})
-        rok,rw=feasible(right_plan,{'delivered'})
+        rok,rw=feasible(right_plan,set(lw.get('final_state',[])))
         left,right=render('Mira',left_plan),render('Noah',right_plan)
         joined=left+' Then '+right
         handoff.append({'left_plan':left_plan,'right_plan':right_plan,'rendered':joined,

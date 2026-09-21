@@ -1,0 +1,503 @@
+{
+  "experiment_id": "world-state-orbit-probe-20260920",
+  "method": "executable world-state precondition/effect orbit before complete surface rendering",
+  "stats": {
+    "plans": 5,
+    "world_feasible": 3,
+    "semantic_unsat": 2,
+    "character_exact": 0
+  },
+  "rendered_candidates": [
+    {
+      "plan": [
+        "open",
+        "carry",
+        "drop"
+      ],
+      "rendered": "Mira opens the gate carries the parcel delivers the parcel.",
+      "world_audit": {
+        "final_state": [
+          "delivered",
+          "empty",
+          "moved",
+          "open",
+          "parcel"
+        ],
+        "trace": [
+          {
+            "action": "open",
+            "state": [
+              "empty",
+              "open",
+              "parcel"
+            ]
+          },
+          {
+            "action": "carry",
+            "state": [
+              "empty",
+              "moved",
+              "open",
+              "parcel"
+            ]
+          },
+          {
+            "action": "drop",
+            "state": [
+              "delivered",
+              "empty",
+              "moved",
+              "open",
+              "parcel"
+            ]
+          }
+        ]
+      },
+      "character_audit": {
+        "letters": 49,
+        "pointer_exact": false,
+        "mismatches": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9
+        ]
+      },
+      "provenance": {
+        "action_catalogue": "six hand-authored typed actions",
+        "world_initial": [
+          "closed",
+          "parcel",
+          "empty"
+        ],
+        "surface_rendered_only_if_world_feasible": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "plan": [
+        "open",
+        "seal"
+      ],
+      "rendered": "Mira opens the gate seals the gate.",
+      "world_audit": {
+        "final_state": [
+          "closed",
+          "empty",
+          "parcel"
+        ],
+        "trace": [
+          {
+            "action": "open",
+            "state": [
+              "empty",
+              "open",
+              "parcel"
+            ]
+          },
+          {
+            "action": "seal",
+            "state": [
+              "closed",
+              "empty",
+              "parcel"
+            ]
+          }
+        ]
+      },
+      "character_audit": {
+        "letters": 28,
+        "pointer_exact": false,
+        "mismatches": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "provenance": {
+        "action_catalogue": "six hand-authored typed actions",
+        "world_initial": [
+          "closed",
+          "parcel",
+          "empty"
+        ],
+        "surface_rendered_only_if_world_feasible": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "plan": [
+        "carry"
+      ],
+      "rendered": "<semantic UNSAT: carry>",
+      "world_audit": {
+        "failed_action": "carry",
+        "required": [
+          "open",
+          "parcel"
+        ],
+        "state": [
+          "closed",
+          "empty",
+          "parcel"
+        ],
+        "trace": []
+      },
+      "character_audit": {
+        "letters": 18,
+        "pointer_exact": false,
+        "mismatches": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "provenance": {
+        "action_catalogue": "six hand-authored typed actions",
+        "world_initial": [
+          "closed",
+          "parcel",
+          "empty"
+        ],
+        "surface_rendered_only_if_world_feasible": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "plan": [
+        "load",
+        "unload"
+      ],
+      "rendered": "Mira loads the cart unloads the cart.",
+      "world_audit": {
+        "final_state": [
+          "closed",
+          "empty",
+          "parcel"
+        ],
+        "trace": [
+          {
+            "action": "load",
+            "state": [
+              "closed",
+              "loaded",
+              "parcel"
+            ]
+          },
+          {
+            "action": "unload",
+            "state": [
+              "closed",
+              "empty",
+              "parcel"
+            ]
+          }
+        ]
+      },
+      "character_audit": {
+        "letters": 30,
+        "pointer_exact": false,
+        "mismatches": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "provenance": {
+        "action_catalogue": "six hand-authored typed actions",
+        "world_initial": [
+          "closed",
+          "parcel",
+          "empty"
+        ],
+        "surface_rendered_only_if_world_feasible": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    },
+    {
+      "plan": [
+        "unload",
+        "load"
+      ],
+      "rendered": "<semantic UNSAT: load>",
+      "world_audit": {
+        "failed_action": "unload",
+        "required": [
+          "loaded"
+        ],
+        "state": [
+          "closed",
+          "empty",
+          "parcel"
+        ],
+        "trace": []
+      },
+      "character_audit": {
+        "letters": 17,
+        "pointer_exact": false,
+        "mismatches": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "provenance": {
+        "action_catalogue": "six hand-authored typed actions",
+        "world_initial": [
+          "closed",
+          "parcel",
+          "empty"
+        ],
+        "surface_rendered_only_if_world_feasible": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false
+      }
+    }
+  ],
+  "handoff_compositions": [
+    {
+      "left_plan": [
+        "open",
+        "carry",
+        "drop"
+      ],
+      "right_plan": [
+        "receive"
+      ],
+      "rendered": "Mira opens the gate carries the parcel delivers the parcel. Then Noah receives the parcel.",
+      "handoff": {
+        "left_feasible": true,
+        "right_feasible_from_left_final": true,
+        "left_final": [
+          "delivered",
+          "empty",
+          "moved",
+          "open",
+          "parcel"
+        ],
+        "right_trace": [
+          {
+            "action": "receive",
+            "state": [
+              "delivered",
+              "empty",
+              "moved",
+              "open",
+              "parcel",
+              "received"
+            ]
+          }
+        ]
+      },
+      "online_character_audit": {
+        "compared": 21,
+        "matched": 3,
+        "first_mismatch": 0,
+        "equal_length": false
+      },
+      "character_audit": {
+        "letters": 74,
+        "pointer_exact": false,
+        "mismatches": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9
+        ]
+      },
+      "provenance": {
+        "independent_subjects": true,
+        "typed_final_state_handoff": "delivered -> receive",
+        "ordinary_clause_order": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "left_plan": [
+        "load",
+        "unload"
+      ],
+      "right_plan": [
+        "receive"
+      ],
+      "rendered": "Mira loads the cart unloads the cart. Then Noah receives the parcel.",
+      "handoff": {
+        "left_feasible": true,
+        "right_feasible_from_left_final": false,
+        "left_final": [
+          "closed",
+          "empty",
+          "parcel"
+        ],
+        "right_trace": []
+      },
+      "online_character_audit": {
+        "compared": 21,
+        "matched": 1,
+        "first_mismatch": 0,
+        "equal_length": false
+      },
+      "character_audit": {
+        "letters": 55,
+        "pointer_exact": false,
+        "mismatches": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "provenance": {
+        "independent_subjects": true,
+        "typed_final_state_handoff": "delivered -> receive",
+        "ordinary_clause_order": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "left_plan": [
+        "open",
+        "seal"
+      ],
+      "right_plan": [
+        "receive"
+      ],
+      "rendered": "Mira opens the gate seals the gate. Then Noah receives the parcel.",
+      "handoff": {
+        "left_feasible": true,
+        "right_feasible_from_left_final": false,
+        "left_final": [
+          "closed",
+          "empty",
+          "parcel"
+        ],
+        "right_trace": []
+      },
+      "online_character_audit": {
+        "compared": 21,
+        "matched": 4,
+        "first_mismatch": 0,
+        "equal_length": false
+      },
+      "character_audit": {
+        "letters": 53,
+        "pointer_exact": false,
+        "mismatches": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9
+        ]
+      },
+      "provenance": {
+        "independent_subjects": true,
+        "typed_final_state_handoff": "delivered -> receive",
+        "ordinary_clause_order": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    }
+  ],
+  "symmetry_search": [
+    {
+      "plan": [
+        "open",
+        "carry",
+        "drop"
+      ],
+      "reverse_plan": [
+        "drop",
+        "carry",
+        "open"
+      ],
+      "forward_feasible": true,
+      "reverse_feasible": false
+    },
+    {
+      "plan": [
+        "load",
+        "unload"
+      ],
+      "reverse_plan": [
+        "unload",
+        "load"
+      ],
+      "forward_feasible": true,
+      "reverse_feasible": false
+    },
+    {
+      "plan": [
+        "open",
+        "seal"
+      ],
+      "reverse_plan": [
+        "seal",
+        "open"
+      ],
+      "forward_feasible": true,
+      "reverse_feasible": false
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "e25059b2d90efd5bbffd7399a625c1aebd11bf79138f620175ca7ead028c8fe8",
+    "independent_audits": [
+      "world precondition/effect replay",
+      "normalized character pointer scan",
+      "opposing-clause online character comparison"
+    ]
+  },
+  "novelty_preflight": {
+    "signature": "typed-world-state|precondition-effect-orbit|surface-gated-rendering|symmetry-search",
+    "registry_inspected": true,
+    "distinct_from": "clause banks, seams, repairs, semantic-slot sweeps"
+  },
+  "status": "probe only; no exact closure",
+  "next_construction": "compose two independently authored action plans whose final world states satisfy a typed handoff relation before character orbit consumption"
+}

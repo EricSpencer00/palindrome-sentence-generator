@@ -13,10 +13,11 @@ OUT = ROOT / "runs/character-cfg-phrase-lattice-residual-20260921.json"
 ID = "character-cfg-phrase-lattice-residual-20260921"
 SIG = "cfg-phrase-lattice|character-residual|outside-in|independent-pointers|20260921"
 
-LEX = {"A": ("a man", "a plan", "a canal"), "T": ("the map", "the note"),
-       "P": ("panama", "level", "radar")}
-GRAMMAR = {"S": (("A", "A", "A", "P"), ("A", "T", "A", "P"),
-                  ("A", "A", "T", "P"))}
+LEX = {"A": ("a man", "a plan", "a canal"), "V": ("maps", "marks"),
+       "T": ("the map", "the note")}
+# Each path is a complete clause; the two independent clauses are joined in
+# the rendered candidate.  No self-palindromic lexical shortcut is present.
+GRAMMAR = {"S": (("A", "V", "T"), ("A", "V", "A"))}
 
 def norm(s): return re.sub(r"[^a-z]", "", s.lower())
 def audit(s):
@@ -33,16 +34,15 @@ def expand(symbols):
     for phrase in LEX[head]:
         for rest in expand(tail): yield (phrase,) + rest
 
-def residual_intersection(left, right):
+def residual_intersection(rendered):
     """Consume independently chosen phrase arcs from outside in."""
-    a, b = norm(" ".join(left)), norm(" ".join(right)); trace=[]
-    for i, ch in enumerate(a):
-        j = len(b)-1-i
+    tape = norm(rendered); trace=[]
+    for i, ch in enumerate(tape):
+        j = len(tape)-1-i
         if j < 0:
             return False, trace, "right-residual-exhausted"
-        trace.append({"depth": i, "left_arc": ch, "right_residual": b[j], "equal": ch == b[j]})
-        if ch != b[j]: return False, trace, "character-residual-mismatch"
-    if len(a) != len(b): return False, trace, "left-residual-exhausted"
+        trace.append({"depth": i, "left_arc": ch, "right_residual": tape[j], "equal": ch == tape[j]})
+        if ch != tape[j]: return False, trace, "character-residual-mismatch"
     return True, trace, "closed"
 
 def gates(text):
@@ -58,8 +58,8 @@ def run():
     rows=[]
     for left in paths:
         for right in paths:
-            ok, trace, why = residual_intersection(left, right)
-            rendered = " ".join(left) + "."
+            rendered = " ".join(left) + ", while " + " ".join(right) + "."
+            ok, trace, why = residual_intersection(rendered)
             rows.append({"rendered": rendered, "independent_right_path": " ".join(right),
                 "grammar": {"start": "S", "left_rhs": left, "right_rhs": right,
                             "lexical_arcs": True, "arc_selection": "outside_in"},
@@ -70,7 +70,7 @@ def run():
     exact=[r for r in rows if r["closure"]=="closed" and r["audit"]["pointer_exact"] and r["audit"]["sha256_forward"]==r["audit"]["sha256_reverse"] and not any(r["provenance"][k] for k in ("repeated_units","word_order_symmetry","nested_self_palindrome","fragment"))]
     return {"experiment_id": ID, "method": "intersect CFG phrase-lattice arcs with outside-in character residual pointers during expansion",
       "stats": {"grammar_paths": len(paths), "independent_pairs": len(rows), "closed": sum(r["closure"]=="closed" for r in rows), "exact_clean": len(exact), "pruned_live": sum(r["closure"]!="closed" for r in rows)},
-      "exact_candidates": exact, "reader_facing_candidates": rows[:12],
+      "exact_candidates": exact, "reader_facing_candidates": [r for r in rows[:12] if len(r["rendered"].split()) >= 8],
       "diagnostic_controls": [r for r in rows if r["closure"]!="closed"][:12],
       "novelty_preflight": {"status":"passed", "signature":SIG, "distinct_from":"fixed-shell seam sweeps and mirror-chunk composition: each side is an independent CFG path and each character is checked against a live opposite residual before closure"},
       "provenance": {"audits":["independent outside-in pointer comparison","forward/reverse SHA-256"], "lexical_repeat_gate":"reject repeated word units and mirrored word order", "falsifier":"disable residual checks; if live-pruned count is zero, intersection is not doing work", "repair":"add the held-out transitive template S -> A T A P and retain live residual checks"},

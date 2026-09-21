@@ -2,30 +2,28 @@
   "experiment_id": "character-cfg-phrase-lattice-residual-20260921",
   "method": "intersect CFG phrase-lattice arcs with outside-in character residual pointers during expansion",
   "stats": {
-    "grammar_paths": 189,
-    "independent_pairs": 35721,
-    "closed": 1,
+    "grammar_paths": 30,
+    "independent_pairs": 900,
+    "closed": 0,
     "exact_clean": 0,
-    "pruned_live": 35720
+    "pruned_live": 900
   },
   "exact_candidates": [],
   "reader_facing_candidates": [
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a man panama",
+      "rendered": "a man maps the map, while a man maps the map.",
+      "independent_right_path": "a man maps the map",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -34,51 +32,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 1,
-          "left_arc": "m",
-          "right_residual": "m",
-          "equal": true
-        },
-        {
-          "depth": 2,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 3,
-          "left_arc": "n",
-          "right_residual": "n",
-          "equal": true
-        },
-        {
-          "depth": 4,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 5,
-          "left_arc": "m",
           "right_residual": "p",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 33,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
+          0,
+          "a",
           "p"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "8416a938c10bf2b400a45942cf300ee987ebcf5e2740c3de457144c0198c588f",
+        "sha256_reverse": "6355ceba643633b8af39bfa623a23bcba9efa386fef5e0e1ee90b9330894ea62"
       },
       "provenance": {
         "repeated_units": true,
@@ -95,21 +63,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a man level",
+      "rendered": "a man maps the map, while a man maps the note.",
+      "independent_right_path": "a man maps the note",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "level"
+          "maps",
+          "the note"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -118,21 +84,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "l",
+          "right_residual": "e",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 34,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
-          "p"
+          0,
+          "a",
+          "e"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "0f79a59938f0424a16dc693aa4b0603616852b7d611ad9ca2a116007f6e37912",
+        "sha256_reverse": "14866002b6797d3a1a10cb84c6d109aeb1843aaf514a29ea000059a02a721e39"
       },
       "provenance": {
         "repeated_units": true,
@@ -149,21 +115,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a man radar",
+      "rendered": "a man maps the map, while a man marks the map.",
+      "independent_right_path": "a man marks the map",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "radar"
+          "marks",
+          "the map"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -172,105 +136,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "r",
-          "equal": false
-        }
-      ],
-      "closure": "character-residual-mismatch",
-      "audit": {
-        "letters": 18,
-        "pointer_exact": false,
-        "first_mismatch": [
-          5,
-          "m",
-          "p"
-        ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
-      },
-      "provenance": {
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "nested_self_palindrome": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "complete_prose": true,
-        "fresh_cfg_lattice": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "lexical_source": "repository-authored lexical bank"
-      }
-    },
-    {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a plan panama",
-      "grammar": {
-        "start": "S",
-        "left_rhs": [
-          "a man",
-          "a man",
-          "a man",
-          "panama"
-        ],
-        "right_rhs": [
-          "a man",
-          "a man",
-          "a plan",
-          "panama"
-        ],
-        "lexical_arcs": true,
-        "arc_selection": "outside_in"
-      },
-      "residual_trace": [
-        {
-          "depth": 0,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 1,
-          "left_arc": "m",
-          "right_residual": "m",
-          "equal": true
-        },
-        {
-          "depth": 2,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 3,
-          "left_arc": "n",
-          "right_residual": "n",
-          "equal": true
-        },
-        {
-          "depth": 4,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 5,
-          "left_arc": "m",
           "right_residual": "p",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 34,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
+          0,
+          "a",
           "p"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "34bb3aa162504552f359ccf33c58f2d8011fce71a81c2d671626c199ed6c11b1",
+        "sha256_reverse": "a4933192deb327005719144d139fdc841c795de064e7183e0d25f7e3a055b5a5"
       },
       "provenance": {
         "repeated_units": true,
@@ -287,21 +167,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a plan level",
+      "rendered": "a man maps the map, while a man marks the note.",
+      "independent_right_path": "a man marks the note",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
           "a man",
-          "a man",
-          "a plan",
-          "level"
+          "marks",
+          "the note"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -310,21 +188,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "l",
+          "right_residual": "e",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 35,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
-          "p"
+          0,
+          "a",
+          "e"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "aa262d1fd47c8a23f72a0da24505e0d18bb6ba4057511385cf24c833591bf859",
+        "sha256_reverse": "6617d024322f18ea59172f1e473e68020bfd3f007ef6547cee644999e305534b"
       },
       "provenance": {
         "repeated_units": true,
@@ -341,21 +219,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a plan radar",
+      "rendered": "a man maps the map, while a plan maps the map.",
+      "independent_right_path": "a plan maps the map",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
-          "a man",
-          "a man",
           "a plan",
-          "radar"
+          "maps",
+          "the map"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -364,21 +240,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "r",
+          "right_residual": "p",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 34,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
+          0,
+          "a",
           "p"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "99f6f409136c8d592965f4683b3cfd810dea93277cce324d75e9ed99dfb9528d",
+        "sha256_reverse": "1f0a0096640fe391a9740264a709407a599b4363109974b87d131fe12613c44f"
       },
       "provenance": {
         "repeated_units": true,
@@ -395,21 +271,175 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a canal panama",
+      "rendered": "a man maps the map, while a plan maps the note.",
+      "independent_right_path": "a plan maps the note",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
+          "a plan",
+          "maps",
+          "the note"
+        ],
+        "lexical_arcs": true,
+        "arc_selection": "outside_in"
+      },
+      "residual_trace": [
+        {
+          "depth": 0,
+          "left_arc": "a",
+          "right_residual": "e",
+          "equal": false
+        }
+      ],
+      "closure": "character-residual-mismatch",
+      "audit": {
+        "letters": 35,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "15aec51f2bff44d993576397ebbf9478b042ff20effa56830eabc2f21b63ff3a",
+        "sha256_reverse": "eca11ec4b31a496d5dc843b9be7a41941f8eb1e73d45720ad4143d2a5c2d3474"
+      },
+      "provenance": {
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "nested_self_palindrome": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "complete_prose": true,
+        "fresh_cfg_lattice": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "lexical_source": "repository-authored lexical bank"
+      }
+    },
+    {
+      "rendered": "a man maps the map, while a plan marks the map.",
+      "independent_right_path": "a plan marks the map",
+      "grammar": {
+        "start": "S",
+        "left_rhs": [
           "a man",
+          "maps",
+          "the map"
+        ],
+        "right_rhs": [
+          "a plan",
+          "marks",
+          "the map"
+        ],
+        "lexical_arcs": true,
+        "arc_selection": "outside_in"
+      },
+      "residual_trace": [
+        {
+          "depth": 0,
+          "left_arc": "a",
+          "right_residual": "p",
+          "equal": false
+        }
+      ],
+      "closure": "character-residual-mismatch",
+      "audit": {
+        "letters": 35,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "p"
+        ],
+        "sha256_forward": "0969e29b8c07e9d4353dc099c59b36d6a5dd4dc595607a47bd49f8429b1a3e81",
+        "sha256_reverse": "de1c265eca675b8f264ec29970a980e027194eb224bbe708b3c682c89b9983c1"
+      },
+      "provenance": {
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "nested_self_palindrome": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "complete_prose": true,
+        "fresh_cfg_lattice": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "lexical_source": "repository-authored lexical bank"
+      }
+    },
+    {
+      "rendered": "a man maps the map, while a plan marks the note.",
+      "independent_right_path": "a plan marks the note",
+      "grammar": {
+        "start": "S",
+        "left_rhs": [
           "a man",
+          "maps",
+          "the map"
+        ],
+        "right_rhs": [
+          "a plan",
+          "marks",
+          "the note"
+        ],
+        "lexical_arcs": true,
+        "arc_selection": "outside_in"
+      },
+      "residual_trace": [
+        {
+          "depth": 0,
+          "left_arc": "a",
+          "right_residual": "e",
+          "equal": false
+        }
+      ],
+      "closure": "character-residual-mismatch",
+      "audit": {
+        "letters": 36,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "24a1eb0a812451dff8247c7ba1fa1da6c7b388b49af8084d9bf1842b26a3a855",
+        "sha256_reverse": "ccf18f7b400a8dbd0e7be636d0204e82d7f9c355a75b129a13a68b3c9c3819bc"
+      },
+      "provenance": {
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "nested_self_palindrome": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "complete_prose": true,
+        "fresh_cfg_lattice": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "lexical_source": "repository-authored lexical bank"
+      }
+    },
+    {
+      "rendered": "a man maps the map, while a canal maps the map.",
+      "independent_right_path": "a canal maps the map",
+      "grammar": {
+        "start": "S",
+        "left_rhs": [
+          "a man",
+          "maps",
+          "the map"
+        ],
+        "right_rhs": [
           "a canal",
-          "panama"
+          "maps",
+          "the map"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -418,51 +448,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 1,
-          "left_arc": "m",
-          "right_residual": "m",
-          "equal": true
-        },
-        {
-          "depth": 2,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 3,
-          "left_arc": "n",
-          "right_residual": "n",
-          "equal": true
-        },
-        {
-          "depth": 4,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 5,
-          "left_arc": "m",
           "right_residual": "p",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 35,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
+          0,
+          "a",
           "p"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "5f87b16fa822ee92928f2a4abe21447333d700945889a71be2e64b3cdc0b4098",
+        "sha256_reverse": "8c78d11691c9c52484d5738ae1e99538112e0671ecf81164c6b182d62feb0e17"
       },
       "provenance": {
         "repeated_units": true,
@@ -479,21 +479,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a canal level",
+      "rendered": "a man maps the map, while a canal maps the note.",
+      "independent_right_path": "a canal maps the note",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
-          "a man",
-          "a man",
           "a canal",
-          "level"
+          "maps",
+          "the note"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -502,21 +500,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "l",
+          "right_residual": "e",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 36,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
-          "p"
+          0,
+          "a",
+          "e"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "9626a88e8b00dbbfa637fd3098017b0794f9f5c1efe965891e17efdf6a827ad3",
+        "sha256_reverse": "ea8e5a09354d3d48eeda869907596600f4de56383997ea6c4c61f72fd394b616"
       },
       "provenance": {
         "repeated_units": true,
@@ -533,21 +531,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a canal radar",
+      "rendered": "a man maps the map, while a canal marks the map.",
+      "independent_right_path": "a canal marks the map",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
-          "a man",
-          "a man",
           "a canal",
-          "radar"
+          "marks",
+          "the map"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -556,105 +552,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "r",
-          "equal": false
-        }
-      ],
-      "closure": "character-residual-mismatch",
-      "audit": {
-        "letters": 18,
-        "pointer_exact": false,
-        "first_mismatch": [
-          5,
-          "m",
-          "p"
-        ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
-      },
-      "provenance": {
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "nested_self_palindrome": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "complete_prose": true,
-        "fresh_cfg_lattice": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "lexical_source": "repository-authored lexical bank"
-      }
-    },
-    {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a plan a man panama",
-      "grammar": {
-        "start": "S",
-        "left_rhs": [
-          "a man",
-          "a man",
-          "a man",
-          "panama"
-        ],
-        "right_rhs": [
-          "a man",
-          "a plan",
-          "a man",
-          "panama"
-        ],
-        "lexical_arcs": true,
-        "arc_selection": "outside_in"
-      },
-      "residual_trace": [
-        {
-          "depth": 0,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 1,
-          "left_arc": "m",
-          "right_residual": "m",
-          "equal": true
-        },
-        {
-          "depth": 2,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 3,
-          "left_arc": "n",
-          "right_residual": "n",
-          "equal": true
-        },
-        {
-          "depth": 4,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 5,
-          "left_arc": "m",
           "right_residual": "p",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 36,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
+          0,
+          "a",
           "p"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "2a9c37b44eb4ce6aa45a797982e7ffd6939ff4b74d13aeaebc978ab9578bc72b",
+        "sha256_reverse": "c51ae70457a06f6c04b89c27a5306347e386a8fbd82a71b5b36e67aca69a2252"
       },
       "provenance": {
         "repeated_units": true,
@@ -671,21 +583,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a plan a man level",
+      "rendered": "a man maps the map, while a canal marks the note.",
+      "independent_right_path": "a canal marks the note",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
-          "a man",
-          "a plan",
-          "a man",
-          "level"
+          "a canal",
+          "marks",
+          "the note"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -694,75 +604,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "l",
+          "right_residual": "e",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 37,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
-          "p"
+          0,
+          "a",
+          "e"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
-      },
-      "provenance": {
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "nested_self_palindrome": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "complete_prose": true,
-        "fresh_cfg_lattice": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "lexical_source": "repository-authored lexical bank"
-      }
-    },
-    {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a plan a man radar",
-      "grammar": {
-        "start": "S",
-        "left_rhs": [
-          "a man",
-          "a man",
-          "a man",
-          "panama"
-        ],
-        "right_rhs": [
-          "a man",
-          "a plan",
-          "a man",
-          "radar"
-        ],
-        "lexical_arcs": true,
-        "arc_selection": "outside_in"
-      },
-      "residual_trace": [
-        {
-          "depth": 0,
-          "left_arc": "a",
-          "right_residual": "r",
-          "equal": false
-        }
-      ],
-      "closure": "character-residual-mismatch",
-      "audit": {
-        "letters": 18,
-        "pointer_exact": false,
-        "first_mismatch": [
-          5,
-          "m",
-          "p"
-        ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "9a6ef073d1ee41b90431b461e011cde0a129b1c3732cc60ae7ae26a0c87e3c22",
+        "sha256_reverse": "1b0cc33e427382334e8f45c1ee162c5b20bdb8d45944b7b15131efc9d05acc07"
       },
       "provenance": {
         "repeated_units": true,
@@ -781,21 +637,19 @@
   ],
   "diagnostic_controls": [
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a man panama",
+      "rendered": "a man maps the map, while a man maps the map.",
+      "independent_right_path": "a man maps the map",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -804,51 +658,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 1,
-          "left_arc": "m",
-          "right_residual": "m",
-          "equal": true
-        },
-        {
-          "depth": 2,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 3,
-          "left_arc": "n",
-          "right_residual": "n",
-          "equal": true
-        },
-        {
-          "depth": 4,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 5,
-          "left_arc": "m",
           "right_residual": "p",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 33,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
+          0,
+          "a",
           "p"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "8416a938c10bf2b400a45942cf300ee987ebcf5e2740c3de457144c0198c588f",
+        "sha256_reverse": "6355ceba643633b8af39bfa623a23bcba9efa386fef5e0e1ee90b9330894ea62"
       },
       "provenance": {
         "repeated_units": true,
@@ -865,21 +689,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a man level",
+      "rendered": "a man maps the map, while a man maps the note.",
+      "independent_right_path": "a man maps the note",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "level"
+          "maps",
+          "the note"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -888,21 +710,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "l",
+          "right_residual": "e",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 34,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
-          "p"
+          0,
+          "a",
+          "e"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "0f79a59938f0424a16dc693aa4b0603616852b7d611ad9ca2a116007f6e37912",
+        "sha256_reverse": "14866002b6797d3a1a10cb84c6d109aeb1843aaf514a29ea000059a02a721e39"
       },
       "provenance": {
         "repeated_units": true,
@@ -919,21 +741,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a man radar",
+      "rendered": "a man maps the map, while a man marks the map.",
+      "independent_right_path": "a man marks the map",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "radar"
+          "marks",
+          "the map"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -942,105 +762,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "r",
-          "equal": false
-        }
-      ],
-      "closure": "character-residual-mismatch",
-      "audit": {
-        "letters": 18,
-        "pointer_exact": false,
-        "first_mismatch": [
-          5,
-          "m",
-          "p"
-        ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
-      },
-      "provenance": {
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "nested_self_palindrome": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "complete_prose": true,
-        "fresh_cfg_lattice": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "lexical_source": "repository-authored lexical bank"
-      }
-    },
-    {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a plan panama",
-      "grammar": {
-        "start": "S",
-        "left_rhs": [
-          "a man",
-          "a man",
-          "a man",
-          "panama"
-        ],
-        "right_rhs": [
-          "a man",
-          "a man",
-          "a plan",
-          "panama"
-        ],
-        "lexical_arcs": true,
-        "arc_selection": "outside_in"
-      },
-      "residual_trace": [
-        {
-          "depth": 0,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 1,
-          "left_arc": "m",
-          "right_residual": "m",
-          "equal": true
-        },
-        {
-          "depth": 2,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 3,
-          "left_arc": "n",
-          "right_residual": "n",
-          "equal": true
-        },
-        {
-          "depth": 4,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 5,
-          "left_arc": "m",
           "right_residual": "p",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 34,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
+          0,
+          "a",
           "p"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "34bb3aa162504552f359ccf33c58f2d8011fce71a81c2d671626c199ed6c11b1",
+        "sha256_reverse": "a4933192deb327005719144d139fdc841c795de064e7183e0d25f7e3a055b5a5"
       },
       "provenance": {
         "repeated_units": true,
@@ -1057,21 +793,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a plan level",
+      "rendered": "a man maps the map, while a man marks the note.",
+      "independent_right_path": "a man marks the note",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
           "a man",
-          "a man",
-          "a plan",
-          "level"
+          "marks",
+          "the note"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -1080,21 +814,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "l",
+          "right_residual": "e",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 35,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
-          "p"
+          0,
+          "a",
+          "e"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "aa262d1fd47c8a23f72a0da24505e0d18bb6ba4057511385cf24c833591bf859",
+        "sha256_reverse": "6617d024322f18ea59172f1e473e68020bfd3f007ef6547cee644999e305534b"
       },
       "provenance": {
         "repeated_units": true,
@@ -1111,21 +845,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a plan radar",
+      "rendered": "a man maps the map, while a plan maps the map.",
+      "independent_right_path": "a plan maps the map",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
-          "a man",
-          "a man",
           "a plan",
-          "radar"
+          "maps",
+          "the map"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -1134,21 +866,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "r",
+          "right_residual": "p",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 34,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
+          0,
+          "a",
           "p"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "99f6f409136c8d592965f4683b3cfd810dea93277cce324d75e9ed99dfb9528d",
+        "sha256_reverse": "1f0a0096640fe391a9740264a709407a599b4363109974b87d131fe12613c44f"
       },
       "provenance": {
         "repeated_units": true,
@@ -1165,21 +897,175 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a canal panama",
+      "rendered": "a man maps the map, while a plan maps the note.",
+      "independent_right_path": "a plan maps the note",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
+          "a plan",
+          "maps",
+          "the note"
+        ],
+        "lexical_arcs": true,
+        "arc_selection": "outside_in"
+      },
+      "residual_trace": [
+        {
+          "depth": 0,
+          "left_arc": "a",
+          "right_residual": "e",
+          "equal": false
+        }
+      ],
+      "closure": "character-residual-mismatch",
+      "audit": {
+        "letters": 35,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "15aec51f2bff44d993576397ebbf9478b042ff20effa56830eabc2f21b63ff3a",
+        "sha256_reverse": "eca11ec4b31a496d5dc843b9be7a41941f8eb1e73d45720ad4143d2a5c2d3474"
+      },
+      "provenance": {
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "nested_self_palindrome": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "complete_prose": true,
+        "fresh_cfg_lattice": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "lexical_source": "repository-authored lexical bank"
+      }
+    },
+    {
+      "rendered": "a man maps the map, while a plan marks the map.",
+      "independent_right_path": "a plan marks the map",
+      "grammar": {
+        "start": "S",
+        "left_rhs": [
           "a man",
+          "maps",
+          "the map"
+        ],
+        "right_rhs": [
+          "a plan",
+          "marks",
+          "the map"
+        ],
+        "lexical_arcs": true,
+        "arc_selection": "outside_in"
+      },
+      "residual_trace": [
+        {
+          "depth": 0,
+          "left_arc": "a",
+          "right_residual": "p",
+          "equal": false
+        }
+      ],
+      "closure": "character-residual-mismatch",
+      "audit": {
+        "letters": 35,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "p"
+        ],
+        "sha256_forward": "0969e29b8c07e9d4353dc099c59b36d6a5dd4dc595607a47bd49f8429b1a3e81",
+        "sha256_reverse": "de1c265eca675b8f264ec29970a980e027194eb224bbe708b3c682c89b9983c1"
+      },
+      "provenance": {
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "nested_self_palindrome": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "complete_prose": true,
+        "fresh_cfg_lattice": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "lexical_source": "repository-authored lexical bank"
+      }
+    },
+    {
+      "rendered": "a man maps the map, while a plan marks the note.",
+      "independent_right_path": "a plan marks the note",
+      "grammar": {
+        "start": "S",
+        "left_rhs": [
           "a man",
+          "maps",
+          "the map"
+        ],
+        "right_rhs": [
+          "a plan",
+          "marks",
+          "the note"
+        ],
+        "lexical_arcs": true,
+        "arc_selection": "outside_in"
+      },
+      "residual_trace": [
+        {
+          "depth": 0,
+          "left_arc": "a",
+          "right_residual": "e",
+          "equal": false
+        }
+      ],
+      "closure": "character-residual-mismatch",
+      "audit": {
+        "letters": 36,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "24a1eb0a812451dff8247c7ba1fa1da6c7b388b49af8084d9bf1842b26a3a855",
+        "sha256_reverse": "ccf18f7b400a8dbd0e7be636d0204e82d7f9c355a75b129a13a68b3c9c3819bc"
+      },
+      "provenance": {
+        "repeated_units": true,
+        "word_order_symmetry": false,
+        "nested_self_palindrome": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "complete_prose": true,
+        "fresh_cfg_lattice": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "lexical_source": "repository-authored lexical bank"
+      }
+    },
+    {
+      "rendered": "a man maps the map, while a canal maps the map.",
+      "independent_right_path": "a canal maps the map",
+      "grammar": {
+        "start": "S",
+        "left_rhs": [
+          "a man",
+          "maps",
+          "the map"
+        ],
+        "right_rhs": [
           "a canal",
-          "panama"
+          "maps",
+          "the map"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -1188,51 +1074,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 1,
-          "left_arc": "m",
-          "right_residual": "m",
-          "equal": true
-        },
-        {
-          "depth": 2,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 3,
-          "left_arc": "n",
-          "right_residual": "n",
-          "equal": true
-        },
-        {
-          "depth": 4,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 5,
-          "left_arc": "m",
           "right_residual": "p",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 35,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
+          0,
+          "a",
           "p"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "5f87b16fa822ee92928f2a4abe21447333d700945889a71be2e64b3cdc0b4098",
+        "sha256_reverse": "8c78d11691c9c52484d5738ae1e99538112e0671ecf81164c6b182d62feb0e17"
       },
       "provenance": {
         "repeated_units": true,
@@ -1249,21 +1105,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a canal level",
+      "rendered": "a man maps the map, while a canal maps the note.",
+      "independent_right_path": "a canal maps the note",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
-          "a man",
-          "a man",
           "a canal",
-          "level"
+          "maps",
+          "the note"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -1272,21 +1126,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "l",
+          "right_residual": "e",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 36,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
-          "p"
+          0,
+          "a",
+          "e"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "9626a88e8b00dbbfa637fd3098017b0794f9f5c1efe965891e17efdf6a827ad3",
+        "sha256_reverse": "ea8e5a09354d3d48eeda869907596600f4de56383997ea6c4c61f72fd394b616"
       },
       "provenance": {
         "repeated_units": true,
@@ -1303,21 +1157,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a man a canal radar",
+      "rendered": "a man maps the map, while a canal marks the map.",
+      "independent_right_path": "a canal marks the map",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
-          "a man",
-          "a man",
           "a canal",
-          "radar"
+          "marks",
+          "the map"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -1326,105 +1178,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "r",
-          "equal": false
-        }
-      ],
-      "closure": "character-residual-mismatch",
-      "audit": {
-        "letters": 18,
-        "pointer_exact": false,
-        "first_mismatch": [
-          5,
-          "m",
-          "p"
-        ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
-      },
-      "provenance": {
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "nested_self_palindrome": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "complete_prose": true,
-        "fresh_cfg_lattice": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "lexical_source": "repository-authored lexical bank"
-      }
-    },
-    {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a plan a man panama",
-      "grammar": {
-        "start": "S",
-        "left_rhs": [
-          "a man",
-          "a man",
-          "a man",
-          "panama"
-        ],
-        "right_rhs": [
-          "a man",
-          "a plan",
-          "a man",
-          "panama"
-        ],
-        "lexical_arcs": true,
-        "arc_selection": "outside_in"
-      },
-      "residual_trace": [
-        {
-          "depth": 0,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 1,
-          "left_arc": "m",
-          "right_residual": "m",
-          "equal": true
-        },
-        {
-          "depth": 2,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 3,
-          "left_arc": "n",
-          "right_residual": "n",
-          "equal": true
-        },
-        {
-          "depth": 4,
-          "left_arc": "a",
-          "right_residual": "a",
-          "equal": true
-        },
-        {
-          "depth": 5,
-          "left_arc": "m",
           "right_residual": "p",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 36,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
+          0,
+          "a",
           "p"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "2a9c37b44eb4ce6aa45a797982e7ffd6939ff4b74d13aeaebc978ab9578bc72b",
+        "sha256_reverse": "c51ae70457a06f6c04b89c27a5306347e386a8fbd82a71b5b36e67aca69a2252"
       },
       "provenance": {
         "repeated_units": true,
@@ -1441,21 +1209,19 @@
       }
     },
     {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a plan a man level",
+      "rendered": "a man maps the map, while a canal marks the note.",
+      "independent_right_path": "a canal marks the note",
       "grammar": {
         "start": "S",
         "left_rhs": [
           "a man",
-          "a man",
-          "a man",
-          "panama"
+          "maps",
+          "the map"
         ],
         "right_rhs": [
-          "a man",
-          "a plan",
-          "a man",
-          "level"
+          "a canal",
+          "marks",
+          "the note"
         ],
         "lexical_arcs": true,
         "arc_selection": "outside_in"
@@ -1464,75 +1230,21 @@
         {
           "depth": 0,
           "left_arc": "a",
-          "right_residual": "l",
+          "right_residual": "e",
           "equal": false
         }
       ],
       "closure": "character-residual-mismatch",
       "audit": {
-        "letters": 18,
+        "letters": 37,
         "pointer_exact": false,
         "first_mismatch": [
-          5,
-          "m",
-          "p"
+          0,
+          "a",
+          "e"
         ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
-      },
-      "provenance": {
-        "repeated_units": true,
-        "word_order_symmetry": false,
-        "nested_self_palindrome": false,
-        "fragment": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "complete_prose": true,
-        "fresh_cfg_lattice": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "lexical_source": "repository-authored lexical bank"
-      }
-    },
-    {
-      "rendered": "a man a man a man panama.",
-      "independent_right_path": "a man a plan a man radar",
-      "grammar": {
-        "start": "S",
-        "left_rhs": [
-          "a man",
-          "a man",
-          "a man",
-          "panama"
-        ],
-        "right_rhs": [
-          "a man",
-          "a plan",
-          "a man",
-          "radar"
-        ],
-        "lexical_arcs": true,
-        "arc_selection": "outside_in"
-      },
-      "residual_trace": [
-        {
-          "depth": 0,
-          "left_arc": "a",
-          "right_residual": "r",
-          "equal": false
-        }
-      ],
-      "closure": "character-residual-mismatch",
-      "audit": {
-        "letters": 18,
-        "pointer_exact": false,
-        "first_mismatch": [
-          5,
-          "m",
-          "p"
-        ],
-        "sha256_forward": "be40fa1606c5735e22b3168aff1ba5fb14aaaf577c6db75569a8bf2d9c642b78",
-        "sha256_reverse": "758ed20962131f84bbf1c90ae0a12cc67e1b4c9e2bd45ef8e9f3b378f3dd8e27"
+        "sha256_forward": "9a6ef073d1ee41b90431b461e011cde0a129b1c3732cc60ae7ae26a0c87e3c22",
+        "sha256_reverse": "1b0cc33e427382334e8f45c1ee162c5b20bdb8d45944b7b15131efc9d05acc07"
       },
       "provenance": {
         "repeated_units": true,

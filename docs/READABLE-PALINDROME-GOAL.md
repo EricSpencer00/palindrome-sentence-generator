@@ -149,6 +149,27 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   typed event alternatives, not a wider complete-program product
   (`runs/object-scene-program-tape-20260921.json`).
 
+- **Three disjoint Luna lanes.** The reversible semantic-program lane carried
+  typed world-state traces through six program pairs (four non-isomorphic) and
+  rendered intact controls to 115 letters; all six were rejected online and
+  independently failed exactness (`runs/semantic-program-reversible-20260921.json`).
+  The typed lexical-WFSA lane compiled 320 weighted lexical edges across 16
+  agreement/valency paths, expanded 32 live frontiers, and produced zero exact
+  candidates at or above 38 letters (`runs/lexical-wfsa-intersection-20260921.json`).
+  The API-inspired capacity-index lane used five typed semantic paths and
+  `(first,last,length)` buckets; its only exact closure was the 13-letter
+  “Was it a rat I saw?”, below the promotion floor
+  (`runs/api-capacity-semantic-index-20260921.json`). These are construction
+  diagnostics, not readability claims or a reason to widen the same banks.
+  Its role-expansion follow-up was correctly marked duplicate at novelty
+  preflight and found no exact candidate at the 40-letter target
+  (`runs/api-capacity-semantic-index-followup-20260921.json`).
+
+- **Historical-artifact re-audit.** The repository also contains a 106-letter
+  exact insertion that preserves the 38-letter seed and inserts reverse lexical
+  pairs at an ungrammatical seam. It remains explicitly withdrawn; a larger
+  number of letters does not make a seed wrapper a new readable construction.
+
 - **Frontier-directed follow-up.** The corrected engine then carried the
   consumed surface text into a narrow role-noun expansion. It reached the
   exact diagnostic “Nora asks a dog; a god asks Aaron.” at 25 letters, with

@@ -10,6 +10,7 @@
     "trie_source": "finite Brown/lexicon-derived role vocabulary",
     "roles": "DET/ADJ/NOUN/VERB/PRON",
     "live_boundary_decisions": true,
+    "opposing_character_obligations": false,
     "post_render_reversal": false,
     "rlaif": false
   },
@@ -23,7 +24,8 @@
     "character_edges": 153057,
     "early_grammar_prunes": 0,
     "rendered_controls": 2,
-    "exact_candidates": 0
+    "exact_candidates": 0,
+    "palindrome_obligations_enforced": false
   },
   "rendered_controls": [
     {
@@ -56,6 +58,7 @@
         "NOUN",
         "VERB"
       ],
+      "candidate_status": "diagnostic_control",
       "independent_exact_audit": {
         "exact": false,
         "letters": 58,
@@ -110,16 +113,13 @@
         "sha256": "d1f433551ea5c6d67dc1797fed2fe4aa483279286068bd2b43ea464e1bd640d9"
       },
       "trail_provenance": {
-        "edge_rule": "left character and reverse-word right character each required live trie continuation",
+        "edge_rule": "word-boundary trie admission only; opposing characters were not coupled",
         "states_at_render": 21520,
         "edges_consumed": 153057,
-        "early_prunes": 0
+        "early_prunes": 0,
+        "opposing_character_obligations": false
       },
-      "shortcut_rejections": [
-        "word_order_symmetry_not_used",
-        "repeated_or_self_palindromic_units_checked",
-        "no_source_sentence_copied"
-      ],
+      "shortcut_gate": "not_run_for_reader_admission; lane has no exact-generation claim",
       "reader_status": "not_run"
     },
     {
@@ -151,6 +151,7 @@
         "DET",
         "NOUN"
       ],
+      "candidate_status": "diagnostic_control",
       "independent_exact_audit": {
         "exact": false,
         "letters": 50,
@@ -205,20 +206,17 @@
         "sha256": "173205d91f9276d90cbded227afe2910ef61d699c09843319e400e5600518d52"
       },
       "trail_provenance": {
-        "edge_rule": "left character and reverse-word right character each required live trie continuation",
+        "edge_rule": "word-boundary trie admission only; opposing characters were not coupled",
         "states_at_render": 21520,
         "edges_consumed": 153057,
-        "early_prunes": 0
+        "early_prunes": 0,
+        "opposing_character_obligations": false
       },
-      "shortcut_rejections": [
-        "word_order_symmetry_not_used",
-        "repeated_or_self_palindromic_units_checked",
-        "no_source_sentence_copied"
-      ],
+      "shortcut_gate": "not_run_for_reader_admission; lane has no exact-generation claim",
       "reader_status": "not_run"
     }
   ],
   "acceptance_frontier_changed": false,
   "reader_status": "not_run",
-  "next_construction": "held-out role-conditioned edge bigrams with a three-character boundary buffer"
+  "next_construction": "replace this boundary preflight with a true center-out bidirectional chart that carries opposing-character obligations before rendering; do not widen the current word list"
 }

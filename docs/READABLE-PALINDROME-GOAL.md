@@ -174,6 +174,14 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   independent pointer/SHA audits are retained
   (`runs/lexical-wfsa-ditransitive-deficit-20260921.json`).
 
+- **Overlap-trie source correction.** A reverse-complement overlap prototype
+  explored 21,520 boundary states and 153,057 word-interior steps, but its
+  fallback controls did not couple opposing characters and recorded zero
+  grammar prunes. The artifact is therefore explicitly a diagnostic boundary
+  preflight, not an exact-generation result; its next construction is a true
+  center-out bidirectional chart with character obligations
+  (`runs/grammar-coupled-reverse-overlap-20260921.json`).
+
 - **Historical-artifact re-audit.** The repository also contains a 106-letter
   exact insertion that preserves the 38-letter seed and inserts reverse lexical
   pairs at an ungrammatical seam. It remains explicitly withdrawn; a larger

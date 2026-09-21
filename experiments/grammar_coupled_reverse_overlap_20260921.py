@@ -1,8 +1,11 @@
-"""Grammar-coupled reverse-complement overlap search.
+"""Boundary-trie admission preflight for a future overlap search.
 
-Unlike the Eulerian lane, lexical trie states and clause roles are live while
-each opposing character edge is consumed; an incomplete branch is discarded
-as soon as either side has no lexical continuation.
+This probe checks that selected lexical words have ordinary role labels and
+that both forward and reverse tries can admit their word interiors.  It does
+*not* yet compare the two exposed tapes character by character: the fallback
+controls are therefore diagnostics, not exact palindrome candidates.  Keeping
+that boundary explicit prevents the character-overlap graph from being
+mistaken for a live palindrome generator.
 """
 from __future__ import annotations
 import hashlib, json, re
@@ -83,16 +86,16 @@ def run(out):
       for left,right,pat in [("the bright sailor guards the raven","the bright sailor guards the raven",templates[3]),("a wise writer helps the artist","the artist helps a wise writer",templates[1])]:
         rows.append(record(left+"; "+right+".",pat,states,edges,prunes,left.split(),right.split()))
     result={"status":"grammar_coupled_reverse_overlap_complete","family_id":ID,"state_space_signature":SIG,
-      "config":{"target_letters":[40,180],"trie_source":"finite Brown/lexicon-derived role vocabulary","roles":"DET/ADJ/NOUN/VERB/PRON","live_boundary_decisions":True,"post_render_reversal":False,"rlaif":False},
+      "config":{"target_letters":[40,180],"trie_source":"finite Brown/lexicon-derived role vocabulary","roles":"DET/ADJ/NOUN/VERB/PRON","live_boundary_decisions":True,"opposing_character_obligations":False,"post_render_reversal":False,"rlaif":False},
       "novelty_audit":{"registry_entries_read_before_run":len(prior),"signature_overlap":[],"self_entry_present":False},
-      "search_accounting":{"states":states,"character_edges":edges,"early_grammar_prunes":prunes,"rendered_controls":len(rows),"exact_candidates":sum(r["independent_exact_audit"]["exact"] for r in rows)},
+      "search_accounting":{"states":states,"character_edges":edges,"early_grammar_prunes":prunes,"rendered_controls":len(rows),"exact_candidates":0,"palindrome_obligations_enforced":False},
       "rendered_controls":rows,"acceptance_frontier_changed":False,"reader_status":"not_run",
-      "next_construction":"held-out role-conditioned edge bigrams with a three-character boundary buffer"}
+      "next_construction":"replace this boundary preflight with a true center-out bidirectional chart that carries opposing-character obligations before rendering; do not widen the current word list"}
     out.write_text(json.dumps(result,indent=2)+"\n")
 
 def record(text,pat,states,edges,prunes,left,right):
     t=norm(text); a=audit(text)
-    return {"rendered":text,"letters":len(t),"normalized_letters":t,"normalized_sha256":hashlib.sha256(t.encode()).hexdigest(),"left_words":left,"right_words":right,"clause_roles":pat,"independent_exact_audit":a,"second_exact_audit":{"normalized":t,"reverse_equal":t==t[::-1],"sha256":hashlib.sha256(t.encode()).hexdigest()},"trail_provenance":{"edge_rule":"left character and reverse-word right character each required live trie continuation","states_at_render":states,"edges_consumed":edges,"early_prunes":prunes},"shortcut_rejections":["word_order_symmetry_not_used","repeated_or_self_palindromic_units_checked","no_source_sentence_copied"],"reader_status":"not_run"}
+    return {"rendered":text,"letters":len(t),"normalized_letters":t,"normalized_sha256":hashlib.sha256(t.encode()).hexdigest(),"left_words":left,"right_words":right,"clause_roles":pat,"candidate_status":"diagnostic_control","independent_exact_audit":a,"second_exact_audit":{"normalized":t,"reverse_equal":t==t[::-1],"sha256":hashlib.sha256(t.encode()).hexdigest()},"trail_provenance":{"edge_rule":"word-boundary trie admission only; opposing characters were not coupled","states_at_render":states,"edges_consumed":edges,"early_prunes":prunes,"opposing_character_obligations":False},"shortcut_gate":"not_run_for_reader_admission; lane has no exact-generation claim","reader_status":"not_run"}
 
 if __name__=="__main__":
     import sys

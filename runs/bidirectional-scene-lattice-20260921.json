@@ -1,0 +1,554 @@
+{
+  "experiment_id": "bidirectional-scene-lattice-20260921",
+  "method": "joint bidirectional semantic scene lattice: choose left and right roles at each outer depth, consume live character obligations, and meet at a center with variable word/sentence boundaries",
+  "stats": {
+    "heldout_left_scenes": 3,
+    "heldout_right_scenes": 3,
+    "rendered_controls": 9,
+    "joint_states": 9,
+    "closed_joint_states": 0,
+    "exact_gt38": 0,
+    "max_letters": 99
+  },
+  "exact_candidates": [],
+  "rendered_controls": [
+    {
+      "rendered": "At dawn, the archivist carried a sealed letter toward the harbor; meanwhile, the calm ferryman waited beside the lantern.",
+      "scene_roles": {
+        "left": {
+          "event": "archive",
+          "theme": "letter"
+        },
+        "right": {
+          "event": "ferry",
+          "theme": "lantern"
+        }
+      },
+      "joint_decode": {
+        "closed": false,
+        "trace": [
+          {
+            "depth": 0,
+            "left_role": "archive",
+            "right_role": "ferry",
+            "left": "a",
+            "right": "n",
+            "matched": false
+          }
+        ],
+        "residual": {
+          "left": "atdawnthearchivistcarriedasealedlettertowardtheharbor",
+          "right_reversed": "nretnalehtedisebdetiawnamyrrefmlaceht"
+        }
+      },
+      "audit": {
+        "letters": 99,
+        "two_pointer_checked": true,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "n"
+        ],
+        "sha256_forward": "b3c3ea5e6ad0dc5430414b1f7777070795655c0b34b4de3b2d6145d76d4600f6",
+        "sha256_reverse": "59461dd1cab4cd5ccbf4c99d6e2e38920722ddde5f224e89e0df637e88aee2f0"
+      },
+      "provenance": {
+        "heldout_scene_bank": true,
+        "selected_left_and_right_simultaneously": true,
+        "word_boundary_shift_allowed": true,
+        "sentence_boundary_shift_allowed": true,
+        "complete_prose": true,
+        "finished_tape_reversal": false,
+        "mirrored_sentences": false,
+        "catalogue_text": false,
+        "semordnilap_pairs": false,
+        "reward_ranking": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "At dawn, the archivist carried a sealed letter toward the harbor; meanwhile, a careful keeper opened the weathered gate.",
+      "scene_roles": {
+        "left": {
+          "event": "archive",
+          "theme": "letter"
+        },
+        "right": {
+          "event": "keep",
+          "theme": "gate"
+        }
+      },
+      "joint_decode": {
+        "closed": false,
+        "trace": [
+          {
+            "depth": 0,
+            "left_role": "archive",
+            "right_role": "keep",
+            "left": "a",
+            "right": "e",
+            "matched": false
+          }
+        ],
+        "residual": {
+          "left": "atdawnthearchivistcarriedasealedlettertowardtheharbor",
+          "right_reversed": "etagderehtaewehtdeneporepeekluferaca"
+        }
+      },
+      "audit": {
+        "letters": 98,
+        "two_pointer_checked": true,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "9a0114fc526f5bb3df4a3540bb73b2e968a313d0109be1bcdadab3f83a44bea6",
+        "sha256_reverse": "03a7cce4962d1b88a1667d4c2043267f0c1722bfa908b6e7933825d59af61883"
+      },
+      "provenance": {
+        "heldout_scene_bank": true,
+        "selected_left_and_right_simultaneously": true,
+        "word_boundary_shift_allowed": true,
+        "sentence_boundary_shift_allowed": true,
+        "complete_prose": true,
+        "finished_tape_reversal": false,
+        "mirrored_sentences": false,
+        "catalogue_text": false,
+        "semordnilap_pairs": false,
+        "reward_ranking": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "At dawn, the archivist carried a sealed letter toward the harbor; meanwhile, the quiet sailor returned before winter.",
+      "scene_roles": {
+        "left": {
+          "event": "archive",
+          "theme": "letter"
+        },
+        "right": {
+          "event": "sail",
+          "theme": "winter"
+        }
+      },
+      "joint_decode": {
+        "closed": false,
+        "trace": [
+          {
+            "depth": 0,
+            "left_role": "archive",
+            "right_role": "sail",
+            "left": "a",
+            "right": "r",
+            "matched": false
+          }
+        ],
+        "residual": {
+          "left": "atdawnthearchivistcarriedasealedlettertowardtheharbor",
+          "right_reversed": "retniwerofebdenruterroliasteiuqeht"
+        }
+      },
+      "audit": {
+        "letters": 96,
+        "two_pointer_checked": true,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "175c1747a8228d473fcb1771f60a94e32c738ab04a7bdc5eaa2454a91f628a18",
+        "sha256_reverse": "c4e04172c90a9db62a448b631c3e9433452b6ff5b476db4f0f3b411ffc05973c"
+      },
+      "provenance": {
+        "heldout_scene_bank": true,
+        "selected_left_and_right_simultaneously": true,
+        "word_boundary_shift_allowed": true,
+        "sentence_boundary_shift_allowed": true,
+        "complete_prose": true,
+        "finished_tape_reversal": false,
+        "mirrored_sentences": false,
+        "catalogue_text": false,
+        "semordnilap_pairs": false,
+        "reward_ranking": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "Before rain, a patient gardener covered the young seedlings; meanwhile, the calm ferryman waited beside the lantern.",
+      "scene_roles": {
+        "left": {
+          "event": "garden",
+          "theme": "seedlings"
+        },
+        "right": {
+          "event": "ferry",
+          "theme": "lantern"
+        }
+      },
+      "joint_decode": {
+        "closed": false,
+        "trace": [
+          {
+            "depth": 0,
+            "left_role": "garden",
+            "right_role": "ferry",
+            "left": "b",
+            "right": "n",
+            "matched": false
+          }
+        ],
+        "residual": {
+          "left": "beforerainapatientgardenercoveredtheyoungseedlings",
+          "right_reversed": "nretnalehtedisebdetiawnamyrrefmlaceht"
+        }
+      },
+      "audit": {
+        "letters": 96,
+        "two_pointer_checked": true,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "b",
+          "n"
+        ],
+        "sha256_forward": "8fad420cf3f56e4b5a997f2bc4d3ae2df0a07a386165bc1f4a89f2c5c4beaa72",
+        "sha256_reverse": "dede3d84bff1cf63d1eb69ec72e1e2ae1c15adc959d9312d0e350c5f5b2c848c"
+      },
+      "provenance": {
+        "heldout_scene_bank": true,
+        "selected_left_and_right_simultaneously": true,
+        "word_boundary_shift_allowed": true,
+        "sentence_boundary_shift_allowed": true,
+        "complete_prose": true,
+        "finished_tape_reversal": false,
+        "mirrored_sentences": false,
+        "catalogue_text": false,
+        "semordnilap_pairs": false,
+        "reward_ranking": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "Before rain, a patient gardener covered the young seedlings; meanwhile, a careful keeper opened the weathered gate.",
+      "scene_roles": {
+        "left": {
+          "event": "garden",
+          "theme": "seedlings"
+        },
+        "right": {
+          "event": "keep",
+          "theme": "gate"
+        }
+      },
+      "joint_decode": {
+        "closed": false,
+        "trace": [
+          {
+            "depth": 0,
+            "left_role": "garden",
+            "right_role": "keep",
+            "left": "b",
+            "right": "e",
+            "matched": false
+          }
+        ],
+        "residual": {
+          "left": "beforerainapatientgardenercoveredtheyoungseedlings",
+          "right_reversed": "etagderehtaewehtdeneporepeekluferaca"
+        }
+      },
+      "audit": {
+        "letters": 95,
+        "two_pointer_checked": true,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "b",
+          "e"
+        ],
+        "sha256_forward": "bb9bce91fb3277b574785c19be2744176248631ee9fad4fb5a854e53824206fa",
+        "sha256_reverse": "b7ed15601f307c2f45895a504026a6c0b0d73ef13eb2f549ae6130198743171d"
+      },
+      "provenance": {
+        "heldout_scene_bank": true,
+        "selected_left_and_right_simultaneously": true,
+        "word_boundary_shift_allowed": true,
+        "sentence_boundary_shift_allowed": true,
+        "complete_prose": true,
+        "finished_tape_reversal": false,
+        "mirrored_sentences": false,
+        "catalogue_text": false,
+        "semordnilap_pairs": false,
+        "reward_ranking": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "Before rain, a patient gardener covered the young seedlings; meanwhile, the quiet sailor returned before winter.",
+      "scene_roles": {
+        "left": {
+          "event": "garden",
+          "theme": "seedlings"
+        },
+        "right": {
+          "event": "sail",
+          "theme": "winter"
+        }
+      },
+      "joint_decode": {
+        "closed": false,
+        "trace": [
+          {
+            "depth": 0,
+            "left_role": "garden",
+            "right_role": "sail",
+            "left": "b",
+            "right": "r",
+            "matched": false
+          }
+        ],
+        "residual": {
+          "left": "beforerainapatientgardenercoveredtheyoungseedlings",
+          "right_reversed": "retniwerofebdenruterroliasteiuqeht"
+        }
+      },
+      "audit": {
+        "letters": 93,
+        "two_pointer_checked": true,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "b",
+          "r"
+        ],
+        "sha256_forward": "decc8a1fc371b988ebe2e9e70abe9dfec08e673b9d82f33fe0915524f21f5b04",
+        "sha256_reverse": "63a62736cb46778b7e9f64d9ef992c1bdadb856c862f520ee4b38f0630203600"
+      },
+      "provenance": {
+        "heldout_scene_bank": true,
+        "selected_left_and_right_simultaneously": true,
+        "word_boundary_shift_allowed": true,
+        "sentence_boundary_shift_allowed": true,
+        "complete_prose": true,
+        "finished_tape_reversal": false,
+        "mirrored_sentences": false,
+        "catalogue_text": false,
+        "semordnilap_pairs": false,
+        "reward_ranking": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "At dusk, the watchman marked a narrow trail; meanwhile, the calm ferryman waited beside the lantern.",
+      "scene_roles": {
+        "left": {
+          "event": "watch",
+          "theme": "trail"
+        },
+        "right": {
+          "event": "ferry",
+          "theme": "lantern"
+        }
+      },
+      "joint_decode": {
+        "closed": false,
+        "trace": [
+          {
+            "depth": 0,
+            "left_role": "watch",
+            "right_role": "ferry",
+            "left": "a",
+            "right": "n",
+            "matched": false
+          }
+        ],
+        "residual": {
+          "left": "atduskthewatchmanmarkedanarrowtrail",
+          "right_reversed": "nretnalehtedisebdetiawnamyrrefmlaceht"
+        }
+      },
+      "audit": {
+        "letters": 81,
+        "two_pointer_checked": true,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "n"
+        ],
+        "sha256_forward": "1ef9c0b2addf4c22726817713aa9436fdb8695111cddfc50c1ba7aad8f77d1d6",
+        "sha256_reverse": "3493f30fa461e2d26237622e170232ad7caec0221fbf3b465608b4f2162e588f"
+      },
+      "provenance": {
+        "heldout_scene_bank": true,
+        "selected_left_and_right_simultaneously": true,
+        "word_boundary_shift_allowed": true,
+        "sentence_boundary_shift_allowed": true,
+        "complete_prose": true,
+        "finished_tape_reversal": false,
+        "mirrored_sentences": false,
+        "catalogue_text": false,
+        "semordnilap_pairs": false,
+        "reward_ranking": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "At dusk, the watchman marked a narrow trail; meanwhile, a careful keeper opened the weathered gate.",
+      "scene_roles": {
+        "left": {
+          "event": "watch",
+          "theme": "trail"
+        },
+        "right": {
+          "event": "keep",
+          "theme": "gate"
+        }
+      },
+      "joint_decode": {
+        "closed": false,
+        "trace": [
+          {
+            "depth": 0,
+            "left_role": "watch",
+            "right_role": "keep",
+            "left": "a",
+            "right": "e",
+            "matched": false
+          }
+        ],
+        "residual": {
+          "left": "atduskthewatchmanmarkedanarrowtrail",
+          "right_reversed": "etagderehtaewehtdeneporepeekluferaca"
+        }
+      },
+      "audit": {
+        "letters": 80,
+        "two_pointer_checked": true,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "27cbe3e89f20eeb8ab424893f82c94b72821c96417b6a8ddd17f3c19ce6c0d2e",
+        "sha256_reverse": "f60ab52efd26013985e386a95a03ee2221eb3ad9a7b6cabc96699950ef737680"
+      },
+      "provenance": {
+        "heldout_scene_bank": true,
+        "selected_left_and_right_simultaneously": true,
+        "word_boundary_shift_allowed": true,
+        "sentence_boundary_shift_allowed": true,
+        "complete_prose": true,
+        "finished_tape_reversal": false,
+        "mirrored_sentences": false,
+        "catalogue_text": false,
+        "semordnilap_pairs": false,
+        "reward_ranking": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "At dusk, the watchman marked a narrow trail; meanwhile, the quiet sailor returned before winter.",
+      "scene_roles": {
+        "left": {
+          "event": "watch",
+          "theme": "trail"
+        },
+        "right": {
+          "event": "sail",
+          "theme": "winter"
+        }
+      },
+      "joint_decode": {
+        "closed": false,
+        "trace": [
+          {
+            "depth": 0,
+            "left_role": "watch",
+            "right_role": "sail",
+            "left": "a",
+            "right": "r",
+            "matched": false
+          }
+        ],
+        "residual": {
+          "left": "atduskthewatchmanmarkedanarrowtrail",
+          "right_reversed": "retniwerofebdenruterroliasteiuqeht"
+        }
+      },
+      "audit": {
+        "letters": 78,
+        "two_pointer_checked": true,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "ea8cc6b68b4a8c47a0c119c656721dc18e7097ff90720de0c3c4b88cb6c577ef",
+        "sha256_reverse": "cbde45618de325ec2cb006aa1aba1f0e4a04214e0ddd26f6d480082794bbaba9"
+      },
+      "provenance": {
+        "heldout_scene_bank": true,
+        "selected_left_and_right_simultaneously": true,
+        "word_boundary_shift_allowed": true,
+        "sentence_boundary_shift_allowed": true,
+        "complete_prose": true,
+        "finished_tape_reversal": false,
+        "mirrored_sentences": false,
+        "catalogue_text": false,
+        "semordnilap_pairs": false,
+        "reward_ranking": false,
+        "post_hoc_repair": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "joint-scene-lattice|two-sided-role-choice|live-center|boundary-drift",
+    "distinct_from": "fixed-role 20260920 scene lattice; this decoder jointly chooses both semantic arms before each live obligation and does not reverse completed text"
+  },
+  "provenance": {
+    "audits": [
+      "independent two-pointer comparison",
+      "forward/reverse SHA-256"
+    ],
+    "hard_exclusions": [
+      "finished-text reversal",
+      "mirrored sentences",
+      "catalogue text",
+      "semordnilap pairs",
+      "reward ranking"
+    ]
+  },
+  "residual_certificate": [
+    {
+      "rendered": "At dawn, the archivist carried a sealed letter toward the harbor; meanwhile, the calm ferryman waited beside the lantern.",
+      "residual": {
+        "left": "atdawnthearchivistcarriedasealedlettertowardtheharbor",
+        "right_reversed": "nretnalehtedisebdetiawnamyrrefmlaceht"
+      }
+    },
+    {
+      "rendered": "At dawn, the archivist carried a sealed letter toward the harbor; meanwhile, a careful keeper opened the weathered gate.",
+      "residual": {
+        "left": "atdawnthearchivistcarriedasealedlettertowardtheharbor",
+        "right_reversed": "etagderehtaewehtdeneporepeekluferaca"
+      }
+    },
+    {
+      "rendered": "At dawn, the archivist carried a sealed letter toward the harbor; meanwhile, the quiet sailor returned before winter.",
+      "residual": {
+        "left": "atdawnthearchivistcarriedasealedlettertowardtheharbor",
+        "right_reversed": "retniwerofebdenruterroliasteiuqeht"
+      }
+    }
+  ],
+  "next_repair": "Condition the next independently authored right event phrase on the complete first residual word while retaining simultaneous role choice; do not widen both banks.",
+  "status": "no joint exact closure; complete-prose controls and residual certificates retained"
+}

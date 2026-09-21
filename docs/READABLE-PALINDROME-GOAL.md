@@ -8437,3 +8437,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   `r`; all 16 pairs still failed before extending the `was`/`saw` seam, so no
   exact candidate was promoted. Artifact:
   `runs/was-np-locative-saw-seam-20260921.json`.
+
+- **Temporal NP1 seam successor, 2026-09-21:** added a temporal adjunct to
+  NP1 while retaining the locative NP2 grammar. The controls remained intact
+  (for example, “Was our old guide last night what our sailor under the pier
+  saw?” is 51 letters), but the first post-`was` residual still failed (`o`
+  versus `r`) for every pair; no seam extension or exact candidate resulted.
+  This rules out adjunct growth alone. The next construction must author NP
+  prefixes and suffixes against the seam character classes before rendering,
+  rather than keep adding adjuncts to mismatched endpoints. Artifact:
+  `runs/was-np-temporal-np1-seam-20260921.json`.

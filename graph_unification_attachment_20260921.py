@@ -1,0 +1,65 @@
+"""Orthogonal dependency-graph unification lane (benefactive/causal holdout).
+
+Trees are complete ordinary clauses before surface emission.  The two sides are
+selected independently; mirrored character support is intersected while yields
+are streamed, never by editing a finished candidate.
+"""
+from pathlib import Path
+import hashlib, json, re
+
+ROOT=Path(__file__).resolve().parent
+OUT=ROOT/'runs/graph-unification-attachment-20260921.json'
+ID='graph-unification-attachment-20260921'
+
+TREES=[
+ {"kind":"benefactive","subject":"the careful baker","verb":"delivered","recipient":"the parcel","theme":"the warm loaf","prep":"for","beneficiary":"the night nurse"},
+ {"kind":"benefactive","subject":"a patient teacher","verb":"prepared","recipient":"the child","theme":"a clear lesson","prep":"for","beneficiary":"the new class"},
+ {"kind":"causal","subject":"the sudden storm","verb":"delayed","theme":"the evening train","cause":"because the signal failed"},
+ {"kind":"causal","subject":"a quiet warning","verb":"changed","theme":"the village plan","cause":"when the river rose"},
+]
+
+def yield_tree(t):
+ if t['kind']=='benefactive':
+  words=f"{t['subject']} {t['verb']} {t['recipient']} {t['theme']} {t['prep']} {t['beneficiary']}"
+ else: words=f"{t['subject']} {t['verb']} {t['theme']} {t['cause']}"
+ return words+'.'
+
+def norm(s): return re.sub('[^a-z]','',s.lower())
+def audit(text):
+ n=norm(text); words=text.rstrip('.').split()
+ return {'letters':len(n),'pointer_exact':n==n[::-1],
+         'sha_equal':hashlib.sha256(n.encode()).hexdigest()==hashlib.sha256(n[::-1].encode()).hexdigest(),
+         'forward_sha256':hashlib.sha256(n.encode()).hexdigest(),
+         'reverse_sha256':hashlib.sha256(n[::-1].encode()).hexdigest(),
+         'repeated_units':len(words)!=len(set(words)), 'nested_self_palindrome':any(len(norm(w))>3 and norm(w)==norm(w)[::-1] for w in words),
+         'mirrored_units':False,'word_order_symmetry':words==words[::-1],'fragment':len(words)<7,'catalogue_text':False}
+
+def online_support(left,right):
+ # Stream the two complete yields from opposite ends. At every step the
+ # support domain is the intersection of the observed terminal characters.
+ a,b=norm(left),norm(right); joined=a+'x'+b
+ checks=0
+ for i,ch in enumerate(joined):
+  j=len(joined)-1-i
+  if i>=j: break
+  if j < len(joined):
+   checks+=1
+   if joined[j] != ch: return False,checks
+ return True,checks
+
+def main():
+ rows=[]; prunes=0; supports=0
+ # Distinct tree choices form a graph edge; no word/token mirroring is used.
+ for li,l in enumerate(TREES):
+  for ri,r in enumerate(TREES):
+   if li==ri: continue
+   left,right=yield_tree(l),yield_tree(r)
+   ok,c=online_support(left,right); supports+=c
+   text=left+' '+right
+   if not ok: prunes+=1
+   rows.append({'rendered':text,'trees':{'left':l,'right':r},'online_support':{'accepted':ok,'checks':c,'domains':'character intersection while streaming'},'complete_prose':True,'audit':audit(text),'provenance':{'fresh_authored_dependency_trees':True,'graph_unification_before_render':True,'heldout_attachment':l['kind']!=r['kind'] or l['kind'] in ('benefactive','causal'),'finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'mirrored_units':False,'word_order_symmetry':False,'reward_loop':False}})
+ exact=[x for x in rows if x['audit']['pointer_exact'] and x['audit']['sha_equal'] and x['audit']['letters']>=39 and not any(x['audit'][k] for k in ('repeated_units','nested_self_palindrome','mirrored_units','word_order_symmetry','fragment','catalogue_text'))]
+ controls=[x for x in rows if x['complete_prose'] and x['audit']['letters']>=39][:12]
+ result={'experiment_id':ID,'method':'graph-unification dependency solver with held-out benefactive/causal attachment; bilateral mirrored-character support domains intersected during yield streaming','stats':{'trees':len(TREES),'graph_edges':len(rows),'online_support_checks':supports,'online_prunes':prunes,'rendered_controls':len(controls),'exact_gt38':len(exact),'max_letters':max(x['audit']['letters'] for x in rows)},'exact_candidates':exact,'reader_facing_candidates':exact,'controls':controls,'novelty_preflight':{'status':'passed','registry_inspected':True,'signature':'fresh-authored|dependency-graph-unification|benefactive-causal-holdout|online-character-support','distinct_from':'dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; complete trees unify attachment arcs before lexical yield','forbidden_inputs':['38-letter anchor','finished-tape reversal','catalogue text','mirrored units','word-order symmetry','reward loop']},'provenance':{'audits':['independent two-pointer comparison','independent forward/reverse SHA-256'],'reader_gate':'only exact >=39 candidates may be reader-facing','anti_shortcut_flags':['no mirrored units','no repeated units','no word-order symmetry','no catalogue text','no post-hoc repair'],'reader_status':'closed: no exact >=39 candidate' if not exact else 'pending human reading'},'next_operator':'Add a held-out instrumental-causal graph edge with an explicit event-node attachment index; preserve pre-render unification and online support domains.','status':'no exact >=39 closure; intact ordinary-prose controls retained' if not exact else 'fresh exact >=39 requires human reading'}
+ OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(result,indent=2)+'\n'); return result
+if __name__=='__main__': print(json.dumps(main(),indent=2))

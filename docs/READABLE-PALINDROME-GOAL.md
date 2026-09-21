@@ -8039,6 +8039,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   closures occurred. The next topology is ready-and-eager VP coordination.
   Artifact: `runs/cfg-earley-prepared-willing-coord-vp-20260921.json`.
 
+- **Ready-and-eager coordinated Earley VP, 2026-09-21:** represented both
+  adjective conjuncts as explicit pre-render Earley VP structure. Three intact
+  controls were 156, 160, and 156 letters; 211 concrete domain conflicts were
+  retained and zero exact closures occurred. The next topology is
+  ready-and-willing coordination with an embedded complement. Artifact:
+  `runs/cfg-earley-ready-eager-coord-vp-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

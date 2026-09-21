@@ -7961,7 +7961,7 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
 - **Plural progressive Earley frame, 2026-09-21:** added pre-render
   `NP(pl) -> are beginning to V`, preserving plural agreement, locative
   valency, and live mirrored domains. Three fresh intact progressive controls
-  (132--142 letters) produced 202 concrete domain conflicts and zero exact
+  (148--152 letters) produced 202 concrete domain conflicts and zero exact
   closures; independent pointer/SHA audits agree. The next operator is a
   held-out `are preparing to V` frame. Artifact:
   `runs/cfg-earley-plural-progressive-frame-20260921.json`.

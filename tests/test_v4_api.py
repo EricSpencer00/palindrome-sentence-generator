@@ -203,6 +203,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["center_clause_matrix_dependency_run"]["exact_candidates_over_38"] == 0
     assert method.json()["matrix_perfect_temporal_run"]["paired_grammar_states"] == 26244
     assert method.json()["matrix_perfect_temporal_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["matrix_adjunct_temporal6_run"]["paired_grammar_states"] == 2304
+    assert method.json()["matrix_adjunct_temporal6_run"]["exact_candidates_over_38"] == 0
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

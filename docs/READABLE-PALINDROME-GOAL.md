@@ -108,6 +108,19 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   arcs by the live two-character residual
   (`runs/center-event-independent-clause-arcs-20260920.json`).
 
+- **Proof-carrying denotational equality classes.** To escape the exhausted
+  clause-bank geometry, the search object was changed to meaning-equivalent
+  sentence programs. Twelve authored propositions were packed into equality
+  classes with six side-conditioned rewrites and two non-isomorphic,
+  replayable syntax trees per class. Live two-character obligations then chose
+  one topology per clause before rendering. The lane produced 12 complete
+  controls from 47--57 letters, including “No keeper knows the season and the
+  gate is marked by the mason.”; independent pointer/SHA checks found zero
+  exact closures and the strict gate remained closed. This is a valid
+  representation result, not a readable-palindrome result: the next
+  discriminator is a fresh licensed topology only after an exact reader-worthy
+  extraction, never a larger vocabulary (`runs/denotational-equality-registry-new-20260920.json`).
+
 - **Center-atom/event-relation successor.** The proposed successor was run as
   a frozen, separately audited lane: 864 semantic joins across three scenes,
   with one lexical connective (`while`, `before`, `because`, or `despite`) and

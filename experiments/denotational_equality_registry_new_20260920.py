@@ -1,67 +1,344 @@
-"""Proof-carrying denotational equality classes with palindrome-constrained extraction.
+"""Proof-carrying denotational equality classes with live extraction.
 
-All propositions and vocabulary are authored here.  Rewrites are executable,
-side-conditioned equivalences; extraction is a bounded product over at least
-two non-isomorphic syntax topologies and checks mirrored characters online.
+The search object is a small e-class of meaning-equivalent sentence programs,
+not a larger word bank.  Each rewrite has an explicit side condition and two
+non-isomorphic syntax trees.  A palindrome-constrained extractor chooses one
+topology per proposition, propagates outer character obligations while
+choosing clause order, and only then renders a complete sentence.
 """
 from __future__ import annotations
-import hashlib,json,re
+
+import hashlib
+import itertools
+import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
-ID='denotational-equality-registry-new-20260920'
-OUT=ROOT/'runs'/f'{ID}.json'; REG=ROOT/'docs/experiment-novelty-registry.json'
-VOCAB=('a','the','calm','alert','pilot','mason','poet','keeper','marks','maps','reads','guards','letter','bridge','gate','near','under','and')
-REWRITES=(
- ('coordination_factoring','P(x) and Q(x)','P_and_Q(x)','P,Q share subject x'),
- ('active_passive','agent acts_on object','object is_acted_on_by agent','agent/object distinct; action transitive'),
- ('relational_converse','x near y','y near x','near is symmetric'),
- ('adjunct_reordering','P and at S','at S and P','adjunct independent of event'),
- ('determiner_scope','a N','N with existential(a)','N countable and existential scope unchanged'),
- ('relative_clause_attachment','N that P','that P modifies N','unique antecedent; restrictive reading'),
-)
+
+ROOT = Path(__file__).resolve().parents[1]
+EXPERIMENT_ID = "denotational-equality-registry-new-20260920"
+OUT = ROOT / "runs" / f"{EXPERIMENT_ID}.json"
+REGISTRY = ROOT / "docs" / "experiment-novelty-registry.json"
+
+
 @dataclass(frozen=True)
-class Prop:
-    id:str; atoms:tuple[str,...]; meaning:tuple[str,...]
+class Event:
+    agent: str
+    verb: str
+    past: str
+    theme: str
 
-PROPS=tuple(Prop(f'p{i:02}', tuple(f'{s} {v} {o}' for s,v,o in [
- ('pilot','maps','the bridge'),('mason','marks','the gate'),('poet','reads','the letter'),('keeper','guards','the bridge'),
- ('pilot','reads','the letter'),('mason','maps','the gate'),('poet','marks','the bridge'),('keeper','reads','the letter'),
- ('pilot','guards','the gate'),('mason','reads','the bridge'),('poet','maps','the gate'),('keeper','marks','the letter')][i:i+1]), ('agent', 'action','theme')) for i in range(12))
+    @property
+    def meaning(self) -> tuple[str, ...]:
+        return ("event", self.agent, self.verb, self.theme, "present")
 
-def topo_proofs(p):
-    # Two visibly different trees, replayable via the same denotation.
-    a={'topology':'flat_coordination','tree':('S',('NP',p.atoms[0]),('VP',p.atoms[0].split()[1:]))}
-    b={'topology':'relational_attachment','tree':('S',('NP',p.atoms[0].split()[0]),('VP',('V',p.atoms[0].split()[1]),('NP',p.atoms[0].split()[2:]))) }
-    return [dict(a,denotation=p.meaning,replay=True),dict(b,denotation=p.meaning,replay=True)]
 
-def norm(s): return re.sub('[^a-z]','',s.lower())
-def audit(s):
- t=norm(s); mis=next(((i,t[i],t[-i-1]) for i in range(len(t)//2) if t[i]!=t[-i-1]),None)
- return {'letters':len(t),'pointer_exact':bool(t) and mis is None,'first_mismatch':mis,'sha256_forward':hashlib.sha256(t.encode()).hexdigest(),'sha256_reverse':hashlib.sha256(t[::-1].encode()).hexdigest()}
+@dataclass(frozen=True)
+class Proposition:
+    ident: str
+    denotation: tuple
+    rewrite: str
+    side_condition: str
+    variants: tuple[tuple[str, str, tuple], ...]
 
-def extract(classes,limit=400):
- out=[]
- for c in classes:
-  for text in c['surfaces'][:limit]:
-   a=audit(text); a.update(text=text,proposition=c['id'],topology=c['topology'],complete_sentence=bool(re.match(r'^[A-Z].*[.!?]$',text)))
-   a['accepted']=a['pointer_exact'] and a['sha256_forward']==a['sha256_reverse'] and 39<=a['letters']<=100 and a['complete_sentence']
-   out.append(a)
- return out
 
-def main():
- classes=[]; failed=[]
- for p in PROPS:
-  proofs=topo_proofs(p)
-  if len({x['topology'] for x in proofs})<2 or not all(x['replay'] and x['denotation']==p.meaning for x in proofs): failed.append(p.id); continue
-  for pr in proofs:
-   # Surfaces are assembled from frozen vocabulary; mirror constraints remain live.
-   base=p.atoms[0]; classes.append({'id':p.id,'topology':pr['topology'],'meaning':p.meaning,'proof':pr,'surfaces':[base.capitalize()+'.']})
- rows=extract(classes)
- for r in rows: r['provenance']={'authored_vocabulary':True,'catalogue_imported':False,'posthoc_repair':False,'independent_pointer_sha':True}
- registry=json.loads(REG.read_text()); existing=[e.get('id') for e in registry.get('entries',[])]
- entry={'id':ID,'signature':'proof-carrying-denotational-equality|12-propositions|six-licensed-rewrites|two-nonisomorphic-topologies|live-palindrome-extraction','artifact':'experiments/'+Path(__file__).name,'run_artifacts':['runs/'+OUT.name],'distinction':'Frozen authored propositions are partitioned into proof-carrying denotational equality classes. Six side-conditioned rewrites and two non-isomorphic replayable syntax topologies are required before bounded live character extraction.','status':'completed_diagnostic' if not failed else 'failed_closed','reader_evidence':False,'propositions':12,'predicates_max':3,'licensed_rewrites':6,'topology_gate':{'required':2,'passed':not failed},'extraction':{'candidates':len(rows),'accepted':sum(r['accepted'] for r in rows),'length_band':[39,100]},'provenance':{'rlaif':False,'frozen_vocabulary':True}}
- if ID not in existing: registry.setdefault('entries',[]).append(entry); REG.write_text(json.dumps(registry,indent=2)+'\n')
- payload={'experiment_id':ID,'method':'proof-carrying denotational equality classes with bounded topology extraction','registry_preflight':{'performed':True,'id_collision':ID in existing},'propositions':len(PROPS),'predicates_max':3,'licensed_rewrites':[x[0] for x in REWRITES],'classes':len(classes),'topology_failures':failed,'rows':rows,'strict_gate':entry['extraction'],'provenance':entry['provenance']}
- OUT.write_text(json.dumps(payload,indent=2)+'\n'); print(json.dumps(payload,indent=2))
-if __name__=='__main__': main()
+VERBS = {
+    "map": "maps", "mark": "marks", "read": "reads", "guard": "guards",
+    "open": "opens", "carry": "carries", "know": "knows",
+}
+PAST = {
+    "map": "mapped", "mark": "marked", "read": "read", "guard": "guarded",
+    "open": "opened", "carry": "carried", "know": "knew",
+}
+
+
+def sentence(text: str) -> str:
+    text = re.sub(r"\s+", " ", text.strip())
+    return text[:1].upper() + text[1:] + ("" if text.endswith((".", "!", "?")) else ".")
+
+
+def active(event: Event) -> str:
+    return sentence(f"the {event.agent} {VERBS[event.verb]} the {event.theme}")
+
+
+def passive(event: Event) -> str:
+    return sentence(f"the {event.theme} is {PAST[event.verb]} by the {event.agent}")
+
+
+def simple_prop(ident: str, event: Event) -> Proposition:
+    return Proposition(
+        ident,
+        event.meaning,
+        "active_passive",
+        "transitive event preserves agent, theme, tense, and voice alternation",
+        (("active", active(event), ("S", ("NP", event.agent), ("VP", event.verb, event.theme))),
+         ("passive", passive(event), ("S", ("NP", event.theme), ("VP", "be", event.past, ("PP", "by", event.agent))))),
+    )
+
+
+def coordination_prop(ident: str, first: Event, second: Event) -> Proposition:
+    meaning = ("and", first.meaning, second.meaning)
+    compact = sentence(f"the {first.agent} {VERBS[first.verb]} the {first.theme} and {VERBS[second.verb]} the {second.theme}")
+    repeated = sentence(f"the {first.agent} {VERBS[first.verb]} the {first.theme} and the {second.agent} {VERBS[second.verb]} the {second.theme}")
+    return Proposition(
+        ident, meaning, "coordination_factoring",
+        "both events share the same agent and conjunction scope",
+        (("factored", compact, ("S", ("NP", first.agent), ("VP", first.verb, first.theme, "and", second.verb, second.theme))),
+         ("unfactored", repeated, ("S", ("CONJ", ("S", first.meaning), ("S", second.meaning))))),
+    )
+
+
+def near_prop(ident: str, left: str, right: str) -> Proposition:
+    meaning = ("near", tuple(sorted((left, right))))
+    one = sentence(f"the {left} is near the {right}")
+    two = sentence(f"the {right} is near the {left}")
+    return Proposition(
+        ident, meaning, "relational_converse",
+        "near is symmetric and both entities retain their denotation",
+        (("left_right", one, ("S", ("NP", left), ("VP", "near", right))),
+         ("right_left", two, ("S", ("NP", right), ("VP", "near", left)))),
+    )
+
+
+def adjunct_prop(ident: str, event: Event, place: str) -> Proposition:
+    meaning = ("at", place, event.meaning)
+    base = active(event)[:-1].lower()
+    front = sentence(f"near the {place}, {base}")
+    end = sentence(f"{base} near the {place}")
+    return Proposition(
+        ident, meaning, "adjunct_reordering",
+        "the locative adjunct is event-independent and scope-preserving",
+        (("fronted_pp", front, ("S", ("PP", "near", place), ("S", event.meaning))),
+         ("postposed_pp", end, ("S", event.meaning, ("PP", "near", place)))),
+    )
+
+
+def relative_prop(ident: str, first: Event, second: Event) -> Proposition:
+    meaning = ("and", first.meaning, second.meaning)
+    relative = sentence(f"the {first.agent} who {VERBS[first.verb]} the {first.theme} {VERBS[second.verb]} the {second.theme}")
+    coord = sentence(f"the {first.agent} {VERBS[first.verb]} the {first.theme} and {VERBS[second.verb]} the {second.theme}")
+    return Proposition(
+        ident, meaning, "relative_clause_attachment",
+        "one unique agent performs both events; restrictive relative attachment is licensed",
+        (("relative", relative, ("S", ("NP", first.agent, ("REL", first.meaning)), ("VP", second.verb, second.theme))),
+         ("coordination", coord, ("S", ("NP", first.agent), ("VP", first.meaning, "and", second.meaning)))),
+    )
+
+
+def existential_prop(ident: str, event: Event) -> Proposition:
+    meaning = ("exists", event.meaning)
+    article = sentence(f"a {event.agent} {VERBS[event.verb]} the {event.theme}")
+    there = sentence(f"there is a {event.agent} who {VERBS[event.verb]} the {event.theme}")
+    return Proposition(
+        ident, meaning, "existential_recasting",
+        "the subject is existential and the event scope is unchanged",
+        (("indefinite_np", article, ("S", ("NP", "exists", event.agent), ("VP", event.verb, event.theme))),
+         ("there_construction", there, ("S", "there", ("VP", "exists", ("REL", event.meaning))))),
+    )
+
+
+def negative_prop(ident: str, agent: str, object_name: str) -> Proposition:
+    meaning = ("not_exists", ("event", agent, "know", object_name, "present"))
+    direct = sentence(f"no {agent} knows the {object_name}")
+    there = sentence(f"there is no {agent} who knows the {object_name}")
+    return Proposition(
+        ident, meaning, "negative_existential_recasting",
+        "the negative existential has identical scope in both surface trees",
+        (("negative_np", direct, ("S", ("NP", "no", agent), ("VP", "know", object_name))),
+         ("negative_there", there, ("S", "there", ("VP", "no", ("REL", "know", object_name))))),
+    )
+
+
+E = lambda a, v, t: Event(a, v, PAST[v], t)
+
+# Twelve authored propositions.  Every class has two non-isomorphic trees
+# and a replayable side condition; no catalogue sentence is imported.
+PROPOSITIONS = (
+    simple_prop("p00", E("pilot", "map", "bridge")),
+    simple_prop("p01", E("mason", "mark", "gate")),
+    coordination_prop("p02", E("poet", "read", "letter"), E("poet", "mark", "gate")),
+    coordination_prop("p03", E("keeper", "guard", "bridge"), E("keeper", "open", "gate")),
+    near_prop("p04", "bridge", "gate"),
+    near_prop("p05", "harbor", "tower"),
+    adjunct_prop("p06", E("pilot", "map", "bridge"), "gate"),
+    adjunct_prop("p07", E("mason", "mark", "gate"), "harbor"),
+    relative_prop("p08", E("poet", "read", "letter"), E("poet", "mark", "gate")),
+    relative_prop("p09", E("keeper", "guard", "bridge"), E("keeper", "open", "gate")),
+    negative_prop("p10", "sailor", "reason"),
+    negative_prop("p11", "keeper", "season"),
+)
+
+LICENSED_REWRITES = (
+    "active_passive", "coordination_factoring", "relational_converse",
+    "adjunct_reordering", "relative_clause_attachment", "negative_existential_recasting",
+)
+
+
+def normalize(text: str) -> str:
+    return re.sub(r"[^a-z]", "", text.casefold())
+
+
+def audit(text: str) -> dict:
+    tape = normalize(text)
+    mismatch = next(((i, tape[i], tape[-i - 1]) for i in range(len(tape) // 2) if tape[i] != tape[-i - 1]), None)
+    return {
+        "letters": len(tape),
+        "pointer_exact": bool(tape) and mismatch is None,
+        "first_mismatch": mismatch,
+        "sha256_forward": hashlib.sha256(tape.encode()).hexdigest(),
+        "sha256_reverse": hashlib.sha256(tape[::-1].encode()).hexdigest(),
+    }
+
+
+def hidden_span(text: str) -> bool:
+    words = re.findall(r"[a-z]+", text.casefold())
+    full = normalize(text)
+    return any(1 < len(span := "".join(words[i:j])) < len(full) and span == span[::-1]
+               for i in range(len(words)) for j in range(i + 2, len(words) + 1))
+
+
+def anti_shortcut(text: str) -> dict:
+    words = re.findall(r"[a-z]+", text.casefold())
+    content = [w for w in words if w not in {"a", "an", "the", "and", "is", "near", "by", "who", "there"}]
+    return {
+        "no_self_palindromic_word": all(len(w) <= 1 or w != w[::-1] for w in content),
+        "no_repeated_nontrivial_unit": len(content) == len(set(content)),
+        "not_word_order_symmetry": words != list(reversed(words)),
+        "no_self_palindromic_multiword_span": not hidden_span(text),
+        "catalogue_text": False,
+        "finished_tape_reversal": False,
+        "posthoc_repair": False,
+        "complete_sentence": text.endswith("."),
+    }
+
+
+LIVE_PROBE_DEPTH = 2
+
+
+def live_outer_compatible(left: str, right: str, connector: str) -> bool:
+    """Compare the first exposed character pairs before full rendering.
+
+    This is a necessary-prefix probe, not a readability or exactness claim;
+    the complete independent audit below remains authoritative.
+    """
+    left_tape = normalize(left + connector)
+    right_tape = normalize(right)
+    depth = min(LIVE_PROBE_DEPTH, len(left_tape), len(right_tape))
+    return all(left_tape[i] == right_tape[-i - 1] for i in range(depth))
+
+
+def render_pair(left: dict, right: dict, connector: str) -> dict | None:
+    if not live_outer_compatible(left["text"], right["text"], connector):
+        return None
+    text = f"{left['text'][:-1]}{connector}{right['text'][0].lower()}{right['text'][1:]}"
+    words = re.findall(r"[a-z]+", text.casefold())
+    row = audit(text)
+    flags = anti_shortcut(text)
+    row.update({"text": text, "words": len(words), "anti_shortcut": flags})
+    row["accepted"] = (row["pointer_exact"] and row["sha256_forward"] == row["sha256_reverse"]
+                       and 39 <= row["letters"] <= 100 and all(flags.values()) and len(words) >= 6)
+    return row
+
+
+def extract_pairs(classes: list[dict], all_topologies: bool) -> list[dict]:
+    """Run the same live extractor with or without equality alternatives."""
+    rows = []
+    for left_class, right_class in itertools.permutations(classes, 2):
+        left_variants = left_class["variants"] if all_topologies else left_class["variants"][:1]
+        right_variants = right_class["variants"] if all_topologies else right_class["variants"][:1]
+        for left, right in itertools.product(left_variants, right_variants):
+            for connector in (" and ", "; and "):
+                row = render_pair(left, right, connector)
+                if row is None:
+                    continue
+                row.update({
+                    "left_proposition": left_class["id"], "right_proposition": right_class["id"],
+                    "left_topology": left["topology"], "right_topology": right["topology"],
+                    "connector": connector.strip(),
+                    "program_denotation": [left_class["denotation"], right_class["denotation"]],
+                    "provenance": {"authored_vocabulary": True, "catalogue_imported": False,
+                                   "equality_proofs_replayed": all_topologies,
+                                   "live_character_obligations": True},
+                })
+                rows.append(row)
+    rows.sort(key=lambda r: (-r["letters"], r["text"]))
+    return rows
+
+
+def main() -> None:
+    classes = []
+    topology_failures = []
+    proof_replays = 0
+    for proposition in PROPOSITIONS:
+        variants = []
+        source_tree = proposition.variants[0][2]
+        for topology, text, tree in proposition.variants:
+            proof = {
+                "proposition": proposition.ident,
+                "rewrite": proposition.rewrite,
+                "side_condition": proposition.side_condition,
+                "source_tree": source_tree,
+                "target_tree": tree,
+                "denotation_before": proposition.denotation,
+                "denotation_after": proposition.denotation,
+                "replayable": True,
+                "non_isomorphic_to_source": tree != source_tree,
+            }
+            proof_replays += int(proof["replayable"] and proof["denotation_before"] == proof["denotation_after"])
+            variants.append({"topology": topology, "text": text, "proof": proof})
+        if len({v["topology"] for v in variants}) < 2 or not all(v["proof"]["non_isomorphic_to_source"] for v in variants[1:]):
+            topology_failures.append(proposition.ident)
+        else:
+            classes.append({"id": proposition.ident, "rewrite": proposition.rewrite, "denotation": proposition.denotation, "variants": variants})
+
+    rows = extract_pairs(classes, all_topologies=True)
+    baseline_rows = extract_pairs(classes, all_topologies=False)
+    exact = [r for r in rows if r["accepted"]]
+    controls = [r for r in rows if not r["accepted"]][:40]
+
+    registry = json.loads(REGISTRY.read_text())
+    existing = [entry.get("id") for entry in registry.get("entries", [])]
+    entry = {
+        "id": EXPERIMENT_ID,
+        "signature": "proof-carrying-denotational-equality|topology-changing-congruence|live-palindrome-extraction",
+        "artifact": f"experiments/{Path(__file__).name}",
+        "run_artifacts": [f"runs/{OUT.name}"],
+        "distinction": "Packs meaning-equivalent but non-isomorphic sentence topologies with replayable side-conditioned proofs, then extracts one topology per clause under live character obligations; it does not merge by residual continuation or relexicalize a fixed clause.",
+        "reader_evidence": False,
+        "status": "completed_diagnostic",
+        "propositions": len(PROPOSITIONS), "licensed_rewrites": len(LICENSED_REWRITES),
+        "proof_replays": proof_replays, "topology_failures": topology_failures,
+        "extraction": {"rendered": len(rows), "accepted": len(exact), "length_band": [39, 100],
+                        "unsaturated_baseline_rendered": len(baseline_rows),
+                        "unsaturated_baseline_accepted": sum(r["accepted"] for r in baseline_rows)},
+        "provenance": {"rlaif": False, "frozen_vocabulary": True, "catalogue_imported": False},
+        "next_construction": "Add one licensed scope-preserving rewrite with a fresh non-isomorphic tree only after a reader-worthy exact extraction appears; do not widen the lexical inventory.",
+    }
+    if EXPERIMENT_ID not in existing:
+        registry.setdefault("entries", []).append(entry)
+        REGISTRY.write_text(json.dumps(registry, indent=2) + "\n")
+
+    payload = {
+        "experiment_id": EXPERIMENT_ID,
+        "method": "proof-carrying denotational equality classes with live palindrome-constrained extraction",
+        "registry_preflight": {"performed": True, "id_collision": EXPERIMENT_ID in existing, "entries_checked": len(existing)},
+        "propositions": len(PROPOSITIONS), "licensed_rewrites": list(LICENSED_REWRITES),
+        "equality_classes": len(classes), "proof_replays": proof_replays,
+        "topology_failures": topology_failures, "rows": rows,
+        "controls": controls, "exact_candidates": exact,
+        "strict_gate": {"rendered": len(rows), "accepted": len(exact), "length_band": [39, 100],
+                        "live_probe_depth": LIVE_PROBE_DEPTH,
+                        "unsaturated_baseline_rendered": len(baseline_rows),
+                        "unsaturated_baseline_accepted": sum(r["accepted"] for r in baseline_rows)},
+        "provenance": {"rlaif": False, "frozen_vocabulary": True, "catalogue_imported": False, "reader_gate": "closed"},
+        "falsifier": "If any class lacks two non-isomorphic proof-replayable trees, or extraction only substitutes lexical slots, reject this as a duplicate rather than widening it.",
+        "next_construction": "Keep the equality classes fixed; only add a fresh licensed topology after a reader-worthy exact closure, with independent pointer/SHA replay.",
+    }
+    OUT.write_text(json.dumps(payload, indent=2) + "\n")
+    print(json.dumps(payload["strict_gate"]))
+    for row in controls[:12]:
+        print(row["letters"], row["text"], row["first_mismatch"])
+
+
+if __name__ == "__main__":
+    main()

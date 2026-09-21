@@ -1,0 +1,27 @@
+{
+  "audit_id": "readable-frame-seed-lineage-audit-20260921",
+  "scope": ["historical seed artifacts available in runs/", "44-letter Now/Diana lineage search (not present in current checkout)", "readable-frame-opposing-debt-search-20260921"],
+  "result": "no reader-plausible strict survivor",
+  "strict_gates": {
+    "independent_two_pointer_exact": true,
+    "no_hidden_palindromic_span": true,
+    "no_repeated_content_word": true,
+    "no_word_order_mirror": true,
+    "complete_ordinary_clauses": true
+  },
+  "frame_search_replay": {
+    "artifact": "runs/readable-frame-opposing-debt-search-20260921.json",
+    "states": 9054,
+    "emitted": 24,
+    "exact": 0,
+    "online_invariant": "PASS: every emitted row's debt equals a recomputation from its intact clause prefixes/suffixes; selected debt score equals recomputed overlap",
+    "invariant_replay": {"rows_checked": 24, "debt_mismatches": 0, "score_mismatches": 0},
+    "obstruction": "The highest-scoring rows reuse content nouns across the paired clauses (for example, letter), so they fail the no-repeat gate before reader review; rows with distinct nouns still have a first character mismatch."
+  },
+  "seed_lineage_finding": "No current-checkout artifact contains a literal Now/Diana 44-letter extension, so that claimed lineage cannot be admitted as evidence here. Existing exact historical artifacts must be reloaded by identifier before asserting a strict survivor.",
+  "decisive_next_test": {
+    "name": "held-out semantic noun debt test",
+    "operator": "Keep the two complete clause frames, forbid repeated content lemmas before emission, and hold out all object/recipient nouns used by the seed. Recompute opposing debt online and independently audit every emitted row.",
+    "promotion": "Only an exact row with no hidden span, no repeated content word, no word-order mirror, and ordinary two-clause semantics may be promoted."
+  }
+}

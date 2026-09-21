@@ -1,0 +1,75 @@
+{
+  "experiment_id": "three-event-temporal-attachment-20260921",
+  "method": "three-event graph with shared discourse focus and cross-event temporal attachment under global endpoint CSP",
+  "stats": {
+    "event_graphs": 1,
+    "online_checks": 1,
+    "max_letters": 68,
+    "exact_gt38": 0
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "controls": [
+    {
+      "rendered": "the nurse checked the chart. the doctor called the ward. the driver left the station.",
+      "graph": {
+        "events": [
+          {
+            "id": "e1",
+            "focus": "ward"
+          },
+          {
+            "id": "e2",
+            "focus": "ward"
+          },
+          {
+            "id": "e3",
+            "focus": "ward"
+          }
+        ],
+        "shared_discourse_focus": "ward",
+        "cross_event_attachment": "e3.temporal->e1"
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 1,
+        "frontier_length": 35,
+        "global_invariant": "x[i] == x[N-1-i]"
+      },
+      "audit": {
+        "letters": 68,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "5ce403a9a8452f61d0de04e42fe3f1418dcb1b8c115765a02159a6011e46d41c",
+        "reverse_sha256": "83e5b6fc5c0c18dc10100fd66b914f27b066e5f2c2a6c1d6adc37b6282db176a"
+      },
+      "provenance": {
+        "fresh_three_event_graph": true,
+        "incremental_paired_terminal_expansion": true,
+        "post_hoc_repair": false,
+        "finished_tape_reversal": false,
+        "mirrored_units": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "three-event|shared-focus|cross-event-temporal|global-endpoint-csp",
+    "distinct_from": "two-event graph and single-edge family"
+  },
+  "provenance": {
+    "reader_status": "closed: no exact >=39 candidate",
+    "audits": [
+      "independent pointer",
+      "forward/reverse SHA-256"
+    ],
+    "anti_shortcut_flags": [
+      "no mirrored units",
+      "no reversal",
+      "no repair"
+    ]
+  },
+  "next_operator": "Add a four-event graph with two shared focuses and a second cross-event temporal constraint.",
+  "status": "no exact >=39 closure; intact control retained"
+}

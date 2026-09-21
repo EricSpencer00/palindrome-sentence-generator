@@ -8460,3 +8460,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   branch; the next operator is a digraph-conditioned continuation, not another
   unconditioned phrase sweep. Artifact:
   `runs/endpoint-conditioned-was-np-seam-20260921.json`.
+
+- **Digraph-conditioned NP continuation, 2026-09-21:** extended the
+  endpoint-conditioned grammar with a second exposed-character state. Eight
+  authored, animate controls all matched at least five opposing characters
+  (maximum seven) before failing; for example, “Was a red scout what the
+  ranger at the caldera saw?” is 40 letters and reaches `ared...`/`caldera...`
+  before the residual `s` versus `l`. The roles are coherent and content words
+  are disjoint; pointer/SHA audits reject every whole tape, so no exact or
+  reader candidate is promoted. Artifact:
+  `runs/digraph-conditioned-was-np-seam-20260921.json`.

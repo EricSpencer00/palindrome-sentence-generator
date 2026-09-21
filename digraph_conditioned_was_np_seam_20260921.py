@@ -3,7 +3,7 @@ import hashlib,itertools,json,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent;OUT=ROOT/'runs/digraph-conditioned-was-np-seam-20260921.json'
 # The exposed NP1 prefix and opposing NP2 suffix are authored around states.
-STATES={'ared':('a red scout',('a red scout','a red sailor'),'caldera',('the caldera','a caldera')),'an':('an alert scout',('an alert scout','an agile guide'),'arena',('the arena','an arena'))}
+STATES={'ared':('a red scout',('a red scout','a red sailor'),'caldera',('the ranger at the caldera','a keeper at the caldera')),'an':('an alert scout',('an alert scout','an agile guide'),'arena',('the runner at the arena','an artist at the arena'))}
 def norm(s):return re.sub('[^a-z]','',s.lower())
 def sha(x):return hashlib.sha256(x.encode()).hexdigest()
 def audit(t):

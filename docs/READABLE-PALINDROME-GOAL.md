@@ -7633,3 +7633,26 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the live semantic banks and adds a typed center slot rather than treating
   this calibration recovery as progress. Artifact:
   `runs/bidirectional-slot-product-20260921.json`.
+
+- **Live CFG adjunct continuation, 2026-09-21:** added typed temporal
+  productions and then varied their legal placement on unfinished CFG stacks,
+  rather than appending an adjunct to a finished sentence. The variable run
+  visited 83 chart states, pruned 262 character obligations, recovered the
+  38-letter seed, and retained 44--47-letter frontiers. The longest rendered
+  near miss was `An aide rips nine memos after rain; some men inspire Diana.`
+  (47 letters), with live residual `afterrain`; it is not exact or reader
+  eligible. Artifact: `runs/live-cfg-character-intersection-20260921.json`.
+
+- **Paired-end role-conditioned semantic frames, 2026-09-22:** selected
+  semantic role lexicalizations at both ends while carrying a typed center and
+  live character debt. It visited 96 states, made 336 live prunes, emitted 84
+  inspectable partials, and reached no terminal; the longest partial was 9
+  letters. This is a distinct topology but not a result, and its next operator
+  is role-pair compatibility learned from successful live prefixes. Artifact:
+  `runs/paired-end-semantic-frames-20260922.json`.
+
+- **Variable-boundary decoder null run, 2026-09-26:** a bounded 512k-assignment
+  decoder produced no prose candidates and no exact closures. Registry review
+  classified it as the already-quarantined reverse-segmentation family, so it
+  is retained as a negative control rather than counted as new construction.
+  Artifact: `runs/variable-boundary-lattice-decoder-20260926.json`.

@@ -1,0 +1,36 @@
+{
+  "experiment_id": "character-phrase-pair-grammar-join-20260921",
+  "method": "typed SVO/PP clause generation with complete normalized-tape reverse-index join",
+  "stats": {
+    "grammar_clauses": 256,
+    "reverse_index_hits": 0,
+    "accepted_exact": 0,
+    "accepted_exact_gt38": 0
+  },
+  "exact_candidates": [],
+  "rendered_controls": [],
+  "seed_regression": {
+    "rendered": "An aide rips nine memos; some men inspire Diana.",
+    "audit": {
+      "letters": 38,
+      "pointer_exact": true,
+      "first_mismatch": null,
+      "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+    },
+    "gates": {
+      "whole_output_exact": true,
+      "hidden_seed_absent": false,
+      "repeated_content_absent": true,
+      "distinct_clause_text": false
+    },
+    "accepted": false
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "typed-svo-pp|character-tape-join|reverse-index",
+    "distinct_from": "Diana seed replay, generic mirror-pair sweep, post-hoc repair"
+  },
+  "next_operator": "Add independently authored tense and argument frames, then join by residual character states rather than full-tape reverse indexing.",
+  "status": "no fresh exact closure; seed regression passes pointer audit but is rejected by hidden-seed gate"
+}

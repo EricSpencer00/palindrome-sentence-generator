@@ -8002,6 +8002,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   focus bridge and one causal-temporal cycle. Artifact:
   `runs/four-event-temporal-attachment-20260921.json`.
 
+- **Five-event causal-temporal cycle graph, 2026-09-21:** added the shared
+  focus bridge `e2.ward -> e4.gate` and the cycle constraints `e3 causes e4`
+  plus `e4 after e3`, retaining the global endpoint CSP and incremental paired
+  expansion. One 112-letter intact control produced one online conflict and
+  zero exact closures above 38. The next topology is a six-event graph with
+  two interacting focus bridges and cycle consistency. Artifact:
+  `runs/five-event-cycle-attachment-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.
@@ -8087,6 +8095,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   occurred. The next operator is a held-out `that` relative CP with an overt
   object gap. Artifact:
   `runs/cfg-earley-relative-np-cp-seam-20260921.json`.
+
+- **That-relative object-gap Earley seam, 2026-09-21:** added
+  `CP -> that NP VP_gap` with overt relative subjects and explicit object-gap
+  items before rendering. Three intact controls were 124, 120, and 122
+  letters; 166 concrete domain conflicts were retained and zero exact
+  closures occurred. The next topology is a whose-relative possessive CP.
+  Artifact: `runs/cfg-earley-that-relative-object-gap-20260921.json`.
 
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`

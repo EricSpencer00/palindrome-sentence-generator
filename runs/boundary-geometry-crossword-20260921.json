@@ -1,0 +1,2185 @@
+{
+  "experiment_id": "boundary-geometry-crossword-20260921",
+  "host": "Erics-Mac-mini.local",
+  "method": "freeze non-reflected word boundaries, then solve connected lexical overlaps by domain propagation",
+  "roles": [
+    "name",
+    "adverb",
+    "request",
+    "determiner",
+    "person",
+    "to",
+    "action",
+    "determiner",
+    "adjective",
+    "artifact"
+  ],
+  "bank": {
+    "name": [
+      "amy",
+      "ben",
+      "dan",
+      "eva",
+      "ian",
+      "kim",
+      "leo",
+      "max",
+      "sam",
+      "zoe",
+      "emma",
+      "iris",
+      "jane",
+      "june",
+      "leah",
+      "lily",
+      "lucy",
+      "nora",
+      "ruby",
+      "vera",
+      "alice",
+      "clara",
+      "grace",
+      "julia",
+      "laura",
+      "maria",
+      "susan",
+      "alicia",
+      "gloria",
+      "helena",
+      "louise",
+      "monica",
+      "nicole",
+      "olivia",
+      "pamela",
+      "regina",
+      "serena",
+      "teresa"
+    ],
+    "adverb": [
+      "boldly",
+      "calmly",
+      "gently",
+      "kindly",
+      "loudly",
+      "merely",
+      "neatly",
+      "rarely",
+      "safely",
+      "slowly",
+      "warmly",
+      "briefly",
+      "clearly",
+      "eagerly",
+      "happily",
+      "quickly",
+      "quietly",
+      "usually",
+      "politely",
+      "carefully",
+      "patiently",
+      "privately"
+    ],
+    "request": [
+      "asks",
+      "tells",
+      "urges",
+      "orders",
+      "invites"
+    ],
+    "determiner": [
+      "a",
+      "an",
+      "the"
+    ],
+    "person": [
+      "aide",
+      "clerk",
+      "artist",
+      "editor",
+      "intern",
+      "reader",
+      "worker",
+      "writer",
+      "painter",
+      "scholar",
+      "reporter"
+    ],
+    "to": [
+      "to"
+    ],
+    "action": [
+      "copy",
+      "edit",
+      "file",
+      "read",
+      "check",
+      "label",
+      "print",
+      "study",
+      "repair",
+      "return",
+      "revise"
+    ],
+    "adjective": [
+      "new",
+      "old",
+      "blue",
+      "fair",
+      "pale",
+      "wide",
+      "brief",
+      "clear",
+      "final",
+      "large",
+      "short",
+      "small",
+      "formal",
+      "sealed",
+      "secret",
+      "careful",
+      "private",
+      "complete",
+      "detailed",
+      "weathered"
+    ],
+    "artifact": [
+      "map",
+      "file",
+      "list",
+      "memo",
+      "note",
+      "page",
+      "chart",
+      "draft",
+      "letter",
+      "record",
+      "report",
+      "account",
+      "message",
+      "outline",
+      "summary",
+      "document"
+    ]
+  },
+  "cases": [
+    {
+      "geometry": {
+        "widths": [
+          4,
+          6,
+          5,
+          1,
+          4,
+          2,
+          5,
+          2,
+          4,
+          8
+        ],
+        "letters": 41,
+        "boundaries": [
+          4,
+          10,
+          15,
+          16,
+          20,
+          22,
+          27,
+          29,
+          33
+        ],
+        "reflected_boundary_pairs": [],
+        "connected": true,
+        "equations": [
+          [
+            0,
+            0,
+            9,
+            7
+          ],
+          [
+            0,
+            1,
+            9,
+            6
+          ],
+          [
+            0,
+            2,
+            9,
+            5
+          ],
+          [
+            0,
+            3,
+            9,
+            4
+          ],
+          [
+            1,
+            0,
+            9,
+            3
+          ],
+          [
+            1,
+            1,
+            9,
+            2
+          ],
+          [
+            1,
+            2,
+            9,
+            1
+          ],
+          [
+            1,
+            3,
+            9,
+            0
+          ],
+          [
+            1,
+            4,
+            8,
+            3
+          ],
+          [
+            1,
+            5,
+            8,
+            2
+          ],
+          [
+            2,
+            0,
+            8,
+            1
+          ],
+          [
+            2,
+            1,
+            8,
+            0
+          ],
+          [
+            2,
+            2,
+            7,
+            1
+          ],
+          [
+            2,
+            3,
+            7,
+            0
+          ],
+          [
+            2,
+            4,
+            6,
+            4
+          ],
+          [
+            3,
+            0,
+            6,
+            3
+          ],
+          [
+            4,
+            0,
+            6,
+            2
+          ],
+          [
+            4,
+            1,
+            6,
+            1
+          ],
+          [
+            4,
+            2,
+            6,
+            0
+          ],
+          [
+            4,
+            3,
+            5,
+            1
+          ]
+        ]
+      },
+      "initial_domain_sizes": [
+        10,
+        11,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        4,
+        1
+      ],
+      "construction": {
+        "states": 1,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [],
+        "first_obstruction": {
+          "slot": 0,
+          "role": "name",
+          "unsupported_against_slot": 9,
+          "other_role": "artifact",
+          "removed_words": [
+            "emma",
+            "iris",
+            "jane",
+            "june",
+            "leah",
+            "lily",
+            "lucy",
+            "nora",
+            "ruby",
+            "vera"
+          ],
+          "opposite_domain": [
+            "document"
+          ],
+          "revisions": 9,
+          "overlap_equations": [
+            [
+              0,
+              0,
+              9,
+              7
+            ],
+            [
+              0,
+              1,
+              9,
+              6
+            ],
+            [
+              0,
+              2,
+              9,
+              5
+            ],
+            [
+              0,
+              3,
+              9,
+              4
+            ]
+          ]
+        }
+      },
+      "grammar_control": {
+        "states": 1,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [],
+        "first_obstruction": {
+          "slot": 3,
+          "role": "determiner",
+          "unsupported_against_slot": 4,
+          "other_role": "person",
+          "removed_words": [
+            "a"
+          ],
+          "opposite_domain": [
+            "aide"
+          ],
+          "revisions": 31,
+          "overlap_equations": []
+        }
+      }
+    },
+    {
+      "geometry": {
+        "widths": [
+          6,
+          7,
+          5,
+          2,
+          5,
+          2,
+          4,
+          1,
+          5,
+          4
+        ],
+        "letters": 41,
+        "boundaries": [
+          6,
+          13,
+          18,
+          20,
+          25,
+          27,
+          31,
+          32,
+          37
+        ],
+        "reflected_boundary_pairs": [],
+        "connected": true,
+        "equations": [
+          [
+            0,
+            0,
+            9,
+            3
+          ],
+          [
+            0,
+            1,
+            9,
+            2
+          ],
+          [
+            0,
+            2,
+            9,
+            1
+          ],
+          [
+            0,
+            3,
+            9,
+            0
+          ],
+          [
+            0,
+            4,
+            8,
+            4
+          ],
+          [
+            0,
+            5,
+            8,
+            3
+          ],
+          [
+            1,
+            0,
+            8,
+            2
+          ],
+          [
+            1,
+            1,
+            8,
+            1
+          ],
+          [
+            1,
+            2,
+            8,
+            0
+          ],
+          [
+            1,
+            3,
+            7,
+            0
+          ],
+          [
+            1,
+            4,
+            6,
+            3
+          ],
+          [
+            1,
+            5,
+            6,
+            2
+          ],
+          [
+            1,
+            6,
+            6,
+            1
+          ],
+          [
+            2,
+            0,
+            6,
+            0
+          ],
+          [
+            2,
+            1,
+            5,
+            1
+          ],
+          [
+            2,
+            2,
+            5,
+            0
+          ],
+          [
+            2,
+            3,
+            4,
+            4
+          ],
+          [
+            2,
+            4,
+            4,
+            3
+          ],
+          [
+            3,
+            0,
+            4,
+            2
+          ],
+          [
+            3,
+            1,
+            4,
+            1
+          ]
+        ]
+      },
+      "initial_domain_sizes": [
+        11,
+        7,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        6,
+        5
+      ],
+      "construction": {
+        "states": 1,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [],
+        "first_obstruction": {
+          "slot": 0,
+          "role": "name",
+          "unsupported_against_slot": 9,
+          "other_role": "artifact",
+          "removed_words": [
+            "pamela"
+          ],
+          "opposite_domain": [
+            "file",
+            "list",
+            "memo",
+            "note",
+            "page"
+          ],
+          "revisions": 9,
+          "overlap_equations": [
+            [
+              0,
+              0,
+              9,
+              3
+            ],
+            [
+              0,
+              1,
+              9,
+              2
+            ],
+            [
+              0,
+              2,
+              9,
+              1
+            ],
+            [
+              0,
+              3,
+              9,
+              0
+            ]
+          ]
+        }
+      },
+      "grammar_control": {
+        "states": 1,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [],
+        "first_obstruction": {
+          "slot": 3,
+          "role": "determiner",
+          "unsupported_against_slot": 4,
+          "other_role": "person",
+          "removed_words": [
+            "an"
+          ],
+          "opposite_domain": [
+            "clerk"
+          ],
+          "revisions": 31,
+          "overlap_equations": []
+        }
+      }
+    },
+    {
+      "geometry": {
+        "widths": [
+          3,
+          6,
+          7,
+          3,
+          4,
+          2,
+          4,
+          1,
+          9,
+          4
+        ],
+        "letters": 43,
+        "boundaries": [
+          3,
+          9,
+          16,
+          19,
+          23,
+          25,
+          29,
+          30,
+          39
+        ],
+        "reflected_boundary_pairs": [],
+        "connected": true,
+        "equations": [
+          [
+            0,
+            0,
+            9,
+            3
+          ],
+          [
+            0,
+            1,
+            9,
+            2
+          ],
+          [
+            0,
+            2,
+            9,
+            1
+          ],
+          [
+            1,
+            0,
+            9,
+            0
+          ],
+          [
+            1,
+            1,
+            8,
+            8
+          ],
+          [
+            1,
+            2,
+            8,
+            7
+          ],
+          [
+            1,
+            3,
+            8,
+            6
+          ],
+          [
+            1,
+            4,
+            8,
+            5
+          ],
+          [
+            1,
+            5,
+            8,
+            4
+          ],
+          [
+            2,
+            0,
+            8,
+            3
+          ],
+          [
+            2,
+            1,
+            8,
+            2
+          ],
+          [
+            2,
+            2,
+            8,
+            1
+          ],
+          [
+            2,
+            3,
+            8,
+            0
+          ],
+          [
+            2,
+            4,
+            7,
+            0
+          ],
+          [
+            2,
+            5,
+            6,
+            3
+          ],
+          [
+            2,
+            6,
+            6,
+            2
+          ],
+          [
+            3,
+            0,
+            6,
+            1
+          ],
+          [
+            3,
+            1,
+            6,
+            0
+          ],
+          [
+            3,
+            2,
+            5,
+            1
+          ],
+          [
+            4,
+            0,
+            5,
+            0
+          ],
+          [
+            4,
+            1,
+            4,
+            3
+          ]
+        ]
+      },
+      "initial_domain_sizes": [
+        10,
+        11,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        5
+      ],
+      "construction": {
+        "states": 1,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [],
+        "first_obstruction": {
+          "slot": 4,
+          "role": "person",
+          "cause": "empty_initial_or_center_word_domain",
+          "removed_words": [
+            "aide"
+          ],
+          "revisions": 0,
+          "overlap_equations": [
+            [
+              4,
+              1,
+              4,
+              3
+            ]
+          ]
+        }
+      },
+      "grammar_control": {
+        "states": 5,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [
+          {
+            "rendered": "Amy boldly invites the aide to copy a weathered file.",
+            "words": [
+              "amy",
+              "boldly",
+              "invites",
+              "the",
+              "aide",
+              "to",
+              "copy",
+              "a",
+              "weathered",
+              "file"
+            ],
+            "audit": {
+              "letters": 43,
+              "normalized": "amyboldlyinvitestheaidetocopyaweatheredfile",
+              "pointer_exact": false,
+              "mismatches": [
+                [
+                  0,
+                  42,
+                  "a",
+                  "e"
+                ],
+                [
+                  1,
+                  41,
+                  "m",
+                  "l"
+                ],
+                [
+                  2,
+                  40,
+                  "y",
+                  "i"
+                ],
+                [
+                  3,
+                  39,
+                  "b",
+                  "f"
+                ],
+                [
+                  4,
+                  38,
+                  "o",
+                  "d"
+                ],
+                [
+                  5,
+                  37,
+                  "l",
+                  "e"
+                ],
+                [
+                  6,
+                  36,
+                  "d",
+                  "r"
+                ],
+                [
+                  7,
+                  35,
+                  "l",
+                  "e"
+                ],
+                [
+                  8,
+                  34,
+                  "y",
+                  "h"
+                ],
+                [
+                  9,
+                  33,
+                  "i",
+                  "t"
+                ],
+                [
+                  10,
+                  32,
+                  "n",
+                  "a"
+                ],
+                [
+                  11,
+                  31,
+                  "v",
+                  "e"
+                ],
+                [
+                  12,
+                  30,
+                  "i",
+                  "w"
+                ],
+                [
+                  13,
+                  29,
+                  "t",
+                  "a"
+                ],
+                [
+                  14,
+                  28,
+                  "e",
+                  "y"
+                ],
+                [
+                  15,
+                  27,
+                  "s",
+                  "p"
+                ],
+                [
+                  16,
+                  26,
+                  "t",
+                  "o"
+                ],
+                [
+                  17,
+                  25,
+                  "h",
+                  "c"
+                ],
+                [
+                  18,
+                  24,
+                  "e",
+                  "o"
+                ],
+                [
+                  19,
+                  23,
+                  "a",
+                  "t"
+                ],
+                [
+                  20,
+                  22,
+                  "i",
+                  "e"
+                ]
+              ],
+              "sha256_forward": "1824d241d7573cedd28d21d8ff458d83fb78780157a0ccf19638d8348674bdbf",
+              "sha256_reverse": "277f309dd03c5a2a7928f9b5c9cf2de2fecd0bdeff33818f879e38e6009f47fb"
+            },
+            "structural_audit": {
+              "distinct_content": true,
+              "no_palindromic_content_word": true,
+              "no_proper_palindromic_multiword_span": true,
+              "nested_spans": [],
+              "not_word_reflection": true
+            },
+            "decisions": [
+              {
+                "slot": 6,
+                "word": "copy"
+              },
+              {
+                "slot": 9,
+                "word": "file"
+              },
+              {
+                "slot": 0,
+                "word": "amy"
+              },
+              {
+                "slot": 1,
+                "word": "boldly"
+              }
+            ],
+            "shuffled_control": {
+              "rendered": "File copy amy a weathered boldly invites aide the to.",
+              "audit": {
+                "letters": 43,
+                "normalized": "filecopyamyaweatheredboldlyinvitesaidetheto",
+                "pointer_exact": false,
+                "mismatches": [
+                  [
+                    0,
+                    42,
+                    "f",
+                    "o"
+                  ],
+                  [
+                    1,
+                    41,
+                    "i",
+                    "t"
+                  ],
+                  [
+                    2,
+                    40,
+                    "l",
+                    "e"
+                  ],
+                  [
+                    3,
+                    39,
+                    "e",
+                    "h"
+                  ],
+                  [
+                    4,
+                    38,
+                    "c",
+                    "t"
+                  ],
+                  [
+                    5,
+                    37,
+                    "o",
+                    "e"
+                  ],
+                  [
+                    6,
+                    36,
+                    "p",
+                    "d"
+                  ],
+                  [
+                    7,
+                    35,
+                    "y",
+                    "i"
+                  ],
+                  [
+                    9,
+                    33,
+                    "m",
+                    "s"
+                  ],
+                  [
+                    10,
+                    32,
+                    "y",
+                    "e"
+                  ],
+                  [
+                    11,
+                    31,
+                    "a",
+                    "t"
+                  ],
+                  [
+                    12,
+                    30,
+                    "w",
+                    "i"
+                  ],
+                  [
+                    13,
+                    29,
+                    "e",
+                    "v"
+                  ],
+                  [
+                    14,
+                    28,
+                    "a",
+                    "n"
+                  ],
+                  [
+                    15,
+                    27,
+                    "t",
+                    "i"
+                  ],
+                  [
+                    16,
+                    26,
+                    "h",
+                    "y"
+                  ],
+                  [
+                    17,
+                    25,
+                    "e",
+                    "l"
+                  ],
+                  [
+                    18,
+                    24,
+                    "r",
+                    "d"
+                  ],
+                  [
+                    19,
+                    23,
+                    "e",
+                    "l"
+                  ],
+                  [
+                    20,
+                    22,
+                    "d",
+                    "o"
+                  ]
+                ],
+                "sha256_forward": "602ab14bd7e58d617c53b8bd0546517f4f084a4b7f39068b72abf45e3179ab2a",
+                "sha256_reverse": "b00264a17e14c8dcc43a99189202c5854cde788ce61e3a4bc477f7be3ce38638"
+              }
+            }
+          }
+        ],
+        "first_obstruction": null
+      }
+    },
+    {
+      "geometry": {
+        "widths": [
+          6,
+          8,
+          4,
+          2,
+          6,
+          2,
+          6,
+          2,
+          4,
+          3
+        ],
+        "letters": 43,
+        "boundaries": [
+          6,
+          14,
+          18,
+          20,
+          26,
+          28,
+          34,
+          36,
+          40
+        ],
+        "reflected_boundary_pairs": [],
+        "connected": true,
+        "equations": [
+          [
+            0,
+            0,
+            9,
+            2
+          ],
+          [
+            0,
+            1,
+            9,
+            1
+          ],
+          [
+            0,
+            2,
+            9,
+            0
+          ],
+          [
+            0,
+            3,
+            8,
+            3
+          ],
+          [
+            0,
+            4,
+            8,
+            2
+          ],
+          [
+            0,
+            5,
+            8,
+            1
+          ],
+          [
+            1,
+            0,
+            8,
+            0
+          ],
+          [
+            1,
+            1,
+            7,
+            1
+          ],
+          [
+            1,
+            2,
+            7,
+            0
+          ],
+          [
+            1,
+            3,
+            6,
+            5
+          ],
+          [
+            1,
+            4,
+            6,
+            4
+          ],
+          [
+            1,
+            5,
+            6,
+            3
+          ],
+          [
+            1,
+            6,
+            6,
+            2
+          ],
+          [
+            1,
+            7,
+            6,
+            1
+          ],
+          [
+            2,
+            0,
+            6,
+            0
+          ],
+          [
+            2,
+            1,
+            5,
+            1
+          ],
+          [
+            2,
+            2,
+            5,
+            0
+          ],
+          [
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            3,
+            0,
+            4,
+            4
+          ],
+          [
+            3,
+            1,
+            4,
+            3
+          ],
+          [
+            4,
+            0,
+            4,
+            2
+          ]
+        ]
+      },
+      "initial_domain_sizes": [
+        11,
+        1,
+        1,
+        1,
+        6,
+        1,
+        3,
+        1,
+        4,
+        1
+      ],
+      "construction": {
+        "states": 1,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [],
+        "first_obstruction": {
+          "slot": 4,
+          "role": "person",
+          "cause": "empty_initial_or_center_word_domain",
+          "removed_words": [
+            "artist",
+            "editor",
+            "intern",
+            "reader",
+            "worker",
+            "writer"
+          ],
+          "revisions": 0,
+          "overlap_equations": [
+            [
+              4,
+              0,
+              4,
+              2
+            ]
+          ]
+        }
+      },
+      "grammar_control": {
+        "states": 1,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [],
+        "first_obstruction": {
+          "slot": 7,
+          "role": "determiner",
+          "unsupported_against_slot": 8,
+          "other_role": "adjective",
+          "removed_words": [
+            "an"
+          ],
+          "opposite_domain": [
+            "blue",
+            "fair",
+            "pale",
+            "wide"
+          ],
+          "revisions": 71,
+          "overlap_equations": []
+        }
+      }
+    },
+    {
+      "geometry": {
+        "widths": [
+          4,
+          7,
+          6,
+          2,
+          6,
+          2,
+          4,
+          3,
+          8,
+          5
+        ],
+        "letters": 47,
+        "boundaries": [
+          4,
+          11,
+          17,
+          19,
+          25,
+          27,
+          31,
+          34,
+          42
+        ],
+        "reflected_boundary_pairs": [],
+        "connected": true,
+        "equations": [
+          [
+            0,
+            0,
+            9,
+            4
+          ],
+          [
+            0,
+            1,
+            9,
+            3
+          ],
+          [
+            0,
+            2,
+            9,
+            2
+          ],
+          [
+            0,
+            3,
+            9,
+            1
+          ],
+          [
+            1,
+            0,
+            9,
+            0
+          ],
+          [
+            1,
+            1,
+            8,
+            7
+          ],
+          [
+            1,
+            2,
+            8,
+            6
+          ],
+          [
+            1,
+            3,
+            8,
+            5
+          ],
+          [
+            1,
+            4,
+            8,
+            4
+          ],
+          [
+            1,
+            5,
+            8,
+            3
+          ],
+          [
+            1,
+            6,
+            8,
+            2
+          ],
+          [
+            2,
+            0,
+            8,
+            1
+          ],
+          [
+            2,
+            1,
+            8,
+            0
+          ],
+          [
+            2,
+            2,
+            7,
+            2
+          ],
+          [
+            2,
+            3,
+            7,
+            1
+          ],
+          [
+            2,
+            4,
+            7,
+            0
+          ],
+          [
+            2,
+            5,
+            6,
+            3
+          ],
+          [
+            3,
+            0,
+            6,
+            2
+          ],
+          [
+            3,
+            1,
+            6,
+            1
+          ],
+          [
+            4,
+            0,
+            6,
+            0
+          ],
+          [
+            4,
+            1,
+            5,
+            1
+          ],
+          [
+            4,
+            2,
+            5,
+            0
+          ],
+          [
+            4,
+            3,
+            4,
+            5
+          ]
+        ]
+      },
+      "initial_domain_sizes": [
+        10,
+        7,
+        1,
+        1,
+        6,
+        1,
+        4,
+        1,
+        2,
+        2
+      ],
+      "construction": {
+        "states": 1,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [],
+        "first_obstruction": {
+          "slot": 4,
+          "role": "person",
+          "cause": "empty_initial_or_center_word_domain",
+          "removed_words": [
+            "artist",
+            "editor",
+            "intern",
+            "reader",
+            "worker",
+            "writer"
+          ],
+          "revisions": 0,
+          "overlap_equations": [
+            [
+              4,
+              3,
+              4,
+              5
+            ]
+          ]
+        }
+      },
+      "grammar_control": {
+        "states": 7,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [
+          {
+            "rendered": "Emma briefly orders an artist to copy the complete chart.",
+            "words": [
+              "emma",
+              "briefly",
+              "orders",
+              "an",
+              "artist",
+              "to",
+              "copy",
+              "the",
+              "complete",
+              "chart"
+            ],
+            "audit": {
+              "letters": 47,
+              "normalized": "emmabrieflyordersanartisttocopythecompletechart",
+              "pointer_exact": false,
+              "mismatches": [
+                [
+                  0,
+                  46,
+                  "e",
+                  "t"
+                ],
+                [
+                  1,
+                  45,
+                  "m",
+                  "r"
+                ],
+                [
+                  2,
+                  44,
+                  "m",
+                  "a"
+                ],
+                [
+                  3,
+                  43,
+                  "a",
+                  "h"
+                ],
+                [
+                  4,
+                  42,
+                  "b",
+                  "c"
+                ],
+                [
+                  5,
+                  41,
+                  "r",
+                  "e"
+                ],
+                [
+                  6,
+                  40,
+                  "i",
+                  "t"
+                ],
+                [
+                  8,
+                  38,
+                  "f",
+                  "l"
+                ],
+                [
+                  9,
+                  37,
+                  "l",
+                  "p"
+                ],
+                [
+                  10,
+                  36,
+                  "y",
+                  "m"
+                ],
+                [
+                  12,
+                  34,
+                  "r",
+                  "c"
+                ],
+                [
+                  13,
+                  33,
+                  "d",
+                  "e"
+                ],
+                [
+                  14,
+                  32,
+                  "e",
+                  "h"
+                ],
+                [
+                  15,
+                  31,
+                  "r",
+                  "t"
+                ],
+                [
+                  16,
+                  30,
+                  "s",
+                  "y"
+                ],
+                [
+                  17,
+                  29,
+                  "a",
+                  "p"
+                ],
+                [
+                  18,
+                  28,
+                  "n",
+                  "o"
+                ],
+                [
+                  19,
+                  27,
+                  "a",
+                  "c"
+                ],
+                [
+                  20,
+                  26,
+                  "r",
+                  "o"
+                ],
+                [
+                  22,
+                  24,
+                  "i",
+                  "t"
+                ]
+              ],
+              "sha256_forward": "4cb0221edc5e911794df0e81836c202b6d44fd755d4a861e7c82f58c78d22d78",
+              "sha256_reverse": "cc57b41480ad6d646a475018e39500c41d5ddf7281eb20e11ac295d23ab54a5c"
+            },
+            "structural_audit": {
+              "distinct_content": true,
+              "no_palindromic_content_word": true,
+              "no_proper_palindromic_multiword_span": true,
+              "nested_spans": [],
+              "not_word_reflection": true
+            },
+            "decisions": [
+              {
+                "slot": 8,
+                "word": "complete"
+              },
+              {
+                "slot": 9,
+                "word": "chart"
+              },
+              {
+                "slot": 4,
+                "word": "artist"
+              },
+              {
+                "slot": 6,
+                "word": "copy"
+              },
+              {
+                "slot": 1,
+                "word": "briefly"
+              },
+              {
+                "slot": 0,
+                "word": "emma"
+              }
+            ],
+            "shuffled_control": {
+              "rendered": "Emma copy complete the chart artist an briefly orders to.",
+              "audit": {
+                "letters": 47,
+                "normalized": "emmacopycompletethechartartistanbrieflyordersto",
+                "pointer_exact": false,
+                "mismatches": [
+                  [
+                    0,
+                    46,
+                    "e",
+                    "o"
+                  ],
+                  [
+                    1,
+                    45,
+                    "m",
+                    "t"
+                  ],
+                  [
+                    2,
+                    44,
+                    "m",
+                    "s"
+                  ],
+                  [
+                    3,
+                    43,
+                    "a",
+                    "r"
+                  ],
+                  [
+                    4,
+                    42,
+                    "c",
+                    "e"
+                  ],
+                  [
+                    5,
+                    41,
+                    "o",
+                    "d"
+                  ],
+                  [
+                    6,
+                    40,
+                    "p",
+                    "r"
+                  ],
+                  [
+                    7,
+                    39,
+                    "y",
+                    "o"
+                  ],
+                  [
+                    8,
+                    38,
+                    "c",
+                    "y"
+                  ],
+                  [
+                    9,
+                    37,
+                    "o",
+                    "l"
+                  ],
+                  [
+                    10,
+                    36,
+                    "m",
+                    "f"
+                  ],
+                  [
+                    11,
+                    35,
+                    "p",
+                    "e"
+                  ],
+                  [
+                    12,
+                    34,
+                    "l",
+                    "i"
+                  ],
+                  [
+                    13,
+                    33,
+                    "e",
+                    "r"
+                  ],
+                  [
+                    14,
+                    32,
+                    "t",
+                    "b"
+                  ],
+                  [
+                    15,
+                    31,
+                    "e",
+                    "n"
+                  ],
+                  [
+                    16,
+                    30,
+                    "t",
+                    "a"
+                  ],
+                  [
+                    17,
+                    29,
+                    "h",
+                    "t"
+                  ],
+                  [
+                    18,
+                    28,
+                    "e",
+                    "s"
+                  ],
+                  [
+                    19,
+                    27,
+                    "c",
+                    "i"
+                  ],
+                  [
+                    20,
+                    26,
+                    "h",
+                    "t"
+                  ],
+                  [
+                    21,
+                    25,
+                    "a",
+                    "r"
+                  ],
+                  [
+                    22,
+                    24,
+                    "r",
+                    "a"
+                  ]
+                ],
+                "sha256_forward": "23ed1fa76be7b30f523a774a32bf358348c16c6709018aa1946fd9bc4f2d08ce",
+                "sha256_reverse": "1a689c5194a8b92c9a986bbb3d8d527368d0b712cee99570703034b5b98daa4d"
+              }
+            }
+          }
+        ],
+        "first_obstruction": null
+      }
+    },
+    {
+      "geometry": {
+        "widths": [
+          5,
+          8,
+          6,
+          1,
+          4,
+          2,
+          4,
+          2,
+          8,
+          7
+        ],
+        "letters": 47,
+        "boundaries": [
+          5,
+          13,
+          19,
+          20,
+          24,
+          26,
+          30,
+          32,
+          40
+        ],
+        "reflected_boundary_pairs": [],
+        "connected": true,
+        "equations": [
+          [
+            0,
+            0,
+            9,
+            6
+          ],
+          [
+            0,
+            1,
+            9,
+            5
+          ],
+          [
+            0,
+            2,
+            9,
+            4
+          ],
+          [
+            0,
+            3,
+            9,
+            3
+          ],
+          [
+            0,
+            4,
+            9,
+            2
+          ],
+          [
+            1,
+            0,
+            9,
+            1
+          ],
+          [
+            1,
+            1,
+            9,
+            0
+          ],
+          [
+            1,
+            2,
+            8,
+            7
+          ],
+          [
+            1,
+            3,
+            8,
+            6
+          ],
+          [
+            1,
+            4,
+            8,
+            5
+          ],
+          [
+            1,
+            5,
+            8,
+            4
+          ],
+          [
+            1,
+            6,
+            8,
+            3
+          ],
+          [
+            1,
+            7,
+            8,
+            2
+          ],
+          [
+            2,
+            0,
+            8,
+            1
+          ],
+          [
+            2,
+            1,
+            8,
+            0
+          ],
+          [
+            2,
+            2,
+            7,
+            1
+          ],
+          [
+            2,
+            3,
+            7,
+            0
+          ],
+          [
+            2,
+            4,
+            6,
+            3
+          ],
+          [
+            2,
+            5,
+            6,
+            2
+          ],
+          [
+            3,
+            0,
+            6,
+            1
+          ],
+          [
+            4,
+            0,
+            6,
+            0
+          ],
+          [
+            4,
+            1,
+            5,
+            1
+          ],
+          [
+            4,
+            2,
+            5,
+            0
+          ]
+        ]
+      },
+      "initial_domain_sizes": [
+        7,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        2,
+        4
+      ],
+      "construction": {
+        "states": 1,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [],
+        "first_obstruction": {
+          "slot": 0,
+          "role": "name",
+          "unsupported_against_slot": 9,
+          "other_role": "artifact",
+          "removed_words": [
+            "alice",
+            "clara",
+            "grace",
+            "julia",
+            "laura",
+            "maria",
+            "susan"
+          ],
+          "opposite_domain": [
+            "account",
+            "message",
+            "outline",
+            "summary"
+          ],
+          "revisions": 9,
+          "overlap_equations": [
+            [
+              0,
+              0,
+              9,
+              6
+            ],
+            [
+              0,
+              1,
+              9,
+              5
+            ],
+            [
+              0,
+              2,
+              9,
+              4
+            ],
+            [
+              0,
+              3,
+              9,
+              3
+            ],
+            [
+              0,
+              4,
+              9,
+              2
+            ]
+          ]
+        }
+      },
+      "grammar_control": {
+        "states": 1,
+        "state_limit": 5000,
+        "budget_exhausted": false,
+        "solutions": [],
+        "first_obstruction": {
+          "slot": 3,
+          "role": "determiner",
+          "unsupported_against_slot": 4,
+          "other_role": "person",
+          "removed_words": [
+            "a"
+          ],
+          "opposite_domain": [
+            "aide"
+          ],
+          "revisions": 31,
+          "overlap_equations": []
+        }
+      }
+    }
+  ],
+  "summary": {
+    "geometries": 6,
+    "exact_outputs": 0,
+    "construction_states": 6,
+    "root_domain_contradictions": 6,
+    "grammatical_controls": 2
+  },
+  "source_sha256": "7af2f87b74e7124b827b6231c57e8741a0595147c4a3cb2defa9cf6f888e5372",
+  "bank_sha256": "630fa021b1ff1c8b6b2de3ddb53713acbb6af6e2eb53077f91658f5a7ab15701",
+  "target": "an independently exact intact English output at 41, 43, or 47 letters",
+  "reader_gate": "No automated readability certificate. Any exact survivor needs catalogue screening and randomized blinded intact-prose/shuffled controls.",
+  "construction_provenance": "fresh typed lexical banks; six geometry graphs fixed before inspecting letters; no palindrome seed or finished reversal"
+}

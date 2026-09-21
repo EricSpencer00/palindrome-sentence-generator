@@ -7689,6 +7689,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   residual-indexed chart. Artifact:
   `runs/regular-shared-character-20260921.json`.
 
+- **Embedded object-relative frame, 2026-09-21:** added a ten-slot
+  agreement/valency-checked frame with an explicit `that` edge and a second
+  subject--verb--object event, then reran residual-indexed mirrored-domain
+  propagation for lengths 39--120. All 82 targets reached a one-node root
+  conflict; no exact or rendered candidate was emitted. This is a genuine
+  grammar expansion, not a finished-tape repair. The next operator is a
+  held-out temporal adjunct on the embedded frame selected by live residual
+  support. Artifact: `runs/regular-shared-character-20260921.json`.
+
 - **Hand-authored phrase lattice, 2026-09-21:** selected phrase alternatives
   from both ends while debt was live and independently audited the terminal.
   It visited 26 nodes and reached one exact terminal, but that terminal was

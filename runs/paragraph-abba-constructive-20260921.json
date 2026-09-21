@@ -2,13 +2,13 @@
   "experiment_id": "paragraph-abba-constructive-20260921",
   "method": "constructive four-role ABBA outside-in character obligations",
   "stats": {
-    "paragraphs": 4,
+    "paragraphs": 2,
     "support_depth_frontier": 0,
     "exact_candidates": 0
   },
   "rendered_candidates": [
     {
-      "rendered": "The careful archivist labels a faded map. The lantern guides a tired sailor. The lantern guides a tired sailor today. The careful archivist labels a faded map today.",
+      "rendered": "The careful archivist labels a faded map. The lantern guides a tired sailor. A small bell warns the waiting crew. A quiet keeper measures the old bridge.",
       "roles": {
         "A1": [
           "subject",
@@ -22,87 +22,18 @@
           "patient",
           "The lantern guides a tired sailor."
         ],
-        "B2": "The lantern guides a tired sailor today.",
-        "A2": "The careful archivist labels a faded map today."
-      },
-      "outer_trace": [
-        {
-          "offset": 0,
-          "left": "t",
-          "right": "p",
-          "outcome": "unsupported"
-        }
-      ],
-      "inner_trace": [
-        {
-          "offset": 0,
-          "left": "t",
-          "right": "y",
-          "outcome": "unsupported"
-        }
-      ],
-      "support_depth": 0,
-      "first_unsupported": {
-        "outer": {
-          "offset": 0,
-          "left": "t",
-          "right": "p",
-          "kind": "character"
-        },
-        "inner": {
-          "offset": 0,
-          "left": "t",
-          "right": "y",
-          "kind": "character"
-        }
-      },
-      "audit": {
-        "letters": 134,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "y"
-        ],
-        "sha256_forward": "5489f5ea2952313319a249a8aeef2410c0583b8f98f9b404b7487ebc70e436fd",
-        "sha256_reverse": "5f26d4c792941533b3fb28bcd64116083cc4a53ededfd3afed55e5a52d32cf95"
-      },
-      "gates": {
-        "whole_output_exact": false,
-        "outer_support": false,
-        "inner_support": false,
-        "independent_pointer_hash": false,
-        "distinct_sentence_roles": true,
-        "no_reversal": true,
-        "no_catalogue": true,
-        "no_post_hoc_repair": true
-      },
-      "accepted": false,
-      "provenance": {
-        "construction": "four-role ABBA paragraph with live cross-sentence residuals",
-        "independently_authored": true,
-        "finished_tape_reversal": false,
-        "catalogue_text": false,
-        "rendered_before_repair": true
-      }
-    },
-    {
-      "rendered": "The careful archivist labels a faded map. A small bell warns the waiting crew. A small bell warns the waiting crew today. The careful archivist labels a faded map today.",
-      "roles": {
-        "A1": [
-          "subject",
-          "singular",
-          "agent",
-          "The careful archivist labels a faded map."
-        ],
-        "B1": [
+        "B2": [
           "event",
           "singular",
           "patient",
           "A small bell warns the waiting crew."
         ],
-        "B2": "A small bell warns the waiting crew today.",
-        "A2": "The careful archivist labels a faded map today."
+        "A2": [
+          "subject",
+          "singular",
+          "agent",
+          "A quiet keeper measures the old bridge."
+        ]
       },
       "outer_trace": [
         {
@@ -115,8 +46,8 @@
       "inner_trace": [
         {
           "offset": 0,
-          "left": "a",
-          "right": "y",
+          "left": "t",
+          "right": "w",
           "outcome": "unsupported"
         }
       ],
@@ -130,21 +61,21 @@
         },
         "inner": {
           "offset": 0,
-          "left": "a",
-          "right": "y",
+          "left": "t",
+          "right": "w",
           "kind": "character"
         }
       },
       "audit": {
-        "letters": 136,
+        "letters": 123,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "t",
-          "y"
+          "e"
         ],
-        "sha256_forward": "e23ae3a6288bcf57c8da40ca49228019f971e6f0e2f2a9bc811dbe59f4f19afc",
-        "sha256_reverse": "95e97d7e034ec99b4c6c45a142111a835f52601357f9ea1c3a619c7d6a5474ff"
+        "sha256_forward": "bba90eddcf0c4880e7266781635b78b44cff6acf2ac17432861925b6da3e27dd",
+        "sha256_reverse": "dfe81388fa62d1ac351b493019c13fc3c99ee26018e465eac2222246fecfa5ed"
       },
       "gates": {
         "whole_output_exact": false,
@@ -152,6 +83,7 @@
         "inner_support": false,
         "independent_pointer_hash": false,
         "distinct_sentence_roles": true,
+        "self_palindromic_unit_absent": true,
         "no_reversal": true,
         "no_catalogue": true,
         "no_post_hoc_repair": true
@@ -166,36 +98,46 @@
       }
     },
     {
-      "rendered": "A quiet keeper measures the old bridge. The lantern guides a tired sailor. The lantern guides a tired sailor today. A quiet keeper measures the old bridge today.",
+      "rendered": "At dawn, the patient curator files a chart. A harbor pilot checks the western tide. By noon, the ferryman secures a wooden skiff. At dusk, the watchman counts the mooring posts.",
       "roles": {
         "A1": [
           "subject",
           "singular",
           "agent",
-          "A quiet keeper measures the old bridge."
+          "At dawn, the patient curator files a chart."
         ],
         "B1": [
           "event",
           "singular",
           "patient",
-          "The lantern guides a tired sailor."
+          "A harbor pilot checks the western tide."
         ],
-        "B2": "The lantern guides a tired sailor today.",
-        "A2": "A quiet keeper measures the old bridge today."
+        "B2": [
+          "event",
+          "singular",
+          "patient",
+          "By noon, the ferryman secures a wooden skiff."
+        ],
+        "A2": [
+          "subject",
+          "singular",
+          "agent",
+          "At dusk, the watchman counts the mooring posts."
+        ]
       },
       "outer_trace": [
         {
           "offset": 0,
           "left": "a",
-          "right": "e",
+          "right": "t",
           "outcome": "unsupported"
         }
       ],
       "inner_trace": [
         {
           "offset": 0,
-          "left": "t",
-          "right": "y",
+          "left": "a",
+          "right": "f",
           "outcome": "unsupported"
         }
       ],
@@ -204,26 +146,26 @@
         "outer": {
           "offset": 0,
           "left": "a",
-          "right": "e",
+          "right": "t",
           "kind": "character"
         },
         "inner": {
           "offset": 0,
-          "left": "t",
-          "right": "y",
+          "left": "a",
+          "right": "f",
           "kind": "character"
         }
       },
       "audit": {
-        "letters": 130,
+        "letters": 140,
         "pointer_exact": false,
         "first_mismatch": [
           0,
           "a",
-          "y"
+          "s"
         ],
-        "sha256_forward": "b29c9139076adc1cd2eef09397cd0b70f479e95dbd8699e66f17c33df9b11231",
-        "sha256_reverse": "70377064f34eebd3be53ece22bb8953e43abb6c41bedecdf7e568d5c53ed1226"
+        "sha256_forward": "d7cc85279d387c45e1913b98be76f37ac40377d90475b20ed3e0f8d55f5ba6fe",
+        "sha256_reverse": "809c1f11b4507f3379a4204540388c61c2b9960eb71ad2261318d504dd22534a"
       },
       "gates": {
         "whole_output_exact": false,
@@ -231,85 +173,7 @@
         "inner_support": false,
         "independent_pointer_hash": false,
         "distinct_sentence_roles": true,
-        "no_reversal": true,
-        "no_catalogue": true,
-        "no_post_hoc_repair": true
-      },
-      "accepted": false,
-      "provenance": {
-        "construction": "four-role ABBA paragraph with live cross-sentence residuals",
-        "independently_authored": true,
-        "finished_tape_reversal": false,
-        "catalogue_text": false,
-        "rendered_before_repair": true
-      }
-    },
-    {
-      "rendered": "A quiet keeper measures the old bridge. A small bell warns the waiting crew. A small bell warns the waiting crew today. A quiet keeper measures the old bridge today.",
-      "roles": {
-        "A1": [
-          "subject",
-          "singular",
-          "agent",
-          "A quiet keeper measures the old bridge."
-        ],
-        "B1": [
-          "event",
-          "singular",
-          "patient",
-          "A small bell warns the waiting crew."
-        ],
-        "B2": "A small bell warns the waiting crew today.",
-        "A2": "A quiet keeper measures the old bridge today."
-      },
-      "outer_trace": [
-        {
-          "offset": 0,
-          "left": "a",
-          "right": "e",
-          "outcome": "unsupported"
-        }
-      ],
-      "inner_trace": [
-        {
-          "offset": 0,
-          "left": "a",
-          "right": "y",
-          "outcome": "unsupported"
-        }
-      ],
-      "support_depth": 0,
-      "first_unsupported": {
-        "outer": {
-          "offset": 0,
-          "left": "a",
-          "right": "e",
-          "kind": "character"
-        },
-        "inner": {
-          "offset": 0,
-          "left": "a",
-          "right": "y",
-          "kind": "character"
-        }
-      },
-      "audit": {
-        "letters": 132,
-        "pointer_exact": false,
-        "first_mismatch": [
-          0,
-          "a",
-          "y"
-        ],
-        "sha256_forward": "f5a95d692c78061489159e5da7f7469f024516412710f5a85af19aa22a012c17",
-        "sha256_reverse": "46ee61e80bc50311edd966b895efaee32b74f05307eb76c2bda6b6fb7b0d4739"
-      },
-      "gates": {
-        "whole_output_exact": false,
-        "outer_support": false,
-        "inner_support": false,
-        "independent_pointer_hash": false,
-        "distinct_sentence_roles": true,
+        "self_palindromic_unit_absent": true,
         "no_reversal": true,
         "no_catalogue": true,
         "no_post_hoc_repair": true

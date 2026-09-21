@@ -1,0 +1,33 @@
+{
+  "experiment_id": "bfs-outside-in-complete-clause-20260921",
+  "method": "breadth-first outside-in slot grammar with POS/number gates and center-inside-word allowance",
+  "stats": {
+    "grammar_states": 72,
+    "expanded_states": 1,
+    "rendered_controls": 24,
+    "outer_mismatch_prunes": 24,
+    "exact_gt38": 0,
+    "max_letters": 78
+  },
+  "exact_gt38_candidates": [],
+  "strongest_complete_controls": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "bfs|complete-two-clause-grammar|outside-in|center-inside-word|20260921",
+    "distinct_from": "tile graph and one/two-character outer-class CSP"
+  },
+  "provenance": {
+    "audits": [
+      "independent pointer scan",
+      "independent SHA-256 forward/reverse"
+    ],
+    "hard_exclusions": [
+      "post-hoc reversal",
+      "self-palindromic words",
+      "repeated-word shortcuts"
+    ],
+    "readability": "controls are grammatical-looking; no reader certification claimed"
+  },
+  "next_repair": "Expand the lexical bank with held-out common nouns and add a two-character boundary queue keyed by center offset; preserve clause slots and reject repeated words before rendering.",
+  "status": "no exact >38 closure; strongest complete controls preserved"
+}

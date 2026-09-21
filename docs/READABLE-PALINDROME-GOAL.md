@@ -220,12 +220,12 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
 - **Typed tense/argument residual join.** The next bounded construction changed
   the lexical geometry rather than enlarging the prior frame: six tense/agent
-  frames and three typed attachments were selected online, carrying unequal
-  residual strings across the seam. Eighteen semantically licensed controls
-  reached 86 letters; all failed exact closure, with independent pointer/SHA
-  audits and no seed wrapping, repair, reversal, or catalogue text. The next
-  concrete move is a second argument role with unequal lexical lengths,
-  preserving the same residual invariant
+  frames, three role-1 attachments, and three unequal-length role-2
+  attachments were selected online, carrying residual strings across both
+  argument boundaries. Eighteen semantically licensed controls reached 126
+  letters; all failed exact closure, with independent pointer/SHA audits and
+  no seed wrapping, repair, reversal, or catalogue text. The next operator now
+  holds role-2 length fixed and varies only licensed tense/aspect alternations
   (`runs/typed-tense-argument-residual-20260921.json`).
 
 - **Overlap-trie source correction.** A reverse-complement overlap prototype

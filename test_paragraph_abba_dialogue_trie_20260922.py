@@ -36,3 +36,8 @@ def test_run_keeps_complete_prose_and_independent_hashes():
                and row['outer_domain_support']['matched'] == 3
                for row in result['rendered_candidates'])
     assert any('earnest archivist' in row['rendered'] for row in result['rendered_candidates'])
+    assert result['stats']['fresh_outer_pair_completions'] == 4
+    assert result['stats']['fresh_outer_pair_support_depth'] == [3]
+    assert all('An earnest archivist' in row['rendered'] and
+               'At dawn the keeper surveyed the arena.' in row['rendered']
+               for row in result['fresh_outer_pair_candidates'])

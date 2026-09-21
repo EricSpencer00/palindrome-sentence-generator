@@ -7865,6 +7865,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   adds one more distinct held-out PP before chart expansion. Artifact:
   `runs/cfg-earley-heldout-pp-domain-operator-20260921.json`.
 
+- **Second held-out PP Earley expansion, 2026-09-21:** added a fourth locative
+  PP terminal absent from both preceding banks before chart expansion, while
+  retaining Earley NP/VP/PP items, agreement, locative valency, and live
+  mirrored domains. Three fresh intact controls (105--115 letters; two use the
+  new terminal) yielded 155 concrete domain conflicts and zero exact closures.
+  Independent pointer/SHA audits agree; no control is reader evidence. The
+  next operator adds a held-out determiner-bearing PP before expansion.
+  Artifact: `runs/cfg-earley-second-heldout-pp-expansion-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

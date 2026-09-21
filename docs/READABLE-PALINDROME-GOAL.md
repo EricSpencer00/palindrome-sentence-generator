@@ -8489,3 +8489,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   versus `t`, so no exact candidate was promoted. The next topology is a
   passive `was seen by` realization, tested as its own grammar rather than as a
   repair. Artifact: `runs/agentive-boundary-was-np-seam-20260921.json`.
+
+- **Passive-shell topology test, 2026-09-21:** tested nine ordinary-English
+  controls of the form “Who was the quiet scout seen by the calm keeper?”
+  (38 letters). The shell is grammatical and content-disjoint, but its outer
+  `who`/agent boundary has zero matching characters (`w` versus `r`) in every
+  pair; pointer/SHA audits reject all tapes. This topology cannot carry the
+  seam without a different terminal grammar, so it is closed as a bounded
+  negative result rather than padded with adjuncts. Artifact:
+  `runs/passive-was-seen-by-seam-20260921.json`.

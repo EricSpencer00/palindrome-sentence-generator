@@ -1,749 +1,13 @@
 {
   "experiment_id": "paragraph-abba-dialogue-trie-20260922",
-  "method": "word-level trie-conditioned ABBA paragraph with question/response center; outer word streams are matched online across sentence boundaries",
+  "method": "word-level trie-conditioned ABBA paragraph with question/response center; outer word streams are matched online across sentence boundaries at a three-character exposed residual",
   "stats": {
     "candidate_completions": 16,
-    "outer_pruned": 0,
+    "outer_pruned": 5,
     "exact_gt38": 0,
-    "longest_letters": 175
+    "longest_letters": 162
   },
   "rendered_candidates": [
-    {
-      "rendered": "An old cartographer marked the northern inlet. The captain asked whether the beacon still burned. The watchman replied that the beacon guided the boats. At dusk the keeper watched the arena.",
-      "roles": {
-        "A1": "An old cartographer marked the northern inlet.",
-        "B1_question": "The captain asked whether the beacon still burned.",
-        "B2_response": "The watchman replied that the beacon guided the boats.",
-        "A2": "At dusk the keeper watched the arena."
-      },
-      "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
-        "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
-      },
-      "online_outer_trace": [
-        {
-          "offset": 0,
-          "left": "a",
-          "right": "a"
-        },
-        {
-          "offset": 1,
-          "left": "n",
-          "right": "n"
-        },
-        {
-          "offset": 2,
-          "left": "o",
-          "right": "e"
-        }
-      ],
-      "audit": {
-        "letters": 156,
-        "two_pointer_exact": false,
-        "mismatches": [
-          [
-            2,
-            "o",
-            "e"
-          ],
-          [
-            3,
-            "l",
-            "r"
-          ],
-          [
-            4,
-            "d",
-            "a"
-          ],
-          [
-            5,
-            "c",
-            "e"
-          ],
-          [
-            6,
-            "a",
-            "h"
-          ],
-          [
-            7,
-            "r",
-            "t"
-          ],
-          [
-            8,
-            "t",
-            "d"
-          ],
-          [
-            9,
-            "o",
-            "e"
-          ]
-        ],
-        "sha256_forward": "06504c7e0bfd7a31d7acc0980f7dd0a2cd203726d3c22ca4bc78ce2a992d8e89",
-        "sha256_reverse": "a92f00c796eccc6ef8cb0a776806cf7c0767304034887e929e2fdda27c50c7cd"
-      },
-      "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
-        "word_level_trie_nodes": 19,
-        "crosses_word_boundaries": true,
-        "crosses_sentence_boundaries": true,
-        "finished_tape_reversal": false,
-        "posthoc_repair": false,
-        "catalogue_text": false,
-        "repeated_units": false,
-        "self_palindromic_units": false
-      }
-    },
-    {
-      "rendered": "An old cartographer marked the northern inlet. The captain asked whether the beacon still burned. The keeper answered that the harbor lantern guided sailors. At dusk the keeper watched the arena.",
-      "roles": {
-        "A1": "An old cartographer marked the northern inlet.",
-        "B1_question": "The captain asked whether the beacon still burned.",
-        "B2_response": "The keeper answered that the harbor lantern guided sailors.",
-        "A2": "At dusk the keeper watched the arena."
-      },
-      "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
-        "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
-      },
-      "online_outer_trace": [
-        {
-          "offset": 0,
-          "left": "a",
-          "right": "a"
-        },
-        {
-          "offset": 1,
-          "left": "n",
-          "right": "n"
-        },
-        {
-          "offset": 2,
-          "left": "o",
-          "right": "e"
-        }
-      ],
-      "audit": {
-        "letters": 161,
-        "two_pointer_exact": false,
-        "mismatches": [
-          [
-            2,
-            "o",
-            "e"
-          ],
-          [
-            3,
-            "l",
-            "r"
-          ],
-          [
-            4,
-            "d",
-            "a"
-          ],
-          [
-            5,
-            "c",
-            "e"
-          ],
-          [
-            6,
-            "a",
-            "h"
-          ],
-          [
-            7,
-            "r",
-            "t"
-          ],
-          [
-            8,
-            "t",
-            "d"
-          ],
-          [
-            9,
-            "o",
-            "e"
-          ]
-        ],
-        "sha256_forward": "8caca7df0abf17005822ceb33f47b3f3e6611623dc02faeaaa16a8d462983624",
-        "sha256_reverse": "f87ebbffce15e107497191dffbe8a29a81f13c3762d3f34140a5b392519e881a"
-      },
-      "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
-        "word_level_trie_nodes": 19,
-        "crosses_word_boundaries": true,
-        "crosses_sentence_boundaries": true,
-        "finished_tape_reversal": false,
-        "posthoc_repair": false,
-        "catalogue_text": false,
-        "repeated_units": false,
-        "self_palindromic_units": false
-      }
-    },
-    {
-      "rendered": "An old cartographer marked the northern inlet. The pilot asked if the harbor lantern remained lit. The watchman replied that the beacon guided the boats. At dusk the keeper watched the arena.",
-      "roles": {
-        "A1": "An old cartographer marked the northern inlet.",
-        "B1_question": "The pilot asked if the harbor lantern remained lit.",
-        "B2_response": "The watchman replied that the beacon guided the boats.",
-        "A2": "At dusk the keeper watched the arena."
-      },
-      "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
-        "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
-      },
-      "online_outer_trace": [
-        {
-          "offset": 0,
-          "left": "a",
-          "right": "a"
-        },
-        {
-          "offset": 1,
-          "left": "n",
-          "right": "n"
-        },
-        {
-          "offset": 2,
-          "left": "o",
-          "right": "e"
-        }
-      ],
-      "audit": {
-        "letters": 156,
-        "two_pointer_exact": false,
-        "mismatches": [
-          [
-            2,
-            "o",
-            "e"
-          ],
-          [
-            3,
-            "l",
-            "r"
-          ],
-          [
-            4,
-            "d",
-            "a"
-          ],
-          [
-            5,
-            "c",
-            "e"
-          ],
-          [
-            6,
-            "a",
-            "h"
-          ],
-          [
-            7,
-            "r",
-            "t"
-          ],
-          [
-            8,
-            "t",
-            "d"
-          ],
-          [
-            9,
-            "o",
-            "e"
-          ]
-        ],
-        "sha256_forward": "5b1ebd8369be03a6b6be7982a45aad8e11524b1d853fbd8dcc642179544de2c7",
-        "sha256_reverse": "340c61c43e79418ea121d5d797c45b78f762b8641370e1a368b239b6f9450cd1"
-      },
-      "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
-        "word_level_trie_nodes": 19,
-        "crosses_word_boundaries": true,
-        "crosses_sentence_boundaries": true,
-        "finished_tape_reversal": false,
-        "posthoc_repair": false,
-        "catalogue_text": false,
-        "repeated_units": false,
-        "self_palindromic_units": false
-      }
-    },
-    {
-      "rendered": "An old cartographer marked the northern inlet. The pilot asked if the harbor lantern remained lit. The keeper answered that the harbor lantern guided sailors. At dusk the keeper watched the arena.",
-      "roles": {
-        "A1": "An old cartographer marked the northern inlet.",
-        "B1_question": "The pilot asked if the harbor lantern remained lit.",
-        "B2_response": "The keeper answered that the harbor lantern guided sailors.",
-        "A2": "At dusk the keeper watched the arena."
-      },
-      "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
-        "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
-      },
-      "online_outer_trace": [
-        {
-          "offset": 0,
-          "left": "a",
-          "right": "a"
-        },
-        {
-          "offset": 1,
-          "left": "n",
-          "right": "n"
-        },
-        {
-          "offset": 2,
-          "left": "o",
-          "right": "e"
-        }
-      ],
-      "audit": {
-        "letters": 161,
-        "two_pointer_exact": false,
-        "mismatches": [
-          [
-            2,
-            "o",
-            "e"
-          ],
-          [
-            3,
-            "l",
-            "r"
-          ],
-          [
-            4,
-            "d",
-            "a"
-          ],
-          [
-            5,
-            "c",
-            "e"
-          ],
-          [
-            6,
-            "a",
-            "h"
-          ],
-          [
-            7,
-            "r",
-            "t"
-          ],
-          [
-            8,
-            "t",
-            "d"
-          ],
-          [
-            9,
-            "o",
-            "e"
-          ]
-        ],
-        "sha256_forward": "634704e80dfc199da3a81089632b73826175beab81fab746d17b12220feefd45",
-        "sha256_reverse": "bfb077d9be94079e940f24ff37812362def62f549bbdcf5dce88b6a12011794a"
-      },
-      "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
-        "word_level_trie_nodes": 19,
-        "crosses_word_boundaries": true,
-        "crosses_sentence_boundaries": true,
-        "finished_tape_reversal": false,
-        "posthoc_repair": false,
-        "catalogue_text": false,
-        "repeated_units": false,
-        "self_palindromic_units": false
-      }
-    },
-    {
-      "rendered": "An old cartographer marked the northern inlet. The captain asked whether the beacon still burned. The watchman replied that the beacon guided the boats. Before sleep the navigator guarded the quiet marina.",
-      "roles": {
-        "A1": "An old cartographer marked the northern inlet.",
-        "B1_question": "The captain asked whether the beacon still burned.",
-        "B2_response": "The watchman replied that the beacon guided the boats.",
-        "A2": "Before sleep the navigator guarded the quiet marina."
-      },
-      "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
-        "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
-      },
-      "online_outer_trace": [
-        {
-          "offset": 0,
-          "left": "a",
-          "right": "a"
-        },
-        {
-          "offset": 1,
-          "left": "n",
-          "right": "n"
-        },
-        {
-          "offset": 2,
-          "left": "o",
-          "right": "i"
-        }
-      ],
-      "audit": {
-        "letters": 170,
-        "two_pointer_exact": false,
-        "mismatches": [
-          [
-            2,
-            "o",
-            "i"
-          ],
-          [
-            3,
-            "l",
-            "r"
-          ],
-          [
-            4,
-            "d",
-            "a"
-          ],
-          [
-            5,
-            "c",
-            "m"
-          ],
-          [
-            6,
-            "a",
-            "t"
-          ],
-          [
-            7,
-            "r",
-            "e"
-          ],
-          [
-            8,
-            "t",
-            "i"
-          ],
-          [
-            9,
-            "o",
-            "u"
-          ]
-        ],
-        "sha256_forward": "fdf85b7e2fa35b5202451bc9a29c25cd10d0c262706b01d3cfea9703f1724d37",
-        "sha256_reverse": "8e06e3bde8544bd2bef5eee33f63b7beb0f57019743d8c1c1635a46084d45240"
-      },
-      "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
-        "word_level_trie_nodes": 19,
-        "crosses_word_boundaries": true,
-        "crosses_sentence_boundaries": true,
-        "finished_tape_reversal": false,
-        "posthoc_repair": false,
-        "catalogue_text": false,
-        "repeated_units": false,
-        "self_palindromic_units": false
-      }
-    },
-    {
-      "rendered": "An old cartographer marked the northern inlet. The captain asked whether the beacon still burned. The keeper answered that the harbor lantern guided sailors. Before sleep the navigator guarded the quiet marina.",
-      "roles": {
-        "A1": "An old cartographer marked the northern inlet.",
-        "B1_question": "The captain asked whether the beacon still burned.",
-        "B2_response": "The keeper answered that the harbor lantern guided sailors.",
-        "A2": "Before sleep the navigator guarded the quiet marina."
-      },
-      "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
-        "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
-      },
-      "online_outer_trace": [
-        {
-          "offset": 0,
-          "left": "a",
-          "right": "a"
-        },
-        {
-          "offset": 1,
-          "left": "n",
-          "right": "n"
-        },
-        {
-          "offset": 2,
-          "left": "o",
-          "right": "i"
-        }
-      ],
-      "audit": {
-        "letters": 175,
-        "two_pointer_exact": false,
-        "mismatches": [
-          [
-            2,
-            "o",
-            "i"
-          ],
-          [
-            3,
-            "l",
-            "r"
-          ],
-          [
-            4,
-            "d",
-            "a"
-          ],
-          [
-            5,
-            "c",
-            "m"
-          ],
-          [
-            6,
-            "a",
-            "t"
-          ],
-          [
-            7,
-            "r",
-            "e"
-          ],
-          [
-            8,
-            "t",
-            "i"
-          ],
-          [
-            9,
-            "o",
-            "u"
-          ]
-        ],
-        "sha256_forward": "d3cdf0c685e4746059c84db14a1c6ae03b4b9769308d0657f34b1af727957baa",
-        "sha256_reverse": "90709a818d95f67fad0787bcd411ec5a59940492504bfb0f9f49360e01b59a6e"
-      },
-      "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
-        "word_level_trie_nodes": 19,
-        "crosses_word_boundaries": true,
-        "crosses_sentence_boundaries": true,
-        "finished_tape_reversal": false,
-        "posthoc_repair": false,
-        "catalogue_text": false,
-        "repeated_units": false,
-        "self_palindromic_units": false
-      }
-    },
-    {
-      "rendered": "An old cartographer marked the northern inlet. The pilot asked if the harbor lantern remained lit. The watchman replied that the beacon guided the boats. Before sleep the navigator guarded the quiet marina.",
-      "roles": {
-        "A1": "An old cartographer marked the northern inlet.",
-        "B1_question": "The pilot asked if the harbor lantern remained lit.",
-        "B2_response": "The watchman replied that the beacon guided the boats.",
-        "A2": "Before sleep the navigator guarded the quiet marina."
-      },
-      "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
-        "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
-      },
-      "online_outer_trace": [
-        {
-          "offset": 0,
-          "left": "a",
-          "right": "a"
-        },
-        {
-          "offset": 1,
-          "left": "n",
-          "right": "n"
-        },
-        {
-          "offset": 2,
-          "left": "o",
-          "right": "i"
-        }
-      ],
-      "audit": {
-        "letters": 170,
-        "two_pointer_exact": false,
-        "mismatches": [
-          [
-            2,
-            "o",
-            "i"
-          ],
-          [
-            3,
-            "l",
-            "r"
-          ],
-          [
-            4,
-            "d",
-            "a"
-          ],
-          [
-            5,
-            "c",
-            "m"
-          ],
-          [
-            6,
-            "a",
-            "t"
-          ],
-          [
-            7,
-            "r",
-            "e"
-          ],
-          [
-            8,
-            "t",
-            "i"
-          ],
-          [
-            9,
-            "o",
-            "u"
-          ]
-        ],
-        "sha256_forward": "d7e4e809e53572d80c17f16c4026e324a615b9e430642b2e1710a5a892355897",
-        "sha256_reverse": "51cb4452a8072fbc2e955f117ddedb16b909fbc35eaeb7f7c2f413f89f73851b"
-      },
-      "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
-        "word_level_trie_nodes": 19,
-        "crosses_word_boundaries": true,
-        "crosses_sentence_boundaries": true,
-        "finished_tape_reversal": false,
-        "posthoc_repair": false,
-        "catalogue_text": false,
-        "repeated_units": false,
-        "self_palindromic_units": false
-      }
-    },
-    {
-      "rendered": "An old cartographer marked the northern inlet. The pilot asked if the harbor lantern remained lit. The keeper answered that the harbor lantern guided sailors. Before sleep the navigator guarded the quiet marina.",
-      "roles": {
-        "A1": "An old cartographer marked the northern inlet.",
-        "B1_question": "The pilot asked if the harbor lantern remained lit.",
-        "B2_response": "The keeper answered that the harbor lantern guided sailors.",
-        "A2": "Before sleep the navigator guarded the quiet marina."
-      },
-      "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
-        "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
-      },
-      "online_outer_trace": [
-        {
-          "offset": 0,
-          "left": "a",
-          "right": "a"
-        },
-        {
-          "offset": 1,
-          "left": "n",
-          "right": "n"
-        },
-        {
-          "offset": 2,
-          "left": "o",
-          "right": "i"
-        }
-      ],
-      "audit": {
-        "letters": 175,
-        "two_pointer_exact": false,
-        "mismatches": [
-          [
-            2,
-            "o",
-            "i"
-          ],
-          [
-            3,
-            "l",
-            "r"
-          ],
-          [
-            4,
-            "d",
-            "a"
-          ],
-          [
-            5,
-            "c",
-            "m"
-          ],
-          [
-            6,
-            "a",
-            "t"
-          ],
-          [
-            7,
-            "r",
-            "e"
-          ],
-          [
-            8,
-            "t",
-            "i"
-          ],
-          [
-            9,
-            "o",
-            "u"
-          ]
-        ],
-        "sha256_forward": "da464f88120f2db9368db5ed0e7e3cd618387f8cb42b531c73852a3d35b3d8e7",
-        "sha256_reverse": "cd1c94bf8287d8c1f53d6290015593a1c12028598414635a315dc4e8943f1300"
-      },
-      "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
-        "word_level_trie_nodes": 19,
-        "crosses_word_boundaries": true,
-        "crosses_sentence_boundaries": true,
-        "finished_tape_reversal": false,
-        "posthoc_repair": false,
-        "catalogue_text": false,
-        "repeated_units": false,
-        "self_palindromic_units": false
-      }
-    },
     {
       "rendered": "An eager keeper recorded the eastern harbor. The captain asked whether the beacon still burned. The watchman replied that the beacon guided the boats. At dusk the keeper watched the arena.",
       "roles": {
@@ -753,11 +17,11 @@
         "A2": "At dusk the keeper watched the arena."
       },
       "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
+        "width": 3,
+        "matched": 3,
         "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
       },
       "online_outer_trace": [
         {
@@ -830,7 +94,7 @@
         "sha256_reverse": "f9dc6bee0bbf5aeb54a99a4fb812b6436be37ea7dfc776231de16f6ed75862bf"
       },
       "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
         "word_level_trie_nodes": 19,
         "crosses_word_boundaries": true,
         "crosses_sentence_boundaries": true,
@@ -850,11 +114,11 @@
         "A2": "At dusk the keeper watched the arena."
       },
       "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
+        "width": 3,
+        "matched": 3,
         "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
       },
       "online_outer_trace": [
         {
@@ -927,7 +191,7 @@
         "sha256_reverse": "1c82bf5e632884a6d3d69f3299f3a2091b0d148ce6c863743901b3e43f3df360"
       },
       "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
         "word_level_trie_nodes": 19,
         "crosses_word_boundaries": true,
         "crosses_sentence_boundaries": true,
@@ -947,11 +211,11 @@
         "A2": "At dusk the keeper watched the arena."
       },
       "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
+        "width": 3,
+        "matched": 3,
         "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
       },
       "online_outer_trace": [
         {
@@ -1024,7 +288,7 @@
         "sha256_reverse": "5c55b6eb6576d31fae99f3a2f80379aa82717bcff9dd793d9b3a41e01186384a"
       },
       "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
         "word_level_trie_nodes": 19,
         "crosses_word_boundaries": true,
         "crosses_sentence_boundaries": true,
@@ -1044,11 +308,11 @@
         "A2": "At dusk the keeper watched the arena."
       },
       "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
+        "width": 3,
+        "matched": 3,
         "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
       },
       "online_outer_trace": [
         {
@@ -1121,7 +385,7 @@
         "sha256_reverse": "df1ad2d98831c705ffb53297cb6dd665ae12615db8f417ea9112b0e866176a62"
       },
       "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
         "word_level_trie_nodes": 19,
         "crosses_word_boundaries": true,
         "crosses_sentence_boundaries": true,
@@ -1133,19 +397,19 @@
       }
     },
     {
-      "rendered": "An eager keeper recorded the eastern harbor. The captain asked whether the beacon still burned. The watchman replied that the beacon guided the boats. Before sleep the navigator guarded the quiet marina.",
+      "rendered": "An eager keeper recorded the eastern harbor. The captain asked whether the beacon still burned. The watchman replied that the beacon guided the boats. At dawn the keeper surveyed the arena.",
       "roles": {
         "A1": "An eager keeper recorded the eastern harbor.",
         "B1_question": "The captain asked whether the beacon still burned.",
         "B2_response": "The watchman replied that the beacon guided the boats.",
-        "A2": "Before sleep the navigator guarded the quiet marina."
+        "A2": "At dawn the keeper surveyed the arena."
       },
       "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
+        "width": 3,
+        "matched": 3,
         "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
       },
       "online_outer_trace": [
         {
@@ -1161,18 +425,18 @@
         {
           "offset": 2,
           "left": "e",
-          "right": "i"
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
         }
       ],
       "audit": {
-        "letters": 168,
+        "letters": 155,
         "two_pointer_exact": false,
         "mismatches": [
-          [
-            2,
-            "e",
-            "i"
-          ],
           [
             3,
             "a",
@@ -1184,36 +448,41 @@
             "a"
           ],
           [
-            5,
-            "e",
-            "m"
-          ],
-          [
             6,
             "r",
-            "t"
+            "h"
           ],
           [
             7,
             "k",
-            "e"
+            "t"
           ],
           [
             8,
             "e",
-            "i"
+            "d"
           ],
           [
-            9,
+            10,
+            "p",
+            "y"
+          ],
+          [
+            12,
+            "r",
+            "v"
+          ],
+          [
+            14,
             "e",
             "u"
           ]
         ],
-        "sha256_forward": "f1e0812b3a7f3b954304f0783c949523a7c78246a03c3e331071f064f90f5f14",
-        "sha256_reverse": "23f56b434493fac76bc48385a216637827f7e1afbcebaa8233bead44f2b6a297"
+        "sha256_forward": "56e160465fbe4412ec01ed29e9b3c27e715a40d463a4a217ea1dab1affcd7273",
+        "sha256_reverse": "309a4eee5d681a56d7c9047a27831a807a231cde294f5ceca5bbfadb8fbd1a8f"
       },
       "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
         "word_level_trie_nodes": 19,
         "crosses_word_boundaries": true,
         "crosses_sentence_boundaries": true,
@@ -1225,19 +494,19 @@
       }
     },
     {
-      "rendered": "An eager keeper recorded the eastern harbor. The captain asked whether the beacon still burned. The keeper answered that the harbor lantern guided sailors. Before sleep the navigator guarded the quiet marina.",
+      "rendered": "An eager keeper recorded the eastern harbor. The captain asked whether the beacon still burned. The keeper answered that the harbor lantern guided sailors. At dawn the keeper surveyed the arena.",
       "roles": {
         "A1": "An eager keeper recorded the eastern harbor.",
         "B1_question": "The captain asked whether the beacon still burned.",
         "B2_response": "The keeper answered that the harbor lantern guided sailors.",
-        "A2": "Before sleep the navigator guarded the quiet marina."
+        "A2": "At dawn the keeper surveyed the arena."
       },
       "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
+        "width": 3,
+        "matched": 3,
         "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
       },
       "online_outer_trace": [
         {
@@ -1253,18 +522,18 @@
         {
           "offset": 2,
           "left": "e",
-          "right": "i"
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
         }
       ],
       "audit": {
-        "letters": 173,
+        "letters": 160,
         "two_pointer_exact": false,
         "mismatches": [
-          [
-            2,
-            "e",
-            "i"
-          ],
           [
             3,
             "a",
@@ -1276,36 +545,41 @@
             "a"
           ],
           [
-            5,
-            "e",
-            "m"
-          ],
-          [
             6,
             "r",
-            "t"
+            "h"
           ],
           [
             7,
             "k",
-            "e"
+            "t"
           ],
           [
             8,
             "e",
-            "i"
+            "d"
           ],
           [
-            9,
+            10,
+            "p",
+            "y"
+          ],
+          [
+            12,
+            "r",
+            "v"
+          ],
+          [
+            14,
             "e",
             "u"
           ]
         ],
-        "sha256_forward": "85a8728d86535d7f57cf318e35f947a49f5b9d61e0dd687c9286824621848f61",
-        "sha256_reverse": "75e95b1a98652a4b0d674a143a14b5076c5d06b9b4737c68bbc1ebe614c55397"
+        "sha256_forward": "3118704c0c9ed900bb7ac0c94a1af938e36ea2174321fa746587bb29b3391293",
+        "sha256_reverse": "3d81205b6255ab8c1de51bbbe87b6ac040d49a366dd2fc9041a86dfe76f52703"
       },
       "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
         "word_level_trie_nodes": 19,
         "crosses_word_boundaries": true,
         "crosses_sentence_boundaries": true,
@@ -1317,19 +591,19 @@
       }
     },
     {
-      "rendered": "An eager keeper recorded the eastern harbor. The pilot asked if the harbor lantern remained lit. The watchman replied that the beacon guided the boats. Before sleep the navigator guarded the quiet marina.",
+      "rendered": "An eager keeper recorded the eastern harbor. The pilot asked if the harbor lantern remained lit. The watchman replied that the beacon guided the boats. At dawn the keeper surveyed the arena.",
       "roles": {
         "A1": "An eager keeper recorded the eastern harbor.",
         "B1_question": "The pilot asked if the harbor lantern remained lit.",
         "B2_response": "The watchman replied that the beacon guided the boats.",
-        "A2": "Before sleep the navigator guarded the quiet marina."
+        "A2": "At dawn the keeper surveyed the arena."
       },
       "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
+        "width": 3,
+        "matched": 3,
         "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
       },
       "online_outer_trace": [
         {
@@ -1345,18 +619,18 @@
         {
           "offset": 2,
           "left": "e",
-          "right": "i"
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
         }
       ],
       "audit": {
-        "letters": 168,
+        "letters": 155,
         "two_pointer_exact": false,
         "mismatches": [
-          [
-            2,
-            "e",
-            "i"
-          ],
           [
             3,
             "a",
@@ -1368,36 +642,41 @@
             "a"
           ],
           [
-            5,
-            "e",
-            "m"
-          ],
-          [
             6,
             "r",
-            "t"
+            "h"
           ],
           [
             7,
             "k",
-            "e"
+            "t"
           ],
           [
             8,
             "e",
-            "i"
+            "d"
           ],
           [
-            9,
+            10,
+            "p",
+            "y"
+          ],
+          [
+            12,
+            "r",
+            "v"
+          ],
+          [
+            14,
             "e",
             "u"
           ]
         ],
-        "sha256_forward": "dc52520424f39a9b4209f99eecee1dd0d816cff651d3af78b5d4fd27f2fcb599",
-        "sha256_reverse": "a92265da14e22467c7c3bd04cc30424c3a475d5a2542ac9ebe9f5450582b30ac"
+        "sha256_forward": "1c29b3a4ab0a6a6db825aa7108a9f2be5db721fdb7c717495261f0ca316daa67",
+        "sha256_reverse": "6e428eaa1e1c1ce528632319e8cf5c42815771f489b40fb40c43aab22ee2bb13"
       },
       "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
         "word_level_trie_nodes": 19,
         "crosses_word_boundaries": true,
         "crosses_sentence_boundaries": true,
@@ -1409,19 +688,19 @@
       }
     },
     {
-      "rendered": "An eager keeper recorded the eastern harbor. The pilot asked if the harbor lantern remained lit. The keeper answered that the harbor lantern guided sailors. Before sleep the navigator guarded the quiet marina.",
+      "rendered": "An eager keeper recorded the eastern harbor. The pilot asked if the harbor lantern remained lit. The keeper answered that the harbor lantern guided sailors. At dawn the keeper surveyed the arena.",
       "roles": {
         "A1": "An eager keeper recorded the eastern harbor.",
         "B1_question": "The pilot asked if the harbor lantern remained lit.",
         "B2_response": "The keeper answered that the harbor lantern guided sailors.",
-        "A2": "Before sleep the navigator guarded the quiet marina."
+        "A2": "At dawn the keeper surveyed the arena."
       },
       "outer_domain_support": {
-        "width": 2,
-        "matched": 2,
+        "width": 3,
+        "matched": 3,
         "compatible": true,
-        "left_exposed": "an",
-        "right_reverse_exposed": "an"
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
       },
       "online_outer_trace": [
         {
@@ -1437,18 +716,18 @@
         {
           "offset": 2,
           "left": "e",
-          "right": "i"
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
         }
       ],
       "audit": {
-        "letters": 173,
+        "letters": 160,
         "two_pointer_exact": false,
         "mismatches": [
-          [
-            2,
-            "e",
-            "i"
-          ],
           [
             3,
             "a",
@@ -1460,36 +739,817 @@
             "a"
           ],
           [
-            5,
-            "e",
-            "m"
-          ],
-          [
             6,
             "r",
-            "t"
+            "h"
           ],
           [
             7,
             "k",
-            "e"
+            "t"
           ],
           [
             8,
             "e",
-            "i"
+            "d"
           ],
           [
-            9,
+            10,
+            "p",
+            "y"
+          ],
+          [
+            12,
+            "r",
+            "v"
+          ],
+          [
+            14,
             "e",
             "u"
           ]
         ],
-        "sha256_forward": "89c62fd1826cf4d33916f3ae806437ee3e9f572ef349390dc5029b72e6cc9902",
-        "sha256_reverse": "170e69ab4d65b979a9f9afa0bc117065dae54911c1838c201d3531e284141581"
+        "sha256_forward": "0e38511d198d366c8390b8134b428b296444568df3ab8c03f7fecd2670afbd12",
+        "sha256_reverse": "f0bcda2f1cc3e8e5921f46e72000d43354384b4233703b8703b679c1c1fe06ec"
       },
       "provenance": {
-        "construction": "four complete authored sentences with two-character outer-domain conditioning plus unchanged question/response center",
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
+        "word_level_trie_nodes": 19,
+        "crosses_word_boundaries": true,
+        "crosses_sentence_boundaries": true,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false,
+        "repeated_units": false,
+        "self_palindromic_units": false
+      }
+    },
+    {
+      "rendered": "An earnest archivist mapped the western inlet. The captain asked whether the beacon still burned. The watchman replied that the beacon guided the boats. At dusk the keeper watched the arena.",
+      "roles": {
+        "A1": "An earnest archivist mapped the western inlet.",
+        "B1_question": "The captain asked whether the beacon still burned.",
+        "B2_response": "The watchman replied that the beacon guided the boats.",
+        "A2": "At dusk the keeper watched the arena."
+      },
+      "outer_domain_support": {
+        "width": 3,
+        "matched": 3,
+        "compatible": true,
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
+      },
+      "online_outer_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "a"
+        },
+        {
+          "offset": 1,
+          "left": "n",
+          "right": "n"
+        },
+        {
+          "offset": 2,
+          "left": "e",
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
+        }
+      ],
+      "audit": {
+        "letters": 156,
+        "two_pointer_exact": false,
+        "mismatches": [
+          [
+            3,
+            "a",
+            "r"
+          ],
+          [
+            4,
+            "r",
+            "a"
+          ],
+          [
+            5,
+            "n",
+            "e"
+          ],
+          [
+            6,
+            "e",
+            "h"
+          ],
+          [
+            7,
+            "s",
+            "t"
+          ],
+          [
+            8,
+            "t",
+            "d"
+          ],
+          [
+            9,
+            "a",
+            "e"
+          ],
+          [
+            10,
+            "r",
+            "h"
+          ]
+        ],
+        "sha256_forward": "88827eaf526ff428b704aa20df898d0e0a57ea75dba31230e74526ece5425f3f",
+        "sha256_reverse": "1d115463eb42dc4f857c4726714a367dfc337f10aaad6e3c30329d9d7d8a7c60"
+      },
+      "provenance": {
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
+        "word_level_trie_nodes": 19,
+        "crosses_word_boundaries": true,
+        "crosses_sentence_boundaries": true,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false,
+        "repeated_units": false,
+        "self_palindromic_units": false
+      }
+    },
+    {
+      "rendered": "An earnest archivist mapped the western inlet. The captain asked whether the beacon still burned. The keeper answered that the harbor lantern guided sailors. At dusk the keeper watched the arena.",
+      "roles": {
+        "A1": "An earnest archivist mapped the western inlet.",
+        "B1_question": "The captain asked whether the beacon still burned.",
+        "B2_response": "The keeper answered that the harbor lantern guided sailors.",
+        "A2": "At dusk the keeper watched the arena."
+      },
+      "outer_domain_support": {
+        "width": 3,
+        "matched": 3,
+        "compatible": true,
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
+      },
+      "online_outer_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "a"
+        },
+        {
+          "offset": 1,
+          "left": "n",
+          "right": "n"
+        },
+        {
+          "offset": 2,
+          "left": "e",
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
+        }
+      ],
+      "audit": {
+        "letters": 161,
+        "two_pointer_exact": false,
+        "mismatches": [
+          [
+            3,
+            "a",
+            "r"
+          ],
+          [
+            4,
+            "r",
+            "a"
+          ],
+          [
+            5,
+            "n",
+            "e"
+          ],
+          [
+            6,
+            "e",
+            "h"
+          ],
+          [
+            7,
+            "s",
+            "t"
+          ],
+          [
+            8,
+            "t",
+            "d"
+          ],
+          [
+            9,
+            "a",
+            "e"
+          ],
+          [
+            10,
+            "r",
+            "h"
+          ]
+        ],
+        "sha256_forward": "d2b0776d65c6742bb5675b10998ace9a959433419a891b6c719e183343f7fe95",
+        "sha256_reverse": "e4c8eeade50ddf8b9da5eb8d595f043d990ff151cbaeeac88b9e1cb3064023c6"
+      },
+      "provenance": {
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
+        "word_level_trie_nodes": 19,
+        "crosses_word_boundaries": true,
+        "crosses_sentence_boundaries": true,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false,
+        "repeated_units": false,
+        "self_palindromic_units": false
+      }
+    },
+    {
+      "rendered": "An earnest archivist mapped the western inlet. The pilot asked if the harbor lantern remained lit. The watchman replied that the beacon guided the boats. At dusk the keeper watched the arena.",
+      "roles": {
+        "A1": "An earnest archivist mapped the western inlet.",
+        "B1_question": "The pilot asked if the harbor lantern remained lit.",
+        "B2_response": "The watchman replied that the beacon guided the boats.",
+        "A2": "At dusk the keeper watched the arena."
+      },
+      "outer_domain_support": {
+        "width": 3,
+        "matched": 3,
+        "compatible": true,
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
+      },
+      "online_outer_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "a"
+        },
+        {
+          "offset": 1,
+          "left": "n",
+          "right": "n"
+        },
+        {
+          "offset": 2,
+          "left": "e",
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
+        }
+      ],
+      "audit": {
+        "letters": 156,
+        "two_pointer_exact": false,
+        "mismatches": [
+          [
+            3,
+            "a",
+            "r"
+          ],
+          [
+            4,
+            "r",
+            "a"
+          ],
+          [
+            5,
+            "n",
+            "e"
+          ],
+          [
+            6,
+            "e",
+            "h"
+          ],
+          [
+            7,
+            "s",
+            "t"
+          ],
+          [
+            8,
+            "t",
+            "d"
+          ],
+          [
+            9,
+            "a",
+            "e"
+          ],
+          [
+            10,
+            "r",
+            "h"
+          ]
+        ],
+        "sha256_forward": "863b2dda30b50d0c31d4ecd0fb2281dc57912f56cb69e22278eb7b69bf7573b8",
+        "sha256_reverse": "8656cec3bb869e709ae96c49ab48199b7a4bb809a028bf83e315016233fc3347"
+      },
+      "provenance": {
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
+        "word_level_trie_nodes": 19,
+        "crosses_word_boundaries": true,
+        "crosses_sentence_boundaries": true,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false,
+        "repeated_units": false,
+        "self_palindromic_units": false
+      }
+    },
+    {
+      "rendered": "An earnest archivist mapped the western inlet. The pilot asked if the harbor lantern remained lit. The keeper answered that the harbor lantern guided sailors. At dusk the keeper watched the arena.",
+      "roles": {
+        "A1": "An earnest archivist mapped the western inlet.",
+        "B1_question": "The pilot asked if the harbor lantern remained lit.",
+        "B2_response": "The keeper answered that the harbor lantern guided sailors.",
+        "A2": "At dusk the keeper watched the arena."
+      },
+      "outer_domain_support": {
+        "width": 3,
+        "matched": 3,
+        "compatible": true,
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
+      },
+      "online_outer_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "a"
+        },
+        {
+          "offset": 1,
+          "left": "n",
+          "right": "n"
+        },
+        {
+          "offset": 2,
+          "left": "e",
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
+        }
+      ],
+      "audit": {
+        "letters": 161,
+        "two_pointer_exact": false,
+        "mismatches": [
+          [
+            3,
+            "a",
+            "r"
+          ],
+          [
+            4,
+            "r",
+            "a"
+          ],
+          [
+            5,
+            "n",
+            "e"
+          ],
+          [
+            6,
+            "e",
+            "h"
+          ],
+          [
+            7,
+            "s",
+            "t"
+          ],
+          [
+            8,
+            "t",
+            "d"
+          ],
+          [
+            9,
+            "a",
+            "e"
+          ],
+          [
+            10,
+            "r",
+            "h"
+          ]
+        ],
+        "sha256_forward": "17e3bcd44398202a971073f53cadee6cd4c093b23506c966c5666a0535df6cda",
+        "sha256_reverse": "7d1a67528a58c8593ddec4f9fa6000146ea6c18134c1baf650f8b75eb22c3d10"
+      },
+      "provenance": {
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
+        "word_level_trie_nodes": 19,
+        "crosses_word_boundaries": true,
+        "crosses_sentence_boundaries": true,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false,
+        "repeated_units": false,
+        "self_palindromic_units": false
+      }
+    },
+    {
+      "rendered": "An earnest archivist mapped the western inlet. The captain asked whether the beacon still burned. The watchman replied that the beacon guided the boats. At dawn the keeper surveyed the arena.",
+      "roles": {
+        "A1": "An earnest archivist mapped the western inlet.",
+        "B1_question": "The captain asked whether the beacon still burned.",
+        "B2_response": "The watchman replied that the beacon guided the boats.",
+        "A2": "At dawn the keeper surveyed the arena."
+      },
+      "outer_domain_support": {
+        "width": 3,
+        "matched": 3,
+        "compatible": true,
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
+      },
+      "online_outer_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "a"
+        },
+        {
+          "offset": 1,
+          "left": "n",
+          "right": "n"
+        },
+        {
+          "offset": 2,
+          "left": "e",
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
+        }
+      ],
+      "audit": {
+        "letters": 157,
+        "two_pointer_exact": false,
+        "mismatches": [
+          [
+            3,
+            "a",
+            "r"
+          ],
+          [
+            4,
+            "r",
+            "a"
+          ],
+          [
+            5,
+            "n",
+            "e"
+          ],
+          [
+            6,
+            "e",
+            "h"
+          ],
+          [
+            7,
+            "s",
+            "t"
+          ],
+          [
+            8,
+            "t",
+            "d"
+          ],
+          [
+            9,
+            "a",
+            "e"
+          ],
+          [
+            10,
+            "r",
+            "y"
+          ]
+        ],
+        "sha256_forward": "9ace5973b04079d70418ea3497f381339ddef7280431ac7e6702312b3fbdbb0c",
+        "sha256_reverse": "33a035979fe1b9e173eedf0133585dc30dfee01f078a1c327722ff996f2b3f04"
+      },
+      "provenance": {
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
+        "word_level_trie_nodes": 19,
+        "crosses_word_boundaries": true,
+        "crosses_sentence_boundaries": true,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false,
+        "repeated_units": false,
+        "self_palindromic_units": false
+      }
+    },
+    {
+      "rendered": "An earnest archivist mapped the western inlet. The captain asked whether the beacon still burned. The keeper answered that the harbor lantern guided sailors. At dawn the keeper surveyed the arena.",
+      "roles": {
+        "A1": "An earnest archivist mapped the western inlet.",
+        "B1_question": "The captain asked whether the beacon still burned.",
+        "B2_response": "The keeper answered that the harbor lantern guided sailors.",
+        "A2": "At dawn the keeper surveyed the arena."
+      },
+      "outer_domain_support": {
+        "width": 3,
+        "matched": 3,
+        "compatible": true,
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
+      },
+      "online_outer_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "a"
+        },
+        {
+          "offset": 1,
+          "left": "n",
+          "right": "n"
+        },
+        {
+          "offset": 2,
+          "left": "e",
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
+        }
+      ],
+      "audit": {
+        "letters": 162,
+        "two_pointer_exact": false,
+        "mismatches": [
+          [
+            3,
+            "a",
+            "r"
+          ],
+          [
+            4,
+            "r",
+            "a"
+          ],
+          [
+            5,
+            "n",
+            "e"
+          ],
+          [
+            6,
+            "e",
+            "h"
+          ],
+          [
+            7,
+            "s",
+            "t"
+          ],
+          [
+            8,
+            "t",
+            "d"
+          ],
+          [
+            9,
+            "a",
+            "e"
+          ],
+          [
+            10,
+            "r",
+            "y"
+          ]
+        ],
+        "sha256_forward": "67faa08ff35f2e2030176c5f1f7830c32f1a27e17c1d84fe42c1dd802d1ab984",
+        "sha256_reverse": "0a3d9cf2bb62f4e8dd6dc51ca3c49fe9b76b71fb3378fc36cd3863c7a09828eb"
+      },
+      "provenance": {
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
+        "word_level_trie_nodes": 19,
+        "crosses_word_boundaries": true,
+        "crosses_sentence_boundaries": true,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false,
+        "repeated_units": false,
+        "self_palindromic_units": false
+      }
+    },
+    {
+      "rendered": "An earnest archivist mapped the western inlet. The pilot asked if the harbor lantern remained lit. The watchman replied that the beacon guided the boats. At dawn the keeper surveyed the arena.",
+      "roles": {
+        "A1": "An earnest archivist mapped the western inlet.",
+        "B1_question": "The pilot asked if the harbor lantern remained lit.",
+        "B2_response": "The watchman replied that the beacon guided the boats.",
+        "A2": "At dawn the keeper surveyed the arena."
+      },
+      "outer_domain_support": {
+        "width": 3,
+        "matched": 3,
+        "compatible": true,
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
+      },
+      "online_outer_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "a"
+        },
+        {
+          "offset": 1,
+          "left": "n",
+          "right": "n"
+        },
+        {
+          "offset": 2,
+          "left": "e",
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
+        }
+      ],
+      "audit": {
+        "letters": 157,
+        "two_pointer_exact": false,
+        "mismatches": [
+          [
+            3,
+            "a",
+            "r"
+          ],
+          [
+            4,
+            "r",
+            "a"
+          ],
+          [
+            5,
+            "n",
+            "e"
+          ],
+          [
+            6,
+            "e",
+            "h"
+          ],
+          [
+            7,
+            "s",
+            "t"
+          ],
+          [
+            8,
+            "t",
+            "d"
+          ],
+          [
+            9,
+            "a",
+            "e"
+          ],
+          [
+            10,
+            "r",
+            "y"
+          ]
+        ],
+        "sha256_forward": "36e093d605873a2a5962e9b5007c5675c2b156a1a6d71ec49f3c6a95828c6270",
+        "sha256_reverse": "54679fdb8f464989b14a6c08baa14c1901ad67e9c5807aa79ff6125cad168845"
+      },
+      "provenance": {
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
+        "word_level_trie_nodes": 19,
+        "crosses_word_boundaries": true,
+        "crosses_sentence_boundaries": true,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false,
+        "repeated_units": false,
+        "self_palindromic_units": false
+      }
+    },
+    {
+      "rendered": "An earnest archivist mapped the western inlet. The pilot asked if the harbor lantern remained lit. The keeper answered that the harbor lantern guided sailors. At dawn the keeper surveyed the arena.",
+      "roles": {
+        "A1": "An earnest archivist mapped the western inlet.",
+        "B1_question": "The pilot asked if the harbor lantern remained lit.",
+        "B2_response": "The keeper answered that the harbor lantern guided sailors.",
+        "A2": "At dawn the keeper surveyed the arena."
+      },
+      "outer_domain_support": {
+        "width": 3,
+        "matched": 3,
+        "compatible": true,
+        "left_exposed": "ane",
+        "right_reverse_exposed": "ane"
+      },
+      "online_outer_trace": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "a"
+        },
+        {
+          "offset": 1,
+          "left": "n",
+          "right": "n"
+        },
+        {
+          "offset": 2,
+          "left": "e",
+          "right": "e"
+        },
+        {
+          "offset": 3,
+          "left": "a",
+          "right": "r"
+        }
+      ],
+      "audit": {
+        "letters": 162,
+        "two_pointer_exact": false,
+        "mismatches": [
+          [
+            3,
+            "a",
+            "r"
+          ],
+          [
+            4,
+            "r",
+            "a"
+          ],
+          [
+            5,
+            "n",
+            "e"
+          ],
+          [
+            6,
+            "e",
+            "h"
+          ],
+          [
+            7,
+            "s",
+            "t"
+          ],
+          [
+            8,
+            "t",
+            "d"
+          ],
+          [
+            9,
+            "a",
+            "e"
+          ],
+          [
+            10,
+            "r",
+            "y"
+          ]
+        ],
+        "sha256_forward": "6b098de0d0e7ad3a62be2fa8583e3623ce419a5b41b58c2882a2b916bb7d9602",
+        "sha256_reverse": "17a40f580d24167a5262f779a57af16acd17565225cc0a8dc457dd1552707fb4"
+      },
+      "provenance": {
+        "construction": "four complete authored sentences with three-character outer-domain conditioning plus unchanged question/response center",
         "word_level_trie_nodes": 19,
         "crosses_word_boundaries": true,
         "crosses_sentence_boundaries": true,
@@ -1504,7 +1564,7 @@
   "exact_candidates": [],
   "novelty_preflight": {
     "status": "passed",
-    "signature": "paragraph-abba|word-trie|dialogue-question-response|cross-boundary",
+    "signature": "paragraph-abba|word-trie|dialogue-question-response|cross-boundary|three-char-residual",
     "distinct_from": "complete-clause residual decoders and fixed ABBA phrase banks",
     "finished_tape_reversal": false,
     "catalogue_text": false
@@ -1517,5 +1577,5 @@
     "reader_gate": "closed unless exact >38"
   },
   "status": "no exact closure; dialogue center retained",
-  "next_repair": "Index question/response words by the next live inner residual after an outer pair survives; do not widen the outer sentence bank"
+  "next_repair": "Index question/response words by the next live inner residual after the three-character outer pair survives; do not widen the outer sentence bank"
 }

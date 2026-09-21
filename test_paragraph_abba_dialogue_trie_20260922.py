@@ -31,3 +31,8 @@ def test_run_keeps_complete_prose_and_independent_hashes():
     assert all(row['audit']['sha256_forward'] != row['audit']['sha256_reverse']
                for row in result['rendered_candidates'])
     assert result['stats']['exact_gt38'] == 0
+    assert result['stats']['outer_pruned'] == 5
+    assert all(row['outer_domain_support']['width'] == 3
+               and row['outer_domain_support']['matched'] == 3
+               for row in result['rendered_candidates'])
+    assert any('earnest archivist' in row['rendered'] for row in result['rendered_candidates'])

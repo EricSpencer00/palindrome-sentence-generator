@@ -72,7 +72,7 @@ that benchmark (with the paper's promotion floor at 100 letters), followed by
 the blinded intact-prose versus shuffled-control study. No wrapper, catalogue
 relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
-## Current frontier (2026-09-21 API audit and constructive reset)
+## Current frontier (2026-09-20 API audit and constructive reset)
 
 - **Live API audit.** The deployed `/api/v3/health` endpoint reports 499
   generated entries and 14,500 letters of compositional capacity. A deterministic

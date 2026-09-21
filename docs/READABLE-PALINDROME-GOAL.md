@@ -246,6 +246,14 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   incremental generator; the next operator must carry nonterminal continuations
   into the walk (`runs/incremental-character-grammar-product-20260921.json`).
 
+- **Fresh-scene center seam lattice.** A hand-authored scene lattice joined
+  unequal-word-count clauses with causal or temporal links, solving the seam
+  equation before rendering. It produced eight intact controls, including
+  `The patient scout marks a narrow trail; a small beacon leads the crew onward
+  because night falls.` (79 letters), but zero exact closures. The concrete next
+  operator is a held-out three-character connector lattice, not another lexical
+  sweep (`runs/fresh-scene-center-seam-20260921.json`).
+
 - **Overlap-trie source correction.** A reverse-complement overlap prototype
   explored 21,520 boundary states and 153,057 word-interior steps, but its
   fallback controls did not couple opposing characters and recorded zero

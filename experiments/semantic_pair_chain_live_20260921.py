@@ -34,14 +34,15 @@ CENTER = {
     "det": ("a", "an", "the"),
     "subject": ("artist", "clerk", "farmer", "guide", "keeper", "poet", "sailor", "teacher", "writer"),
     "rel": ("that", "who"),
-    "verb": ("carries", "guides", "helps", "keeps", "marks", "reads", "sees", "writes"),
+    "aux": ("can", "will"),
+    "verb": ("carry", "guide", "help", "keep", "mark", "read", "see", "write"),
     "object": ("book", "gate", "lamp", "letter", "map", "memo", "note", "plan"),
 }
 
 # Three authored clause templates. The center clause has a real function-word
 # edge and distinct argument roles; all frames are entered through live debt.
 LFRAME = ("det", "agent", "verb", "num", "object")
-CFRAME = ("link", "det", "subject", "rel", "verb", "object")
+CFRAME = ("link", "det", "subject", "rel", "aux", "verb", "object")
 RFRAME = ("det", "subject", "verb", "name", "prep", "place")
 LCHAIN = LFRAME + CFRAME
 
@@ -69,7 +70,8 @@ def agreement(left: dict, right: dict) -> bool:
     if left["agent"] in {"aide", "artist", "baker", "clerk", "keeper", "pilot", "poet", "teacher", "writer"} and left["verb"] not in {"carries", "guides", "helps", "keeps", "marks", "reads", "rips", "sees", "writes"}: return False
     if right["subject"] in {"men", "artists", "clerks", "farmers", "guides", "keepers", "poets", "sailors", "teachers", "writers"} and right["verb"] not in {"carry", "guide", "help", "keep", "mark", "read", "see", "write"}: return False
     return (left.get("link") in CENTER["link"] and left.get("subject") in CENTER["subject"]
-            and left.get("rel") in CENTER["rel"] and left.get("verb") in CENTER["verb"])
+            and left.get("rel") in CENTER["rel"] and left.get("aux") in CENTER["aux"]
+            and left.get("verb") in CENTER["verb"])
 
 def main() -> None:
     reg = json.loads(REG.read_text())
@@ -120,7 +122,7 @@ def main() -> None:
                            "word_order_only": False, "catalogue": False}
     result = {"experiment": "semantic-pair-chain-live-20260921", "signature": SIG,
       "status": "completed_exact_closure" if exact else "completed_no_exact_closure",
-      "method": "Three-frame semantic pair-chain CSP; select complete role words including a connector- and relative-pronoun-bearing center clause while solving live character debt at asymmetric word boundaries.",
+      "method": "Three-frame semantic pair-chain CSP; select complete role words including a connector-, relative-pronoun-, and modal-bearing center clause while solving live character debt at asymmetric word boundaries.",
       "novelty_preflight": {"registry_entries_read": len(reg.get("entries", [])), "signature_collision": collision,
           "distinct_from": "fixed-slot product, reverse segmentation, post-render repair, catalogue/mirror pair lanes"},
       "stats": {"nodes": nodes, "prunes": prunes, "terminals": terminals, "exact": len(exact), "longest_exact": max((x['audit']['letters'] for x in exact), default=0)},

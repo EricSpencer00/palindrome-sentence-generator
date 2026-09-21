@@ -145,6 +145,46 @@ def seam_indexed_residual(left_words, right_words):
         lo += 1; ro += 1
     return True
 
+def online_residual_domains(left_slots, right_slots, node_limit=50000):
+    """Assign lexical domains online, propagating exposed seam characters.
+
+    Unlike completed-arc pairing, each recursive state assigns one role word
+    at an end and immediately compares every now-exposed character against
+    the opposite residual.  Domains are independent and semantic slots stay
+    attached to their event roles.
+    """
+    nodes = 0
+    solutions = []
+    def compatible(left, right):
+        k = min(len(left), len(right))
+        return left[:k] == right[::-1][:k]
+    def rec(li, ri, lw, rw):
+        nonlocal nodes
+        nodes += 1
+        if nodes > node_limit: return
+        if li == len(left_slots) and ri == len(right_slots):
+            if len("".join(lw)) == len("".join(rw)) and seam_indexed_residual(lw, rw):
+                solutions.append((lw[:], rw[:]))
+            return
+        # Expose one left role and one right role independently.  The shorter
+        # accumulated side gets priority, so the center is not fixed to a
+        # token boundary.
+        ltot, rtot = sum(map(len, lw)), sum(map(len, rw))
+        if li < len(left_slots) and (ri == len(right_slots) or ltot <= rtot):
+            for w in BANK[left_slots[li]]:
+                if not lw or w != lw[-1]:
+                    nl = lw + [w]
+                    if compatible("".join(nl), "".join(rw)):
+                        rec(li + 1, ri, nl, rw)
+        elif ri < len(right_slots):
+            for w in BANK[right_slots[ri]]:
+                if not rw or w != rw[-1]:
+                    nr = rw + [w]
+                    if compatible("".join(lw), "".join(nr)):
+                        rec(li, ri + 1, lw, nr)
+    rec(0, 0, [], [])
+    return {"nodes": nodes, "solutions": solutions}
+
 def search():
     cs = clauses()
     # Group by total length so the seam is a genuine residual equation.  The
@@ -187,9 +227,18 @@ def search():
                     continue
                 if au["exact"]:
                     results.append(rec)
+    online = online_residual_domains(TEMPLATES[-1][1], TEMPLATES[-1][1], node_limit=50000)
+    for lw, rw in online["solutions"]:
+        text = render(lw)[:-1] + "; " + " ".join(rw) + "."
+        au = audit(text)
+        results.append({"text": text, "length": au["letters"], "audit": au,
+                        "left_slots": TEMPLATES[-1][1], "right_slots": TEMPLATES[-1][1],
+                        "provenance": "online_seam_indexed_role_domains",
+                        "novelty": "independent_role_arcs", "reader_worthy": False})
     return {"method": "center_seam_event_constructor", "templates": len(TEMPLATES),
             "clauses": len(cs), "exact_candidates": results,
             "controls": controls, "pairs_seen": pairs_seen,
+            "online_nodes": online["nodes"], "online_solutions": len(online["solutions"]),
             "next_repair": "replace independent clause pair with seam-indexed lexical residual domains; current typed arcs have no compatible residual closure"}
 
 if __name__ == "__main__":

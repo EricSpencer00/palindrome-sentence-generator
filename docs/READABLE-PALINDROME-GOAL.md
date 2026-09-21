@@ -8594,3 +8594,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   not a palindrome: 4 controls, 2 typed-compatible, 0 exact. The next repair
   is argument-role (agent/theme) state, then a three-tile composition. Artifact:
   `runs/typed-edge-tile-composition-20260921.json`.
+
+- **Role-typed three-tile discourse, 2026-09-21:** carried agent, theme, and
+  tense labels through all six permutations of three complete scene clauses
+  before rendering. Every path passes the role compatibility check and lexical
+  disjointness, yielding controls such as “The scout maps a cove; then our
+  guide carries one key; finally the keeper watches a beacon.” (the artifact
+  labels these as grammatical templates, not reader-certified prose). Full
+  pointer/SHA audits find zero exact tapes; no output is promoted. The next
+  operator is discourse-coreference state, with lexical repetition still
+  forbidden. Artifact:
+  `runs/role-typed-three-tile-composition-20260921.json`.

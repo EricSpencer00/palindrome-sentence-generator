@@ -8584,3 +8584,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   provenance, not presented as generated palindromes. The concrete next
   construction is typed subject/object/tense edge states on the tiles.
   Artifact: `runs/orthogonal-tile-composition-20260921.json`.
+
+- **Typed edge-state tile composition, 2026-09-21:** added subject-number and
+  tense compatibility as pre-render gates over two left and two right scene
+  clauses. Two compatible controls remain ordinary English (for example,
+  “Our guides carried a key, while sailors found the harbor.”); lexical-word
+  disjointness is checked independently of shared articles, and both compatible
+  tapes fail whole-output reversal. This is a construction-selection result,
+  not a palindrome: 4 controls, 2 typed-compatible, 0 exact. The next repair
+  is argument-role (agent/theme) state, then a three-tile composition. Artifact:
+  `runs/typed-edge-tile-composition-20260921.json`.

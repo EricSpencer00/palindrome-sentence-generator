@@ -108,6 +108,33 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   arcs by the live two-character residual
   (`runs/center-event-independent-clause-arcs-20260920.json`).
 
+## Current frontier (2026-09-21 API boundary and fresh lanes)
+
+- **Live API boundary.** The upstream API still reports the legacy 540-entry
+  v3 bank. A direct 420-letter request returns an exact 408--410-letter,
+  117--121-word composition with distinct chunks and valid pointer/SHA replay,
+  but its rendered text is visibly word salad (for example, “Dad, sir, or
+  recipe wolf ...”). It remains useful as an architectural provenance
+  reference, not as readable evidence. The public Pages proxy now returns the
+  same evidence-gated 503 for `/api/generate` and all versioned generation
+  routes while allowing health/diagnostic endpoints through
+  (`web/functions/api/[[path]].js`).
+
+- **Mechanical versus reader frontier.** The historical v4 diagnostics contain
+  a mechanically clean 50-letter row, “To new one post is an evening. Is sign
+  in even as its open owe. Not.” Its exact pointer/SHA checks and admission
+  flags pass, but its prose is incoherent and it has no human certification;
+  it is not an improvement over the 38-letter reader-admitted benchmark.
+
+- **Fresh construction lanes.** The executable-discourse proposal was stopped
+  at novelty preflight because three prior shared-orbit discourse lanes already
+  cover it (`runs/executable-discourse-orbit-new-20260921.json`). A genuinely
+  joint typed lexicalization lane then enumerated 16 plan pairs and 512
+  prefix-compatible scenes at 26--35 letters; all 512 independent audits
+  passed, with zero exact closures (`runs/obligation-carrying-lexicalization-20260921.json`).
+  This is a bounded representation result, not a readable-palindrome result,
+  and it is not being widened into another inventory sweep.
+
 - **Proof-carrying denotational equality classes.** To escape the exhausted
   clause-bank geometry, the search object was changed to meaning-equivalent
   sentence programs. Twelve authored propositions were packed into equality

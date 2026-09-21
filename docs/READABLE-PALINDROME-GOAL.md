@@ -7679,6 +7679,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   residual-indexed lexical transitions on those chart edges, not a larger
   Cartesian word bank. Artifact: `runs/regular-shared-character-20260921.json`.
 
+- **Residual-indexed lexical branching, 2026-09-21:** ranked each live
+  character branch by forward lexical support at the current position and
+  backward support at its mirrored position, without scoring completed tapes.
+  Across every target length 39--100, the expanded grammar reached a root
+  conflict at one node; no exact candidate was emitted. This validates the
+  branch-ordering mechanism but closes no broader language class. The next
+  operator is a typed adjunct or embedded object-relative edge added to the
+  residual-indexed chart. Artifact:
+  `runs/regular-shared-character-20260921.json`.
+
 - **Hand-authored phrase lattice, 2026-09-21:** selected phrase alternatives
   from both ends while debt was live and independently audited the terminal.
   It visited 26 nodes and reached one exact terminal, but that terminal was

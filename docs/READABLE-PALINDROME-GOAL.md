@@ -8032,6 +8032,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   topology is a nine-event graph with a fifth bridge and rank-stability
   perturbation. Artifact: `runs/eight-event-cycle-rank-20260921.json`.
 
+- **Nine-event rank-stability graph, 2026-09-21:** added a fifth focus bridge
+  (`e8.fence -> e9.bread`) with cycle-basis rank 4; removing
+  `e7.trail -> e8.fence` drops the rank to 3. One 202-letter intact control
+  produced one online check and zero exact closures above 38. The next
+  topology is a ten-event graph with bridge-cut sensitivity and a two-sided
+  rank witness. Artifact: `runs/nine-event-rank-stability-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.

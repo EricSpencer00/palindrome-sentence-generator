@@ -7985,6 +7985,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   is a three-event graph with one cross-event temporal attachment. Artifact:
   `runs/multi-event-attachment-constraint-20260921.json`.
 
+- **Three-event temporal attachment graph, 2026-09-21:** expanded to three
+  event nodes sharing focus `ward` with a cross-event `e3.temporal -> e1`
+  constraint, while retaining paired terminal expansion under the global
+  endpoint invariant. The run checked one 68-letter intact control, recorded
+  one online conflict, and produced zero exact closures above 38. The next
+  topology is a four-event graph with two shared focuses and a second temporal
+  constraint. Artifact:
+  `runs/three-event-temporal-attachment-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.

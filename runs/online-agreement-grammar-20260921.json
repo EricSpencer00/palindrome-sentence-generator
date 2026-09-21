@@ -1,0 +1,118 @@
+{
+  "experiment_id": "online-agreement-grammar-20260921",
+  "method": "Online equal-character product of agreement-carrying clause alternatives",
+  "grammar": [
+    [
+      "A quiet archivist records ",
+      "A patient teacher guides ",
+      "The young sailor maps ",
+      "An honest witness marks "
+    ],
+    [
+      "the old harbor; ",
+      "a narrow inlet; ",
+      "the winter road; ",
+      "a quiet garden; "
+    ],
+    [
+      "a quiet archivist records ",
+      "a patient teacher guides ",
+      "the young sailor maps ",
+      "an honest witness marks "
+    ],
+    [
+      "the old harbor.",
+      "a narrow inlet.",
+      "the winter road.",
+      "a quiet garden."
+    ]
+  ],
+  "result": {
+    "candidates": [],
+    "stats": {
+      "states": 2,
+      "matched_transitions": 1,
+      "dead_frontiers": 1,
+      "deepest_matched_pairs": 1,
+      "nfa_edges": 260
+    },
+    "dead_frontier_examples": [
+      {
+        "depth": 1,
+        "left_state": 42,
+        "right_state": 224,
+        "left_consumed": "t",
+        "right_consumed": "t",
+        "left_started_words": "The young sailor maps ",
+        "right_started_words": "",
+        "required_from_left": [
+          "h"
+        ],
+        "available_from_right": [
+          "e"
+        ]
+      }
+    ],
+    "enumeration": "One witness per (left state, right state, depth); complete for existence, not all surface variants."
+  },
+  "controls": [
+    {
+      "text": "A quiet archivist records the old harbor; a quiet archivist records the old harbor.",
+      "audit": {
+        "letters": 68,
+        "two_pointer_exact": false,
+        "forward_sha256": "60f7ec21587ec0790022ccaade192f2f1951cbee50bbd45cc8f0c70c8afaa310",
+        "reverse_sha256": "6d70c132f1555b05f24d649f6424fd6b88c169806e9a86de30a5a0188a5e7b09",
+        "hash_equal": false
+      },
+      "readable_control": true
+    },
+    {
+      "text": "A patient teacher guides a narrow inlet; a patient teacher guides a narrow inlet.",
+      "audit": {
+        "letters": 66,
+        "two_pointer_exact": false,
+        "forward_sha256": "84563d88814fb5fea6eac07aa4c0b2a48ced48f448f07c7ccb548a95cba0d887",
+        "reverse_sha256": "27c7fc22b78792d7447e320fb50144b6a69e2f192e8c4fe9ea19d6c9f0c02b40",
+        "hash_equal": false
+      },
+      "readable_control": true
+    },
+    {
+      "text": "The young sailor maps the winter road; the young sailor maps the winter road.",
+      "audit": {
+        "letters": 62,
+        "two_pointer_exact": false,
+        "forward_sha256": "34972558c3b9536252f5087c7daf056e4ffd450e99e6d1a7b2672eec937c7ba3",
+        "reverse_sha256": "0301b01a0f08e5e418ae8cca5897829052d8b314dcf35c345850a23dd6e4ef77",
+        "hash_equal": false
+      },
+      "readable_control": true
+    }
+  ],
+  "provenance": {
+    "source": "Fresh hand-authored agreement grammar; no catalogue sentence, seed, or generated palindrome is an input.",
+    "generator_sha256": "5a43963bde3302e21310780361503ecf62a52152e498669970f32a42599be39c",
+    "engine": "online_regular_language_palindrome_20260921.intersect"
+  },
+  "independent_checks": {
+    "engine_self_test": {
+      "tiny_exhaustive_oracles": 3,
+      "declared_seed_regression": true
+    },
+    "candidate_audit": [],
+    "pointer_and_sha_requirements": "two_pointer_exact, forward_sha256, reverse_sha256, and hash_equal are computed independently for every returned path"
+  },
+  "novelty_preflight": {
+    "status": "fresh bounded lexical grammar, not counted as a breakthrough",
+    "distinction": "Agreement is carried in clause alternatives before online character intersection; no completed-path repair or post-hoc filtering is used.",
+    "checked_against": [
+      "online-regular-language-palindrome-20260921",
+      "shared-tape-finite-automata-role-ledger-20260921",
+      "lexicalized-macro-grammar-20260921"
+    ]
+  },
+  "reader_evidence": null,
+  "reader_gate": "Closed: no exact candidate was admitted; controls are not palindrome evidence.",
+  "next_frontier": "Add a second agreement-bearing frame with tense and transitive-object compatibility, while retaining live character obligations; do not repair any rendered path."
+}

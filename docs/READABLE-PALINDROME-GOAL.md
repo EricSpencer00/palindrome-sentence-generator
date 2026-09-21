@@ -7994,6 +7994,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   constraint. Artifact:
   `runs/three-event-temporal-attachment-20260921.json`.
 
+- **Four-event temporal attachment graph, 2026-09-21:** added two shared
+  discourse focuses (`ward`, `gate`) and two cross-event temporal constraints
+  (`e3.temporal -> e1`, `e4.temporal -> e2`) under the global endpoint CSP. One
+  90-letter intact control was checked with one online conflict and zero exact
+  closures above 38. The next topology is a five-event graph with a shared-
+  focus bridge and one causal-temporal cycle. Artifact:
+  `runs/four-event-temporal-attachment-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.

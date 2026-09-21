@@ -8039,6 +8039,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   topology is a ten-event graph with bridge-cut sensitivity and a two-sided
   rank witness. Artifact: `runs/nine-event-rank-stability-20260921.json`.
 
+- **Ten-event bridge-cut graph, 2026-09-21:** recorded bridge-cut sensitivity
+  at `e6 -> e8` and a two-sided rank witness (left 2, right 2) under the
+  global endpoint CSP. One 224-letter intact control produced one online check
+  and zero exact closures above 38. The next topology is an eleven-event graph
+  with asymmetric cut placement and rank-balance witness. Artifact:
+  `runs/ten-event-bridge-cut-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.

@@ -20,6 +20,8 @@ EVENTS = (
     {"id": "water", "verb": "waters", "plural_verb": "water", "object": "the orchard", "kind": "transitive"},
     {"id": "carry", "verb": "carries", "plural_verb": "carry", "object": "a letter", "kind": "transitive"},
     {"id": "watch", "verb": "watches", "plural_verb": "watch", "object": "the quiet harbor", "kind": "transitive"},
+    {"id": "rest", "verb": "rests", "plural_verb": "rest", "object": "in the old garden", "kind": "locative"},
+    {"id": "give", "verb": "gives", "plural_verb": "give", "object": "the child a bright kite", "kind": "ditransitive"},
 )
 
 
@@ -41,9 +43,10 @@ def render(p, e, side):
     verb = e["plural_verb"] if p["number"] == "plural" else e["verb"]
     if side == "left":
         return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['object']}"
-    # Same graph, alternate grammatical realization; no mirrored token reuse.
-    tail = "the clear path" if e["kind"] == "transitive" else "the old road"
-    return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['object']} beside {tail}"
+    # Same graph, typed edge-specific realization; no mirrored token reuse.
+    tails = {"transitive": "beside the clear path", "locative": "near the stone wall",
+             "ditransitive": "before the open gate"}
+    return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['object']} {tails[e['kind']]}"
 
 
 def synchronous_pair(p, e):
@@ -77,7 +80,7 @@ def run():
                 {"rendered": "A careful merchant carries a letter beside the clear path.", "audit": audit("A careful merchant carries a letter beside the clear path."), "control": True}]
     hashes = [r["audit"]["sha256_forward"] for r in rows]
     return {"experiment_id": "shared-scene-synchronous-transducer-20260921",
-            "method": "shared typed semantic scene graph; synchronous two-renderer transducer with live inward character obligations",
+            "method": "shared typed semantic scene graph; synchronous two-renderer transducer with live inward character obligations and locative/ditransitive edge labels",
             "novelty_preflight": {"status": "passed", "output_hashes_unique": len(hashes) == len(set(hashes)),
                                   "distinct_from": "relative/instrument lanes and typed-CFG frontier: one shared graph emits both sides under lockstep obligations before sentence rendering"},
             "stats": {"participants": len(PARTICIPANTS), "events": len(EVENTS), "graph_states": len(rows),
@@ -87,7 +90,7 @@ def run():
             "complete_prose_controls": controls,
             "provenance": {"audits": ["independent two-pointer comparison", "forward/reverse SHA-256"],
                            "reader_gate": "closed; controls retained", "rendered_output_hashes": hashes},
-            "next_construction": {"operator": "typed edge-label alternation", "change": "add locative and ditransitive edge labels with distinct right realization while retaining shared participant identity and live obligation rejection", "reason": "current lexical graph has no compatible boundary closure"},
+            "next_construction": {"operator": "typed edge-label agreement", "change": "carry preposition and recipient agreement through a second participant edge while retaining shared participant identity and live obligation rejection", "reason": "the expanded edge labels remain semantically intact but have no compatible boundary closure"},
             "status": "fresh exact >38 requires reading" if exact else "no exact clean closure; complete-prose controls retained"}
 
 

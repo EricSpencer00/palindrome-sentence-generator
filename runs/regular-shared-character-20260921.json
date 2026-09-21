@@ -469,153 +469,186 @@
           ]
         ]
       ]
+    },
+    {
+      "name": "question_then_person_event",
+      "slots": [
+        [
+          "aux_question",
+          [
+            "can",
+            "will"
+          ]
+        ],
+        [
+          "question_det",
+          [
+            "the",
+            "a"
+          ]
+        ],
+        [
+          "question_agent_sg",
+          [
+            "artist",
+            "writer",
+            "pilot"
+          ]
+        ],
+        [
+          "question_verb",
+          [
+            "read",
+            "see",
+            "help"
+          ]
+        ],
+        [
+          "question_det_obj",
+          [
+            "a",
+            "the"
+          ]
+        ],
+        [
+          "question_object",
+          [
+            "map",
+            "book",
+            "letter"
+          ]
+        ],
+        [
+          "second_clause_det",
+          [
+            "some",
+            "many",
+            "the"
+          ]
+        ],
+        [
+          "animate_plural",
+          [
+            "men",
+            "women",
+            "artists",
+            "poets"
+          ]
+        ],
+        [
+          "animate_object_transitive_plural",
+          [
+            "inspire",
+            "help",
+            "guide",
+            "meet"
+          ]
+        ],
+        [
+          "person",
+          [
+            "Diana",
+            "Nora",
+            "Mira",
+            "Leon",
+            "Ariel"
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "relative_clause_then_person_event",
+      "slots": [
+        [
+          "relative_det",
+          [
+            "the",
+            "a"
+          ]
+        ],
+        [
+          "relative_agent_sg",
+          [
+            "artist",
+            "writer",
+            "pilot"
+          ]
+        ],
+        [
+          "relative_marker",
+          [
+            "who"
+          ]
+        ],
+        [
+          "relative_verb_sg",
+          [
+            "reads",
+            "sees",
+            "helps"
+          ]
+        ],
+        [
+          "relative_det_obj",
+          [
+            "a",
+            "the"
+          ]
+        ],
+        [
+          "relative_object",
+          [
+            "map",
+            "book",
+            "letter"
+          ]
+        ],
+        [
+          "second_clause_det",
+          [
+            "some",
+            "many",
+            "the"
+          ]
+        ],
+        [
+          "animate_plural",
+          [
+            "men",
+            "women",
+            "artists",
+            "poets"
+          ]
+        ],
+        [
+          "animate_object_transitive_plural",
+          [
+            "inspire",
+            "help",
+            "guide",
+            "meet"
+          ]
+        ],
+        [
+          "person",
+          [
+            "Diana",
+            "Nora",
+            "Mira",
+            "Leon",
+            "Ariel"
+          ]
+        ]
+      ]
     }
   ],
   "results": [
-    {
-      "target_letters": 38,
-      "stats": {
-        "nodes": 3,
-        "propagation_rounds": 9,
-        "domain_values_removed": 974,
-        "conflicts": 0,
-        "cap_reached": false
-      },
-      "candidates": [
-        {
-          "text": "Some men inspire Diana; an aide rips nine memos.",
-          "audit": {
-            "letters": 38,
-            "normalized": "somemeninspiredianaanaideripsninememos",
-            "exact": true,
-            "independent_pointer_exact": true,
-            "normalizers_agree": true,
-            "sha256": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
-            "reverse_sha256": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec"
-          },
-          "lexical_path": [
-            {
-              "word": "some",
-              "role": "second_clause_det",
-              "frame": "person_event_then_artifact_action_0"
-            },
-            {
-              "word": "men",
-              "role": "animate_plural",
-              "frame": "person_event_then_artifact_action_0"
-            },
-            {
-              "word": "inspire",
-              "role": "animate_object_transitive_plural",
-              "frame": "person_event_then_artifact_action_0"
-            },
-            {
-              "word": "Diana",
-              "role": "person",
-              "frame": "person_event_then_artifact_action_0"
-            },
-            {
-              "word": "an",
-              "role": "second_clause_det",
-              "frame": "person_event_then_artifact_action_0"
-            },
-            {
-              "word": "aide",
-              "role": "animate_sg",
-              "frame": "person_event_then_artifact_action_0"
-            },
-            {
-              "word": "rips",
-              "role": "transitive_sg",
-              "frame": "person_event_then_artifact_action_0"
-            },
-            {
-              "word": "nine",
-              "role": "quantity_plural",
-              "frame": "person_event_then_artifact_action_0"
-            },
-            {
-              "word": "memos",
-              "role": "artifact_plural",
-              "frame": "person_event_then_artifact_action_0"
-            }
-          ],
-          "shortcut_flags": [],
-          "known_calibration": false,
-          "calibration_family": true,
-          "human_readability": "not_tested"
-        },
-        {
-          "text": "An aide rips nine memos; some men inspire Diana.",
-          "audit": {
-            "letters": 38,
-            "normalized": "anaideripsninememossomemeninspirediana",
-            "exact": true,
-            "independent_pointer_exact": true,
-            "normalizers_agree": true,
-            "sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
-            "reverse_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
-          },
-          "lexical_path": [
-            {
-              "word": "an",
-              "role": "det",
-              "frame": "artifact_action_then_person_event_0"
-            },
-            {
-              "word": "aide",
-              "role": "animate_sg",
-              "frame": "artifact_action_then_person_event_0"
-            },
-            {
-              "word": "rips",
-              "role": "transitive_sg",
-              "frame": "artifact_action_then_person_event_0"
-            },
-            {
-              "word": "nine",
-              "role": "quantity_plural",
-              "frame": "artifact_action_then_person_event_0"
-            },
-            {
-              "word": "memos",
-              "role": "artifact_plural",
-              "frame": "artifact_action_then_person_event_0"
-            },
-            {
-              "word": "some",
-              "role": "second_clause_det",
-              "frame": "artifact_action_then_person_event_0"
-            },
-            {
-              "word": "men",
-              "role": "animate_plural",
-              "frame": "artifact_action_then_person_event_0"
-            },
-            {
-              "word": "inspire",
-              "role": "animate_object_transitive_plural",
-              "frame": "artifact_action_then_person_event_0"
-            },
-            {
-              "word": "Diana",
-              "role": "person",
-              "frame": "artifact_action_then_person_event_0"
-            }
-          ],
-          "shortcut_flags": [],
-          "known_calibration": true,
-          "calibration_family": true,
-          "human_readability": "not_tested"
-        }
-      ]
-    },
     {
       "target_letters": 39,
       "stats": {
         "nodes": 1,
         "propagation_rounds": 4,
-        "domain_values_removed": 942,
+        "domain_values_removed": 927,
         "conflicts": 1,
         "cap_reached": false
       },
@@ -626,7 +659,18 @@
       "stats": {
         "nodes": 1,
         "propagation_rounds": 4,
-        "domain_values_removed": 968,
+        "domain_values_removed": 958,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 41,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 3,
+        "domain_values_removed": 919,
         "conflicts": 1,
         "cap_reached": false
       },
@@ -637,7 +681,18 @@
       "stats": {
         "nodes": 1,
         "propagation_rounds": 3,
-        "domain_values_removed": 918,
+        "domain_values_removed": 910,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 43,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 3,
+        "domain_values_removed": 857,
         "conflicts": 1,
         "cap_reached": false
       },
@@ -648,7 +703,40 @@
       "stats": {
         "nodes": 1,
         "propagation_rounds": 3,
-        "domain_values_removed": 946,
+        "domain_values_removed": 902,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 45,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 3,
+        "domain_values_removed": 1030,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 46,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 2,
+        "domain_values_removed": 896,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 47,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 2,
+        "domain_values_removed": 938,
         "conflicts": 1,
         "cap_reached": false
       },
@@ -659,7 +747,40 @@
       "stats": {
         "nodes": 1,
         "propagation_rounds": 2,
-        "domain_values_removed": 932,
+        "domain_values_removed": 900,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 49,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 2,
+        "domain_values_removed": 1004,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 50,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 2,
+        "domain_values_removed": 1118,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 51,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 2,
+        "domain_values_removed": 1223,
         "conflicts": 1,
         "cap_reached": false
       },
@@ -675,9 +796,317 @@
         "cap_reached": false
       },
       "candidates": []
+    },
+    {
+      "target_letters": 53,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 54,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 55,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 56,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 57,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 58,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 59,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 60,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 61,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 62,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 63,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 64,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 65,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 66,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 67,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 68,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 69,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 70,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 71,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 72,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 73,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 74,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 75,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 76,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 77,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 78,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 79,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
+    },
+    {
+      "target_letters": 80,
+      "stats": {
+        "nodes": 1,
+        "propagation_rounds": 1,
+        "domain_values_removed": 0,
+        "conflicts": 1,
+        "cap_reached": false
+      },
+      "candidates": []
     }
   ],
-  "seconds": 0.020847042000241345,
+  "seconds": 0.0931602919999932,
   "forward_controls": [
     {
       "text": "An editor reads seven old letters; many poets guide Nora.",
@@ -708,8 +1137,8 @@
   ],
   "provenance": {
     "lexicon": "hand_authored_typed_word_choices",
-    "generator_sha256": "414987f8aeaada627210fb925de4a396f75b104c7965d149619c315f10c94106",
-    "grammar_states": 634,
+    "generator_sha256": "81d359fa53fc77bf9a39823c39d7319802b4eeac90b0e518ce0d8bf0048982b6",
+    "grammar_states": 852,
     "catalogue_text": false,
     "finished_tape_reverse_for_construction": false,
     "branch_variable": "smallest_supported_mirrored_character_domain"

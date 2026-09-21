@@ -140,6 +140,23 @@ def construct():
             [('imperative', ['read', 'keep', 'mark']),
              ('quantity_plural', ['nine', 'seven', 'two']),
              ('artifact_plural', ['memos', 'notes', 'maps', 'letters'])]+right)
+    # Fresh feature-checked constructions requested for the shared-character
+    # propagator.  Question auxiliaries select singular animate subjects;
+    # relative clauses use an explicit who-gap and transitive object.
+    question = [('aux_question', ['can', 'will']),
+                ('question_det', ['the', 'a']),
+                ('question_agent_sg', ['artist', 'writer', 'pilot']),
+                ('question_verb', ['read', 'see', 'help']),
+                ('question_det_obj', ['a', 'the']),
+                ('question_object', ['map', 'book', 'letter'])]
+    relative = [('relative_det', ['the', 'a']),
+                ('relative_agent_sg', ['artist', 'writer', 'pilot']),
+                ('relative_marker', ['who']),
+                ('relative_verb_sg', ['reads', 'sees', 'helps']),
+                ('relative_det_obj', ['a', 'the']),
+                ('relative_object', ['map', 'book', 'letter'])]
+    g.frame('question_then_person_event', question+right)
+    g.frame('relative_clause_then_person_event', relative+right)
     return g
 
 
@@ -244,7 +261,7 @@ def differential():
 def main():
     start = time.monotonic()
     grammar = construct()
-    results = [solve(grammar, n) for n in (38, 39, 40, 42, 44, 48, 52)]
+    results = [solve(grammar, n) for n in range(39, 81)]
     out = {'experiment_id': ID, 'method': 'forward_NFA_REGULAR_fixed_point_mirrored_domains',
            'differential_checks': differential(), 'grammar': grammar.frames,
            'results': results, 'seconds': time.monotonic()-start,
@@ -261,7 +278,7 @@ def main():
                                         'event_graph_character_sat_20260916.py',
                                         'position_domain_arc_consistency_csp_20260920.py'],
                        'implementation_distinction': 'iterated position-specific forward/backward supports with latent word boundaries'},
-           'next_operator': 'replace finite slot frames with bounded feature grammar including questions and relative clauses',
+           'next_operator': 'add a residual-indexed lexical operator to question/relative chart edges; current grammar has no accepting root at 39..80',
            'reader_gate': 'closed until exact original plausible prose and blinded ratings'}
     (ROOT/'runs'/f'{ID}.json').write_text(json.dumps(out, indent=2)+'\n')
     print(json.dumps([{'N': r['target_letters'], **r['stats'],

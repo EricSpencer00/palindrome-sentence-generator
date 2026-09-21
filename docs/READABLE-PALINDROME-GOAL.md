@@ -144,6 +144,19 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   constructive diagnostic until an exact rendered candidate exists
   (`runs/executable-discourse-shared-orbit-20260920.json`).
 
+- **World-state handoff successor.** Two independently authored action plans
+  were composed only when the left plan's final state enabled the right plan's
+  typed `receive` event. The feasible 74-letter control was independently
+  pointer/SHA audited but was not exact; two incompatible handoffs were
+  retained with their semantic witnesses. This advances the world-state
+  representation, not the palindrome result
+  (`runs/world-state-orbit-probe-20260920.json`).
+
+- **Orthographic near-miss quarantine.** A 74-letter hand-authored attempt
+  was found to contain visibly reversed right-side fragments. It is now marked
+  diagnostic-only and rejected before readability or exactness claims; it is
+  not a prose candidate (`runs/focused-scene-equation-20260920.json`).
+
 These runs are materially different search representations, not reward-model
 rerankings or repeated bank sweeps. They still do not improve the admitted
 38-letter result, so the goal remains active. The next promotion requires an

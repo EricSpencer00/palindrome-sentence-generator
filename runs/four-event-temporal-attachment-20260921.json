@@ -1,0 +1,77 @@
+{
+  "experiment_id": "four-event-temporal-attachment-20260921",
+  "method": "four-event graph with two shared focuses and two cross-event temporal attachments under global endpoint CSP",
+  "stats": {
+    "event_graphs": 1,
+    "online_checks": 1,
+    "max_letters": 90,
+    "exact_gt38": 0
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "controls": [
+    {
+      "rendered": "the nurse checked the chart. the doctor called the ward. the driver left the station. the guard watched the gate.",
+      "graph": {
+        "events": [
+          {
+            "id": "e1",
+            "focus": "ward"
+          },
+          {
+            "id": "e2",
+            "focus": "ward"
+          },
+          {
+            "id": "e3",
+            "focus": "gate"
+          },
+          {
+            "id": "e4",
+            "focus": "gate"
+          }
+        ],
+        "shared_discourse_focuses": [
+          "ward",
+          "gate"
+        ],
+        "cross_event_attachments": [
+          "e3.temporal->e1",
+          "e4.temporal->e2"
+        ]
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 1,
+        "frontier_length": 46,
+        "global_invariant": "x[i] == x[N-1-i]"
+      },
+      "audit": {
+        "letters": 90,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "0bb3fd6ac13409f1b189850bdf190e3a77ba82a46c89926653a39cff918bf98e",
+        "reverse_sha256": "a1c9e0f321d4d107bc0b038a85a23322e7d779c7251553f3f922ba9135fb44b8"
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "four-event|two-shared-focuses|two-cross-event-temporal|global-endpoint-csp",
+    "distinct_from": "three-event graph and single-edge family"
+  },
+  "provenance": {
+    "reader_status": "closed: no exact >=39 candidate",
+    "audits": [
+      "independent pointer",
+      "forward/reverse SHA-256"
+    ],
+    "anti_shortcut_flags": [
+      "no mirrored units",
+      "no reversal",
+      "no repair"
+    ]
+  },
+  "next_operator": "Add a five-event graph with a shared focus bridge and one causal-temporal cycle.",
+  "status": "no exact >=39 closure; intact control retained"
+}

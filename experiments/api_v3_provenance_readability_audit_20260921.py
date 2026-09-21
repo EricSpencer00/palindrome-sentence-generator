@@ -13,6 +13,7 @@ import hashlib
 import json
 import re
 import urllib.parse
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -31,6 +32,22 @@ def get_json(url: str) -> dict:
     )
     with urllib.request.urlopen(req, timeout=20) as response:
         return json.load(response)
+
+
+def probe_route(url: str) -> dict:
+    """Record deployment state without treating a 404/503 as an exception."""
+    req = urllib.request.Request(
+        url, headers={"User-Agent": "palindrome-research-audit/2026-09-21"}
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20) as response:
+            body = response.read(4096)
+            return {"status": response.status, "content_type": response.headers.get("Content-Type"),
+                    "body_prefix": body.decode("utf-8", errors="replace")[:400]}
+    except urllib.error.HTTPError as exc:
+        body = exc.read(4096)
+        return {"status": exc.code, "content_type": exc.headers.get("Content-Type"),
+                "body_prefix": body.decode("utf-8", errors="replace")[:400]}
 
 
 def main() -> None:
@@ -52,10 +69,31 @@ def main() -> None:
     normalized = normalize(text)
     plain_normalized = normalize(composition["plain"])
     chunks = composition.get("chunks", [])
+    route_audit = {
+        "/api/v3/health": probe_route(f"{base}/api/v3/health"),
+        "/api/v3/composition": probe_route(composition_url),
+        "/api/v4/health": probe_route(f"{base}/api/v4/health"),
+        "/api/v4/method": probe_route(f"{base}/api/v4/method"),
+    }
 
     payload = {
         "experiment_id": "api-v3-provenance-readability-audit-20260921",
         "request": {"health": health_url, "composition": composition_url},
+        "deployment_route_audit": route_audit,
+        "deployment_gate_status": {
+            "repository_v4_generation": "gated",
+            "live_v4_routes_present": any(
+                route_audit[path]["status"] == 200
+                for path in ("/api/v4/health", "/api/v4/method")
+            ),
+            "live_v3_generation_present": route_audit["/api/v3/composition"]["status"] == 200,
+            "mismatch_requires_deployment_action": (
+                route_audit["/api/v3/composition"]["status"] == 200
+                and not any(route_audit[path]["status"] == 200
+                            for path in ("/api/v4/health", "/api/v4/method"))
+            ),
+            "note": "A live v3 200 is legacy deployment state, not reader evidence or a promotion decision.",
+        },
         "health": health,
         "composition": {
             "text": text,

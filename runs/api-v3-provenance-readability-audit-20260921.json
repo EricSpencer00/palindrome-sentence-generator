@@ -4,6 +4,35 @@
     "health": "https://palindrome.ericspencer.us/api/v3/health",
     "composition": "https://palindrome.ericspencer.us/api/v3/composition?letters=420&seed=0"
   },
+  "deployment_route_audit": {
+    "/api/v3/health": {
+      "status": 200,
+      "content_type": "application/json",
+      "body_prefix": "{\"ok\":true,\"version\":3,\"bank\":540,\"generated\":499,\"catalogue\":41,\"capacity\":{\"novel\":{\"pairs\":499,\"max_letters\":14500},\"all\":{\"pairs\":501,\"max_letters\":14538}},\"error\":null}"
+    },
+    "/api/v3/composition": {
+      "status": 200,
+      "content_type": "application/json",
+      "body_prefix": "{\"version\":3,\"text\":\"Dad, sir, or recipe wolf: sir or recipe, level put call. Its am meet. At, seat set tissue. Estimates bats spite. Us sit an. Use, path submit a. Bar a met. System burn is. Mar gets at level. Deep speed ma. Bar a met. System a walk. Cent filled I. Was none dragon, a met I. Met system met. System item a, no garden on. Saw I del, lift neck law. A met system. Arab am deep. Speed le"
+    },
+    "/api/v4/health": {
+      "status": 404,
+      "content_type": "application/json",
+      "body_prefix": "{\"detail\":\"Not Found\"}"
+    },
+    "/api/v4/method": {
+      "status": 404,
+      "content_type": "application/json",
+      "body_prefix": "{\"detail\":\"Not Found\"}"
+    }
+  },
+  "deployment_gate_status": {
+    "repository_v4_generation": "gated",
+    "live_v4_routes_present": false,
+    "live_v3_generation_present": true,
+    "mismatch_requires_deployment_action": true,
+    "note": "A live v3 200 is legacy deployment state, not reader evidence or a promotion decision."
+  },
   "health": {
     "ok": true,
     "version": 3,

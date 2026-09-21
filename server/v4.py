@@ -1843,6 +1843,25 @@ TEMPORAL_SUBJECT_RELATIVE4_RUN = {
     "next_construction": "matrix-perfect alternation with a distinct temporal adjunct while preserving live unequal-boundary cursors",
 }
 
+CENTER_DEPENDENCY_RELATION_GRAPH_RUN = {
+    "run_id": "center-dependency-relation-graph-20260920",
+    "method": "center-mediated typed dependency relation graph with live role obligations",
+    "status": "completed_no_exact_closure",
+    "states": 256,
+    "dependency_expansions": 256,
+    "admitted_products": 0,
+    "obligation_prunes": 256,
+    "longest_rendered_letters": 72,
+    "exact_candidates_over_38": 0,
+    "rendered_complete_controls": 2,
+    "reader_eligible": 0,
+    "example_control": "Sailors watched the harbor, when the birds flew over water, and the harbor feeds Sailors.",
+    "provenance": "fresh typed center relation nodes with independently authored dependency edges and live role obligations; no catalogue/API text, mirrored units, finished-tape reversal, post-hoc repair, fragments, or per-search RLAIF",
+    "independent_validation": ["independent two-pointer audit", "forward SHA-256", "reverse SHA-256"],
+    "novelty_preflight": "passed; center-mediated dependency-relation graph distinct from seam orientation and fixed center/event products",
+    "next_construction": "add a second dependency edge with typed attachment ownership while preserving the center-mediated relation node",
+}
+
 LUNA_PARALLEL_RUNS = [
     {
         "run_id": "endpoint-conditioned-compositional-decoder-20260920",
@@ -8894,6 +8913,7 @@ def evidence() -> dict[str, Any]:
         "multichar_boundary_automaton_run": MULTICHAR_BOUNDARY_AUTOMATON_RUN,
         "reverse_morphology_residual_run": REVERSE_MORPHOLOGY_RESIDUAL_RUN,
         "temporal_subject_relative4_run": TEMPORAL_SUBJECT_RELATIVE4_RUN,
+        "center_dependency_relation_graph_run": CENTER_DEPENDENCY_RELATION_GRAPH_RUN,
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -8943,6 +8963,7 @@ def method() -> dict[str, Any]:
         "multichar_boundary_automaton_run": MULTICHAR_BOUNDARY_AUTOMATON_RUN,
         "reverse_morphology_residual_run": REVERSE_MORPHOLOGY_RESIDUAL_RUN,
         "temporal_subject_relative4_run": TEMPORAL_SUBJECT_RELATIVE4_RUN,
+        "center_dependency_relation_graph_run": CENTER_DEPENDENCY_RELATION_GRAPH_RUN,
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN, TYPED_AGREEMENT_CLAUSE_RUN],
         "rlaif_frontier": _rlaif_frontier(),
@@ -8987,6 +9008,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "multichar_boundary_automaton_run": MULTICHAR_BOUNDARY_AUTOMATON_RUN,
         "reverse_morphology_residual_run": REVERSE_MORPHOLOGY_RESIDUAL_RUN,
         "temporal_subject_relative4_run": TEMPORAL_SUBJECT_RELATIVE4_RUN,
+        "center_dependency_relation_graph_run": CENTER_DEPENDENCY_RELATION_GRAPH_RUN,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,

@@ -7893,6 +7893,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   lane must hold out a distinct manner-of-causation edge. Artifact:
   `runs/graph-unification-attachment-20260921.json`.
 
+- **Determiner-bearing PP Earley expansion, 2026-09-21:** expanded the held-out
+  PP grammar pre-render as `P Det N`, retaining determiner structure,
+  locative-valency unification, Earley items, and live mirrored domains. Three
+  fresh intact controls (104--112 letters) produced 138 concrete domain
+  conflicts and zero exact closures; independent pointer/SHA audits agree.
+  The next operator is a held-out plural determiner PP with agreement
+  features. Artifact: `runs/cfg-earley-determiner-pp-expansion-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

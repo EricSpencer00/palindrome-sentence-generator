@@ -132,6 +132,16 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   follow-up both have zero exact closures; this is a sound construction
   foundation, not a readable candidate or a reason to claim the goal solved.
 
+- **Frontier-directed follow-up.** The corrected engine then carried the
+  consumed surface text into a narrow role-noun expansion. It reached the
+  exact diagnostic “Nora asks a dog; a god asks Aaron.” at 25 letters, with
+  independent pointer/hash agreement, but rejected it as too short and as a
+  reciprocal semordnilap construction. The longer question complements that
+  were tried fail at explicit next-character obligations (`r`, `b`, and `w`),
+  so adding more nouns would be a duplicate sweep. The next construction must
+  change the complement grammar at those live transitions
+  (`runs/online-role-frontier-followup-20260921.json`).
+
 - **Mechanical versus reader frontier.** The historical v4 diagnostics contain
   a mechanically clean 50-letter row, “To new one post is an evening. Is sign
   in even as its open owe. Not.” Its exact pointer/SHA checks and admission

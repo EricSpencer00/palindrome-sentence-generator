@@ -47,7 +47,11 @@ def load():
             for c in base:
                 if not (a[0] < b[0] < c[0]): continue
                 if len(tape(a[1]))+len(tape(b[1]))+len(tape(c[1])) < 39: continue
-                rows.append((f"{a[0]}+{b[0]}+{c[0]}",a[1]+"; "+b[1]+"; "+c[1],a[2]+b[2]+c[2]))
+                # Deliberately cross the seam: the realized slot sequence is
+                # c+b+a, while provenance retains the independent clause IDs.
+                # This prevents the search from merely replaying a corpus
+                # sentence and makes seam compatibility an explicit variable.
+                rows.append((f"{c[0]}+{b[0]}+{a[0]}",c[1]+"; "+b[1]+"; "+a[1],c[2]+b[2]+a[2]))
                 if len(rows)>=40: break
             if len(rows)>=40: break
         if len(rows)>=40: break

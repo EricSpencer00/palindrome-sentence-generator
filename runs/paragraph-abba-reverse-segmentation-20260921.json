@@ -1,0 +1,60 @@
+{
+  "experiment_id": "paragraph-abba-reverse-segmentation-20260921",
+  "method": "independent two-clause paragraph halves with clause-boundary reverse-segmentation DP",
+  "stats": {
+    "left_A": 2,
+    "left_B": 2,
+    "right_B": 2,
+    "right_A": 2,
+    "parses": 0,
+    "exact": 0
+  },
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "the harbor pilot checks the tide. a quiet bell marks noon.",
+      "audit": {
+        "letters": 46,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          [
+            0,
+            "t",
+            "n"
+          ],
+          [
+            1,
+            "h",
+            "o"
+          ],
+          [
+            2,
+            "e",
+            "o"
+          ],
+          [
+            3,
+            "h",
+            "n"
+          ]
+        ],
+        "sha256_forward": "9bb03a4d3f54f6caad8ab48c9ca1894a1f5c85b3a45985e04cad1d201c67ae3f",
+        "sha256_reverse_obligation": "4c896c62f62f95e7c3d177428def502a2fe656f30ae678bbe37b9013c53bb1d5"
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "paragraph|abba-seam|clause-boundary-dp|independent-prose",
+    "distinct_from": "single-clause lexical DP; no copied or reversed finished text"
+  },
+  "provenance": {
+    "generator_sha256": "f66b45461280afaa188f554844476c64fa569b76898645bbad9a5303004b6fb1",
+    "independent_audits": [
+      "two-pointer",
+      "SHA-256"
+    ]
+  },
+  "next_repair": "Add one held-out right B clause whose first word matches the first live obligation while retaining an independently authored A clause.",
+  "status": "no exact closure; seam and mismatch controls retained"
+}

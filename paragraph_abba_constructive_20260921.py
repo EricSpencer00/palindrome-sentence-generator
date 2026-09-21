@@ -24,7 +24,7 @@ def run():
  rows=[]
  for a,b in itertools.product(A,B):
   # Four roles are independently authored; B2 and A2 are distinct prose.
-  sentences=[a[3],b[3],b[3].replace('a tired sailor','a tired traveler'),a[3].replace('.', ' today.')]
+  sentences=[a[3],b[3],b[3].replace('.', ' today.'),a[3].replace('.', ' today.')]
   paragraph=' '.join(sentences)
   outer_l=a[3]+' '+sentences[-1]; outer_r=sentences[-1]+' '+a[3]
   inner_l=b[3]; inner_r=sentences[2]

@@ -7982,6 +7982,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   a held-out `are ready to V` frame. Artifact:
   `runs/cfg-earley-are-preparing-frame-20260921.json`.
 
+- **Held-out `are ready to V` Earley frame, 2026-09-21:** added the new
+  Aux+Adj+Infinitive VP topology before rendering, preserving plural
+  agreement, locative valency, and live mirrored domains. Three intact
+  controls were 140, 144, and 140 letters; 192 concrete domain conflicts were
+  retained and zero exact closures occurred. The next operator is a held-out
+  `are willing to V` frame. Artifact:
+  `runs/cfg-earley-are-ready-frame-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

@@ -1,0 +1,79 @@
+{
+  "experiment_id": "center-aware-slot-csp-20260921",
+  "method": "outside-in assignment of a single typed sentence slot sequence with live global character equations; center may be internal to one word",
+  "templates": 4,
+  "stats": {
+    "states": 16,
+    "templates": 4
+  },
+  "controls": [
+    {
+      "rendered": "An aide rips nine memos some men inspire diana.",
+      "template_index": 0,
+      "slot_roles": [
+        "DET",
+        "N_S",
+        "V_S",
+        "NUM",
+        "N_S",
+        "DET",
+        "N_P",
+        "V_P",
+        "NAME"
+      ],
+      "words": [
+        "an",
+        "aide",
+        "rips",
+        "nine",
+        "memos",
+        "some",
+        "men",
+        "inspire",
+        "diana"
+      ],
+      "audit": {
+        "normalized_tape": "anaideripsninememossomemeninspirediana",
+        "letters": 38,
+        "exact": true,
+        "first_mismatches": [],
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal_under_reversal": true
+      },
+      "provenance": {
+        "generator": "task-authored center-aware slot CSP",
+        "borrowed_catalogue_text": false,
+        "finished_tape_reversal": false,
+        "word_order_symmetry": false,
+        "repeated_content_rejected": true,
+        "novelty_status": "control_seed"
+      }
+    }
+  ],
+  "rendered_candidates": [],
+  "exact_gt38": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "excluded_methods": [
+      "clause-pair join",
+      "finished-tape reversal",
+      "catalogue import",
+      "word-order symmetry"
+    ],
+    "seed_control_not_counted": true
+  },
+  "provenance": {
+    "generator_sha256": "0c147b420a3c25a8f186e7e287faf7e960a0861bbe162d201a5fb85d197db75d",
+    "independent_audits": [
+      "two-pointer mismatch scan",
+      "forward/reverse SHA-256"
+    ],
+    "lexicon": "task-authored typed word bank"
+  },
+  "failure_and_repair": {
+    "failure": "No novel exact closure above 38 in this run",
+    "next_construction": "Add typed agreement and semantic valency features to the same center-aware slot CSP; retain full-sentence live equations."
+  },
+  "reader_gate": "closed: exactness and programmatic diagnostics do not certify human readability"
+}

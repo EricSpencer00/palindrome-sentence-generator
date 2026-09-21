@@ -8046,6 +8046,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   with asymmetric cut placement and rank-balance witness. Artifact:
   `runs/ten-event-bridge-cut-20260921.json`.
 
+- **Eleven-event asymmetric-cut graph, 2026-09-21:** placed the cut at
+  `e6 | e7` and recorded a two-sided rank witness (left 3, right 2) under the
+  global endpoint CSP. One 253-letter intact control produced two online checks
+  and zero exact closures above 38. The next topology is a twelve-event graph
+  with a balanced cut and rank-perturbation witness. Artifact:
+  `runs/eleven-event-asymmetric-cut-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.
@@ -8177,14 +8184,27 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   which-relative CP. Artifact:
   `runs/cfg-earley-object-np-that-gap-20260921.json`.
 
+- **Object-NP which-gap Earley seam, 2026-09-21:** attached
+  `which NP VP_gap` inside the object NP with explicit relative subject and
+  object-gap items before rendering. Three intact controls were 119, 115, and
+  116 letters; 153 concrete domain conflicts were retained and zero exact
+  closures occurred. The next topology is an object-NP where-relative CP with
+  overt copular predicate. Artifact:
+  `runs/cfg-earley-object-np-which-cp-20260921.json`.
+
 - **Boundary-conditioned semantic scene search, 2026-09-21:** indexed fresh
   SVO/PP alternatives by first/last terminal characters and grew paired clause
-  yields inward under `x[i] = x[N-1-i]`. Eight compatible boundary attempts
-  survived at least one pair and reached two committed character pairs before
-  their next mismatch; no exact closure or reader candidate was produced.
-  The next operator adds a second PP alternation while retaining the boundary
-  index. Artifact:
+  yields inward under `x[i] = x[N-1-i]`. The second-PP expansion produced 228
+  boundary-conditioned attempts, reached three committed inward character
+  pairs, and still produced no exact closure or reader candidate. Artifact:
   `runs/boundary-conditioned-semantic-scene-search-20260921.json`.
+
+- **Boundary-conditioned second-PP expansion, 2026-09-21:** dynamically
+  expanded each semantic role with two PP alternatives before terminal-indexed
+  pairing. The live boundary search retained 228 attempts and a maximum of
+  three committed pairs; all intact controls failed at the next character, so
+  no exact or reader candidate was admitted. The next operator must change the
+  boundary grammar rather than merely add another PP bank.
 
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`

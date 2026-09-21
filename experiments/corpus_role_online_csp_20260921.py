@@ -24,6 +24,7 @@ def exact(s):
     return bool(t) and t == t[::-1] and forward == reverse
 
 def role(w, i, toks):
+    if w in {"who", "that", "which", "where"}: return "REL"
     if w in {"a","an","the","no","one","some","each","my","our","this","that"}: return "DET"
     if w in {"i","we","she","he","they","it","you","no one"}: return "PRON"
     if w in {"was","were","am","are","is","had","have","has","can","did","made","let","kept","told","saw","sat","ran","left","held","read","found","drew","lost","put","took","sold","lit","met","set","cut","sent","rung","sung","went","came","fell","went","opened","closed"}: return "V"
@@ -78,6 +79,16 @@ def valency(roles):
         elif r == "DET" and not verb: continue
     return subject and verb and complement
 
+def transition_profiles(roles):
+    """Held-out transition labels used to stratify seam search.
+    These labels are structural, never a readability certificate."""
+    out=[]
+    if "V" in roles and any(r == "N" for r in roles[roles.index("V")+1:]): out.append("transitive")
+    if "PREP" in roles and "N" in roles[roles.index("PREP")+1:]: out.append("prepositional")
+    if roles.count("V") >= 2 and roles.count("N") >= 2: out.append("ditransitive_or_coord")
+    if "REL" in roles: out.append("relative")
+    return out or ["intransitive"]
+
 def solve(ws, domains, source_grams, limit=2):
     """Assign words left-to-right; each assignment immediately checks all
     character equations whose opposite endpoint is already assigned."""
@@ -120,10 +131,10 @@ def main():
         res=solve(ws,domains,grams)
         got=res[0] if res else []; nodes=res[1] if res else 0; total_nodes+=nodes
         rr=[role(w,i,ws) for i,w in enumerate(ws)]
-        controls.append({"source_id":sid,"source":line,"roles":rr,"valency":valency(rr),"letters":len(tape(line)),"nodes":nodes,"exact_count":len(got)})
+        controls.append({"source_id":sid,"source":line,"roles":rr,"valency":valency(rr),"profiles":transition_profiles(rr),"letters":len(tape(line)),"nodes":nodes,"exact_count":len(got)})
         for text in got:
             candidates.append({"text":text,"letters":len(tape(text)),"exact":True,"sha":sha(text),"source_id":sid,"roles":[role(w,i,ws) for i,w in enumerate(ws)],"novel_ngrams":True})
     OUT.parent.mkdir(exist_ok=True)
-    OUT.write_text(json.dumps({"method":"corpus role bank with online left/right character propagation","source":str(SRC),"source_count":len(rows),"domain_sizes":{k:len(v) for k,v in domains.items()},"controls":controls,"candidates":candidates,"total_nodes":total_nodes,"repair":"Next: generate role-compatible template recombinations; current lane retains source clause order and therefore has no viable cross-boundary seam."},indent=2)+"\n")
+    OUT.write_text(json.dumps({"method":"corpus role bank with online left/right character propagation","source":str(SRC),"source_count":len(rows),"domain_sizes":{k:len(v) for k,v in domains.items()},"heldout_profiles":["transitive","ditransitive_or_coord","prepositional","relative"],"controls":controls,"candidates":candidates,"total_nodes":total_nodes,"repair":"Held-out transition profiles are now recorded; relative clauses remain obstructed because the authored bank has no REL lexical domain."},indent=2)+"\n")
     print(json.dumps({"sources":len(rows),"domains":{k:len(v) for k,v in domains.items()},"nodes":total_nodes,"candidates":len(candidates),"max_letters":max((x['letters'] for x in candidates),default=0)}))
 if __name__ == "__main__": main()

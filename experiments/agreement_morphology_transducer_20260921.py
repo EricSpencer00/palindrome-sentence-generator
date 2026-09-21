@@ -26,6 +26,14 @@ def audit(s):
             "first_mismatch": mm, "sha256_forward": hashlib.sha256(t.encode()).hexdigest(),
             "sha256_reverse": hashlib.sha256(rv.encode()).hexdigest(), "sha_equal": t == rv}
 
+def online_couple(left, right):
+    """Consume exposed boundaries immediately, without materializing a reverse."""
+    compared = 0
+    for a, b in zip(letters(left), reversed(letters(right))):
+        compared += 1
+        if a != b: return False, compared, (a, b)
+    return True, compared, None
+
 def controls():
     return ["the calm poet hears a bell.", "some bright poets carried the letter.",
             "a young poet hears the bell."]
@@ -41,10 +49,12 @@ def search():
                     right = f"{obj} {stem}{ending} {SUBJECTS[agr][0]}"
                     rendered = left + "; " + right + "."
                     a = audit(rendered)
+                    coupled, compared, mismatch = online_couple(left, right)
                     rows.append({"rendered": rendered, "agreement": agr,
                         "transition_trace": ["subject", "stem", "suffix", "object"],
                         "online_boundary_check": {"left_suffix": stem + ending,
-                            "right_suffix": stem + ending, "checked_before_join": True},
+                            "right_suffix": stem + ending, "checked_before_join": True,
+                            "admitted": coupled, "compared": compared, "mismatch": mismatch},
                         "audit": a, "mechanically_admitted": a["two_pointer_exact"],
                         "reader_status": "control-like generated prose; not human-rated",
                         "provenance": {"generator": ID, "finished_tape_reversed": False,

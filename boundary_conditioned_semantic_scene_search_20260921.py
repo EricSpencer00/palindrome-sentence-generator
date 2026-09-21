@@ -10,7 +10,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -46,7 +46,17 @@ BANK = (
     Clause("two local artists", "paint", "a bright mural", "beside the square", "pl", "agent"),
     Clause("the old scholar", "reads", "a weathered map", "in the library", "sg", "agent"),
     Clause("the calm pilot", "maps", "the inlet", "by moonlight", "sg", "agent"),
+    Clause("the clerk", "files", "old archives", "near caves", "sg", "agent"),
 )
+
+# A second PP choice is attached by semantic role at search time.  It is not
+# a hand-written pair list: every clause participates in the same indexed
+# boundary selection.
+SECOND_PP = {"agent": ("by moonlight", "near caves")}
+
+
+def expanded_bank():
+    return tuple({replace(c, pp=pp) for c in BANK for pp in (c.pp,) + SECOND_PP.get(c.role, ())})
 
 
 def terminal_index(bank=BANK):
@@ -88,13 +98,14 @@ def grow_scene(left: Clause, right: Clause, target: int):
 
 
 def run(target: int = 39):
-    idx = terminal_index()
+    bank = expanded_bank()
+    idx = terminal_index(bank)
     attempts = []
-    for left in BANK:
+    for left in bank:
         # The terminal index is consulted before any interior characters are
         # emitted: only clauses whose final terminal can satisfy the left
         # clause's first terminal enter the inward equation search.
-        right_pool = [c for c in BANK if letters(c.text)[-1] == letters(left.text)[0]]
+        right_pool = [c for c in bank if letters(c.text)[-1] == letters(left.text)[0]]
         for right in right_pool:
             if left is right:
                 continue
@@ -114,7 +125,7 @@ def run(target: int = 39):
             "config": {"target_min_letters": target, "fixed_authored_pairs": False,
                        "finished_tape_reversal": False, "post_render_repair": False,
                        "global_equation": "x[i] = x[N-1-i]"},
-            "terminal_index": idx, "stats": {"inventory": len(BANK), "attempts": len(attempts),
+            "terminal_index": idx, "stats": {"inventory": len(bank), "second_pp_alternatives": 2, "attempts": len(attempts),
                                                 "boundary_conditioned_attempts": len(attempts),
                                                 "max_committed_pairs": max(len(a["boundary_growth"]["committed_pairs"]) for a in attempts),
                                                 "survivors": len(survivors), "rendered_controls": len(controls)},

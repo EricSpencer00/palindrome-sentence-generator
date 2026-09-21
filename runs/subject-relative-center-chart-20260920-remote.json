@@ -1,0 +1,2026 @@
+{
+  "experiment_id": "subject-relative-center-chart-20260920",
+  "method": "root-supported shared-tape CFG with subject-relative head binding and center-capable finite clause",
+  "grammar": {
+    "subject_relative": "NPBASE_{sg|pl} RELPRON VTRANS_{sg|pl} OBJ (head is relative subject)",
+    "subject_relative_auxiliary": "NPBASE_{sg|pl} RELPRON AUX_{sg|pl} PART OBJ",
+    "matrix_agreement": "C_{sg|pl} -> NP VP_{sg|pl}",
+    "recursive_sentence": "S -> C_sg | C_pl | C CONJ S"
+  },
+  "calibration": {
+    "target_letters": 38,
+    "stats": {
+      "nodes": 3,
+      "propagation_rounds": 7,
+      "contradictions": 0,
+      "complete_tapes": 2,
+      "truncated": false,
+      "status": "SAT"
+    },
+    "root_propagation": [
+      {
+        "round": 1,
+        "root_exists": true,
+        "chart_items": 613,
+        "outer_supported_domains": [
+          {
+            "left": "ads",
+            "right": "aes",
+            "shared": "as"
+          },
+          {
+            "left": "ino",
+            "right": "dno",
+            "shared": "no"
+          },
+          {
+            "left": "am",
+            "right": "aim",
+            "shared": "am"
+          },
+          {
+            "left": "ein",
+            "right": "aei",
+            "shared": "ei"
+          },
+          {
+            "left": "adm",
+            "right": "dmn",
+            "shared": "dm"
+          },
+          {
+            "left": "er",
+            "right": "ae",
+            "shared": "e"
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "root_exists": true,
+        "chart_items": 35,
+        "outer_supported_domains": [
+          {
+            "left": "as",
+            "right": "as",
+            "shared": "as"
+          },
+          {
+            "left": "no",
+            "right": "no",
+            "shared": "no"
+          },
+          {
+            "left": "am",
+            "right": "am",
+            "shared": "am"
+          },
+          {
+            "left": "ei",
+            "right": "ei",
+            "shared": "ei"
+          },
+          {
+            "left": "dm",
+            "right": "dm",
+            "shared": "dm"
+          },
+          {
+            "left": "e",
+            "right": "e",
+            "shared": "e"
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "root_exists": true,
+        "chart_items": 35,
+        "outer_supported_domains": [
+          {
+            "left": "as",
+            "right": "as",
+            "shared": "as"
+          },
+          {
+            "left": "no",
+            "right": "no",
+            "shared": "no"
+          },
+          {
+            "left": "am",
+            "right": "am",
+            "shared": "am"
+          },
+          {
+            "left": "ei",
+            "right": "ei",
+            "shared": "ei"
+          },
+          {
+            "left": "dm",
+            "right": "dm",
+            "shared": "dm"
+          },
+          {
+            "left": "e",
+            "right": "e",
+            "shared": "e"
+          }
+        ]
+      }
+    ],
+    "exact_candidates": [
+      {
+        "rendered": "an aide rips nine memos; some men inspire Diana.",
+        "audit": {
+          "letters": 38,
+          "exact": true,
+          "first_mismatch": null,
+          "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+          "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+        },
+        "words": [
+          "an",
+          "aide",
+          "rips",
+          "nine",
+          "memos",
+          "some",
+          "men",
+          "inspire",
+          "Diana"
+        ]
+      },
+      {
+        "rendered": "some men inspire Diana; an aide rips nine memos.",
+        "audit": {
+          "letters": 38,
+          "exact": true,
+          "first_mismatch": null,
+          "sha256_forward": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+          "sha256_reverse": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec"
+        },
+        "words": [
+          "some",
+          "men",
+          "inspire",
+          "Diana",
+          "an",
+          "aide",
+          "rips",
+          "nine",
+          "memos"
+        ]
+      }
+    ]
+  },
+  "calibration_recovered": true,
+  "held_out_results": [
+    {
+      "target_letters": 39,
+      "stats": {
+        "nodes": 11,
+        "propagation_rounds": 21,
+        "contradictions": 10,
+        "complete_tapes": 0,
+        "truncated": false,
+        "status": "UNSAT"
+      },
+      "root_propagation": [
+        {
+          "round": 1,
+          "root_exists": true,
+          "chart_items": 11450,
+          "outer_supported_domains": [
+            {
+              "left": "adeghiklmnoprstw",
+              "right": "adegikmnoprsty",
+              "shared": "adegikmnoprst"
+            },
+            {
+              "left": "aceghikmnoprsuvw",
+              "right": "abdeghiklmnoprstvwy",
+              "shared": "aeghikmnoprsvw"
+            },
+            {
+              "left": "acdeghikmnorstuvw",
+              "right": "abcdehiklmnoprstvwy",
+              "shared": "acdehikmnorstvw"
+            },
+            {
+              "left": "acdeghiklmnoprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghiklmnoprstuwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuvwy",
+              "right": "abcdeghiklmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "root_exists": true,
+          "chart_items": 11340,
+          "outer_supported_domains": [
+            {
+              "left": "adeikmnoprst",
+              "right": "adegimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aeghikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeikmnorstvw",
+              "shared": "acdeimnortvw"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "root_exists": true,
+          "chart_items": 11224,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnoprst",
+              "right": "adeimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmnoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "root_exists": true,
+          "chart_items": 11190,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnoprst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "root_exists": true,
+          "chart_items": 11165,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnopst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        }
+      ],
+      "exact_candidates": []
+    },
+    {
+      "target_letters": 40,
+      "stats": {
+        "nodes": 11,
+        "propagation_rounds": 21,
+        "contradictions": 10,
+        "complete_tapes": 0,
+        "truncated": false,
+        "status": "UNSAT"
+      },
+      "root_propagation": [
+        {
+          "round": 1,
+          "root_exists": true,
+          "chart_items": 12029,
+          "outer_supported_domains": [
+            {
+              "left": "adeghiklmnoprstw",
+              "right": "adegikmnoprsty",
+              "shared": "adegikmnoprst"
+            },
+            {
+              "left": "aceghikmnoprsuvw",
+              "right": "abdeghiklmnoprstvwy",
+              "shared": "aeghikmnoprsvw"
+            },
+            {
+              "left": "acdeghikmnorstuvw",
+              "right": "abcdehiklmnoprstvwy",
+              "shared": "acdehikmnorstvw"
+            },
+            {
+              "left": "acdeghiklmnoprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghiklmnoprstuwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuvwy",
+              "right": "abcdeghiklmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "root_exists": true,
+          "chart_items": 11919,
+          "outer_supported_domains": [
+            {
+              "left": "adeikmnoprst",
+              "right": "adegimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aeghikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeikmnorstvw",
+              "shared": "acdeimnortvw"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "root_exists": true,
+          "chart_items": 11801,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnoprst",
+              "right": "adeimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmnoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "root_exists": true,
+          "chart_items": 11767,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnoprst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "root_exists": true,
+          "chart_items": 11742,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnopst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        }
+      ],
+      "exact_candidates": []
+    },
+    {
+      "target_letters": 44,
+      "stats": {
+        "nodes": 11,
+        "propagation_rounds": 21,
+        "contradictions": 10,
+        "complete_tapes": 0,
+        "truncated": false,
+        "status": "UNSAT"
+      },
+      "root_propagation": [
+        {
+          "round": 1,
+          "root_exists": true,
+          "chart_items": 14485,
+          "outer_supported_domains": [
+            {
+              "left": "adeghiklmnoprstw",
+              "right": "adegikmnoprsty",
+              "shared": "adegikmnoprst"
+            },
+            {
+              "left": "aceghikmnoprsuvw",
+              "right": "abdeghiklmnoprstvwy",
+              "shared": "aeghikmnoprsvw"
+            },
+            {
+              "left": "acdeghikmnorstuvw",
+              "right": "abcdehiklmnoprstvwy",
+              "shared": "acdehikmnorstvw"
+            },
+            {
+              "left": "acdeghiklmnoprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghiklmnoprstuwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuvwy",
+              "right": "abcdeghiklmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "root_exists": true,
+          "chart_items": 14375,
+          "outer_supported_domains": [
+            {
+              "left": "adeikmnoprst",
+              "right": "adegimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aeghikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeikmnorstvw",
+              "shared": "acdeimnortvw"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "root_exists": true,
+          "chart_items": 14249,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnoprst",
+              "right": "adeimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmnoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "root_exists": true,
+          "chart_items": 14215,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnoprst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "root_exists": true,
+          "chart_items": 14190,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnopst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        }
+      ],
+      "exact_candidates": []
+    },
+    {
+      "target_letters": 48,
+      "stats": {
+        "nodes": 11,
+        "propagation_rounds": 21,
+        "contradictions": 10,
+        "complete_tapes": 0,
+        "truncated": false,
+        "status": "UNSAT"
+      },
+      "root_propagation": [
+        {
+          "round": 1,
+          "root_exists": true,
+          "chart_items": 17165,
+          "outer_supported_domains": [
+            {
+              "left": "adeghiklmnoprstw",
+              "right": "adegikmnoprsty",
+              "shared": "adegikmnoprst"
+            },
+            {
+              "left": "aceghikmnoprsuvw",
+              "right": "abdeghiklmnoprstvwy",
+              "shared": "aeghikmnoprsvw"
+            },
+            {
+              "left": "acdeghikmnorstuvw",
+              "right": "abcdehiklmnoprstvwy",
+              "shared": "acdehikmnorstvw"
+            },
+            {
+              "left": "acdeghiklmnoprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghiklmnoprstuwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuvwy",
+              "right": "abcdeghiklmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "root_exists": true,
+          "chart_items": 17055,
+          "outer_supported_domains": [
+            {
+              "left": "adeikmnoprst",
+              "right": "adegimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aeghikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeikmnorstvw",
+              "shared": "acdeimnortvw"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "root_exists": true,
+          "chart_items": 16921,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnoprst",
+              "right": "adeimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmnoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "root_exists": true,
+          "chart_items": 16887,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnoprst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "root_exists": true,
+          "chart_items": 16862,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnopst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        }
+      ],
+      "exact_candidates": []
+    },
+    {
+      "target_letters": 52,
+      "stats": {
+        "nodes": 11,
+        "propagation_rounds": 21,
+        "contradictions": 10,
+        "complete_tapes": 0,
+        "truncated": false,
+        "status": "UNSAT"
+      },
+      "root_propagation": [
+        {
+          "round": 1,
+          "root_exists": true,
+          "chart_items": 20069,
+          "outer_supported_domains": [
+            {
+              "left": "adeghiklmnoprstw",
+              "right": "adegikmnoprsty",
+              "shared": "adegikmnoprst"
+            },
+            {
+              "left": "aceghikmnoprsuvw",
+              "right": "abdeghiklmnoprstvwy",
+              "shared": "aeghikmnoprsvw"
+            },
+            {
+              "left": "acdeghikmnorstuvw",
+              "right": "abcdehiklmnoprstvwy",
+              "shared": "acdehikmnorstvw"
+            },
+            {
+              "left": "acdeghiklmnoprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghiklmnoprstuwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuvwy",
+              "right": "abcdeghiklmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "root_exists": true,
+          "chart_items": 19959,
+          "outer_supported_domains": [
+            {
+              "left": "adeikmnoprst",
+              "right": "adegimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aeghikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeikmnorstvw",
+              "shared": "acdeimnortvw"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "root_exists": true,
+          "chart_items": 19817,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnoprst",
+              "right": "adeimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmnoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "root_exists": true,
+          "chart_items": 19783,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnoprst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "root_exists": true,
+          "chart_items": 19758,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnopst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        }
+      ],
+      "exact_candidates": []
+    },
+    {
+      "target_letters": 60,
+      "stats": {
+        "nodes": 11,
+        "propagation_rounds": 21,
+        "contradictions": 10,
+        "complete_tapes": 0,
+        "truncated": false,
+        "status": "UNSAT"
+      },
+      "root_propagation": [
+        {
+          "round": 1,
+          "root_exists": true,
+          "chart_items": 26549,
+          "outer_supported_domains": [
+            {
+              "left": "adeghiklmnoprstw",
+              "right": "adegikmnoprsty",
+              "shared": "adegikmnoprst"
+            },
+            {
+              "left": "aceghikmnoprsuvw",
+              "right": "abdeghiklmnoprstvwy",
+              "shared": "aeghikmnoprsvw"
+            },
+            {
+              "left": "acdeghikmnorstuvw",
+              "right": "abcdehiklmnoprstvwy",
+              "shared": "acdehikmnorstvw"
+            },
+            {
+              "left": "acdeghiklmnoprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghiklmnoprstuwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuvwy",
+              "right": "abcdeghiklmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "root_exists": true,
+          "chart_items": 26439,
+          "outer_supported_domains": [
+            {
+              "left": "adeikmnoprst",
+              "right": "adegimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aeghikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeikmnorstvw",
+              "shared": "acdeimnortvw"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "root_exists": true,
+          "chart_items": 26281,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnoprst",
+              "right": "adeimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmnoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "root_exists": true,
+          "chart_items": 26247,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnoprst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "root_exists": true,
+          "chart_items": 26222,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnopst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        }
+      ],
+      "exact_candidates": []
+    },
+    {
+      "target_letters": 72,
+      "stats": {
+        "nodes": 11,
+        "propagation_rounds": 21,
+        "contradictions": 10,
+        "complete_tapes": 0,
+        "truncated": false,
+        "status": "UNSAT"
+      },
+      "root_propagation": [
+        {
+          "round": 1,
+          "root_exists": true,
+          "chart_items": 37949,
+          "outer_supported_domains": [
+            {
+              "left": "adeghiklmnoprstw",
+              "right": "adegikmnoprsty",
+              "shared": "adegikmnoprst"
+            },
+            {
+              "left": "aceghikmnoprsuvw",
+              "right": "abdeghiklmnoprstvwy",
+              "shared": "aeghikmnoprsvw"
+            },
+            {
+              "left": "acdeghikmnorstuvw",
+              "right": "abcdehiklmnoprstvwy",
+              "shared": "acdehikmnorstvw"
+            },
+            {
+              "left": "acdeghiklmnoprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghiklmnoprstuwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuvwy",
+              "right": "abcdeghiklmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "root_exists": true,
+          "chart_items": 37839,
+          "outer_supported_domains": [
+            {
+              "left": "adeikmnoprst",
+              "right": "adegimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aeghikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeikmnorstvw",
+              "shared": "acdeimnortvw"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "root_exists": true,
+          "chart_items": 37657,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnoprst",
+              "right": "adeimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmnoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "root_exists": true,
+          "chart_items": 37623,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnoprst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "root_exists": true,
+          "chart_items": 37598,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnopst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        }
+      ],
+      "exact_candidates": []
+    },
+    {
+      "target_letters": 90,
+      "stats": {
+        "nodes": 11,
+        "propagation_rounds": 21,
+        "contradictions": 10,
+        "complete_tapes": 0,
+        "truncated": false,
+        "status": "UNSAT"
+      },
+      "root_propagation": [
+        {
+          "round": 1,
+          "root_exists": true,
+          "chart_items": 58829,
+          "outer_supported_domains": [
+            {
+              "left": "adeghiklmnoprstw",
+              "right": "adegikmnoprsty",
+              "shared": "adegikmnoprst"
+            },
+            {
+              "left": "aceghikmnoprsuvw",
+              "right": "abdeghiklmnoprstvwy",
+              "shared": "aeghikmnoprsvw"
+            },
+            {
+              "left": "acdeghikmnorstuvw",
+              "right": "abcdehiklmnoprstvwy",
+              "shared": "acdehikmnorstvw"
+            },
+            {
+              "left": "acdeghiklmnoprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghiklmnoprstuwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuvwy",
+              "right": "abcdeghiklmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "root_exists": true,
+          "chart_items": 58719,
+          "outer_supported_domains": [
+            {
+              "left": "adeikmnoprst",
+              "right": "adegimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aeghikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeikmnorstvw",
+              "shared": "acdeimnortvw"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "root_exists": true,
+          "chart_items": 58501,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnoprst",
+              "right": "adeimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmnoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "root_exists": true,
+          "chart_items": 58467,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnoprst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "root_exists": true,
+          "chart_items": 58442,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnopst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        }
+      ],
+      "exact_candidates": []
+    },
+    {
+      "target_letters": 100,
+      "stats": {
+        "nodes": 11,
+        "propagation_rounds": 21,
+        "contradictions": 10,
+        "complete_tapes": 0,
+        "truncated": false,
+        "status": "UNSAT"
+      },
+      "root_propagation": [
+        {
+          "round": 1,
+          "root_exists": true,
+          "chart_items": 72389,
+          "outer_supported_domains": [
+            {
+              "left": "adeghiklmnoprstw",
+              "right": "adegikmnoprsty",
+              "shared": "adegikmnoprst"
+            },
+            {
+              "left": "aceghikmnoprsuvw",
+              "right": "abdeghiklmnoprstvwy",
+              "shared": "aeghikmnoprsvw"
+            },
+            {
+              "left": "acdeghikmnorstuvw",
+              "right": "abcdehiklmnoprstvwy",
+              "shared": "acdehikmnorstvw"
+            },
+            {
+              "left": "acdeghiklmnoprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghiklmnoprstuwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstuwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuvwy",
+              "right": "abcdeghiklmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "root_exists": true,
+          "chart_items": 72279,
+          "outer_supported_domains": [
+            {
+              "left": "adeikmnoprst",
+              "right": "adegimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aeghikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeikmnorstvw",
+              "shared": "acdeimnortvw"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnoprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprstuwy",
+              "shared": "acdeghiklmnoprstwy"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "root_exists": true,
+          "chart_items": 72041,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnoprst",
+              "right": "adeimnoprst",
+              "shared": "adeimnoprst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortvw",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmnoprstwy",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmnoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "root_exists": true,
+          "chart_items": 72007,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnoprst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmnoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "root_exists": true,
+          "chart_items": 71982,
+          "outer_supported_domains": [
+            {
+              "left": "adeimnopst",
+              "right": "adeimnopst",
+              "shared": "adeimnopst"
+            },
+            {
+              "left": "aehikmnoprsvw",
+              "right": "aehikmnoprsvw",
+              "shared": "aehikmnoprsvw"
+            },
+            {
+              "left": "acdeimnortv",
+              "right": "acdeimnortv",
+              "shared": "acdeimnortv"
+            },
+            {
+              "left": "adehiklmnprstuwy",
+              "right": "adehiklmnprstuwy",
+              "shared": "adehiklmnprstuwy"
+            },
+            {
+              "left": "acdeghiklmoprsty",
+              "right": "acdeghiklmoprsty",
+              "shared": "acdeghiklmoprsty"
+            },
+            {
+              "left": "abcdeghikmnoprstuwy",
+              "right": "abcdeghikmnoprstuwy",
+              "shared": "abcdeghikmnoprstuwy"
+            }
+          ]
+        }
+      ],
+      "exact_candidates": []
+    }
+  ],
+  "exact_candidates": [],
+  "diagnostic_controls": [
+    {
+      "rendered": "the poet who reads a memo studies a map",
+      "audit": {
+        "letters": 31,
+        "exact": false,
+        "first_mismatch": 0,
+        "sha256_forward": "24d9a861fde842596344853766e86c5fa3283683f5e3becee920f65601c6c7d4",
+        "sha256_reverse": "af5167ca9214e1a9927a3297623ba466b7d69f548524802825dcdd60a216f2ef"
+      },
+      "grammar_accepts": true
+    },
+    {
+      "rendered": "the poet who has read a poem studies a map",
+      "audit": {
+        "letters": 33,
+        "exact": false,
+        "first_mismatch": 0,
+        "sha256_forward": "95861f682827c38ceb63ce34be9e0edcc47836baf555bdab5e8a7a8129472317",
+        "sha256_reverse": "b9fb24aa4955a025e86c7f66e6aaece5e1c6dd37134186201bf9bb8313ae2c97"
+      },
+      "grammar_accepts": true
+    },
+    {
+      "rendered": "some poets who carry two maps study a memo",
+      "audit": {
+        "letters": 34,
+        "exact": false,
+        "first_mismatch": 0,
+        "sha256_forward": "2758412e744f4a7582d464cabb3bdac02708ef2d04072e3c171e38c030149452",
+        "sha256_reverse": "e14338a7452a951bb9aae841ae1e1ab7f639524232e6c2ba45a22286b65c2eec"
+      },
+      "grammar_accepts": true
+    }
+  ],
+  "reader_facing_candidates": [],
+  "provenance": {
+    "lexicon": "shared authored agreement inventory; new subject-relative productions only",
+    "fixed_tape_reversal": false,
+    "per_search_rlaif": false,
+    "independent_audits": [
+      "outside-in character pointer",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed until exact, shortcut-clean output enters blinded intact/shuffled study"
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "shared-tape|root-support|subject-relative-head-binding|center-capable-clause",
+    "distinct_from": "agreement/passive object-relative lane: the head NP supplies the relative subject and the relative predicate consumes its object internally"
+  },
+  "next_construction": "add a subject-relative center bridge with an explicit complementizer and held-out semantic role frame; do not widen the existing lexical bank",
+  "status": "no exact closure in held-out subject-relative grammar"
+}

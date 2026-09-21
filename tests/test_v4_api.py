@@ -153,6 +153,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["shared_tape_relative_run"]["held_out_exact_candidates"] == 0
     assert method.json()["agreement_passive_relative_run"]["calibration_seed_recovered"] is True
     assert method.json()["agreement_passive_relative_run"]["held_out_exact_candidates"] == 0
+    assert method.json()["subject_relative_center_run"]["calibration_seed_recovered"] is True
+    assert method.json()["subject_relative_center_run"]["held_out_exact_candidates"] == 0
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

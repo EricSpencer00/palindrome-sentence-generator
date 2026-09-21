@@ -1,0 +1,458 @@
+{
+  "experiment_id": "boundary-conditioned-semantic-scene-search-20260921",
+  "method": "live outside-in global character equation with semantic SVO/PP alternatives",
+  "config": {
+    "target_min_letters": 39,
+    "fixed_authored_pairs": false,
+    "finished_tape_reversal": false,
+    "post_render_repair": false,
+    "global_equation": "x[i] = x[N-1-i]"
+  },
+  "terminal_index": {
+    "first": {
+      "t": [
+        "the calm pilot maps the inlet at dawn",
+        "the careful pilot marks the channel by sunrise",
+        "the quiet gardener waters the flowers near the gate",
+        "the young keeper carries a lantern along the road",
+        "three patient guides chart the northern pass under stars",
+        "two local artists paint a bright mural beside the square",
+        "the old scholar reads a weathered map in the library"
+      ],
+      "s": [
+        "several kind sailors watch the harbor before dusk"
+      ]
+    },
+    "last": {
+      "n": [
+        "the calm pilot maps the inlet at dawn"
+      ],
+      "e": [
+        "the careful pilot marks the channel by sunrise",
+        "the quiet gardener waters the flowers near the gate",
+        "two local artists paint a bright mural beside the square"
+      ],
+      "d": [
+        "the young keeper carries a lantern along the road"
+      ],
+      "s": [
+        "three patient guides chart the northern pass under stars"
+      ],
+      "k": [
+        "several kind sailors watch the harbor before dusk"
+      ],
+      "y": [
+        "the old scholar reads a weathered map in the library"
+      ]
+    }
+  },
+  "stats": {
+    "inventory": 8,
+    "attempts": 56,
+    "survivors": 0,
+    "rendered_controls": 12
+  },
+  "survivors": [],
+  "controls": [
+    {
+      "left": "the calm pilot maps the inlet at dawn",
+      "right": "the careful pilot marks the channel by sunrise",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "sg"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "e",
+        "target": 39
+      },
+      "rendered": "the calm pilot maps the inlet at dawn. the careful pilot marks the channel by sunrise.",
+      "audit": {
+        "letters": 69,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "ede9e4d28f5f405bbed24ef7b1ba62f6083b245e8897c9f3c747b45f91beeee5",
+        "sha256_reverse": "06ccd11df8bd2066c6aee3707bdde1c40625b8e70d166ecb132b11ad32812335"
+      }
+    },
+    {
+      "left": "the calm pilot maps the inlet at dawn",
+      "right": "the quiet gardener waters the flowers near the gate",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "sg"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "e",
+        "target": 39
+      },
+      "rendered": "the calm pilot maps the inlet at dawn. the quiet gardener waters the flowers near the gate.",
+      "audit": {
+        "letters": 73,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "c3ad72e44ef94bb69c7ae851b0a28d172e8f216c23216076b34d4ed418c7b400",
+        "sha256_reverse": "2298426b2957e380e4f98e32e8a93cb180f69955489b61655c20385aa336f94a"
+      }
+    },
+    {
+      "left": "the calm pilot maps the inlet at dawn",
+      "right": "the young keeper carries a lantern along the road",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "sg"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "d",
+        "target": 39
+      },
+      "rendered": "the calm pilot maps the inlet at dawn. the young keeper carries a lantern along the road.",
+      "audit": {
+        "letters": 71,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "ea0a4a0aecf118c939d56115bca7d36c907be642d42713ede5dd23c9166c77c8",
+        "sha256_reverse": "e9e3208fd01798aa4de2bcdeb2770e5b5daf60317a01fe866ea7efdb7d033f45"
+      }
+    },
+    {
+      "left": "the calm pilot maps the inlet at dawn",
+      "right": "three patient guides chart the northern pass under stars",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "pl"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "s",
+        "target": 39
+      },
+      "rendered": "the calm pilot maps the inlet at dawn. three patient guides chart the northern pass under stars.",
+      "audit": {
+        "letters": 78,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "sha256_forward": "5e243b8ae9183d57c13e13514669bcec754556b0b8ffe84d7b35015fff417c8b",
+        "sha256_reverse": "84f64f7e2cb41e367e74af2d52829ed04d659d459eadede1d98d0e3474c9abcc"
+      }
+    },
+    {
+      "left": "the calm pilot maps the inlet at dawn",
+      "right": "several kind sailors watch the harbor before dusk",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "pl"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "k",
+        "target": 39
+      },
+      "rendered": "the calm pilot maps the inlet at dawn. several kind sailors watch the harbor before dusk.",
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "k"
+        ],
+        "sha256_forward": "4aa08266234e7b69d106036ba77a90ea47deaf2f0ab5add11df5519d8fb85e89",
+        "sha256_reverse": "9fe2b5a91a715294bcde521416a7ff3b2a3fe6d3b1db3ce9ae3d3384e06406f9"
+      }
+    },
+    {
+      "left": "the calm pilot maps the inlet at dawn",
+      "right": "two local artists paint a bright mural beside the square",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "pl"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "e",
+        "target": 39
+      },
+      "rendered": "the calm pilot maps the inlet at dawn. two local artists paint a bright mural beside the square.",
+      "audit": {
+        "letters": 77,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "0258bdeaa5375214798b48e3d2ab5723bb19ae746470b6360e1a9ed251dcf1ec",
+        "sha256_reverse": "1244dd22dafa8f71e5a6aaa1576797323047922226601234161521654bca2f7c"
+      }
+    },
+    {
+      "left": "the calm pilot maps the inlet at dawn",
+      "right": "the old scholar reads a weathered map in the library",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "sg"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "y",
+        "target": 39
+      },
+      "rendered": "the calm pilot maps the inlet at dawn. the old scholar reads a weathered map in the library.",
+      "audit": {
+        "letters": 73,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "y"
+        ],
+        "sha256_forward": "1d405a2e11899eff413981065178602867cd02d06b984723dceff2fd9ae3b06a",
+        "sha256_reverse": "cee4fbdd9b3b9a5d8c9f148a807887ee6ea8ae4f5f5741da56a5a11d3619507b"
+      }
+    },
+    {
+      "left": "the careful pilot marks the channel by sunrise",
+      "right": "the calm pilot maps the inlet at dawn",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "sg"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "n",
+        "target": 39
+      },
+      "rendered": "the careful pilot marks the channel by sunrise. the calm pilot maps the inlet at dawn.",
+      "audit": {
+        "letters": 69,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "8d1bf81043dd37792ccdf526980b2c74c35fbf5cfacccd7863350b313070c5ed",
+        "sha256_reverse": "a7cc8ebca6ebbfd85ac2603a04854d83864d09a77124378e490bcc215aee5c84"
+      }
+    },
+    {
+      "left": "the careful pilot marks the channel by sunrise",
+      "right": "the quiet gardener waters the flowers near the gate",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "sg"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "e",
+        "target": 39
+      },
+      "rendered": "the careful pilot marks the channel by sunrise. the quiet gardener waters the flowers near the gate.",
+      "audit": {
+        "letters": 82,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "718e727e1011ca593f63d91e8b4ae6f13cfc1abff7c8e35e1f59ed74e6beb7ba",
+        "sha256_reverse": "ff185de78f0efd6f3d3afb5447e6d0109154e949dda5d1d2026891a960359a30"
+      }
+    },
+    {
+      "left": "the careful pilot marks the channel by sunrise",
+      "right": "the young keeper carries a lantern along the road",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "sg"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "d",
+        "target": 39
+      },
+      "rendered": "the careful pilot marks the channel by sunrise. the young keeper carries a lantern along the road.",
+      "audit": {
+        "letters": 80,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "6818ed296205cdfba16369676b6b66c264adafee6029d032e16a212b69fb9e0e",
+        "sha256_reverse": "4d2acea787b748f21d9eb0a97e97386395119adec0c24c8267aaf078f01312ff"
+      }
+    },
+    {
+      "left": "the careful pilot marks the channel by sunrise",
+      "right": "three patient guides chart the northern pass under stars",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "pl"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "s",
+        "target": 39
+      },
+      "rendered": "the careful pilot marks the channel by sunrise. three patient guides chart the northern pass under stars.",
+      "audit": {
+        "letters": 87,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "sha256_forward": "de5dbd1df975e00211c3f3fa29da28271fe2827a24ae48114707e4f0a62edb9e",
+        "sha256_reverse": "244499547d148152073ba7cc84ba772efdacfd2204c2f5207dbe321bc2d68ec3"
+      }
+    },
+    {
+      "left": "the careful pilot marks the channel by sunrise",
+      "right": "several kind sailors watch the harbor before dusk",
+      "semantic_roles": [
+        "agent",
+        "agent"
+      ],
+      "agreement": [
+        "sg",
+        "pl"
+      ],
+      "boundary_growth": {
+        "closed": false,
+        "committed_pairs": [],
+        "mismatch_at": 0,
+        "left_terminal": "t",
+        "right_terminal": "k",
+        "target": 39
+      },
+      "rendered": "the careful pilot marks the channel by sunrise. several kind sailors watch the harbor before dusk.",
+      "audit": {
+        "letters": 81,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "k"
+        ],
+        "sha256_forward": "3ab99b226e44e01dbb1508bc0f3725e5f86611231b041345df4dff092e8debb0",
+        "sha256_reverse": "7350950de57b940487c64429f54d9ee741f37d13af8c8d08c96fb2242168c9f6"
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "fresh_scene_authoring": true,
+    "signature": "semantic-svo-pp|first-last-terminal-index|live-outside-in",
+    "fixed_control_pairs": false
+  },
+  "provenance": {
+    "independent_pointer_sha": true,
+    "reader_status": "controls only",
+    "anti_shortcut": {
+      "intact_prose": true,
+      "finished_tape_reversal": false,
+      "post_render_repair": false
+    }
+  },
+  "next_operator": "add a second PP alternation per role and retain first/last terminal compatibility across two clause boundaries"
+}

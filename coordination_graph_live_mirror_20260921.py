@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parent
 RUN = ROOT / "runs" / "coordination-graph-live-mirror-20260921.json"
 
 FRAMES = (
-    {"act": "question", "subject": ("you", "we"), "verb": ("carry", "mark"), "object": ("the map", "a bell"), "attachment": ("at dawn", "in rain")},
+    {"act": "question", "subject": ("you", "we"), "verb": ("carry", "mark"), "object": ("the map", "a bell"), "attachment": ("at dawn", "in the rain")},
     {"act": "answer", "subject": ("I", "we"), "verb": ("carry", "keep"), "object": ("a map", "the bell"), "attachment": ("at dusk", "by the gate")},
 )
 PUNCT = (("?", "."), (",", ";"))
@@ -37,10 +37,10 @@ def run():
     rows=[]
     for lf,rf,p in itertools.product(FRAMES, FRAMES, PUNCT):
         # Graph topology is fixed before selecting words; two coordinated turns.
-        left=f"{lf['subject'][0]} {lf['verb'][0]} {lf['object'][0]}{p[0]} {lf['attachment'][0]}"
-        right=f"{rf['subject'][1]} {rf['verb'][1]} {rf['object'][1]}{p[1]} {rf['attachment'][1]}"
+        left=f"{lf['subject'][0]} {lf['verb'][0]} {lf['object'][0]} {lf['attachment'][0]}{p[0]}"
+        right=f"{rf['subject'][1]} {rf['verb'][1]} {rf['object'][1]} {rf['attachment'][1]}{p[1]}"
         ok,checks,reason=live_compatible(left,right)
-        rendered=f"{left} {right}."
+        rendered=f"{left} {right}"
         words=re.findall(r"[a-z]+",rendered.casefold())
         row={"rendered":rendered,"roles":{"left":lf,"right":rf},"punctuation":p,
              "live_obligation":{"accepted":ok,"checks":checks,"reason":reason},"audit":audit(rendered),

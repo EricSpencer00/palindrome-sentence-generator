@@ -5,6 +5,8 @@ def test_graph_is_bounded_and_roles_precede_rendering():
     assert d["stats"]["rendered"] == 8
     assert all(r["provenance"]["roles_before_lexical_realization"] for r in d["rendered_controls"])
     assert all(r["provenance"]["live_mirrored_characters"] for r in d["rendered_controls"])
+    assert all(not r["rendered"].endswith(("in rain.", "in the rain.", "by the gate.")) or r["rendered"].count(" ") >= 8 for r in d["rendered_controls"])
+    assert all(".." not in r["rendered"] and ";." not in r["rendered"] for r in d["rendered_controls"])
     assert d["provenance"]["generator_sha256"]
 
 def test_independent_audit_fields_exist():

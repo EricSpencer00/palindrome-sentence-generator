@@ -8069,6 +8069,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   topology is a fourteen-event graph with a triple-cut intersection and rank
   monotonicity check. Artifact: `runs/thirteen-event-dual-cut-20260921.json`.
 
+- **Fourteen-event triple-cut graph, 2026-09-21:** added triple cuts at
+  `e4 | e5`, `e8 | e9`, and `e12 | e13`; the rank-monotonicity witness was
+  `[3, 2, 1]`. Its 322-letter repeated-event control failed both independent
+  pointer and forward/reverse SHA audits, with zero exact closures at or above
+  39 letters. This confirms the topology bookkeeping but is not reader-facing
+  prose; the next operator holds the topology fixed and tests rank stability
+  under a lexical-independent perturbation. Artifact:
+  `runs/fourteen-event-triple-cut-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.

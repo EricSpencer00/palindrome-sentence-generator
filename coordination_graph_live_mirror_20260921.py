@@ -14,7 +14,7 @@ FRAMES = (
     {"act": "question", "subject": ("you", "we"), "verb": ("carry", "mark"), "object": ("the map", "a bell"), "attachment": ("at dawn", "in the rain")},
     {"act": "answer", "subject": ("I", "we"), "verb": ("carry", "keep"), "object": ("a map", "the bell"), "attachment": ("at dusk", "by the gate")},
 )
-PUNCT = (("?", "."), (",", ";"))
+PUNCT = (("?", "."), (",", "."))
 
 def tape(s): return re.sub(r"[^a-z]", "", s.casefold())
 def sha(s): return hashlib.sha256(s.encode()).hexdigest()

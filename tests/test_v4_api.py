@@ -177,6 +177,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["seam_indexed_clause_variants_run"]["exact_candidates_over_38"] == 0
     assert method.json()["twochar_outer_family_run"]["compatible_pairs"] == 243
     assert method.json()["twochar_outer_family_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["semantic_relation_bilateral_roles_run"]["role_states"] == 12
+    assert method.json()["semantic_relation_bilateral_roles_run"]["exact_candidates_over_38"] == 0
     assert method.json()["recursive_semantic_grammar_csp_run"]["recursive_states"] == 36
     assert method.json()["recursive_semantic_grammar_csp_run"]["exact_candidates_over_38"] == 0
     assert method.json()["dual_obligation_event_graph_run"]["candidate_states"] == 96

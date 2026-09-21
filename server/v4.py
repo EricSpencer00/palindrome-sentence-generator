@@ -1688,6 +1688,23 @@ TWOCHAR_OUTER_FAMILY_RUN = {
     "next_construction": "stop this family and change syntax/semantic frame rather than add lexical variants",
 }
 
+SEMANTIC_RELATION_BILATERAL_ROLES_RUN = {
+    "run_id": "semantic-relation-bilateral-roles-20260920",
+    "method": "bilateral semantic-relation role CSP",
+    "status": "completed_no_exact_closure",
+    "relation_frames": 4,
+    "role_states": 12,
+    "live_equations": 12,
+    "online_mismatch_prunes": 12,
+    "longest_rendered_letters": 75,
+    "exact_candidates_over_38": 0,
+    "reader_eligible": 0,
+    "provenance": "fresh authored relation frames with independent agent/recipient roles and intact ordinary sentence surfaces; no catalogue/API text, mirrored units, reversal, post-hoc repair, fragments, or per-search RLAIF",
+    "independent_validation": ["independent pointer audit", "forward/reverse SHA-256"],
+    "novelty_preflight": "passed; shared-semantic-relation independent-role live-opposing-cursor signature",
+    "next_construction": "add a genuinely ditransitive relation with explicit case state",
+}
+
 RECURSIVE_SEMANTIC_GRAMMAR_CSP_RUN = {
     "run_id": "recursive-semantic-grammar-csp-20260920",
     "method": "recursive typed event-graph CSP with a free discourse center and carried character obligations",
@@ -8980,6 +8997,7 @@ def evidence() -> dict[str, Any]:
         "three_char_emission_residual_run": THREE_CHAR_EMISSION_RESIDUAL_RUN,
         "seam_indexed_clause_variants_run": SEAM_INDEXED_CLAUSE_VARIANTS_RUN,
         "twochar_outer_family_run": TWOCHAR_OUTER_FAMILY_RUN,
+        "semantic_relation_bilateral_roles_run": SEMANTIC_RELATION_BILATERAL_ROLES_RUN,
         "recursive_semantic_grammar_csp_run": RECURSIVE_SEMANTIC_GRAMMAR_CSP_RUN,
         "dual_obligation_event_graph_run": DUAL_OBLIGATION_EVENT_GRAPH_RUN,
         "center_first_agreement_product_run": CENTER_FIRST_AGREEMENT_PRODUCT_RUN,
@@ -9034,6 +9052,7 @@ def method() -> dict[str, Any]:
         "three_char_emission_residual_run": THREE_CHAR_EMISSION_RESIDUAL_RUN,
         "seam_indexed_clause_variants_run": SEAM_INDEXED_CLAUSE_VARIANTS_RUN,
         "twochar_outer_family_run": TWOCHAR_OUTER_FAMILY_RUN,
+        "semantic_relation_bilateral_roles_run": SEMANTIC_RELATION_BILATERAL_ROLES_RUN,
         "recursive_semantic_grammar_csp_run": RECURSIVE_SEMANTIC_GRAMMAR_CSP_RUN,
         "dual_obligation_event_graph_run": DUAL_OBLIGATION_EVENT_GRAPH_RUN,
         "center_first_agreement_product_run": CENTER_FIRST_AGREEMENT_PRODUCT_RUN,
@@ -9083,6 +9102,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "three_char_emission_residual_run": THREE_CHAR_EMISSION_RESIDUAL_RUN,
         "seam_indexed_clause_variants_run": SEAM_INDEXED_CLAUSE_VARIANTS_RUN,
         "twochar_outer_family_run": TWOCHAR_OUTER_FAMILY_RUN,
+        "semantic_relation_bilateral_roles_run": SEMANTIC_RELATION_BILATERAL_ROLES_RUN,
         "recursive_semantic_grammar_csp_run": RECURSIVE_SEMANTIC_GRAMMAR_CSP_RUN,
         "dual_obligation_event_graph_run": DUAL_OBLIGATION_EVENT_GRAPH_RUN,
         "center_first_agreement_product_run": CENTER_FIRST_AGREEMENT_PRODUCT_RUN,

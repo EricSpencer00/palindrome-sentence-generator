@@ -8169,6 +8169,23 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   is an object-NP that-relative CP with overt subject and object gap. Artifact:
   `runs/cfg-earley-object-np-whose-cp-20260921.json`.
 
+- **Object-NP that-gap Earley seam, 2026-09-21:** attached
+  `that NP VP_gap` inside the object NP, with overt relative subject and
+  object-gap items represented before rendering. Three intact controls were
+  119, 117, and 114 letters; 157 concrete domain conflicts were retained and
+  zero exact closures occurred. The next topology is an object-NP
+  which-relative CP. Artifact:
+  `runs/cfg-earley-object-np-that-gap-20260921.json`.
+
+- **Boundary-conditioned semantic scene search, 2026-09-21:** indexed fresh
+  SVO/PP alternatives by first/last terminal characters and grew paired clause
+  yields inward under `x[i] = x[N-1-i]`. Eight compatible boundary attempts
+  survived at least one pair and reached two committed character pairs before
+  their next mismatch; no exact closure or reader candidate was produced.
+  The next operator adds a second PP alternation while retaining the boundary
+  index. Artifact:
+  `runs/boundary-conditioned-semantic-scene-search-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

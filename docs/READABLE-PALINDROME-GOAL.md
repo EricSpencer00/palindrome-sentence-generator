@@ -7737,6 +7737,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   modal/participle agreement variant. Artifact:
   `runs/regular-shared-character-20260921.json`.
 
+- **Modal agreement frame, 2026-09-21:** added fresh modals (`might`, `could`,
+  `must`) and held-out animate nouns (`judge`, `clerk`, `guard`) with explicit
+  relative, subject, predicate, and object roles. Across lengths 39--240, all
+  202 targets reached a one-node root conflict; no exact or rendered path
+  appeared. The next operator is a bounded held-out adverbial agreement edge.
+  Artifact: `runs/regular-shared-character-20260921.json`.
+
 - **Hand-authored phrase lattice, 2026-09-21:** selected phrase alternatives
   from both ends while debt was live and independently audited the terminal.
   It visited 26 nodes and reached one exact terminal, but that terminal was

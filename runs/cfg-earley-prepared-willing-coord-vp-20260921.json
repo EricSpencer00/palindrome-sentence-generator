@@ -1,0 +1,1383 @@
+{
+  "experiment_id": "cfg-earley-prepared-willing-coord-vp-20260921",
+  "signature": "earley-coordinated-adjective-vp|prepared-and-willing|plural-agreement|live-mirrored-domain",
+  "method": "pre-render prepared-and-willing coordinated VP Earley expansion with live mirrored domains",
+  "novelty_preflight": {
+    "entries_inspected": 694,
+    "exact_signature_collisions": [],
+    "passed": true,
+    "distinction": "prepared and willing coordination is a new VP topology expanded before rendering; agreement, valency, and mirrored domains are live"
+  },
+  "rows": [
+    {
+      "rank": 1,
+      "rendered": "The watchful wardens are prepared and willing to repair the iron gates beside some cedar bridges. The skilled carpenters are prepared and willing to carry some sturdy chairs under some willow arches.",
+      "letters": 166,
+      "provenance": {
+        "left_clause": "wardens-prepared-willing-repair",
+        "right_clause": "carpenters-prepared-willing-carry",
+        "left_pp": "pp-beside-some-cedar-bridges",
+        "right_pp": "pp-under-some-willow-arches",
+        "vp_topology": "prepared and willing coordinated VP",
+        "source": "fresh authored grammar terminals"
+      },
+      "left_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 4,
+            "features": {
+              "number": "pl",
+              "aux": "are",
+              "coordination": "prepared-and-willing"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "right_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 4,
+            "features": {
+              "number": "pl",
+              "aux": "are",
+              "coordination": "prepared-and-willing"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "mirrored_domains": {
+        "algorithm": "online_mirrored_domain_intersection",
+        "invariant": "each support belongs to a coordinated VP Earley item; empty domains remain conflicts",
+        "pairs_checked": 81,
+        "surviving_pairs": 5,
+        "conflict_count": 76,
+        "first_conflict": {
+          "position": 0,
+          "opposing_position": 84,
+          "left_owner": "left_coordinated_VP_item",
+          "right_owner": "right_coordinated_VP_item",
+          "left_support": "t",
+          "right_support": "s",
+          "domain": [],
+          "survives": false
+        },
+        "ledger": [
+          {
+            "position": 0,
+            "opposing_position": 84,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "t",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 1,
+            "opposing_position": 83,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "h",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 2,
+            "opposing_position": 82,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 3,
+            "opposing_position": 81,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "w",
+            "right_support": "c",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 4,
+            "opposing_position": 80,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "a",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 5,
+            "opposing_position": 79,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "t",
+            "right_support": "a",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 6,
+            "opposing_position": 78,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "c",
+            "right_support": "w",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 7,
+            "opposing_position": 77,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "h",
+            "right_support": "o",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 8,
+            "opposing_position": 76,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "f",
+            "right_support": "l",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 9,
+            "opposing_position": 75,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "u",
+            "right_support": "l",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 10,
+            "opposing_position": 74,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "l",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 11,
+            "opposing_position": 73,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "w",
+            "right_support": "w",
+            "domain": [
+              "w"
+            ],
+            "survives": true
+          },
+          {
+            "position": 12,
+            "opposing_position": 72,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "a",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 13,
+            "opposing_position": 71,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "r",
+            "right_support": "m",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 14,
+            "opposing_position": 70,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "d",
+            "right_support": "o",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 15,
+            "opposing_position": 69,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 16,
+            "opposing_position": 68,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "n",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 17,
+            "opposing_position": 67,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "s",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 18,
+            "opposing_position": 66,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "a",
+            "right_support": "d",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 19,
+            "opposing_position": 65,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "r",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 20,
+            "opposing_position": 64,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "u",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 21,
+            "opposing_position": 63,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "p",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 22,
+            "opposing_position": 62,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "r",
+            "right_support": "r",
+            "domain": [
+              "r"
+            ],
+            "survives": true
+          },
+          {
+            "position": 23,
+            "opposing_position": 61,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          }
+        ]
+      },
+      "exact_check_pointer": {
+        "algorithm": "independent_pointer",
+        "exact": false,
+        "letters": 166,
+        "mismatch_count": 78,
+        "mismatches": [
+          {
+            "i": 0,
+            "j": 165,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "i": 1,
+            "j": 164,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "i": 2,
+            "j": 163,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "i": 3,
+            "j": 162,
+            "left": "w",
+            "right": "c"
+          },
+          {
+            "i": 4,
+            "j": 161,
+            "left": "a",
+            "right": "r"
+          },
+          {
+            "i": 5,
+            "j": 160,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "i": 6,
+            "j": 159,
+            "left": "c",
+            "right": "w"
+          },
+          {
+            "i": 7,
+            "j": 158,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "i": 8,
+            "j": 157,
+            "left": "f",
+            "right": "l"
+          },
+          {
+            "i": 9,
+            "j": 156,
+            "left": "u",
+            "right": "l"
+          },
+          {
+            "i": 10,
+            "j": 155,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "i": 12,
+            "j": 153,
+            "left": "a",
+            "right": "e"
+          }
+        ]
+      },
+      "exact_check_sha": {
+        "algorithm": "independent_sha_forward_reverse",
+        "exact": false,
+        "forward": "6eba6d2767ad54055061cc240c965e7856af9897111b301557af9443dd386f0e",
+        "reverse": "9e71b2c859d56a8ebb785ae94bb87e0949df7c4a5fefe226e930489f0f721643"
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "post_render_repair": false,
+        "reverse_decoder": false,
+        "mirrored_units": false,
+        "word_order_mirror": false,
+        "catalogue_text": false,
+        "reward_loop": false,
+        "complete_constituents": true,
+        "plural_agreement_checked": true,
+        "coordination_pre_render": true,
+        "valency_checked": true
+      },
+      "mechanically_admitted": false,
+      "next_operator": "Add a held-out coordinated VP with ready and eager adjectives before chart expansion, preserving plural agreement and live domain ownership."
+    },
+    {
+      "rank": 2,
+      "rendered": "The skilled carpenters are prepared and willing to carry some sturdy chairs under some willow arches. The patient keepers are prepared and willing to record the morning ledgers beyond some stone gardens.",
+      "letters": 170,
+      "provenance": {
+        "left_clause": "carpenters-prepared-willing-carry",
+        "right_clause": "keepers-prepared-willing-record",
+        "left_pp": "pp-under-some-willow-arches",
+        "right_pp": "pp-beyond-some-stone-gardens",
+        "vp_topology": "prepared and willing coordinated VP",
+        "source": "fresh authored grammar terminals"
+      },
+      "left_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 4,
+            "features": {
+              "number": "pl",
+              "aux": "are",
+              "coordination": "prepared-and-willing"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "right_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 4,
+            "features": {
+              "number": "pl",
+              "aux": "are",
+              "coordination": "prepared-and-willing"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "mirrored_domains": {
+        "algorithm": "online_mirrored_domain_intersection",
+        "invariant": "each support belongs to a coordinated VP Earley item; empty domains remain conflicts",
+        "pairs_checked": 85,
+        "surviving_pairs": 4,
+        "conflict_count": 81,
+        "first_conflict": {
+          "position": 0,
+          "opposing_position": 84,
+          "left_owner": "left_coordinated_VP_item",
+          "right_owner": "right_coordinated_VP_item",
+          "left_support": "t",
+          "right_support": "s",
+          "domain": [],
+          "survives": false
+        },
+        "ledger": [
+          {
+            "position": 0,
+            "opposing_position": 84,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "t",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 1,
+            "opposing_position": 83,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "h",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 2,
+            "opposing_position": 82,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "e",
+            "domain": [
+              "e"
+            ],
+            "survives": true
+          },
+          {
+            "position": 3,
+            "opposing_position": 81,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "s",
+            "right_support": "d",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 4,
+            "opposing_position": 80,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "k",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 5,
+            "opposing_position": 79,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "i",
+            "right_support": "a",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 6,
+            "opposing_position": 78,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "l",
+            "right_support": "g",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 7,
+            "opposing_position": 77,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "l",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 8,
+            "opposing_position": 76,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 9,
+            "opposing_position": 75,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "d",
+            "right_support": "o",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 10,
+            "opposing_position": 74,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "c",
+            "right_support": "t",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 11,
+            "opposing_position": 73,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "a",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 12,
+            "opposing_position": 72,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "r",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 13,
+            "opposing_position": 71,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "p",
+            "right_support": "m",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 14,
+            "opposing_position": 70,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "o",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 15,
+            "opposing_position": 69,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "n",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 16,
+            "opposing_position": 68,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "t",
+            "right_support": "d",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 17,
+            "opposing_position": 67,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 18,
+            "opposing_position": 66,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "r",
+            "right_support": "o",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 19,
+            "opposing_position": 65,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "s",
+            "right_support": "y",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 20,
+            "opposing_position": 64,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "a",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 21,
+            "opposing_position": 63,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "r",
+            "right_support": "b",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 22,
+            "opposing_position": 62,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 23,
+            "opposing_position": 61,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "p",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          }
+        ]
+      },
+      "exact_check_pointer": {
+        "algorithm": "independent_pointer",
+        "exact": false,
+        "letters": 170,
+        "mismatch_count": 81,
+        "mismatches": [
+          {
+            "i": 0,
+            "j": 169,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "i": 1,
+            "j": 168,
+            "left": "h",
+            "right": "n"
+          },
+          {
+            "i": 3,
+            "j": 166,
+            "left": "s",
+            "right": "d"
+          },
+          {
+            "i": 4,
+            "j": 165,
+            "left": "k",
+            "right": "r"
+          },
+          {
+            "i": 5,
+            "j": 164,
+            "left": "i",
+            "right": "a"
+          },
+          {
+            "i": 6,
+            "j": 163,
+            "left": "l",
+            "right": "g"
+          },
+          {
+            "i": 7,
+            "j": 162,
+            "left": "l",
+            "right": "e"
+          },
+          {
+            "i": 8,
+            "j": 161,
+            "left": "e",
+            "right": "n"
+          },
+          {
+            "i": 9,
+            "j": 160,
+            "left": "d",
+            "right": "o"
+          },
+          {
+            "i": 10,
+            "j": 159,
+            "left": "c",
+            "right": "t"
+          },
+          {
+            "i": 11,
+            "j": 158,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "i": 12,
+            "j": 157,
+            "left": "r",
+            "right": "e"
+          }
+        ]
+      },
+      "exact_check_sha": {
+        "algorithm": "independent_sha_forward_reverse",
+        "exact": false,
+        "forward": "84efd155a3c51833afc7ee2fd2fea915d97eb42b2a910c6fe5ce1e3a86636dab",
+        "reverse": "986cf1d10f99d715e73ec5ca75688e5d6bc4d078616b711db020779fc412de06"
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "post_render_repair": false,
+        "reverse_decoder": false,
+        "mirrored_units": false,
+        "word_order_mirror": false,
+        "catalogue_text": false,
+        "reward_loop": false,
+        "complete_constituents": true,
+        "plural_agreement_checked": true,
+        "coordination_pre_render": true,
+        "valency_checked": true
+      },
+      "mechanically_admitted": false,
+      "next_operator": "Add a held-out coordinated VP with ready and eager adjectives before chart expansion, preserving plural agreement and live domain ownership."
+    },
+    {
+      "rank": 3,
+      "rendered": "The patient keepers are prepared and willing to record the morning ledgers beyond some stone gardens. The watchful wardens are prepared and willing to repair the iron gates beside some cedar bridges.",
+      "letters": 166,
+      "provenance": {
+        "left_clause": "keepers-prepared-willing-record",
+        "right_clause": "wardens-prepared-willing-repair",
+        "left_pp": "pp-beyond-some-stone-gardens",
+        "right_pp": "pp-beside-some-cedar-bridges",
+        "vp_topology": "prepared and willing coordinated VP",
+        "source": "fresh authored grammar terminals"
+      },
+      "left_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 4,
+            "features": {
+              "number": "pl",
+              "aux": "are",
+              "coordination": "prepared-and-willing"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "right_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> Aux Adj and Adj Inf NP PP",
+          "PP -> P Det N"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 4,
+            "features": {
+              "number": "pl",
+              "aux": "are",
+              "coordination": "prepared-and-willing"
+            }
+          },
+          {
+            "lhs": "PP",
+            "dot": 3,
+            "features": {
+              "number": "pl",
+              "valency": "transitive-locative"
+            }
+          }
+        ],
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "mirrored_domains": {
+        "algorithm": "online_mirrored_domain_intersection",
+        "invariant": "each support belongs to a coordinated VP Earley item; empty domains remain conflicts",
+        "pairs_checked": 81,
+        "surviving_pairs": 5,
+        "conflict_count": 76,
+        "first_conflict": {
+          "position": 0,
+          "opposing_position": 80,
+          "left_owner": "left_coordinated_VP_item",
+          "right_owner": "right_coordinated_VP_item",
+          "left_support": "t",
+          "right_support": "s",
+          "domain": [],
+          "survives": false
+        },
+        "ledger": [
+          {
+            "position": 0,
+            "opposing_position": 80,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "t",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 1,
+            "opposing_position": 79,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "h",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 2,
+            "opposing_position": 78,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "g",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 3,
+            "opposing_position": 77,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "p",
+            "right_support": "d",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 4,
+            "opposing_position": 76,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "a",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 5,
+            "opposing_position": 75,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "t",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 6,
+            "opposing_position": 74,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "i",
+            "right_support": "b",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 7,
+            "opposing_position": 73,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 8,
+            "opposing_position": 72,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "n",
+            "right_support": "a",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 9,
+            "opposing_position": 71,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "t",
+            "right_support": "d",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 10,
+            "opposing_position": 70,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "k",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 11,
+            "opposing_position": 69,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "c",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 12,
+            "opposing_position": 68,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "e",
+            "domain": [
+              "e"
+            ],
+            "survives": true
+          },
+          {
+            "position": 13,
+            "opposing_position": 67,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "p",
+            "right_support": "m",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 14,
+            "opposing_position": 66,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "o",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 15,
+            "opposing_position": 65,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "r",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 16,
+            "opposing_position": 64,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "s",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 17,
+            "opposing_position": 63,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "a",
+            "right_support": "d",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 18,
+            "opposing_position": 62,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "r",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 19,
+            "opposing_position": 61,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 20,
+            "opposing_position": 60,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "p",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 21,
+            "opposing_position": 59,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "r",
+            "right_support": "b",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 22,
+            "opposing_position": 58,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "e",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 23,
+            "opposing_position": 57,
+            "left_owner": "left_coordinated_VP_item",
+            "right_owner": "right_coordinated_VP_item",
+            "left_support": "p",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          }
+        ]
+      },
+      "exact_check_pointer": {
+        "algorithm": "independent_pointer",
+        "exact": false,
+        "letters": 166,
+        "mismatch_count": 78,
+        "mismatches": [
+          {
+            "i": 0,
+            "j": 165,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "i": 1,
+            "j": 164,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "i": 2,
+            "j": 163,
+            "left": "e",
+            "right": "g"
+          },
+          {
+            "i": 3,
+            "j": 162,
+            "left": "p",
+            "right": "d"
+          },
+          {
+            "i": 4,
+            "j": 161,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "i": 5,
+            "j": 160,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "i": 6,
+            "j": 159,
+            "left": "i",
+            "right": "b"
+          },
+          {
+            "i": 7,
+            "j": 158,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "i": 8,
+            "j": 157,
+            "left": "n",
+            "right": "a"
+          },
+          {
+            "i": 9,
+            "j": 156,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "i": 10,
+            "j": 155,
+            "left": "k",
+            "right": "e"
+          },
+          {
+            "i": 11,
+            "j": 154,
+            "left": "e",
+            "right": "c"
+          }
+        ]
+      },
+      "exact_check_sha": {
+        "algorithm": "independent_sha_forward_reverse",
+        "exact": false,
+        "forward": "7d8cfeaad374810d8202c39d70fca2f6e320206c1084a8bc1ae25e84e35a02b6",
+        "reverse": "6bba37de5cfece1db50f45b2f2ee7be93f284a03c131108d039185f8bfe79671"
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "post_render_repair": false,
+        "reverse_decoder": false,
+        "mirrored_units": false,
+        "word_order_mirror": false,
+        "catalogue_text": false,
+        "reward_loop": false,
+        "complete_constituents": true,
+        "plural_agreement_checked": true,
+        "coordination_pre_render": true,
+        "valency_checked": true
+      },
+      "mechanically_admitted": false,
+      "next_operator": "Add a held-out coordinated VP with ready and eager adjectives before chart expansion, preserving plural agreement and live domain ownership."
+    }
+  ],
+  "stats": {
+    "states_examined": 3,
+    "over_39": 3,
+    "exact": 0,
+    "agreement_unified": 3,
+    "domain_conflicts": 233,
+    "rendered_lengths": [
+      166,
+      170,
+      166
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "29d13970d81ac940260da2deb65fd6eb6c10ab0c0f92a5e17d21c2c254aac4e4",
+    "independent_audits": [
+      "pointer",
+      "forward/reverse SHA",
+      "Earley chart",
+      "live mirrored-domain ledger"
+    ],
+    "brown_usage": "none; no borrowed prose"
+  },
+  "anti_shortcut_policy": "No post-render repair, fixed tape, reverse decoder, mirrored units, word-order symmetry, catalogue text, or reward loop.",
+  "next_operator": "Add a held-out ready-and-eager coordinated VP before expansion."
+}

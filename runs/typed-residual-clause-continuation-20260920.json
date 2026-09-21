@@ -1,0 +1,590 @@
+{
+  "experiment_id": "typed-residual-clause-continuation-20260920",
+  "method": "two-character residual keyed continuation bank with live two-chunk equation",
+  "acceptance_gate": "reader-facing only if residual closes online, pointer and SHA audits agree, >38 letters, and exclusions pass",
+  "stats": {
+    "left_clauses": 4,
+    "continuation_keys": 4,
+    "continuations": 8,
+    "online_prunes": 8,
+    "exact_above_38": 0,
+    "max_letters": 105
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "diagnostic_candidates": [
+    {
+      "rendered": "the patient cartographer marks a quiet inlet before sunrise; meanwhile, the evening keeper folds a blue sail near the pier.",
+      "residual_key": "th",
+      "clauses": {
+        "left": "the patient cartographer marks a quiet inlet before sunrise",
+        "right": "the evening keeper folds a blue sail near the pier"
+      },
+      "chunks": {
+        "left": [
+          "the patient cartographer marks",
+          "a quiet inlet before sunrise"
+        ],
+        "right": [
+          "the evening keeper folds a blue sail",
+          "near the pier"
+        ]
+      },
+      "live_equation": {
+        "first_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "t",
+            "right": "r",
+            "offset": 0
+          },
+          "residual_after": "hepatientcartographermarks"
+        },
+        "second_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "h",
+            "right": "l",
+            "offset": 0
+          },
+          "residual_after": "epatientcartographermarksaquietinletbeforesunrise"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 101,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "edc4b416d5991532eddc51200ebe6685776810e98d0d986c8d3acfd5113f3aa3",
+        "sha256_reverse": "e21ac90761ac43def3bc09999f9e9b238521c3fdad55594420268488713c77d2"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "fresh_authored_continuations": true,
+        "key_selected_before_render": true,
+        "two_character_residual_key": true,
+        "residual_carried_across_chunks": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "rendered": "the patient cartographer marks a quiet inlet before sunrise; meanwhile, the local baker shares a fresh loaf with neighbors.",
+      "residual_key": "th",
+      "clauses": {
+        "left": "the patient cartographer marks a quiet inlet before sunrise",
+        "right": "the local baker shares a fresh loaf with neighbors"
+      },
+      "chunks": {
+        "left": [
+          "the patient cartographer marks",
+          "a quiet inlet before sunrise"
+        ],
+        "right": [
+          "the local baker shares a fresh",
+          "loaf with neighbors"
+        ]
+      },
+      "live_equation": {
+        "first_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "t",
+            "right": "s",
+            "offset": 0
+          },
+          "residual_after": "hepatientcartographermarks"
+        },
+        "second_chunk": {
+          "checked": 2,
+          "mismatch": {
+            "left": "e",
+            "right": "s",
+            "offset": 1
+          },
+          "residual_after": "patientcartographermarksaquietinletbeforesunrise"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 102,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "sha256_forward": "e8a1422f6973c28dd576b88bf45a0e43761550256f7a58c4abe7c90a1e5e18a5",
+        "sha256_reverse": "dbbcd64189909fb9ba349735c7046e497cfe565790fa3b1645d0637699a45a6b"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "fresh_authored_continuations": true,
+        "key_selected_before_render": true,
+        "two_character_residual_key": true,
+        "residual_carried_across_chunks": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "rendered": "a careful beekeeper carries warm honey toward the shed; meanwhile, a gentle teacher opens the old atlas after supper.",
+      "residual_key": "ap",
+      "clauses": {
+        "left": "a careful beekeeper carries warm honey toward the shed",
+        "right": "a gentle teacher opens the old atlas after supper"
+      },
+      "chunks": {
+        "left": [
+          "a careful beekeeper carries",
+          "warm honey toward the shed"
+        ],
+        "right": [
+          "a gentle teacher opens the old",
+          "atlas after supper"
+        ]
+      },
+      "live_equation": {
+        "first_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "a",
+            "right": "r",
+            "offset": 0
+          },
+          "residual_after": "carefulbeekeepercarries"
+        },
+        "second_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "c",
+            "right": "d",
+            "offset": 0
+          },
+          "residual_after": "arefulbeekeepercarrieswarmhoneytowardtheshed"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 96,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "39bdf26ffda94631f38314183edb8c27bacc541a65f368fb7ddd7e6eaab98cad",
+        "sha256_reverse": "4d98ef7170423b7b2e175040bd0704adbaa9e74c50f58c55f7b75126a65d30dd"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "fresh_authored_continuations": true,
+        "key_selected_before_render": true,
+        "two_character_residual_key": true,
+        "residual_carried_across_chunks": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "rendered": "a careful beekeeper carries warm honey toward the shed; meanwhile, a quiet ranger follows a silver trail beyond the creek.",
+      "residual_key": "ap",
+      "clauses": {
+        "left": "a careful beekeeper carries warm honey toward the shed",
+        "right": "a quiet ranger follows a silver trail beyond the creek"
+      },
+      "chunks": {
+        "left": [
+          "a careful beekeeper carries",
+          "warm honey toward the shed"
+        ],
+        "right": [
+          "a quiet ranger follows a silver trail",
+          "beyond the creek"
+        ]
+      },
+      "live_equation": {
+        "first_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "a",
+            "right": "k",
+            "offset": 0
+          },
+          "residual_after": "carefulbeekeepercarries"
+        },
+        "second_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "c",
+            "right": "l",
+            "offset": 0
+          },
+          "residual_after": "arefulbeekeepercarrieswarmhoneytowardtheshed"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 100,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "k"
+        ],
+        "sha256_forward": "aa6d61b9701dfeb1a35404a4266cf58d3d7498c91de4e91a4bba850289514d49",
+        "sha256_reverse": "d7d93de55121346e517a7e4a7b786db3ac9573eb5877436c0ae5a37c969c5ad0"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "fresh_authored_continuations": true,
+        "key_selected_before_render": true,
+        "two_character_residual_key": true,
+        "residual_carried_across_chunks": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "rendered": "our young astronomer records a faint comet above the ridge; meanwhile, our alert ranger follows a silver trail beyond the creek.",
+      "residual_key": "ou",
+      "clauses": {
+        "left": "our young astronomer records a faint comet above the ridge",
+        "right": "our alert ranger follows a silver trail beyond the creek"
+      },
+      "chunks": {
+        "left": [
+          "our young astronomer records",
+          "a faint comet above the ridge"
+        ],
+        "right": [
+          "our alert ranger follows a silver trail",
+          "beyond the creek"
+        ]
+      },
+      "live_equation": {
+        "first_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "o",
+            "right": "k",
+            "offset": 0
+          },
+          "residual_after": "uryoungastronomerrecords"
+        },
+        "second_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "u",
+            "right": "l",
+            "offset": 0
+          },
+          "residual_after": "ryoungastronomerrecordsafaintcometabovetheridge"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 105,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "o",
+          "k"
+        ],
+        "sha256_forward": "95e4a0b29c2bebe911684385c132f31e088a16905d9c173b0f669c65124641bb",
+        "sha256_reverse": "7be43eab8bd6d1a5eee52811d905c5a04da1879d82de06aef70711bf3c5ae5d7"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "fresh_authored_continuations": true,
+        "key_selected_before_render": true,
+        "two_character_residual_key": true,
+        "residual_carried_across_chunks": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "rendered": "our young astronomer records a faint comet above the ridge; meanwhile, our patient guide studies a red marker beside the bridge.",
+      "residual_key": "ou",
+      "clauses": {
+        "left": "our young astronomer records a faint comet above the ridge",
+        "right": "our patient guide studies a red marker beside the bridge"
+      },
+      "chunks": {
+        "left": [
+          "our young astronomer records",
+          "a faint comet above the ridge"
+        ],
+        "right": [
+          "our patient guide studies a red marker",
+          "beside the bridge"
+        ]
+      },
+      "live_equation": {
+        "first_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "o",
+            "right": "e",
+            "offset": 0
+          },
+          "residual_after": "uryoungastronomerrecords"
+        },
+        "second_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "u",
+            "right": "r",
+            "offset": 0
+          },
+          "residual_after": "ryoungastronomerrecordsafaintcometabovetheridge"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 105,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "o",
+          "e"
+        ],
+        "sha256_forward": "4d8876599f1738d4e587156dcb69e3cc6164432b7623fd7542774b654af2d077",
+        "sha256_reverse": "d06857dc218cb2e7cd9e04a30524ee34fd4dd1c5d1f6ea6511fa6e45d6b415ca"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "fresh_authored_continuations": true,
+        "key_selected_before_render": true,
+        "two_character_residual_key": true,
+        "residual_carried_across_chunks": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "rendered": "the village gardener waters a narrow row beside the wall; meanwhile, the local baker shares a fresh loaf with neighbors.",
+      "residual_key": "tv",
+      "clauses": {
+        "left": "the village gardener waters a narrow row beside the wall",
+        "right": "the local baker shares a fresh loaf with neighbors"
+      },
+      "chunks": {
+        "left": [
+          "the village gardener waters",
+          "a narrow row beside the wall"
+        ],
+        "right": [
+          "the local baker shares a fresh",
+          "loaf with neighbors"
+        ]
+      },
+      "live_equation": {
+        "first_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "t",
+            "right": "s",
+            "offset": 0
+          },
+          "residual_after": "hevillagegardenerwaters"
+        },
+        "second_chunk": {
+          "checked": 2,
+          "mismatch": {
+            "left": "e",
+            "right": "s",
+            "offset": 1
+          },
+          "residual_after": "villagegardenerwatersanarrowrowbesidethewall"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 98,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "sha256_forward": "9cd7b0c5eb1619d68cbaeeec804f26014cdfb348732f6632bf83d091c045aaea",
+        "sha256_reverse": "7836634172217d091d9f1008813a46de86abc7e59c7167359a0de4985ec14352"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "fresh_authored_continuations": true,
+        "key_selected_before_render": true,
+        "two_character_residual_key": true,
+        "residual_carried_across_chunks": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "rendered": "the village gardener waters a narrow row beside the wall; meanwhile, the evening keeper folds a blue sail near the pier.",
+      "residual_key": "tv",
+      "clauses": {
+        "left": "the village gardener waters a narrow row beside the wall",
+        "right": "the evening keeper folds a blue sail near the pier"
+      },
+      "chunks": {
+        "left": [
+          "the village gardener waters",
+          "a narrow row beside the wall"
+        ],
+        "right": [
+          "the evening keeper folds a blue sail",
+          "near the pier"
+        ]
+      },
+      "live_equation": {
+        "first_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "t",
+            "right": "r",
+            "offset": 0
+          },
+          "residual_after": "hevillagegardenerwaters"
+        },
+        "second_chunk": {
+          "checked": 1,
+          "mismatch": {
+            "left": "h",
+            "right": "l",
+            "offset": 0
+          },
+          "residual_after": "evillagegardenerwatersanarrowrowbesidethewall"
+        },
+        "accepted": false
+      },
+      "audit": {
+        "letters": 97,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "867aff1e2b90c9fe0214b14773da2451d3ee77aad3d7f561f884f87436587f0f",
+        "sha256_reverse": "417378e4968742f2693975801d0f581b1b98819d4ed26648e48d6e13a97b3723"
+      },
+      "provenance": {
+        "complete_left_clause": true,
+        "complete_right_clause": true,
+        "fresh_authored_continuations": true,
+        "key_selected_before_render": true,
+        "two_character_residual_key": true,
+        "residual_carried_across_chunks": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_chunk_pairs": false,
+        "word_order_symmetry": false
+      }
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "the patient cartographer marks a quiet inlet before sunrise, while the evening keeper folds a blue sail near the pier.",
+      "audit": {
+        "letters": 97,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "cc3c6affe3babc8bd37d679ae3dc5c1fcec1c6aa90c9c9167e46eb7d207d1836",
+        "sha256_reverse": "3c41a37094f514cd778afc6a1e013f5415350d3ce0b33c51b4be50284ee97159"
+      },
+      "control": true,
+      "provenance": {
+        "equation_selected": false,
+        "independently_authored": true
+      }
+    },
+    {
+      "rendered": "a careful beekeeper carries warm honey toward the shed, while a gentle teacher opens the old atlas after supper.",
+      "audit": {
+        "letters": 92,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "d03e50da724cb6cbd13d202c3a34e856a8764193856ccfb4379c1e3d96cd9822",
+        "sha256_reverse": "58b59d4c9b9db26c814ef1cc9b014640bded9fd69e89052325e45ee982b2e71f"
+      },
+      "control": true,
+      "provenance": {
+        "equation_selected": false,
+        "independently_authored": true
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "fresh-authored|typed-residual-key|complete-continuation-bank|two-chunk-carry",
+    "distinct_from": "prior chunk composer used independent boundary enumeration; this construction keys a fresh complete continuation bank from a two-character residual before rendering and carries the debt into chunk two",
+    "catalogue_text_reused": false,
+    "mirrored_chunk_pairs": false
+  },
+  "provenance": {
+    "audits": [
+      "live residual consumer",
+      "independent pointer audit",
+      "forward/reverse SHA-256"
+    ],
+    "hard_exclusions": [
+      "catalogue/API text",
+      "mirrored chunks",
+      "finished tape reversal",
+      "post-hoc repair",
+      "repeated units",
+      "word-order symmetry",
+      "fragments"
+    ]
+  },
+  "next_repair": {
+    "operator": "three-character typed residual bank",
+    "reason": "two-character keys reject every continuation before full closure",
+    "change": "add a third residual character only at the first chunk boundary, with held-out complete clauses per key; preserve the same two-stage live audit"
+  },
+  "status": "no exact >38; continuation bank remains diagnostic"
+}

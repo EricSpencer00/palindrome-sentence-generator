@@ -37,6 +37,9 @@ LEFT=(
  RelativeArc('maker_builds',('a','skilled','maker','who','builds','the','small','boat'),'maker','builds','agent-object'),
  RelativeArc('writer_keeps',('the','honest','writer','who','keeps','a','true','record'),'writer','keeps','agent-object'),
  RelativeArc('farmer_carries',('a','strong','farmer','who','carries','the','heavy','basket'),'farmer','carries','agent-object'),
+ RelativeArc('archivist_stores',('the','calm','archivist','who','stores','a','sealed','letter'),'archivist','stores','agent-object'),
+ RelativeArc('baker_bakes',('a','bright','baker','who','bakes','the','warm','bread'),'baker','bakes','agent-object'),
+ RelativeArc('doctor_heals',('the','kind','doctor','who','heals','a','young','patient'),'doctor','heals','agent-patient'),
 )
 RIGHT=(
  RelativeArc('reader_hears',('the','reader','who','hears','a','clear','story'),'reader','hears','perceiver-object'),
@@ -52,6 +55,9 @@ RIGHT=(
  # for ``th`` and ``mesa`` for ``as``); they are not palindrome controls.
  RelativeArc('watchman_lights',('the','watchman','who','lights','a','bright','light'),'watchman','lights','agent-object'),
  RelativeArc('guide_crosses',('a','guide','who','crosses','the','open','mesa'),'guide','crosses','agent-path'),
+ RelativeArc('scholar_studies',('the','patient','scholar','who','studies','a','clear','record'),'scholar','studies','agent-object'),
+ RelativeArc('cook_balances',('a','careful','cook','who','balances','the','warm','bread'),'cook','balances','agent-object'),
+ RelativeArc('nurse_heals',('the','quiet','nurse','who','heals','a','young','patient'),'nurse','heals','agent-patient'),
 )
 
 def exposed(a):
@@ -65,7 +71,7 @@ def object_agreement(a):
             return 'plural' if noun.endswith('s') and w == 'the' else ('singular' if w in {'a','an'} else 'definite')
     return 'unknown'
 def predicate_class(a):
-    return next((w for w in a.words if w in {'watches','describes','finds','guides','crosses','builds','keeps','carries','hears','opens','reads','paints','leads','studies','waters','sends','lights'}), '')[:2]
+    return next((w for w in a.words if w in {'watches','describes','finds','guides','crosses','builds','keeps','carries','hears','opens','reads','paints','leads','studies','waters','sends','lights','stores','bakes','heals','balances'}), '')[:2]
 def agreement_compatible(a,b):
     # Definite articles license either number; indefinite features must agree.
     x,y=object_agreement(a),object_agreement(b)

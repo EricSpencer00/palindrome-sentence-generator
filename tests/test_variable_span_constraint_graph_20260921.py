@@ -5,6 +5,7 @@ def test_tiny_exhaustive_differential_and_audits():
     assert x['state_model']['variable_word_boundaries']
     assert x['state_model']['shared_character_variables']
     assert x['stats']['nodes'] <= 300 and x['stats']['learned_nogoods'] >= 0
+    assert x['stats']['nodes'] > 10
     # differential audit is independent of the CSP's shared-character pruning
     for words in x['found']:
         assert independent_audit(words)['exact'] == (''.join(words)==''.join(words)[::-1])

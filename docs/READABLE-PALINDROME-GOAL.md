@@ -8470,3 +8470,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   content words are disjoint; pointer/SHA audits reject every whole tape, so
   no exact or reader candidate is promoted. Artifact:
   `runs/digraph-conditioned-was-np-seam-20260921.json`.
+
+- **Animate frontier audit, 2026-09-21:** tested a fresh 4×4 lattice of
+  animate NP alternatives against the 12-character frontier rather than
+  repairing it. None advanced beyond the frontier; the exact residual remains
+  `a` versus `t` in “Was a red lace hat what the ranger at the caldera saw?”
+  (42 letters). The controls retain coherent agentive roles and independent
+  pointer/SHA audits. The next grammar changes the relation itself: an animate
+  subject NP paired with an agentive `by`-phrase on the opposite side, with
+  the residual character class selected online. Artifact:
+  `runs/animate-frontier-was-np-seam-20260921.json`.

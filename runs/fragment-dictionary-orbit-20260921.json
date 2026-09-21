@@ -1,0 +1,944 @@
+{
+  "experiment_id": "fragment-dictionary-orbit-20260921",
+  "proposed_method": {
+    "signature": "unfinished-word-boundary-fragments|finite-state-semantic-tags|center-out-character-orbit",
+    "description": "Offline authored fragments retain open-word residuals plus syntactic/semantic states while consuming mirrored characters before complete clauses materialize."
+  },
+  "registry_entries_scanned": 683,
+  "overlap_decision": "duplicate_stop",
+  "decision": "Do not generate candidates: an unfinished fragment dictionary with open-word residuals and live mirrored character consumption is materially covered by the existing boundary-FSM, seam-trie, CFG-orbit, character-LM-orbit, and resegmentation entries.",
+  "direct_precedents": [
+    {
+      "id": "pos-bilateral-cfg-orbit-20260920",
+      "signature": "hand-authored-pos-slots|bilateral-character-orbit|cross-word-boundary-transitions|independent-grammar",
+      "artifact": "experiments/pos_bilateral_cfg_orbit_20260920.py",
+      "status": "Remote replay tested two typed templates and 88 live states, reached 0 complete closures, and rendered no candidate; no catalogue text or shortcut used.",
+      "matched_terms": [
+        "orbit",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "semordnilap-crossword-resegmentation-20260918",
+      "signature": "fresh-scene-left-arm|independent-semordnilap-word-pairs|cross-word-boundary-shifts|typed-clause-realization|two-pointer-sha-audit|no-repeated-units",
+      "artifact": "experiments/semordnilap_crossword_resegmentation_20260918.py",
+      "status": "diagnostic run; 150 crossword boundary probes, 0 exact closures, longest 55 letters; independent SHA audit rejects all rows; next repair is first-residual typed lexical expansion",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "char-lm-tape-resegment-20260916",
+      "signature": "character-trigram-constrained-decoding|reverse-tape-dynamic-programming-resegmentation|ordinary-prose-seeds|full-tape-replay|independent-hash-audit",
+      "artifact": "experiments/char_lm_tape_resegment_20260916.py",
+      "status": "run; 1 exact closure rejected as catalogue/self-unit and 4 non-exact prose proposals",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "constructive-seam-morph-cfg-20260916",
+      "signature": "dependency-tree-seam-csp|agreement-carrying-morphology-transducer|cfg-earley-character-intersection|live-tape-construction|independent-exact-audit",
+      "artifact": "experiments/constructive_seam_morph_cfg_20260916.py",
+      "status": "exact witness: Ava saw radar was Ava",
+      "matched_terms": [
+        "seam",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "online-grammar-state-char-decoder-20260916",
+      "signature": "online-grammar-state|two-frontier-character-actions|live-obligation-ledger|word-boundary-language-score|ordinary-order-clause-state|independent-hash-audit",
+      "artifact": "experiments/online_grammar_state_char_decoder_20260916.py",
+      "status": "run; zero exact closures",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "reverse-segmentation-cfg-valency-20260916",
+      "signature": "fixed-reverse-tape|joint-boundary-semantic-parse|cfg-pos-valency-intersection|agreement-attachment-register|heldout-slot-repair|independent-four-audit",
+      "artifact": "experiments/reverse_segmentation_cfg_valency_20260916.py",
+      "status": "run; complete prose probes; 0 exact and 0 mechanically admitted probes",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "boundary-fst-resegment-20260916",
+      "signature": "boundary-conditioned-fst-resegmentation|heldout-clause-lexical-choice|character-bigram-ranking|fresh-complete-prose|independent-pointer-hash-audit",
+      "artifact": "experiments/boundary_fst_resegment_20260916.py",
+      "status": "run; 270-letter intact prose frontier; 0 exact and 0 mechanically admitted",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    }
+  ],
+  "broader_hits": [
+    {
+      "id": "phrase-boundary-valency-equations-20260918",
+      "signature": "typed-transitive-frames|slot-boundary-character-equations|pre-render-propagation|independent-two-pointer-sha-audit",
+      "artifact": "experiments/phrase_boundary_valency_equations_20260918.py",
+      "status": "diagnostic run; 1,562,500 independent frame-pair states, all pruned by pre-render equations, 0 exact closures; intact controls 49--53 letters; reader gate closed; next repair is optional determiner/adjunct boundary carry with held-out frames",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "pos-bilateral-cfg-orbit-20260920",
+      "signature": "hand-authored-pos-slots|bilateral-character-orbit|cross-word-boundary-transitions|independent-grammar",
+      "artifact": "experiments/pos_bilateral_cfg_orbit_20260920.py",
+      "status": "Remote replay tested two typed templates and 88 live states, reached 0 complete closures, and rendered no candidate; no catalogue text or shortcut used.",
+      "matched_terms": [
+        "orbit",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "semordnilap-crossword-resegmentation-20260918",
+      "signature": "fresh-scene-left-arm|independent-semordnilap-word-pairs|cross-word-boundary-shifts|typed-clause-realization|two-pointer-sha-audit|no-repeated-units",
+      "artifact": "experiments/semordnilap_crossword_resegmentation_20260918.py",
+      "status": "diagnostic run; 150 crossword boundary probes, 0 exact closures, longest 55 letters; independent SHA audit rejects all rows; next repair is first-residual typed lexical expansion",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "cross-attachment-resegmentation-20260918",
+      "signature": "cross-attachment-character-carry|determiner-adjunct-resegmentation|typed-valency|independent-two-pointer-hash-audit",
+      "artifact": "experiments/cross_attachment_resegmentation_20260918.py",
+      "status": "diagnostic run; 0 equation nodes and 0 exact closures; intact controls 58-70 letters; reader gate closed; next repair is typed adjunct insertion with boundary carry",
+      "matched_terms": [
+        "boundary",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "char-lm-tape-resegment-20260916",
+      "signature": "character-trigram-constrained-decoding|reverse-tape-dynamic-programming-resegmentation|ordinary-prose-seeds|full-tape-replay|independent-hash-audit",
+      "artifact": "experiments/char_lm_tape_resegment_20260916.py",
+      "status": "run; 1 exact closure rejected as catalogue/self-unit and 4 non-exact prose proposals",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "constructive-seam-morph-cfg-20260916",
+      "signature": "dependency-tree-seam-csp|agreement-carrying-morphology-transducer|cfg-earley-character-intersection|live-tape-construction|independent-exact-audit",
+      "artifact": "experiments/constructive_seam_morph_cfg_20260916.py",
+      "status": "exact witness: Ava saw radar was Ava",
+      "matched_terms": [
+        "seam",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "reverse-lexicon-shared-agreement-seams-20260916",
+      "signature": "reverse-lexicon-boundary-seam-repair|two-lexical-boundaries|shared-singular-agreement-state|cross-seam-residual-closure|heldout-scene|independent-pointer-sha-audit",
+      "artifact": "experiments/reverse_lexicon_shared_agreement_seams_20260916.py",
+      "status": "repair run; 0 exact closures and 0 mechanically admitted probes",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse"
+      ]
+    },
+    {
+      "id": "reverse-lexicon-boundary-seam-repair-20260916",
+      "signature": "reverse-lexicon-inflection-repair|joint-determiner-adjective-seam|reverse-obligation-boundary-chart|heldout-scene|independent-pointer-sha-audit",
+      "artifact": "experiments/reverse_lexicon_boundary_seam_repair_20260916.py",
+      "status": "repair run; 0 exact closures and 0 mechanically admitted probes",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse"
+      ]
+    },
+    {
+      "id": "online-grammar-state-char-decoder-20260916",
+      "signature": "online-grammar-state|two-frontier-character-actions|live-obligation-ledger|word-boundary-language-score|ordinary-order-clause-state|independent-hash-audit",
+      "artifact": "experiments/online_grammar_state_char_decoder_20260916.py",
+      "status": "run; zero exact closures",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "c3-seam-dp-semantic-pairs-20260916",
+      "signature": "C3-fresh-semantic-scene|heteropalindromic-word-pairs|character-seam-dp|boundary-shift|connective-repair|independent-audit",
+      "artifact": "experiments/c3_seam_dp_semantic_pairs_20260916.py",
+      "status": null,
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "open-vocabulary-semantic-evidence-preflight-20260916-excluded",
+      "signature": "open-vocabulary-grammar|independent-semantic-evidence|character-synchronous-boundary-solving|complete-prose|independent-exact-audit",
+      "artifact": "experiments/open_vocabulary_semantic_evidence_preflight_20260916.py",
+      "status": null,
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "grammar-reverse-trie-preflight-20260916-excluded",
+      "signature": "grammar-coupled-reverse-trie|open-vocabulary-generation|character-obligation|complete-prose|independent-exact-audit",
+      "artifact": "experiments/grammar_reverse_trie_preflight_20260916.py",
+      "status": null,
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "rhythmai-open-bank-reverse-decoder-preflight-20260916-excluded",
+      "signature": "local-model-authored-heldout-bank|open-bank-right-grammar-decoder|reverse-tape-search|complete-prose|independent-exact-audit",
+      "artifact": "experiments/rhythmai_open_bank_reverse_decoder_preflight_20260916.py",
+      "status": null,
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "semantic-frame-tape-solver-20260916",
+      "signature": "semantic-frame-slots|character-tape-reverse-debt|deterministic-lexical-alternative-search|independent-exact-audit|debt-fragment-repair",
+      "artifact": "experiments/semantic_frame_tape_solver_20260916.py",
+      "status": null,
+      "matched_terms": [
+        "fragment",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "paired-transitive-role-seam-dp-20260916",
+      "signature": "paired-transitive-role-alignment|seam-aware-character-dp|reverse-compatible-lexical-roles|independent-clause-realization|grammar-preserving-substitution-repair",
+      "artifact": "experiments/paired_transitive_role_seam_dp_20260916.py",
+      "status": null,
+      "matched_terms": [
+        "seam",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "corpus-span-boundary-dp-20260916",
+      "signature": "corpus-span-boundary-dp|independent-grammatical-span-mining|reverse-character-boundary-index|clause-frame-composition|alternate-span-repair|independent-tape-audit",
+      "artifact": "experiments/corpus_span_boundary_dp_20260916.py",
+      "status": null,
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "multiword-unit-transducer-local-repair",
+      "signature": "multiword-lexical-unit-transducer|independent-idiom-fragments|bounded-affix-compound-repair|one-local-unit-rewrite|boundary-resegmentation-with-syntax-preserved",
+      "artifact": "experiments/multiword_unit_transducer_20260915.py",
+      "status": null,
+      "matched_terms": [
+        "fragment",
+        "boundary",
+        "transducer"
+      ]
+    },
+    {
+      "id": "morphological-derivational-seam",
+      "signature": "lexicalized-morphology|independent-inflection-derivation|cross-boundary-reverse-tape|same-frame-intact-prose-score",
+      "artifact": "experiments/morphological_derivational_seam_20260915.py",
+      "status": null,
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse"
+      ]
+    },
+    {
+      "id": "clause-lattice-joint-dp",
+      "signature": "complete-independent-clause-lattice|explicit-subject-tense-argument-constraints|length-indexed-joint-character-equations|cross-boundary-word-seams|no-repeated-or-self-palindromic-units",
+      "artifact": "experiments/clause_lattice_joint_dp_20260915.py",
+      "status": null,
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "character-clause-fst-joint-emission",
+      "signature": "semantic-arithmetic-measurement-clauses|independent-left-right-template-banks|character-trie-product|joint-mirrored-emission|boundary-crossing-word-seams|inflection-choice-preserved|independent-complete-clause-reparse",
+      "artifact": "experiments/character_clause_fst_20260915.py",
+      "status": null,
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "seam-first-complete-clause-authoring",
+      "signature": "seam-first-outer-letter-constraints|independent-complete-svo-clause-bank|finite-hand-authored-seam-inventory|exact-joint-enumeration|boundary-crossing-reverse-seam|no-repeated-or-self-palindromic-units",
+      "artifact": "experiments/seam_first_clause_authoring_20260915.py",
+      "status": null,
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse"
+      ]
+    },
+    {
+      "id": "character-lm-half-tape",
+      "signature": "character-lm-half-tape|joint-forward-reverse-ngram-score|viterbi-word-boundary-recovery|independent-full-tape-audit",
+      "artifact": "experiments/character_lm_half_tape_20260915.py",
+      "status": null,
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "earley-finite-state-grammar-intersection-20260916",
+      "signature": "earley-finite-state-grammar-product|forward-reverse-character-lockstep|epsilon-word-boundaries|agreement-in-parser-state|event-role-clause-semantics|independent-exact-admission-audit",
+      "artifact": "experiments/earley_finite_state_grammar_intersection_20260916.py",
+      "status": null,
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "dependency-tree-seam-solver-20260916",
+      "signature": "dependency-tree-frontier-attachment-dp|agreement-aware-transitive-valency|live-seam-boundary-walk|normal-order-independent-clauses|two-pointer-hash-admission-audit",
+      "artifact": "experiments/dependency_tree_seam_solver_20260916.py",
+      "status": null,
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "live-gpt2-character-decoder-preflight-20260916",
+      "signature": "direct-gpt2-next-character-equation|grammar-prefix-boundary-transitions|bilateral-normal-order-decoding|live-obligation-state|semantic-valency-lexicalization|independent-tape-hash-admission|mismatch-heldout-repair",
+      "artifact": "experiments/live_gpt2_character_decoder_preflight_20260916.py",
+      "status": null,
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "weighted-morphology-fst-lockstep-20260916",
+      "signature": "weighted-morphology-fst|lexical-chunk-pair-emission|agreement-tense-register|fluency-objective-during-character-lockstep|heldout-morphology-repair|independent-exact-admission-audit",
+      "artifact": "experiments/weighted_morphology_fst_lockstep_20260916.py",
+      "status": null,
+      "matched_terms": [
+        "reverse",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "min-cost-flow-clause-realizer-20260916",
+      "signature": "typed-clause-supply|residual-bipartite-min-cost-flow|all-different-lexical-id|agreement-tense-flow|exact-character-debt",
+      "artifact": "experiments/min_cost_flow_clause_realizer_20260916.py",
+      "status": "run; 2 complete 76--77-letter probes; 0 exact closures",
+      "matched_terms": [
+        "seam",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "reverse-segmentation-cfg-valency-20260916",
+      "signature": "fixed-reverse-tape|joint-boundary-semantic-parse|cfg-pos-valency-intersection|agreement-attachment-register|heldout-slot-repair|independent-four-audit",
+      "artifact": "experiments/reverse_segmentation_cfg_valency_20260916.py",
+      "status": "run; complete prose probes; 0 exact and 0 mechanically admitted probes",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "authored-clause-template-sat-20260916",
+      "signature": "authored-clause-template-sat|joint-lexical-agreement-boundary-variables|clause-order-choice|full-character-equation-before-render|all-different-unit-constraint|heldout-template-repair|independent-pointer-sha-audit",
+      "artifact": "experiments/authored_clause_template_sat_20260916.py",
+      "status": "run; 0 exact and 0 mechanically admitted probes",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "boundary-fst-resegment-20260916",
+      "signature": "boundary-conditioned-fst-resegmentation|heldout-clause-lexical-choice|character-bigram-ranking|fresh-complete-prose|independent-pointer-hash-audit",
+      "artifact": "experiments/boundary_fst_resegment_20260916.py",
+      "status": "run; 270-letter intact prose frontier; 0 exact and 0 mechanically admitted",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "live-dependency-character-csp-20260916",
+      "signature": "dependency-boundary-character-equations|heldout-typed-lexicalization|live-seam-csp|fresh-scene|independent-pointer-hash-audit",
+      "artifact": "experiments/live_dependency_character_csp_20260916.py",
+      "status": "run; 127-letter intact prose frontier; 0 exact and 0 mechanically admitted",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "endpoint-aware-bilateral-seam-20260916",
+      "signature": "endpoint-aware-character-decoding|bilateral-lexical-seam|reserve-terminals-before-interior|typed-scene-beam",
+      "artifact": "experiments/endpoint_aware_bilateral_seam_20260916.py",
+      "status": "diagnostic run; 6 complete 100--105-letter prose candidates, 0 exact closures; first seam terminal repair recorded",
+      "matched_terms": [
+        "seam",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "compositional-slot-boundary-dp-20260916",
+      "signature": "complete-clause-slot-boundary-dp|live-global-tape-equation|nested-free-composition|typed-terminal-coupling",
+      "artifact": "experiments/compositional_slot_boundary_dp_20260916.py",
+      "status": "diagnostic run; 6 intact 98--107-letter prose candidates, 0 exact closures",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "past-tense-dependency-transducer-20260916",
+      "signature": "past-tense-transducer-pairs|agreement-dependency-tree|full-character-closure|fresh-svo-scenes",
+      "artifact": "experiments/past_tense_dependency_transducer_20260916.py",
+      "status": "diagnostic run; 6 intact 94--104-letter scenes, 0 exact closures",
+      "matched_terms": [
+        "reverse",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "brown-phrase-pair-seam-20260916",
+      "signature": "brown-attested-phrase-pair-seam|cross-word-boundary-channel|complete-clause-pairs|independent-pointer-sha",
+      "artifact": "experiments/brown_phrase_pair_seam_20260916.py",
+      "status": "diagnostic run; 6 intact 91--96-letter scenes, 0 exact closures",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "morphology-crossword-transducer-20260916",
+      "signature": "morphology-aware-crossword-transducer|dependency-frame|heldout-lexical-seams|joint-inflection-clitic|fresh-scene",
+      "artifact": "experiments/morphology_crossword_transducer_20260916.py",
+      "status": "diagnostic run; 2 intact 80--88-letter scenes, 0 exact closures",
+      "matched_terms": [
+        "seam",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "finite-reverse-phrase-composition-bank-20260916",
+      "signature": "finite-reverse-phrase-composition|paired-complete-clause-fragments|online-character-obligation|heldout-boundary-repair",
+      "artifact": "experiments/finite_reverse_phrase_composition_bank_20260916.py",
+      "status": "diagnostic run; 4 intact 79--91-letter compositions, 0 exact closures; next repair targets a fragment boundary",
+      "matched_terms": [
+        "fragment",
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "finite-reverse-phrase-single-boundary-repair-20260916",
+      "signature": "finite-reverse-phrase-single-boundary-repair|fragment-adjunct-change|complete-prose-preserved|independent-pointer-sha",
+      "artifact": "experiments/finite_reverse_phrase_single_boundary_repair_20260916.py",
+      "status": "targeted repair; 1 intact 87-letter scene, 0 exact closures; next repair changes the opposite edge",
+      "matched_terms": [
+        "fragment",
+        "boundary",
+        "reverse"
+      ]
+    },
+    {
+      "id": "grammar-first-matching-boundary-run-20260916",
+      "signature": "grammar-first|matching-boundary-filter|finite-intersection|fresh-multiclause-scene|bounded",
+      "artifact": "experiments/grammar_first_matching_boundary_run_20260916.py",
+      "status": "bounded grammar-first lane; 1 intact 84-letter scene, 0 exact closures; next repair adds a typed center production for the remaining global residual",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "word-internal-seam-equation-20260916",
+      "signature": "word-internal-seam-equation|independent-authored-clauses|morpheme-boundary-character-match|complete-prose|independent-pointer-sha",
+      "artifact": "experiments/word_internal_seam_equation_20260916.py",
+      "status": "bounded word-internal seam lane; 1 intact 113-letter scene, 0 exact closures; next repair replaces only the two seam-adjacent morphemes at the first global mismatch",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "agreement-clitic-character-transducer-20260916",
+      "signature": "agreement-clitic-character-transducer|single-semantic-scene|lexicalized-character-pairs|no-fixed-tape|independent-pointer-sha",
+      "artifact": "experiments/agreement_clitic_character_transducer_20260916.py",
+      "status": "bounded agreement/clitic transducer; 1 intact 72-letter scene, 0 exact closures; next repair changes one held-out agreement-compatible lexical terminal",
+      "matched_terms": [
+        "reverse",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "luna-cross-boundary-clause-decoder-20260917",
+      "signature": "typed-svo-pp|character-obligation-trie|cross-word-seam|fresh-prose|independent-pointer-sha",
+      "artifact": "experiments/luna_cross_boundary_clause_decoder_20260917.py",
+      "status": "8 retained 79-letter complete prose candidates from 144 bounded pairs, 0 exact closures; next repair replaces the first right-clause place with held-out orchard",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "finite-state-boundary-beam-20260917",
+      "signature": "finite-state-boundary-beam|character-trigram-ranking|semantic-clause-templates|boundary-obligation|independent-pointer-sha",
+      "artifact": "experiments/finite_state_boundary_beam_20260917.py",
+      "status": "bounded boundary-aware beam; 12 prose candidates, 0 exact closures; next repair adds one held-out adjunct phrase at each first residual",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "agreement-carrying-morphology-boundary-csp-20260917",
+      "signature": "complete-clause-first|agreement-register-transducer|inflectional-boundary-csp|bounded-paired-scenes|independent-pointer-sha",
+      "artifact": "experiments/agreement_carrying_morphology_boundary_csp_20260917.py",
+      "status": "bounded agreement-valid product; 144 complete clauses and 64 paired states, 0 exact closures; next repair inserts held-out copular/past-tense variants at the first residual",
+      "matched_terms": [
+        "boundary",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "luna-lexicalized-reverse-trie-grammar-20260917",
+      "signature": "lexicalized-reverse-trie-grammar|typed-clause-expansion|live-character-obligations|independent-pointer-sha",
+      "artifact": "experiments/luna_lexicalized_reverse_trie_grammar_20260917.py",
+      "status": "five 110--123-letter intact clause pairs after a held-out locative repair, 0 exact closures, 18-character maximum trie obligation prefix; next repair replaces the first clause subject",
+      "matched_terms": [
+        "seam",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "luna-affix-crossword-prose-20260917",
+      "signature": "dependency-clause|productive-affix-clitic-tiles|character-crossword|fresh-prose|pointer-sha",
+      "artifact": "experiments/luna_affix_crossword_prose_20260917.py",
+      "status": "49 complete 117--136-letter baseline/repaired clause pairs, 0 exact closures; next repair targets valid possessive owner-number alternations",
+      "matched_terms": [
+        "fragment",
+        "seam",
+        "character"
+      ]
+    },
+    {
+      "id": "luna-grammar-product-beam-20260917",
+      "signature": "simultaneous-two-sided-grammar-product|typed-semantic-slots|live-reverse-character-debt|independent-pointer-audit",
+      "artifact": "experiments/luna_grammar_product_beam_20260917.py",
+      "status": "typed bilateral growth now produces 73--77-letter intact prose probes, 0 exact closures; next repair seam-relexicalizes the follow-up to consume live character debt",
+      "matched_terms": [
+        "seam",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "luna-exact-tape-lexical-resegmentation-20260917",
+      "signature": "exact-tape-dp-boundary-search|zipf-bigram-ranking|fail-closed-admission",
+      "artifact": "experiments/exact_tape_lexical_resegmentation_20260917.py",
+      "status": "one held-out exact tape yields five phrase-scored exact segmentations, 0 mechanically admitted; next repair supplies a fresh exact tape and clause-level coherence model",
+      "matched_terms": [
+        "fragment",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "luna-bidirectional-boundary-beam-20260917",
+      "signature": "reverse-tape-trie-segmentation|zipf-lexical-cost|clause-shape-gate|independent-pointer-sha",
+      "artifact": "experiments/bidirectional_boundary_beam.py",
+      "status": "initial permissive beam yielded exact but fragmentary 28-letter controls; the tagged-POS follow-up returns 0 complete clauses, with lexical expansion of attested senses as the next repair",
+      "matched_terms": [
+        "fragment",
+        "boundary",
+        "reverse"
+      ]
+    },
+    {
+      "id": "luna-agreement-morphology-boundary-20260917",
+      "signature": "typed-clause|productive-agreement-inflection|bidirectional-seam-obligation|independent-pointer-sha",
+      "artifact": "experiments/luna_agreement_morphology_boundary_20260917.py",
+      "status": "144 complete 100+ letter variants, 0 exact closures; next repair changes a held-out agreement-bearing seam",
+      "matched_terms": [
+        "fragment",
+        "seam",
+        "boundary"
+      ]
+    },
+    {
+      "id": "luna-auxiliary-terminal-frames-20260917",
+      "signature": "auxiliary-transitive-frames|terminal-conditioned-domains|online-seam-propagation|independent-pointer-audit",
+      "artifact": "experiments/luna_auxiliary_terminal_frames_20260917.py",
+      "status": "diagnostic exclusion; 2,500 bounded pre-object states, all rejected by terminal seam debt, 0 exact closures; next repair adds boundary-conditioned auxiliary alternatives and semantic object-role pairing",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "luna-multiclause-scene-csp-20260917",
+      "signature": "multiclause-scene-csp|coordinated-causal-valency|joint-boundary-equations|direct-reverse-opposing-index-audit",
+      "artifact": "experiments/luna_multiclause_scene_csp_20260917.py",
+      "status": "diagnostic; bounded 100-scene CSP, exact closure status recorded per candidate; next repair is held-out causal adjunct at highest-scoring seam",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "typed-slot-graph-product-20260917",
+      "signature": "typed-slot-graph-product|slot-state-provenance|reversed-independent-paths|shared-layer-nfa",
+      "artifact": "experiments/typed_slot_graph_product_20260917.py",
+      "status": "architectural repair; 3 asymmetric slot-frame products, 0 exact paths, 0 rendered candidates; replaces the prior retrospective slot sweep; next repair is a larger audited lexical inventory with explicit grammar states",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "agreement-clitic-name-seam-20260918",
+      "signature": "agreement-clitic-transducer|two-sided-name-seams|live-character-equations|pre-render-prune",
+      "artifact": "experiments/agreement_clitic_name_seam_20260918.py",
+      "status": "0 exact closures; next repair is noun-number inflection plus semantic valency at both seams",
+      "matched_terms": [
+        "seam",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "noun-number-valency-seam-20260918",
+      "signature": "noun-number-valency-transducer|two-name-seams|live-equations|pre-render-prune",
+      "artifact": "experiments/noun_number_valency_seam_20260918.py",
+      "status": "0 equation-compatible nodes and 0 exact closures; next repair is lexicalized reciprocal frames",
+      "matched_terms": [
+        "seam",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "typed-word-boundary-clause-automaton-20260918",
+      "signature": "typed-word-boundary|cross-phrase-residual|independent-role-clauses|agreement-carry",
+      "artifact": "experiments/typed_word_boundary_clause_automaton_20260918.py",
+      "status": "1,856 live lexical witnesses, 82 exact terminals (2 seed controls and 80 short name/repetition loops), 0 new mechanically admitted rows; reader gate closed; next repair is semantic event-frame expansion with live uniqueness and proper-span pruning",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "polar-question-boundary-repair-20260918",
+      "signature": "typed-polar-question|object-fronted-answer|incoming-outgoing-pair-graph|boundary-conditioned-repair",
+      "artifact": "experiments/polar_question_boundary_repair_20260918.py",
+      "status": "1 exact 44-letter diagnostic row after five targeted complete-answer alternatives, 0 complete-answer closures, 0 mechanically admitted rows, and 0 reader-eligible rows; exact row fails only the proper-palindromic-subspan gate and is fragmentary; next repair carries the dead frontier through answer subject/verb/object tokens",
+      "matched_terms": [
+        "fragment",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "boundary-conditioned-two-ended-clause-20260918",
+      "signature": "boundary-conditioned-openings-endings|live-residual|two-ended-grammar-expansion|independent-audit",
+      "artifact": "experiments/boundary_conditioned_two_ended_clause_20260918.py",
+      "status": "20/20 pairs survive 4 outer characters, but 0 survive 8, 12, or 16; all 20 fail at the first typed continuation, with 0 terminal rows and 0 exact closures; reader gate closed; next repair replaces only the ending constituent whose reverse residual blocks the first continuation",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "character-paired-grammar-20260919",
+      "signature": "character-paired-grammar|free-word-boundaries|paired-path-search|typed-role-states|independent-audit",
+      "artifact": "experiments/character_paired_grammar_20260919.py",
+      "status": "3 bounded templates and 30 online states; 1 fresh exact 20-letter control, longest candidate 26 letters, no exact closure beyond the 38-letter seed; next repair adds one authored transitive-event state at the failed boundary",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "boundary-aware-phrase-transducer-dp-20260919",
+      "signature": "boundary-aware-phrase-transducer|residual-dp|compositional-role-chunks|fresh-prose|independent-audit",
+      "artifact": "experiments/boundary_aware_phrase_transducer_dp_20260919.py",
+      "status": "3 DP depths, 128 final residual states, 512 rendered complete-clause candidates, longest 92 letters, 0 exact closures; next repair adds a boundary chunk whose opening character matches the residual closing character",
+      "matched_terms": [
+        "boundary",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "finite-clause-character-orbits-20260919",
+      "signature": "finite-svo-clause-language|character-trie-product|live-mirrored-orbit-assignment|terminal-complete-clause-gate",
+      "artifact": "experiments/finite_clause_character_orbits_20260919.py",
+      "status": "8 orbit states, 7 matched and 5 rejected live transitions, 0 exact closures in the 39\u201360-letter band; three intact 40\u201348-letter controls retained with independent pointer/SHA audits; next repair adds one held-out SVO noun bundle at the first orbit frontier",
+      "matched_terms": [
+        "orbit",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "two-sided-semantic-orbit-product-setting-frame-20260920",
+      "signature": "independent-semantic-scene-paths|two-sided-character-orbit-product|complete-svo-terminal-gate|ordinary-right-rendering|initial-setting-frame",
+      "artifact": "experiments/two_sided_semantic_orbit_setting_frame_20260920.py",
+      "status": "2,000 paths per side and 20,000 product states; 37 states, 20 matched and 201 rejected orbit transitions; 0 exact closures in the 39\u201360-letter band; four intact 59-letter controls retained with independent pointer/SHA/mechanical audits; frontier moved to the setting-preposition/OBJECT boundary",
+      "matched_terms": [
+        "orbit",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "character-boundary-product-20260920",
+      "signature": "lexical-boundary-state-x-mirrored-character-orbit|two-independent-scene-clauses|pre-render",
+      "artifact": "experiments/character_boundary_product_20260920.py",
+      "status": "4 bounded assignments, 0 exact closures, and a grammatical 78-letter control; no post-hoc repair, catalogue input, word-order mirror, or RLAIF per candidate; next discriminator adds a held-out clitic-state axis",
+      "matched_terms": [
+        "orbit",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "grammar-char-intersection-20260920",
+      "signature": "cfg-semantic-closure|live-character-orbit|two-sided-earley-chart|lexicon-order-only",
+      "artifact": "experiments/grammar_char_intersection_20260920.py",
+      "status": "2 complete rendered English clauses, 0 exact closures, 0 admissions; independent pointer/SHA/mechanical audits; next discriminator adds a held-out transitive frame with typed plural agreement",
+      "matched_terms": [
+        "orbit",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "morphology-orbit-grammar-20260920",
+      "signature": "joint-agreement-tense-clitic-state|independent-complete-english-clauses|mirrored-character-orbits|productive-inflection|shakespearean-cadence-slot",
+      "artifact": "experiments/morphology_orbit_grammar_20260920.py",
+      "status": "16 agreement-valid variants across 8 morphology states, longest 66 letters, 0 exact closures; two independent prose controls; next discriminator varies a held-out boundary state",
+      "matched_terms": [
+        "orbit",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "char-orbit-scene-search-20260920",
+      "signature": "semantic-role-character-fsm|live-center-out-orbits|valency-agreement-boundary-state|complete-clause-terminal-gate",
+      "artifact": "experiments/char_orbit_scene_search_20260920.py",
+      "status": "4,608 bounded states, 0 near-miss rows, 0 exact closures; two complete prose controls retained with independent pointer/SHA audits; next discriminator adds one authored plural agent/object pair",
+      "matched_terms": [
+        "orbit",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "typed-clause-mitm-seam-20260920",
+      "signature": "typed-clause-halves|meet-in-the-middle-seam|agreement-type-join|joint-outer-selection",
+      "artifact": "experiments/typed_clause_mitm_seam_20260920.py",
+      "status": "800 left and 800 right halves, 60,000 seam joins, 50 complete prose controls, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; next construction carries a two-character seam buffer",
+      "matched_terms": [
+        "seam",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "fresh-heteropalindrome-seam-search-20260920",
+      "signature": "fresh-complete-clause|cross-word-seam|heteropalindrome|held-out-anchor",
+      "artifact": "fresh_heteropalindrome_seam_search_20260920.py",
+      "status": "16 fresh complete-clause controls, best 76 normalized letters, 0 exact closures; held-out 38-letter anchor not emitted",
+      "matched_terms": [
+        "seam",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "synchronous-clause-relative-transducer-20260920",
+      "signature": "synchronous-clause-composition|optional-object-relative|shared-attachment-transducer",
+      "artifact": "experiments/synchronous_clause_relative_transducer_20260920.py",
+      "status": "6 scene pairs, 36 synchronous states, 36 seam prunes, 9 intact relative-clause diagnostics to 127 letters, 0 exact candidates above 38; independent pointer/SHA audits retained; next is a lockstep temporal adjunct operator",
+      "matched_terms": [
+        "fragment",
+        "seam",
+        "transducer",
+        "character"
+      ]
+    },
+    {
+      "id": "character-boundary-automaton-clauses-20260920",
+      "signature": "character-boundary-automaton|two-clause-seams|first-last-class-state",
+      "artifact": "experiments/character_boundary_automaton_clauses_20260920.py",
+      "status": "20 bounded clause pairs, 20 automaton states, 0 accepted boundaries and 0 exact candidates above 38; intact controls independently pointer/SHA audited; next is multi-seam boundary automaton",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "multi-seam-boundary-automaton-20260920",
+      "signature": "multi-seam-boundary-automaton|three-clause-seams|first-last-class-state",
+      "artifact": "experiments/multi_seam_boundary_automaton_20260920.py",
+      "status": "20 bounded clause triples, 20 automaton states, 0 accepted boundaries and 0 exact candidates above 38; intact controls independently pointer/SHA audited; next is four-seam boundary automaton",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "lexical-reverse-automaton-grammar-20260920",
+      "signature": "brown-frequency|reverse-trie-intersection|typed-independent-clauses|boundary-crossing",
+      "artifact": "lexical_reverse_automaton_grammar_20260920.py",
+      "status": "2,058 complete-clause renderings, 2,401 online character states, longest 74 letters, 0 exact-clean candidates above 38; reader list empty; next expands typed role classes while retaining the online trie intersection",
+      "matched_terms": [
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "unequal-center-grammar-intersection-20260920",
+      "signature": "typed-seam-machine|token-frontier-product|center-overhang|independent-clause-grammar",
+      "artifact": "experiments/unequal_center_grammar_intersection_20260920.py",
+      "status": "360 paths per side, 129,600 paired states, 164,160 online equations, 99,360 unequal-word pairs, 122,144 unequal-letter pairs, 16 controls to 94 letters, 0 exact-clean closures; next adds held-out ditransitive and relative-complement productions",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse"
+      ]
+    },
+    {
+      "id": "semantic-role-skeleton-live-csp-20260920",
+      "signature": "semantic-role-skeleton|lazy-typed-lexicalization|opposing-character-csp",
+      "artifact": "experiments/semantic_role_skeleton_live_csp_20260920.py",
+      "status": "3 skeletons, 90 live character equations, 9 first-character survivors, 81 character prunes, 10 complete prose controls to 39 letters, 0 exact-clean closures; next adds a held-out instrumental or temporal role edge with a two-character boundary state",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "reverse",
+        "character"
+      ]
+    },
+    {
+      "id": "semantic-role-boundary2-live-csp-20260920",
+      "signature": "semantic-role-skeleton|two-character-boundary|temporal-instrumental-edge|opposing-cursor-csp",
+      "artifact": "experiments/semantic_role_boundary2_live_csp_20260920.py",
+      "status": "2 held-out edge grammars, 66 live equations, 8 complete prose controls to 46 letters, 0 exact-clean closures; next tests one relative-temporal edge with a three-character seam only after comparing the two-character frontier",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "character"
+      ]
+    },
+    {
+      "id": "semantic-role-relative-temporal3-csp-20260920",
+      "signature": "semantic-role-skeleton|three-character-boundary|relative-temporal-edge|opposing-cursor-csp",
+      "artifact": "experiments/semantic_role_relative_temporal3_csp_20260920.py",
+      "status": "30 live equations, 26 character prunes, 2 third-character prunes, 2 two-character survivors, 0 three-character survivors, 8 controls to 64 letters, 0 exact-clean closures; next tests an instrumental-relative edge only with a new first-two-character frontier",
+      "matched_terms": [
+        "seam",
+        "boundary",
+        "character"
+      ]
+    }
+  ],
+  "generation": {
+    "rendered": 0,
+    "exact": 0,
+    "controls": 0,
+    "reason": "duplicate preflight; no candidate claim permitted"
+  },
+  "falsifier": "A future lane is distinct only if it changes the search object beyond open-word residual + mirrored character orbit\u2014for example a different proof-carrying semantic object\u2014and demonstrates that distinction before rendering.",
+  "next_construction": "Do not widen this dictionary or rename the existing boundary methods; select a representation outside the registry's character-orbit/boundary family."
+}

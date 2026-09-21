@@ -8554,3 +8554,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   0`) and contributes no seam or exactness claim. The next method must build
   two complete transitive/adjective arms before measuring residual debt.
   Artifact: `runs/transitive-adjective-complement-debt-20260921.json`.
+
+- **Dual transitive/adjective arms, 2026-09-21:** replaced the one-sided
+  control with two grammatical present-tense arms joined by `while`, for
+  example “The scout finds the gate open while a pilot leaves the harbor
+  quiet.” (55 letters). Content-disjoint controls reach at most one opposing
+  character before failing; repeated verbs are rejected, and whole-tape
+  pointer/SHA audits find zero exact closures. No candidate was promoted. The
+  next connector must change the outer arm classes rather than add more lexical
+  arms. Artifact: `runs/dual-transitive-connector-debt-20260921.json`.

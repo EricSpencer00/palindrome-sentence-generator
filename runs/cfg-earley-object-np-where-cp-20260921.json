@@ -1,0 +1,1448 @@
+{
+  "experiment_id": "cfg-earley-object-np-where-cp-20260921",
+  "signature": "earley-object-np-where-relative|overt-copular-predicate|np-object-attachment|live-mirrored-domain",
+  "method": "pre-render object-NP where copular CP Earley expansion with live mirrored domains",
+  "novelty_preflight": {
+    "entries_inspected": 705,
+    "exact_signature_collisions": [],
+    "passed": true,
+    "distinction": "where relative CP with overt copular predicate is attached inside object NP through VP -> V NP_obj, distinct from object which/that/whose and subject where seams"
+  },
+  "rows": [
+    {
+      "rank": 1,
+      "rendered": "The careful curator visits the quiet rooms where the keeper is waiting. The patient courier enters the remote stations where the warden is ready.",
+      "letters": 120,
+      "provenance": {
+        "left_clause": "curator-visits-rooms-keeper",
+        "right_clause": "courier-enters-stations-warden",
+        "left_object_cp": "where the keeper is waiting",
+        "right_object_cp": "where the warden is ready",
+        "topology": "VP -> V [NP_obj -> Det N CP; where NP Cop Predicate]",
+        "source": "fresh authored grammar terminals"
+      },
+      "left_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> V NP_obj",
+          "NP_obj -> Det N CP",
+          "CP -> where NP Cop Predicate"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "sg"
+            }
+          },
+          {
+            "lhs": "NP_obj",
+            "dot": 3,
+            "features": {
+              "number": "sg",
+              "attachment": "object",
+              "place": true
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 3,
+            "features": {
+              "relative": "where",
+              "predicate": "overt-copular",
+              "attachment": "object-NP"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 2,
+            "features": {
+              "valency": "transitive"
+            }
+          }
+        ],
+        "object_cp_attachment": "VP -> V [NP_obj -> Det N CP]",
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "right_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> V NP_obj",
+          "NP_obj -> Det N CP",
+          "CP -> where NP Cop Predicate"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "sg"
+            }
+          },
+          {
+            "lhs": "NP_obj",
+            "dot": 3,
+            "features": {
+              "number": "sg",
+              "attachment": "object",
+              "place": true
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 3,
+            "features": {
+              "relative": "where",
+              "predicate": "overt-copular",
+              "attachment": "object-NP"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 2,
+            "features": {
+              "valency": "transitive"
+            }
+          }
+        ],
+        "object_cp_attachment": "VP -> V [NP_obj -> Det N CP]",
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "mirrored_domains": {
+        "algorithm": "online_mirrored_domain_intersection",
+        "invariant": "each support belongs to an emitted object-where CP item; empty domains remain conflicts",
+        "pairs_checked": 59,
+        "surviving_pairs": 9,
+        "conflict_count": 50,
+        "first_conflict": {
+          "position": 0,
+          "opposing_position": 60,
+          "left_owner": "left_object_where_item",
+          "right_owner": "right_object_where_item",
+          "left_support": "t",
+          "right_support": "y",
+          "domain": [],
+          "survives": false
+        },
+        "ledger": [
+          {
+            "position": 0,
+            "opposing_position": 60,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "y",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 1,
+            "opposing_position": 59,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "h",
+            "right_support": "d",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 2,
+            "opposing_position": 58,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "e",
+            "right_support": "a",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 3,
+            "opposing_position": 57,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "c",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 4,
+            "opposing_position": 56,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "a",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 5,
+            "opposing_position": 55,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "r",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 6,
+            "opposing_position": 54,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "e",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 7,
+            "opposing_position": 53,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "f",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 8,
+            "opposing_position": 52,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "u",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 9,
+            "opposing_position": 51,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "l",
+            "right_support": "d",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 10,
+            "opposing_position": 50,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "c",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 11,
+            "opposing_position": 49,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "u",
+            "right_support": "a",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 12,
+            "opposing_position": 48,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "r",
+            "right_support": "w",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 13,
+            "opposing_position": 47,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "a",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 14,
+            "opposing_position": 46,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 15,
+            "opposing_position": 45,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "o",
+            "right_support": "t",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 16,
+            "opposing_position": 44,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "r",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 17,
+            "opposing_position": 43,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "v",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 18,
+            "opposing_position": 42,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "i",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 19,
+            "opposing_position": 41,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "s",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 20,
+            "opposing_position": 40,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "i",
+            "right_support": "w",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 21,
+            "opposing_position": 39,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 22,
+            "opposing_position": 38,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "s",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 23,
+            "opposing_position": 37,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "o",
+            "domain": [],
+            "survives": false
+          }
+        ]
+      },
+      "exact_check_pointer": {
+        "algorithm": "independent_pointer",
+        "exact": false,
+        "letters": 120,
+        "mismatch_count": 51,
+        "mismatches": [
+          {
+            "i": 0,
+            "j": 119,
+            "left": "t",
+            "right": "y"
+          },
+          {
+            "i": 1,
+            "j": 118,
+            "left": "h",
+            "right": "d"
+          },
+          {
+            "i": 2,
+            "j": 117,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "i": 3,
+            "j": 116,
+            "left": "c",
+            "right": "e"
+          },
+          {
+            "i": 4,
+            "j": 115,
+            "left": "a",
+            "right": "r"
+          },
+          {
+            "i": 5,
+            "j": 114,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "i": 6,
+            "j": 113,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "i": 7,
+            "j": 112,
+            "left": "f",
+            "right": "n"
+          },
+          {
+            "i": 8,
+            "j": 111,
+            "left": "u",
+            "right": "e"
+          },
+          {
+            "i": 9,
+            "j": 110,
+            "left": "l",
+            "right": "d"
+          },
+          {
+            "i": 10,
+            "j": 109,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "i": 11,
+            "j": 108,
+            "left": "u",
+            "right": "a"
+          }
+        ]
+      },
+      "exact_check_sha": {
+        "algorithm": "independent_sha_forward_reverse",
+        "exact": false,
+        "forward": "ead129e9bdf441ee2ccff60dfcb2cd76b7c2b3cfe2d9a1c9699d5650f1520585",
+        "reverse": "4424c91890526ced4ae94792e9aa6317848fac6cdf35474ab2dd8d1ff02fed79"
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "post_render_repair": false,
+        "reverse_decoder": false,
+        "mirrored_units": false,
+        "word_order_mirror": false,
+        "catalogue_text": false,
+        "reward_loop": false,
+        "complete_constituents": true,
+        "object_where_pre_render": true,
+        "copular_predicate_checked": true,
+        "agreement_checked": true,
+        "valency_checked": true
+      },
+      "mechanically_admitted": false,
+      "next_operator": "Pivot to a temporal object-NP CP with an explicit finite subject and progressive predicate before chart expansion."
+    },
+    {
+      "rank": 2,
+      "rendered": "The patient courier enters the remote stations where the warden is ready. The alert archivist crosses the old galleries where the guide is working.",
+      "letters": 122,
+      "provenance": {
+        "left_clause": "courier-enters-stations-warden",
+        "right_clause": "archivist-crosses-galleries-guide",
+        "left_object_cp": "where the warden is ready",
+        "right_object_cp": "where the guide is working",
+        "topology": "VP -> V [NP_obj -> Det N CP; where NP Cop Predicate]",
+        "source": "fresh authored grammar terminals"
+      },
+      "left_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> V NP_obj",
+          "NP_obj -> Det N CP",
+          "CP -> where NP Cop Predicate"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "sg"
+            }
+          },
+          {
+            "lhs": "NP_obj",
+            "dot": 3,
+            "features": {
+              "number": "sg",
+              "attachment": "object",
+              "place": true
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 3,
+            "features": {
+              "relative": "where",
+              "predicate": "overt-copular",
+              "attachment": "object-NP"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 2,
+            "features": {
+              "valency": "transitive"
+            }
+          }
+        ],
+        "object_cp_attachment": "VP -> V [NP_obj -> Det N CP]",
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "right_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> V NP_obj",
+          "NP_obj -> Det N CP",
+          "CP -> where NP Cop Predicate"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "sg"
+            }
+          },
+          {
+            "lhs": "NP_obj",
+            "dot": 3,
+            "features": {
+              "number": "sg",
+              "attachment": "object",
+              "place": true
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 3,
+            "features": {
+              "relative": "where",
+              "predicate": "overt-copular",
+              "attachment": "object-NP"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 2,
+            "features": {
+              "valency": "transitive"
+            }
+          }
+        ],
+        "object_cp_attachment": "VP -> V [NP_obj -> Det N CP]",
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "mirrored_domains": {
+        "algorithm": "online_mirrored_domain_intersection",
+        "invariant": "each support belongs to an emitted object-where CP item; empty domains remain conflicts",
+        "pairs_checked": 61,
+        "surviving_pairs": 4,
+        "conflict_count": 57,
+        "first_conflict": {
+          "position": 0,
+          "opposing_position": 60,
+          "left_owner": "left_object_where_item",
+          "right_owner": "right_object_where_item",
+          "left_support": "t",
+          "right_support": "g",
+          "domain": [],
+          "survives": false
+        },
+        "ledger": [
+          {
+            "position": 0,
+            "opposing_position": 60,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "g",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 1,
+            "opposing_position": 59,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "h",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 2,
+            "opposing_position": 58,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "e",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 3,
+            "opposing_position": 57,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "p",
+            "right_support": "k",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 4,
+            "opposing_position": 56,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "a",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 5,
+            "opposing_position": 55,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "o",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 6,
+            "opposing_position": 54,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "i",
+            "right_support": "w",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 7,
+            "opposing_position": 53,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "e",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 8,
+            "opposing_position": 52,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "n",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 9,
+            "opposing_position": 51,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 10,
+            "opposing_position": 50,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "c",
+            "right_support": "d",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 11,
+            "opposing_position": 49,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "o",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 12,
+            "opposing_position": 48,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "u",
+            "right_support": "u",
+            "domain": [
+              "u"
+            ],
+            "survives": true
+          },
+          {
+            "position": 13,
+            "opposing_position": 47,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "r",
+            "right_support": "g",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 14,
+            "opposing_position": 46,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "i",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 15,
+            "opposing_position": 45,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "e",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 16,
+            "opposing_position": 44,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "r",
+            "right_support": "t",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 17,
+            "opposing_position": 43,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "e",
+            "right_support": "e",
+            "domain": [
+              "e"
+            ],
+            "survives": true
+          },
+          {
+            "position": 18,
+            "opposing_position": 42,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "n",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 19,
+            "opposing_position": 41,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 20,
+            "opposing_position": 40,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "e",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 21,
+            "opposing_position": 39,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "r",
+            "right_support": "w",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 22,
+            "opposing_position": 38,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "s",
+            "right_support": "s",
+            "domain": [
+              "s"
+            ],
+            "survives": true
+          },
+          {
+            "position": 23,
+            "opposing_position": 37,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          }
+        ]
+      },
+      "exact_check_pointer": {
+        "algorithm": "independent_pointer",
+        "exact": false,
+        "letters": 122,
+        "mismatch_count": 57,
+        "mismatches": [
+          {
+            "i": 0,
+            "j": 121,
+            "left": "t",
+            "right": "g"
+          },
+          {
+            "i": 1,
+            "j": 120,
+            "left": "h",
+            "right": "n"
+          },
+          {
+            "i": 2,
+            "j": 119,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "i": 3,
+            "j": 118,
+            "left": "p",
+            "right": "k"
+          },
+          {
+            "i": 4,
+            "j": 117,
+            "left": "a",
+            "right": "r"
+          },
+          {
+            "i": 5,
+            "j": 116,
+            "left": "t",
+            "right": "o"
+          },
+          {
+            "i": 6,
+            "j": 115,
+            "left": "i",
+            "right": "w"
+          },
+          {
+            "i": 7,
+            "j": 114,
+            "left": "e",
+            "right": "s"
+          },
+          {
+            "i": 8,
+            "j": 113,
+            "left": "n",
+            "right": "i"
+          },
+          {
+            "i": 9,
+            "j": 112,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "i": 10,
+            "j": 111,
+            "left": "c",
+            "right": "d"
+          },
+          {
+            "i": 11,
+            "j": 110,
+            "left": "o",
+            "right": "i"
+          }
+        ]
+      },
+      "exact_check_sha": {
+        "algorithm": "independent_sha_forward_reverse",
+        "exact": false,
+        "forward": "9ea038d8bd8f893d14d4ee6b53c5982681cddf8163fb865096f58fed736583ca",
+        "reverse": "8d362d3334ff5c33bad6b40036212090836a3231f330a6b41a4bc199868651ed"
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "post_render_repair": false,
+        "reverse_decoder": false,
+        "mirrored_units": false,
+        "word_order_mirror": false,
+        "catalogue_text": false,
+        "reward_loop": false,
+        "complete_constituents": true,
+        "object_where_pre_render": true,
+        "copular_predicate_checked": true,
+        "agreement_checked": true,
+        "valency_checked": true
+      },
+      "mechanically_admitted": false,
+      "next_operator": "Pivot to a temporal object-NP CP with an explicit finite subject and progressive predicate before chart expansion."
+    },
+    {
+      "rank": 3,
+      "rendered": "The alert archivist crosses the old galleries where the guide is working. The careful curator visits the quiet rooms where the keeper is waiting.",
+      "letters": 120,
+      "provenance": {
+        "left_clause": "archivist-crosses-galleries-guide",
+        "right_clause": "curator-visits-rooms-keeper",
+        "left_object_cp": "where the guide is working",
+        "right_object_cp": "where the keeper is waiting",
+        "topology": "VP -> V [NP_obj -> Det N CP; where NP Cop Predicate]",
+        "source": "fresh authored grammar terminals"
+      },
+      "left_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> V NP_obj",
+          "NP_obj -> Det N CP",
+          "CP -> where NP Cop Predicate"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "sg"
+            }
+          },
+          {
+            "lhs": "NP_obj",
+            "dot": 3,
+            "features": {
+              "number": "sg",
+              "attachment": "object",
+              "place": true
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 3,
+            "features": {
+              "relative": "where",
+              "predicate": "overt-copular",
+              "attachment": "object-NP"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 2,
+            "features": {
+              "valency": "transitive"
+            }
+          }
+        ],
+        "object_cp_attachment": "VP -> V [NP_obj -> Det N CP]",
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "right_chart": {
+        "algorithm": "earley_item_chart",
+        "productions": [
+          "S -> NP VP",
+          "VP -> V NP_obj",
+          "NP_obj -> Det N CP",
+          "CP -> where NP Cop Predicate"
+        ],
+        "items": [
+          {
+            "lhs": "S",
+            "dot": 0,
+            "features": {
+              "number": "sg"
+            }
+          },
+          {
+            "lhs": "NP_obj",
+            "dot": 3,
+            "features": {
+              "number": "sg",
+              "attachment": "object",
+              "place": true
+            }
+          },
+          {
+            "lhs": "CP",
+            "dot": 3,
+            "features": {
+              "relative": "where",
+              "predicate": "overt-copular",
+              "attachment": "object-NP"
+            }
+          },
+          {
+            "lhs": "VP",
+            "dot": 2,
+            "features": {
+              "valency": "transitive"
+            }
+          }
+        ],
+        "object_cp_attachment": "VP -> V [NP_obj -> Det N CP]",
+        "agreement_unified": true,
+        "accepted": true
+      },
+      "mirrored_domains": {
+        "algorithm": "online_mirrored_domain_intersection",
+        "invariant": "each support belongs to an emitted object-where CP item; empty domains remain conflicts",
+        "pairs_checked": 59,
+        "surviving_pairs": 4,
+        "conflict_count": 55,
+        "first_conflict": {
+          "position": 0,
+          "opposing_position": 58,
+          "left_owner": "left_object_where_item",
+          "right_owner": "right_object_where_item",
+          "left_support": "t",
+          "right_support": "g",
+          "domain": [],
+          "survives": false
+        },
+        "ledger": [
+          {
+            "position": 0,
+            "opposing_position": 58,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "g",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 1,
+            "opposing_position": 57,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "h",
+            "right_support": "n",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 2,
+            "opposing_position": 56,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "e",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 3,
+            "opposing_position": 55,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "a",
+            "right_support": "t",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 4,
+            "opposing_position": 54,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "l",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 5,
+            "opposing_position": 53,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "e",
+            "right_support": "a",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 6,
+            "opposing_position": 52,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "r",
+            "right_support": "w",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 7,
+            "opposing_position": 51,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "s",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 8,
+            "opposing_position": 50,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "a",
+            "right_support": "i",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 9,
+            "opposing_position": 49,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "r",
+            "right_support": "r",
+            "domain": [
+              "r"
+            ],
+            "survives": true
+          },
+          {
+            "position": 10,
+            "opposing_position": 48,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "c",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 11,
+            "opposing_position": 47,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "h",
+            "right_support": "p",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 12,
+            "opposing_position": 46,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "i",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 13,
+            "opposing_position": 45,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "v",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 14,
+            "opposing_position": 44,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "i",
+            "right_support": "k",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 15,
+            "opposing_position": 43,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "s",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 16,
+            "opposing_position": 42,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "t",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 17,
+            "opposing_position": 41,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "c",
+            "right_support": "t",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 18,
+            "opposing_position": 40,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "r",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 19,
+            "opposing_position": 39,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "o",
+            "right_support": "r",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 20,
+            "opposing_position": 38,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "s",
+            "right_support": "e",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 21,
+            "opposing_position": 37,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "s",
+            "right_support": "h",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 22,
+            "opposing_position": 36,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "e",
+            "right_support": "w",
+            "domain": [],
+            "survives": false
+          },
+          {
+            "position": 23,
+            "opposing_position": 35,
+            "left_owner": "left_object_where_item",
+            "right_owner": "right_object_where_item",
+            "left_support": "s",
+            "right_support": "s",
+            "domain": [
+              "s"
+            ],
+            "survives": true
+          }
+        ]
+      },
+      "exact_check_pointer": {
+        "algorithm": "independent_pointer",
+        "exact": false,
+        "letters": 120,
+        "mismatch_count": 56,
+        "mismatches": [
+          {
+            "i": 0,
+            "j": 119,
+            "left": "t",
+            "right": "g"
+          },
+          {
+            "i": 1,
+            "j": 118,
+            "left": "h",
+            "right": "n"
+          },
+          {
+            "i": 2,
+            "j": 117,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "i": 3,
+            "j": 116,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "i": 4,
+            "j": 115,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "i": 5,
+            "j": 114,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "i": 6,
+            "j": 113,
+            "left": "r",
+            "right": "w"
+          },
+          {
+            "i": 7,
+            "j": 112,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "i": 8,
+            "j": 111,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "i": 10,
+            "j": 109,
+            "left": "c",
+            "right": "e"
+          },
+          {
+            "i": 11,
+            "j": 108,
+            "left": "h",
+            "right": "p"
+          },
+          {
+            "i": 12,
+            "j": 107,
+            "left": "i",
+            "right": "e"
+          }
+        ]
+      },
+      "exact_check_sha": {
+        "algorithm": "independent_sha_forward_reverse",
+        "exact": false,
+        "forward": "f8876f108cf457d1bdf65f3ea8e938eff71a4770b7aaf55dc650ee229824bab2",
+        "reverse": "4bc836278fe00ad8e5563bb53212a044b786524694e2c0bf9780232f76bf244a"
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "post_render_repair": false,
+        "reverse_decoder": false,
+        "mirrored_units": false,
+        "word_order_mirror": false,
+        "catalogue_text": false,
+        "reward_loop": false,
+        "complete_constituents": true,
+        "object_where_pre_render": true,
+        "copular_predicate_checked": true,
+        "agreement_checked": true,
+        "valency_checked": true
+      },
+      "mechanically_admitted": false,
+      "next_operator": "Pivot to a temporal object-NP CP with an explicit finite subject and progressive predicate before chart expansion."
+    }
+  ],
+  "stats": {
+    "states_examined": 3,
+    "over_39": 3,
+    "exact": 0,
+    "agreement_unified": 3,
+    "domain_conflicts": 162,
+    "rendered_lengths": [
+      120,
+      122,
+      120
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "630907fbfd33ca5d29ce0e52335d79e0896ab8b36a3a384fbe8e6de0aba54d4a",
+    "independent_audits": [
+      "pointer",
+      "forward/reverse SHA",
+      "Earley chart",
+      "live mirrored-domain ledger"
+    ],
+    "brown_usage": "none; no borrowed prose"
+  },
+  "anti_shortcut_policy": "No post-render repair, fixed tape, reverse decoder, mirrored units, word-order symmetry, catalogue text, or reward loop.",
+  "next_operator": "Pivot to a temporal object-NP CP with explicit finite subject and progressive predicate before expansion."
+}

@@ -16,6 +16,12 @@ SECOND_UNITS=[
  {'id':'D2','frame':'shelter','text':'Near evening, a ranger folded a woolen tarp beside the fire.'},
  {'id':'C2','frame':'discovery','text':'After sunset, the naturalist stored a rare pod inside the cabinet.'},
 ]
+THIRD_UNITS=[
+ {'id':'E1','frame':'witness','text':'At first light, the curator opened a ledger for the visiting historian.'},
+ {'id':'F1','frame':'release','text':'Across the square, the porter unlocked a crate beneath the awning.'},
+ {'id':'F2','frame':'release','text':'Before the crowd arrived, the clerk unsealed a parcel beside the gate.'},
+ {'id':'E2','frame':'witness','text':'At closing time, the archivist recorded a testimony from the patient scholar.'},
+]
 
 def letters(s): return re.sub('[^a-z]','',s.lower())
 def sha(s): return hashlib.sha256(s.encode()).hexdigest()
@@ -47,7 +53,7 @@ def make_row(units, frames):
  return {'rendered':rendered,'units':[u['id'] for u in units],'semantic_pattern':['A','B','B','A'],'frames':frames,'audit':au,'provenance':{'construction':'four independently authored intact prose units with paired event roles','lexical_independence':True,'outside_in_admission_before_acceptance':True,'two_pointer_audit':au['outside_in'],'forward_reverse_sha_audit':{'forward':au['sha256_forward'],'reverse':au['sha256_reverse']},'finished_text_reversal':False,'repeated_unit':False,'self_palindromic_unit':False,'catalogue_text':False}}
 def run():
  # A-B-B-A semantic roles are fixed, but every surface is lexicalized independently.
- rows=[make_row([UNITS[0],UNITS[2],UNITS[3],UNITS[1]],['departure','repair','repair','departure']),make_row(SECOND_UNITS,['discovery','shelter','shelter','discovery'])]
+ rows=[make_row([UNITS[0],UNITS[2],UNITS[3],UNITS[1]],['departure','repair','repair','departure']),make_row(SECOND_UNITS,['discovery','shelter','shelter','discovery']),make_row(THIRD_UNITS,['witness','release','release','witness'])]
  return {'experiment_id':'paragraph-abba-seam-20260921','method':'paragraph-level ABBA semantic frame topology with live full-paragraph character obligations','novelty_preflight':novelty(),'actual_paragraph_candidates':rows,'rendered_outputs':rows,'stats':{'candidates':len(rows),'exact':sum(r['audit']['two_pointer_exact'] for r in rows),'lengths':[r['audit']['letters'] for r in rows]},'status':'exact closure found' if any(r['audit']['two_pointer_exact'] for r in rows) else 'no exact closure; diagnostic candidates retained','next_repair':{'operator':'swap in held-out event-role lexicalizations at the first outside-in mismatch and rerun the full paragraph scheduler','reason':'character debt remains after semantic ABBA admission'},'provenance':{'generator_sha256':sha(Path(__file__).read_text()),'independent_audits':['outside-in two-pointer scan','forward/reverse SHA-256'],'reader_status':'intact prose candidates; exact closure required before reader-facing admission'}}
 if __name__=='__main__':
  d=run();OUT.parent.mkdir(exist_ok=True);OUT.write_text(json.dumps(d,indent=2)+'\n');print(json.dumps({'status':d['status'],'stats':d['stats'],'rendered':d['rendered_outputs'][0]['rendered']},sort_keys=True))

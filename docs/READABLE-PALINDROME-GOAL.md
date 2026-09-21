@@ -199,6 +199,16 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   emission, rather than reward another frame variant
   (`artifacts/readable_frame_seed_lineage_audit_20260921.json`).
 
+- **Character phrase-grammar join.** A fresh typed SVO/PP grammar rendered 256
+  independently authored clauses and indexed their normalized tapes before
+  joining only exact reverse pairs. It found zero reverse-index hits above the
+  38-letter benchmark; the Diana sentence replay passed pointer/SHA checks but
+  was rejected as a hidden seed and distinct-content duplicate. This cleanly
+  retires the fixed clause geometry. The next operator must carry variable
+  phrase-boundary residuals through an attachment/relative edge, rather than
+  simply enlarge the same SVO/PP inventory
+  (`runs/character-phrase-pair-grammar-join-20260921.json`).
+
 - **Overlap-trie source correction.** A reverse-complement overlap prototype
   explored 21,520 boundary states and 153,057 word-interior steps, but its
   fallback controls did not couple opposing characters and recorded zero

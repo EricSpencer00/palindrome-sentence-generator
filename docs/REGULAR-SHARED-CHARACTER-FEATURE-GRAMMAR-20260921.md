@@ -88,3 +88,17 @@ object. Targets 39--200 (162 lengths) were rerun under live mirrored support;
 every target reached a one-node root conflict and no exact path was rendered.
 The next operator is a bounded aspectual auxiliary variant paired with a
 held-out animate noun.
+
+## Bounded discourse-adverb edge
+
+The recorded operator was applied as one explicit `discourse_adverb` slot at
+the first-clause/second-clause boundary (and at the terminal adjunct position
+in the inverse topology), with the independently authored alternatives
+`however`, `instead`, and `therefore`. These are expanded as ordinary latent
+word-boundary NFA paths before mirrored fixed-point propagation; no complete
+clause is rendered and compared. The bounded regression band 39--100 (62
+targets) produced no accepting root or exact candidate. Every target records a
+precise residual grammar state; the run retains the differential toy checks,
+generator SHA, independent pointer/SHA audits, novelty and anti-shortcut
+metadata, and a closed reader gate. The next construction should change clause
+topology rather than add another discourse-adverb alternative.

@@ -119,6 +119,9 @@ class Grammar:
 def construct():
     g = Grammar()
     # Agreement and valency are encoded in distinct grammatical paths.
+    # A single bounded discourse adjunct is an actual NFA slot at the clause
+    # boundary, with latent word boundaries preserved during propagation.
+    discourse = [('discourse_adverb', ['however', 'instead', 'therefore'])]
     # A second clause starts at its determiner role; punctuation is restored
     # from that recorded boundary, never used to supply or change letters.
     subject = [('det', ['an']), ('animate_sg', ['aide', 'artist', 'editor'])]
@@ -132,14 +135,14 @@ def construct():
              ('animate_object_transitive_plural', ['inspire', 'help', 'guide', 'meet']),
              ('person', ['Diana', 'Nora', 'Mira', 'Leon', 'Ariel'])]
     for idx, prefix in enumerate((subject, other)):
-        g.frame(f'artifact_action_then_person_event_{idx}', prefix+left+right)
+        g.frame(f'artifact_action_then_person_event_{idx}', prefix+left+discourse+right)
         second_prefix = [('second_clause_det', prefix[0][1])]+prefix[1:]
-        g.frame(f'person_event_then_artifact_action_{idx}', right+second_prefix+left)
+        g.frame(f'person_event_then_artifact_action_{idx}', right+second_prefix+left+discourse)
     # Alternate topology: one imperative followed by a reporting statement.
     g.frame('imperative_then_statement',
             [('imperative', ['read', 'keep', 'mark']),
              ('quantity_plural', ['nine', 'seven', 'two']),
-             ('artifact_plural', ['memos', 'notes', 'maps', 'letters'])]+right)
+            ('artifact_plural', ['memos', 'notes', 'maps', 'letters'])]+discourse+right)
     # Fresh feature-checked constructions requested for the shared-character
     # propagator.  Question auxiliaries select singular animate subjects;
     # relative clauses use an explicit who-gap and transitive object.
@@ -227,6 +230,10 @@ def propagate(domains, transitions, finals, stats):
             forward.append({dst for src in forward[-1]
                             for ch, dst in transitions[src] if ch in domain})
         if not forward[n] & finals:
+            stats['residual_state'] = {'kind': 'forward_final_conflict',
+                                       'position': n,
+                                       'forward_states': sorted(forward[n]),
+                                       'accepting_states': sorted(finals)}
             return None
         backward = [set() for _ in range(n+1)]
         backward[n] = forward[n] & finals
@@ -242,6 +249,16 @@ def propagate(domains, transitions, finals, stats):
             j = n-1-i
             keep = frozenset(supported[i] & supported[j])
             if not keep:
+                stats['residual_state'] = {
+                    'kind': 'mirrored_domain_conflict',
+                    'left_position': i, 'right_position': j,
+                    'left_supported': sorted(supported[i]),
+                    'right_supported': sorted(supported[j]),
+                    'forward_left_states': sorted(forward[i]),
+                    'forward_right_states': sorted(forward[j]),
+                    'backward_left_states': sorted(backward[i]),
+                    'backward_right_states': sorted(backward[j]),
+                }
                 return None
             if keep != domains[i] or keep != domains[j]:
                 stats['domain_values_removed'] += len(domains[i]-keep)
@@ -343,7 +360,7 @@ def differential():
 def main():
     start = time.monotonic()
     grammar = construct()
-    results = [solve(grammar, n) for n in range(39, 261)]
+    results = [solve(grammar, n) for n in range(39, 101)]
     out = {'experiment_id': ID, 'method': 'forward_NFA_REGULAR_fixed_point_mirrored_domains',
            'differential_checks': differential(), 'grammar': grammar.frames,
            'results': results, 'seconds': time.monotonic()-start,
@@ -360,7 +377,14 @@ def main():
                                         'event_graph_character_sat_20260916.py',
                                         'position_domain_arc_consistency_csp_20260920.py'],
                        'implementation_distinction': 'iterated position-specific forward/backward supports with latent word boundaries'},
-           'next_operator': 'add a bounded discourse-adverb edge with explicit clause position; current grammar has no accepting root at 39..260',
+           'next_operator': 'retain the bounded discourse-adverb edge and move to a new clause topology; no accepting root at 39..100',
+           'regression_queue': {'operator': 'one bounded discourse-adverb edge',
+                               'role': 'discourse_adverb',
+                               'position': 'between first-clause object and second-clause determiner (or terminal adjunct in inverse frame)',
+                               'alternatives': ['however', 'instead', 'therefore'],
+                               'target_band': [39, 100],
+                               'exact_count': sum(len(r['candidates']) for r in results),
+                               'residuals_recorded': sum('residual_state' in r['stats'] for r in results)},
            'reader_gate': 'closed until exact original plausible prose and blinded ratings'}
     (ROOT/'runs'/f'{ID}.json').write_text(json.dumps(out, indent=2)+'\n')
     print(json.dumps([{'N': r['target_letters'], **r['stats'],

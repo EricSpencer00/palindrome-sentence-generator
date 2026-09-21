@@ -96,6 +96,16 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   an independently authored center atom plus a second event relation, retaining
   atom-distinctness (`runs/api-inspired-semantic-atom-transducer-20260920.json`).
 
+- **Center-atom/event-relation successor.** The proposed successor was run as
+  a frozen, separately audited lane: 864 semantic joins across three scenes,
+  with one lexical connective (`while`, `before`, `because`, or `despite`) and
+  a typed relation checked before rendering. Complete controls reach 54 letters
+  and remain ordinary prose, but the live outer trace matches at most one
+  character and yields zero exact closures. This falsifies the fixed SVO frame
+  envelope, not the center-relation representation; the next discriminator is
+  unresolved character-level grammar states under the same relation constraint
+  (`runs/api-inspired-center-relation-transducer-20260920.json`).
+
 - **Scaled executable event lattice.** The frozen 27-event, 54-realization
   lattice expanded 729 event pairs, rejected 727 on semantic preconditions,
   and left eight live character-obligation states; zero exact closures survived.

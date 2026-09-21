@@ -7901,6 +7901,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   The next operator is a held-out plural determiner PP with agreement
   features. Artifact: `runs/cfg-earley-determiner-pp-expansion-20260921.json`.
 
+- **Manner-of-causation graph edge, 2026-09-21:** held out an explicit
+  `event.landed.manner -> cause` attachment in the incremental dependency
+  solver, preserving event-node indexing, live mirrored support, and complete
+  ordinary prose controls. Six trees produced 30 online-pruned graph edges and
+  12 controls (maximum 133 letters), with zero exact closures at or above 39
+  letters. The next operator is a distinct resultative-causation edge only if
+  this lane leaves a frontier beyond its first support conflict. Artifact:
+  `runs/graph-unification-attachment-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

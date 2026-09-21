@@ -160,7 +160,7 @@ def search():
         au = audit(c["text"])
         controls.append({"text": c["text"], "length": au["letters"], "audit": au,
                          "left": c, "right": None,
-                         "provenance": "independent_typed_event_arc_control",
+                         "provenance": "independent_typed_event_arcs",
                          "novelty": "not_catalogue_or_mirrored_units",
                          "reader_worthy": False})
     pairs_seen = 0

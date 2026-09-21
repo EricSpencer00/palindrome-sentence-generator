@@ -1,0 +1,87 @@
+{
+  "experiment_id": "algebraic-boundary-decomposition-20260921",
+  "method": "semantic-arm product with online outer-boundary equations; no reverse-tape operation",
+  "stats": {
+    "left_arms": 4,
+    "right_arms": 4,
+    "semantic_joins": 6,
+    "online_closures": 0,
+    "exact_gt38": 0
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [
+    {
+      "rendered": "Mara carries a blue map; while the harbor lanterns fade.",
+      "semantic_join": "navigation",
+      "equation": {
+        "kind": "boundary_equation",
+        "left_index": 0,
+        "left": "m",
+        "right": "e",
+        "checks": 1
+      },
+      "online_closed": false,
+      "audit": {
+        "letters": 45,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "m",
+          "e"
+        ],
+        "sha256_forward": "64c6c4c2125f8b4253fa2ed0b6f46dfef77ea5283e4ce6e2c6e44ed261d12aaa",
+        "sha256_reverse": "49415f151e012fd6983ad450c79257e842b356811db04283c17ff8c5c72891c5"
+      },
+      "provenance": {
+        "bank": "four human-authored left arms \u00d7 four human-authored right arms",
+        "selected_before_rendering": true,
+        "construction": "outer boundary equations consumed online",
+        "finished_tape_reversal": false,
+        "mirrored_units": false,
+        "repeated_or_self_palindromic_span": false,
+        "posthoc_repair": false,
+        "borrowed_catalogue_text": false
+      }
+    }
+  ],
+  "strongest_near_miss": {
+    "rendered": "Mara carries a blue map; while the harbor lanterns fade.",
+    "semantic_join": "navigation",
+    "equation": {
+      "kind": "boundary_equation",
+      "left_index": 0,
+      "left": "m",
+      "right": "e",
+      "checks": 1
+    },
+    "online_closed": false,
+    "audit": {
+      "letters": 45,
+      "pointer_exact": false,
+      "first_mismatch": [
+        0,
+        "m",
+        "e"
+      ],
+      "sha256_forward": "64c6c4c2125f8b4253fa2ed0b6f46dfef77ea5283e4ce6e2c6e44ed261d12aaa",
+      "sha256_reverse": "49415f151e012fd6983ad450c79257e842b356811db04283c17ff8c5c72891c5"
+    },
+    "provenance": {
+      "bank": "four human-authored left arms \u00d7 four human-authored right arms",
+      "selected_before_rendering": true,
+      "construction": "outer boundary equations consumed online",
+      "finished_tape_reversal": false,
+      "mirrored_units": false,
+      "repeated_or_self_palindromic_span": false,
+      "posthoc_repair": false,
+      "borrowed_catalogue_text": false
+    }
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "semantic-arm-product|outer-equation-online|boundary-obstruction",
+    "distinct_from": "event cuts, Earley NP/PP, relative clauses, generic mirror-pair sweeps"
+  },
+  "next_operator": "Expand each semantic arm with independently authored inflectional variants, preserving online equation provenance.",
+  "status": "no exact >38-letter closure; strongest intact near miss retained"
+}

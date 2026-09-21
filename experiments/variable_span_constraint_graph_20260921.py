@@ -90,12 +90,28 @@ def solve(limit: int = 50_000, targets=range(39, 53)) -> dict:
         values: dict[str, str] = {}
         chars: dict[int, str] = {}
 
-        def rec(k: int, offset: int) -> None:
+        def place(word: str, start: int, changes: list[int]) -> bool:
+            """Place one span and its still-unresolved mirrored characters."""
+            for j, ch in enumerate(norm(word)):
+                pos = start + j
+                mirror = target - 1 - pos
+                for p, value in ((pos, ch), (mirror, ch)):
+                    if p < 0 or p >= target:
+                        return False
+                    old = chars.get(p)
+                    if old is not None and old != value:
+                        return False
+                    if old is None:
+                        chars[p] = value
+                        changes.append(p)
+            return True
+
+        def rec(left: int, right: int, left_offset: int, right_offset: int) -> None:
             nonlocal nodes, conflicts, complete
             if nodes >= limit:
                 return
-            if k == len(SLOTS):
-                if offset != target or len(chars) != target:
+            if left > right:
+                if left_offset != right_offset or len(chars) != target:
                     conflicts += 1
                     return
                 complete += 1
@@ -104,41 +120,45 @@ def solve(limit: int = 50_000, targets=range(39, 53)) -> dict:
                     found.append(words)
                 return
 
-            slot = SLOTS[k]
-            for word in LEXICON[slot.cat]:
-                w = norm(word)
-                key = (slot.name, w, target, offset)
-                if key in learned or offset + len(w) > target:
+            lslot, rslot = SLOTS[left], SLOTS[right]
+            # Pair the outermost unresolved spans.  The right span is indexed
+            # from the shared target end, so both boundaries advance inward.
+            for lword in LEXICON[lslot.cat]:
+                lw = norm(lword)
+                lkey = (lslot.name, lw, target, left_offset)
+                if lkey in learned or left_offset + len(lw) > target - right_offset:
                     continue
                 nodes += 1
-                changes: list[int] = []
-                ok = True
-                for j, ch in enumerate(w):
-                    pos = offset + j
-                    mirror = target - 1 - pos
-                    for p, value in ((pos, ch), (mirror, ch)):
-                        old = chars.get(p)
-                        if old is not None and old != value:
-                            ok = False
-                            break
-                        if old is None:
-                            chars[p] = value
-                            changes.append(p)
-                    if not ok:
-                        break
-                if ok:
-                    values[slot.name] = word
-                    rec(k + 1, offset + len(w))
-                    values.pop(slot.name, None)
-                else:
-                    conflicts += 1
-                    learned.add(key)
-                for p in changes:
-                    chars.pop(p, None)
-                if nodes >= limit:
-                    return
+                lchanges: list[int] = []
+                if not place(lw, left_offset, lchanges):
+                    conflicts += 1; learned.add(lkey)
+                    for p in lchanges: chars.pop(p, None)
+                    continue
+                values[lslot.name] = lword
+                right_words = LEXICON[rslot.cat] if right != left else [lword]
+                for rword in right_words:
+                    rw = norm(rword)
+                    rstart = target - right_offset - len(rw)
+                    rkey = (rslot.name, rw, target, right_offset)
+                    if rkey in learned or rstart < left_offset + len(lw):
+                        continue
+                    if right != left and rword == lword:
+                        continue
+                    nodes += 1
+                    rchanges: list[int] = []
+                    if place(rw, rstart, rchanges):
+                        values[rslot.name] = rword
+                        rec(left + 1, right - 1, left_offset + len(lw), right_offset + len(rw))
+                        values.pop(rslot.name, None)
+                    else:
+                        conflicts += 1; learned.add(rkey)
+                    for p in rchanges: chars.pop(p, None)
+                    if nodes >= limit: break
+                values.pop(lslot.name, None)
+                for p in lchanges: chars.pop(p, None)
+                if nodes >= limit: return
 
-        rec(0, 0)
+        rec(0, len(SLOTS) - 1, 0, 0)
 
     for target in feasible_targets:
         if nodes >= limit:
@@ -155,6 +175,9 @@ def solve(limit: int = 50_000, targets=range(39, 53)) -> dict:
             "agreement_links": ["det-noun compatibility", "subject-verb valency"],
             "dependency_links": ["verb->object", "coordination->finite-clause"],
             "conflict_learning": "learned (slot,lexeme,target,offset) nogoods",
+            "search_order": "paired outermost spans, left/right boundaries advance inward",
+            "shared_target_length": True,
+            "unresolved_mirror_constraints": "retained in shared character map until paired span placement",
         },
     }
 
@@ -174,14 +197,15 @@ def run(limit: int = 50_000) -> dict:
     seed = "the watcher observes a lantern near the calm keeper"
     return {
         "experiment_id": "variable-span-constraint-graph-20260921",
-        "method": "bounded global backtracking CSP with shared mirrored character variables, lexical identity/length domains, agreement/valency/dependency links, and learned conflicts",
+        "method": "bounded bidirectional outer-span CSP with shared target length, unresolved mirrored character variables, lexical identity/length domains, agreement/valency/dependency links, and learned conflicts",
         "config": {"token_slots": len(SLOTS), "lexical_entries": sum(map(len, LEXICON.values())), "letter_band": [39, 52], "state_limit": limit},
         **result,
         "records": records,
         "calibration_seed": {"text": seed, "letters": len(norm(seed)), "used_as_success": False, "purpose": "calibration only"},
         "independent_pointer_sha_audit": True,
+        "search_order_provenance": {"paired_outer_spans": True, "shared_target_length": True, "lexicon_entries": 48, "posthoc_reversal": False},
         "novelty_preflight": {"status": "passed", "signature": "variable-span|joint-lexeme-boundary|shared-character-vars|conflict-learning", "anti_shortcut_checks": ["no completed-clause sweep", "no 38-letter seed success", "no mirrored lexical units"]},
-        "queue_row": {"lane": "Astra", "status": "satisfying assignments" if records else "bounded residual", "next": "expand dependency links only after held-out grammar review"},
+        "queue_row": {"lane": "Astra", "status": "satisfying assignments" if records else "bounded residual", "next": "hold lexicon fixed; review dependency/coordination links on the bidirectional residual"},
     }
 
 

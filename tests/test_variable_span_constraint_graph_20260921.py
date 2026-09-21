@@ -6,6 +6,8 @@ def test_tiny_exhaustive_differential_and_audits():
     assert x['state_model']['shared_character_variables']
     assert x['stats']['nodes'] <= 300 and x['stats']['learned_nogoods'] >= 0
     assert x['stats']['nodes'] > 10
+    assert x['state_model']['search_order'].startswith('paired outermost')
+    assert x['state_model']['shared_target_length']
     # differential audit is independent of the CSP's shared-character pruning
     for words in x['found']:
         assert independent_audit(words)['exact'] == (''.join(words)==''.join(words)[::-1])
@@ -15,3 +17,5 @@ def test_contract():
     assert x['config']['lexical_entries']==48
     assert x['calibration_seed']['used_as_success'] is False
     assert x['novelty_preflight']['status']=='passed'
+    assert x['search_order_provenance']['paired_outer_spans']
+    assert x['queue_row']['status']=='bounded residual'

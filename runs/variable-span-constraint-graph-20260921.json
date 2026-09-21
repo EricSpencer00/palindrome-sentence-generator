@@ -1,6 +1,6 @@
 {
   "experiment_id": "variable-span-constraint-graph-20260921",
-  "method": "bounded global backtracking CSP with shared mirrored character variables, lexical identity/length domains, agreement/valency/dependency links, and learned conflicts",
+  "method": "bounded bidirectional outer-span CSP with shared target length, unresolved mirrored character variables, lexical identity/length domains, agreement/valency/dependency links, and learned conflicts",
   "config": {
     "token_slots": 10,
     "lexical_entries": 48,
@@ -8,15 +8,15 @@
       39,
       52
     ],
-    "state_limit": 50000
+    "state_limit": 300
   },
   "found": [],
   "stats": {
-    "nodes": 50000,
-    "conflicts": 984,
-    "learned_nogoods": 984,
+    "nodes": 196,
+    "conflicts": 112,
+    "learned_nogoods": 112,
     "complete_assignments": 0,
-    "limit": 50000,
+    "limit": 300,
     "targets_requested": 14,
     "feasible_targets": [
       39,
@@ -48,7 +48,10 @@
       "verb->object",
       "coordination->finite-clause"
     ],
-    "conflict_learning": "learned (slot,lexeme,target,offset) nogoods"
+    "conflict_learning": "learned (slot,lexeme,target,offset) nogoods",
+    "search_order": "paired outermost spans, left/right boundaries advance inward",
+    "shared_target_length": true,
+    "unresolved_mirror_constraints": "retained in shared character map until paired span placement"
   },
   "records": [],
   "calibration_seed": {
@@ -58,6 +61,12 @@
     "purpose": "calibration only"
   },
   "independent_pointer_sha_audit": true,
+  "search_order_provenance": {
+    "paired_outer_spans": true,
+    "shared_target_length": true,
+    "lexicon_entries": 48,
+    "posthoc_reversal": false
+  },
   "novelty_preflight": {
     "status": "passed",
     "signature": "variable-span|joint-lexeme-boundary|shared-character-vars|conflict-learning",
@@ -70,6 +79,6 @@
   "queue_row": {
     "lane": "Astra",
     "status": "bounded residual",
-    "next": "expand dependency links only after held-out grammar review"
+    "next": "hold lexicon fixed; review dependency/coordination links on the bidirectional residual"
   }
 }

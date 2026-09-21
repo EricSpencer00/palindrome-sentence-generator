@@ -61,6 +61,13 @@ support. Every target reached a one-node root conflict; no exact or frontier
 candidate was rendered. The next operator is a bounded complementizer/tense
 variant on the embedded relative.
 
+The aspectual continuation adds a separate frame with fresh animate nouns
+(`doctor`, `nurse`, `poet`), auxiliaries (`has been`, `will have`), and
+participle predicates. Targets 39--220 (182 lengths) were rerun through live
+mirrored support; all reached a one-node root conflict, with no exact or
+rendered path. The next operator is a bounded modal/participle agreement
+variant.
+
 The tense continuation adds a separate feature frame with complementizer,
 auxiliary (`has`, `will`, `did`), bare transitive predicate, and explicit
 object. Targets 39--200 (162 lengths) were rerun under live mirrored support;

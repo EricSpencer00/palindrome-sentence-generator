@@ -1,0 +1,107 @@
+{
+  "experiment_id": "locative-explicit-marker-binding-20260921",
+  "status": "completed_no_exact_closure",
+  "method": "explicit relative that-marker carrying event instrument binding",
+  "candidate_count": 2,
+  "exact_count": 0,
+  "reader_eligible": false,
+  "rendered_candidates": [
+    {
+      "rendered": "the careful smith mends the gate with a hammer that the builder keeps in the workshop beside the river; the patient carpenter mends the gate with a hammer that the builder keeps in the workshop beside the river.",
+      "left_arc": "smith_gate",
+      "right_arc": "carpenter_gate",
+      "novel_rendered": true,
+      "semantic_state": {
+        "event_frame": "mend",
+        "anaphoric_object": "gate",
+        "relative_marker": "that",
+        "instrument": "hammer",
+        "binding_carried": true,
+        "typed_locatives": true
+      },
+      "audit": {
+        "letters": 172,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "3f7fad953a813b8103dff97b8028e298eebc514e478e6224c45143b44ecf9c1c",
+        "reverse_sha256": "0684108c107656ebdbb9147df60fe56839bf5f54a88d7e8f2e2987685aba66f5",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "t",
+          "r"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "explicit that-marker anaphoric object with event binding",
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "a quiet porter moves the crate with a cart that the merchant stores beside the river in the warehouse; a strong merchant moves the crate with a cart that the porter stores beside the river in the warehouse.",
+      "left_arc": "porter_crate",
+      "right_arc": "merchant_crate",
+      "novel_rendered": true,
+      "semantic_state": {
+        "event_frame": "move",
+        "anaphoric_object": "crate",
+        "relative_marker": "that",
+        "instrument": "cart",
+        "binding_carried": true,
+        "typed_locatives": true
+      },
+      "audit": {
+        "letters": 167,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "bb20a1d6280980795e2ecbd7cbb3d024996478290382c597ea743bf92de8b955",
+        "reverse_sha256": "e97bfe2557dc7ded9b6122065d9a5ca19b67a48afac608e56f97f8d641b474ad",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "a",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "explicit that-marker anaphoric object with event binding",
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "stats": {
+    "longest_letters": 172
+  },
+  "novelty_preflight": {
+    "hash_source": "all runs/*.json except current artifact",
+    "current_artifact_excluded": true,
+    "all_rendered_new": true,
+    "explicit_marker_new": true
+  },
+  "failure_and_repair": {
+    "failure": "explicit-marker anaphoric pairs still mismatch live character obligations",
+    "next_construction": "carry an explicit relative marker with an event-specific passive instrument clause"
+  },
+  "provenance": {
+    "generator_sha256": "649deb95148a5b20d25815ea2cfa5a20f6b2ed94c6aee17943ba1710aee8425e",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "shortcuts_excluded": true
+  }
+}

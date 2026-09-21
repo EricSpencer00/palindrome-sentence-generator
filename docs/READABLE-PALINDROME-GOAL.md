@@ -116,6 +116,16 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   that small diagnostic configuration; it is not a reason to relax the reader
   target (`artifacts/outside-in-sentence-decoder-run-20260920.json`).
 
+- **Authored semordnilap boundary scene.** A fresh four-pair construction
+  lexicon (`diaper/repaid`, `deliver/reviled`, `drawer/reward`,
+  `stressed/desserts`) was placed in independently grammatical two-clause
+  scenes with cross-word boundary traces. It rendered 32 complete candidates,
+  including a 66-letter control, but every boundary equation mismatched before
+  closure; zero exact rows survived. The lexical pairs were construction
+  vocabulary only, not borrowed sentences. The next operator is a genuinely
+  two-word boundary pair, subject to a new preflight rather than a repair of
+  any finished sentence (`runs/authored-semordnilap-boundary-scene-20260920.json`).
+
 These runs are materially different search representations, not reward-model
 rerankings or repeated bank sweeps. They still do not improve the admitted
 38-letter result, so the goal remains active. The next promotion requires an

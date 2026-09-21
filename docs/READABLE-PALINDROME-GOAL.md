@@ -7797,3 +7797,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   on both sides of the seam. Conflict witnesses are retained; no partial state
   is claimed as prose or reader evidence. Artifact:
   `runs/center-first-feature-grammar-20260921.json`.
+
+- **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
+  three independently authored transitive clauses with live `and`/`while`/`as`
+  connector edges and mirrored character-domain propagation. Across 62 target
+  lengths 39--100 and 605 sequence frames, every target conflicted at the root;
+  no exact candidate or surviving frontier was emitted. An intact grammatical
+  control (`A poet reads a map and the artist marks the letter.`) is retained
+  only as a control. The next operator is the split center nonterminal described
+  by the center-first lane. Artifact:
+  `runs/variable-clause-sequence-20260921.json`.

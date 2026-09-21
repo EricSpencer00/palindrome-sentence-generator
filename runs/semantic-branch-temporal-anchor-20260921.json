@@ -1,0 +1,113 @@
+{
+  "experiment_id": "semantic-branch-temporal-anchor-20260921",
+  "status": "completed_no_exact_closure",
+  "method": "branching event graph with temporal anchor, shared participant, convergence",
+  "candidate_count": 2,
+  "exact_count": 0,
+  "reader_eligible": false,
+  "rendered_candidates": [
+    {
+      "rendered": "at dawn the guard keeps the lantern and the keeper checks the gate with the harbor master so the harbor stays safe; at dawn the watchman holds the lantern and the steward checks the gate with the harbor master so the harbor stays safe.",
+      "left_branch": "dawn_guard_keeper",
+      "right_branch": "dawn_watchman_steward",
+      "novel_rendered": true,
+      "semantic_graph": {
+        "shared_temporal_anchor": [
+          "at",
+          "dawn"
+        ],
+        "branch_count": 2,
+        "shared_participant": true,
+        "shared_before_convergence": true,
+        "convergence_edge": "so"
+      },
+      "audit": {
+        "letters": 190,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "c7bbeee30436c0ffea0746d2cf1170b7d373f06e6dcf01141c848ebbfb2eb3e9",
+        "reverse_sha256": "4f665fdd793605e1bc801bf618ba7cce98f8e3489e9144e83d7ff70692881f4e",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "a",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "shared temporal anchor before participant-linked branches",
+        "linear_graph_reused": false,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "at dusk a scribe writes the map and a reader studies the route with the teacher so the traveler finds home; at dusk a teacher draws the map and a student studies the route with the guide so the traveler finds home.",
+      "left_branch": "dusk_scribe_reader",
+      "right_branch": "dusk_teacher_student",
+      "novel_rendered": true,
+      "semantic_graph": {
+        "shared_temporal_anchor": [
+          "at",
+          "dusk"
+        ],
+        "branch_count": 2,
+        "shared_participant": true,
+        "shared_before_convergence": true,
+        "convergence_edge": "so"
+      },
+      "audit": {
+        "letters": 171,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "d7b3f8a8a236005ee1e0f04686ecd9141e4b3bfa7ea405a96a8cd495615b039b",
+        "reverse_sha256": "e160987311a649e94c73b1c1ccc4a024280a56105abc38ffa5466fe91726dc94",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "a",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "shared temporal anchor before participant-linked branches",
+        "linear_graph_reused": false,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "stats": {
+    "longest_letters": 190
+  },
+  "novelty_preflight": {
+    "hash_source": "all runs/*.json except current artifact",
+    "current_artifact_excluded": true,
+    "all_rendered_new": true,
+    "temporal_anchor_new": true
+  },
+  "failure_and_repair": {
+    "failure": "temporal-anchor branches still mismatch live obligations",
+    "next_construction": "add a shared spatial scene node after convergence, not another temporal variant"
+  },
+  "provenance": {
+    "generator_sha256": "f28f23014018cc8b071f8472b772c66bc232b2f5ebbb977a75f3fd709ffac79f",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "shortcuts_excluded": true
+  }
+}

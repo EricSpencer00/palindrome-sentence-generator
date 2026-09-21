@@ -115,10 +115,11 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   117--121-word composition with distinct chunks and valid pointer/SHA replay,
   but its rendered text is visibly word salad (for example, “Dad, sir, or
   recipe wolf ...”). It remains useful as an architectural provenance
-  reference, not as readable evidence. The public Pages proxy now returns the
+  reference, not as readable evidence. The local Pages proxy now returns the
   same evidence-gated 503 for `/api/generate` and all versioned generation
   routes while allowing health/diagnostic endpoints through
-  (`web/functions/api/[[path]].js`).
+  (`web/functions/api/[[path]].js`). The live public deployment still serves
+  the upstream route until that committed gate is deployed.
 
 - **Mechanical versus reader frontier.** The historical v4 diagnostics contain
   a mechanically clean 50-letter row, “To new one post is an evening. Is sign

@@ -1,14 +1,15 @@
 {
   "experiment_id": "graph-unification-attachment-20260921",
-  "method": "graph-unification dependency solver with held-out manner-of-causation attachment; bilateral mirrored-character support domains intersected during incremental yield",
+  "method": "graph-unification dependency solver with held-out resultative-causation attachment; bilateral mirrored-character support domains intersected during incremental yield",
   "stats": {
-    "trees": 6,
-    "graph_edges": 30,
-    "online_support_checks": 44,
-    "online_prunes": 30,
+    "trees": 7,
+    "graph_edges": 42,
+    "online_support_checks": 60,
+    "online_prunes": 42,
     "rendered_controls": 12,
     "exact_gt38": 0,
-    "max_letters": 133
+    "max_letters": 133,
+    "manner_frontier_survives_past_first_support_conflict": true
   },
   "exact_candidates": [],
   "reader_facing_candidates": [],
@@ -47,7 +48,8 @@
         "checks": 1,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 60
+        "frontier_length": 60,
+        "survives_past_first_support_conflict": false
       },
       "complete_prose": true,
       "audit": {
@@ -107,7 +109,8 @@
         "checks": 2,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 61
+        "frontier_length": 61,
+        "survives_past_first_support_conflict": true
       },
       "complete_prose": true,
       "audit": {
@@ -167,7 +170,8 @@
         "checks": 2,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 57
+        "frontier_length": 57,
+        "survives_past_first_support_conflict": true
       },
       "complete_prose": true,
       "audit": {
@@ -229,7 +233,8 @@
         "checks": 1,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 67
+        "frontier_length": 67,
+        "survives_past_first_support_conflict": false
       },
       "complete_prose": true,
       "audit": {
@@ -291,7 +296,8 @@
         "checks": 2,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 63
+        "frontier_length": 63,
+        "survives_past_first_support_conflict": true
       },
       "complete_prose": true,
       "audit": {
@@ -300,6 +306,69 @@
         "sha_equal": false,
         "forward_sha256": "e6aa91f22011f6d4fa54a3b61fb18d55223c572b9f7685bab17cfbf1a3ed4b8b",
         "reverse_sha256": "bd5479b873a3d255f7e67d9e9c15d35ec520d1d8018e27c288c3d1b5143ac222",
+        "repeated_units": true,
+        "nested_self_palindrome": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false
+      },
+      "provenance": {
+        "fresh_authored_dependency_trees": true,
+        "graph_unification_before_render": true,
+        "heldout_attachment": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "reward_loop": false
+      }
+    },
+    {
+      "rendered": "the careful baker delivered the parcel the warm loaf for the night nurse. the patient mason made the old wall strong again after the rain stopped.",
+      "trees": {
+        "left": {
+          "kind": "benefactive",
+          "subject": "the careful baker",
+          "verb": "delivered",
+          "recipient": "the parcel",
+          "theme": "the warm loaf",
+          "prep": "for",
+          "beneficiary": "the night nurse"
+        },
+        "right": {
+          "kind": "resultative_causal",
+          "subject": "the patient mason",
+          "verb": "made",
+          "theme": "the old wall",
+          "result": "strong again",
+          "cause": "after the rain stopped",
+          "attachment_index": "event.made.result->cause"
+        }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "event.made.result->cause"
+        ],
+        "event_nodes_unified": true
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 1,
+        "domains": "character intersection while streaming terminals",
+        "frontier_survived": true,
+        "frontier_length": 61,
+        "survives_past_first_support_conflict": false
+      },
+      "complete_prose": true,
+      "audit": {
+        "letters": 119,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "1fed96637c99efbeca69ff7f4676563b7876e647e326c7351f8bd39a280470dc",
+        "reverse_sha256": "c9e567ba1c9cb0b8cd19405274adf2c02f82d11085a35b9fa12448b609af0d08",
         "repeated_units": true,
         "nested_self_palindrome": false,
         "mirrored_units": false,
@@ -353,7 +422,8 @@
         "checks": 1,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 60
+        "frontier_length": 60,
+        "survives_past_first_support_conflict": false
       },
       "complete_prose": true,
       "audit": {
@@ -413,7 +483,8 @@
         "checks": 1,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 59
+        "frontier_length": 59,
+        "survives_past_first_support_conflict": false
       },
       "complete_prose": true,
       "audit": {
@@ -473,7 +544,8 @@
         "checks": 1,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 55
+        "frontier_length": 55,
+        "survives_past_first_support_conflict": false
       },
       "complete_prose": true,
       "audit": {
@@ -535,7 +607,8 @@
         "checks": 2,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 66
+        "frontier_length": 66,
+        "survives_past_first_support_conflict": true
       },
       "complete_prose": true,
       "audit": {
@@ -597,7 +670,8 @@
         "checks": 1,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 61
+        "frontier_length": 61,
+        "survives_past_first_support_conflict": false
       },
       "complete_prose": true,
       "audit": {
@@ -626,29 +700,31 @@
       }
     },
     {
-      "rendered": "the sudden storm delayed the evening train because the signal failed. the careful baker delivered the parcel the warm loaf for the night nurse.",
+      "rendered": "a patient teacher prepared the child a clear lesson for the new class. the patient mason made the old wall strong again after the rain stopped.",
       "trees": {
         "left": {
-          "kind": "causal",
-          "subject": "the sudden storm",
-          "verb": "delayed",
-          "theme": "the evening train",
-          "cause": "because the signal failed"
+          "kind": "benefactive",
+          "subject": "a patient teacher",
+          "verb": "prepared",
+          "recipient": "the child",
+          "theme": "a clear lesson",
+          "prep": "for",
+          "beneficiary": "the new class"
         },
         "right": {
-          "kind": "benefactive",
-          "subject": "the careful baker",
-          "verb": "delivered",
-          "recipient": "the parcel",
-          "theme": "the warm loaf",
-          "prep": "for",
-          "beneficiary": "the night nurse"
+          "kind": "resultative_causal",
+          "subject": "the patient mason",
+          "verb": "made",
+          "theme": "the old wall",
+          "result": "strong again",
+          "cause": "after the rain stopped",
+          "attachment_index": "event.made.result->cause"
         }
       },
       "graph_unification": {
         "attachment_indices": [
           "root->argument",
-          "root->argument"
+          "event.made.result->cause"
         ],
         "event_nodes_unified": true
       },
@@ -657,75 +733,16 @@
         "checks": 2,
         "domains": "character intersection while streaming terminals",
         "frontier_survived": true,
-        "frontier_length": 61
+        "frontier_length": 60,
+        "survives_past_first_support_conflict": true
       },
       "complete_prose": true,
       "audit": {
-        "letters": 118,
+        "letters": 116,
         "pointer_exact": false,
         "sha_equal": false,
-        "forward_sha256": "3e7084618a0b46558a8cce628da02d3e3bf346ee02fd0cf0cc30cf275db8b8d6",
-        "reverse_sha256": "d7678e1a0e08665fc71ecfdcbc17210a9daa03f051a68f8b3f95ecd144fd6ec8",
-        "repeated_units": true,
-        "nested_self_palindrome": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false
-      },
-      "provenance": {
-        "fresh_authored_dependency_trees": true,
-        "graph_unification_before_render": true,
-        "heldout_attachment": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "reward_loop": false
-      }
-    },
-    {
-      "rendered": "the sudden storm delayed the evening train because the signal failed. a patient teacher prepared the child a clear lesson for the new class.",
-      "trees": {
-        "left": {
-          "kind": "causal",
-          "subject": "the sudden storm",
-          "verb": "delayed",
-          "theme": "the evening train",
-          "cause": "because the signal failed"
-        },
-        "right": {
-          "kind": "benefactive",
-          "subject": "a patient teacher",
-          "verb": "prepared",
-          "recipient": "the child",
-          "theme": "a clear lesson",
-          "prep": "for",
-          "beneficiary": "the new class"
-        }
-      },
-      "graph_unification": {
-        "attachment_indices": [
-          "root->argument",
-          "root->argument"
-        ],
-        "event_nodes_unified": true
-      },
-      "online_support": {
-        "accepted": false,
-        "checks": 1,
-        "domains": "character intersection while streaming terminals",
-        "frontier_survived": true,
-        "frontier_length": 59
-      },
-      "complete_prose": true,
-      "audit": {
-        "letters": 115,
-        "pointer_exact": false,
-        "sha_equal": false,
-        "forward_sha256": "d1a5aac29b63ea6639dfa01352e939b595aff032030d5cdbf4a773f54382a538",
-        "reverse_sha256": "7d7c3a92b86c7a870e9f6f3904e197ea47e5ecfee4d1228c9bfbaec75615519b",
+        "forward_sha256": "df5a6131a615a43902cc9feab9826768340e5e7523ff1e2b25c4f972b1462e41",
+        "reverse_sha256": "2f6fd3ffe3354968d884b1e4f9647b388f67383817ee24cd5dcab5ea2b3c7b66",
         "repeated_units": true,
         "nested_self_palindrome": false,
         "mirrored_units": false,
@@ -749,8 +766,8 @@
   "novelty_preflight": {
     "status": "passed",
     "registry_inspected": true,
-    "signature": "fresh-authored|dependency-graph-unification|manner-causal-event-index|online-character-support",
-    "distinct_from": "instrumental-causal edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; manner attachment index unifies before lexical yield",
+    "signature": "fresh-authored|dependency-graph-unification|resultative-causal-event-index|online-character-support",
+    "distinct_from": "manner-causal edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; result attachment index unifies before lexical yield",
     "forbidden_inputs": [
       "38-letter anchor",
       "finished-tape reversal",
@@ -775,6 +792,6 @@
     ],
     "reader_status": "closed: no exact >=39 candidate"
   },
-  "next_operator": "Hold out a distinct resultative-causation event edge, only if this manner frontier survives beyond the first support conflict.",
+  "next_operator": "Hold out a distinct concessive-result event edge only if the resultative frontier survives past its first support conflict.",
   "status": "no exact >=39 closure; intact ordinary-prose controls retained"
 }

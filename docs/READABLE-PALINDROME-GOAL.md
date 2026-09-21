@@ -8060,6 +8060,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   event graph with dual balanced cuts and perturbation intersection. Artifact:
   `runs/twelve-event-balanced-cut-20260921.json`.
 
+- **Thirteen-event dual-cut graph, 2026-09-21:** added balanced cuts at
+  `e6 | e7` and `e10 | e11`; their perturbation intersection had rank 1 under
+  the global endpoint CSP. The rendered intact control is a 299-letter
+  thirteen-event sequence (“the nurse checked the chart” repeated as separate
+  authored event yields), and its independent pointer/SHA audits are both
+  non-exact. No exact closure at or above 39 letters occurred. The next
+  topology is a fourteen-event graph with a triple-cut intersection and rank
+  monotonicity check. Artifact: `runs/thirteen-event-dual-cut-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.
@@ -8205,6 +8214,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete domain conflicts were retained and zero exact closures occurred.
   The next topology is a temporal object-NP CP with a finite progressive
   predicate. Artifact: `runs/cfg-earley-object-np-where-cp-20260921.json`.
+
+- **Object-NP temporal progressive Earley seam, 2026-09-21:** attached
+  `when NP Aux V-ing` inside the object NP as a pre-render CP item. An intact
+  control begins “The patient keeper stores the sealed crates when the courier
+  is inspecting the quay” and is 139 letters; the three controls were 139,
+  136, and 137 letters. Agreement/valency stayed unified, 189 mirrored-domain
+  conflicts were retained, and independent pointer/SHA audits found zero exact
+  closures. The next topology is an object-NP temporal before-clause with a
+  past-tense predicate. Artifact:
+  `runs/cfg-earley-object-np-when-progressive-20260921.json`.
 
 - **Boundary-conditioned semantic scene search, 2026-09-21:** indexed fresh
   SVO/PP alternatives by first/last terminal characters and grew paired clause

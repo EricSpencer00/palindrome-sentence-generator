@@ -8415,3 +8415,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the same live seam, yielding zero exact candidates. The next operator is
   polarity as one additional typed state. Artifact:
   `runs/constructive-qa-aspect-debt-20260921.json`.
+
+- **Polarity successor and boundary reset, 2026-09-21:** adding affirmative /
+  negative metadata to the same Q/A frames changed no exposed characters; the
+  one feature-compatible control remained the 38-letter non-palindrome above.
+  Astra’s bounded diagnosis therefore rejected further feature stacking as a
+  local minimum: the branch filtered grammar after fixing the fatal outer
+  seam. The replacement grammar makes the seam itself productive:
+  `Was [NP1] what [NP2] saw?`, whose `was`/`saw` boundary matches before noun
+  phrases are chosen. Four meaningful noun phrases yielded 16 joint expansions;
+  none extended the match beyond those three letters, and independent
+  pointer/SHA audits found zero exact candidates. Example control: “Was a red
+  kite what our old guide saw?” (29 letters; first residual mismatch `a` vs
+  `e`). Artifact: `runs/was-np-what-np-saw-seam-20260921.json`.

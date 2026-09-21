@@ -7884,6 +7884,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   an explicit event-node attachment index. Artifact:
   `runs/graph-unification-attachment-20260921.json`.
 
+- **Held-out instrumental-causal graph edge, 2026-09-21:** added an
+  `event.opened.instrument -> cause` attachment index to the corrected
+  incremental graph solver. Five dependency trees yielded 20 online-pruned
+  graph edges and 12 intact prose controls (maximum 131 letters), with zero
+  exact closures at or above 39 letters. The next operator is a second
+  event-node attachment index only if a live frontier survives; otherwise the
+  lane must hold out a distinct manner-of-causation edge. Artifact:
+  `runs/graph-unification-attachment-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

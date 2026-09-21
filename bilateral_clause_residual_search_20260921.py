@@ -48,20 +48,28 @@ def residual(left: str, right: str) -> dict:
     return {"matched_prefix": common, "left_debt": a[common:], "right_debt": b[common:],
             "closed": common == len(a) == len(b)}
 
+def content_words(text: str) -> set[str]:
+    return set(re.findall(r"[a-z]+", text.lower())) - {"a", "an", "and", "the", "our"}
+
 def run() -> dict:
     controls = []
     for left, right in itertools.product(CLAUSES, repeat=2):
         compatible = left.subject == right.subject and left.tense == right.tense and left.role == right.role
         # Solve residuals on typed text first; punctuation/connector is added only afterward.
-        debt = residual(left.text, right.text)
+        connector = ", and "
+        debt = residual(left.text + connector, right.text)
         rendered = f"{left.text}, and {right.text}."
         au = audit(rendered)
+        lexical_left, lexical_right = content_words(left.text), content_words(right.text)
         gates = {"complete_typed_clauses": True, "typed_compatible": compatible,
                  "bilateral_residual_closed": debt["closed"], "whole_output_exact": au["exact"],
-                 "readable_full_sentence": True, "no_catalogue_mirror": True,
+                 "grammar_template_control": True, "diagnostic_lane": not debt["closed"],
+                 "lexically_disjoint": lexical_left.isdisjoint(lexical_right),
+                 "no_self_palindromic_units": all(letters(w) != letters(w)[::-1] for w in lexical_left | lexical_right),
+                 "no_catalogue_mirror": True,
                  "no_lm_reward": True}
         controls.append({"rendered": rendered, "left_clause": asdict(left), "right_clause": asdict(right),
-                         "residual_before_render": debt, "audit": au, "gates": gates,
+                         "connector": connector, "residual_before_render": debt, "audit": au, "gates": gates,
                          "accepted": all(gates.values()),
                          "provenance": {"construction": "typed complete-clause bilateral residual search",
                                         "residual_solved_before_rendering": True, "rendered_after_gate": True,

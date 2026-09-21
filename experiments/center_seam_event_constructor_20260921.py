@@ -28,6 +28,9 @@ TEMPLATES = [
     ("agent_action", ("det", "subj", "verb", "det", "obj")),
     ("named_action", ("name", "verb", "det", "obj")),
     ("agent_prep_action", ("det", "subj", "verb", "prep", "det", "obj")),
+    ("two_event_arc", ("det", "subj", "verb", "det", "obj", "prep", "det", "obj")),
+    ("named_two_event_arc", ("name", "verb", "det", "obj", "prep", "det", "subj")),
+    ("narrative_arc", ("det", "subj", "verb", "det", "obj", "prep", "det", "subj", "verb", "obj")),
 ]
 
 def tape(s: str) -> str:
@@ -122,6 +125,25 @@ def residual_equation(left_words, right_words):
             return False
     return True
 
+def seam_indexed_residual(left_words, right_words):
+    """Live lexical residual-domain gate, consuming complete words lazily.
+
+    At each step the next available character is drawn from the currently
+    exposed word on each side.  This makes word boundaries part of the state;
+    a mismatch prunes immediately, before later slots are considered.
+    """
+    if sum(map(len, left_words)) != sum(map(len, right_words)):
+        return False
+    li = ri = lo = ro = 0
+    total = sum(map(len, left_words))
+    for _ in range(total):
+        while li < len(left_words) and lo == len(left_words[li]): li, lo = li + 1, 0
+        while ri < len(right_words) and ro == len(right_words[ri]): ri, ro = ri + 1, 0
+        if li == len(left_words) or ri == len(right_words): return False
+        if left_words[li][lo] != right_words[ri][-(ro + 1)]: return False
+        lo += 1; ro += 1
+    return True
+
 def search():
     cs = clauses()
     # Group by total length so the seam is a genuine residual equation.  The
@@ -130,6 +152,16 @@ def search():
     for c in cs:
         by_len.setdefault(sum(map(len, c["words"])), []).append(c)
     results, controls = [], []
+    # Preserve intact long semantic controls even when their lengths cannot
+    # close the palindrome residual equation.
+    long = [c for c in cs if sum(map(len, c["words"])) > 38]
+    for c in long[:24]:
+        au = audit(c["text"])
+        controls.append({"text": c["text"], "length": au["letters"], "audit": au,
+                         "left": c, "right": None,
+                         "provenance": "independent_typed_event_arc_control",
+                         "novelty": "not_catalogue_or_mirrored_units",
+                         "reader_worthy": False})
     pairs_seen = 0
     for length, lefts in sorted(by_len.items()):
         rights = by_len[length]
@@ -150,7 +182,7 @@ def search():
                 if len(controls) < 24 and au["letters"] > 38:
                     controls.append(rec)
                 # Solve the character residual before admitting an exact result.
-                if not residual_equation(left["words"], right["words"]):
+                if not seam_indexed_residual(left["words"], right["words"]):
                     continue
                 if au["exact"]:
                     results.append(rec)

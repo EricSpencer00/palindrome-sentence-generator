@@ -30,6 +30,10 @@ FRAMES = (
     Frame("the young botanist", "studied", "a rare flower", "beneath the stars", "singular", "transitive", "agent"),
     Frame("sailors", "found", "the hidden inlet", "near the island", "plural", "transitive", "agent"),
 )
+HELD_OUT = (
+    Frame("a careful pilot", "marked", "the chart and compass", "at sunset", "singular", "transitive", "agent"),
+    Frame("the map was", "carried by", "patient guides", "through the harbor", "singular", "passive", "patient"),
+)
 
 def letters(s: str) -> str:
     return re.sub(r"[^a-z]", "", s.casefold())
@@ -77,7 +81,8 @@ def pair_trace(a: Frame, b: Frame) -> tuple[list[dict], int, dict | None]:
 
 def run() -> dict:
     rows = []; productive = 0; transitions = 0
-    for a, b in itertools.product(FRAMES, repeat=2):
+    domain = FRAMES + HELD_OUT
+    for a, b in itertools.product(domain, repeat=2):
         tr, depth, mismatch = pair_trace(a, b); transitions += depth
         # Support is measured before rendering. A state is productive only if
         # grammar constraints and a non-empty continuation remain.
@@ -89,7 +94,8 @@ def run() -> dict:
                  "whole_output_exact": au["exact"], "independent_pointer_hash": au["pointer_exact"] and au["sha256_forward"] == au["sha256_reverse"],
                  "no_self_palindromic_half": letters(" ".join(words(a))) != letters(" ".join(words(a)))[::-1],
                  "no_tape_mirror": True, "no_post_hoc_repair": True, "semantic_roles_compatible": compatible(a, b)}
-        rows.append({"rendered": surface, "left_frame": asdict(a), "right_frame": asdict(b),
+        traced_tape = letters(" ".join(words(a)) + "; " + " ".join(words(b)))
+        rows.append({"rendered": surface, "traced_tape": traced_tape, "left_frame": asdict(a), "right_frame": asdict(b),
                      "support_depth": depth, "first_unsupported": mismatch,
                      "bilateral_obligation_trace": tr, "audit": au,
                      "gates": gates, "accepted": all(gates.values()),
@@ -100,7 +106,7 @@ def run() -> dict:
     frontier = max((r["support_depth"] for r in rows), default=0)
     return {"experiment_id": "support-driven-paired-character-grammar-20260921",
             "method": "joint outside-in authored grammar with residual carry and typed semantic state",
-            "stats": {"frames": len(FRAMES), "paired_states": len(rows), "productive_states": productive,
+            "stats": {"frames": len(domain), "held_out_frames": len(HELD_OUT), "paired_states": len(rows), "productive_states": productive,
                       "transitions": transitions, "support_depth_frontier": frontier, "exact_candidates": len(exact)},
             "rendered_candidates": rows, "exact_candidates": exact,
             "support_depth_frontier": {"depth": frontier, "next_expansion": "add coordinated-object and passive valency frames at the first unsupported lexical cut"},

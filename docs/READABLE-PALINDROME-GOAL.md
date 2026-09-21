@@ -8154,6 +8154,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   The next topology is an object-NP whose-possessive CP. Artifact:
   `runs/cfg-earley-object-np-when-cp-20260921.json`.
 
+- **Object-NP whose-possessive Earley seam, 2026-09-21:** attached
+  `whose NP_poss V` inside the object NP before rendering, preserving explicit
+  possessive CP items, agreement, valency, and live mirrored domains. Three
+  intact controls were 131, 129, and 126 letters; 171 concrete domain
+  conflicts were retained and zero exact closures occurred. The next topology
+  is an object-NP that-relative CP with overt subject and object gap. Artifact:
+  `runs/cfg-earley-object-np-whose-cp-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

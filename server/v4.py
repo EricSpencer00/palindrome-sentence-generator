@@ -1565,6 +1565,42 @@ SEMANTIC_SCENE_RESIDUAL_RUN = {
     "next_construction": "add a third complete discourse edge keyed by surviving two-character classes with explicit subject-number agreement",
 }
 
+DOUBLE_RELATIVE_ASYNC_RUN = {
+    "run_id": "double-relative-async-phrase-lattice-20260920",
+    "method": "bounded depth-two typed relative attachments with asynchronous bilateral phrase/word frontiers",
+    "status": "completed_no_exact_closure",
+    "left_paths": 2,
+    "right_paths": 2,
+    "paired_paths": 4,
+    "online_states": 4,
+    "mismatch_prunes": 4,
+    "rendered_complete_controls": 4,
+    "longest_rendered_letters": 85,
+    "exact_clean_over_38": 0,
+    "reader_eligible": 0,
+    "provenance": "independent depth-two typed relative attachments with ordinary-order asynchronous frontiers; no finished-tape reversal, post-hoc repair, mirrored units, fragments, catalogue text, or per-search RLAIF",
+    "independent_validation": ["independent two-pointer mismatch", "forward/reverse SHA-256"],
+    "novelty_preflight": "passed; depth-two-relative-attachments typed-boundary-skew signature",
+    "next_construction": "select typed attachment alternatives by residual class after the first relative edge",
+}
+
+SEMANTIC_SCENE_THREE_EDGE_RUN = {
+    "run_id": "semantic-scene-three-edge-automaton-20260920",
+    "method": "three-edge complete-clause residual automaton with keyed third edge and subject-number agreement",
+    "status": "completed_no_exact_closure",
+    "scenes": 3,
+    "three_edge_states": 3,
+    "keyed_third_edges": 3,
+    "key_prunes": 0,
+    "longest_rendered_letters": 124,
+    "exact_candidates_over_38": 0,
+    "reader_eligible": 0,
+    "provenance": "complete authored three-edge scenes selected by a carried two-character residual key with explicit agreement; no finished-tape reversal, post-hoc repair, mirrored units, fragments, catalogue text, or per-search RLAIF",
+    "independent_validation": ["independent two-pointer comparison", "forward/reverse SHA-256"],
+    "novelty_preflight": "passed; complete-clause-scene-lattice three-edge-residual-automaton agreement signature",
+    "next_construction": "add residual-keyed connector and tense alternatives for each surviving two-character class",
+}
+
 LUNA_PARALLEL_RUNS = [
     {
         "run_id": "endpoint-conditioned-compositional-decoder-20260920",
@@ -8600,6 +8636,8 @@ def evidence() -> dict[str, Any]:
         "bidirectional_phrase_lattice_run": BIDIRECTIONAL_PHRASE_LATTICE_RUN,
         "typed_relative_async_phrase_run": TYPED_RELATIVE_ASYNC_PHRASE_RUN,
         "semantic_scene_residual_run": SEMANTIC_SCENE_RESIDUAL_RUN,
+        "double_relative_async_run": DOUBLE_RELATIVE_ASYNC_RUN,
+        "semantic_scene_three_edge_run": SEMANTIC_SCENE_THREE_EDGE_RUN,
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -8633,6 +8671,8 @@ def method() -> dict[str, Any]:
         "bidirectional_phrase_lattice_run": BIDIRECTIONAL_PHRASE_LATTICE_RUN,
         "typed_relative_async_phrase_run": TYPED_RELATIVE_ASYNC_PHRASE_RUN,
         "semantic_scene_residual_run": SEMANTIC_SCENE_RESIDUAL_RUN,
+        "double_relative_async_run": DOUBLE_RELATIVE_ASYNC_RUN,
+        "semantic_scene_three_edge_run": SEMANTIC_SCENE_THREE_EDGE_RUN,
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN, TYPED_AGREEMENT_CLAUSE_RUN],
         "rlaif_frontier": _rlaif_frontier(),
@@ -8661,6 +8701,8 @@ def frontier_evaluation() -> dict[str, Any]:
         "bidirectional_phrase_lattice_run": BIDIRECTIONAL_PHRASE_LATTICE_RUN,
         "typed_relative_async_phrase_run": TYPED_RELATIVE_ASYNC_PHRASE_RUN,
         "semantic_scene_residual_run": SEMANTIC_SCENE_RESIDUAL_RUN,
+        "double_relative_async_run": DOUBLE_RELATIVE_ASYNC_RUN,
+        "semantic_scene_three_edge_run": SEMANTIC_SCENE_THREE_EDGE_RUN,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,

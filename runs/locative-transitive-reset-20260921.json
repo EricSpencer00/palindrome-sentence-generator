@@ -1,0 +1,109 @@
+{
+  "experiment_id": "locative-transitive-reset-20260921",
+  "status": "completed_no_exact_closure",
+  "method": "transitive repair/move event frames coupled to typed locative order",
+  "candidate_count": 2,
+  "exact_count": 0,
+  "reader_eligible": false,
+  "rendered_candidates": [
+    {
+      "rendered": "the careful carpenter who repairs the gate in the workshop beside the river; the patient builder who repairs the gate in the workshop beside the river.",
+      "left_arc": "carpenter_repairs",
+      "right_arc": "builder_repairs",
+      "novel_rendered": true,
+      "semantic_state": {
+        "event_frame": "repair",
+        "locative_order": "place-first",
+        "typed_prepositions": [
+          "in",
+          "beside"
+        ],
+        "transitive_object": true
+      },
+      "audit": {
+        "letters": 124,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "7b4cfc76ae911ae28c8e9015bb85c38b128ed86db3980188835c3fcafd80025a",
+        "reverse_sha256": "d09a4e25cef915da757b42e02545740b124921b73cd5b70caec9a5a8226fb3e7",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "t",
+          "r"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "new transitive event frame coupled to locative order",
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "a quiet merchant who moves the crate beside the river in the warehouse; a strong porter who moves the crate beside the river in the warehouse.",
+      "left_arc": "merchant_moves",
+      "right_arc": "porter_moves",
+      "novel_rendered": true,
+      "semantic_state": {
+        "event_frame": "move",
+        "locative_order": "river-first",
+        "typed_prepositions": [
+          "in",
+          "beside"
+        ],
+        "transitive_object": true
+      },
+      "audit": {
+        "letters": 115,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "7e539bb39d27c4f4b4dda674e6aff26f43959e8634b56d624c736c55abb425f0",
+        "reverse_sha256": "267bcbb96e3c52a5dab025fd3b47c1cb497abd41f6aa3511a9bed123ccf97e02",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "a",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "new transitive event frame coupled to locative order",
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "stats": {
+    "longest_letters": 124
+  },
+  "novelty_preflight": {
+    "hash_source": "all runs/*.json rendered_candidates",
+    "all_rendered_new": true,
+    "topology_reset": true,
+    "adjunct_permutation_only": false
+  },
+  "failure_and_repair": {
+    "failure": "new transitive locative frames still mismatch live character obligations",
+    "next_construction": "add an event-frame instrument argument with typed locative order, without expanding the lexical bank"
+  },
+  "provenance": {
+    "generator_sha256": "6781d14af0406b9d65d55819a6ecf1e814d9c3652091570398cbfe053c911058",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "shortcuts_excluded": true
+  }
+}

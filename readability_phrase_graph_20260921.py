@@ -56,6 +56,7 @@ def paths():
         for v in PHRASES:
             if n.next_pos != "vp" or v.pos != "vp": continue
             if n.number != v.number or n.topic != v.topic: continue
+            if n.text in v.text or v.text in n.text: continue
             text=f"{n.text} {v.text}."
             rows.append(("control", text, n, v))
     # A second, semantically continuous clause is allowed only when its topic
@@ -63,8 +64,9 @@ def paths():
     for n in PHRASES:
         for v in PHRASES:
             if n.pos=="np" and v.pos=="vp" and n.number==v.number and n.topic==v.topic:
-                text=f"{n.text} {v.text}, and {v.text}."
-                rows.append(("continuity_control", text, n, v))
+                # Keep the control one-pass: repeating a finished unit would
+                # manufacture symmetry and obscure the graph/PDA result.
+                rows.append(("continuity_control", f"{n.text} {v.text}.", n, v))
     return rows
 
 def main():

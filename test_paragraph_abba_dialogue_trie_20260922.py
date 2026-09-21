@@ -32,15 +32,15 @@ def test_run_keeps_complete_prose_and_independent_hashes():
                for row in result['rendered_candidates'])
     assert result['stats']['exact_gt38'] == 0
     assert result['stats']['outer_pruned'] == 0
-    assert all(row['outer_domain_support']['width'] == 7
-               and row['outer_domain_support']['matched'] == 7
+    assert all(row['outer_domain_support']['width'] == 10
+               and row['outer_domain_support']['matched'] == 10
                for row in result['rendered_candidates'])
     assert result['fresh_residual_probe']['status'] == 'fresh_natural_scene_pair_found'
-    assert result['fresh_residual_probe']['max_new_support_depth'] == 7
+    assert result['fresh_residual_probe']['max_new_support_depth'] == 10
     assert 'three-character' not in result['method']
-    assert any('red-laced naturalist' in row['rendered'] for row in result['rendered_candidates'])
+    assert any('red-laced insect collector' in row['rendered'] for row in result['rendered_candidates'])
     assert result['stats']['fresh_outer_pair_completions'] == 4
-    assert result['stats']['fresh_outer_pair_support_depth'] == [7]
-    assert all('A red-laced naturalist' in row['rendered'] and
-               'basaltic caldera.' in row['rendered']
+    assert result['stats']['fresh_outer_pair_support_depth'] == [10]
+    assert all('A red-laced insect collector' in row['rendered'] and
+               'wide caldera.' in row['rendered']
                for row in result['fresh_outer_pair_candidates'])

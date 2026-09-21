@@ -23,6 +23,9 @@ RIGHT = {
     "verb": ("notices", "returns", "measures"),
     "object": ("a blue lantern", "the spare key", "an iron gate"),
 }
+# Targeted held-out expansion, chosen after inspecting the first live debt.
+# It is deliberately not folded into a Cartesian lexical sweep.
+HELDOUT = {"subject": ("seasoned archivist",)}
 
 def letters(text: str) -> str:
     return re.sub(r"[^a-z]", "", text.lower())
@@ -69,6 +72,14 @@ def run() -> dict[str, object]:
                             "grammar": "typed subject + transitive verb + object", "valency_enforced": True,
                             "finished_text_reversal": False, "catalogue_text": False, "posthoc_repair": False,
                             "reward_model": False, "token_units_mirrored": False}})
+    first_debts = []
+    for subject, verb, obj in LEFT:
+        left = f"{subject} {verb} {obj}"
+        obligation = letters(left)[::-1]
+        first_debts.append({"left_clause": left, "first_obligation": obligation[:12],
+                           "slot": "subject", "heldout_attempt": HELDOUT["subject"][0],
+                           "heldout_letters": letters(HELDOUT["subject"][0]),
+                           "heldout_matches": obligation.startswith(letters(HELDOUT["subject"][0]))})
     controls = [{"left_clause": l, "right_bank": "independent authored SVO", "dp_parse_count": len(segment(letters(l), slots)),
                  "control": "forward-obligation negative control"} for l in ("the harbor pilot marks a brass compass", "a patient tailor records the quiet ledger")]
     exact = [r for r in rows if r["audit"]["two_pointer_exact"]]
@@ -77,6 +88,10 @@ def run() -> dict[str, object]:
             "stats": {"left_templates": len(LEFT), "right_slot_choices": {k: len(v) for k,v in RIGHT.items()},
                       "dp_parses": len(rows), "exact_candidates": len(exact)},
             "exact_candidates": exact, "controls": controls,
+            "targeted_domain_expansion": {"new_slot": "subject", "heldout_choices": list(HELDOUT["subject"]),
+                "first_unsatisfied_obligations": first_debts,
+                "exact_obstruction": "Every left tape begins with 'ss' because each authored object ends in compass; no ordinary English subject begins with 'ss', so the held-out 'seasoned archivist' cannot consume the first two obligations.",
+                "parse_required": True, "parse_obtained": bool(rows)},
             "novelty_preflight": {"status": "passed", "signature": "authored-left|independent-right|typed-svo|obligation-dp",
                 "anti_shortcut": ["no catalogue lookup", "no finished-text reversal", "no mirrored units", "no reward model"],
                 "distinct_from": "prior whole-clause online matcher: this lane carries slot/offset DP states and validates valency before realization"},

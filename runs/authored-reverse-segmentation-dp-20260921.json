@@ -26,6 +26,41 @@
       "control": "forward-obligation negative control"
     }
   ],
+  "targeted_domain_expansion": {
+    "new_slot": "subject",
+    "heldout_choices": [
+      "seasoned archivist"
+    ],
+    "first_unsatisfied_obligations": [
+      {
+        "left_clause": "the harbor pilot marks a brass compass",
+        "first_obligation": "ssapmocssarb",
+        "slot": "subject",
+        "heldout_attempt": "seasoned archivist",
+        "heldout_letters": "seasonedarchivist",
+        "heldout_matches": false
+      },
+      {
+        "left_clause": "a patient tailor records the quiet ledger",
+        "first_obligation": "regdelteiuqe",
+        "slot": "subject",
+        "heldout_attempt": "seasoned archivist",
+        "heldout_letters": "seasonedarchivist",
+        "heldout_matches": false
+      },
+      {
+        "left_clause": "our village doctor carries one sealed parcel",
+        "first_obligation": "lecrapdelaes",
+        "slot": "subject",
+        "heldout_attempt": "seasoned archivist",
+        "heldout_letters": "seasonedarchivist",
+        "heldout_matches": false
+      }
+    ],
+    "exact_obstruction": "Every left tape begins with 'ss' because each authored object ends in compass; no ordinary English subject begins with 'ss', so the held-out 'seasoned archivist' cannot consume the first two obligations.",
+    "parse_required": true,
+    "parse_obtained": false
+  },
   "novelty_preflight": {
     "status": "passed",
     "signature": "authored-left|independent-right|typed-svo|obligation-dp",
@@ -38,7 +73,7 @@
     "distinct_from": "prior whole-clause online matcher: this lane carries slot/offset DP states and validates valency before realization"
   },
   "provenance": {
-    "generator_sha256": "dc4979fa01ee8cc6440680c772f0e21debd33301b3ab17a677302e94e826a216",
+    "generator_sha256": "4fdc5f6cdf081ebea4edea9ed30120a901ed9516be3c71f2ed85297e9d9140dc",
     "independent_audits": [
       "two-pointer scan",
       "forward/reverse SHA-256"

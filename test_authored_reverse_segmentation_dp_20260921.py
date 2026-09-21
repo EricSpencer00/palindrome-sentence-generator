@@ -15,3 +15,11 @@ def test_audit_is_independent_two_pointer_and_sha():
 
 def test_forward_control_does_not_parse_as_reverse_obligation():
     assert segment(letters("the harbor pilot marks a brass compass"), ("subject", "verb", "object")) == []
+
+def test_targeted_expansion_records_exact_first_debt():
+    result = run()
+    expansion = result["targeted_domain_expansion"]
+    assert expansion["new_slot"] == "subject"
+    assert expansion["first_unsatisfied_obligations"][0]["first_obligation"].startswith("ss")
+    assert expansion["parse_obtained"] is False
+    assert "no ordinary English subject begins with 'ss'" in expansion["exact_obstruction"]

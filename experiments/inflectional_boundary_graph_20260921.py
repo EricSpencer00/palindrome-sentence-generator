@@ -8,10 +8,10 @@ OUT = Path(__file__).resolve().parents[1] / "runs/inflectional-boundary-graph-20
 # Each frame carries agreement and tense; endings and openings are authored
 # together, so no completed sentence is reversed or repaired after rendering.
 FRAMES = (
-    {"id":"past-plural", "subject":"the patient pilots", "verb":"charted", "object":"a quiet inlet", "terminal":"memos", "opening":"some maps", "number":"plural", "tense":"past"},
-    {"id":"present-singular", "subject":"a patient pilot", "verb":"charts", "object":"the quiet inlet", "terminal":"arena", "opening":"an era", "number":"singular", "tense":"present"},
-    {"id":"past-singular", "subject":"the careful clerk", "verb":"filed", "object":"a fresh report", "terminal":"reason", "opening":"no sailor", "number":"singular", "tense":"past"},
-    {"id":"present-plural", "subject":"the careful clerks", "verb":"file", "object":"fresh reports", "terminal":"data", "opening":"a tad", "number":"plural", "tense":"present"},
+    {"id":"past-plural", "left":"The patient pilots charted the quiet inlet and filed memos.", "terminal":"memos", "opening":"Some maps", "continuation":"remain.", "number":"plural", "tense":"past"},
+    {"id":"present-singular", "left":"A patient pilot charts the quiet inlet near the arena.", "terminal":"arena", "opening":"An era", "continuation":"continues.", "number":"singular", "tense":"present"},
+    {"id":"past-singular", "left":"The careful clerk filed a fresh report for a reason.", "terminal":"reason", "opening":"No sailor", "continuation":"left the harbor.", "number":"singular", "tense":"past"},
+    {"id":"present-plural", "left":"The careful clerks file fresh reports with data.", "terminal":"data", "opening":"A tad", "continuation":"of rain cooled the garden.", "number":"plural", "tense":"present"},
 )
 
 def letters(text: str) -> str:
@@ -38,7 +38,7 @@ def seam_support(terminal: str, opening: str) -> dict:
 def run() -> dict:
     rows = []
     for f in FRAMES:
-        text = f"{f['subject']} {f['verb']} {f['object']} {f['terminal']}; {f['opening']} continue."
+        text = f"{f['left']} {f['opening']} {f['continuation']}"
         # Independently calculate the obligations from the complete rendered tape.
         rows.append({"frame": f["id"], "rendered": text, "state": {k:f[k] for k in ("number","tense")},
                      "boundary": {"terminal": f["terminal"], "right_opening": f["opening"]},

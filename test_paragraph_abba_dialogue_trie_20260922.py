@@ -35,6 +35,9 @@ def test_run_keeps_complete_prose_and_independent_hashes():
     assert all(row['outer_domain_support']['width'] == 5
                and row['outer_domain_support']['matched'] == 5
                for row in result['rendered_candidates'])
+    assert result['fresh_residual_probe']['status'] == 'fresh_natural_scene_pair_found'
+    assert result['fresh_residual_probe']['max_new_support_depth'] == 5
+    assert 'three-character' not in result['method']
     assert any('red-laced naturalist' in row['rendered'] for row in result['rendered_candidates'])
     assert result['stats']['fresh_outer_pair_completions'] == 4
     assert result['stats']['fresh_outer_pair_support_depth'] == [5]

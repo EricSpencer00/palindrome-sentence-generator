@@ -7950,6 +7950,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   operator is an evidential-result edge only if this causal frontier survives.
   Artifact: `runs/graph-unification-attachment-20260921.json`.
 
+- **Evidential-result graph edge, 2026-09-21:** added the distinct
+  `event.called.result -> evidence` attachment after the causal frontier
+  survived its first support conflict. Twelve trees produced 132 incrementally
+  checked graph edges and 12 intact controls (maximum 135 letters), with zero
+  exact closures at or above 39 letters. The next operator is an inferential-
+  result edge only if this evidential frontier likewise survives. Artifact:
+  `runs/graph-unification-attachment-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.

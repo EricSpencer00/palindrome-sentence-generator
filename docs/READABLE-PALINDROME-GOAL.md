@@ -7845,6 +7845,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   not another modifier sweep. Artifact:
   `runs/contraction-lexicalized-seam-20260921.json`.
 
+- **CFG/Earley mirrored-domain support, 2026-09-21:** compiled three fresh
+  intact NP/VP/PP clause-pair controls with Earley-style items carrying
+  agreement and valency features, then intersected terminal supports online
+  with the mirrored character relation. The run recorded 149 concrete
+  empty-domain conflicts and zero exact closures; no partial control is
+  admitted as a palindrome or reader evidence. Novelty preflight found no
+  signature collision. The next construction replaces the first empty support
+  with a held-out feature-unifying PP terminal, retaining the same live
+  domain/provenance audit. Artifact:
+  `runs/cfg-earley-mirrored-domain-support-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

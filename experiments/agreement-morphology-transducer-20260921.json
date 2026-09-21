@@ -1,0 +1,88 @@
+{
+  "experiment_id": "agreement-morphology-transducer-20260921",
+  "method": "agreement-carrying prefix/stem/suffix morphology transducer with online forward/reverse boundary coupling",
+  "stats": {
+    "controls": 3,
+    "rendered_candidates": 36,
+    "exact": 0,
+    "agreements": 2,
+    "stems": 3,
+    "suffixes": 2,
+    "objects": 3
+  },
+  "independent_audit": {
+    "pointer": "literal forward/reverse mismatch scan",
+    "sha256": "independent SHA-256 equality",
+    "pointer_sha_agree": true
+  },
+  "shortcut_checks": {
+    "finished_tape_reversed": false,
+    "posthoc_repair": false,
+    "precomputed_palindrome_inventory": false,
+    "language_model_scoring": false
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "agreement-prefix-stem-suffix-live-transducer",
+    "distinct_from": [
+      "lexical inventory sweeps",
+      "post-hoc seam repair"
+    ]
+  },
+  "next_construction": "add tense/person transitions whose suffix obligations are emitted only after the subject agreement state is carried across the seam",
+  "reader_gate": "closed; exactness is mechanical and prose remains unrated",
+  "controls": [
+    {
+      "rendered": "the calm poet hears a bell.",
+      "audit": {
+        "normalized": "thecalmpoethearsabell",
+        "letters": 21,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "l"
+        ],
+        "sha256_forward": "979bf68158d7a865ff1043f8a6577161bdfba8dc681145f77c27a46dbbfe8540",
+        "sha256_reverse": "9eb93f8e671fa1e68c3d5b3d918cf14ea79c8e63718d9b238053a7de93169a81",
+        "sha_equal": false
+      },
+      "kind": "ordinary grammatical control"
+    },
+    {
+      "rendered": "some bright poets carried the letter.",
+      "audit": {
+        "normalized": "somebrightpoetscarriedtheletter",
+        "letters": 31,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "s",
+          "r"
+        ],
+        "sha256_forward": "df2c9436c7c6cae8c9befb0476978577609143faef5d19ad5519c76b126dad71",
+        "sha256_reverse": "216622ee289a043b3e3a3efee9ce5e34a2109c565c79852acfaf96f723add402",
+        "sha_equal": false
+      },
+      "kind": "ordinary grammatical control"
+    },
+    {
+      "rendered": "a young poet hears the bell.",
+      "audit": {
+        "normalized": "ayoungpoethearsthebell",
+        "letters": 22,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "l"
+        ],
+        "sha256_forward": "1f7a31bd1d1364b56fee9abf5451518414a617b7193ad21d86e07afc13075bcb",
+        "sha256_reverse": "d07cb1d5ecbc6d2acc6505bd74b7ccdb84067f4c4885b99f71ccc20fd641d1b3",
+        "sha_equal": false
+      },
+      "kind": "ordinary grammatical control"
+    }
+  ],
+  "design": "Agreement state is selected before morphology; prefix/stem/suffix boundaries are coupled online against independently emitted right boundary."
+}

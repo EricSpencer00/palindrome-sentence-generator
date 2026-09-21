@@ -1180,6 +1180,22 @@ inventory is the bottleneck, so the next branch replaces it with a typed
 hand-authored subject/verb/object automaton while preserving the role labels
 at both mirrored boundaries.  No row is sent to readers from this lane.
 
+\paragraph{Shared-tape support chart.}
+The latest construction changes the search state rather than reranking completed
+strings.  A packed CFG forest is built over a single unknown letter tape;
+root-to-leaf support is propagated to a fixpoint, mirrored character domains
+are intersected, and branching occurs only at the most constrained character
+orbit.  An object-relative production with a bound object gap (``the poet that
+the writer reads'') removes the earlier noun/name endpoint bottleneck while
+retaining complete finite clauses.  The chart independently recovers the
+38-letter benchmark in three nodes and seven propagation rounds, but its held-
+out relative grammar is unsatisfiable at 39, 40, 44, 48, 52, 60, 72, 90, and
+100 letters (nine nodes per target; zero exact closures).  Complete relative
+controls remain ordinary prose (for example, ``the poet that the writer reads
+studies a memo'', 37 letters); no row is reader-eligible.  This result narrows
+the next construction to agreement-carrying relative subjects and passive
+relative frames, rather than another text-noun sweep.
+
 \section{Reader-facing evaluation}
 No candidate is called readable by the automatic diagnostics.  The release
 package is gated until a mechanically admitted survivor exists.  The planned

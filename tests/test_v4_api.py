@@ -179,6 +179,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["twochar_outer_family_run"]["exact_candidates_over_38"] == 0
     assert method.json()["recursive_semantic_grammar_csp_run"]["recursive_states"] == 36
     assert method.json()["recursive_semantic_grammar_csp_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["dual_obligation_event_graph_run"]["candidate_states"] == 96
+    assert method.json()["dual_obligation_event_graph_run"]["exact_candidates_over_38"] == 0
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

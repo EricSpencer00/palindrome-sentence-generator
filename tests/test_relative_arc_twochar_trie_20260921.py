@@ -12,6 +12,7 @@ def test_twochar_index_and_rendered_controls():
     for row in d['rendered_candidates']:
         assert row['audit']['letters']>38
         assert row['audit']['forward_sha256']!=row['audit']['reverse_sha256']
-        assert row['boundary_index']['left_first2']==row['boundary_index']['right_last2'][::-1]
+        assert row['internal_predicate_index']['left_predicate_class']==row['internal_predicate_index']['right_predicate_class']
+        assert row['internal_predicate_index']['agreement'] in {'singular','definite','plural'}
 def test_independent_audit():
     assert M['audit']('A man, a plan, a canal.')['two_pointer_exact'] is False

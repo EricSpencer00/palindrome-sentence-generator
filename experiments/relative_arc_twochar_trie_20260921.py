@@ -56,6 +56,20 @@ RIGHT=(
 
 def exposed(a):
     t=tape(' '.join(a.words)); return t[:2],t[-2:]
+def object_agreement(a):
+    """Carry determiner/number agreement as a lexical feature, not prose text."""
+    ws=a.words
+    for i,w in enumerate(ws):
+        if w in {'the','a','an'} and i+1 < len(ws) and i > 2:
+            noun=ws[i+1]
+            return 'plural' if noun.endswith('s') and w == 'the' else ('singular' if w in {'a','an'} else 'definite')
+    return 'unknown'
+def predicate_class(a):
+    return next((w for w in a.words if w in {'watches','describes','finds','guides','crosses','builds','keeps','carries','hears','opens','reads','paints','leads','studies','waters','sends','lights'}), '')[:2]
+def agreement_compatible(a,b):
+    # Definite articles license either number; indefinite features must agree.
+    x,y=object_agreement(a),object_agreement(b)
+    return x == y or 'definite' in {x,y}
 def compatible(a,b):
     # The right arc is emitted from its far end, so its final two characters
     # must satisfy the first two live left obligations.
@@ -70,15 +84,25 @@ def online(s):
 
 def main():
     index={}
-    for b in RIGHT: index.setdefault(exposed(b)[1],[]).append(b)
+    # Internal-predicate trie key is coupled to the object agreement feature.
+    # This is deliberately distinct from the previous exposed-boundary-only
+    # index: incompatible valency/number states never reach character search.
+    for b in RIGHT: index.setdefault(predicate_class(b),[]).append(b)
     rows=[]; considered=0
     for a in LEFT:
-        key=tape(' '.join(a.words))[:2][::-1]
-        for b in index.get(key,[]):
+        # Query same agreement and predicate onset class; the outer boundary
+        # obligation is still checked independently by the live zipper.
+        key=(object_agreement(a),predicate_class(a))
+        for b in index.get(predicate_class(a),[]):
+            if not agreement_compatible(a,b):
+                continue
             considered+=1; text=render(a,b); z=online(text)
             rows.append({'rendered':text,'left_arc':a.name,'right_arc':b.name,
               'semantic_valency':{'left':a.role,'right':b.role},
               'boundary_index':{'left_first2':exposed(a)[0],'right_last2':exposed(b)[1]},
+              'internal_predicate_index':{'key':list(key),'left_predicate_class':predicate_class(a),
+                                          'right_predicate_class':predicate_class(b),
+                                          'agreement':object_agreement(a)},
               'audit':audit(text),'live_trace':z,'exact_admitted':z['obligation'] is None,
               'reader_status':'unreviewed; programmatic measures do not certify readability',
               'provenance':{'construction':'two-character indexed relative-clause arcs',
@@ -86,12 +110,12 @@ def main():
                 'catalogue_text':False,'word_order_symmetry':False}})
     exact=[r for r in rows if r['exact_admitted']]
     out={'experiment_id':ID,'status':'completed_exact' if exact else 'completed_no_exact_closure',
-      'method':'relative-clause semantic arc trie indexed by exposed two-character classes',
+      'method':'relative-clause semantic arc trie indexed by internal predicate class plus object agreement',
       'candidate_count':len(rows),'indexed_pair_count':considered,'exact_count':len(exact),
       'reader_eligible':False,'rendered_candidates':rows,
       'stats':{'longest_letters':max((r['audit']['letters'] for r in rows),default=0),
                'left_arcs':len(LEFT),'right_arcs':len(RIGHT),'index_buckets':len(index)},
-      'novelty_preflight':{'prior_event_frame_sweep_reused':False,'completed_arc_join':False,
+      'novelty_preflight':{'prior_event_frame_sweep_reused':False,'boundary_only_index_reused':False,'completed_arc_join':False,
                            'semordnilap_token_mirror':False,'repair':False},
       'failure_and_repair':{'failure':'no exact closure after two-character boundary filtering' if not exact else 'none',
         'next_construction':'add relative-clause arcs with a two-character internal predicate index and agreement-carrying object features'},

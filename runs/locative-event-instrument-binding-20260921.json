@@ -1,0 +1,107 @@
+{
+  "experiment_id": "locative-event-instrument-binding-20260921",
+  "status": "completed_no_exact_closure",
+  "method": "event-specific object/instrument binding coupled to locative order",
+  "candidate_count": 2,
+  "exact_count": 0,
+  "reader_eligible": false,
+  "rendered_candidates": [
+    {
+      "rendered": "the careful smith who mends the gate with a hammer in the workshop beside the river; the patient carpenter who mends the gate with a hammer in the workshop beside the river.",
+      "left_arc": "smith_mends_gate",
+      "right_arc": "carpenter_mends_gate",
+      "novel_rendered": true,
+      "semantic_state": {
+        "event_frame": "mend",
+        "object": "gate",
+        "instrument": "hammer",
+        "instrument_object_binding": true,
+        "locative_order": "place-first",
+        "typed_with": true
+      },
+      "audit": {
+        "letters": 140,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "53d1033a4cad580bc084ced677bb2df1f93897db529cdc48aba5109fbdeb23aa",
+        "reverse_sha256": "adb5380b8af44354e139983f9b9143dfcbd169fc2a64376833555676b1dba264",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "t",
+          "r"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "event-specific instrument/object binding before locative emission",
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "a quiet porter who moves the crate with a cart beside the river in the warehouse; a strong merchant who moves the crate with a cart beside the river in the warehouse.",
+      "left_arc": "porter_moves_crate",
+      "right_arc": "merchant_moves_crate",
+      "novel_rendered": true,
+      "semantic_state": {
+        "event_frame": "move",
+        "object": "crate",
+        "instrument": "cart",
+        "instrument_object_binding": true,
+        "locative_order": "river-first",
+        "typed_with": true
+      },
+      "audit": {
+        "letters": 133,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "f6686c0555d941869da7d20de6dec010fe4e3977708c4e21aa265bff5652f56c",
+        "reverse_sha256": "6d19b71a1587ec7aa412383b74f189ad0e572ab11bf6c2f7e871fd3b920c8173",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "a",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "event-specific instrument/object binding before locative emission",
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "stats": {
+    "longest_letters": 140
+  },
+  "novelty_preflight": {
+    "hash_source": "all runs/*.json except current artifact",
+    "current_artifact_excluded": true,
+    "all_rendered_new": true,
+    "event_binding_new": true
+  },
+  "failure_and_repair": {
+    "failure": "semantically bound instruments still mismatch live character obligations",
+    "next_construction": "carry event-specific instrument binding across a relative clause with anaphoric object reference"
+  },
+  "provenance": {
+    "generator_sha256": "bfcb28fe07f866da16d6064bb41fad4e315ccc23d63d867676e5ec9e4a6c3511",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "shortcuts_excluded": true
+  }
+}

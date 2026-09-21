@@ -1,0 +1,88 @@
+{
+  "experiment_id": "semantic-event-lattice-scale-20260920",
+  "method": "scaled frozen semantic event lattice with prelexical typed-state edges and live character obligations",
+  "config": {
+    "events": 27,
+    "lexical_realizations": 54,
+    "semantic_before_surface": true,
+    "post_search_scoring": false
+  },
+  "stats": {
+    "event_pairs_expanded": 729,
+    "semantic_valid_edges": 2,
+    "semantic_prunes": 727,
+    "obligation_states": 8,
+    "character_prunes": 8,
+    "rendered_candidates": 0,
+    "prose_controls": 2,
+    "exact_gt38": 0,
+    "max_control_letters": 53
+  },
+  "rendered_candidates": [],
+  "prose_controls": [
+    {
+      "rendered": "the guard opened the gate, then the visitor entered the yard.",
+      "audit": {
+        "letters": 49,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          48,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "1298328a2e0f26b674bc084ee62e28d758592a8e12845cc3f0919c77554a355c",
+        "sha256_reverse": "1285d2146dee974181ae132f7284d68ed877125593092c2814a8406e24ebcaca"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "intact_authored_prose": true,
+        "semantic_edge": true,
+        "shuffled_control": false
+      }
+    },
+    {
+      "rendered": "the keeper lifted the flag, then the signalman answered the call.",
+      "audit": {
+        "letters": 53,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          52,
+          "t",
+          "l"
+        ],
+        "sha256_forward": "ce1bcb55590684e76cc864ce5f49d5a17494a320439c8573a4fc5581e8bc68a7",
+        "sha256_reverse": "fdb94c1b79ae234ff1f05b2dcba65a4892a031673c2cdb99c7382181f755ef71"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "intact_authored_prose": true,
+        "semantic_edge": true,
+        "shuffled_control": false
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature_overlaps": [],
+    "excluded_routes": [
+      "finished-tape reversal",
+      "post-hoc repair",
+      "catalogue/API text",
+      "repeated self-palindromic units"
+    ]
+  },
+  "provenance": {
+    "independent_audit": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "frozen_authored_lattice": true,
+    "catalogue_text": false,
+    "reader_evidence": false
+  },
+  "next_operator": "carry typed recipient/theme and discourse focus through multi-edge event paths before lexical realization",
+  "status": "no exact >38 closure; intact event-lattice controls retained"
+}

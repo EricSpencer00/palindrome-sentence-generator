@@ -7798,6 +7798,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   is claimed as prose or reader evidence. Artifact:
   `runs/center-first-feature-grammar-20260921.json`.
 
+- **Split-center nonterminal, 2026-09-21:** split semantic center phrases
+  (`and`, `but`, `is`, `was`, `can`) at every internal character boundary,
+  emitted the two fragments as distinct seam features, and grew grammatical
+  clause material outward under live debt. This avoids treating a complete
+  center word as a mirrored unit. The bounded run visited 16 states and
+  recorded 55 live conflicts, with zero terminal or exact candidates; no
+  rendered prose was admitted. The next operator is a center phrase whose
+  split is licensed across a word boundary (rather than inside a lexical
+  token), with explicit syntax for the resulting adjacent words. Artifact:
+  `runs/split-center-nonterminal-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

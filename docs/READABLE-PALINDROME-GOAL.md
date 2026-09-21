@@ -218,15 +218,16 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   first character must satisfy the live residual before emission
   (`runs/semantic-frame-crossing-residual-20260921.json`).
 
-- **Typed tense/argument residual join.** The next bounded construction changed
-  the lexical geometry rather than enlarging the prior frame: six tense/agent
-  frames, three role-1 attachments, and three unequal-length role-2
-  attachments were selected online, carrying residual strings across both
-  argument boundaries. Eighteen semantically licensed controls reached 126
-  letters; all failed exact closure, with independent pointer/SHA audits and
-  no seed wrapping, repair, reversal, or catalogue text. The next operator now
-  holds role-2 length fixed and varies only licensed tense/aspect alternations
-  (`runs/typed-tense-argument-residual-20260921.json`).
+- **Typed tense/argument residual diagnostic.** The next bounded construction
+  changed the lexical geometry rather than enlarging the prior frame: six
+  tense/agent frames, three role-1 attachments, and three unequal-length role-2
+  attachments produced 18 complete-prose controls up to 126 letters. The
+  residual was measured across both argument boundaries, but an audit found it
+  was not yet used to prune before the second argument was chosen; all rows
+  failed exact closure under independent pointer/SHA checks. This is explicitly
+  diagnostic, not a live-generation claim. The next operator replaces complete
+  frame preselection with a character product that prunes before the second
+  argument is emitted (`runs/typed-tense-argument-residual-20260921.json`).
 
 - **Overlap-trie source correction.** A reverse-complement overlap prototype
   explored 21,520 boundary states and 153,057 word-interior steps, but its

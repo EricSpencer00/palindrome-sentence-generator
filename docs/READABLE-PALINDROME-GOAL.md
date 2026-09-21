@@ -8624,3 +8624,19 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   audits find zero exact tapes. These are grammar controls, not reader
   certification. The next repair is an outcome bank keyed to the surviving
   terminal class. Artifact: `runs/scene-lattice-live-equation-20260921.json`.
+
+- **Typed bilateral clause residual search, 2026-09-21:** paired 16 complete
+  ordinary-English clause controls with explicit subject/tense/role states and
+  carried the `, and ` connector into the pre-render residual ledger. No pair
+  closed; pointer/SHA audits reject every rendered tape, and no language-model
+  reward participates. This is a clean search-space baseline, not a candidate;
+  the next operator is a third clause only when the residual state actually
+  closes. Artifact: `runs/bilateral-clause-residual-search-20260921.json`.
+
+- **CFG phrase-lattice residual intersection, 2026-09-21:** expanded 30
+  independent complete clause paths into 900 bilateral pairs and pruned all
+  900 before joined rendering on the opposing character residual. Self-
+  palindromic lexical shortcuts and mirrored word units are excluded; zero
+  exact-clean tapes remain. The strongest rendered controls are ordinary
+  template sentences, not reader-certified outputs. Artifact:
+  `runs/character-cfg-phrase-lattice-residual-20260921.json`.

@@ -7856,6 +7856,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   domain/provenance audit. Artifact:
   `runs/cfg-earley-mirrored-domain-support-20260921.json`.
 
+- **Held-out PP Earley domain operator, 2026-09-21:** introduced locative PP
+  terminals absent from the preceding bank before rendering, unified their
+  agreement/locative-valency features in Earley items, and propagated mirrored
+  character domains online. Three fresh intact clause-pair controls (109--116
+  letters) produced 163 concrete domain conflicts and zero exact closures; no
+  control is admitted as a palindrome or reader evidence. The next operator
+  adds one more distinct held-out PP before chart expansion. Artifact:
+  `runs/cfg-earley-heldout-pp-domain-operator-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

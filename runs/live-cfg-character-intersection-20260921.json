@@ -1,0 +1,97 @@
+{
+  "experiment_id": "live-cfg-character-intersection-20260921",
+  "status": "bounded_online_chart",
+  "method": "bilateral packed CFG stacks with live character debt",
+  "stats": {
+    "nodes": 38,
+    "unique_states": 38,
+    "terminal_derivations": 2,
+    "character_prunes": 116,
+    "exact_shortcut_clean": 1
+  },
+  "candidates": [
+    {
+      "text": "an aide rips nine memos; some men inspire Diana",
+      "audit": {
+        "normalized": "anaideripsninememossomemeninspirediana",
+        "letters": 38,
+        "exact": true,
+        "pointer_check": true,
+        "sha256_normalized": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+      },
+      "shortcut_reasons": [],
+      "provenance": "online_cfg_terminal_expansions",
+      "trace": [
+        [
+          "L",
+          "Det",
+          "an",
+          "an"
+        ],
+        [
+          "R",
+          "Name",
+          "Diana",
+          "aid"
+        ],
+        [
+          "L",
+          "Agent",
+          "aide",
+          "e"
+        ],
+        [
+          "R",
+          "Pred",
+          "inspire",
+          "ripsni"
+        ],
+        [
+          "L",
+          "Verb",
+          "rips",
+          "ni"
+        ],
+        [
+          "L",
+          "Num",
+          "nine",
+          "ne"
+        ],
+        [
+          "R",
+          "Person",
+          "men",
+          "m"
+        ],
+        [
+          "L",
+          "Obj",
+          "memos",
+          "emos"
+        ],
+        [
+          "R",
+          "Det2",
+          "some",
+          ""
+        ]
+      ]
+    }
+  ],
+  "controls": [],
+  "shortcut_gates": {
+    "finished_tape_reverse": false,
+    "catalogue_text": false,
+    "repair": false,
+    "rlaif": false,
+    "word_order_symmetry": false,
+    "reader_gate": "closed; no human evidence"
+  },
+  "provenance": {
+    "source": "hand-authored finite CFG lexical banks",
+    "independent_verifier": "two-pointer plus SHA-256 forward/reverse",
+    "next_operator": "add typed adjunct production only at the highest-scoring live chart frontier"
+  }
+}

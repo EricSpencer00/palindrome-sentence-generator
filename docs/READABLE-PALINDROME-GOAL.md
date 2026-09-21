@@ -157,6 +157,16 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   diagnostic-only and rejected before readability or exactness claims; it is
   not a prose candidate (`runs/focused-scene-equation-20260920.json`).
 
+- **Brown live-overhang lane.** A genuinely new center-out construction mined
+  140,000 ordinary forward 2–4-word Brown phrase units and emitted both sides
+  in reading order while consuming character debt. It found one exact 40-letter
+  closure, independently pointer/SHA verified, but the text was function-word
+  salad and contained a proper hidden palindromic span; the clean exact count
+  was therefore zero. A separate 22,686-sentence forward-grammar diagnostic
+  found no closure. This confirms the lane is mechanically productive without
+  turning its output into a readability claim
+  (`artifacts/brown-phrase-live-overhang-20260920.json`).
+
 These runs are materially different search representations, not reward-model
 rerankings or repeated bank sweeps. They still do not improve the admitted
 38-letter result, so the goal remains active. The next promotion requires an

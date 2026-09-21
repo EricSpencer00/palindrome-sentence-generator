@@ -7562,3 +7562,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   selects a typed center event before continuation without enlarging the
   Cartesian pairing. Artifact:
   `runs/typed-event-composition-buffer-20260920.json`.
+
+- **Generated typed overhang center audit, 2026-09-21:** lexicalized 30 fresh
+  finite-grammar clause paths and crossed 2,700 typed clause/center rows. Each
+  row was checked during construction with a segment-deque obligation consumer
+  (forward left characters against reverse right characters, then the center),
+  followed by an independent normalized pointer/SHA audit. It produced 0 exact
+  rows, 0 exact rows at 40+ letters, and 0 reader candidates. The run is a
+  generated diagnostic, not a catalogue seed or repaired output; its next
+  construction lifts the same live obligations into a memoized grammar chart
+  so incompatible prefixes are pruned before clause-pair enumeration. Artifact:
+  `runs/typed-overhang-center-search-20260921.json`.

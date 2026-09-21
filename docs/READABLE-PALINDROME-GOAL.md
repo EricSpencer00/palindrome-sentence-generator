@@ -7966,6 +7966,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   held-out `are preparing to V` frame. Artifact:
   `runs/cfg-earley-plural-progressive-frame-20260921.json`.
 
+- **Held-out `are preparing to V` Earley frame, 2026-09-21:** added the
+  distinct progressive VP production before rendering, preserving plural
+  agreement, locative valency, and live mirrored domains. Three fresh intact
+  controls (148--152 letters) produced 204 concrete domain conflicts and zero
+  exact closures; independent pointer/SHA audits agree. The next operator is
+  a held-out `are ready to V` frame. Artifact:
+  `runs/cfg-earley-are-preparing-frame-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

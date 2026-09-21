@@ -1,0 +1,185 @@
+{
+  "experiment_id": "executable-discourse-pronoun-accessibility-20260920",
+  "method": "joint executable recipient/theme event CSP with shared character-orbit obligations",
+  "config": {
+    "events": 6,
+    "determinants": 2,
+    "recipient_theme_before_lexicalization": true,
+    "typed_pronoun_binding_before_lexicalization": true,
+    "post_search_scoring": false
+  },
+  "stats": {
+    "event_pairs_expanded": 36,
+    "semantic_valid_pairs": 3,
+    "semantic_prunes": 33,
+    "character_prunes": 64,
+    "rendered_candidates": 0,
+    "prose_controls": 3,
+    "exact_gt38": 0,
+    "max_control_letters": 59
+  },
+  "rendered_candidates": [],
+  "prose_controls": [
+    {
+      "rendered": "the archivist sent the courier the map, then the courier studied the map.",
+      "audit": {
+        "letters": 59,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          58,
+          "t",
+          "p"
+        ],
+        "sha256_forward": "a78e8d35255816d43e6ef52980f580182fe45642774433b32a34b81e8338e1d4",
+        "sha256_reverse": "36f83259a86e17719c7a90f8236d1f527b9986c4b78d9f29ad75abf36e79e1cf"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "recipient_theme_state": true,
+        "preconditions_satisfied": true,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "the nurse found the key, then the nurse opened the cabinet.",
+      "audit": {
+        "letters": 47,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          45,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "d15a8dc62e9ec3f6078c32553dbe8108309ea65f36a3e6f5291076cb8e9f5364",
+        "sha256_reverse": "c14f6b6de105523bc1ecc8ebc15a5047b5f93e37bc01f9509bec41bbe39effb9"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "recipient_theme_state": true,
+        "preconditions_satisfied": true,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "the sailor raised the flag, then the keeper answered the signal.",
+      "audit": {
+        "letters": 52,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          51,
+          "t",
+          "l"
+        ],
+        "sha256_forward": "e4e77518e6232a58b2a29c3cabaac4e53b4d1e57b8c23e7bde084c94e2e65cc1",
+        "sha256_reverse": "6c660beffec4b033f3e6091ff68f363f056a41e4a4c55c19d2a774e99c3391cb"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "recipient_theme_state": true,
+        "preconditions_satisfied": true,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "semantic_rejection_witnesses": [
+    {
+      "first": "send_map",
+      "second": "send_map",
+      "witness": "distinct discourse events required",
+      "roles_unresolved": true
+    },
+    {
+      "first": "send_map",
+      "second": "find_key",
+      "witness": "recipient/theme event has no enabled precondition",
+      "roles_unresolved": true
+    },
+    {
+      "first": "send_map",
+      "second": "open_cabinet",
+      "witness": "recipient/theme event has no enabled precondition",
+      "roles_unresolved": true
+    },
+    {
+      "first": "send_map",
+      "second": "raise_flag",
+      "witness": "recipient/theme event has no enabled precondition",
+      "roles_unresolved": true
+    },
+    {
+      "first": "send_map",
+      "second": "answer_signal",
+      "witness": "recipient/theme event has no enabled precondition",
+      "roles_unresolved": true
+    },
+    {
+      "first": "study_map",
+      "second": "send_map",
+      "witness": "first event precondition is false",
+      "roles_unresolved": true
+    },
+    {
+      "first": "study_map",
+      "second": "study_map",
+      "witness": "distinct discourse events required",
+      "roles_unresolved": true
+    },
+    {
+      "first": "study_map",
+      "second": "find_key",
+      "witness": "first event precondition is false",
+      "roles_unresolved": true
+    },
+    {
+      "first": "study_map",
+      "second": "open_cabinet",
+      "witness": "first event precondition is false",
+      "roles_unresolved": true
+    },
+    {
+      "first": "study_map",
+      "second": "raise_flag",
+      "witness": "first event precondition is false",
+      "roles_unresolved": true
+    },
+    {
+      "first": "study_map",
+      "second": "answer_signal",
+      "witness": "first event precondition is false",
+      "roles_unresolved": true
+    },
+    {
+      "first": "find_key",
+      "second": "send_map",
+      "witness": "recipient/theme event has no enabled precondition",
+      "roles_unresolved": true
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature_overlaps": [],
+    "excluded_routes": [
+      "finished-tape reversal",
+      "post-hoc repair",
+      "catalogue/API text"
+    ]
+  },
+  "provenance": {
+    "independent_audit": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "recipient_theme_roles": true,
+    "typed_pronoun_accessibility": true,
+    "semantic_pruning_before_render": true,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false
+  },
+  "next_operator": "add discourse focus and agreement features to the accessibility state before lexical emission",
+  "status": "no exact >38 closure; typed binding controls retained"
+}

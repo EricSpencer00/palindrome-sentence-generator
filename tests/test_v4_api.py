@@ -187,6 +187,11 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["scene_argument_lattice_run"]["exact_candidates_over_38"] == 0
     assert method.json()["character_cfg_intersection_live_run"]["frontier_pairs"] == 2916
     assert method.json()["character_cfg_intersection_live_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["scene_argument_modal_holdout_run"]["rendered_complete_controls"] == 81
+    assert method.json()["scene_argument_modal_holdout_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["character_cfg_nullable_relative_holdout_run"]["intact_pairs"] == 1024
+    assert method.json()["character_cfg_nullable_relative_holdout_run"]["shuffled_pairs"] == 32
+    assert method.json()["character_cfg_nullable_relative_holdout_run"]["exact_candidates_over_38"] == 0
     assert method.json()["recursive_semantic_grammar_csp_run"]["recursive_states"] == 36
     assert method.json()["recursive_semantic_grammar_csp_run"]["exact_candidates_over_38"] == 0
     assert method.json()["dual_obligation_event_graph_run"]["candidate_states"] == 96

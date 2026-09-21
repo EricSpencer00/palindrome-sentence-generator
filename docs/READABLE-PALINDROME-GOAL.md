@@ -8010,6 +8010,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   two interacting focus bridges and cycle consistency. Artifact:
   `runs/five-event-cycle-attachment-20260921.json`.
 
+- **Six-event bridge-cycle graph, 2026-09-21:** added interacting focus
+  bridges `e2.ward -> e4.gate` and `e4.gate -> e6.report`, plus the cycle basis
+  `e1 -> e3 -> e5 -> e1`, under the global endpoint CSP. One 135-letter intact
+  control produced four online checks and zero exact closures above 38. The
+  next topology is a seven-event graph with three focus bridges and a cycle-
+  basis consistency check. Artifact:
+  `runs/six-event-bridge-cycle-20260921.json`.
+
 - **Plural determiner PP Earley lane, 2026-09-21:** expanded plural
   determiner-bearing locative PPs before rendering, carrying plural agreement
   and locative valency in Earley items while pruning mirrored domains online.

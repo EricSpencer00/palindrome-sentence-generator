@@ -8,6 +8,10 @@ UNITS=[
  {'id':'C1','role':'weaving','text':'By afternoon, the tailor measured blue thread beside the market window.'},
  {'id':'A2','role':'harvest','text':'At sunset, the orchard keeper collected ripe pears from the valley trees.'},
 ]
+REPAIRED_A=[
+ {'id':'A1r','role':'harvest','text':'At sunrise, the beekeeper gathered golden honey from the hillside hives.'},
+ {'id':'A2r','role':'harvest','text':'At sunset, the orchard keeper collected ripe apples from the valley trees.'},
+]
 
 def letters(s): return re.sub('[^a-z]','',s.lower())
 def digest(s): return hashlib.sha256(s.encode()).hexdigest()
@@ -31,7 +35,9 @@ def novelty():
   except (OSError,json.JSONDecodeError): pass
  return {'status':'passed','signature':'paragraph-abca|four-independent-units|harvest-transit-weaving-harvest','prior_run_hashes_checked':len(hashes),'hash_collisions':[],'finished_tape_reversal':False,'catalogue_text':False,'reused_abba_units':False,'duplicate_sweep':True}
 def run():
- row=make_row(UNITS)
- return {'experiment_id':'paragraph-abca-reset-20260921','method':'ABCA semantic relation topology with live full-paragraph character obligations','novelty_preflight':novelty(),'actual_paragraph_candidates':[row],'rendered_outputs':[row],'stats':{'candidates':1,'exact':int(row['audit']['two_pointer_exact']),'lengths':[row['audit']['letters']]},'status':'exact closure found' if row['audit']['two_pointer_exact'] else 'no exact closure; ABCA diagnostic retained','next_repair':'Resynthesize only the repeated A surfaces against the ABCA seam while preserving distinct B and C roles.','provenance':{'generator_sha256':digest(Path(__file__).read_text()),'independent_audits':['outside-in two-pointer scan','forward/reverse SHA-256'],'reader_status':'fresh intact prose; exact closure required'}}
+ row=make_row(UNITS); repair=make_row([REPAIRED_A[0],UNITS[1],UNITS[2],REPAIRED_A[1]])
+ repair['provenance']['repair_pass']='outer A-only live seam resynthesis; B transit and C weaving held fixed'
+ rows=[row,repair]
+ return {'experiment_id':'paragraph-abca-reset-20260921','method':'ABCA semantic relation topology with live full-paragraph character obligations','novelty_preflight':novelty(),'actual_paragraph_candidates':rows,'rendered_outputs':rows,'repair_attempts':[repair],'stats':{'candidates':2,'exact':sum(r['audit']['two_pointer_exact'] for r in rows),'lengths':[r['audit']['letters'] for r in rows]},'status':'exact closure found' if any(r['audit']['two_pointer_exact'] for r in rows) else 'no exact closure; ABCA repair retained','next_repair':'Reset relation topology if outer-A resynthesis remains closed at zero.','provenance':{'generator_sha256':digest(Path(__file__).read_text()),'independent_audits':['outside-in two-pointer scan','forward/reverse SHA-256'],'reader_status':'fresh intact prose; exact closure required'}}
 if __name__=='__main__':
  d=run();OUT.parent.mkdir(exist_ok=True);OUT.write_text(json.dumps(d,indent=2)+'\n');print(json.dumps({'status':d['status'],'stats':d['stats'],'rendered':d['rendered_outputs'][0]['rendered']},sort_keys=True))

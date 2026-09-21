@@ -1,0 +1,93 @@
+{
+  "experiment_id": "twelve-event-balanced-cut-20260921",
+  "method": "twelve-event graph with balanced cut and rank perturbation under global endpoint CSP",
+  "stats": {
+    "event_graphs": 1,
+    "online_checks": 2,
+    "max_letters": 276,
+    "exact_gt38": 0,
+    "base_rank": 3,
+    "perturbed_rank": 2
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "controls": [
+    {
+      "rendered": "the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart.",
+      "graph": {
+        "events": [
+          {
+            "id": "e1"
+          },
+          {
+            "id": "e2"
+          },
+          {
+            "id": "e3"
+          },
+          {
+            "id": "e4"
+          },
+          {
+            "id": "e5"
+          },
+          {
+            "id": "e6"
+          },
+          {
+            "id": "e7"
+          },
+          {
+            "id": "e8"
+          },
+          {
+            "id": "e9"
+          },
+          {
+            "id": "e10"
+          },
+          {
+            "id": "e11"
+          },
+          {
+            "id": "e12"
+          }
+        ],
+        "balanced_cut": "e6|e7",
+        "rank_perturbation": {
+          "base": 3,
+          "remove_bridge": 2
+        }
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 2,
+        "frontier_length": 140,
+        "global_invariant": "x[i] == x[N-1-i]"
+      },
+      "audit": {
+        "letters": 276,
+        "pointer_exact": false,
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "twelve-event|balanced-cut|rank-perturbation|global-endpoint-csp"
+  },
+  "provenance": {
+    "reader_status": "closed: no exact >=39 candidate",
+    "audits": [
+      "independent pointer",
+      "forward/reverse SHA-256"
+    ],
+    "anti_shortcut_flags": [
+      "no mirrored units",
+      "no reversal",
+      "no repair"
+    ]
+  },
+  "next_operator": "Add a thirteen-event graph with dual balanced cuts and perturbation intersection.",
+  "status": "no exact >=39 closure; intact control retained"
+}

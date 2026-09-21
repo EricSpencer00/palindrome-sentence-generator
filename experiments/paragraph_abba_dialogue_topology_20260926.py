@@ -2,7 +2,7 @@
 
 This is a new construction shape rather than another lexical sweep: A is an
 observation, B is a reply, B is evidence, and A is a closing observation.
-The four discourse roles are authored independently, while a character trie
+The four discourse units are authored independently, while a character trie
 tries to consume the exact reverse obligation at complete clause boundaries.
 """
 from __future__ import annotations
@@ -17,8 +17,10 @@ LEFT_A = ("At dusk, the harbor keeper marked the tide.",
 LEFT_B = ("The quiet bell warned the village.",
           "A careful gardener covered the seedlings.")
 RIGHT = {
-    "reply_B": ("I heard the bell and kept watch.", "We saw the harbor and waited."),
-    "evidence_B": ("The tide rose beyond the gate.", "The seedlings survived the cold."),
+    # One complete B unit carries both reply and evidence; this keeps the
+    # paragraph topology exactly A-B-B-A rather than silently adding a slot.
+    "reply_evidence_B": ("I heard the bell, and the tide rose beyond the gate.",
+                          "We saw the harbor, and the seedlings survived the cold."),
     "return_A": ("So the keeper opened the chart.", "Thus the cartographer saved the route."),
 }
 
@@ -35,7 +37,7 @@ def audit(s: str) -> dict:
 
 def decode(obligation: str, max_results: int = 32):
     """Consume whole authored clauses in discourse order, never reverse text."""
-    roles = ("reply_B", "evidence_B", "return_A")
+    roles = ("reply_evidence_B", "return_A")
     states = {(0, 0): ()}; transitions = []
     for slot, role in enumerate(roles):
         next_states = {}
@@ -68,10 +70,10 @@ def run() -> dict:
             controls.append({"rendered": left, "audit": audit(left),
                              "kind": "intact-authored-AB-control",
                              "provenance": {"complete_prose": True, "independent_authoring": True}})
-            for reply, evidence, closing in parses:
-                text = f"{left} {reply} {evidence} {closing}"
+            for reply_evidence, closing in parses:
+                text = f"{left} {reply_evidence} {closing}"
                 rows.append({"rendered": text, "audit": audit(text),
-                             "discourse_roles": ["A-observation", "B-reply", "B-evidence", "A-return"],
+                             "discourse_roles": ["A-observation", "B-reply/evidence", "B-reply/evidence", "A-return"],
                              "provenance": {"dialogue_evidence_topology": True,
                                 "finished_tape_reversal": False, "catalogue_text": False,
                                 "repeated_units": False, "self_palindromic_units": False,

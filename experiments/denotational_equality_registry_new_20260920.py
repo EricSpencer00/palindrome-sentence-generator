@@ -265,6 +265,47 @@ def extract_pairs(classes: list[dict], all_topologies: bool) -> list[dict]:
     return rows
 
 
+def tree_leaves(tree) -> set[str]:
+    if isinstance(tree, str):
+        return {tree}
+    if isinstance(tree, tuple):
+        out = set()
+        for child in tree:
+            out.update(tree_leaves(child))
+        return out
+    return set()
+
+
+def replay_rewrite(proposition: Proposition, topology: str, source_tree, target_tree) -> bool:
+    """Replay the small frozen rewrite system, including side conditions."""
+    if topology == proposition.variants[0][0]:
+        return target_tree == source_tree
+    if target_tree == source_tree:
+        return False
+    leaves = tree_leaves(target_tree)
+    denotation = proposition.denotation
+    if proposition.rewrite == "active_passive":
+        return (denotation[1] in leaves and denotation[2] in leaves
+                or PAST.get(denotation[2]) in leaves) and denotation[3] in leaves and "PP" in leaves
+    if proposition.rewrite == "coordination_factoring":
+        events = denotation[1:]
+        return denotation[0] == "and" and "CONJ" in leaves and all(
+            all(token in leaves for token in event[1:4]) for event in events
+        )
+    if proposition.rewrite == "relational_converse":
+        return denotation[0] == "near" and set(denotation[1]).issubset(leaves)
+    if proposition.rewrite == "adjunct_reordering":
+        return denotation[0] == "at" and denotation[1] in leaves and "PP" in leaves
+    if proposition.rewrite == "relative_clause_attachment":
+        events = denotation[1:]
+        return denotation[0] == "and" and "and" in leaves and all(
+            all(token in leaves for token in event[1:4]) for event in events
+        )
+    if proposition.rewrite == "negative_existential_recasting":
+        return denotation[0] == "not_exists" and "no" in leaves and "REL" in leaves
+    return False
+
+
 def main() -> None:
     classes = []
     topology_failures = []
@@ -273,6 +314,7 @@ def main() -> None:
         variants = []
         source_tree = proposition.variants[0][2]
         for topology, text, tree in proposition.variants:
+            replayable = replay_rewrite(proposition, topology, source_tree, tree)
             proof = {
                 "proposition": proposition.ident,
                 "rewrite": proposition.rewrite,
@@ -281,12 +323,13 @@ def main() -> None:
                 "target_tree": tree,
                 "denotation_before": proposition.denotation,
                 "denotation_after": proposition.denotation,
-                "replayable": True,
+                "replayable": replayable,
                 "non_isomorphic_to_source": tree != source_tree,
             }
             proof_replays += int(proof["replayable"] and proof["denotation_before"] == proof["denotation_after"])
             variants.append({"topology": topology, "text": text, "proof": proof})
-        if len({v["topology"] for v in variants}) < 2 or not all(v["proof"]["non_isomorphic_to_source"] for v in variants[1:]):
+        if (len({v["topology"] for v in variants}) < 2
+                or not all(v["proof"]["non_isomorphic_to_source"] and v["proof"]["replayable"] for v in variants[1:])):
             topology_failures.append(proposition.ident)
         else:
             classes.append({"id": proposition.ident, "rewrite": proposition.rewrite, "denotation": proposition.denotation, "variants": variants})
@@ -324,6 +367,8 @@ def main() -> None:
         "registry_preflight": {"performed": True, "id_collision": EXPERIMENT_ID in existing, "entries_checked": len(existing)},
         "propositions": len(PROPOSITIONS), "licensed_rewrites": list(LICENSED_REWRITES),
         "equality_classes": len(classes), "proof_replays": proof_replays,
+        "equality_class_records": classes,
+        "unsaturated_baseline": {"rendered": len(baseline_rows), "accepted": sum(r["accepted"] for r in baseline_rows)},
         "topology_failures": topology_failures, "rows": rows,
         "controls": controls, "exact_candidates": exact,
         "strict_gate": {"rendered": len(rows), "accepted": len(exact), "length_band": [39, 100],

@@ -113,10 +113,11 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   sentence programs. Twelve authored propositions were packed into equality
   classes with six side-conditioned rewrites and two non-isomorphic,
   replayable syntax trees per class. Live two-character obligations then chose
-  one topology per clause before rendering. The lane produced 12 complete
-  controls from 47--57 letters, including “No keeper knows the season and the
-  gate is marked by the mason.”; independent pointer/SHA checks found zero
-  exact closures and the strict gate remained closed. This is a valid
+  one topology per clause before rendering. Equality saturation exposed 12
+  complete controls versus 4 under the unsaturated first-topology baseline,
+  all from 47--57 letters, including “No keeper knows the season and the gate
+  is marked by the mason.”; independent pointer/SHA checks found zero exact
+  closures and the strict gate remained closed. This is a valid
   representation result, not a readable-palindrome result: the next
   discriminator is a fresh licensed topology only after an exact reader-worthy
   extraction, never a larger vocabulary (`runs/denotational-equality-registry-new-20260920.json`).

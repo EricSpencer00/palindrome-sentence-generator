@@ -17,6 +17,1806 @@
   ],
   "equality_classes": 12,
   "proof_replays": 24,
+  "equality_class_records": [
+    {
+      "id": "p00",
+      "rewrite": "active_passive",
+      "denotation": [
+        "event",
+        "pilot",
+        "map",
+        "bridge",
+        "present"
+      ],
+      "variants": [
+        {
+          "topology": "active",
+          "text": "The pilot maps the bridge.",
+          "proof": {
+            "proposition": "p00",
+            "rewrite": "active_passive",
+            "side_condition": "transitive event preserves agent, theme, tense, and voice alternation",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "pilot"
+              ],
+              [
+                "VP",
+                "map",
+                "bridge"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "pilot"
+              ],
+              [
+                "VP",
+                "map",
+                "bridge"
+              ]
+            ],
+            "denotation_before": [
+              "event",
+              "pilot",
+              "map",
+              "bridge",
+              "present"
+            ],
+            "denotation_after": [
+              "event",
+              "pilot",
+              "map",
+              "bridge",
+              "present"
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "passive",
+          "text": "The bridge is mapped by the pilot.",
+          "proof": {
+            "proposition": "p00",
+            "rewrite": "active_passive",
+            "side_condition": "transitive event preserves agent, theme, tense, and voice alternation",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "pilot"
+              ],
+              [
+                "VP",
+                "map",
+                "bridge"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "bridge"
+              ],
+              [
+                "VP",
+                "be",
+                "mapped",
+                [
+                  "PP",
+                  "by",
+                  "pilot"
+                ]
+              ]
+            ],
+            "denotation_before": [
+              "event",
+              "pilot",
+              "map",
+              "bridge",
+              "present"
+            ],
+            "denotation_after": [
+              "event",
+              "pilot",
+              "map",
+              "bridge",
+              "present"
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "p01",
+      "rewrite": "active_passive",
+      "denotation": [
+        "event",
+        "mason",
+        "mark",
+        "gate",
+        "present"
+      ],
+      "variants": [
+        {
+          "topology": "active",
+          "text": "The mason marks the gate.",
+          "proof": {
+            "proposition": "p01",
+            "rewrite": "active_passive",
+            "side_condition": "transitive event preserves agent, theme, tense, and voice alternation",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "mason"
+              ],
+              [
+                "VP",
+                "mark",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "mason"
+              ],
+              [
+                "VP",
+                "mark",
+                "gate"
+              ]
+            ],
+            "denotation_before": [
+              "event",
+              "mason",
+              "mark",
+              "gate",
+              "present"
+            ],
+            "denotation_after": [
+              "event",
+              "mason",
+              "mark",
+              "gate",
+              "present"
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "passive",
+          "text": "The gate is marked by the mason.",
+          "proof": {
+            "proposition": "p01",
+            "rewrite": "active_passive",
+            "side_condition": "transitive event preserves agent, theme, tense, and voice alternation",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "mason"
+              ],
+              [
+                "VP",
+                "mark",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "gate"
+              ],
+              [
+                "VP",
+                "be",
+                "marked",
+                [
+                  "PP",
+                  "by",
+                  "mason"
+                ]
+              ]
+            ],
+            "denotation_before": [
+              "event",
+              "mason",
+              "mark",
+              "gate",
+              "present"
+            ],
+            "denotation_after": [
+              "event",
+              "mason",
+              "mark",
+              "gate",
+              "present"
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "p02",
+      "rewrite": "coordination_factoring",
+      "denotation": [
+        "and",
+        [
+          "event",
+          "poet",
+          "read",
+          "letter",
+          "present"
+        ],
+        [
+          "event",
+          "poet",
+          "mark",
+          "gate",
+          "present"
+        ]
+      ],
+      "variants": [
+        {
+          "topology": "factored",
+          "text": "The poet reads the letter and marks the gate.",
+          "proof": {
+            "proposition": "p02",
+            "rewrite": "coordination_factoring",
+            "side_condition": "both events share the same agent and conjunction scope",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "poet"
+              ],
+              [
+                "VP",
+                "read",
+                "letter",
+                "and",
+                "mark",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "poet"
+              ],
+              [
+                "VP",
+                "read",
+                "letter",
+                "and",
+                "mark",
+                "gate"
+              ]
+            ],
+            "denotation_before": [
+              "and",
+              [
+                "event",
+                "poet",
+                "read",
+                "letter",
+                "present"
+              ],
+              [
+                "event",
+                "poet",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "and",
+              [
+                "event",
+                "poet",
+                "read",
+                "letter",
+                "present"
+              ],
+              [
+                "event",
+                "poet",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "unfactored",
+          "text": "The poet reads the letter and the poet marks the gate.",
+          "proof": {
+            "proposition": "p02",
+            "rewrite": "coordination_factoring",
+            "side_condition": "both events share the same agent and conjunction scope",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "poet"
+              ],
+              [
+                "VP",
+                "read",
+                "letter",
+                "and",
+                "mark",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "CONJ",
+                [
+                  "S",
+                  [
+                    "event",
+                    "poet",
+                    "read",
+                    "letter",
+                    "present"
+                  ]
+                ],
+                [
+                  "S",
+                  [
+                    "event",
+                    "poet",
+                    "mark",
+                    "gate",
+                    "present"
+                  ]
+                ]
+              ]
+            ],
+            "denotation_before": [
+              "and",
+              [
+                "event",
+                "poet",
+                "read",
+                "letter",
+                "present"
+              ],
+              [
+                "event",
+                "poet",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "and",
+              [
+                "event",
+                "poet",
+                "read",
+                "letter",
+                "present"
+              ],
+              [
+                "event",
+                "poet",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "p03",
+      "rewrite": "coordination_factoring",
+      "denotation": [
+        "and",
+        [
+          "event",
+          "keeper",
+          "guard",
+          "bridge",
+          "present"
+        ],
+        [
+          "event",
+          "keeper",
+          "open",
+          "gate",
+          "present"
+        ]
+      ],
+      "variants": [
+        {
+          "topology": "factored",
+          "text": "The keeper guards the bridge and opens the gate.",
+          "proof": {
+            "proposition": "p03",
+            "rewrite": "coordination_factoring",
+            "side_condition": "both events share the same agent and conjunction scope",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "keeper"
+              ],
+              [
+                "VP",
+                "guard",
+                "bridge",
+                "and",
+                "open",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "keeper"
+              ],
+              [
+                "VP",
+                "guard",
+                "bridge",
+                "and",
+                "open",
+                "gate"
+              ]
+            ],
+            "denotation_before": [
+              "and",
+              [
+                "event",
+                "keeper",
+                "guard",
+                "bridge",
+                "present"
+              ],
+              [
+                "event",
+                "keeper",
+                "open",
+                "gate",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "and",
+              [
+                "event",
+                "keeper",
+                "guard",
+                "bridge",
+                "present"
+              ],
+              [
+                "event",
+                "keeper",
+                "open",
+                "gate",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "unfactored",
+          "text": "The keeper guards the bridge and the keeper opens the gate.",
+          "proof": {
+            "proposition": "p03",
+            "rewrite": "coordination_factoring",
+            "side_condition": "both events share the same agent and conjunction scope",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "keeper"
+              ],
+              [
+                "VP",
+                "guard",
+                "bridge",
+                "and",
+                "open",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "CONJ",
+                [
+                  "S",
+                  [
+                    "event",
+                    "keeper",
+                    "guard",
+                    "bridge",
+                    "present"
+                  ]
+                ],
+                [
+                  "S",
+                  [
+                    "event",
+                    "keeper",
+                    "open",
+                    "gate",
+                    "present"
+                  ]
+                ]
+              ]
+            ],
+            "denotation_before": [
+              "and",
+              [
+                "event",
+                "keeper",
+                "guard",
+                "bridge",
+                "present"
+              ],
+              [
+                "event",
+                "keeper",
+                "open",
+                "gate",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "and",
+              [
+                "event",
+                "keeper",
+                "guard",
+                "bridge",
+                "present"
+              ],
+              [
+                "event",
+                "keeper",
+                "open",
+                "gate",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "p04",
+      "rewrite": "relational_converse",
+      "denotation": [
+        "near",
+        [
+          "bridge",
+          "gate"
+        ]
+      ],
+      "variants": [
+        {
+          "topology": "left_right",
+          "text": "The bridge is near the gate.",
+          "proof": {
+            "proposition": "p04",
+            "rewrite": "relational_converse",
+            "side_condition": "near is symmetric and both entities retain their denotation",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "bridge"
+              ],
+              [
+                "VP",
+                "near",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "bridge"
+              ],
+              [
+                "VP",
+                "near",
+                "gate"
+              ]
+            ],
+            "denotation_before": [
+              "near",
+              [
+                "bridge",
+                "gate"
+              ]
+            ],
+            "denotation_after": [
+              "near",
+              [
+                "bridge",
+                "gate"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "right_left",
+          "text": "The gate is near the bridge.",
+          "proof": {
+            "proposition": "p04",
+            "rewrite": "relational_converse",
+            "side_condition": "near is symmetric and both entities retain their denotation",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "bridge"
+              ],
+              [
+                "VP",
+                "near",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "gate"
+              ],
+              [
+                "VP",
+                "near",
+                "bridge"
+              ]
+            ],
+            "denotation_before": [
+              "near",
+              [
+                "bridge",
+                "gate"
+              ]
+            ],
+            "denotation_after": [
+              "near",
+              [
+                "bridge",
+                "gate"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "p05",
+      "rewrite": "relational_converse",
+      "denotation": [
+        "near",
+        [
+          "harbor",
+          "tower"
+        ]
+      ],
+      "variants": [
+        {
+          "topology": "left_right",
+          "text": "The harbor is near the tower.",
+          "proof": {
+            "proposition": "p05",
+            "rewrite": "relational_converse",
+            "side_condition": "near is symmetric and both entities retain their denotation",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "harbor"
+              ],
+              [
+                "VP",
+                "near",
+                "tower"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "harbor"
+              ],
+              [
+                "VP",
+                "near",
+                "tower"
+              ]
+            ],
+            "denotation_before": [
+              "near",
+              [
+                "harbor",
+                "tower"
+              ]
+            ],
+            "denotation_after": [
+              "near",
+              [
+                "harbor",
+                "tower"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "right_left",
+          "text": "The tower is near the harbor.",
+          "proof": {
+            "proposition": "p05",
+            "rewrite": "relational_converse",
+            "side_condition": "near is symmetric and both entities retain their denotation",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "harbor"
+              ],
+              [
+                "VP",
+                "near",
+                "tower"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "tower"
+              ],
+              [
+                "VP",
+                "near",
+                "harbor"
+              ]
+            ],
+            "denotation_before": [
+              "near",
+              [
+                "harbor",
+                "tower"
+              ]
+            ],
+            "denotation_after": [
+              "near",
+              [
+                "harbor",
+                "tower"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "p06",
+      "rewrite": "adjunct_reordering",
+      "denotation": [
+        "at",
+        "gate",
+        [
+          "event",
+          "pilot",
+          "map",
+          "bridge",
+          "present"
+        ]
+      ],
+      "variants": [
+        {
+          "topology": "fronted_pp",
+          "text": "Near the gate, the pilot maps the bridge.",
+          "proof": {
+            "proposition": "p06",
+            "rewrite": "adjunct_reordering",
+            "side_condition": "the locative adjunct is event-independent and scope-preserving",
+            "source_tree": [
+              "S",
+              [
+                "PP",
+                "near",
+                "gate"
+              ],
+              [
+                "S",
+                [
+                  "event",
+                  "pilot",
+                  "map",
+                  "bridge",
+                  "present"
+                ]
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "PP",
+                "near",
+                "gate"
+              ],
+              [
+                "S",
+                [
+                  "event",
+                  "pilot",
+                  "map",
+                  "bridge",
+                  "present"
+                ]
+              ]
+            ],
+            "denotation_before": [
+              "at",
+              "gate",
+              [
+                "event",
+                "pilot",
+                "map",
+                "bridge",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "at",
+              "gate",
+              [
+                "event",
+                "pilot",
+                "map",
+                "bridge",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "postposed_pp",
+          "text": "The pilot maps the bridge near the gate.",
+          "proof": {
+            "proposition": "p06",
+            "rewrite": "adjunct_reordering",
+            "side_condition": "the locative adjunct is event-independent and scope-preserving",
+            "source_tree": [
+              "S",
+              [
+                "PP",
+                "near",
+                "gate"
+              ],
+              [
+                "S",
+                [
+                  "event",
+                  "pilot",
+                  "map",
+                  "bridge",
+                  "present"
+                ]
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "event",
+                "pilot",
+                "map",
+                "bridge",
+                "present"
+              ],
+              [
+                "PP",
+                "near",
+                "gate"
+              ]
+            ],
+            "denotation_before": [
+              "at",
+              "gate",
+              [
+                "event",
+                "pilot",
+                "map",
+                "bridge",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "at",
+              "gate",
+              [
+                "event",
+                "pilot",
+                "map",
+                "bridge",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "p07",
+      "rewrite": "adjunct_reordering",
+      "denotation": [
+        "at",
+        "harbor",
+        [
+          "event",
+          "mason",
+          "mark",
+          "gate",
+          "present"
+        ]
+      ],
+      "variants": [
+        {
+          "topology": "fronted_pp",
+          "text": "Near the harbor, the mason marks the gate.",
+          "proof": {
+            "proposition": "p07",
+            "rewrite": "adjunct_reordering",
+            "side_condition": "the locative adjunct is event-independent and scope-preserving",
+            "source_tree": [
+              "S",
+              [
+                "PP",
+                "near",
+                "harbor"
+              ],
+              [
+                "S",
+                [
+                  "event",
+                  "mason",
+                  "mark",
+                  "gate",
+                  "present"
+                ]
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "PP",
+                "near",
+                "harbor"
+              ],
+              [
+                "S",
+                [
+                  "event",
+                  "mason",
+                  "mark",
+                  "gate",
+                  "present"
+                ]
+              ]
+            ],
+            "denotation_before": [
+              "at",
+              "harbor",
+              [
+                "event",
+                "mason",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "at",
+              "harbor",
+              [
+                "event",
+                "mason",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "postposed_pp",
+          "text": "The mason marks the gate near the harbor.",
+          "proof": {
+            "proposition": "p07",
+            "rewrite": "adjunct_reordering",
+            "side_condition": "the locative adjunct is event-independent and scope-preserving",
+            "source_tree": [
+              "S",
+              [
+                "PP",
+                "near",
+                "harbor"
+              ],
+              [
+                "S",
+                [
+                  "event",
+                  "mason",
+                  "mark",
+                  "gate",
+                  "present"
+                ]
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "event",
+                "mason",
+                "mark",
+                "gate",
+                "present"
+              ],
+              [
+                "PP",
+                "near",
+                "harbor"
+              ]
+            ],
+            "denotation_before": [
+              "at",
+              "harbor",
+              [
+                "event",
+                "mason",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "at",
+              "harbor",
+              [
+                "event",
+                "mason",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "p08",
+      "rewrite": "relative_clause_attachment",
+      "denotation": [
+        "and",
+        [
+          "event",
+          "poet",
+          "read",
+          "letter",
+          "present"
+        ],
+        [
+          "event",
+          "poet",
+          "mark",
+          "gate",
+          "present"
+        ]
+      ],
+      "variants": [
+        {
+          "topology": "relative",
+          "text": "The poet who reads the letter marks the gate.",
+          "proof": {
+            "proposition": "p08",
+            "rewrite": "relative_clause_attachment",
+            "side_condition": "one unique agent performs both events; restrictive relative attachment is licensed",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "poet",
+                [
+                  "REL",
+                  [
+                    "event",
+                    "poet",
+                    "read",
+                    "letter",
+                    "present"
+                  ]
+                ]
+              ],
+              [
+                "VP",
+                "mark",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "poet",
+                [
+                  "REL",
+                  [
+                    "event",
+                    "poet",
+                    "read",
+                    "letter",
+                    "present"
+                  ]
+                ]
+              ],
+              [
+                "VP",
+                "mark",
+                "gate"
+              ]
+            ],
+            "denotation_before": [
+              "and",
+              [
+                "event",
+                "poet",
+                "read",
+                "letter",
+                "present"
+              ],
+              [
+                "event",
+                "poet",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "and",
+              [
+                "event",
+                "poet",
+                "read",
+                "letter",
+                "present"
+              ],
+              [
+                "event",
+                "poet",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "coordination",
+          "text": "The poet reads the letter and marks the gate.",
+          "proof": {
+            "proposition": "p08",
+            "rewrite": "relative_clause_attachment",
+            "side_condition": "one unique agent performs both events; restrictive relative attachment is licensed",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "poet",
+                [
+                  "REL",
+                  [
+                    "event",
+                    "poet",
+                    "read",
+                    "letter",
+                    "present"
+                  ]
+                ]
+              ],
+              [
+                "VP",
+                "mark",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "poet"
+              ],
+              [
+                "VP",
+                [
+                  "event",
+                  "poet",
+                  "read",
+                  "letter",
+                  "present"
+                ],
+                "and",
+                [
+                  "event",
+                  "poet",
+                  "mark",
+                  "gate",
+                  "present"
+                ]
+              ]
+            ],
+            "denotation_before": [
+              "and",
+              [
+                "event",
+                "poet",
+                "read",
+                "letter",
+                "present"
+              ],
+              [
+                "event",
+                "poet",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "and",
+              [
+                "event",
+                "poet",
+                "read",
+                "letter",
+                "present"
+              ],
+              [
+                "event",
+                "poet",
+                "mark",
+                "gate",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "p09",
+      "rewrite": "relative_clause_attachment",
+      "denotation": [
+        "and",
+        [
+          "event",
+          "keeper",
+          "guard",
+          "bridge",
+          "present"
+        ],
+        [
+          "event",
+          "keeper",
+          "open",
+          "gate",
+          "present"
+        ]
+      ],
+      "variants": [
+        {
+          "topology": "relative",
+          "text": "The keeper who guards the bridge opens the gate.",
+          "proof": {
+            "proposition": "p09",
+            "rewrite": "relative_clause_attachment",
+            "side_condition": "one unique agent performs both events; restrictive relative attachment is licensed",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "keeper",
+                [
+                  "REL",
+                  [
+                    "event",
+                    "keeper",
+                    "guard",
+                    "bridge",
+                    "present"
+                  ]
+                ]
+              ],
+              [
+                "VP",
+                "open",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "keeper",
+                [
+                  "REL",
+                  [
+                    "event",
+                    "keeper",
+                    "guard",
+                    "bridge",
+                    "present"
+                  ]
+                ]
+              ],
+              [
+                "VP",
+                "open",
+                "gate"
+              ]
+            ],
+            "denotation_before": [
+              "and",
+              [
+                "event",
+                "keeper",
+                "guard",
+                "bridge",
+                "present"
+              ],
+              [
+                "event",
+                "keeper",
+                "open",
+                "gate",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "and",
+              [
+                "event",
+                "keeper",
+                "guard",
+                "bridge",
+                "present"
+              ],
+              [
+                "event",
+                "keeper",
+                "open",
+                "gate",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "coordination",
+          "text": "The keeper guards the bridge and opens the gate.",
+          "proof": {
+            "proposition": "p09",
+            "rewrite": "relative_clause_attachment",
+            "side_condition": "one unique agent performs both events; restrictive relative attachment is licensed",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "keeper",
+                [
+                  "REL",
+                  [
+                    "event",
+                    "keeper",
+                    "guard",
+                    "bridge",
+                    "present"
+                  ]
+                ]
+              ],
+              [
+                "VP",
+                "open",
+                "gate"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "keeper"
+              ],
+              [
+                "VP",
+                [
+                  "event",
+                  "keeper",
+                  "guard",
+                  "bridge",
+                  "present"
+                ],
+                "and",
+                [
+                  "event",
+                  "keeper",
+                  "open",
+                  "gate",
+                  "present"
+                ]
+              ]
+            ],
+            "denotation_before": [
+              "and",
+              [
+                "event",
+                "keeper",
+                "guard",
+                "bridge",
+                "present"
+              ],
+              [
+                "event",
+                "keeper",
+                "open",
+                "gate",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "and",
+              [
+                "event",
+                "keeper",
+                "guard",
+                "bridge",
+                "present"
+              ],
+              [
+                "event",
+                "keeper",
+                "open",
+                "gate",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "rewrite": "negative_existential_recasting",
+      "denotation": [
+        "not_exists",
+        [
+          "event",
+          "sailor",
+          "know",
+          "reason",
+          "present"
+        ]
+      ],
+      "variants": [
+        {
+          "topology": "negative_np",
+          "text": "No sailor knows the reason.",
+          "proof": {
+            "proposition": "p10",
+            "rewrite": "negative_existential_recasting",
+            "side_condition": "the negative existential has identical scope in both surface trees",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "no",
+                "sailor"
+              ],
+              [
+                "VP",
+                "know",
+                "reason"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "no",
+                "sailor"
+              ],
+              [
+                "VP",
+                "know",
+                "reason"
+              ]
+            ],
+            "denotation_before": [
+              "not_exists",
+              [
+                "event",
+                "sailor",
+                "know",
+                "reason",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "not_exists",
+              [
+                "event",
+                "sailor",
+                "know",
+                "reason",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "negative_there",
+          "text": "There is no sailor who knows the reason.",
+          "proof": {
+            "proposition": "p10",
+            "rewrite": "negative_existential_recasting",
+            "side_condition": "the negative existential has identical scope in both surface trees",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "no",
+                "sailor"
+              ],
+              [
+                "VP",
+                "know",
+                "reason"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              "there",
+              [
+                "VP",
+                "no",
+                [
+                  "REL",
+                  "know",
+                  "reason"
+                ]
+              ]
+            ],
+            "denotation_before": [
+              "not_exists",
+              [
+                "event",
+                "sailor",
+                "know",
+                "reason",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "not_exists",
+              [
+                "event",
+                "sailor",
+                "know",
+                "reason",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "rewrite": "negative_existential_recasting",
+      "denotation": [
+        "not_exists",
+        [
+          "event",
+          "keeper",
+          "know",
+          "season",
+          "present"
+        ]
+      ],
+      "variants": [
+        {
+          "topology": "negative_np",
+          "text": "No keeper knows the season.",
+          "proof": {
+            "proposition": "p11",
+            "rewrite": "negative_existential_recasting",
+            "side_condition": "the negative existential has identical scope in both surface trees",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "no",
+                "keeper"
+              ],
+              [
+                "VP",
+                "know",
+                "season"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              [
+                "NP",
+                "no",
+                "keeper"
+              ],
+              [
+                "VP",
+                "know",
+                "season"
+              ]
+            ],
+            "denotation_before": [
+              "not_exists",
+              [
+                "event",
+                "keeper",
+                "know",
+                "season",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "not_exists",
+              [
+                "event",
+                "keeper",
+                "know",
+                "season",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": false
+          }
+        },
+        {
+          "topology": "negative_there",
+          "text": "There is no keeper who knows the season.",
+          "proof": {
+            "proposition": "p11",
+            "rewrite": "negative_existential_recasting",
+            "side_condition": "the negative existential has identical scope in both surface trees",
+            "source_tree": [
+              "S",
+              [
+                "NP",
+                "no",
+                "keeper"
+              ],
+              [
+                "VP",
+                "know",
+                "season"
+              ]
+            ],
+            "target_tree": [
+              "S",
+              "there",
+              [
+                "VP",
+                "no",
+                [
+                  "REL",
+                  "know",
+                  "season"
+                ]
+              ]
+            ],
+            "denotation_before": [
+              "not_exists",
+              [
+                "event",
+                "keeper",
+                "know",
+                "season",
+                "present"
+              ]
+            ],
+            "denotation_after": [
+              "not_exists",
+              [
+                "event",
+                "keeper",
+                "know",
+                "season",
+                "present"
+              ]
+            ],
+            "replayable": true,
+            "non_isomorphic_to_source": true
+          }
+        }
+      ]
+    }
+  ],
+  "unsaturated_baseline": {
+    "rendered": 4,
+    "accepted": 0
+  },
   "topology_failures": [],
   "rows": [
     {

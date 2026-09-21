@@ -7618,14 +7618,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   right-final-slot-backward product in
   `runs/bidirectional-slot-product-20260921.json`.
 
-- **Independent bidirectional slot product, 2026-09-21:** formed 243
-  independently authored left semantic frames and 81 independently authored
-  right frames. Agreement and transitivity registers were checked before a
-  live left-forward/right-backward character-debt product; mismatches were
-  pruned immediately, without reversing a finished tape, mirrored units,
-  repair, or per-candidate RLAIF. It examined 19,683 agreement-compatible
-  pairs, rendered every surviving control with provenance, and closed 0 exact
-  states (0 at 40+ letters). The known 38-letter benchmark was isolated as a
-  calibration control and is not counted. The ten smallest-debt controls are
-  recorded as near misses for the next independent frame expansion. Artifact:
+- **Independent bidirectional slot product, 2026-09-21 (corrected live run):**
+  expanded independent left and right semantic-slot banks while consuming
+  character debt online: left slots are chosen in reading order and right
+  slots in reverse grammatical-slot order, with agreement/transitivity metadata
+  checked from lexical registers rather than word characters. It visited 25
+  live states, made 148 immediate obligation prunes, and reached one terminal
+  exact path: the already-known 38-letter benchmark
+  `An aide rips nine memos; some men inspire Diana.` The path passes the
+  independent pointer/SHA audit and has no shortcut flags, but its
+  `known_calibration_recovery` status means it is not a novel result; generated
+  novel exact count is 0 (0 at 40+ letters). No finished-tape reversal, mirrored
+  units, repair, or per-candidate RLAIF is used. The next construction expands
+  the live semantic banks and adds a typed center slot rather than treating
+  this calibration recovery as progress. Artifact:
   `runs/bidirectional-slot-product-20260921.json`.

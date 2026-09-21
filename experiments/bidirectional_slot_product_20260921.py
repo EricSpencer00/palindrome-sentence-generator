@@ -1,140 +1,259 @@
-"""Bidirectional typed-slot product with live character debt.
+"""Live bidirectional semantic-slot product.
 
-The two sides are authored independently as English semantic frames.  A left
-frame expands in reading order; a right frame expands from its final slot
-backwards.  The product rejects a pair as soon as its next characters disagree
-and never obtains a right side by reversing, slicing, or repairing a finished
-sentence.  The included seed is calibration evidence, not a generated win.
+The left clause is expanded in reading order. The right clause is expanded
+from its final grammatical slot backward, but selected words are stored in
+forward reading order. Character debt is consumed before descendants expand;
+no completed tape is reversed or repaired.
 """
 from __future__ import annotations
-import hashlib, json, re
+
+import hashlib
+import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ID = "bidirectional-slot-product-20260921"
 RUN = ROOT / "runs" / f"{ID}.json"
 
-# These banks are authored as separate semantic choices.  No right entry is a
-# reverse spelling of a left entry; the seed is recorded separately below.
 LEFT = {
     "determiner": [("an", "sg"), ("the", "sg"), ("a", "sg")],
-    "agent": [("aide", "sg"), ("sailor", "sg"), ("keeper", "sg")],
-    "action": [("rips", "sg", "transitive"), ("sees", "sg", "transitive"), ("keeps", "sg", "transitive")],
-    "object_number": [("nine", "pl"), ("seven", "pl"), ("old", "mass")],
-    "object": [("memos", "pl"), ("letters", "pl"), ("maps", "pl")],
+    "agent": [("aide", "sg"), ("sailor", "sg"), ("keeper", "sg"),
+              ("artist", "sg"), ("writer", "sg"), ("pilot", "sg")],
+    "action": [(w, "sg", "transitive") for w in
+               ("rips", "sees", "keeps", "marks", "reads", "helps",
+                "guides", "writes", "carries", "meets")],
+    "object_number": [("nine", "pl"), ("seven", "pl"), ("one", "sg"),
+                       ("two", "pl")],
+    "object": [(w, n) for w, n in
+                (("memos", "pl"), ("letters", "pl"), ("maps", "pl"),
+                 ("notes", "pl"), ("books", "pl"), ("boats", "pl"),
+                 ("gate", "sg"), ("parcel", "sg"))],
 }
+
+# Forward grammatical order: subject determiner, subject noun, verb, object
+# name. The search visits these slots in reverse order.
 RIGHT = {
-    "subject": [("Diana", "sg"), ("Ada", "sg"), ("Noel", "sg")],
-    "predicate": [("inspires", "sg", "transitive"), ("sees", "sg", "transitive"), ("keeps", "sg", "transitive")],
-    "object_number": [("some", "pl"), ("one", "sg"), ("the", "sg")],
-    "object": [("men", "pl"), ("memos", "pl"), ("map", "sg")],
+    "subject_det": [("some", "pl"), ("many", "pl"), ("the", "sg"),
+                     ("a", "sg")],
+    "subject_noun": [("men", "pl"), ("women", "pl"), ("sailors", "pl"),
+                      ("artists", "pl"), ("writers", "pl"), ("pilots", "pl"),
+                      ("poets", "pl"), ("keeper", "sg"), ("guard", "sg")],
+    "predicate": [(w, n, "transitive") for w, n in
+                  (("inspire", "pl"), ("read", "pl"), ("see", "pl"),
+                   ("help", "pl"), ("mark", "pl"), ("guide", "pl"),
+                   ("write", "pl"), ("carry", "pl"), ("meet", "pl"),
+                   ("keep", "pl"), ("inspires", "sg"), ("reads", "sg"),
+                   ("sees", "sg"), ("keeps", "sg"))],
+    "object_name": [(w, "sg") for w in
+                    ("Diana", "Ada", "Anna", "Nora", "Mira", "Iris",
+                     "Leon", "Noah", "Ariel", "Maria")],
 }
 
 LEFT_FRAME = ("determiner", "agent", "action", "object_number", "object")
-RIGHT_FRAME = ("object", "object_number", "predicate", "subject")
+RIGHT_FRAME = ("subject_det", "subject_noun", "predicate", "object_name")
+KNOWN_CALIBRATION = "An aide rips nine memos; some men inspire Diana."
 
-def clean(s: str) -> str:
-    return re.sub(r"[^a-z]", "", s.lower())
 
-def sha(s: str) -> str:
-    return hashlib.sha256(s.encode()).hexdigest()
+def clean(text: str) -> str:
+    return re.sub(r"[^a-z]", "", text.casefold())
 
-def choices(bank, frame):
-    """Expand independently authored frame slots with register checks."""
-    out = [[]]
-    for slot in frame:
-        nxt = []
-        for prefix in out:
-            for item in bank[slot]:
-                nxt.append(prefix + [(slot, item)])
-        out = nxt
-    return out
 
-def registers(slots):
-    vals = {slot: item for slot, item in slots}
-    subject = vals.get("agent", vals.get("subject", (None, None)))
-    number = subject[1]
-    action = vals.get("action", vals.get("predicate", (None, None, None)))
-    verb_number = action[1]
-    obj_number = vals.get("object", (None, None))[1]
-    return {"subject_number": number, "verb_number": verb_number,
-            "object_number": obj_number,
-            "agreement": number == verb_number}
+def sha(text: str) -> str:
+    return hashlib.sha256(text.encode()).hexdigest()
 
-def render(slots):
-    return " ".join(item[0] for _, item in slots)
 
-def compatible(left, right):
-    """Live debt check: compare left-front and right-back character streams."""
-    l = list(clean(render(left)))
-    r = list(clean(render(right)))
-    trace = []
-    while l and r:
-        a, b = l.pop(0), r.pop()
-        trace.append({"left_char": a, "right_expected": b, "ok": a == b})
-        if a != b:
-            return False, trace, len(l) + len(r)
-    return not l and not r, trace, len(l) + len(r)
+def independent_audit(text: str) -> dict:
+    tape = clean(text)
+    return {
+        "normalized": tape,
+        "letters": len(tape),
+        "exact": bool(tape) and tape == tape[::-1],
+        "pointer_check": bool(tape) and all(
+            tape[i] == tape[-1 - i] for i in range(len(tape) // 2)),
+        "sha256_normalized": sha(tape),
+        "sha256_reverse": sha(tape[::-1]),
+    }
 
-def independent_audit(text):
-    n = clean(text)
-    return {"normalized": n, "letters": len(n), "exact": bool(n) and n == n[::-1],
-            "pointer_check": all(n[i] == n[-1-i] for i in range(len(n)//2)),
-            "sha256_rendered": sha(text)}
 
-def main():
-    lefts, rights = choices(LEFT, LEFT_FRAME), choices(RIGHT, RIGHT_FRAME)
-    rows = []
-    for li, left in enumerate(lefts):
-        lr = registers(left)
-        for ri, right in enumerate(rights):
-            rr = registers(right)
-            # Agreement and valency are checked before character debt.
-            if not lr["agreement"] or not rr["agreement"]:
-                continue
-            if left[2][1][2] != right[2][1][2]:
-                continue
-            ok, trace, debt = compatible(left, right)
-            text = render(left + right).capitalize() + "."
-            audit = independent_audit(text)
-            rows.append({"rendered": text, "left_slots": left, "right_slots": right,
-                         "left_registers": lr, "right_registers": rr,
-                         "live_obligation_closed": ok, "remaining_character_debt": debt,
-                         "obligation_trace": trace, **audit,
-                         "candidate_kind": "generated_slot_product",
-                         "provenance": {"left_bank": "independently authored LEFT", "right_bank": "independently authored RIGHT",
-                                        "left_index": li, "right_index": ri},
-                         "reader_status": "not_admitted_pending_blinded_reading" if audit["exact"] else "not_exact"})
-    # Calibration is deliberately isolated and cannot enter generated counts.
-    calibration = "An aide rips nine memos; some men inspire Diana."
-    cal = independent_audit(calibration)
-    cal.update({"candidate_kind": "known_calibration", "reader_status": "benchmark_only",
-                "provenance": "user-supplied 38-letter benchmark"})
-    exact = [x for x in rows if x["exact"]]
-    near = sorted(rows, key=lambda x: (x["remaining_character_debt"], -x["letters"]))[:10]
+def shortcut_reasons(text: str) -> list[str]:
+    words = re.findall(r"[a-z]+", text.casefold())
+    reasons = []
+    if any(len(w) > 1 and w == w[::-1] for w in words):
+        reasons.append("self_palindromic_word_unit")
+    if any(len(a) > 2 and a != b and a == b[::-1]
+           for a, b in zip(words, reversed(words))):
+        reasons.append("semordnilap_word_pair")
+    if len(words) != len(set(words)):
+        reasons.append("repeated_word_unit")
+    return reasons
+
+
+def consume(debt: str, token: str, side: str) -> tuple[str, str] | None:
+    """Consume one token against the live debt."""
+    chars = clean(token) if side == "L" else clean(token)[::-1]
+    if debt.startswith(chars):
+        return debt[len(chars):], side
+    if chars.startswith(debt):
+        return chars[len(debt):], "L" if side == "R" else "R"
+    return None
+
+
+def validate_registers(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
+    left_values = dict(zip(LEFT_FRAME, left))
+    right_values = dict(zip(RIGHT_FRAME, right))
+    left_number = {
+        slot: {item[0]: item[1] for item in values}
+        for slot, values in LEFT.items()
+    }
+    right_number = {
+        slot: {item[0]: item[1] for item in values}
+        for slot, values in RIGHT.items()
+    }
+    right_kind = {
+        item[0]: item[2] for item in RIGHT["predicate"] if len(item) > 2
+    }
+    return (left_number["agent"][left_values["agent"]]
+            == left_number["action"][left_values["action"]]
+            and left_number["object_number"][left_values["object_number"]]
+            == left_number["object"][left_values["object"]]
+            and right_number["subject_noun"][right_values["subject_noun"]]
+            == right_number["predicate"][right_values["predicate"]]
+            and right_kind[right_values["predicate"]] == "transitive")
+
+
+def render(left: tuple[str, ...], right: tuple[str, ...]) -> str:
+    return " ".join(left + right) + "."
+
+
+def run(max_nodes: int = 300_000) -> dict:
+    terminal_rows: list[dict] = []
+    exact_rows: list[dict] = []
+    nodes = prunes = 0
+
+    def record(left, right, debt, trace, terminal=True):
+        text = render(left, right)
+        audit = independent_audit(text)
+        row = {
+            "rendered": text, "audit": audit,
+            "remaining_character_debt": len(debt),
+            "obligation_trace": trace[-16:],
+            "candidate_kind": "generated_slot_product_control",
+            "provenance": {
+                "left_frame": LEFT_FRAME, "right_frame": RIGHT_FRAME,
+                "left_forward_generation": True,
+                "right_backward_slot_generation": True,
+                "finished_tape_reversal": False,
+                "post_render_repair": False, "terminal_state": terminal,
+            },
+            "shortcut_reasons": shortcut_reasons(text),
+            "novelty_status": (
+                "known_calibration_recovery"
+                if audit["normalized"] == clean(KNOWN_CALIBRATION)
+                else "unassessed_novelty"
+            ),
+            "reader_status": "not_run",
+        }
+        terminal_rows.append(row)
+        if (terminal and not debt and validate_registers(left, right)
+                and audit["exact"] and not row["shortcut_reasons"]):
+            row["candidate_kind"] = "generated_exact_candidate"
+            exact_rows.append(row)
+
+    def rec(li, ri, debt, side, left, right, trace, used):
+        nonlocal nodes, prunes
+        nodes += 1
+        if nodes > max_nodes:
+            return
+        if li == len(LEFT_FRAME) and ri < 0:
+            if debt == debt[::-1]:
+                record(left, right, debt, trace)
+            return
+        if not debt and li < len(LEFT_FRAME):
+            slot = LEFT_FRAME[li]
+            for item in LEFT[slot]:
+                word = item[0]
+                if word.casefold() in used:
+                    continue
+                rec(li + 1, ri, clean(word), "R", left + (word,), right,
+                    trace + [{"side": "left", "slot": slot, "word": word,
+                              "debt_after": clean(word)}],
+                    used | {word.casefold()})
+            return
+        if side == "R" and ri >= 0:
+            slot = RIGHT_FRAME[ri]
+            for item in RIGHT[slot]:
+                word = item[0]
+                if word.casefold() in used:
+                    continue
+                result = consume(debt, word, "R")
+                if result is None:
+                    prunes += 1
+                    continue
+                new_debt, new_side = result
+                rec(li, ri - 1, new_debt, new_side, left,
+                    (word,) + right,
+                    trace + [{"side": "right", "slot": slot, "word": word,
+                              "debt_after": new_debt}],
+                    used | {word.casefold()})
+            return
+        if side == "L" and li < len(LEFT_FRAME):
+            slot = LEFT_FRAME[li]
+            for item in LEFT[slot]:
+                word = item[0]
+                if word.casefold() in used:
+                    continue
+                result = consume(debt, word, "L")
+                if result is None:
+                    prunes += 1
+                    continue
+                new_debt, new_side = result
+                rec(li + 1, ri, new_debt, new_side, left + (word,), right,
+                    trace + [{"side": "left", "slot": slot, "word": word,
+                              "debt_after": new_debt}],
+                    used | {word.casefold()})
+            return
+        prunes += 1
+
+    rec(0, len(RIGHT_FRAME) - 1, "", "L", (), (), [], frozenset())
+    near = sorted(terminal_rows,
+                  key=lambda r: (r["remaining_character_debt"],
+                                  -r["audit"]["letters"]))[:20]
+    calibration = KNOWN_CALIBRATION
     out = {
         "experiment_id": ID,
-        "method": "independent semantic slot product: left-forward/right-backward expansion with live character debt",
-        "frames": {"left": LEFT_FRAME, "right": RIGHT_FRAME}, "banks": {"left": LEFT, "right": RIGHT},
-        "counts": {"left_frames": len(lefts), "right_frames": len(rights), "agreement_pairs_examined": len(rows),
-                   "generated_exact": len(exact), "generated_exact_ge_40": sum(x["exact"] and x["letters"] >= 40 for x in rows)},
-        # Keep the run inspectable without committing a 40 MB copy of every
-        # rejected Cartesian row.  The generator is deterministic, so the
-        # script recreates the full product; the retained rows are the ten
-        # smallest-debt controls plus a wider reproducible sample.
-        "candidate_count": len(rows),
-        "candidates": near[:200], "near_misses": near, "calibration": cal,
-        "shortcut_gates": {"reverse_tape_segmentation": False, "mirrored_units": False, "repair": False,
-                            "word_order_only": False, "borrowed_catalogue": False, "RLAIF_per_candidate": False,
-                            "live_character_debt": True, "independent_banks": True},
-        "novelty_preflight": {"postrender_search": False, "right_generated_by_reversal": False,
-                              "calibration_in_generated_count": False},
-        "next_repair": "Expand independently authored valency-compatible scene frames and retain the same live debt product; do not mutate finished strings.",
+        "method": "independent semantic slot product with live left-forward/right-final-slot-backward character debt",
+        "counts": {
+            "search_nodes": nodes, "obligation_prunes": prunes,
+            "terminal_states": len(terminal_rows), "generated_exact": len(exact_rows),
+            "generated_exact_ge_40": sum(r["audit"]["letters"] >= 40 for r in exact_rows),
+            "generated_novel_exact": sum(
+                r["novelty_status"] == "unassessed_novelty" for r in exact_rows
+            ),
+            "generated_novel_exact_ge_40": sum(
+                r["novelty_status"] == "unassessed_novelty"
+                and r["audit"]["letters"] >= 40 for r in exact_rows
+            ),
+        },
+        "candidates": near, "exact_candidates": exact_rows,
+        "calibration": {"rendered": calibration, "audit": independent_audit(calibration),
+                        "candidate_kind": "known_calibration", "reader_status": "benchmark_only",
+                        "provenance": "user-supplied 38-letter benchmark; excluded from generated counts"},
+        "shortcut_gates": {"reverse_tape_segmentation": False, "mirrored_units": False,
+                            "repair": False, "word_order_only": False, "borrowed_catalogue": False,
+                            "RLAIF_per_candidate": False, "live_character_debt": True,
+                            "independent_banks": True},
         "provenance": {"code_sha256": sha(Path(__file__).read_text()), "run_path": str(RUN),
-                       "audit": "independent normalization, two-pointer equality, and SHA-256"},
+                       "audit": "independent normalization, two-pointer equality, and SHA-256",
+                       "near_miss_policy": "retain smallest-debt terminal controls; rerun to regenerate full trace"},
+        "next_construction": "expand the semantic banks with independently authored valency-compatible frames and allow a typed center slot before terminal closure",
     }
     RUN.write_text(json.dumps(out, indent=2) + "\n")
-    print(json.dumps(out["counts"]))
+    return out
+
 
 if __name__ == "__main__":
-    main()
+    result = run()
+    print(json.dumps(result["counts"], sort_keys=True))
+    for row in result["candidates"][:8]:
+        print(row["audit"]["letters"], row["remaining_character_debt"], row["rendered"])

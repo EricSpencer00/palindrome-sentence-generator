@@ -8428,3 +8428,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   pointer/SHA audits found zero exact candidates. Example control: “Was a red
   kite what our old guide saw?” (29 letters; first residual mismatch `a` vs
   `e`). Artifact: `runs/was-np-what-np-saw-seam-20260921.json`.
+
+- **Locative NP2 seam successor, 2026-09-21:** inserted one locative PP into
+  NP2 (`the guide by the quay`, `the kite near the reef`, and related frames)
+  while retaining joint online debt. This produced intact controls such as
+  “Was a red kite what our sailor under the pier saw?” (39 letters), with
+  disjoint content words and a mechanical first residual mismatch `a` versus
+  `r`; all 16 pairs still failed before extending the `was`/`saw` seam, so no
+  exact candidate was promoted. Artifact:
+  `runs/was-np-locative-saw-seam-20260921.json`.

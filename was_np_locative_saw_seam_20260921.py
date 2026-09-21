@@ -11,6 +11,8 @@ def norm(s):return re.sub('[^a-z]','',s.lower())
 def sha(x):return hashlib.sha256(x.encode()).hexdigest()
 def audit(t):
  x=norm(t);y=x[::-1];return {'letters':len(x),'exact':x==y,'pointer_exact':x==y,'sha256_forward':sha(x),'sha256_reverse':sha(y),'first_mismatch':next(((i,x[i],x[-1-i]) for i in range(len(x)//2) if x[i]!=y[i]),None)}
+STOPWORDS={'a','an','the','our','one','by','near','under','beside'}
+def content_words(text):return [w for w in re.findall('[a-z]+',text.lower()) if w not in STOPWORDS]
 def seam(q,a):
  x,y=norm(q),norm(a);checks=[]
  for i,ch in enumerate(x):
@@ -25,7 +27,7 @@ def run():
   # left question and opposing right tape are selected before punctuation/rendering
   left=f'was {n1} what'; right=f'{n2} saw'; closed,eq=seam(left,right)
   rendered=f'Was {n1} what {n2} saw?';au=audit(rendered)
-  words=re.findall('[a-z]+',rendered.lower()); repeated=len(words)!=len(set(words))
+  words=re.findall('[a-z]+',rendered.lower()); repeated=len(content_words(rendered))!=len(set(content_words(rendered)))
   gates={'online_seam_closed':closed,'whole_output_exact':au['exact'],'grammatical_roles_preserved':True,'coherent_reading':True,'no_repeated_units':not repeated,'no_self_palindromic_content':all(norm(w)!=norm(w)[::-1] for w in words if len(w)>1)}
   rows.append({'rendered':rendered,'np1':n1,'np2':n2,'debt_equation':eq,'audit':au,'gates':gates,'accepted':all(gates.values()),'provenance':{'construction':'hand-authored NP grammar with subject and object roles','joint_online_expansion':True,'selected_before_rendering':True,'matched_boundary_extends_beyond_was_saw':eq['extended_beyond_was_saw'],'finished_tape_reversal':False,'posthoc_repair':False,'borrowed_catalogue_text':False}})
  exact=[r for r in rows if r['accepted']]

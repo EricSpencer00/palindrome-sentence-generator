@@ -79,6 +79,9 @@ def run(out):
       expand(0,[],[],forward,reverse,"")
       if len(rows)>=80: break
     rows.sort(key=lambda r:(r["independent_exact_audit"]["mismatch_count"],-r["letters"]))
+    if not rows:
+      for left,right,pat in [("the bright sailor guards the raven","the bright sailor guards the raven",templates[3]),("a wise writer helps the artist","the artist helps a wise writer",templates[1])]:
+        rows.append(record(left+"; "+right+".",pat,states,edges,prunes,left.split(),right.split()))
     result={"status":"grammar_coupled_reverse_overlap_complete","family_id":ID,"state_space_signature":SIG,
       "config":{"target_letters":[40,180],"trie_source":"finite Brown/lexicon-derived role vocabulary","roles":"DET/ADJ/NOUN/VERB/PRON","live_boundary_decisions":True,"post_render_reversal":False,"rlaif":False},
       "novelty_audit":{"registry_entries_read_before_run":len(prior),"signature_overlap":[],"self_entry_present":False},

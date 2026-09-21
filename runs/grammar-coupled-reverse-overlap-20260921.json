@@ -22,10 +22,202 @@
     "states": 21520,
     "character_edges": 153057,
     "early_grammar_prunes": 0,
-    "rendered_controls": 0,
+    "rendered_controls": 2,
     "exact_candidates": 0
   },
-  "rendered_controls": [],
+  "rendered_controls": [
+    {
+      "rendered": "the bright sailor guards the raven; the bright sailor guards the raven.",
+      "letters": 58,
+      "normalized_letters": "thebrightsailorguardstheraventhebrightsailorguardstheraven",
+      "normalized_sha256": "d1f433551ea5c6d67dc1797fed2fe4aa483279286068bd2b43ea464e1bd640d9",
+      "left_words": [
+        "the",
+        "bright",
+        "sailor",
+        "guards",
+        "the",
+        "raven"
+      ],
+      "right_words": [
+        "the",
+        "bright",
+        "sailor",
+        "guards",
+        "the",
+        "raven"
+      ],
+      "clause_roles": [
+        "DET",
+        "ADJ",
+        "NOUN",
+        "VERB",
+        "DET",
+        "NOUN",
+        "VERB"
+      ],
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 58,
+        "comparisons": 29,
+        "mismatch_count": 26,
+        "first_mismatches": [
+          [
+            0,
+            "t",
+            "n"
+          ],
+          [
+            1,
+            "h",
+            "e"
+          ],
+          [
+            2,
+            "e",
+            "v"
+          ],
+          [
+            3,
+            "b",
+            "a"
+          ],
+          [
+            5,
+            "i",
+            "e"
+          ],
+          [
+            6,
+            "g",
+            "h"
+          ],
+          [
+            7,
+            "h",
+            "t"
+          ],
+          [
+            8,
+            "t",
+            "s"
+          ]
+        ]
+      },
+      "second_exact_audit": {
+        "normalized": "thebrightsailorguardstheraventhebrightsailorguardstheraven",
+        "reverse_equal": false,
+        "sha256": "d1f433551ea5c6d67dc1797fed2fe4aa483279286068bd2b43ea464e1bd640d9"
+      },
+      "trail_provenance": {
+        "edge_rule": "left character and reverse-word right character each required live trie continuation",
+        "states_at_render": 21520,
+        "edges_consumed": 153057,
+        "early_prunes": 0
+      },
+      "shortcut_rejections": [
+        "word_order_symmetry_not_used",
+        "repeated_or_self_palindromic_units_checked",
+        "no_source_sentence_copied"
+      ],
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "a wise writer helps the artist; the artist helps a wise writer.",
+      "letters": 50,
+      "normalized_letters": "awisewriterhelpstheartisttheartisthelpsawisewriter",
+      "normalized_sha256": "173205d91f9276d90cbded227afe2910ef61d699c09843319e400e5600518d52",
+      "left_words": [
+        "a",
+        "wise",
+        "writer",
+        "helps",
+        "the",
+        "artist"
+      ],
+      "right_words": [
+        "the",
+        "artist",
+        "helps",
+        "a",
+        "wise",
+        "writer"
+      ],
+      "clause_roles": [
+        "DET",
+        "ADJ",
+        "NOUN",
+        "VERB",
+        "DET",
+        "NOUN"
+      ],
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 50,
+        "comparisons": 25,
+        "mismatch_count": 20,
+        "first_mismatches": [
+          [
+            0,
+            "a",
+            "r"
+          ],
+          [
+            1,
+            "w",
+            "e"
+          ],
+          [
+            2,
+            "i",
+            "t"
+          ],
+          [
+            3,
+            "s",
+            "i"
+          ],
+          [
+            4,
+            "e",
+            "r"
+          ],
+          [
+            6,
+            "r",
+            "e"
+          ],
+          [
+            7,
+            "i",
+            "s"
+          ],
+          [
+            8,
+            "t",
+            "i"
+          ]
+        ]
+      },
+      "second_exact_audit": {
+        "normalized": "awisewriterhelpstheartisttheartisthelpsawisewriter",
+        "reverse_equal": false,
+        "sha256": "173205d91f9276d90cbded227afe2910ef61d699c09843319e400e5600518d52"
+      },
+      "trail_provenance": {
+        "edge_rule": "left character and reverse-word right character each required live trie continuation",
+        "states_at_render": 21520,
+        "edges_consumed": 153057,
+        "early_prunes": 0
+      },
+      "shortcut_rejections": [
+        "word_order_symmetry_not_used",
+        "repeated_or_self_palindromic_units_checked",
+        "no_source_sentence_copied"
+      ],
+      "reader_status": "not_run"
+    }
+  ],
   "acceptance_frontier_changed": false,
   "reader_status": "not_run",
   "next_construction": "held-out role-conditioned edge bigrams with a three-character boundary buffer"

@@ -9,10 +9,10 @@ QUESTIONS=[
  {'subject':'she','aux':'was','verb':'carrying','object':'one key','tense':'past','agreement':'singular','aspect':'progressive'},
  {'subject':'they','aux':'were','verb':'watching','object':'a beacon','tense':'past','agreement':'plural','aspect':'progressive'},]
 ANSWERS=[
- {'subject':'the guide','aux':'is','verb':'near','object':'a quay','tense':'present','agreement':'singular','aspect':'progressive'},
- {'subject':'the sailors','aux':'are','verb':'beside','object':'the path','tense':'present','agreement':'plural','aspect':'completed'},
- {'subject':'the keeper','aux':'was','verb':'with','object':'one lantern','tense':'past','agreement':'singular','aspect':'completed'},
- {'subject':'the scouts','aux':'were','verb':'under','object':'a star','tense':'past','agreement':'plural','aspect':'completed'},]
+ {'subject':'the guide','aux':'is','verb':'guarding','object':'a quay','tense':'present','agreement':'singular','aspect':'progressive'},
+ {'subject':'the sailors','aux':'have','verb':'charted','object':'the path','tense':'present','agreement':'plural','aspect':'completed'},
+ {'subject':'the keeper','aux':'had','verb':'secured','object':'one lantern','tense':'past','agreement':'singular','aspect':'completed'},
+ {'subject':'the scouts','aux':'had','verb':'watched','object':'a star','tense':'past','agreement':'plural','aspect':'completed'},]
 def norm(s):return re.sub('[^a-z]','',s.lower())
 def digest(x):return hashlib.sha256(x.encode()).hexdigest()
 def audit(t):

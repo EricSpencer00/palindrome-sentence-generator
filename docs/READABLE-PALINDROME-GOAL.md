@@ -8405,3 +8405,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   promoted. The next operator is a single aspect feature (progressive versus
   completed) in this same typed state, not a broad lexical sweep. Artifact:
   `runs/constructive-qa-tense-agreement-debt-20260921.json`.
+
+- **Aspect-aware Q/A debt successor, 2026-09-21:** added a rendered
+  progressive/completed aspect feature to the same four-frame typed state. The
+  sole feature-compatible control is grammatical and content-disjoint:
+  “I am mapping a cove? The guide is guarding a quay.” (38 letters), but its
+  first opposing character is `i` versus `y`; pointer and forward/reverse SHA
+  audits therefore reject it. The other 15 pairs fail feature compatibility or
+  the same live seam, yielding zero exact candidates. The next operator is
+  polarity as one additional typed state. Artifact:
+  `runs/constructive-qa-aspect-debt-20260921.json`.

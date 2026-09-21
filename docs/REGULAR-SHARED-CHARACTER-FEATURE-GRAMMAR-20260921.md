@@ -20,3 +20,14 @@ The result identifies the next operator concretely: add residual-indexed
 lexical transitions to the question/relative edges, rather than increasing
 the Cartesian word bank. Evidence is in
 `runs/regular-shared-character-20260921.json`.
+
+## Residual-indexed lexical branching
+
+The follow-up adds a live residual score to each character branch: a character
+is ranked by forward lexical support at the current position plus backward
+support at its mirrored position. This changes only branch ordering; it never
+scores a completed tape or performs repair. Targets 39--100 were rerun under
+the same 120-node cap, with differential toy checks still active. All 62
+targets reached a root conflict at one node and produced no exact candidate.
+The next operator is an embedded object-relative edge or typed adjunct that
+can add length while preserving a nonempty accepting grammar path.

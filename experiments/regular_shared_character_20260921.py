@@ -201,6 +201,30 @@ def solve(grammar, n, cap=120):
     stats = {'nodes': 0, 'propagation_rounds': 0, 'domain_values_removed': 0,
              'conflicts': 0, 'cap_reached': False}
     candidates = []
+    def residual_score(domains, pos, ch):
+        """Rank a character by live support at both residual positions.
+
+        This is deliberately computed before branching; it is not a score of
+        a completed rendered candidate.  The mirrored position is included so
+        lexical alternatives that cannot survive the current obligation move
+        to the back of the queue.
+        """
+        mirror = n - 1 - pos
+        trans, finals_local = transitions, finals
+        left = {0}
+        for domain in domains[:pos]:
+            left = {dst for src in left for edge, dst in trans[src]
+                    if edge in domain}
+        right = set(finals_local)
+        for domain in reversed(domains[mirror + 1:]):
+            right = {src for src in range(grammar.size)
+                     for edge, dst in trans[src]
+                     if edge in domain and dst in right}
+        forward_hit = sum(1 for dst in left for edge, _ in trans[dst] if edge == ch)
+        reverse_hit = sum(1 for src in range(grammar.size)
+                          for edge, dst in trans[src]
+                          if edge == ch and dst in right)
+        return (forward_hit > 0) + (reverse_hit > 0), forward_hit + reverse_hit
     def visit(domains):
         if stats['nodes'] >= cap:
             stats['cap_reached'] = True
@@ -236,7 +260,8 @@ def solve(grammar, n, cap=120):
                                'human_readability': 'not_tested'})
             return
         pos = min(open_positions, key=lambda i: (len(domains[i]), abs(n/2-i)))
-        for ch in sorted(domains[pos]):
+        ordered = sorted(domains[pos], key=lambda ch: residual_score(domains, pos, ch), reverse=True)
+        for ch in ordered:
             branch = list(domains)
             branch[pos] = branch[n-1-pos] = frozenset(ch)
             visit(tuple(branch))
@@ -261,7 +286,7 @@ def differential():
 def main():
     start = time.monotonic()
     grammar = construct()
-    results = [solve(grammar, n) for n in range(39, 81)]
+    results = [solve(grammar, n) for n in range(39, 101)]
     out = {'experiment_id': ID, 'method': 'forward_NFA_REGULAR_fixed_point_mirrored_domains',
            'differential_checks': differential(), 'grammar': grammar.frames,
            'results': results, 'seconds': time.monotonic()-start,
@@ -278,7 +303,7 @@ def main():
                                         'event_graph_character_sat_20260916.py',
                                         'position_domain_arc_consistency_csp_20260920.py'],
                        'implementation_distinction': 'iterated position-specific forward/backward supports with latent word boundaries'},
-           'next_operator': 'add a residual-indexed lexical operator to question/relative chart edges; current grammar has no accepting root at 39..80',
+           'next_operator': 'add a typed adjunct or embedded object-relative edge to the residual-indexed question/relative chart; current grammar has no accepting root at 39..100',
            'reader_gate': 'closed until exact original plausible prose and blinded ratings'}
     (ROOT/'runs'/f'{ID}.json').write_text(json.dumps(out, indent=2)+'\n')
     print(json.dumps([{'N': r['target_letters'], **r['stats'],

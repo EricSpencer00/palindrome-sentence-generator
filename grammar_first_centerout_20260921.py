@@ -73,7 +73,8 @@ def run(limit=240):
                      "provenance": {"grammar_first": True, "joint_production_selection": True,
                                     "independent_forward_realizations": True,
                                     "finished_tape_reversal": False, "post_hoc_repair": False,
-                                    "mirrored_units": False, "repeated_units": False,
+                                    "mirrored_units": False,
+                                    "repeated_units": left["text"] == right["text"],
                                     "nested_self_palindrome": False, "fragment": False,
                                     "catalogue_text": False}})
     exact = [r for r in rows if r["audit"]["pointer_exact"] and

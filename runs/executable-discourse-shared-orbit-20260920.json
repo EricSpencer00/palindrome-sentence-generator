@@ -1,0 +1,191 @@
+{
+  "experiment_id": "executable-discourse-shared-orbit-20260920",
+  "method": "joint executable finite-world discourse CSP with shared character-orbit obligations",
+  "config": {
+    "events": 6,
+    "determinants": 2,
+    "connectors": 2,
+    "semantic_checked_before_complete_surface": true,
+    "post_search_scoring": false
+  },
+  "stats": {
+    "event_pairs_expanded": 36,
+    "semantic_valid_pairs": 3,
+    "semantic_prunes": 33,
+    "character_prunes": 12,
+    "semantics_off_pairs": 36,
+    "rendered_candidates": 0,
+    "prose_controls": 3,
+    "exact_gt38": 0,
+    "max_control_letters": 52
+  },
+  "rendered_candidates": [],
+  "prose_controls": [
+    {
+      "rendered": "the guard opened the gate, then the visitor entered the yard.",
+      "audit": {
+        "letters": 49,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          48,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "1298328a2e0f26b674bc084ee62e28d758592a8e12845cc3f0919c77554a355c",
+        "sha256_reverse": "1285d2146dee974181ae132f7284d68ed877125593092c2814a8406e24ebcaca"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "finite_world_model": true,
+        "preconditions_satisfied": true,
+        "independent_event_pair": true,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "the nurse found the key, then the nurse opened the cabinet.",
+      "audit": {
+        "letters": 47,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          45,
+          "h",
+          "e"
+        ],
+        "sha256_forward": "d15a8dc62e9ec3f6078c32553dbe8108309ea65f36a3e6f5291076cb8e9f5364",
+        "sha256_reverse": "c14f6b6de105523bc1ecc8ebc15a5047b5f93e37bc01f9509bec41bbe39effb9"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "finite_world_model": true,
+        "preconditions_satisfied": true,
+        "independent_event_pair": true,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "the sailor raised the flag, then the keeper answered the signal.",
+      "audit": {
+        "letters": 52,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          51,
+          "t",
+          "l"
+        ],
+        "sha256_forward": "e4e77518e6232a58b2a29c3cabaac4e53b4d1e57b8c23e7bde084c94e2e65cc1",
+        "sha256_reverse": "6c660beffec4b033f3e6091ff68f363f056a41e4a4c55c19d2a774e99c3391cb"
+      },
+      "reader_eligible": false,
+      "provenance": {
+        "finite_world_model": true,
+        "preconditions_satisfied": true,
+        "independent_event_pair": true,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "semantic_rejection_witnesses": [
+    {
+      "first": "open_gate",
+      "second": "open_gate",
+      "witness": "discourse requires two distinct events",
+      "lexical_spans_unresolved": true
+    },
+    {
+      "first": "open_gate",
+      "second": "find_key",
+      "witness": "second event has no precondition enabled by the first event",
+      "lexical_spans_unresolved": true
+    },
+    {
+      "first": "open_gate",
+      "second": "open_cabinet",
+      "witness": "second event has no precondition enabled by the first event",
+      "lexical_spans_unresolved": true
+    },
+    {
+      "first": "open_gate",
+      "second": "raise_flag",
+      "witness": "second event has no precondition enabled by the first event",
+      "lexical_spans_unresolved": true
+    },
+    {
+      "first": "open_gate",
+      "second": "answer_signal",
+      "witness": "second event has no precondition enabled by the first event",
+      "lexical_spans_unresolved": true
+    },
+    {
+      "first": "enter_yard",
+      "second": "open_gate",
+      "witness": "missing first-event precondition ('open', 'gate')",
+      "lexical_spans_unresolved": true
+    },
+    {
+      "first": "enter_yard",
+      "second": "enter_yard",
+      "witness": "discourse requires two distinct events",
+      "lexical_spans_unresolved": true
+    },
+    {
+      "first": "enter_yard",
+      "second": "find_key",
+      "witness": "missing first-event precondition ('open', 'gate')",
+      "lexical_spans_unresolved": true
+    },
+    {
+      "first": "enter_yard",
+      "second": "open_cabinet",
+      "witness": "missing first-event precondition ('open', 'gate')",
+      "lexical_spans_unresolved": true
+    },
+    {
+      "first": "enter_yard",
+      "second": "raise_flag",
+      "witness": "missing first-event precondition ('open', 'gate')",
+      "lexical_spans_unresolved": true
+    },
+    {
+      "first": "enter_yard",
+      "second": "answer_signal",
+      "witness": "missing first-event precondition ('open', 'gate')",
+      "lexical_spans_unresolved": true
+    },
+    {
+      "first": "find_key",
+      "second": "open_gate",
+      "witness": "second event has no precondition enabled by the first event",
+      "lexical_spans_unresolved": true
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "excluded_routes": [
+      "finished-tape reversal",
+      "post-search semantics",
+      "catalogue/API text"
+    ]
+  },
+  "provenance": {
+    "world_model": "frozen hand-authored precondition/effect events",
+    "independent_audit": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "semantic_pruning_before_render": true,
+    "catalogue_text": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "reader_evidence": false
+  },
+  "falsifier": "if semantics-on and semantics-off visit identical event states, or semantic witnesses occur only after rendering, the joint representation is falsified",
+  "next_operator": "carry typed recipient/theme argument roles through the executable event state before lexical realization",
+  "status": "no exact >38 closure; executable discourse controls retained"
+}

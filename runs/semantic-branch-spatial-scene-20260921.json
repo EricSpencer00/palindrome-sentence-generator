@@ -1,0 +1,107 @@
+{
+  "experiment_id": "semantic-branch-spatial-scene-20260921",
+  "status": "completed_no_exact_closure",
+  "method": "branching semantic graph with shared spatial scene after convergence",
+  "candidate_count": 2,
+  "exact_count": 0,
+  "reader_eligible": false,
+  "rendered_candidates": [
+    {
+      "rendered": "at dawn the guard keeps the lantern and the keeper checks the gate with the harbor master so the harbor stays safe beside the sea; at dawn the watchman holds the lantern and the steward checks the gate with the harbor master so the harbor stays safe beside the sea.",
+      "left_branch": "guard_keeper_harbor",
+      "right_branch": "watchman_steward_harbor",
+      "novel_rendered": true,
+      "semantic_graph": {
+        "shared_temporal_anchor": true,
+        "branch_count": 2,
+        "shared_participant": true,
+        "shared_consequence": true,
+        "shared_spatial_scene_after_convergence": true
+      },
+      "audit": {
+        "letters": 214,
+        "two_pointer_exact": false,
+        "first_mismatch": 1,
+        "forward_sha256": "3e72476494b5b81927f7740db2852e28712f158a8494c0e277291180fddd09cb",
+        "reverse_sha256": "d7b600e258b16c42a24dfcd87c3ab36291e5c1616c8dd2a3d3f1421d219df662",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 1,
+        "center_inside_word": true,
+        "obligation": [
+          "t",
+          "e"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "branching graph with post-convergence spatial scene node",
+        "linear_graph_reused": false,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    },
+    {
+      "rendered": "at dusk a scribe writes the map and a reader studies the route with the teacher so the traveler finds home near the road; at dusk a teacher draws the map and a student studies the route with the guide so the traveler finds home near the road.",
+      "left_branch": "scribe_reader_road",
+      "right_branch": "teacher_student_road",
+      "novel_rendered": true,
+      "semantic_graph": {
+        "shared_temporal_anchor": true,
+        "branch_count": 2,
+        "shared_participant": true,
+        "shared_consequence": true,
+        "shared_spatial_scene_after_convergence": true
+      },
+      "audit": {
+        "letters": 193,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "fc14007953118aa4aae278d1eb6637d185be2a918f790d62e9237fd8043a72c8",
+        "reverse_sha256": "d30ea4f766d330ba98b6bf1cc62cbd6659bb4e54180c39446a25f056ea2f6c16",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "a",
+          "d"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "branching graph with post-convergence spatial scene node",
+        "linear_graph_reused": false,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "stats": {
+    "longest_letters": 214
+  },
+  "novelty_preflight": {
+    "hash_source": "all runs/*.json except current artifact",
+    "current_artifact_excluded": true,
+    "all_rendered_new": true,
+    "spatial_node_new": true
+  },
+  "failure_and_repair": {
+    "failure": "spatial-scene branches still mismatch live obligations",
+    "next_construction": "TOPOLOGY RESET: leave scene modifiers and construct a new semantic relation graph"
+  },
+  "provenance": {
+    "generator_sha256": "dbeddbcd9bb0c1da656867eb8b7b24d9e9712ea3345adef0a39bb1c7c261a767",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "shortcuts_excluded": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "experiment": "brown-phrase-live-overhang-20260920",
+  "method": "Brown forward phrase units with center-out live character debt",
+  "stats": {
+    "units": 140000,
+    "seeds": 120,
+    "exact": 1,
+    "longest_exact": 40,
+    "longest_clean_exact": 0
+  },
+  "exact_candidates": [
+    {
+      "seed": 0,
+      "rendered": "as a was it is it it is away ya was it it is it is a was a",
+      "audit": {
+        "letters": 40,
+        "exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "e82978f8d7b90563688244bc7efcc486eb9e421920c59ca8382201cb04dc0e8a",
+        "sha256_reverse": "e82978f8d7b90563688244bc7efcc486eb9e421920c59ca8382201cb04dc0e8a"
+      },
+      "hidden_palindromic_span": true,
+      "units": [
+        "as a", "was it", "is it", "it is", "away", "ya",
+        "was it", "it is", "it is", "a", "was a"
+      ]
+    }
+  ],
+  "provenance": {
+    "source": "Brown POS-tagged forward n-grams",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "audits": ["two-pointer mismatch", "forward/reverse SHA-256"],
+    "reader_gate": "closed pending human reading"
+  }
+}

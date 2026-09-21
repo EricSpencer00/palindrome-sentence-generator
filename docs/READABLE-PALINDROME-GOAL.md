@@ -121,6 +121,17 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   (`web/functions/api/[[path]].js`). The live public deployment still serves
   the upstream route until that committed gate is deployed.
 
+- **Online-intersection correction.** A source audit found that several recent
+  entries described complete-clause enumeration followed by a palindrome
+  check as if they propagated character obligations online. Those claims are
+  corrected in `docs/SOURCE-AUDIT-ONLINE-GENERATION-20260921.md`. The new
+  executable replacement (`experiments/online_regular_language_palindrome_20260921.py`)
+  really advances paired lexical-NFA states only when the opposing characters
+  agree, and has tiny exhaustive-language oracles plus independent pointer and
+  SHA checks. Its fresh 2,304-realization grammar and the agreement-carrying
+  follow-up both have zero exact closures; this is a sound construction
+  foundation, not a readable candidate or a reason to claim the goal solved.
+
 - **Mechanical versus reader frontier.** The historical v4 diagnostics contain
   a mechanically clean 50-letter row, “To new one post is an evening. Is sign
   in even as its open owe. Not.” Its exact pointer/SHA checks and admission

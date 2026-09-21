@@ -34,15 +34,16 @@ def expand(symbols):
     for phrase in LEX[head]:
         for rest in expand(tail): yield (phrase,) + rest
 
-def residual_intersection(rendered):
+def residual_intersection(left, right):
     """Consume independently chosen phrase arcs from outside in."""
-    tape = norm(rendered); trace=[]
-    for i, ch in enumerate(tape):
-        j = len(tape)-1-i
+    left_tape, right_tape = norm(" ".join(left)), norm(" ".join(right)); trace=[]
+    for i, ch in enumerate(left_tape):
+        j = len(right_tape)-1-i
         if j < 0:
             return False, trace, "right-residual-exhausted"
-        trace.append({"depth": i, "left_arc": ch, "right_residual": tape[j], "equal": ch == tape[j]})
-        if ch != tape[j]: return False, trace, "character-residual-mismatch"
+        trace.append({"depth": i, "left_arc": ch, "right_residual": right_tape[j], "equal": ch == right_tape[j], "before_render": True})
+        if ch != right_tape[j]: return False, trace, "character-residual-mismatch-before-render"
+    if len(left_tape) != len(right_tape): return False, trace, "residual-length-before-render"
     return True, trace, "closed"
 
 def gates(text):
@@ -59,7 +60,7 @@ def run():
     for left in paths:
         for right in paths:
             rendered = " ".join(left) + ", while " + " ".join(right) + "."
-            ok, trace, why = residual_intersection(rendered)
+            ok, trace, why = residual_intersection(left, right)
             rows.append({"rendered": rendered, "independent_right_path": " ".join(right),
                 "grammar": {"start": "S", "left_rhs": left, "right_rhs": right,
                             "lexical_arcs": True, "arc_selection": "outside_in"},

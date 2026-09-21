@@ -21,11 +21,11 @@ RECIPIENTS = (
     {"id": "students", "det": "the", "noun": "students", "number": "plural"},
 )
 EVENTS = (
-    {"id": "water", "verb": "waters", "plural_verb": "water", "object": "the orchard", "kind": "transitive", "consequence": "blooms"},
-    {"id": "carry", "verb": "carries", "plural_verb": "carry", "object": "a letter", "kind": "transitive", "consequence": "waits"},
-    {"id": "watch", "verb": "watches", "plural_verb": "watch", "object": "the quiet harbor", "kind": "transitive", "consequence": "gleams"},
-    {"id": "rest", "verb": "rests", "plural_verb": "rest", "prep": "in", "object": "the old garden", "kind": "locative", "consequence": "recovers"},
-    {"id": "give", "verb": "gives", "plural_verb": "give", "recipient_id": "child", "object": "a bright kite", "kind": "ditransitive", "consequence": "smiles"},
+    {"id": "water", "verb": "waters", "plural_verb": "water", "object": "the orchard", "kind": "transitive", "consequence": "blooms", "consequence_plural": "bloom"},
+    {"id": "carry", "verb": "carries", "plural_verb": "carry", "object": "a letter", "kind": "transitive", "consequence": "waits", "consequence_plural": "wait"},
+    {"id": "watch", "verb": "watches", "plural_verb": "watch", "object": "the quiet harbor", "kind": "transitive", "consequence": "gleams", "consequence_plural": "gleam"},
+    {"id": "rest", "verb": "rests", "plural_verb": "rest", "prep": "in", "object": "the old garden", "kind": "locative", "consequence": "recovers", "consequence_plural": "recover"},
+    {"id": "give", "verb": "gives", "plural_verb": "give", "recipient_id": "child", "object": "a bright kite", "kind": "ditransitive", "consequence": "smiles", "consequence_plural": "smile"},
 )
 
 
@@ -45,6 +45,7 @@ def audit(text):
 
 def render(p, e, side):
     verb = e["plural_verb"] if p["number"] == "plural" else e["verb"]
+    consequence = e["consequence_plural"] if p["number"] == "plural" else e["consequence"]
     if side == "left":
         if e["kind"] == "locative":
             return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['prep']} {e['object']}"
@@ -56,11 +57,11 @@ def render(p, e, side):
     tails = {"transitive": "beside the clear path", "locative": "near the stone wall",
              "ditransitive": "before the open gate"}
     if e["kind"] == "locative":
-        return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['prep']} {e['object']} {tails[e['kind']]}, and {p['det']} {p['adj']} {p['noun']} {e['consequence']}"
+        return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['prep']} {e['object']} {tails[e['kind']]}, and {p['det']} {p['adj']} {p['noun']} {consequence}"
     if e["kind"] == "ditransitive":
         recipient = next(x for x in RECIPIENTS if x["id"] == e["recipient_id"])
         return f"{p['det']} {p['adj']} {p['noun']} {verb} {recipient['det']} {recipient['noun']} {e['object']} {tails[e['kind']]}, and {recipient['det']} {recipient['noun']} {e['consequence']}"
-    return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['object']} {tails[e['kind']]}, and {p['det']} {p['adj']} {p['noun']} {e['consequence']}"
+    return f"{p['det']} {p['adj']} {p['noun']} {verb} {e['object']} {tails[e['kind']]}, and {p['det']} {p['adj']} {p['noun']} {consequence}"
 
 
 def synchronous_pair(p, e):

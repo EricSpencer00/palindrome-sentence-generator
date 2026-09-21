@@ -1,0 +1,109 @@
+{
+  "experiment_id": "fourteen-event-triple-cut-20260921",
+  "method": "fourteen-event graph with triple-cut intersection and rank monotonicity under global endpoint CSP",
+  "stats": {
+    "event_graphs": 1,
+    "online_checks": 2,
+    "max_letters": 322,
+    "exact_gt38": 0,
+    "rank_sequence": [
+      3,
+      2,
+      1
+    ]
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "controls": [
+    {
+      "rendered": "the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart. the nurse checked the chart.",
+      "graph": {
+        "events": [
+          {
+            "id": "e1"
+          },
+          {
+            "id": "e2"
+          },
+          {
+            "id": "e3"
+          },
+          {
+            "id": "e4"
+          },
+          {
+            "id": "e5"
+          },
+          {
+            "id": "e6"
+          },
+          {
+            "id": "e7"
+          },
+          {
+            "id": "e8"
+          },
+          {
+            "id": "e9"
+          },
+          {
+            "id": "e10"
+          },
+          {
+            "id": "e11"
+          },
+          {
+            "id": "e12"
+          },
+          {
+            "id": "e13"
+          },
+          {
+            "id": "e14"
+          }
+        ],
+        "triple_cuts": [
+          "e4|e5",
+          "e8|e9",
+          "e12|e13"
+        ],
+        "rank_monotonicity": [
+          3,
+          2,
+          1
+        ]
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 2,
+        "frontier_length": 163,
+        "global_invariant": "x[i] == x[N-1-i]"
+      },
+      "audit": {
+        "letters": 322,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "f6ae1897c391071183e560d4f329a1b0514daf4e8dd2c5f86ce939e0f86a8401",
+        "reverse_sha256": "9f72604c3bbb91963b1cc3b75d91b8ac277362550f43f59a31e24aca1e542acc"
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "fourteen-event|triple-cut|rank-monotonicity|global-endpoint-csp"
+  },
+  "provenance": {
+    "reader_status": "closed: no exact >=39 candidate",
+    "audits": [
+      "independent pointer",
+      "forward/reverse SHA-256"
+    ],
+    "anti_shortcut_flags": [
+      "no mirrored units",
+      "no reversal",
+      "no repair"
+    ]
+  },
+  "next_operator": "Hold topology and compare rank stability under a lexical-independent perturbation.",
+  "status": "no exact >=39 closure; intact control retained"
+}

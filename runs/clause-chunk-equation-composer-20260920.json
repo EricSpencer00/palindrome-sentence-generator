@@ -1,0 +1,167 @@
+{
+  "experiment_id": "clause-chunk-equation-composer-20260920",
+  "method": "complete independently authored clauses composed from independent clause-internal chunks with online two-sided letter equations",
+  "acceptance_gate": "reader-facing only if online equation closes, normalized rendered audit is exact, >38 letters, and all shortcut exclusions pass",
+  "stats": {
+    "left_clauses": 4,
+    "right_clauses": 4,
+    "segment_states": 702,
+    "online_mismatch_prunes": 702,
+    "rendered": 702,
+    "exact_above_38": 0,
+    "max_rendered_letters": 107
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "controls": [
+    {
+      "rendered": "the patient cartographer marks a quiet inlet before sunrise, while the evening keeper folds a blue sail near the pier.",
+      "audit": {
+        "letters": 97,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "cc3c6affe3babc8bd37d679ae3dc5c1fcec1c6aa90c9c9167e46eb7d207d1836",
+        "sha256_reverse": "3c41a37094f514cd778afc6a1e013f5415350d3ce0b33c51b4be50284ee97159"
+      },
+      "control": true,
+      "provenance": {
+        "independently_authored": true,
+        "equation_selected": false
+      }
+    },
+    {
+      "rendered": "a gentle teacher opens the old atlas after supper, and our alert ranger follows a silver trail beyond the creek.",
+      "audit": {
+        "letters": 91,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "k"
+        ],
+        "sha256_forward": "4b254aa9164e3e6c946b8fbeb63f144f286d2c0be4f2437e60d8d75995d47d5c",
+        "sha256_reverse": "ac6cf2a9f65eafe201ba07a8874d42da6b68be8597ee79ca74c3268d4f38a40e"
+      },
+      "control": true,
+      "provenance": {
+        "independently_authored": true,
+        "equation_selected": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "fresh-authored|complete-clause-chunks|independent-segmentation|online-equation",
+    "exact_id_or_signature_collisions": [],
+    "related_registry_entries": [
+      "phrase-boundary-live-fsm-20260920",
+      "cross-attachment-resegmentation-20260918",
+      "typed-boundary-resegment-shortwords-20260916",
+      "char-lm-tape-resegment-20260916",
+      "free-center-semantic-state-machine-20260916",
+      "semantic-valency-boundary-csp-20260916",
+      "heteropalindromic-clause-composer-20260916",
+      "heldout-boundary-decoder-20260916",
+      "lexical-trie-segmentation-repair-20260916",
+      "residual-lexical-decoder-20260916",
+      "inflectional-fst-clitic-tape-20260916",
+      "seedless-semantic-cfg-bilateral-20260916",
+      "recursive-grammar-residual-dp-20260916",
+      "brown-attested-residual-lattice-20260916",
+      "bilateral-slot-synchronizer-adjunct-repair-20260916",
+      "reversible-constituent-clause-repair-20260916",
+      "bilateral-slot-synchronizer-20260916",
+      "morphosemantic-product-delay-20260916",
+      "multiword-unit-transducer-local-repair",
+      "cp-semantic-grammar-palindrome",
+      "character-clause-fst-joint-emission",
+      "two-bank-word-equation-seam-dp",
+      "collocation-synchronous-grammar",
+      "mined-phrase-chunk-clause-composition",
+      "corpus-sentence-gram-fst",
+      "grammar-boundary-resegmentation-repair",
+      "multiset-balanced-pair-sampling",
+      "proper-name-reverse-grammar",
+      "model-authored-clause-bank-index",
+      "fixed-tape-gpt2-boundary-decoder-20260915",
+      "attested-phrase-pair-wrapper-20260915",
+      "ccg-semantic-solver-20260916",
+      "equal-length-clause-collision-20260916",
+      "weighted-morphology-fst-lockstep-20260916",
+      "authored-clause-template-sat-repair-20260916",
+      "boundary-fst-resegment-20260916",
+      "finite-automaton-clause-tapes-20260916",
+      "astar-typed-word-boundary-20260916",
+      "grapheme-chunk-finite-state-constructor-20260916",
+      "seed-joint-slot-resegment-20260916",
+      "fresh-scene-tape-cfg-resegmentation-20260916",
+      "compositional-slot-boundary-dp-20260916",
+      "semantic-phrase-edge-graph-joiner-20260916",
+      "boundary-shift-semordnilap-grammar-20260916",
+      "brown-phrase-pair-seam-20260916",
+      "connected-scene-joint-resegment-20260916",
+      "live-cfg-character-chart-20260916",
+      "live-cfg-chart-terminal-edge-repair-20260916",
+      "finite-reverse-phrase-composition-bank-20260916",
+      "centerfree-clause-pair-csp-20260916",
+      "centerfree-clause-pair-followup-20260916",
+      "centerout-observatory-scene-lattice-20260916",
+      "semantic-valency-attachment-scene-lattice-20260916",
+      "semantic-valency-clause-equation-solver-20260916",
+      "agreement-carrying-morphology-boundary-csp-20260917",
+      "luna-phrase-chunk-semantic-decoder-20260917",
+      "luna-closed-form-grammar-family-20260917",
+      "dependency-semantic-seam-csp-v2-20260917",
+      "luna-bidirectional-boundary-beam-20260917",
+      "exact-by-construction-optional-slot-clause-product-20260917",
+      "dream-rsi-round115-20260918",
+      "dream-rsi-discourse-ellipsis-20260918",
+      "exhaustive-pos-lattice-44-tape-20260918",
+      "fresh-phrase-trie-product-20260918",
+      "fresh-clause-resegmentation-chart-20260918",
+      "semantic-template-lattice-joint-equations-20260919",
+      "boundary-aware-phrase-transducer-dp-20260919",
+      "finite-clause-character-orbits-20260919",
+      "char-orbit-scene-search-20260920",
+      "weighted-brown-relative-beams-20260920",
+      "fresh-heteropalindrome-seam-search-20260920",
+      "heldout-reverse-segmentation-grammar-20260920",
+      "typed-attachment-reverse-segmentation-20260920",
+      "direct-boundary-clause-inventory-20260920"
+    ],
+    "same_operator_script_hits": [],
+    "distinct_from": "prior clause products enumerate complete pairs; this run adds independent clause-internal chunk boundaries and discharges a live residual before the next chunk is emitted",
+    "catalogue_text_reused": false,
+    "mirrored_chunk_pairs": false
+  },
+  "provenance": {
+    "audits": [
+      "independent two-pointer stream",
+      "forward/reverse SHA-256"
+    ],
+    "fixed_conditions": [
+      "fresh authored clause banks",
+      "two chunks per clause",
+      "word-boundary cuts",
+      "no post-hoc repair"
+    ],
+    "hard_exclusions": [
+      "catalogue text",
+      "mirrored chunk pairs",
+      "finished tape reversal",
+      "repeated units",
+      "word-order symmetry",
+      "fragments"
+    ]
+  },
+  "next_repair": {
+    "operator": "typed residual continuation bank",
+    "reason": "all current independent clause cuts mismatch before closure",
+    "change": "author alternate complete clause continuations keyed by the first two-character residual, then retain the key across the second chunk; rerun the same exact gate"
+  },
+  "status": "no exact >38 closure; independently authored prose controls retained"
+}

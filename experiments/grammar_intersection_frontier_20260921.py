@@ -21,11 +21,13 @@ LEFT = (
     Derivation("gardener", ("NP", "V", "NP"), ("a", "quiet", "gardener", "waters", "the", "orchard")),
     Derivation("teacher", ("NP", "V", "NP"), ("a", "kind", "teacher", "guides", "the", "class")),
     Derivation("artist", ("NP", "V", "NP"), ("a", "calm", "artist", "paints", "the", "vessel")),
+    Derivation("pilot_pp", ("NP", "V", "NP", "PP"), ("a", "calm", "pilot", "steers", "the", "boat", "in", "harbor")),
 )
 RIGHT = (
     Derivation("orchard", ("NP", "V", "NP"), ("the", "orchard", "needs", "a", "quiet", "gardener")),
     Derivation("class", ("NP", "V", "NP"), ("the", "class", "needs", "a", "kind", "teacher")),
     Derivation("vessel", ("NP", "V", "NP"), ("the", "vessel", "needs", "a", "calm", "artist")),
+    Derivation("harbor_pp", ("NP", "V", "NP", "PP"), ("the", "harbor", "holds", "a", "calm", "pilot", "in", "boat")),
 )
 
 def tape(text: str) -> str:
@@ -68,7 +70,9 @@ def main() -> None:
            "rendered_candidates": rows,
            "stats": {"longest_letters": max(x["audit"]["letters"] for x in rows),
                      "shared_signature_count": len({x["shared_signature"] for x in rows})},
-           "novelty_preflight": {"topology_new": True, "not_relative_lexical_expansion": True,
+           "novelty_preflight": {"topology_new": True, "typed_pp_adjunct_added": True,
+                                 "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                                 "not_relative_lexical_expansion": True,
                                  "not_reward_scoring": True, "prior_experiment_ids_checked":
                                  ["relative-plural-auxiliary-20260921", "center-seam-event-constructor-20260921"]},
            "failure_and_repair": {"failure": "all CFG intersections retain a concrete outer frontier obligation" if not exact else "none",

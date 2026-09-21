@@ -2,7 +2,7 @@
   "experiment_id": "grammar-intersection-frontier-20260921",
   "status": "completed_no_exact_closure",
   "method": "bounded typed-CFG intersection with outside-in character frontiers",
-  "candidate_count": 9,
+  "candidate_count": 10,
   "exact_count": 0,
   "reader_eligible": false,
   "rendered_candidates": [
@@ -275,14 +275,47 @@
         "posthoc_repair": false,
         "reversal_in_generator": false
       }
+    },
+    {
+      "rendered": "a calm pilot steers the boat in harbor; the harbor holds a calm pilot in boat.",
+      "left_derivation": "pilot_pp",
+      "right_derivation": "harbor_pp",
+      "shared_signature": [
+        "NP",
+        "V",
+        "NP",
+        "PP"
+      ],
+      "frontier": {
+        "matched_frontier_pairs": 0,
+        "left_obligation": "a",
+        "right_obligation": "t",
+        "frontier_closed": false
+      },
+      "audit": {
+        "letters": 61,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "9879e8b601c760824d991b7d80e6dda32a840bbfafebfebddf093f88303567dc",
+        "reverse_sha256": "9cb1f1c1fed3ec4b8bf1293604632856e2dd14b2c15bf8e83110d4cac39add4e",
+        "sha_equal": false
+      },
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "typed CFG derivation intersection",
+        "posthoc_repair": false,
+        "reversal_in_generator": false
+      }
     }
   ],
   "stats": {
-    "longest_letters": 59,
-    "shared_signature_count": 1
+    "longest_letters": 61,
+    "shared_signature_count": 2
   },
   "novelty_preflight": {
     "topology_new": true,
+    "typed_pp_adjunct_added": true,
+    "generator_sha256": "0bcf6c62fefc61e5f7e9e25f595e632cb86e648efe0aeb30ff85287219fb2e68",
     "not_relative_lexical_expansion": true,
     "not_reward_scoring": true,
     "prior_experiment_ids_checked": [
@@ -295,7 +328,7 @@
     "next_construction": "add one PP adjunct nonterminal with typed attachment, then rerun frontier intersection"
   },
   "provenance": {
-    "generator_sha256": "930a8dd17425cf55bde6555ea20aa64a654908391087cd4dfdc2fce4142ce9f2",
+    "generator_sha256": "0bcf6c62fefc61e5f7e9e25f595e632cb86e648efe0aeb30ff85287219fb2e68",
     "independent_audits": [
       "two-pointer",
       "forward/reverse SHA-256"

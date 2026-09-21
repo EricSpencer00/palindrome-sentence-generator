@@ -1,0 +1,68 @@
+{
+  "experiment_id": "coreference-three-tile-composition-20260921",
+  "method": "three-tile discourse with pronoun coreference state",
+  "stats": {
+    "paths": 1,
+    "coreference_compatible": 1,
+    "accepted_exact": 0
+  },
+  "exact_candidates": [],
+  "rendered_controls": [
+    {
+      "rendered": "the scout maps a cove; then it shelters the scout; then the scout rests.",
+      "tiles": [
+        {
+          "text": "the scout maps a cove",
+          "theme": "cove",
+          "agent": "scout"
+        },
+        {
+          "text": "it shelters the scout",
+          "theme": "cove",
+          "agent": "cove"
+        },
+        {
+          "text": "the scout rests",
+          "theme": "scout",
+          "agent": "scout"
+        }
+      ],
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "pointer_exact": false,
+        "sha256_forward": "91a86705b6d6f3b44cd2e7b025a41efb187b0a412791a9f3576508231a8ecb60",
+        "sha256_reverse": "1bf011a24ab8eb8530e8516c486e95bc74317d9f0fab9d23b89a74cf89e60b94",
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ]
+      },
+      "gates": {
+        "coreference_state_valid": true,
+        "whole_output_exact": false,
+        "grammatical_control": true,
+        "lexical_content_disjoint": false,
+        "no_self_pal_units": true
+      },
+      "accepted": false,
+      "provenance": {
+        "construction": "three clauses with explicit discourse theme coreference",
+        "coreference_checked_before_rendering": true,
+        "readability_claim": "grammatical control only; no certification",
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "borrowed_catalogue_text": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "three-tiles|theme-coreference|pre-render-state",
+    "signature_collision": false,
+    "distinct_from": "role-only tile composition"
+  },
+  "next_repair": "Add a second coreference branch with a plural antecedent and agreement state.",
+  "status": "no exact coreference composition; grammatical control retained"
+}

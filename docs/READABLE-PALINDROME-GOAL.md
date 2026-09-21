@@ -7718,3 +7718,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   It visited 26 nodes and reached one exact terminal, but that terminal was
   only the known 38-letter seed; no novel candidate was admitted. Artifact:
   `runs/human-phrase-lattice-20260921.json`.
+
+- **Semantic pair-chain CSP, 2026-09-21:** introduced a distinct cross-clause
+  topology: an agent--action--object frame is paired with a different
+  subject--directed-action--referent/place frame, while character debt is
+  solved at word boundaries before either side is rendered. The authored banks
+  reached 4 live states and 12 boundary prunes, but no terminal or exact
+  sentence; no candidate was reader-eligible. This is not a reverse-
+  segmentation or post-render repair lane. The concrete next operator is a
+  third semantic frame with agreement-preserving function-word slots, retaining
+  the same live debt transition. Artifact:
+  `runs/semantic-pair-chain-live-20260921.json`.

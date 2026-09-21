@@ -164,7 +164,11 @@ def construct():
                          ('embedded_subject_sg', ['artist', 'writer', 'pilot']),
                          ('embedded_pred_sg', ['reads', 'sees', 'helps']),
                          ('embedded_det_obj2', ['a', 'the']),
-                         ('embedded_object2', ['map', 'book', 'letter'])]
+                         ('embedded_object2', ['map', 'book', 'letter']),
+                         # Held-out temporal terminals, distinct from the
+                         # earlier top-level adjunct lane.
+                         ('embedded_temporal', ['at sunset', 'before winter',
+                                                'during rain'])]
     g.frame('question_then_person_event', question+right)
     g.frame('relative_clause_then_person_event', relative+right)
     g.frame('embedded_object_relative_then_person_event', embedded_relative+right)
@@ -297,7 +301,7 @@ def differential():
 def main():
     start = time.monotonic()
     grammar = construct()
-    results = [solve(grammar, n) for n in range(39, 121)]
+    results = [solve(grammar, n) for n in range(39, 141)]
     out = {'experiment_id': ID, 'method': 'forward_NFA_REGULAR_fixed_point_mirrored_domains',
            'differential_checks': differential(), 'grammar': grammar.frames,
            'results': results, 'seconds': time.monotonic()-start,
@@ -314,7 +318,7 @@ def main():
                                         'event_graph_character_sat_20260916.py',
                                         'position_domain_arc_consistency_csp_20260920.py'],
                        'implementation_distinction': 'iterated position-specific forward/backward supports with latent word boundaries'},
-           'next_operator': 'add a typed adjunct with a held-out temporal lexeme to the residual-indexed embedded-relative chart; current grammar has no accepting root at 39..120',
+           'next_operator': 'add a held-out locative adjunct or agreement-compatible relative pronoun variant; current grammar has no accepting root at 39..140',
            'reader_gate': 'closed until exact original plausible prose and blinded ratings'}
     (ROOT/'runs'/f'{ID}.json').write_text(json.dumps(out, indent=2)+'\n')
     print(json.dumps([{'N': r['target_letters'], **r['stats'],

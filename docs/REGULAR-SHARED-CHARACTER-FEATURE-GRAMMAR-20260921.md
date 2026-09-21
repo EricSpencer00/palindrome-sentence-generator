@@ -38,3 +38,11 @@ is followed by `that`, a second singular subject, verb, and object. Targets
 reached a one-node root conflict, with no exact path or rendered candidate.
 The next lexical operator is a held-out temporal adjunct on this embedded
 frame, selected by residual support rather than Cartesian expansion.
+
+The held-out temporal continuation adds `at sunset`, `before winter`, and
+`during rain` as terminals inside the embedded-relative frame. They are
+expanded by the NFA before mirrored support is propagated. Targets 39--140
+(102 lengths) were run under the strict per-length cap; every target reached a
+one-node root conflict, with no exact path or rendered candidate. The next
+operator is a held-out locative adjunct or an agreement-compatible relative
+pronoun variant.

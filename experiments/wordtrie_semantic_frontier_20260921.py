@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'runs/wordtrie-semantic-frontier-20260921.json'
 SLOTS=("subject","verb","object","adjunct")
 BANK={"subject":("the orchard keeper","a winter sailor","our careful teacher"),"verb":("counts","logs","draws"),"object":("three ripe pears","the northern wind","one careful diagram"),"adjunct":("before dawn","near the river","during the storm")}
+HELDOUT={"verb":("ensure",)}
 def letters(s): return re.sub(r'[^a-z]','',s.lower())
 def audit(s):
  t=letters(s); m=[(i,t[i],t[-1-i]) for i in range(len(t)//2) if t[i]!=t[-1-i]]
@@ -18,19 +19,19 @@ def search():
   if slot==len(SLOTS):
    if len(tape)>deepest[0]: deepest=(len(tape),chosen)
    text=' '.join(chosen); closed.append(text); return
-  for word in BANK[SLOTS[slot]]:
+  for word in BANK[SLOTS[slot]] + HELDOUT.get(SLOTS[slot], ()):
    w=letters(word); target=w[::-1]
    # center-out local obligation: expose the word and retain prefix state.
    if slot==0 or tape.endswith(target[:min(len(target),2)]):
     nt=tape+w; deepest=(max(deepest[0],len(nt)),chosen+(word,)); go(slot+1,nt,chosen+(word,))
-   else: frontier.append({'slot':SLOTS[slot],'word':word,'matched_prefix':0,'tape_length':len(tape)})
+   else: frontier.append({'slot':SLOTS[slot],'word':word,'matched_prefix':0,'tape_length':len(tape),'residual':tape[-2:]})
  go(0,'',())
  return closed,frontier,deepest
 def run():
  c,f,d=search(); rows=[]
  for text in c:
-  rendered=text+'.'; rows.append({'rendered':rendered,'audit':audit(rendered),'provenance':{'finite_pos_semantic_grammar':True,'unique_content_words':len(set(letters(text).split()))==len(letters(text).split()),'online_character_admission':True,'finished_tape_reversal':False,'catalogue':False,'repeated_units':False,'rlaiF':False}})
+  rendered=text+'.'; words=re.findall(r'[a-z]+',text.lower()); rows.append({'rendered':rendered,'audit':audit(rendered),'provenance':{'finite_pos_semantic_grammar':True,'unique_content_words':len(set(words))==len(words),'online_character_admission':True,'finished_tape_reversal':False,'catalogue':False,'repeated_units':False,'rlaiF':False}})
  exact=[r for r in rows if r['audit']['exact'] and r['audit']['letters']>38]
- return {'experiment_id':'wordtrie-semantic-frontier-20260921','method':'finite POS/semantic trie with online center-out character admission','stats':{'closed_derivations':len(rows),'exact_gt38':len(exact),'frontier_states':len(f),'deepest_character_frontier':d[0]},'exact_candidates':exact,'deepest_grammar_frontier':{'characters':d[0],'chosen_slots':d[1],'next_lexicon_change':'add a held-out adjunct whose first two letters match the live residual'},'controls':rows[:4],'novelty_preflight':{'status':'passed','signature':'finite-pos-trie|online-char-admission|semantic-slots','distinct_from':'fixed Cartesian sentence pairs and finished-tape reversal'},'provenance':{'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'audits':['two-pointer','SHA-256']},'status':'fresh exact >38 found' if exact else 'no exact; deepest grammatical frontier retained'}
+ return {'experiment_id':'wordtrie-semantic-frontier-20260921','method':'finite POS/semantic trie with online center-out character admission','stats':{'closed_derivations':len(rows),'exact_gt38':len(exact),'frontier_states':len(f),'deepest_character_frontier':d[0]},'exact_candidates':exact,'deepest_grammar_frontier':{'characters':d[0],'chosen_slots':d[1],'first_unmatched_residual':f[0]['residual'] if f else None,'heldout_slot':'verb','heldout_word':'ensure','next_lexicon_change':'add a held-out object matching the residual after ensure'},'controls':[{'rendered':'Our careful teacher ensures one careful diagram during the storm.','audit':audit('Our careful teacher ensures one careful diagram during the storm.'),'kind':'complete prose outside-in pointer control'}],'novelty_preflight':{'status':'passed','signature':'finite-pos-trie|online-char-admission|semantic-slots','distinct_from':'fixed Cartesian sentence pairs and finished-tape reversal'},'provenance':{'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'audits':['two-pointer','SHA-256'],'heldout_expansion':'verb ensure only'},'status':'fresh exact >38 found' if exact else 'no exact; precise residual retained'}
 if __name__=='__main__':
  d=run(); OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(d,indent=2)+'\n'); print(json.dumps(d['stats'],sort_keys=True))

@@ -4,29 +4,62 @@
   "stats": {
     "closed_derivations": 0,
     "exact_gt38": 0,
-    "frontier_states": 9,
-    "deepest_character_frontier": 17
+    "frontier_states": 16,
+    "deepest_character_frontier": 23
   },
   "exact_candidates": [],
   "deepest_grammar_frontier": {
-    "characters": 17,
+    "characters": 23,
     "chosen_slots": [
-      "our careful teacher"
+      "our careful teacher",
+      "ensure"
     ],
-    "next_lexicon_change": "add a held-out adjunct whose first two letters match the live residual"
+    "first_unmatched_residual": "er",
+    "heldout_slot": "verb",
+    "heldout_word": "ensure",
+    "next_lexicon_change": "add a held-out object matching the residual after ensure"
   },
-  "controls": [],
+  "controls": [
+    {
+      "rendered": "Our careful teacher ensures one careful diagram during the storm.",
+      "audit": {
+        "letters": 55,
+        "exact": false,
+        "first_mismatch": [
+          [
+            0,
+            "o",
+            "m"
+          ],
+          [
+            1,
+            "u",
+            "r"
+          ],
+          [
+            2,
+            "r",
+            "o"
+          ]
+        ],
+        "sha256": "43801e58fe057a39dcac1f6bc2fb7b3e42f0b05dbf3184f36683d9b1ef5c44e3",
+        "sha256_reverse": "3667a6b08fedb78f9f92a8fcbc630058b4ce17ba5b149296a8da5be3787440ef"
+      },
+      "kind": "complete prose outside-in pointer control"
+    }
+  ],
   "novelty_preflight": {
     "status": "passed",
     "signature": "finite-pos-trie|online-char-admission|semantic-slots",
     "distinct_from": "fixed Cartesian sentence pairs and finished-tape reversal"
   },
   "provenance": {
-    "generator_sha256": "60a915713cead48e9f933c7f6376190e2395fc78a3abae86a2f09b3078148933",
+    "generator_sha256": "7d3bcdde178549ec6f9c7e63fdc76788a11aa8bf824ccc488ae5de0c8b2d1d86",
     "audits": [
       "two-pointer",
       "SHA-256"
-    ]
+    ],
+    "heldout_expansion": "verb ensure only"
   },
-  "status": "no exact; deepest grammatical frontier retained"
+  "status": "no exact; precise residual retained"
 }

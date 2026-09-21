@@ -8234,6 +8234,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   past-tense predicate. Artifact:
   `runs/cfg-earley-object-np-when-progressive-20260921.json`.
 
+- **Object-NP before-past Earley seam, 2026-09-21:** attached
+  `before NP V_past` inside the object NP as a pre-render temporal CP. One
+  intact control is “The patient keeper stores the sealed crates before the
+  courier arrived”; the three controls were 118, 114, and 116 letters.
+  Agreement/valency stayed unified, 154 mirrored-domain conflicts were
+  retained, and independent pointer/SHA audits found zero exact closures. The
+  next topology is an object-NP after-clause with a finite predicate. Artifact:
+  `runs/cfg-earley-object-np-before-past-cp-20260921.json`.
+
 - **Boundary-conditioned semantic scene search, 2026-09-21:** indexed fresh
   SVO/PP alternatives by first/last terminal characters and grew paired clause
   yields inward under `x[i] = x[N-1-i]`. The second-PP expansion produced 228

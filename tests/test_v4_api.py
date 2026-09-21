@@ -193,6 +193,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["multichar_boundary_automaton_run"]["exact_candidates_over_38"] == 0
     assert method.json()["reverse_morphology_residual_run"]["states"] == 256
     assert method.json()["reverse_morphology_residual_run"]["exact_candidates_over_38"] == 0
+    assert method.json()["temporal_subject_relative4_run"]["paired_grammar_states"] == 26244
+    assert method.json()["temporal_subject_relative4_run"]["exact_candidates_over_38"] == 0
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

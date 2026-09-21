@@ -66,10 +66,23 @@ def novel(text, source_grams):
     # bigrams/trigrams instead, while recording the full source IDs.
     return not any(g in ts for g in source_grams[2]) and not any(g in ts for g in source_grams[3])
 
+def valency(roles):
+    """Bounded attachment automaton: clauses need a subject before V and a
+    nominal/PP complement after it.  This is intentionally a finite semantic
+    gate, not a score over completed strings."""
+    subject=False; verb=False; complement=False
+    for r in roles:
+        if r in {"PRON", "N"} and not verb: subject=True
+        elif r == "V" and subject: verb=True
+        elif verb and r in {"N", "PRON", "DET", "PREP", "ADJ"}: complement=True
+        elif r == "DET" and not verb: continue
+    return subject and verb and complement
+
 def solve(ws, domains, source_grams, limit=2):
     """Assign words left-to-right; each assignment immediately checks all
     character equations whose opposite endpoint is already assigned."""
     roles=[role(w,i,ws) for i,w in enumerate(ws)]
+    if not valency(roles): return []
     # only attempt genuinely recombinable templates, never the source words
     pools=[]
     for r,w in zip(roles,ws):
@@ -106,7 +119,8 @@ def main():
     for sid,line,ws in rows:
         res=solve(ws,domains,grams)
         got=res[0] if res else []; nodes=res[1] if res else 0; total_nodes+=nodes
-        controls.append({"source_id":sid,"source":line,"roles":[role(w,i,ws) for i,w in enumerate(ws)],"letters":len(tape(line)),"nodes":nodes,"exact_count":len(got)})
+        rr=[role(w,i,ws) for i,w in enumerate(ws)]
+        controls.append({"source_id":sid,"source":line,"roles":rr,"valency":valency(rr),"letters":len(tape(line)),"nodes":nodes,"exact_count":len(got)})
         for text in got:
             candidates.append({"text":text,"letters":len(tape(text)),"exact":True,"sha":sha(text),"source_id":sid,"roles":[role(w,i,ws) for i,w in enumerate(ws)],"novel_ngrams":True})
     OUT.parent.mkdir(exist_ok=True)

@@ -7934,6 +7934,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   The next operator is a held-out plural auxiliary-bearing clause. Artifact:
   `runs/cfg-earley-plural-determiner-pp-20260921.json`.
 
+- **Plural auxiliary Earley lane, 2026-09-21:** added pre-render
+  `NP(pl) -> are + V-ing` structure while preserving locative valency and live
+  mirrored character domains. Three fresh intact auxiliary controls (123--133
+  letters) were agreement-unified; 185 concrete domain conflicts remained and
+  zero exact closures occurred. The next operator is a held-out plural
+  progressive frame. Artifact:
+  `runs/cfg-earley-plural-auxiliary-clause-20260921.json`.
+
 - **Variable clause-sequence topology, 2026-09-21:** compiled one, two, or
   three independently authored transitive clauses with live `and`/`while`/`as`
   connector edges and mirrored character-domain propagation. Across 62 target

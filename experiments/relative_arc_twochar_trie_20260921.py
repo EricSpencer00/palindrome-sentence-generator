@@ -60,6 +60,7 @@ RIGHT=(
  RelativeArc('cook_balances',('a','careful','cook','who','balances','the','warm','bread'),'cook','balances','agent-object'),
  RelativeArc('nurse_heals',('the','quiet','nurse','who','heals','a','young','patient'),'nurse','heals','agent-patient'),
  RelativeArc('speaker_answers',('the','clear','speaker','who','answers','a','hard','question'),'speaker','answers','agent-question'),
+ RelativeArc('child_finds_again',('a','curious','child','who','finds','the','old','garden'),'child','finds','agent-object'),
 )
 
 def exposed(a):
@@ -74,6 +75,11 @@ def object_agreement(a):
     return 'unknown'
 def predicate_class(a):
     return next((w for w in a.words if w in {'watches','describes','finds','guides','crosses','builds','keeps','carries','hears','opens','reads','paints','leads','studies','waters','sends','lights','stores','bakes','heals','balances','answers'}), '')[:2]
+def relative_subject_class(a):
+    """Two letters at the relative-marker/subject boundary: final head char + w."""
+    try: i=a.words.index('who')
+    except ValueError: return ''
+    return tape(a.words[i-1])[-1:] + 'w'
 def agreement_compatible(a,b):
     # Definite articles license either number; indefinite features must agree.
     x,y=object_agreement(a),object_agreement(b)
@@ -95,13 +101,13 @@ def main():
     # Internal-predicate trie key is coupled to the object agreement feature.
     # This is deliberately distinct from the previous exposed-boundary-only
     # index: incompatible valency/number states never reach character search.
-    for b in RIGHT: index.setdefault(predicate_class(b),[]).append(b)
+    for b in RIGHT: index.setdefault((relative_subject_class(b),predicate_class(b)),[]).append(b)
     rows=[]; considered=0
     for a in LEFT:
         # Query same agreement and predicate onset class; the outer boundary
         # obligation is still checked independently by the live zipper.
-        key=(object_agreement(a),predicate_class(a))
-        for b in index.get(predicate_class(a),[]):
+        key=(relative_subject_class(a),predicate_class(a))
+        for b in index.get(key,[]):
             if not agreement_compatible(a,b):
                 continue
             considered+=1; text=render(a,b); z=online(text)
@@ -111,6 +117,9 @@ def main():
               'internal_predicate_index':{'key':list(key),'left_predicate_class':predicate_class(a),
                                           'right_predicate_class':predicate_class(b),
                                           'agreement':object_agreement(a)},
+              'relative_subject_index':{'key':relative_subject_class(a),
+                                        'left_head_marker_boundary':relative_subject_class(a),
+                                        'right_head_marker_boundary':relative_subject_class(b)},
               'audit':audit(text),'live_trace':z,'exact_admitted':z['obligation'] is None,
               'reader_status':'unreviewed; programmatic measures do not certify readability',
               'provenance':{'construction':'two-character indexed relative-clause arcs',
@@ -118,12 +127,12 @@ def main():
                 'catalogue_text':False,'word_order_symmetry':False}})
     exact=[r for r in rows if r['exact_admitted']]
     out={'experiment_id':ID,'status':'completed_exact' if exact else 'completed_no_exact_closure',
-      'method':'relative-clause semantic arc trie indexed by internal predicate class plus object agreement',
+      'method':'relative-clause semantic arc trie indexed by head-who boundary plus predicate class and agreement',
       'candidate_count':len(rows),'indexed_pair_count':considered,'exact_count':len(exact),
       'reader_eligible':False,'rendered_candidates':rows,
       'stats':{'longest_letters':max((r['audit']['letters'] for r in rows),default=0),
                'left_arcs':len(LEFT),'right_arcs':len(RIGHT),'index_buckets':len(index)},
-      'novelty_preflight':{'prior_event_frame_sweep_reused':False,'boundary_only_index_reused':False,'completed_arc_join':False,
+      'novelty_preflight':{'prior_event_frame_sweep_reused':False,'boundary_only_index_reused':False,'predicate_only_index_reused':False,'completed_arc_join':False,
                            'semordnilap_token_mirror':False,'repair':False},
       'failure_and_repair':{'failure':'no exact closure after two-character boundary filtering' if not exact else 'none',
         'next_construction':'pivot to a relative-marker/subject boundary class (the two letters straddling who and the head noun) while retaining predicate and agreement keys'},

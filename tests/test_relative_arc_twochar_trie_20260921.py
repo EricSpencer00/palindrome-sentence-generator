@@ -14,5 +14,6 @@ def test_twochar_index_and_rendered_controls():
         assert row['audit']['forward_sha256']!=row['audit']['reverse_sha256']
         assert row['internal_predicate_index']['left_predicate_class']==row['internal_predicate_index']['right_predicate_class']
         assert row['internal_predicate_index']['agreement'] in {'singular','definite','plural'}
+        assert row['relative_subject_index']['left_head_marker_boundary']==row['relative_subject_index']['right_head_marker_boundary']
 def test_independent_audit():
     assert M['audit']('A man, a plan, a canal.')['two_pointer_exact'] is False

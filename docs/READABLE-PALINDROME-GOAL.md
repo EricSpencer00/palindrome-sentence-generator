@@ -7669,6 +7669,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   construction expands the feature grammar with questions and relative clauses.
   Artifact: `runs/regular-shared-character-20260921.json`.
 
+- **Question/relative feature expansion, 2026-09-21:** added explicit
+  auxiliary-question and `who`-relative frames to that same latent-boundary
+  propagator and reran every target length 39--80. No target reached an
+  accepting root; each conflict occurred before candidate branching, after
+  1--4 support rounds for shorter lengths and at most 1,030 unsupported
+  character values removed. This closes only the stated finite feature
+  grammar, not the broader English problem. The next operator is
+  residual-indexed lexical transitions on those chart edges, not a larger
+  Cartesian word bank. Artifact: `runs/regular-shared-character-20260921.json`.
+
 - **Hand-authored phrase lattice, 2026-09-21:** selected phrase alternatives
   from both ends while debt was live and independently audited the terminal.
   It visited 26 nodes and reached one exact terminal, but that terminal was

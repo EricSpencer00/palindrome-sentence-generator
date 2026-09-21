@@ -1,0 +1,82 @@
+{
+  "experiment_id": "semantic-event-graph-outer-20260921",
+  "status": "completed_no_exact_closure",
+  "method": "semantic event graph compatibility before outer obligation query",
+  "candidate_count": 1,
+  "exact_count": 0,
+  "reader_eligible": false,
+  "rendered_candidates": [
+    {
+      "rendered": "the watchman lights the lantern because the storm darkens the harbor; the keeper guards the lantern because the storm darkens the harbor.",
+      "left_graph": "storm_lantern",
+      "right_graph": "keeper_lantern",
+      "novel_rendered": true,
+      "semantic_graph": {
+        "left_signature": [
+          "perceive",
+          "light",
+          "weather",
+          "place"
+        ],
+        "right_signature": [
+          "protect",
+          "light",
+          "weather",
+          "place"
+        ],
+        "shared_edge_types": [
+          "place",
+          "weather"
+        ]
+      },
+      "audit": {
+        "letters": 114,
+        "two_pointer_exact": false,
+        "first_mismatch": 0,
+        "forward_sha256": "07e37c531aedaf55b8931414f2204fffc4d2f0da742f84fd63f6aa48cf5fce7f",
+        "reverse_sha256": "d3db5bd2023f74014c6533e5a1c757d7037d384eca8ba277375935f76b2f5ef4",
+        "sha_equal": false
+      },
+      "live_trace": {
+        "pairs": 0,
+        "center_inside_word": true,
+        "obligation": [
+          "t",
+          "r"
+        ]
+      },
+      "exact_admitted": false,
+      "reader_status": "unreviewed; exactness does not certify readability",
+      "provenance": {
+        "construction": "causal semantic event graph with outer character obligations",
+        "relative_clause_family": false,
+        "instrument_family": false,
+        "finished_tape_reversal": false,
+        "posthoc_repair": false,
+        "catalogue_text": false
+      }
+    }
+  ],
+  "stats": {
+    "longest_letters": 114
+  },
+  "novelty_preflight": {
+    "hash_source": "all runs/*.json except current artifact",
+    "current_artifact_excluded": true,
+    "all_rendered_new": true,
+    "topology_reset": true,
+    "relative_instrument_reused": false
+  },
+  "failure_and_repair": {
+    "failure": "event-graph-compatible prose still mismatches live outer obligations",
+    "next_construction": "add a second semantic edge type with a held-out causal connector, not a lexical sweep"
+  },
+  "provenance": {
+    "generator_sha256": "e77b0ea7953c69a3a05a1d061038c702396f4710f01804de0cb9e187ae8d6d13",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "shortcuts_excluded": true
+  }
+}

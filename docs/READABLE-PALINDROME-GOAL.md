@@ -126,6 +126,24 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   two-word boundary pair, subject to a new preflight rather than a repair of
   any finished sentence (`runs/authored-semordnilap-boundary-scene-20260920.json`).
 
+- **Topic/frame lattice.** A disjoint hand-authored inventory joined complete
+  clauses only when their topic and discourse-frame labels agreed before any
+  character audit. It retained four intact controls, including the 70-letter
+  `At first light, the keeper marks the inlet, and the harbor answers with a
+  quiet lantern.`; all four were independently pointer/SHA audited and none was
+  exact. This is a frame-compatibility diagnostic, not a readability claim or
+  a catalogue-derived candidate (`runs/topic-frame-lattice-20260920.json`).
+
+- **Executable world-state orbit.** A new finite-model lane carried typed
+  preconditions/effects and entity bindings before surface realization. The
+  shared-orbit run expanded 36 event pairs, rejected 33 semantic branches
+  while lexical spans were still unresolved, and retained three ordinary
+  causal controls through 52 letters; 12 additional character branches died
+  online and no exact closure above 38 survived. Recipient/theme and pronoun
+  accessibility successors are recorded separately. This remains a
+  constructive diagnostic until an exact rendered candidate exists
+  (`runs/executable-discourse-shared-orbit-20260920.json`).
+
 These runs are materially different search representations, not reward-model
 rerankings or repeated bank sweeps. They still do not improve the admitted
 38-letter result, so the goal remains active. The next promotion requires an

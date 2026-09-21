@@ -53,3 +53,10 @@ residual ranking and the strict cap. Every target reached a one-node root
 conflict; no exact candidate was rendered. The next operator is an
 agreement-compatible relative-pronoun edge, with no change to the audit or
 reader gate.
+
+The relative-pronoun continuation expands the embedded gap with `that`,
+`which`, and animate-subject `who`, while retaining the explicit transitive
+valency roles. Targets 39--180 (142 lengths) were rerun under live mirrored
+support. Every target reached a one-node root conflict; no exact or frontier
+candidate was rendered. The next operator is a bounded complementizer/tense
+variant on the embedded relative.

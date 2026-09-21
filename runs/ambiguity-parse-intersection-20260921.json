@@ -1,0 +1,53 @@
+{
+  "experiment_id": "ambiguity-parse-intersection-20260921",
+  "method": "garden-path/syntactic-ambiguity with shared orthographic tape",
+  "status": "duplicate_preflight_only",
+  "novelty_preflight": {
+    "proposed_operator": [
+      "one orthographic tape",
+      "two ordinary semantic/syntactic parses",
+      "ambiguity-carried roles rather than mirrored units"
+    ],
+    "overlap_ids": [
+      "homograph-sense-lattice-20260915",
+      "denotational-equality-registry-new-20260920"
+    ],
+    "overlap_sha256": "827187ce232d8d72b7169cc31ec9913527fa699fa1107e53803cabcec7ef7d01",
+    "fresh_operator": false,
+    "reason": "homograph-sense-lattice already specifies one orthographic tape with two independent semantic parses and sense-conditioned word boundaries; denotational equality separately covers alternate replayable syntax topologies. A new garden-path run would overlap."
+  },
+  "overlap_records": [
+    {
+      "id": "homograph-sense-lattice-20260915",
+      "signature": "homograph-sense-lattice|one-orthographic-tape|two-independent-semantic-parses|sense-conditioned-word-boundary-choice|exact-letter-audit",
+      "artifact": "experiments/homograph_sense_lattice_20260915.py",
+      "run_artifacts": [
+        "runs/homograph-sense-lattice-20260915.json"
+      ],
+      "status": null
+    },
+    {
+      "id": "denotational-equality-registry-new-20260920",
+      "signature": "proof-carrying-denotational-equality|12-propositions|six-licensed-rewrites|two-nonisomorphic-topologies|live-palindrome-extraction",
+      "artifact": "experiments/denotational_equality_registry_new_20260920.py",
+      "run_artifacts": [
+        "runs/denotational-equality-registry-new-20260920.json"
+      ],
+      "status": "completed_diagnostic"
+    }
+  ],
+  "rendered_controls": [],
+  "exact_candidates": [],
+  "independent_two_pointer_sha_audit": {
+    "performed": false,
+    "reason": "No candidate was generated after duplicate preflight."
+  },
+  "provenance": {
+    "source_text": "none",
+    "catalogue_text": false,
+    "borrowed_text": false,
+    "post_hoc_repair": false,
+    "rlaif_per_candidate": false
+  },
+  "next_construction": "Reject this lane; preflight a surface-generation operator that is not orthographic ambiguity, CFG ambiguity, homograph sense choice, or denotational topology selection."
+}

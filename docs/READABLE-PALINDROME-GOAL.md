@@ -209,6 +209,15 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   simply enlarge the same SVO/PP inventory
   (`runs/character-phrase-pair-grammar-join-20260921.json`).
 
+- **Semantic crossing-seam frame.** A deliberately small hand-authored frame
+  carried two complete temporal event clauses while exposing residuals across
+  the clause seam. The two distinct pairings rendered 88-letter intact prose
+  controls, but shared no opposing character at the outer edge and produced no
+  exact closure. This is a useful negative oracle for seam ownership, not a
+  scalable result; the recorded successor is a held-out temporal adjunct whose
+  first character must satisfy the live residual before emission
+  (`runs/semantic-frame-crossing-residual-20260921.json`).
+
 - **Overlap-trie source correction.** A reverse-complement overlap prototype
   explored 21,520 boundary states and 153,057 word-interior steps, but its
   fallback controls did not couple opposing characters and recorded zero

@@ -8498,3 +8498,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   seam without a different terminal grammar, so it is closed as a bounded
   negative result rather than padded with adjuncts. Artifact:
   `runs/passive-was-seen-by-seam-20260921.json`.
+
+- **Copular terminal-pair diagnostic, 2026-09-21:** checked 27 combinations
+  across the reversible terminal pairs `is/si`, `was/saw`, and `are/era`.
+  Although all three letter pairs reverse mechanically, zero proposed shells
+  were ordinary English: `si` and `era` are fragments here, while the
+  `was/saw` form collapses to the already-tested question grammar. The run
+  therefore admits zero natural controls and zero exact candidates. This
+  closes the terminal-word shortcut and sends the next search toward a
+  genuinely grammatical copular inversion with an adjective predicate.
+  Artifact: `runs/copular-question-seam-20260921.json`.

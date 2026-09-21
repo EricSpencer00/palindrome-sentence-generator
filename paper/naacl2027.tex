@@ -1286,6 +1286,15 @@ state change therefore moves the key to a residual suffix class and adds
 agreement-compatible alternatives, rather than increasing the number of
 unconditioned chunks.
 
+To address the immediate seam bottleneck directly, a separate seam-indexed
+lane authored 72 ordinary clause variants and indexed three-character
+left-prefix/right-suffix-reversed classes before comparing interiors.  This
+reduced 5,184 possible pairs to 576 compatible pairs and let all 576 pass the
+outer seam, but every interior comparison still mismatched; the longest
+complete control was 80 letters and no exact closure above 38 appeared.  The
+next test changes the endpoint family and uses two-character classes, while
+keeping full-clause syntax and the same independent pointer/hash audits.
+
 \section{Reader-facing evaluation}
 No candidate is called readable by the automatic diagnostics.  The release
 package is gated until a mechanically admitted survivor exists.  The planned

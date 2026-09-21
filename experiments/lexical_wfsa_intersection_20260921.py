@@ -38,7 +38,7 @@ def compile_wfsa():
        for obj in lex[8:]:
         if subj[2]["num"] != verb[2]["num"]: continue
         paths.append((subj,verb,obj))
-    edges=[]; state=0; boundary_features={0: {"phase":"start"}}
+    edges=[]; state=0; terminals=set(); boundary_features={0: {"phase":"start"}}
     for pi,path in enumerate(paths):
       # All typed alternatives branch from the grammar start; their lexical
       # interiors are fresh states, so this is a union, not a product sweep.
@@ -51,20 +51,19 @@ def compile_wfsa():
           edges.append((cur,end,ch,word if k==0 else "",w,dict(boundary_features.get(cur, {"phase":"interior"}),pos=pos,word_boundary=(k==0))))
           cur=end
         cur=nxt; state+=1
-      # Punctuation is render-only and therefore not a character obligation.
+      terminals.add(cur)
     # Replace -1 endpoints with one accepting state per path; preserve paths.
-    accept=state; edges=[(u,accept,c,l,w,f) if v==-1 else (u,v,c,l,w,f) for u,v,c,l,w,f in edges]
-    return 0,accept,edges,boundary_features,len(paths)
+    return 0,terminals,edges,boundary_features,len(paths)
 
 def intersect():
-    start,accept,edges,features,path_count=compile_wfsa(); fw=defaultdict(list); bw=defaultdict(list)
+    start,accepts,edges,features,path_count=compile_wfsa(); fw=defaultdict(list); bw=defaultdict(list)
     for i,(u,v,c,l,w,f) in enumerate(edges): fw[(u,c)].append(i); bw[(v,c)].append(i)
-    q=deque([(start,accept,(),(),1.0)]); seen=set(); rows=[]; dead=[]; expanded=matched=0
+    q=deque((start,a,(),(),1.0) for a in accepts); seen=set(); rows=[]; dead=[]; expanded=matched=0
     while q:
       l,r,lp,rp,cost=q.popleft(); key=(l,r,len(lp))
       if key in seen: continue
       seen.add(key); expanded+=1
-      if l==r:
+      if l in accepts or l==r:
         ids=lp+rp[::-1]; text=''.join(edges[i][3] for i in ids)
         rows.append({"rendered":text,"audit":audit(text),"weight":cost,"lexical_edges":list(ids),"state_features":[edges[i][5] for i in ids]})
       common={c for (u,c) in fw if u==l}&{c for (v,c) in bw if v==r}

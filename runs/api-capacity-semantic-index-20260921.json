@@ -1,0 +1,37 @@
+{
+  "experiment": "api-capacity-semantic-index-20260921",
+  "novelty_preflight": {
+    "materially_distinct": true,
+    "reason": "finite semantic typed paths indexed by (first,last,length), with online residual join; no nested mirror bank, atom transducer, endpoint-only, seam-only, or NFA construction"
+  },
+  "controls": {
+    "max_chars": 80,
+    "max_fragments": 5,
+    "allow_punctuation": true
+  },
+  "graph": {
+    "typed_paths": 5,
+    "index_buckets": 5
+  },
+  "exact_candidates": [
+    {
+      "rendered": "Was it a rat I saw?",
+      "letters": 13,
+      "tags": [
+        "QUESTION",
+        "PERCEPTION"
+      ],
+      "provenance": "two independently indexed typed graph paths joined by residual"
+    }
+  ],
+  "checks": {
+    "reverse_check": true,
+    "independent_dp_check": true
+  },
+  "no_shortcut_gates": {
+    "reverse_pair_bank": false,
+    "hardcoded_witness_in_graph": false,
+    "normalization_only": false
+  },
+  "next_operator": "expand typed paths by one grammatical role while retaining capacity-indexed residual joins"
+}

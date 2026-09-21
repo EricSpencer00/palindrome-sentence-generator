@@ -1,0 +1,72 @@
+{
+  "candidates": [],
+  "stats": {
+    "expanded_frontiers": 1,
+    "matched_endpoint_transitions": 0,
+    "dead_frontiers": 1,
+    "wfsa_edges": 320,
+    "typed_clause_paths": 16
+  },
+  "dead_frontier_examples": [
+    {
+      "depth": 0,
+      "required": [],
+      "left": 0,
+      "right": 368
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "Nora sees a calm guide; the guides help a guide.",
+      "audit": {
+        "letters": 37,
+        "two_pointer_exact": false,
+        "forward_sha256": "40ded6b0ab215a215e6eb41ee02e698d5ced0f10ee721aa025c7fd4931a84487",
+        "reverse_sha256": "7b9fb156a2323bded7f80f7880e68414fabf15ee3302bb7cd5dd78325c0794ef",
+        "hash_equal": false
+      },
+      "control": "complete prose emitted outside WFSA"
+    },
+    {
+      "rendered": "Liam helps calm guides; a guide sees Nora.",
+      "audit": {
+        "letters": 33,
+        "two_pointer_exact": false,
+        "forward_sha256": "334bd7abb190edd98398c42872e7d9c3c2576d10b42b5927d72f4f835bcb51b1",
+        "reverse_sha256": "26106fb865cfd5db95ee2f5fcafd5f50da808dc7dd575ea1543d06f4db4d837e",
+        "hash_equal": false
+      },
+      "control": "complete prose emitted outside WFSA"
+    }
+  ],
+  "experiment_id": "lexical-wfsa-intersection-20260921",
+  "signature": "typed-lexical-wfsa|forward-reverse-intersection|boundary-state|agreement-valency|weighted-live-generation",
+  "method": "weighted forward/reverse WFSA intersection with incremental character obligations; typed boundary state carries number and transitive valency",
+  "novelty_preflight": {
+    "registry_entries_read": 683,
+    "duplicate_signatures_rejected": [
+      "online-regular-language-palindrome-20260921",
+      "grammar-char-intersection-20260920",
+      "weighted-grammar-automaton-ablation-20260920"
+    ],
+    "distinction": "lexical edges are enabled only by agreement/valency state and each edge carries a weight; boundary state is part of the live product key",
+    "complete_string_cartesian_enumeration": false
+  },
+  "rendered_candidate_count": 0,
+  "exact_over_38": 0,
+  "reader_eligible": false,
+  "reader_gate": "No reader gate: bounded diagnostic produced no independently admitted >=38-letter exact prose candidate.",
+  "independent_audits": {
+    "two_pointer": true,
+    "forward_reverse_sha256": true,
+    "automaton_path_connectivity": true,
+    "weight_recomputed": true
+  },
+  "provenance": {
+    "generator_sha256": "82798bbf9eb452c8f1b50a3301528f4953a5e9eaad4c2bc1b59bdf4801b506c2",
+    "lexicon": "fresh hand-authored typed lexical edges",
+    "catalogue_or_known_palindrome": false,
+    "render_after_accepting_path_only": true
+  },
+  "next_repair": "Add a second valency (ditransitive) with an explicit object/recipient boundary and use dead-frontier character deficits to synthesize only compatible inflections; retain the same WFSA product and audit."
+}

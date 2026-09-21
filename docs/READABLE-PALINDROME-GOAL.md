@@ -7744,6 +7744,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   appeared. The next operator is a bounded held-out adverbial agreement edge.
   Artifact: `runs/regular-shared-character-20260921.json`.
 
+- **Adverbial agreement edge, 2026-09-21:** added position/valency-aware
+  adverbs (`quietly`, `slowly`, `carefully`) to the modal/relative chart.
+  Across lengths 39--260, all 222 targets reached a one-node root conflict;
+  no exact path rendered. This closes the modifier-family sweep. The next
+  construction explicitly pivots to a variable-length clause sequence or a
+  feature automaton with a center nonterminal, rather than adding more
+  modifiers. Artifact: `runs/regular-shared-character-20260921.json`.
+
 - **Hand-authored phrase lattice, 2026-09-21:** selected phrase alternatives
   from both ends while debt was live and independently audited the terminal.
   It visited 26 nodes and reached one exact terminal, but that terminal was

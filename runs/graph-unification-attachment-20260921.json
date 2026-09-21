@@ -1,16 +1,16 @@
 {
   "experiment_id": "graph-unification-attachment-20260921",
-  "method": "graph-unification dependency solver with held-out temporal-result attachment; bilateral mirrored-character support domains intersected during incremental yield",
+  "method": "graph-unification dependency solver with held-out causal-result attachment; bilateral mirrored-character support domains intersected during incremental yield",
   "stats": {
-    "trees": 10,
-    "graph_edges": 90,
-    "online_support_checks": 133,
-    "online_prunes": 90,
+    "trees": 11,
+    "graph_edges": 110,
+    "online_support_checks": 161,
+    "online_prunes": 110,
     "rendered_controls": 12,
     "exact_gt38": 0,
     "max_letters": 135,
-    "conditional_frontier_survives_past_first_support_conflict": true,
-    "concessive_frontier_survives_past_first_support_conflict": true
+    "temporal_frontier_survives_past_first_support_conflict": true,
+    "conditional_frontier_survives_past_first_support_conflict": true
   },
   "exact_candidates": [],
   "reader_facing_candidates": [],
@@ -579,6 +579,69 @@
       }
     },
     {
+      "rendered": "the careful baker delivered the parcel the warm loaf for the night nurse. the steady nurse kept the patient safe inside because the alarm worked.",
+      "trees": {
+        "left": {
+          "kind": "benefactive",
+          "subject": "the careful baker",
+          "verb": "delivered",
+          "recipient": "the parcel",
+          "theme": "the warm loaf",
+          "prep": "for",
+          "beneficiary": "the night nurse"
+        },
+        "right": {
+          "kind": "causal_result",
+          "subject": "the steady nurse",
+          "verb": "kept",
+          "theme": "the patient",
+          "result": "safe inside",
+          "cause": "because the alarm worked",
+          "attachment_index": "event.kept.result->cause"
+        }
+      },
+      "graph_unification": {
+        "attachment_indices": [
+          "root->argument",
+          "event.kept.result->cause"
+        ],
+        "event_nodes_unified": true
+      },
+      "online_support": {
+        "accepted": false,
+        "checks": 1,
+        "domains": "character intersection while streaming terminals",
+        "frontier_survived": true,
+        "frontier_length": 61,
+        "survives_past_first_support_conflict": false
+      },
+      "complete_prose": true,
+      "audit": {
+        "letters": 119,
+        "pointer_exact": false,
+        "sha_equal": false,
+        "forward_sha256": "e2b820999c88e8e3dd87129a8398e2bd1b3bd64704544af309c4923999e0399b",
+        "reverse_sha256": "21370e7a898c66cac69e6cf62d879694a4f81496fa28f2842d2858e7553f278f",
+        "repeated_units": true,
+        "nested_self_palindrome": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false
+      },
+      "provenance": {
+        "fresh_authored_dependency_trees": true,
+        "graph_unification_before_render": true,
+        "heldout_attachment": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_text": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "reward_loop": false
+      }
+    },
+    {
       "rendered": "a patient teacher prepared the child a clear lesson for the new class. the careful baker delivered the parcel the warm loaf for the night nurse.",
       "trees": {
         "left": {
@@ -701,74 +764,13 @@
         "word_order_symmetry": false,
         "reward_loop": false
       }
-    },
-    {
-      "rendered": "a patient teacher prepared the child a clear lesson for the new class. a quiet warning changed the village plan when the river rose.",
-      "trees": {
-        "left": {
-          "kind": "benefactive",
-          "subject": "a patient teacher",
-          "verb": "prepared",
-          "recipient": "the child",
-          "theme": "a clear lesson",
-          "prep": "for",
-          "beneficiary": "the new class"
-        },
-        "right": {
-          "kind": "causal",
-          "subject": "a quiet warning",
-          "verb": "changed",
-          "theme": "the village plan",
-          "cause": "when the river rose"
-        }
-      },
-      "graph_unification": {
-        "attachment_indices": [
-          "root->argument",
-          "root->argument"
-        ],
-        "event_nodes_unified": true
-      },
-      "online_support": {
-        "accepted": false,
-        "checks": 1,
-        "domains": "character intersection while streaming terminals",
-        "frontier_survived": true,
-        "frontier_length": 55,
-        "survives_past_first_support_conflict": false
-      },
-      "complete_prose": true,
-      "audit": {
-        "letters": 107,
-        "pointer_exact": false,
-        "sha_equal": false,
-        "forward_sha256": "5f9bd03bd65a9501f6ae8988910055547663cd7a00ce2db6553c4ce0ade19cf0",
-        "reverse_sha256": "c92f4b405d1f6881032d76d96c23161edd65e1f147a6848a199673a5cab4cc1b",
-        "repeated_units": true,
-        "nested_self_palindrome": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "fragment": false,
-        "catalogue_text": false
-      },
-      "provenance": {
-        "fresh_authored_dependency_trees": true,
-        "graph_unification_before_render": true,
-        "heldout_attachment": true,
-        "finished_tape_reversal": false,
-        "post_hoc_repair": false,
-        "catalogue_text": false,
-        "mirrored_units": false,
-        "word_order_symmetry": false,
-        "reward_loop": false
-      }
     }
   ],
   "novelty_preflight": {
     "status": "passed",
     "registry_inspected": true,
-    "signature": "fresh-authored|dependency-graph-unification|temporal-result-event-index|online-character-support",
-    "distinct_from": "conditional-result edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; temporal result index unifies before lexical yield",
+    "signature": "fresh-authored|dependency-graph-unification|causal-result-event-index|online-character-support",
+    "distinct_from": "temporal-result edge and prior dependency-frame, seam, slot, finite-NFA, mirrored-unit, and repair lanes; causal result index unifies before lexical yield",
     "forbidden_inputs": [
       "38-letter anchor",
       "finished-tape reversal",
@@ -793,6 +795,6 @@
     ],
     "reader_status": "closed: no exact >=39 candidate"
   },
-  "next_operator": "Hold out a distinct causal-result event edge only if this temporal frontier survives past its first support conflict.",
+  "next_operator": "Hold out a distinct evidential-result event edge only if this causal frontier survives past its first support conflict.",
   "status": "no exact >=39 closure; intact ordinary-prose controls retained"
 }

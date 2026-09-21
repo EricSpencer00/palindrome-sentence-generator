@@ -8518,3 +8518,11 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   next operator is agreement-bearing plural NP/adjective selection inside this
   grammatical shell. Artifact:
   `runs/are-np-adjective-in-an-era-20260921.json`.
+
+- **Plural-agreement era shell, 2026-09-21:** carried an explicit plural-NP
+  agreement state through nine controls such as “Are the quiet scouts ready in
+  an era?” (29 letters). Agreement and the three-character `are`/`era` shell
+  are valid, but every row still fails at the next boundary (`t` versus `n`);
+  independent pointer/SHA audits find zero exact tapes. The next operator is a
+  possessive-NP contrast, not a larger adjective bank. Artifact:
+  `runs/are-plural-np-adjective-era-20260921.json`.

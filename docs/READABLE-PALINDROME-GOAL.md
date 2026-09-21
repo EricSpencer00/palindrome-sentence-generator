@@ -8605,3 +8605,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   operator is discourse-coreference state, with lexical repetition still
   forbidden. Artifact:
   `runs/role-typed-three-tile-composition-20260921.json`.
+
+- **Theme-coreference successor, 2026-09-21:** added an explicit pronoun
+  state so a later clause can refer to an earlier theme before rendering. The
+  control “The sailor maps a cove; then it shelters a guide; then the beacon
+  glows.” is a complete grammatical template with no repeated lexical content
+  (the `it` reference is tracked as state), while the full 56-letter tape still
+  fails at its outer character and exact count is zero. This is a construction
+  diagnostic, not reader evidence; the next state is plural antecedent
+  agreement. Artifact: `runs/coreference-three-tile-composition-20260921.json`.

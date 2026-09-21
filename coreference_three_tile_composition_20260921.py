@@ -2,7 +2,7 @@
 import hashlib,itertools,json,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent;OUT=ROOT/'runs/coreference-three-tile-composition-20260921.json'
-TILES=({'text':'the scout maps a cove','theme':'cove','agent':'scout'}, {'text':'it shelters the scout','theme':'cove','agent':'cove'}, {'text':'the scout rests','theme':'scout','agent':'scout'})
+TILES=({'text':'the sailor maps a cove','theme':'cove','agent':'sailor'}, {'text':'it shelters a guide','theme':'cove','agent':'cove'}, {'text':'the beacon glows','theme':'beacon','agent':'beacon'})
 def norm(s):return re.sub('[^a-z]','',s.lower())
 def sha(x):return hashlib.sha256(x.encode()).hexdigest()
 def audit(t):

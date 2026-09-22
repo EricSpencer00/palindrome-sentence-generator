@@ -1,0 +1,160 @@
+{
+  "candidates": [],
+  "states": 13,
+  "transitions": 12,
+  "cap_reached": false,
+  "dead_frontiers": [
+    {
+      "matched_pairs": 6,
+      "left_state": 128,
+      "right_state": 230,
+      "left_next": [
+        "n"
+      ],
+      "right_next": [
+        "h"
+      ],
+      "left_partial": "Some men",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 6,
+      "left_state": 128,
+      "right_state": 112,
+      "left_next": [
+        "n"
+      ],
+      "right_next": [
+        "h"
+      ],
+      "left_partial": "Some men",
+      "right_partial": ""
+    }
+  ],
+  "grammar_states": 239,
+  "grammar_character_edges": 262,
+  "experiment_id": "scene-event-lattice-20260930",
+  "method": "typed semantic event-mask lattice with live character intersection",
+  "event_transitions": [
+    {
+      "source_mask": 0,
+      "target_mask": 1,
+      "event": "sort_memos",
+      "requires": [],
+      "adds": [
+        "aide",
+        "memos"
+      ]
+    },
+    {
+      "source_mask": 1,
+      "target_mask": 3,
+      "event": "men_help_diana",
+      "requires": [],
+      "adds": [
+        "Diana",
+        "men"
+      ]
+    },
+    {
+      "source_mask": 3,
+      "target_mask": 7,
+      "event": "diana_read_memos",
+      "requires": [
+        "Diana",
+        "memos"
+      ],
+      "adds": []
+    },
+    {
+      "source_mask": 0,
+      "target_mask": 2,
+      "event": "men_help_diana",
+      "requires": [],
+      "adds": [
+        "Diana",
+        "men"
+      ]
+    },
+    {
+      "source_mask": 2,
+      "target_mask": 3,
+      "event": "sort_memos",
+      "requires": [],
+      "adds": [
+        "aide",
+        "memos"
+      ]
+    },
+    {
+      "source_mask": 3,
+      "target_mask": 7,
+      "event": "diana_read_memos",
+      "requires": [
+        "Diana",
+        "memos"
+      ],
+      "adds": []
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "An aide sorts the memos. Some men help Diana. Diana reads the memos.",
+      "kind": "intact_authored_prose",
+      "audit": {
+        "letters": 53,
+        "exact": false,
+        "first_mismatch": [
+          [
+            0,
+            "a",
+            "s"
+          ]
+        ],
+        "normalized": "anaidesortsthememossomemenhelpdianadianareadsthememos",
+        "sha256": "fdb82e6262fe7c72947d84435714cafab9daeea47ea25a33bcd68c8aaf185f6f",
+        "reverse_sha256": "eede02ce3ebf138c88998be6ad87529677a0af663a38112ee191c261fccb6a6e"
+      }
+    },
+    {
+      "rendered": "Diana reads the memos. Some men help Diana. An aide sorts the memos.",
+      "kind": "shuffled_order_control",
+      "audit": {
+        "letters": 53,
+        "exact": false,
+        "first_mismatch": [
+          [
+            0,
+            "d",
+            "s"
+          ]
+        ],
+        "normalized": "dianareadsthememossomemenhelpdianaanaidesortsthememos",
+        "sha256": "e006c99ecc9e624ff377c05086f50b70a77ae00337b25a7bea7c002af7f7824c",
+        "reverse_sha256": "49838ceb87024ca705b84a8dd59c0cd78f0eaabef2ed3e9deb9a469a4b06ec67"
+      }
+    }
+  ],
+  "incumbent": "An aide rips nine memos; some men inspire Diana.",
+  "provenance": {
+    "complete_sentence_enumeration": false,
+    "generated_sentence_count_before_intersection": 0,
+    "source": "fresh authored SVO event clauses with typed participants and anaphora",
+    "catalogue_replay": false,
+    "semordnilap_bank": false,
+    "per_candidate_rlaif": false,
+    "generator_sha256": "dfa908788a35b1eeff443d6b2ee023a0ef1aa246c84f1fcf3bdee2592df189bd"
+  },
+  "novelty_preflight": {
+    "novel_algorithm_claim": false,
+    "representation_change": "semantic event masks merge event orders and gate anaphora before character matching"
+  },
+  "reader_test": {
+    "status": "not collected",
+    "next": "randomized blinded intact-prose and shuffled controls for any new exact closure"
+  },
+  "next_repair": {
+    "operator": "replace one shared object slot with a transitive attachment while retaining event identity",
+    "reason": "current lattice has no productive exact closure beyond inherited material; change attachment topology, not vocabulary breadth"
+  }
+}

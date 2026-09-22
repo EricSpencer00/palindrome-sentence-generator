@@ -1,0 +1,176 @@
+{
+  "experiment_id": "packed-entity-attachment-grammar-20260930",
+  "method": "online equal-character intersection over proper-name scene slots",
+  "slots": [
+    {
+      "role": "agent",
+      "alternatives": [
+        "Mara",
+        "Nora",
+        "Leon",
+        "Diana",
+        "Anna",
+        "Elena"
+      ]
+    },
+    {
+      "role": "finite_event",
+      "alternatives": [
+        "maps",
+        "marks",
+        "reads",
+        "keeps",
+        "folds",
+        "opens",
+        "carries"
+      ]
+    },
+    {
+      "role": "theme",
+      "alternatives": [
+        "the map",
+        "a note",
+        "the letter",
+        "a parcel",
+        "the chart",
+        "a book"
+      ]
+    },
+    {
+      "role": "attachment",
+      "alternatives": [
+        "",
+        "at dawn",
+        "by the gate",
+        "near the river",
+        "for Nora",
+        "with care"
+      ]
+    }
+  ],
+  "bank_checks": {
+    "phrase_count": 24,
+    "reverse_pairs": [],
+    "reverse_pair_free": true,
+    "lexical_frame": "proper-agent + finite-event + theme-object + optional-attachment"
+  },
+  "controls": [
+    {
+      "text": "Mara maps the map at dawn.",
+      "audit": {
+        "letters": 20,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "m",
+          "n"
+        ],
+        "sha256_forward": "2bbc00c4a07bcbc06bf563117f2bd6be0a2eca2166c801059d37c0ffb0c430a6",
+        "sha256_reverse": "7942c5a848b7fb7494fed8ff4204a79a2597c0ba25c0c6fd051be78ee4d0ce2c",
+        "sha_equal": false,
+        "normalized": "maramapsthemapatdawn"
+      }
+    },
+    {
+      "text": "Nora reads a letter by the gate.",
+      "audit": {
+        "letters": 25,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "n",
+          "e"
+        ],
+        "sha256_forward": "72f6298ea8aaf7bf09e2aa3e7024657a4e323a69f90c74964dd31986fad7dee9",
+        "sha256_reverse": "9f4cafaa4dcdf7fc9ffe9239a306cdd6cfd59dd61adbd14f475aef1933374d59",
+        "sha_equal": false,
+        "normalized": "norareadsaletterbythegate"
+      }
+    }
+  ],
+  "solver_stats": {
+    "states": 8,
+    "transitions": 7,
+    "cap_reached": false,
+    "grammar_states": 125,
+    "grammar_character_edges": 144
+  },
+  "exact_candidates": [],
+  "accepting_witnesses": [],
+  "reader_gate": "closed; no blinded human ratings collected",
+  "next_operator": [
+    {
+      "matched_pairs": 2,
+      "left_state": 9,
+      "right_state": 74,
+      "left_next": [
+        "o"
+      ],
+      "right_next": [
+        "c"
+      ],
+      "left_partial": "Leon",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 15,
+      "right_state": 117,
+      "left_next": [
+        "n"
+      ],
+      "right_next": [
+        "r"
+      ],
+      "left_partial": "Anna",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 18,
+      "right_state": 61,
+      "left_next": [
+        "l"
+      ],
+      "right_next": [
+        "t"
+      ],
+      "left_partial": "Elena",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 18,
+      "right_state": 100,
+      "left_next": [
+        "l"
+      ],
+      "right_next": [
+        "t"
+      ],
+      "left_partial": "Elena",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 18,
+      "right_state": 124,
+      "left_next": [
+        "l"
+      ],
+      "right_next": [
+        "r"
+      ],
+      "left_partial": "Elena",
+      "right_partial": ""
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "996397d4c12e26455c6aa153f10cbedb1377063a1724ef975bb416b2b9167b6d",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256",
+      "shared packed intersection"
+    ]
+  }
+}

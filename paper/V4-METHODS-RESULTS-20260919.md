@@ -4,8 +4,9 @@ This note is the current evidence-led core for the paper. The working claim
 is constructive: choose grammatical lexical paths while satisfying character
 seams during search. Exactness is independently checked; automatic language
 scores and AI feedback only diagnose historical lanes. The active search is
-exact-by-construction, with grammar boundaries and mirrored character orbits
-chosen together. No output below is human certified yet.
+exact-by-construction from the verified 498-letter content incumbent, with
+partial-word ownership, residual characters, grammar boundaries, and opposing
+cursors carried together. No output below is human certified yet.
 
 The readability target is broad English: an intact, grammatical, scene-bearing
 line that a blinded reader can understand. “Shakespearean,” where it appears
@@ -13,9 +14,59 @@ in legacy run names or diagnostic fields, is not a diction or imitation
 requirement. Literary vocabulary is neither a shortcut nor a certificate;
 reader ratings decide whether an exact output is readable.
 
-## Anchor and frontier
+## Active 498-letter content incumbent and live-seam frontier
 
-The current strict mechanical frontier begins with a fresh 42-letter witness:
+The active parent is the independently exact 498-letter row in
+`runs/overhang-growth-from-240-20261001.json`, not the historical 38-letter
+sentence and not the 530-letter duplicated wrapper. Its normalized tape has
+SHA-256
+`e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032`;
+an independent regular-expression normalizer, a direct outside-in pointer
+walk, the project validator, and forward/reverse SHA-256 all agree. The exact
+rendered parent is:
+
+> **to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got**
+
+This is the content incumbent because it carries a large original generated
+tape and a reproducible construction trace. It is not claimed to be readable
+prose. The 530-letter row remains only a repetition control and is never loaded
+as a parent by the active experiment.
+
+The active operator reopens a concrete partial-word seam in that exact parent.
+At cursors 46/452, it carries live owner `L` and residual `rif`: left `fir|e`
+renders *fire*, while right `he|r` renders *her*. Three exact children expose
+the resulting bad boundary “were her.” Instead of defending it, the repair
+moves both cursors eight letters inward to 54/444. The left `m|any` cut is
+resegmented after *a poem* so the retained suffix becomes the ordinary word
+*any*; the opposing `na|me` cut closes as *name*. Each event span is admitted
+only after its residual reaches the opposing cursor, and every finished child
+is rechecked independently.
+
+The repaired frontier contains three distinct exact children of 552, 554, and
+560 letters. The 560-letter member is:
+
+> **A ram saw Leon. Nadia delivers maps. Nora stops rats. Mara maps Leon. Deliver no evil. Aidan stops rats. A poem. Any. Me? rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name. Opa, Star spots Nadia. Live on, reviled. Noel, spam Aram. Star spots Aron. Spam's reviled, Aidan. Noel was Mara.**
+
+Its normalized length is 560 and its independently reproduced forward/reverse
+SHA-256 is
+`7b75356b778309fe0fe221cfed5642f7f47b52f73e308556e11f7a04cd0e5dfa`.
+The other two repaired frontier rows have different event paths and hashes;
+all six diagnostic and repaired rows exceed 530 and end with empty residuals.
+The new lexical/event content includes *ram*, *poem*, delivery, mapping, and
+stopped-rat events. This remains rough working text, not reader-ready output:
+the inherited sequence after “A poem. Any. Me?” is the next editable seam, and
+no human reader result is claimed. Generator, live traces, rendered rows, and
+audits are in
+`runs/incumbent-498-partial-boundary-frontier-20261002.json`.
+
+## Retired short-form exact witnesses
+
+The branch budget for 38-letter recovery, morphology cycles, short dialogue,
+fixed paragraph shells, and historical reader-gate variants is exhausted.
+They remain below only as reproducible negative evidence and are not the
+active search or the paper's claimed contribution.
+
+One retired strict mechanical witness has 42 letters:
 
 > **No trace. Note: Spot spoons; snoop; stop. Set one carton.**
 
@@ -172,8 +223,8 @@ variation alone is not the answer: four additional common-word carrier pairs
 were exact and boundary-clean at depth two, but all reduced event continuity
 relative to `No trace. Note ... Set one carton`.
 
-The earlier 498-letter residual-growth artifact is retained as a permissive
-structural-control branch, not as the active content incumbent. Its exact
+The 498-letter residual-growth artifact is the active permissive content
+incumbent. Its exact
 normalized tape has
 SHA-256 `e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032`;
 an independent normalizer, direct two-pointer scan, the project validator, and
@@ -181,7 +232,7 @@ forward/reverse SHA all agree. The 530-letter desserts/stressed wrapper is a
 repetition control, not an incumbent. A separate 528-letter drawer/reward
 descendant adds a new event and is retained in the working frontier.
 
-The first live-seam method reopens the parent's actual outer closure instead of wrapping a
+The first live-seam generation reopens the parent's actual outer closure instead of wrapping a
 finished tape. Removing `to` and `got` retains `get ... estate` at normalized
 cursors 2 and 495. The live state is owner `R`, residual `g`: the mixed word
 `get` repays left debt `et` and exposes `g`; “Get a map” consumes that `g` and

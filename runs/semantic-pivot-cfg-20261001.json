@@ -1,0 +1,149 @@
+{
+  "experiment_id": "semantic-pivot-cfg-20261001",
+  "method": "typed semantic-pivot CFG with live character intersection before lexical expansion",
+  "slots": [
+    {
+      "role": "subject",
+      "choices": [
+        "a nurse",
+        "the aide",
+        "a poet",
+        "an old aide",
+        "one nurse"
+      ]
+    },
+    {
+      "role": "determiner",
+      "choices": [
+        "",
+        "the",
+        "a",
+        "one"
+      ]
+    },
+    {
+      "role": "verb",
+      "choices": [
+        "reads",
+        "marks",
+        "keeps",
+        "writes",
+        "maps",
+        "sends"
+      ]
+    },
+    {
+      "role": "object",
+      "choices": [
+        "a note",
+        "the map",
+        "nine memos",
+        "a letter",
+        "the chart"
+      ]
+    },
+    {
+      "role": "pivot",
+      "choices": [
+        ";",
+        ".",
+        " and ",
+        " while "
+      ]
+    },
+    {
+      "role": "subject2",
+      "choices": [
+        "some men",
+        "the nurse",
+        "Diana",
+        "a poet",
+        "the aide"
+      ]
+    },
+    {
+      "role": "verb2",
+      "choices": [
+        "inspire",
+        "read",
+        "mark",
+        "keep",
+        "write",
+        "guide"
+      ]
+    },
+    {
+      "role": "object2",
+      "choices": [
+        "Diana",
+        "the aide",
+        "a note",
+        "the map",
+        "some men"
+      ]
+    }
+  ],
+  "bank_checks": {
+    "phrase_count": 37,
+    "reverse_pairs": [],
+    "reverse_pair_free": true
+  },
+  "solver_stats": {
+    "states": 6,
+    "transitions": 5,
+    "cap_reached": false,
+    "grammar_states": 178,
+    "grammar_character_edges": 206
+  },
+  "exact_candidates": [],
+  "accepting_witnesses": [],
+  "reader_gate": "closed: no blinded human ratings collected",
+  "next_repair": [
+    {
+      "matched_pairs": 2,
+      "left_state": 3,
+      "right_state": 155,
+      "left_next": [
+        "u"
+      ],
+      "right_next": [
+        "a"
+      ],
+      "left_partial": "a nurse",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 2,
+      "left_state": 18,
+      "right_state": 155,
+      "left_next": [
+        "o"
+      ],
+      "right_next": [
+        "a"
+      ],
+      "left_partial": "an old aide",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 13,
+      "right_state": 156,
+      "left_next": [
+        "p"
+      ],
+      "right_next": [
+        "n"
+      ],
+      "left_partial": "a poet",
+      "right_partial": ""
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "edcabc7b81fe808a9ef3ffeda69ad8d00331b89df409c853a79e3aee592cf16f",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ]
+  }
+}

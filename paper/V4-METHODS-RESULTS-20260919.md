@@ -120,6 +120,42 @@ authored intact first-person control, and a word-shuffled control. Artifact:
 `runs/first-person-discourse-abba-20261002.json`; generator:
 `experiments/first_person_discourse_abba_20261002.py`.
 
+### Hierarchical four-paragraph ABBA
+
+The same typed construction can place paragraph boundaries inside the exact
+search state rather than adding them after generation. We partition fresh
+object/state pairs between two observation spans, `A` and `B`, and emit their
+state clauses in reverse pair order as `B'` and `A'`. Each paragraph has its
+own reverse-tape certificate; no paragraph or sentence is self-palindromic.
+The preferred longer reader row is:
+
+> **I saw lager. I saw desserts.**
+>
+> **I saw trams. I saw guns. I saw war.**
+>
+> **Raw was I. Snug was I. Smart was I.**
+>
+> **Stressed was I. Regal was I.**
+
+It has 90 normalized letters and SHA-256
+`5b6eca79c4bc0cc0659b1b6a0d8718214166b005c96d70c1794b0a08bd39cd74`
+in both directions. The independent two-pointer walk, project validator, two
+paragraph-pair checks, and five clause-pair checks agree. A sixth fresh pair
+(`gums/smug`) gives a 106-letter exact stress test, but that version is not the
+preferred reader row because the added observation increases awkwardness.
+Both surfaces are fully disclosed in the blinded packet alongside intact and
+word-shuffled controls. Repeated syntax remains a high-listiness diagnostic,
+not a hidden success claim; human ratings are pending. Artifact:
+`runs/hierarchical-paragraph-abba-20261002.json`; generator:
+`experiments/hierarchical_paragraph_abba_20261002.py`.
+
+This yields a simple linear composition rule: every newly admitted,
+non-self-palindromic object/state reverse pair can extend either `A/A'` or
+`B/B'` without breaking exactness. The current limitation is lexical rather
+than mechanical: the reader-plausible pair bank is small. The next generator
+must mine multiword object/predicate equations with grammar tags, admitting a
+pair only when it improves the scene rather than merely lengthening the list.
+
 ## Cross-role clause CSP
 
 As a new constructive lane, we paired complete contemporary clauses while

@@ -1,0 +1,286 @@
+{
+  "experiment_id": "hierarchical-paragraph-abba-20261002",
+  "method": "typed object/state generation with exact hierarchical A/B/B-prime/A-prime paragraph seams",
+  "scaling_rule": "each accepted non-self object/state reverse pair adds one observation and one state clause; exactness is invariant under adding a fresh pair to A or B",
+  "scaling_limit": "linear composition is currently bounded by the small reader-plausible pair bank; phrase mining must expand the bank without lowering grammar quality",
+  "candidates": [
+    {
+      "id": "paragraph-abba-reader-90",
+      "role": "reader candidate; longer than the 56-letter sentence anchor",
+      "rendered": "I saw lager. I saw desserts.\n\nI saw trams. I saw guns. I saw war.\n\nRaw was I. Snug was I. Smart was I.\n\nStressed was I. Regal was I.",
+      "paragraphs": [
+        "I saw lager. I saw desserts.",
+        "I saw trams. I saw guns. I saw war.",
+        "Raw was I. Snug was I. Smart was I.",
+        "Stressed was I. Regal was I."
+      ],
+      "units": [
+        "I saw lager.",
+        "I saw desserts.",
+        "I saw trams.",
+        "I saw guns.",
+        "I saw war.",
+        "Raw was I.",
+        "Snug was I.",
+        "Smart was I.",
+        "Stressed was I.",
+        "Regal was I."
+      ],
+      "topology": "A / B / B-prime / A-prime",
+      "paragraph_pair_certificates": [
+        {
+          "left": "A",
+          "right": "A-prime",
+          "exact_reverse": true
+        },
+        {
+          "left": "B",
+          "right": "B-prime",
+          "exact_reverse": true
+        }
+      ],
+      "typed_pair_certificates": [
+        {
+          "object": "lager",
+          "state": "regal",
+          "object_type": "mass noun",
+          "state_type": "adjective",
+          "left": "I saw lager.",
+          "right": "Regal was I.",
+          "exact_reverse": true
+        },
+        {
+          "object": "desserts",
+          "state": "stressed",
+          "object_type": "plural noun",
+          "state_type": "participle",
+          "left": "I saw desserts.",
+          "right": "Stressed was I.",
+          "exact_reverse": true
+        },
+        {
+          "object": "trams",
+          "state": "smart",
+          "object_type": "plural noun",
+          "state_type": "adjective",
+          "left": "I saw trams.",
+          "right": "Smart was I.",
+          "exact_reverse": true
+        },
+        {
+          "object": "guns",
+          "state": "snug",
+          "object_type": "plural noun",
+          "state_type": "adjective",
+          "left": "I saw guns.",
+          "right": "Snug was I.",
+          "exact_reverse": true
+        },
+        {
+          "object": "war",
+          "state": "raw",
+          "object_type": "mass noun",
+          "state_type": "adjective",
+          "left": "I saw war.",
+          "right": "Raw was I.",
+          "exact_reverse": true
+        }
+      ],
+      "audit": {
+        "letters": 90,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator": true,
+        "forward_sha256": "5b6eca79c4bc0cc0659b1b6a0d8718214166b005c96d70c1794b0a08bd39cd74",
+        "reverse_sha256": "5b6eca79c4bc0cc0659b1b6a0d8718214166b005c96d70c1794b0a08bd39cd74",
+        "sha_equal": true
+      },
+      "unit_guard": {
+        "distinct_units": true,
+        "repeated_units": false,
+        "self_palindromic_units": [],
+        "self_palindromic_paragraphs": []
+      },
+      "discourse_diagnostic": {
+        "shared_participant": "first-person narrator in every clause",
+        "arc": "observations in A/B, state response in B-prime/A-prime",
+        "repeated_template": true,
+        "listiness_risk": "high",
+        "diagnostic_only": true
+      },
+      "provenance": {
+        "source": "fresh typed object/state grammar",
+        "finished_tape_reversal": false,
+        "catalogue_borrowing": false,
+        "posthoc_character_repair": false,
+        "per_candidate_rlaif": false,
+        "reader_certified": false
+      }
+    },
+    {
+      "id": "paragraph-abba-length-106",
+      "role": "length stress test; gums/smug pair adds awkwardness and is not the preferred reader row",
+      "rendered": "I saw lager. I saw desserts. I saw gums.\n\nI saw trams. I saw guns. I saw war.\n\nRaw was I. Snug was I. Smart was I.\n\nSmug was I. Stressed was I. Regal was I.",
+      "paragraphs": [
+        "I saw lager. I saw desserts. I saw gums.",
+        "I saw trams. I saw guns. I saw war.",
+        "Raw was I. Snug was I. Smart was I.",
+        "Smug was I. Stressed was I. Regal was I."
+      ],
+      "units": [
+        "I saw lager.",
+        "I saw desserts.",
+        "I saw gums.",
+        "I saw trams.",
+        "I saw guns.",
+        "I saw war.",
+        "Raw was I.",
+        "Snug was I.",
+        "Smart was I.",
+        "Smug was I.",
+        "Stressed was I.",
+        "Regal was I."
+      ],
+      "topology": "A / B / B-prime / A-prime",
+      "paragraph_pair_certificates": [
+        {
+          "left": "A",
+          "right": "A-prime",
+          "exact_reverse": true
+        },
+        {
+          "left": "B",
+          "right": "B-prime",
+          "exact_reverse": true
+        }
+      ],
+      "typed_pair_certificates": [
+        {
+          "object": "lager",
+          "state": "regal",
+          "object_type": "mass noun",
+          "state_type": "adjective",
+          "left": "I saw lager.",
+          "right": "Regal was I.",
+          "exact_reverse": true
+        },
+        {
+          "object": "desserts",
+          "state": "stressed",
+          "object_type": "plural noun",
+          "state_type": "participle",
+          "left": "I saw desserts.",
+          "right": "Stressed was I.",
+          "exact_reverse": true
+        },
+        {
+          "object": "gums",
+          "state": "smug",
+          "object_type": "plural noun",
+          "state_type": "adjective",
+          "left": "I saw gums.",
+          "right": "Smug was I.",
+          "exact_reverse": true
+        },
+        {
+          "object": "trams",
+          "state": "smart",
+          "object_type": "plural noun",
+          "state_type": "adjective",
+          "left": "I saw trams.",
+          "right": "Smart was I.",
+          "exact_reverse": true
+        },
+        {
+          "object": "guns",
+          "state": "snug",
+          "object_type": "plural noun",
+          "state_type": "adjective",
+          "left": "I saw guns.",
+          "right": "Snug was I.",
+          "exact_reverse": true
+        },
+        {
+          "object": "war",
+          "state": "raw",
+          "object_type": "mass noun",
+          "state_type": "adjective",
+          "left": "I saw war.",
+          "right": "Raw was I.",
+          "exact_reverse": true
+        }
+      ],
+      "audit": {
+        "letters": 106,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator": true,
+        "forward_sha256": "1a16438655ef607f4e1807c9d11b31e3361e4c203cab25f6e683a05ce9259b09",
+        "reverse_sha256": "1a16438655ef607f4e1807c9d11b31e3361e4c203cab25f6e683a05ce9259b09",
+        "sha_equal": true
+      },
+      "unit_guard": {
+        "distinct_units": true,
+        "repeated_units": false,
+        "self_palindromic_units": [],
+        "self_palindromic_paragraphs": []
+      },
+      "discourse_diagnostic": {
+        "shared_participant": "first-person narrator in every clause",
+        "arc": "observations in A/B, state response in B-prime/A-prime",
+        "repeated_template": true,
+        "listiness_risk": "high",
+        "diagnostic_only": true
+      },
+      "provenance": {
+        "source": "fresh typed object/state grammar",
+        "finished_tape_reversal": false,
+        "catalogue_borrowing": false,
+        "posthoc_character_repair": false,
+        "per_candidate_rlaif": false,
+        "reader_certified": false
+      }
+    }
+  ],
+  "stats": {
+    "typed_pairs_available": 6,
+    "exact_candidates": 2,
+    "preferred_reader_letters": 90,
+    "longest_letters": 106
+  },
+  "reader_packet": [
+    {
+      "id": "intact-scene-control",
+      "kind": "intact_control",
+      "rendered": "I saw lager and desserts near the tram stop. Then I saw guns and war. The scene left me raw and stressed, though I tried to remain smart.",
+      "blind_id": "paragraph-item-01"
+    },
+    {
+      "id": "paragraph-abba-reader-90",
+      "kind": "exact_candidate",
+      "rendered": "I saw lager. I saw desserts.\n\nI saw trams. I saw guns. I saw war.\n\nRaw was I. Snug was I. Smart was I.\n\nStressed was I. Regal was I.",
+      "blind_id": "paragraph-item-02"
+    },
+    {
+      "id": "shuffled-scene-control",
+      "kind": "shuffled_control",
+      "rendered": "though and and scene war. smart. Then saw the to and remain tram me I tried raw stop. I The lager I guns saw left desserts stressed, near",
+      "shuffle_seed": 20261002,
+      "blind_id": "paragraph-item-03"
+    },
+    {
+      "id": "paragraph-abba-length-106",
+      "kind": "exact_candidate",
+      "rendered": "I saw lager. I saw desserts. I saw gums.\n\nI saw trams. I saw guns. I saw war.\n\nRaw was I. Snug was I. Smart was I.\n\nSmug was I. Stressed was I. Regal was I.",
+      "blind_id": "paragraph-item-04"
+    }
+  ],
+  "reader_instructions": "In randomized order, rate ordinary English readability, coherence, and listiness from 1-5. Do not show exactness labels. Programmatic diagnostics are not readability evidence.",
+  "reader_status": "prepared; blinded human ratings pending",
+  "novelty_preflight": {
+    "status": "passed",
+    "distinctive_change": "paragraph boundaries are first-class mirrored spans, not punctuation pasted onto a one-sentence tape",
+    "not_a_larger_duplicate_sweep": true
+  },
+  "next_operator": "mine multiword object/predicate reverse equations with corpus grammar tags, then add only pairs that reduce rather than increase template listiness"
+}

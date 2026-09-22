@@ -9084,6 +9084,24 @@ grammar variant.
   reader candidate: literary inversion and scene coherence require blinded
   human ratings. Artifact: `runs/first-person-discourse-abba-20261002.json`.
 
+- **Hierarchical four-paragraph ABBA (2026-10-02):** paragraph boundaries are
+  now part of the typed construction state. Fresh object/state pairs are
+  partitioned between observation paragraphs `A` and `B`, then emitted in
+  reverse pair order as state paragraphs `B'` and `A'`. The preferred longer
+  row is 90 letters: “I saw lager. I saw desserts. / I saw trams. I saw guns.
+  I saw war. / Raw was I. Snug was I. Smart was I. / Stressed was I. Regal was
+  I.” It passes an independent two-pointer walk, the project validator, equal
+  forward/reverse SHA-256, two paragraph-pair checks, and five clause-pair
+  checks. All ten clauses are distinct; no sentence or paragraph is
+  self-palindromic. Adding the fresh `gums/smug` pair gives a separately exact
+  106-letter stress test, but it is not preferred because it increases
+  awkwardness. Both candidates are in a randomized packet with intact and
+  word-shuffled controls, and both remain uncertified until blinded human
+  ratings. This is a genuine linear scaling rule over fresh typed pairs, not a
+  claim of unlimited readable output: the present reader-plausible pair bank
+  is still small. Artifact: `runs/hierarchical-paragraph-abba-20261002.json`;
+  generator: `experiments/hierarchical_paragraph_abba_20261002.py`.
+
 ## Current orchestration routing (2026-10-02)
 
 GPT-5.6 Sol owns architecture and coordinated direction for this goal.

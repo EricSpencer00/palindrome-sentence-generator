@@ -10,28 +10,39 @@ The exact 560, 558, and 556 children remain preserved frontier entries with
 independently verified hashes. Proper spans, repeated scaffolding, rough syntax,
 and absent reader validation are repair debt and do not demote the 568 result.
 
-The current lineage is **644 → rejected 652 → repaired 666**. The 652 row
-`scaffold-repair-aidan-draws-652` in
-`runs/incumbent-644-scaffold-repair-20260922.json` is exact
-(SHA-256 `0b7f1950beac54b34a8ec66e5150f995abeda4d2d07bfd2f0eb454fed108f1e5`)
-but is explicitly rejected/non-promoted for fragment debt: the Aidan-draws
-seam leaves a dangling vocative/appositive and a lowercase sentence start.
-It remains exact evidence only and does not demote the 568 incumbent.
+The verified parent chain is **568 → 602 → 620 → 644 → rejected 652 → 666
+clause repair → 666 diversification**. The 602 child is row
+`internal-mara-stops-602` in `runs/incumbent-568-internal-seam-growth-20260922.json`
+(SHA-256 `69696036f9bb9392ae9473884f011cfb767b4700d6407f5a07f3fba595953c89`);
+the 620 child is row `fragment-repair-mara-rats-620` in
+`runs/incumbent-602-fragment-seam-repair-20260922.json` (SHA-256
+`d20fc566d6a636e9826e432550be92e3ce5ace8a3cdaa2f6d291ad0709ffb90a`).
 
-The completed same-window clause repair loads that 652 row and edits its
-normalized windows `[115,133)` and `[519,537)` with the residual-owned
-equation `Nora sees Aram. Mara sees Nadia.` ↔
-`Aidan sees Aram. Mara sees Aron;`. The independently exact **666-letter**
-child is row `clause-window-repair-nora-sees-666` in
+The 652 row `scaffold-repair-aidan-draws-652` in
+`runs/incumbent-644-scaffold-repair-20260922.json` is exact (SHA-256
+`0b7f1950beac54b34a8ec66e5150f995abeda4d2d07bfd2f0eb454fed108f1e5`) but is
+explicitly rejected/non-promoted for fragment debt: its seam leaves a dangling
+vocative/appositive and a lowercase sentence start. The completed 666 clause
+repair then loads that row at `[115,133)` / `[519,537)` and produces row
+`clause-window-repair-nora-sees-666` in
 `runs/incumbent-652-clause-window-repair-20260922.json`, SHA-256
 `b6ccddf4d34f9d2705238f615336e633cb76bccdd010913d44799881df75584e`.
-Clean review confirms complete mirrored clauses, no dangling vocative or
-appositive, no predicate-less fragment, and sentence capitalization; the
-remaining repetition and rough syntax are recorded repair debt.
 
-The next action repairs the clearest remaining grammar debt in the 666 child;
-change this same window only on a committed contradiction, with the clean 594
-cursor-204/364 fallback available only then.
+The current diversified frontier remains independently exact at **666 letters**:
+row `central-diversification-nadia-spots-666` in
+`runs/incumbent-666-central-diversification-20260922.json`, SHA-256
+`6d96e68c2f9cffec70f2c688a89ed5ad2dcdf0a80097f1d711c28ec4fdad298a`. Its
+residual-owned center equation at normalized windows `[297,333)` / `[333,369)`
+is `Nadia sees Mara. Aidan spots Ira. Ari sees God.` ↔
+`Dog sees Ira. Ari stops Nadia. Aram sees Aidan`; the local `sees` count falls
+from 6 to 4. Clean Luna review confirms complete clauses, empty residual, exact
+reversal, and no dangling vocative/appositive or predicate-less fragment.
+
+Remaining debt is inherited proper-palindromic spans, rough syntax, repeated
+star/spam and Mara-stops-rats scaffolding, residual delivers-maps repetition
+elsewhere, and absent reader validation. The next candidate action must load
+this diversified 666 artifact, edit another actual seam with explicit residual
+ownership, and preserve the 568 incumbent and 560/558/556 frontier.
 
 Fresh POS search, productive-affix search, morphology cycles, short witnesses,
 and reader-study operators are stopped. They are not active alternatives.
@@ -40,9 +51,10 @@ Terra, or other model.
 
 Evidence:
 `experiments/incumbent_644_scaffold_repair_20260922.py`,
-`runs/incumbent-644-scaffold-repair-20260922.json`,
-`experiments/incumbent_652_clause_window_repair_20260922.py`, and
-`runs/incumbent-652-clause-window-repair-20260922.json`.
+`experiments/incumbent_652_clause_window_repair_20260922.py`,
+`experiments/incumbent_666_central_cluster_repair_20260922.py`, and
+`experiments/incumbent_666_central_diversification_20260922.py` with their
+committed run artifacts.
 
 ## Historical 498-to-568 construction ledger (superseded by the override above)
 

@@ -11,9 +11,13 @@ def test_outer_causal_scene_is_exact_and_longer() -> None:
     assert row["audit"]["project_validator_exact"]
     assert row["growth_over_parent"] == 8
     assert row["live_state"]["final_residual"] == ""
+    assert row["id"] == "outer-causal-scene-568-working-incumbent"
+    assert row["working_status"] == "working_length_incumbent"
+    assert payload["working_length_incumbent"]["sha256"] == row["audit"]["sha256_forward"]
+    assert [item["letters"] for item in payload["diverse_repair_frontier"]] == [560, 556]
 
 
-def test_outer_scene_does_not_hide_inherited_shortcut_failure() -> None:
+def test_outer_scene_records_shortcut_metrics_as_repair_debt() -> None:
     payload = build_payload()
     strict = payload["rows"][0]["strict_admission"]
 
@@ -23,3 +27,5 @@ def test_outer_scene_does_not_hide_inherited_shortcut_failure() -> None:
     assert not strict["distinct_content_words"]
     assert not strict["shortcut_clean"]
     assert payload["stats"]["shortcut_clean_children"] == 0
+    assert payload["rows"][0]["repair_debt"]["effect"].startswith("prioritize repair")
+    assert "rejected" not in strict["status"]

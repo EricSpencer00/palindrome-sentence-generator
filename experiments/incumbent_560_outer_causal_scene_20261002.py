@@ -1,4 +1,4 @@
-"""Replace one repetitive outer macro with a causally linked exact scene."""
+"""Promote the exact 568-letter causal scene as the working length incumbent."""
 from __future__ import annotations
 
 import json
@@ -23,6 +23,7 @@ PARENT = ROOT / "runs" / "incumbent-550-central-event-bridge-20261002.json"
 OUT = ROOT / "runs" / "incumbent-560-outer-causal-scene-20261002.json"
 PARENT_SHA256 = "b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc"
 EXPECTED_SHA256 = "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+FRONTIER_556_SHA256 = "28b303081c7eeae9b0f4c7e274d71e73551c64f5ad389b2d992b6183597f6d14"
 
 OLD_LEFT = "Nadia delivers maps. Nora stops rats. A tub? He maps Leon."
 OLD_RIGHT = "Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan."
@@ -57,7 +58,10 @@ def build_payload() -> dict[str, object]:
         "distinct_content_words": has_distinct_content_words(units),
         "shortcut_clean": False,
         "human_certified": False,
-        "status": "exact permissive working child; rejected from reader promotion",
+        "status": (
+            "exact working length incumbent; proper spans, repeated units, and "
+            "rough prose are repair debt; human certification remains pending"
+        ),
     }
     assert not strict["no_self_palindromic_proper_multiword_span"]
     assert not strict["no_repeated_nontrivial_unit"]
@@ -75,11 +79,33 @@ def build_payload() -> dict[str, object]:
         "stats": {
             "independently_exact_children": 1,
             "longest_letters": 568,
+            "working_length_incumbent_letters": 568,
             "shortcut_clean_children": 0,
             "proper_span_count": len(spans),
         },
+        "working_length_incumbent": {
+            "artifact": str(OUT.relative_to(ROOT)),
+            "id": "outer-causal-scene-568-working-incumbent",
+            "letters": 568,
+            "sha256": EXPECTED_SHA256,
+        },
+        "diverse_repair_frontier": [
+            {
+                "artifact": str(PARENT.relative_to(ROOT)),
+                "id": "central-distinct-events-560",
+                "letters": 560,
+                "sha256": PARENT_SHA256,
+            },
+            {
+                "artifact": "runs/incumbent-498-event-frame-seam-repair-20261002.json",
+                "id": "depth39-longest-f1g1h1r",
+                "letters": 556,
+                "sha256": FRONTIER_556_SHA256,
+            },
+        ],
         "rows": [{
-            "id": "outer-causal-scene-568-rejected",
+            "id": "outer-causal-scene-568-working-incumbent",
+            "working_status": "working_length_incumbent",
             "rendered": rendered,
             "audit": result_audit,
             "parent_artifact": str(PARENT.relative_to(ROOT)),
@@ -105,9 +131,17 @@ def build_payload() -> dict[str, object]:
                 "final_residual": "",
             },
             "strict_admission": strict,
+            "repair_debt": {
+                "proper_palindromic_spans": len(spans),
+                "repeated_nontrivial_units": True,
+                "rough_prose": True,
+                "effect": "prioritize repair; do not reject the exact working result",
+            },
             "next_operator": (
-                "solve the asymmetric smaps center window before reusing this "
-                "outer scene; the inherited central proper span remains fatal"
+                "reopen an actual partial-word seam of this 568-letter tape, "
+                "carry residual ownership across it, save independently exact "
+                "children with new event content longer than 568, then repair "
+                "the worst repeated outer shell"
             ),
         }],
     }

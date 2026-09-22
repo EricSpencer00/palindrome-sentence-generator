@@ -99,39 +99,45 @@ def make_row(a1, b1, b2, a2):
 def run():
     b2_index = {}
     for unit in UNITS["B2"]:
-        word = tape(re.match(r"[a-z]+", unit.casefold()).group())
+        word = tape(re.findall(r"[a-z]+", unit.casefold())[-1])
         b2_index.setdefault(word, []).append(unit)
-    rows = []
+    rows, frontiers = [], []
     for a1, b1 in itertools.product(UNITS["A1"], UNITS["B1"]):
         left = f"{a1} {b1}"
         # Correct ABBA orientation: solve outer A1/A2 before inner B1/B2.
         for a2 in UNITS["A2"]:
             outer = word_boundary(a1, a2)
-            required = outer["right_back_next"]
-            selected = b2_index.get(required, []) or UNITS["B2"][:1]
+            required = tape(re.findall(r"[a-z]+", b1.casefold())[0])[::-1]
+            selected = b2_index.get(required, [])
+            frontiers.append({"roles": {"A1": a1, "B1": b1, "A2": a2},
+                "outer_consumption": outer, "required_B2_back_word": required,
+                "indexed_B2_options": len(selected), "rendered": False})
             for b2 in selected:
                 state = {"topic": "archive" if "archive" in a1 else "pier",
                          "referent": "baker" if "baker" in b1 else "nurse"}
                 row = make_row(a1, b1, b2, a2)
+                inner = word_boundary(b1, b2)
+                if not outer["complete_word_consumption"] or not inner["complete_word_consumption"]:
+                    continue
                 row["selection"] = {"live_required_opening_word": required,
                     "index_hit": required in b2_index, "discourse_state": state,
                     "complete_word_boundary_required": True,
                     "orientation": "A1+B1+B2+A2; outer A1/A2 solved first",
                     "outer_consumption": outer,
-                    "inner_consumption": word_boundary(b1, b2)}
+                    "inner_consumption": inner}
                 row["provenance"]["residual_conditioned_b2"] = True
                 row["provenance"]["a2_jointly_authored_after_b2"] = True
                 rows.append(row)
     exact = [r for r in rows if r["audit"]["two_pointer_exact"] and r["audit"]["project_validator"]]
-    best = max(rows, key=lambda r: r["live_residual"]["supported_depth"])
+    best = max(rows, key=lambda r: r["live_residual"]["supported_depth"]) if rows else None
     return {"experiment_id": "multisentence-generation-abba-20261002-revised",
         "lineage": "revises multisentence-generation-abba-20261002; original artifact preserved",
         "method": "discourse-linked frame lattice with live complete-word B2 index and joint A2",
         "stats": {"units_per_role": 2, "rows": len(rows), "exact_closures": len(exact),
                   "max_supported_depth": best["live_residual"]["supported_depth"],
-                  "best_normalized_length": best["normalized_length"],
+                  "best_normalized_length": best["normalized_length"] if best else 0,
                   "complete_word_seam_rows": sum(r["live_residual"]["complete_word_seam"] for r in rows)},
-        "exact_candidates": exact, "best_frontier": best, "rendered_candidates": rows,
+        "exact_candidates": exact, "best_frontier": best, "frontier_states": frontiers, "rendered_candidates": rows,
         "novelty_preflight": {"status": "passed", "registry_checked": ["abba_authored_paragraph_seam_20260930", "abba_residual_conditioned_paragraph_20260930"],
             "distinctive_change": "B2 selected from live residual/opening-word index; A2 follows discourse state; complete-word boundary gate",
             "not_clause_sweep": True},
@@ -139,7 +145,7 @@ def run():
             "independent_audits": ["two-pointer", "project validator", "forward/reverse SHA-256"],
             "reader_gate": "closed" if not exact else "exact closure shown"},
         "conclusion": "No exact closure was found; the best partial residual is retained. This differs from prefix targeting because B2 is admitted through a complete-word reverse-cursor obligation and semantic state.",
-        "next_repair": best["next_repair"]}
+        "next_repair": (best["next_repair"] if best else "Author a B2 unit whose last word equals reverse(B1's first word), while also satisfying the outer A1/A2 complete-word gate.")}
 
 if __name__ == "__main__":
     result = run(); OUT.write_text(json.dumps(result, indent=2) + "\n"); print(json.dumps(result["stats"], sort_keys=True))

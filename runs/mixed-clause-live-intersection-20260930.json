@@ -1,0 +1,79 @@
+{
+  "experiment_id": "mixed-clause-live-intersection-20260930",
+  "method": "mixed clause-type NFA with live bilateral character intersection",
+  "result": {
+    "candidates": [],
+    "states": 1,
+    "transitions": 0,
+    "dead_frontiers": [],
+    "grammar_states": 219,
+    "grammar_edges": 240,
+    "cap_reached": false
+  },
+  "rendered_candidates": [],
+  "positive_control": {
+    "rendered": "An aide rips nine memos; some men inspire Diana.",
+    "audit": {
+      "normalized": "anaideripsninememossomemeninspirediana",
+      "letters": 38,
+      "two_pointer_exact": true,
+      "first_mismatch": null,
+      "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "sha_equal_under_reversal": true
+    },
+    "validator": true
+  },
+  "controls": [
+    {
+      "rendered": "An aide rips nine memos. Diana answers.",
+      "audit": {
+        "normalized": "anaideripsninememosdianaanswers",
+        "letters": 31,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "s"
+        ],
+        "sha256_forward": "1169113a8b60974becad54aeb6e13bfe5b4316bef0c95aa541649cd0d21a760f",
+        "sha256_reverse": "bc5336de4f70272999f73b298fd37450d7703ee29066b33197a7630c1a2dcc8a",
+        "sha_equal_under_reversal": false
+      }
+    },
+    {
+      "rendered": "Why does Diana wait?",
+      "audit": {
+        "normalized": "whydoesdianawait",
+        "letters": 16,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "w",
+          "t"
+        ],
+        "sha256_forward": "e512d9b382face5dae1d624811fe8cc726259a2a6c631932219e96862c3d4bcb",
+        "sha256_reverse": "2a5cc142fd80edae66dd5b3bfc15626018720e833a00e236f058b211409e03f5",
+        "sha_equal_under_reversal": false
+      }
+    }
+  ],
+  "provenance": {
+    "complete_sentence_enumeration": false,
+    "catalogue_text": false,
+    "reversed_phrase_bank": false,
+    "repeated_self_palindromic_units": false,
+    "post_hoc_repair": false,
+    "per_candidate_rlaif": false,
+    "generator_sha256": "aeb6a50678146b70e522082fcc727fd399d2e7efa1212f8799ad76efa4f289a5"
+  },
+  "reader_gate": {
+    "status": "not_collected",
+    "programmatic_metrics_are_diagnostic": true,
+    "protocol": "Any novel exact output requires randomized blinded intact-prose and shuffled controls before readability admission."
+  },
+  "failure_and_repair": {
+    "status": "no novel exact closure",
+    "next": "If empty, open one cross-clause shared argument slot while retaining mixed clause types; do not add reversed phrase pairs."
+  }
+}

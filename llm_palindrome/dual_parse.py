@@ -74,10 +74,10 @@ def word_residual_search(
         if key in seen: continue
         seen.add(key)
         if li == len(left_slots) and ri == len(right_slots) and not residual:
-            left, right = " ".join(lw), " ".join(rw)
+            left, right = " ".join(lw), " ".join(reversed(rw))
             results.append({"left": left, "right": right,
                             "rendered": (left + " " + right).strip(),
-                            "left_roles": list(lroles), "right_roles": list(rroles),
+                            "left_roles": list(lroles), "right_roles": list(reversed(rroles)),
                             "residual": "", "exact_half_equation": True})
             continue
         # If a residual exists, only the opposite side may advance. Otherwise

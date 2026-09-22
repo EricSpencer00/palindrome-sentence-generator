@@ -6,12 +6,126 @@
     "scene_plans": 2,
     "max_iterations_per_plan": 8,
     "max_reparsed_columns_per_core": 2,
-    "vocabulary": "fixed common-word pools declared in source"
+    "vocabulary": "fixed pre-solve common Brown/WordNet character tries",
+    "max_oracle_entries_per_slot": 512,
+    "max_query_terminals": 32
   },
   "solver": {
     "engine": "OR-Tools CP-SAT",
     "ortools_version": "9.14.6206",
     "deterministic_workers": 1
+  },
+  "lexical_oracle": {
+    "construction": "fixed pre-solve character tries by existing plan and slot",
+    "lexical_intersection": "Brown common lowercase lexical items intersected with WordNet category membership",
+    "minimum_brown_count": 2,
+    "proper_name_tags_allowed": false,
+    "max_entries_per_slot": 512,
+    "max_query_terminals": 32,
+    "variable_length_policy": "disabled: a query uses the active slot length, so every CP-SAT offset and mirror equality remains valid",
+    "nltk_version": "3.10.3",
+    "wordnet_version": "3.0",
+    "brown_tagged_ascii_rows": 981716,
+    "brown_index_sha256": "2ec3035f9368e519354bc86db9e90f83c92902fbc38e919c5ebbc04881a01579",
+    "inventory_sha256": "0c06f78c1ef0fc1044011d3047ca2fdb69876a071d58895957253216da13669b",
+    "inventory": [
+      {
+        "plan": "orbital-meal",
+        "slot": "opening",
+        "entries": 451,
+        "trie_tapes": 451
+      },
+      {
+        "plan": "orbital-meal",
+        "slot": "observer",
+        "entries": 512,
+        "trie_tapes": 512
+      },
+      {
+        "plan": "orbital-meal",
+        "slot": "observe",
+        "entries": 13,
+        "trie_tapes": 13
+      },
+      {
+        "plan": "orbital-meal",
+        "slot": "sky_object",
+        "entries": 9,
+        "trie_tapes": 9
+      },
+      {
+        "plan": "orbital-meal",
+        "slot": "anaphoric_link",
+        "entries": 0,
+        "trie_tapes": 0
+      },
+      {
+        "plan": "orbital-meal",
+        "slot": "server",
+        "entries": 512,
+        "trie_tapes": 512
+      },
+      {
+        "plan": "orbital-meal",
+        "slot": "serve",
+        "entries": 41,
+        "trie_tapes": 41
+      },
+      {
+        "plan": "orbital-meal",
+        "slot": "meal",
+        "entries": 214,
+        "trie_tapes": 214
+      },
+      {
+        "plan": "camp-supper",
+        "slot": "opening",
+        "entries": 142,
+        "trie_tapes": 142
+      },
+      {
+        "plan": "camp-supper",
+        "slot": "camper",
+        "entries": 512,
+        "trie_tapes": 512
+      },
+      {
+        "plan": "camp-supper",
+        "slot": "light",
+        "entries": 9,
+        "trie_tapes": 9
+      },
+      {
+        "plan": "camp-supper",
+        "slot": "camp_object",
+        "entries": 3,
+        "trie_tapes": 3
+      },
+      {
+        "plan": "camp-supper",
+        "slot": "anaphoric_link",
+        "entries": 0,
+        "trie_tapes": 0
+      },
+      {
+        "plan": "camp-supper",
+        "slot": "server",
+        "entries": 512,
+        "trie_tapes": 512
+      },
+      {
+        "plan": "camp-supper",
+        "slot": "serve",
+        "entries": 41,
+        "trie_tapes": 41
+      },
+      {
+        "plan": "camp-supper",
+        "slot": "meal",
+        "entries": 214,
+        "trie_tapes": 214
+      }
+    ]
   },
   "plans": [
     {
@@ -127,7 +241,7 @@
         "anaphora": "there resolves to the first-clause scene location",
         "scene_continuity": "orbit"
       },
-      "fixed_oracle_pool": {
+      "initial_control_columns": {
         "opening": [
           {
             "id": "orbital-meal:opening:in-orbit",
@@ -140,18 +254,6 @@
             "lemma": "orbit",
             "initial": true,
             "tape": "inorbit"
-          },
-          {
-            "id": "orbital-meal:opening:in-space",
-            "slot": "opening",
-            "text": "In space",
-            "category": "locative",
-            "number": "na",
-            "valency": "na",
-            "semantic_type": "place",
-            "lemma": "space",
-            "initial": false,
-            "tape": "inspace"
           }
         ],
         "observer": [
@@ -166,18 +268,6 @@
             "lemma": "pilot",
             "initial": true,
             "tape": "thepilot"
-          },
-          {
-            "id": "orbital-meal:observer:the-scout",
-            "slot": "observer",
-            "text": "the scout",
-            "category": "np",
-            "number": "sg",
-            "valency": "na",
-            "semantic_type": "human",
-            "lemma": "scout",
-            "initial": false,
-            "tape": "thescout"
           }
         ],
         "observe": [
@@ -192,18 +282,6 @@
             "lemma": "chart",
             "initial": true,
             "tape": "charts"
-          },
-          {
-            "id": "orbital-meal:observe:tracks",
-            "slot": "observe",
-            "text": "tracks",
-            "category": "finite_verb",
-            "number": "sg",
-            "valency": "transitive",
-            "semantic_type": "na",
-            "lemma": "track",
-            "initial": false,
-            "tape": "tracks"
           }
         ],
         "sky_object": [
@@ -246,18 +324,6 @@
             "lemma": "cook",
             "initial": true,
             "tape": "thecook"
-          },
-          {
-            "id": "orbital-meal:server:the-aide",
-            "slot": "server",
-            "text": "the aide",
-            "category": "np",
-            "number": "sg",
-            "valency": "na",
-            "semantic_type": "human",
-            "lemma": "aide",
-            "initial": false,
-            "tape": "theaide"
           }
         ],
         "serve": [
@@ -272,18 +338,6 @@
             "lemma": "serve",
             "initial": true,
             "tape": "serves"
-          },
-          {
-            "id": "orbital-meal:serve:plates",
-            "slot": "serve",
-            "text": "plates",
-            "category": "finite_verb",
-            "number": "sg",
-            "valency": "transitive",
-            "semantic_type": "na",
-            "lemma": "plate",
-            "initial": false,
-            "tape": "plates"
           }
         ],
         "meal": [
@@ -298,33 +352,20 @@
             "lemma": "zucchini",
             "initial": true,
             "tape": "zucchini"
-          },
-          {
-            "id": "orbital-meal:meal:macaroni",
-            "slot": "meal",
-            "text": "macaroni",
-            "category": "np",
-            "number": "sg",
-            "valency": "na",
-            "semantic_type": "food",
-            "lemma": "macaroni",
-            "initial": false,
-            "tape": "macaroni"
-          },
-          {
-            "id": "orbital-meal:meal:a-risotto",
-            "slot": "meal",
-            "text": "a risotto",
-            "category": "np",
-            "number": "sg",
-            "valency": "na",
-            "semantic_type": "food",
-            "lemma": "risotto",
-            "initial": false,
-            "tape": "arisotto"
           }
         ]
       },
+      "oracle_slot_inventory": {
+        "opening": 451,
+        "observer": 512,
+        "observe": 13,
+        "sky_object": 9,
+        "anaphoric_link": 0,
+        "server": 512,
+        "serve": 41,
+        "meal": 214
+      },
+      "position_policy": "disabled: a query uses the active slot length, so every CP-SAT offset and mirror equality remains valid",
       "iterations": [
         {
           "iteration": 1,
@@ -364,56 +405,72 @@
                 "column_ids": [
                   "orbital-meal:opening:in-orbit"
                 ],
-                "tape_length": 7
+                "tape_lengths": [
+                  7
+                ]
               },
               {
                 "slot": "observer",
                 "column_ids": [
                   "orbital-meal:observer:the-pilot"
                 ],
-                "tape_length": 8
+                "tape_lengths": [
+                  8
+                ]
               },
               {
                 "slot": "observe",
                 "column_ids": [
                   "orbital-meal:observe:charts"
                 ],
-                "tape_length": 6
+                "tape_lengths": [
+                  6
+                ]
               },
               {
                 "slot": "sky_object",
                 "column_ids": [
                   "orbital-meal:sky_object:the-comet"
                 ],
-                "tape_length": 8
+                "tape_lengths": [
+                  8
+                ]
               },
               {
                 "slot": "anaphoric_link",
                 "column_ids": [
                   "orbital-meal:anaphoric_link:later-there"
                 ],
-                "tape_length": 10
+                "tape_lengths": [
+                  10
+                ]
               },
               {
                 "slot": "server",
                 "column_ids": [
                   "orbital-meal:server:the-cook"
                 ],
-                "tape_length": 7
+                "tape_lengths": [
+                  7
+                ]
               },
               {
                 "slot": "serve",
                 "column_ids": [
                   "orbital-meal:serve:serves"
                 ],
-                "tape_length": 6
+                "tape_lengths": [
+                  6
+                ]
               },
               {
                 "slot": "meal",
                 "column_ids": [
                   "orbital-meal:meal:zucchini"
                 ],
-                "tape_length": 8
+                "tape_lengths": [
+                  8
+                ]
               }
             ],
             "edges": [
@@ -790,1138 +847,81 @@
               "meal",
               "opening"
             ],
-            "reparse_evidence": [
+            "queries": [
               {
-                "column_id": "orbital-meal:meal:macaroni",
-                "slot": "meal",
-                "surface": "macaroni",
-                "full_clause_surface": "Later there the cook serves macaroni.",
-                "full_plan_accepted": true,
-                "checks": {
-                  "observation:all_slots_present": true,
-                  "observation:finite_clause": true,
-                  "observation:agreement": true,
-                  "observation:valency": true,
-                  "observation:attachment": true,
-                  "meal_service:all_slots_present": true,
-                  "meal_service:finite_clause": true,
-                  "meal_service:agreement": true,
-                  "meal_service:valency": true,
-                  "meal_service:attachment": true,
-                  "anaphora": true,
-                  "shared_scene": true,
-                  "fresh_content_lemmas": true,
-                  "complete_clause_only": true
-                }
-              },
-              {
-                "column_id": "orbital-meal:meal:a-risotto",
-                "slot": "meal",
-                "surface": "a risotto",
-                "full_clause_surface": "Later there the cook serves a risotto.",
-                "full_plan_accepted": true,
-                "checks": {
-                  "observation:all_slots_present": true,
-                  "observation:finite_clause": true,
-                  "observation:agreement": true,
-                  "observation:valency": true,
-                  "observation:attachment": true,
-                  "meal_service:all_slots_present": true,
-                  "meal_service:finite_clause": true,
-                  "meal_service:agreement": true,
-                  "meal_service:valency": true,
-                  "meal_service:attachment": true,
-                  "anaphora": true,
-                  "shared_scene": true,
-                  "fresh_content_lemmas": true,
-                  "complete_clause_only": true
-                }
-              }
-            ],
-            "added_column_ids": [
-              "orbital-meal:meal:macaroni",
-              "orbital-meal:meal:a-risotto"
-            ]
-          }
-        },
-        {
-          "iteration": 2,
-          "status": "INFEASIBLE",
-          "active_column_ids": {
-            "opening": [
-              "orbital-meal:opening:in-orbit"
-            ],
-            "observer": [
-              "orbital-meal:observer:the-pilot"
-            ],
-            "observe": [
-              "orbital-meal:observe:charts"
-            ],
-            "sky_object": [
-              "orbital-meal:sky_object:the-comet"
-            ],
-            "anaphoric_link": [
-              "orbital-meal:anaphoric_link:later-there"
-            ],
-            "server": [
-              "orbital-meal:server:the-cook"
-            ],
-            "serve": [
-              "orbital-meal:serve:serves"
-            ],
-            "meal": [
-              "orbital-meal:meal:zucchini",
-              "orbital-meal:meal:macaroni",
-              "orbital-meal:meal:a-risotto"
-            ]
-          },
-          "packed_sentence_lattice": {
-            "start": "opening",
-            "finish": "meal",
-            "nodes": [
-              {
+                "query_id": "orbital-meal:core-query:0:left",
+                "core_position": 2,
+                "direction": "left",
                 "slot": "opening",
-                "column_ids": [
-                  "orbital-meal:opening:in-orbit"
+                "local_offset": 2,
+                "required_chars_from_active_mirror_domain": [
+                  "i"
                 ],
-                "tape_length": 7
+                "mirror_slot": "meal",
+                "mirror_local_offset": 5,
+                "required_tape_length": 7,
+                "syntactic_category": "locative",
+                "semantic_category": "place",
+                "number": "na",
+                "valency": "na",
+                "terminals_matching": 0,
+                "nodes_visited": 29,
+                "truncated": false,
+                "returned_column_ids": []
               },
               {
-                "slot": "observer",
-                "column_ids": [
-                  "orbital-meal:observer:the-pilot"
-                ],
-                "tape_length": 8
-              },
-              {
-                "slot": "observe",
-                "column_ids": [
-                  "orbital-meal:observe:charts"
-                ],
-                "tape_length": 6
-              },
-              {
-                "slot": "sky_object",
-                "column_ids": [
-                  "orbital-meal:sky_object:the-comet"
-                ],
-                "tape_length": 8
-              },
-              {
-                "slot": "anaphoric_link",
-                "column_ids": [
-                  "orbital-meal:anaphoric_link:later-there"
-                ],
-                "tape_length": 10
-              },
-              {
-                "slot": "server",
-                "column_ids": [
-                  "orbital-meal:server:the-cook"
-                ],
-                "tape_length": 7
-              },
-              {
-                "slot": "serve",
-                "column_ids": [
-                  "orbital-meal:serve:serves"
-                ],
-                "tape_length": 6
-              },
-              {
+                "query_id": "orbital-meal:core-query:0:right",
+                "core_position": 2,
+                "direction": "right",
                 "slot": "meal",
-                "column_ids": [
-                  "orbital-meal:meal:zucchini",
-                  "orbital-meal:meal:macaroni",
-                  "orbital-meal:meal:a-risotto"
+                "local_offset": 5,
+                "required_chars_from_active_mirror_domain": [
+                  "o"
                 ],
-                "tape_length": 8
+                "mirror_slot": "opening",
+                "mirror_local_offset": 2,
+                "required_tape_length": 8,
+                "syntactic_category": "np",
+                "semantic_category": "food",
+                "number": "sg",
+                "valency": "na",
+                "terminals_matching": 0,
+                "nodes_visited": 620,
+                "truncated": false,
+                "returned_column_ids": []
               }
-            ],
-            "edges": [
-              {
-                "from": "opening",
-                "to": "observer"
-              },
-              {
-                "from": "observer",
-                "to": "observe"
-              },
-              {
-                "from": "observe",
-                "to": "sky_object"
-              },
-              {
-                "from": "sky_object",
-                "to": "anaphoric_link"
-              },
-              {
-                "from": "anaphoric_link",
-                "to": "server"
-              },
-              {
-                "from": "server",
-                "to": "serve"
-              },
-              {
-                "from": "serve",
-                "to": "meal"
-              }
-            ],
-            "represented_paths": 3
-          },
-          "char_offsets": [
-            {
-              "position": 0,
-              "slot": "opening",
-              "local_offset": 0
-            },
-            {
-              "position": 1,
-              "slot": "opening",
-              "local_offset": 1
-            },
-            {
-              "position": 2,
-              "slot": "opening",
-              "local_offset": 2
-            },
-            {
-              "position": 3,
-              "slot": "opening",
-              "local_offset": 3
-            },
-            {
-              "position": 4,
-              "slot": "opening",
-              "local_offset": 4
-            },
-            {
-              "position": 5,
-              "slot": "opening",
-              "local_offset": 5
-            },
-            {
-              "position": 6,
-              "slot": "opening",
-              "local_offset": 6
-            },
-            {
-              "position": 7,
-              "slot": "observer",
-              "local_offset": 0
-            },
-            {
-              "position": 8,
-              "slot": "observer",
-              "local_offset": 1
-            },
-            {
-              "position": 9,
-              "slot": "observer",
-              "local_offset": 2
-            },
-            {
-              "position": 10,
-              "slot": "observer",
-              "local_offset": 3
-            },
-            {
-              "position": 11,
-              "slot": "observer",
-              "local_offset": 4
-            },
-            {
-              "position": 12,
-              "slot": "observer",
-              "local_offset": 5
-            },
-            {
-              "position": 13,
-              "slot": "observer",
-              "local_offset": 6
-            },
-            {
-              "position": 14,
-              "slot": "observer",
-              "local_offset": 7
-            },
-            {
-              "position": 15,
-              "slot": "observe",
-              "local_offset": 0
-            },
-            {
-              "position": 16,
-              "slot": "observe",
-              "local_offset": 1
-            },
-            {
-              "position": 17,
-              "slot": "observe",
-              "local_offset": 2
-            },
-            {
-              "position": 18,
-              "slot": "observe",
-              "local_offset": 3
-            },
-            {
-              "position": 19,
-              "slot": "observe",
-              "local_offset": 4
-            },
-            {
-              "position": 20,
-              "slot": "observe",
-              "local_offset": 5
-            },
-            {
-              "position": 21,
-              "slot": "sky_object",
-              "local_offset": 0
-            },
-            {
-              "position": 22,
-              "slot": "sky_object",
-              "local_offset": 1
-            },
-            {
-              "position": 23,
-              "slot": "sky_object",
-              "local_offset": 2
-            },
-            {
-              "position": 24,
-              "slot": "sky_object",
-              "local_offset": 3
-            },
-            {
-              "position": 25,
-              "slot": "sky_object",
-              "local_offset": 4
-            },
-            {
-              "position": 26,
-              "slot": "sky_object",
-              "local_offset": 5
-            },
-            {
-              "position": 27,
-              "slot": "sky_object",
-              "local_offset": 6
-            },
-            {
-              "position": 28,
-              "slot": "sky_object",
-              "local_offset": 7
-            },
-            {
-              "position": 29,
-              "slot": "anaphoric_link",
-              "local_offset": 0
-            },
-            {
-              "position": 30,
-              "slot": "anaphoric_link",
-              "local_offset": 1
-            },
-            {
-              "position": 31,
-              "slot": "anaphoric_link",
-              "local_offset": 2
-            },
-            {
-              "position": 32,
-              "slot": "anaphoric_link",
-              "local_offset": 3
-            },
-            {
-              "position": 33,
-              "slot": "anaphoric_link",
-              "local_offset": 4
-            },
-            {
-              "position": 34,
-              "slot": "anaphoric_link",
-              "local_offset": 5
-            },
-            {
-              "position": 35,
-              "slot": "anaphoric_link",
-              "local_offset": 6
-            },
-            {
-              "position": 36,
-              "slot": "anaphoric_link",
-              "local_offset": 7
-            },
-            {
-              "position": 37,
-              "slot": "anaphoric_link",
-              "local_offset": 8
-            },
-            {
-              "position": 38,
-              "slot": "anaphoric_link",
-              "local_offset": 9
-            },
-            {
-              "position": 39,
-              "slot": "server",
-              "local_offset": 0
-            },
-            {
-              "position": 40,
-              "slot": "server",
-              "local_offset": 1
-            },
-            {
-              "position": 41,
-              "slot": "server",
-              "local_offset": 2
-            },
-            {
-              "position": 42,
-              "slot": "server",
-              "local_offset": 3
-            },
-            {
-              "position": 43,
-              "slot": "server",
-              "local_offset": 4
-            },
-            {
-              "position": 44,
-              "slot": "server",
-              "local_offset": 5
-            },
-            {
-              "position": 45,
-              "slot": "server",
-              "local_offset": 6
-            },
-            {
-              "position": 46,
-              "slot": "serve",
-              "local_offset": 0
-            },
-            {
-              "position": 47,
-              "slot": "serve",
-              "local_offset": 1
-            },
-            {
-              "position": 48,
-              "slot": "serve",
-              "local_offset": 2
-            },
-            {
-              "position": 49,
-              "slot": "serve",
-              "local_offset": 3
-            },
-            {
-              "position": 50,
-              "slot": "serve",
-              "local_offset": 4
-            },
-            {
-              "position": 51,
-              "slot": "serve",
-              "local_offset": 5
-            },
-            {
-              "position": 52,
-              "slot": "meal",
-              "local_offset": 0
-            },
-            {
-              "position": 53,
-              "slot": "meal",
-              "local_offset": 1
-            },
-            {
-              "position": 54,
-              "slot": "meal",
-              "local_offset": 2
-            },
-            {
-              "position": 55,
-              "slot": "meal",
-              "local_offset": 3
-            },
-            {
-              "position": 56,
-              "slot": "meal",
-              "local_offset": 4
-            },
-            {
-              "position": 57,
-              "slot": "meal",
-              "local_offset": 5
-            },
-            {
-              "position": 58,
-              "slot": "meal",
-              "local_offset": 6
-            },
-            {
-              "position": 59,
-              "slot": "meal",
-              "local_offset": 7
-            }
-          ],
-          "mirror_equalities": 30,
-          "nogoods_before_solve": [
-            {
-              "id": "orbital-meal:nogood:1",
-              "slots": [
-                "meal",
-                "opening"
-              ],
-              "old_domain_sizes": {
-                "meal": 1,
-                "opening": 1
-              },
-              "meaning": "at least one implicated slot must select a newly reparsed column"
-            }
-          ],
-          "unsat_core": {
-            "sufficient_assumption_positions": [
-              4
-            ],
-            "minimum_cardinality": 1,
-            "minimum_positions": [
-              {
-                "position": 4,
-                "mirror_position": 55,
-                "left": {
-                  "position": 4,
-                  "slot": "opening",
-                  "local_offset": 4
-                },
-                "right": {
-                  "position": 55,
-                  "slot": "meal",
-                  "local_offset": 3
-                }
-              }
-            ],
-            "implicated_slots": [
-              "meal",
-              "opening"
-            ],
-            "subset_solves": 1,
-            "proper_subset_checks": [
-              {
-                "positions": [],
-                "feasible": true
-              }
-            ]
-          },
-          "oracle_response": {
-            "requested_slots": [
-              "meal",
-              "opening"
-            ],
-            "reparse_evidence": [
-              {
-                "column_id": "orbital-meal:opening:in-space",
-                "slot": "opening",
-                "surface": "In space",
-                "full_clause_surface": "In space the pilot charts the comet.",
-                "full_plan_accepted": true,
-                "checks": {
-                  "observation:all_slots_present": true,
-                  "observation:finite_clause": true,
-                  "observation:agreement": true,
-                  "observation:valency": true,
-                  "observation:attachment": true,
-                  "meal_service:all_slots_present": true,
-                  "meal_service:finite_clause": true,
-                  "meal_service:agreement": true,
-                  "meal_service:valency": true,
-                  "meal_service:attachment": true,
-                  "anaphora": true,
-                  "shared_scene": true,
-                  "fresh_content_lemmas": true,
-                  "complete_clause_only": true
-                }
-              }
-            ],
-            "added_column_ids": [
-              "orbital-meal:opening:in-space"
-            ]
-          }
-        },
-        {
-          "iteration": 3,
-          "status": "INFEASIBLE",
-          "active_column_ids": {
-            "opening": [
-              "orbital-meal:opening:in-orbit",
-              "orbital-meal:opening:in-space"
-            ],
-            "observer": [
-              "orbital-meal:observer:the-pilot"
-            ],
-            "observe": [
-              "orbital-meal:observe:charts"
-            ],
-            "sky_object": [
-              "orbital-meal:sky_object:the-comet"
-            ],
-            "anaphoric_link": [
-              "orbital-meal:anaphoric_link:later-there"
-            ],
-            "server": [
-              "orbital-meal:server:the-cook"
-            ],
-            "serve": [
-              "orbital-meal:serve:serves"
-            ],
-            "meal": [
-              "orbital-meal:meal:zucchini",
-              "orbital-meal:meal:macaroni",
-              "orbital-meal:meal:a-risotto"
-            ]
-          },
-          "packed_sentence_lattice": {
-            "start": "opening",
-            "finish": "meal",
-            "nodes": [
-              {
-                "slot": "opening",
-                "column_ids": [
-                  "orbital-meal:opening:in-orbit",
-                  "orbital-meal:opening:in-space"
-                ],
-                "tape_length": 7
-              },
-              {
-                "slot": "observer",
-                "column_ids": [
-                  "orbital-meal:observer:the-pilot"
-                ],
-                "tape_length": 8
-              },
-              {
-                "slot": "observe",
-                "column_ids": [
-                  "orbital-meal:observe:charts"
-                ],
-                "tape_length": 6
-              },
-              {
-                "slot": "sky_object",
-                "column_ids": [
-                  "orbital-meal:sky_object:the-comet"
-                ],
-                "tape_length": 8
-              },
-              {
-                "slot": "anaphoric_link",
-                "column_ids": [
-                  "orbital-meal:anaphoric_link:later-there"
-                ],
-                "tape_length": 10
-              },
-              {
-                "slot": "server",
-                "column_ids": [
-                  "orbital-meal:server:the-cook"
-                ],
-                "tape_length": 7
-              },
-              {
-                "slot": "serve",
-                "column_ids": [
-                  "orbital-meal:serve:serves"
-                ],
-                "tape_length": 6
-              },
-              {
-                "slot": "meal",
-                "column_ids": [
-                  "orbital-meal:meal:zucchini",
-                  "orbital-meal:meal:macaroni",
-                  "orbital-meal:meal:a-risotto"
-                ],
-                "tape_length": 8
-              }
-            ],
-            "edges": [
-              {
-                "from": "opening",
-                "to": "observer"
-              },
-              {
-                "from": "observer",
-                "to": "observe"
-              },
-              {
-                "from": "observe",
-                "to": "sky_object"
-              },
-              {
-                "from": "sky_object",
-                "to": "anaphoric_link"
-              },
-              {
-                "from": "anaphoric_link",
-                "to": "server"
-              },
-              {
-                "from": "server",
-                "to": "serve"
-              },
-              {
-                "from": "serve",
-                "to": "meal"
-              }
-            ],
-            "represented_paths": 6
-          },
-          "char_offsets": [
-            {
-              "position": 0,
-              "slot": "opening",
-              "local_offset": 0
-            },
-            {
-              "position": 1,
-              "slot": "opening",
-              "local_offset": 1
-            },
-            {
-              "position": 2,
-              "slot": "opening",
-              "local_offset": 2
-            },
-            {
-              "position": 3,
-              "slot": "opening",
-              "local_offset": 3
-            },
-            {
-              "position": 4,
-              "slot": "opening",
-              "local_offset": 4
-            },
-            {
-              "position": 5,
-              "slot": "opening",
-              "local_offset": 5
-            },
-            {
-              "position": 6,
-              "slot": "opening",
-              "local_offset": 6
-            },
-            {
-              "position": 7,
-              "slot": "observer",
-              "local_offset": 0
-            },
-            {
-              "position": 8,
-              "slot": "observer",
-              "local_offset": 1
-            },
-            {
-              "position": 9,
-              "slot": "observer",
-              "local_offset": 2
-            },
-            {
-              "position": 10,
-              "slot": "observer",
-              "local_offset": 3
-            },
-            {
-              "position": 11,
-              "slot": "observer",
-              "local_offset": 4
-            },
-            {
-              "position": 12,
-              "slot": "observer",
-              "local_offset": 5
-            },
-            {
-              "position": 13,
-              "slot": "observer",
-              "local_offset": 6
-            },
-            {
-              "position": 14,
-              "slot": "observer",
-              "local_offset": 7
-            },
-            {
-              "position": 15,
-              "slot": "observe",
-              "local_offset": 0
-            },
-            {
-              "position": 16,
-              "slot": "observe",
-              "local_offset": 1
-            },
-            {
-              "position": 17,
-              "slot": "observe",
-              "local_offset": 2
-            },
-            {
-              "position": 18,
-              "slot": "observe",
-              "local_offset": 3
-            },
-            {
-              "position": 19,
-              "slot": "observe",
-              "local_offset": 4
-            },
-            {
-              "position": 20,
-              "slot": "observe",
-              "local_offset": 5
-            },
-            {
-              "position": 21,
-              "slot": "sky_object",
-              "local_offset": 0
-            },
-            {
-              "position": 22,
-              "slot": "sky_object",
-              "local_offset": 1
-            },
-            {
-              "position": 23,
-              "slot": "sky_object",
-              "local_offset": 2
-            },
-            {
-              "position": 24,
-              "slot": "sky_object",
-              "local_offset": 3
-            },
-            {
-              "position": 25,
-              "slot": "sky_object",
-              "local_offset": 4
-            },
-            {
-              "position": 26,
-              "slot": "sky_object",
-              "local_offset": 5
-            },
-            {
-              "position": 27,
-              "slot": "sky_object",
-              "local_offset": 6
-            },
-            {
-              "position": 28,
-              "slot": "sky_object",
-              "local_offset": 7
-            },
-            {
-              "position": 29,
-              "slot": "anaphoric_link",
-              "local_offset": 0
-            },
-            {
-              "position": 30,
-              "slot": "anaphoric_link",
-              "local_offset": 1
-            },
-            {
-              "position": 31,
-              "slot": "anaphoric_link",
-              "local_offset": 2
-            },
-            {
-              "position": 32,
-              "slot": "anaphoric_link",
-              "local_offset": 3
-            },
-            {
-              "position": 33,
-              "slot": "anaphoric_link",
-              "local_offset": 4
-            },
-            {
-              "position": 34,
-              "slot": "anaphoric_link",
-              "local_offset": 5
-            },
-            {
-              "position": 35,
-              "slot": "anaphoric_link",
-              "local_offset": 6
-            },
-            {
-              "position": 36,
-              "slot": "anaphoric_link",
-              "local_offset": 7
-            },
-            {
-              "position": 37,
-              "slot": "anaphoric_link",
-              "local_offset": 8
-            },
-            {
-              "position": 38,
-              "slot": "anaphoric_link",
-              "local_offset": 9
-            },
-            {
-              "position": 39,
-              "slot": "server",
-              "local_offset": 0
-            },
-            {
-              "position": 40,
-              "slot": "server",
-              "local_offset": 1
-            },
-            {
-              "position": 41,
-              "slot": "server",
-              "local_offset": 2
-            },
-            {
-              "position": 42,
-              "slot": "server",
-              "local_offset": 3
-            },
-            {
-              "position": 43,
-              "slot": "server",
-              "local_offset": 4
-            },
-            {
-              "position": 44,
-              "slot": "server",
-              "local_offset": 5
-            },
-            {
-              "position": 45,
-              "slot": "server",
-              "local_offset": 6
-            },
-            {
-              "position": 46,
-              "slot": "serve",
-              "local_offset": 0
-            },
-            {
-              "position": 47,
-              "slot": "serve",
-              "local_offset": 1
-            },
-            {
-              "position": 48,
-              "slot": "serve",
-              "local_offset": 2
-            },
-            {
-              "position": 49,
-              "slot": "serve",
-              "local_offset": 3
-            },
-            {
-              "position": 50,
-              "slot": "serve",
-              "local_offset": 4
-            },
-            {
-              "position": 51,
-              "slot": "serve",
-              "local_offset": 5
-            },
-            {
-              "position": 52,
-              "slot": "meal",
-              "local_offset": 0
-            },
-            {
-              "position": 53,
-              "slot": "meal",
-              "local_offset": 1
-            },
-            {
-              "position": 54,
-              "slot": "meal",
-              "local_offset": 2
-            },
-            {
-              "position": 55,
-              "slot": "meal",
-              "local_offset": 3
-            },
-            {
-              "position": 56,
-              "slot": "meal",
-              "local_offset": 4
-            },
-            {
-              "position": 57,
-              "slot": "meal",
-              "local_offset": 5
-            },
-            {
-              "position": 58,
-              "slot": "meal",
-              "local_offset": 6
-            },
-            {
-              "position": 59,
-              "slot": "meal",
-              "local_offset": 7
-            }
-          ],
-          "mirror_equalities": 30,
-          "nogoods_before_solve": [
-            {
-              "id": "orbital-meal:nogood:1",
-              "slots": [
-                "meal",
-                "opening"
-              ],
-              "old_domain_sizes": {
-                "meal": 1,
-                "opening": 1
-              },
-              "meaning": "at least one implicated slot must select a newly reparsed column"
-            },
-            {
-              "id": "orbital-meal:nogood:2",
-              "slots": [
-                "meal",
-                "opening"
-              ],
-              "old_domain_sizes": {
-                "meal": 3,
-                "opening": 1
-              },
-              "meaning": "at least one implicated slot must select a newly reparsed column"
-            }
-          ],
-          "unsat_core": {
-            "sufficient_assumption_positions": [
-              6
-            ],
-            "minimum_cardinality": 1,
-            "minimum_positions": [
-              {
-                "position": 6,
-                "mirror_position": 53,
-                "left": {
-                  "position": 6,
-                  "slot": "opening",
-                  "local_offset": 6
-                },
-                "right": {
-                  "position": 53,
-                  "slot": "meal",
-                  "local_offset": 1
-                }
-              }
-            ],
-            "implicated_slots": [
-              "meal",
-              "opening"
-            ],
-            "subset_solves": 1,
-            "proper_subset_checks": [
-              {
-                "positions": [],
-                "feasible": true
-              }
-            ]
-          },
-          "oracle_response": {
-            "requested_slots": [
-              "meal",
-              "opening"
             ],
             "reparse_evidence": [],
-            "added_column_ids": []
+            "rejections": [],
+            "added_column_ids": [],
+            "addition_cap": 2,
+            "core_targeted_only": true
           }
         }
       ],
-      "nogoods": [
-        {
-          "id": "orbital-meal:nogood:1",
-          "slots": [
-            "meal",
-            "opening"
-          ],
-          "old_domain_sizes": {
-            "meal": 1,
-            "opening": 1
-          },
-          "meaning": "at least one implicated slot must select a newly reparsed column"
-        },
-        {
-          "id": "orbital-meal:nogood:2",
-          "slots": [
-            "meal",
-            "opening"
-          ],
-          "old_domain_sizes": {
-            "meal": 3,
-            "opening": 1
-          },
-          "meaning": "at least one implicated slot must select a newly reparsed column"
-        }
-      ],
-      "added_columns": [
-        {
-          "after_iteration": 1,
-          "slot": "meal",
-          "column_id": "orbital-meal:meal:macaroni",
-          "reparsed_complete_clause": true
-        },
-        {
-          "after_iteration": 1,
-          "slot": "meal",
-          "column_id": "orbital-meal:meal:a-risotto",
-          "reparsed_complete_clause": true
-        },
-        {
-          "after_iteration": 2,
-          "slot": "opening",
-          "column_id": "orbital-meal:opening:in-space",
-          "reparsed_complete_clause": true
-        }
-      ],
+      "nogoods": [],
+      "added_columns": [],
       "survivor": null,
       "final_obstruction": {
         "reason": "contextual oracle exhausted for minimum conflict",
         "core": {
           "sufficient_assumption_positions": [
-            6
+            2
           ],
           "minimum_cardinality": 1,
           "minimum_positions": [
             {
-              "position": 6,
-              "mirror_position": 53,
+              "position": 2,
+              "mirror_position": 57,
               "left": {
-                "position": 6,
+                "position": 2,
                 "slot": "opening",
-                "local_offset": 6
+                "local_offset": 2
               },
               "right": {
-                "position": 53,
+                "position": 57,
                 "slot": "meal",
-                "local_offset": 1
+                "local_offset": 5
               }
             }
           ],
@@ -1939,8 +939,7 @@
         },
         "active_column_ids": {
           "opening": [
-            "orbital-meal:opening:in-orbit",
-            "orbital-meal:opening:in-space"
+            "orbital-meal:opening:in-orbit"
           ],
           "observer": [
             "orbital-meal:observer:the-pilot"
@@ -1961,9 +960,7 @@
             "orbital-meal:serve:serves"
           ],
           "meal": [
-            "orbital-meal:meal:zucchini",
-            "orbital-meal:meal:macaroni",
-            "orbital-meal:meal:a-risotto"
+            "orbital-meal:meal:zucchini"
           ]
         }
       }
@@ -2081,7 +1078,7 @@
         "anaphora": "there resolves to the first-clause scene location",
         "scene_continuity": "camp"
       },
-      "fixed_oracle_pool": {
+      "initial_control_columns": {
         "opening": [
           {
             "id": "camp-supper:opening:at-sunset",
@@ -2108,18 +1105,6 @@
             "lemma": "ranger",
             "initial": true,
             "tape": "theranger"
-          },
-          {
-            "id": "camp-supper:camper:the-camper",
-            "slot": "camper",
-            "text": "the camper",
-            "category": "np",
-            "number": "sg",
-            "valency": "na",
-            "semantic_type": "human",
-            "lemma": "camper",
-            "initial": false,
-            "tape": "thecamper"
           }
         ],
         "light": [
@@ -2176,18 +1161,6 @@
             "lemma": "cook",
             "initial": true,
             "tape": "thecook"
-          },
-          {
-            "id": "camp-supper:server:the-aide",
-            "slot": "server",
-            "text": "the aide",
-            "category": "np",
-            "number": "sg",
-            "valency": "na",
-            "semantic_type": "human",
-            "lemma": "aide",
-            "initial": false,
-            "tape": "theaide"
           }
         ],
         "serve": [
@@ -2202,18 +1175,6 @@
             "lemma": "serve",
             "initial": true,
             "tape": "serves"
-          },
-          {
-            "id": "camp-supper:serve:plates",
-            "slot": "serve",
-            "text": "plates",
-            "category": "finite_verb",
-            "number": "sg",
-            "valency": "transitive",
-            "semantic_type": "na",
-            "lemma": "plate",
-            "initial": false,
-            "tape": "plates"
           }
         ],
         "meal": [
@@ -2228,21 +1189,20 @@
             "lemma": "salad",
             "initial": true,
             "tape": "salad"
-          },
-          {
-            "id": "camp-supper:meal:pasta",
-            "slot": "meal",
-            "text": "pasta",
-            "category": "np",
-            "number": "sg",
-            "valency": "na",
-            "semantic_type": "food",
-            "lemma": "pasta",
-            "initial": false,
-            "tape": "pasta"
           }
         ]
       },
+      "oracle_slot_inventory": {
+        "opening": 142,
+        "camper": 512,
+        "light": 9,
+        "camp_object": 3,
+        "anaphoric_link": 0,
+        "server": 512,
+        "serve": 41,
+        "meal": 214
+      },
+      "position_policy": "disabled: a query uses the active slot length, so every CP-SAT offset and mirror equality remains valid",
       "iterations": [
         {
           "iteration": 1,
@@ -2282,56 +1242,72 @@
                 "column_ids": [
                   "camp-supper:opening:at-sunset"
                 ],
-                "tape_length": 8
+                "tape_lengths": [
+                  8
+                ]
               },
               {
                 "slot": "camper",
                 "column_ids": [
                   "camp-supper:camper:the-ranger"
                 ],
-                "tape_length": 9
+                "tape_lengths": [
+                  9
+                ]
               },
               {
                 "slot": "light",
                 "column_ids": [
                   "camp-supper:light:lights"
                 ],
-                "tape_length": 6
+                "tape_lengths": [
+                  6
+                ]
               },
               {
                 "slot": "camp_object",
                 "column_ids": [
                   "camp-supper:camp_object:the-camp"
                 ],
-                "tape_length": 7
+                "tape_lengths": [
+                  7
+                ]
               },
               {
                 "slot": "anaphoric_link",
                 "column_ids": [
                   "camp-supper:anaphoric_link:later-there"
                 ],
-                "tape_length": 10
+                "tape_lengths": [
+                  10
+                ]
               },
               {
                 "slot": "server",
                 "column_ids": [
                   "camp-supper:server:the-cook"
                 ],
-                "tape_length": 7
+                "tape_lengths": [
+                  7
+                ]
               },
               {
                 "slot": "serve",
                 "column_ids": [
                   "camp-supper:serve:serves"
                 ],
-                "tape_length": 6
+                "tape_lengths": [
+                  6
+                ]
               },
               {
                 "slot": "meal",
                 "column_ids": [
                   "camp-supper:meal:salad"
                 ],
-                "tape_length": 5
+                "tape_lengths": [
+                  5
+                ]
               }
             ],
             "edges": [
@@ -2698,12 +1674,88 @@
               "meal",
               "opening"
             ],
+            "queries": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "core_position": 0,
+                "direction": "left",
+                "slot": "opening",
+                "local_offset": 0,
+                "required_chars_from_active_mirror_domain": [
+                  "d"
+                ],
+                "mirror_slot": "meal",
+                "mirror_local_offset": 4,
+                "required_tape_length": 8,
+                "syntactic_category": "locative",
+                "semantic_category": "time_place",
+                "number": "na",
+                "valency": "na",
+                "terminals_matching": 0,
+                "nodes_visited": 1,
+                "truncated": false,
+                "returned_column_ids": []
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "core_position": 0,
+                "direction": "right",
+                "slot": "meal",
+                "local_offset": 4,
+                "required_chars_from_active_mirror_domain": [
+                  "a"
+                ],
+                "mirror_slot": "opening",
+                "mirror_local_offset": 0,
+                "required_tape_length": 5,
+                "syntactic_category": "np",
+                "semantic_category": "food",
+                "number": "sg",
+                "valency": "na",
+                "terminals_matching": 2,
+                "nodes_visited": 482,
+                "truncated": false,
+                "returned_column_ids": [
+                  "camp-supper:meal:pizza",
+                  "camp-supper:meal:cocoa"
+                ]
+              }
+            ],
             "reparse_evidence": [
               {
-                "column_id": "camp-supper:meal:pasta",
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 0,
+                "column_id": "camp-supper:meal:pizza",
                 "slot": "meal",
-                "surface": "pasta",
-                "full_clause_surface": "Later there the cook serves pasta.",
+                "surface": "pizza",
+                "tape": "pizza",
+                "source": {
+                  "column_id": "camp-supper:meal:pizza",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "pizza",
+                  "tape": "pizza",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "pizza",
+                  "brown_count": 3,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "pizza.n.01"
+                  ]
+                },
+                "full_clause_surface": "Later there the cook serves pizza.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
                 "full_plan_accepted": true,
                 "checks": {
                   "camp_setup:all_slots_present": true,
@@ -2720,12 +1772,71 @@
                   "shared_scene": true,
                   "fresh_content_lemmas": true,
                   "complete_clause_only": true
-                }
+                },
+                "decision": "add"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 1,
+                "column_id": "camp-supper:meal:cocoa",
+                "slot": "meal",
+                "surface": "cocoa",
+                "tape": "cocoa",
+                "source": {
+                  "column_id": "camp-supper:meal:cocoa",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "cocoa",
+                  "tape": "cocoa",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "cocoa",
+                  "brown_count": 2,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "cocoa.n.01",
+                    "cocoa.n.02"
+                  ]
+                },
+                "full_clause_surface": "Later there the cook serves cocoa.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
+                "full_plan_accepted": true,
+                "checks": {
+                  "camp_setup:all_slots_present": true,
+                  "camp_setup:finite_clause": true,
+                  "camp_setup:agreement": true,
+                  "camp_setup:valency": true,
+                  "camp_setup:attachment": true,
+                  "supper:all_slots_present": true,
+                  "supper:finite_clause": true,
+                  "supper:agreement": true,
+                  "supper:valency": true,
+                  "supper:attachment": true,
+                  "anaphora": true,
+                  "shared_scene": true,
+                  "fresh_content_lemmas": true,
+                  "complete_clause_only": true
+                },
+                "decision": "add"
               }
             ],
+            "rejections": [],
             "added_column_ids": [
-              "camp-supper:meal:pasta"
-            ]
+              "camp-supper:meal:pizza",
+              "camp-supper:meal:cocoa"
+            ],
+            "addition_cap": 2,
+            "core_targeted_only": true
           }
         },
         {
@@ -2755,7 +1866,8 @@
             ],
             "meal": [
               "camp-supper:meal:salad",
-              "camp-supper:meal:pasta"
+              "camp-supper:meal:pizza",
+              "camp-supper:meal:cocoa"
             ]
           },
           "packed_sentence_lattice": {
@@ -2767,57 +1879,74 @@
                 "column_ids": [
                   "camp-supper:opening:at-sunset"
                 ],
-                "tape_length": 8
+                "tape_lengths": [
+                  8
+                ]
               },
               {
                 "slot": "camper",
                 "column_ids": [
                   "camp-supper:camper:the-ranger"
                 ],
-                "tape_length": 9
+                "tape_lengths": [
+                  9
+                ]
               },
               {
                 "slot": "light",
                 "column_ids": [
                   "camp-supper:light:lights"
                 ],
-                "tape_length": 6
+                "tape_lengths": [
+                  6
+                ]
               },
               {
                 "slot": "camp_object",
                 "column_ids": [
                   "camp-supper:camp_object:the-camp"
                 ],
-                "tape_length": 7
+                "tape_lengths": [
+                  7
+                ]
               },
               {
                 "slot": "anaphoric_link",
                 "column_ids": [
                   "camp-supper:anaphoric_link:later-there"
                 ],
-                "tape_length": 10
+                "tape_lengths": [
+                  10
+                ]
               },
               {
                 "slot": "server",
                 "column_ids": [
                   "camp-supper:server:the-cook"
                 ],
-                "tape_length": 7
+                "tape_lengths": [
+                  7
+                ]
               },
               {
                 "slot": "serve",
                 "column_ids": [
                   "camp-supper:serve:serves"
                 ],
-                "tape_length": 6
+                "tape_lengths": [
+                  6
+                ]
               },
               {
                 "slot": "meal",
                 "column_ids": [
                   "camp-supper:meal:salad",
-                  "camp-supper:meal:pasta"
+                  "camp-supper:meal:pizza",
+                  "camp-supper:meal:cocoa"
                 ],
-                "tape_length": 5
+                "tape_lengths": [
+                  5
+                ]
               }
             ],
             "edges": [
@@ -2850,7 +1979,7 @@
                 "to": "meal"
               }
             ],
-            "represented_paths": 2
+            "represented_paths": 3
           },
           "char_offsets": [
             {
@@ -3161,6 +2290,1482 @@
           ],
           "unsat_core": {
             "sufficient_assumption_positions": [
+              1
+            ],
+            "minimum_cardinality": 1,
+            "minimum_positions": [
+              {
+                "position": 1,
+                "mirror_position": 56,
+                "left": {
+                  "position": 1,
+                  "slot": "opening",
+                  "local_offset": 1
+                },
+                "right": {
+                  "position": 56,
+                  "slot": "meal",
+                  "local_offset": 3
+                }
+              }
+            ],
+            "implicated_slots": [
+              "meal",
+              "opening"
+            ],
+            "subset_solves": 1,
+            "proper_subset_checks": [
+              {
+                "positions": [],
+                "feasible": true
+              }
+            ]
+          },
+          "oracle_response": {
+            "requested_slots": [
+              "meal",
+              "opening"
+            ],
+            "queries": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "core_position": 1,
+                "direction": "left",
+                "slot": "opening",
+                "local_offset": 1,
+                "required_chars_from_active_mirror_domain": [
+                  "a",
+                  "o",
+                  "z"
+                ],
+                "mirror_slot": "meal",
+                "mirror_local_offset": 3,
+                "required_tape_length": 8,
+                "syntactic_category": "locative",
+                "semantic_category": "time_place",
+                "number": "na",
+                "valency": "na",
+                "terminals_matching": 0,
+                "nodes_visited": 2,
+                "truncated": false,
+                "returned_column_ids": []
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "core_position": 1,
+                "direction": "right",
+                "slot": "meal",
+                "local_offset": 3,
+                "required_chars_from_active_mirror_domain": [
+                  "t"
+                ],
+                "mirror_slot": "opening",
+                "mirror_local_offset": 1,
+                "required_tape_length": 5,
+                "syntactic_category": "np",
+                "semantic_category": "food",
+                "number": "sg",
+                "valency": "na",
+                "terminals_matching": 4,
+                "nodes_visited": 323,
+                "truncated": false,
+                "returned_column_ids": [
+                  "camp-supper:meal:plate",
+                  "camp-supper:meal:white",
+                  "camp-supper:meal:paste",
+                  "camp-supper:meal:broth"
+                ]
+              }
+            ],
+            "reparse_evidence": [
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 0,
+                "column_id": "camp-supper:meal:plate",
+                "slot": "meal",
+                "surface": "plate",
+                "tape": "plate",
+                "source": {
+                  "column_id": "camp-supper:meal:plate",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "plate",
+                  "tape": "plate",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "plate",
+                  "brown_count": 21,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "plate.n.08"
+                  ]
+                },
+                "full_clause_surface": "Later there the cook serves plate.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
+                "full_plan_accepted": true,
+                "checks": {
+                  "camp_setup:all_slots_present": true,
+                  "camp_setup:finite_clause": true,
+                  "camp_setup:agreement": true,
+                  "camp_setup:valency": true,
+                  "camp_setup:attachment": true,
+                  "supper:all_slots_present": true,
+                  "supper:finite_clause": true,
+                  "supper:agreement": true,
+                  "supper:valency": true,
+                  "supper:attachment": true,
+                  "anaphora": true,
+                  "shared_scene": true,
+                  "fresh_content_lemmas": true,
+                  "complete_clause_only": true
+                },
+                "decision": "add"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 1,
+                "column_id": "camp-supper:meal:white",
+                "slot": "meal",
+                "surface": "white",
+                "tape": "white",
+                "source": {
+                  "column_id": "camp-supper:meal:white",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "white",
+                  "tape": "white",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "white",
+                  "brown_count": 11,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "egg_white.n.01"
+                  ]
+                },
+                "full_clause_surface": "Later there the cook serves white.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
+                "full_plan_accepted": true,
+                "checks": {
+                  "camp_setup:all_slots_present": true,
+                  "camp_setup:finite_clause": true,
+                  "camp_setup:agreement": true,
+                  "camp_setup:valency": true,
+                  "camp_setup:attachment": true,
+                  "supper:all_slots_present": true,
+                  "supper:finite_clause": true,
+                  "supper:agreement": true,
+                  "supper:valency": true,
+                  "supper:attachment": true,
+                  "anaphora": true,
+                  "shared_scene": true,
+                  "fresh_content_lemmas": true,
+                  "complete_clause_only": true
+                },
+                "decision": "add"
+              }
+            ],
+            "rejections": [
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 2,
+                "column_id": "camp-supper:meal:paste",
+                "slot": "meal",
+                "surface": "paste",
+                "tape": "paste",
+                "source": {
+                  "column_id": "camp-supper:meal:paste",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "paste",
+                  "tape": "paste",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "paste",
+                  "brown_count": 9,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "spread.n.05"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 3,
+                "column_id": "camp-supper:meal:broth",
+                "slot": "meal",
+                "surface": "broth",
+                "tape": "broth",
+                "source": {
+                  "column_id": "camp-supper:meal:broth",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "broth",
+                  "tape": "broth",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "broth",
+                  "brown_count": 3,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "broth.n.01",
+                    "broth.n.02"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              }
+            ],
+            "added_column_ids": [
+              "camp-supper:meal:plate",
+              "camp-supper:meal:white"
+            ],
+            "addition_cap": 2,
+            "core_targeted_only": true
+          }
+        },
+        {
+          "iteration": 3,
+          "status": "INFEASIBLE",
+          "active_column_ids": {
+            "opening": [
+              "camp-supper:opening:at-sunset"
+            ],
+            "camper": [
+              "camp-supper:camper:the-ranger"
+            ],
+            "light": [
+              "camp-supper:light:lights"
+            ],
+            "camp_object": [
+              "camp-supper:camp_object:the-camp"
+            ],
+            "anaphoric_link": [
+              "camp-supper:anaphoric_link:later-there"
+            ],
+            "server": [
+              "camp-supper:server:the-cook"
+            ],
+            "serve": [
+              "camp-supper:serve:serves"
+            ],
+            "meal": [
+              "camp-supper:meal:salad",
+              "camp-supper:meal:pizza",
+              "camp-supper:meal:cocoa",
+              "camp-supper:meal:plate",
+              "camp-supper:meal:white"
+            ]
+          },
+          "packed_sentence_lattice": {
+            "start": "opening",
+            "finish": "meal",
+            "nodes": [
+              {
+                "slot": "opening",
+                "column_ids": [
+                  "camp-supper:opening:at-sunset"
+                ],
+                "tape_lengths": [
+                  8
+                ]
+              },
+              {
+                "slot": "camper",
+                "column_ids": [
+                  "camp-supper:camper:the-ranger"
+                ],
+                "tape_lengths": [
+                  9
+                ]
+              },
+              {
+                "slot": "light",
+                "column_ids": [
+                  "camp-supper:light:lights"
+                ],
+                "tape_lengths": [
+                  6
+                ]
+              },
+              {
+                "slot": "camp_object",
+                "column_ids": [
+                  "camp-supper:camp_object:the-camp"
+                ],
+                "tape_lengths": [
+                  7
+                ]
+              },
+              {
+                "slot": "anaphoric_link",
+                "column_ids": [
+                  "camp-supper:anaphoric_link:later-there"
+                ],
+                "tape_lengths": [
+                  10
+                ]
+              },
+              {
+                "slot": "server",
+                "column_ids": [
+                  "camp-supper:server:the-cook"
+                ],
+                "tape_lengths": [
+                  7
+                ]
+              },
+              {
+                "slot": "serve",
+                "column_ids": [
+                  "camp-supper:serve:serves"
+                ],
+                "tape_lengths": [
+                  6
+                ]
+              },
+              {
+                "slot": "meal",
+                "column_ids": [
+                  "camp-supper:meal:salad",
+                  "camp-supper:meal:pizza",
+                  "camp-supper:meal:cocoa",
+                  "camp-supper:meal:plate",
+                  "camp-supper:meal:white"
+                ],
+                "tape_lengths": [
+                  5
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "from": "opening",
+                "to": "camper"
+              },
+              {
+                "from": "camper",
+                "to": "light"
+              },
+              {
+                "from": "light",
+                "to": "camp_object"
+              },
+              {
+                "from": "camp_object",
+                "to": "anaphoric_link"
+              },
+              {
+                "from": "anaphoric_link",
+                "to": "server"
+              },
+              {
+                "from": "server",
+                "to": "serve"
+              },
+              {
+                "from": "serve",
+                "to": "meal"
+              }
+            ],
+            "represented_paths": 5
+          },
+          "char_offsets": [
+            {
+              "position": 0,
+              "slot": "opening",
+              "local_offset": 0
+            },
+            {
+              "position": 1,
+              "slot": "opening",
+              "local_offset": 1
+            },
+            {
+              "position": 2,
+              "slot": "opening",
+              "local_offset": 2
+            },
+            {
+              "position": 3,
+              "slot": "opening",
+              "local_offset": 3
+            },
+            {
+              "position": 4,
+              "slot": "opening",
+              "local_offset": 4
+            },
+            {
+              "position": 5,
+              "slot": "opening",
+              "local_offset": 5
+            },
+            {
+              "position": 6,
+              "slot": "opening",
+              "local_offset": 6
+            },
+            {
+              "position": 7,
+              "slot": "opening",
+              "local_offset": 7
+            },
+            {
+              "position": 8,
+              "slot": "camper",
+              "local_offset": 0
+            },
+            {
+              "position": 9,
+              "slot": "camper",
+              "local_offset": 1
+            },
+            {
+              "position": 10,
+              "slot": "camper",
+              "local_offset": 2
+            },
+            {
+              "position": 11,
+              "slot": "camper",
+              "local_offset": 3
+            },
+            {
+              "position": 12,
+              "slot": "camper",
+              "local_offset": 4
+            },
+            {
+              "position": 13,
+              "slot": "camper",
+              "local_offset": 5
+            },
+            {
+              "position": 14,
+              "slot": "camper",
+              "local_offset": 6
+            },
+            {
+              "position": 15,
+              "slot": "camper",
+              "local_offset": 7
+            },
+            {
+              "position": 16,
+              "slot": "camper",
+              "local_offset": 8
+            },
+            {
+              "position": 17,
+              "slot": "light",
+              "local_offset": 0
+            },
+            {
+              "position": 18,
+              "slot": "light",
+              "local_offset": 1
+            },
+            {
+              "position": 19,
+              "slot": "light",
+              "local_offset": 2
+            },
+            {
+              "position": 20,
+              "slot": "light",
+              "local_offset": 3
+            },
+            {
+              "position": 21,
+              "slot": "light",
+              "local_offset": 4
+            },
+            {
+              "position": 22,
+              "slot": "light",
+              "local_offset": 5
+            },
+            {
+              "position": 23,
+              "slot": "camp_object",
+              "local_offset": 0
+            },
+            {
+              "position": 24,
+              "slot": "camp_object",
+              "local_offset": 1
+            },
+            {
+              "position": 25,
+              "slot": "camp_object",
+              "local_offset": 2
+            },
+            {
+              "position": 26,
+              "slot": "camp_object",
+              "local_offset": 3
+            },
+            {
+              "position": 27,
+              "slot": "camp_object",
+              "local_offset": 4
+            },
+            {
+              "position": 28,
+              "slot": "camp_object",
+              "local_offset": 5
+            },
+            {
+              "position": 29,
+              "slot": "camp_object",
+              "local_offset": 6
+            },
+            {
+              "position": 30,
+              "slot": "anaphoric_link",
+              "local_offset": 0
+            },
+            {
+              "position": 31,
+              "slot": "anaphoric_link",
+              "local_offset": 1
+            },
+            {
+              "position": 32,
+              "slot": "anaphoric_link",
+              "local_offset": 2
+            },
+            {
+              "position": 33,
+              "slot": "anaphoric_link",
+              "local_offset": 3
+            },
+            {
+              "position": 34,
+              "slot": "anaphoric_link",
+              "local_offset": 4
+            },
+            {
+              "position": 35,
+              "slot": "anaphoric_link",
+              "local_offset": 5
+            },
+            {
+              "position": 36,
+              "slot": "anaphoric_link",
+              "local_offset": 6
+            },
+            {
+              "position": 37,
+              "slot": "anaphoric_link",
+              "local_offset": 7
+            },
+            {
+              "position": 38,
+              "slot": "anaphoric_link",
+              "local_offset": 8
+            },
+            {
+              "position": 39,
+              "slot": "anaphoric_link",
+              "local_offset": 9
+            },
+            {
+              "position": 40,
+              "slot": "server",
+              "local_offset": 0
+            },
+            {
+              "position": 41,
+              "slot": "server",
+              "local_offset": 1
+            },
+            {
+              "position": 42,
+              "slot": "server",
+              "local_offset": 2
+            },
+            {
+              "position": 43,
+              "slot": "server",
+              "local_offset": 3
+            },
+            {
+              "position": 44,
+              "slot": "server",
+              "local_offset": 4
+            },
+            {
+              "position": 45,
+              "slot": "server",
+              "local_offset": 5
+            },
+            {
+              "position": 46,
+              "slot": "server",
+              "local_offset": 6
+            },
+            {
+              "position": 47,
+              "slot": "serve",
+              "local_offset": 0
+            },
+            {
+              "position": 48,
+              "slot": "serve",
+              "local_offset": 1
+            },
+            {
+              "position": 49,
+              "slot": "serve",
+              "local_offset": 2
+            },
+            {
+              "position": 50,
+              "slot": "serve",
+              "local_offset": 3
+            },
+            {
+              "position": 51,
+              "slot": "serve",
+              "local_offset": 4
+            },
+            {
+              "position": 52,
+              "slot": "serve",
+              "local_offset": 5
+            },
+            {
+              "position": 53,
+              "slot": "meal",
+              "local_offset": 0
+            },
+            {
+              "position": 54,
+              "slot": "meal",
+              "local_offset": 1
+            },
+            {
+              "position": 55,
+              "slot": "meal",
+              "local_offset": 2
+            },
+            {
+              "position": 56,
+              "slot": "meal",
+              "local_offset": 3
+            },
+            {
+              "position": 57,
+              "slot": "meal",
+              "local_offset": 4
+            }
+          ],
+          "mirror_equalities": 29,
+          "nogoods_before_solve": [
+            {
+              "id": "camp-supper:nogood:1",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 1,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:2",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 3,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            }
+          ],
+          "unsat_core": {
+            "sufficient_assumption_positions": [
+              2
+            ],
+            "minimum_cardinality": 1,
+            "minimum_positions": [
+              {
+                "position": 2,
+                "mirror_position": 55,
+                "left": {
+                  "position": 2,
+                  "slot": "opening",
+                  "local_offset": 2
+                },
+                "right": {
+                  "position": 55,
+                  "slot": "meal",
+                  "local_offset": 2
+                }
+              }
+            ],
+            "implicated_slots": [
+              "meal",
+              "opening"
+            ],
+            "subset_solves": 1,
+            "proper_subset_checks": [
+              {
+                "positions": [],
+                "feasible": true
+              }
+            ]
+          },
+          "oracle_response": {
+            "requested_slots": [
+              "meal",
+              "opening"
+            ],
+            "queries": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "core_position": 2,
+                "direction": "left",
+                "slot": "opening",
+                "local_offset": 2,
+                "required_chars_from_active_mirror_domain": [
+                  "a",
+                  "c",
+                  "i",
+                  "l",
+                  "z"
+                ],
+                "mirror_slot": "meal",
+                "mirror_local_offset": 2,
+                "required_tape_length": 8,
+                "syntactic_category": "locative",
+                "semantic_category": "time_place",
+                "number": "na",
+                "valency": "na",
+                "terminals_matching": 3,
+                "nodes_visited": 128,
+                "truncated": false,
+                "returned_column_ids": [
+                  "camp-supper:opening:at-autumn",
+                  "camp-supper:opening:at-advent",
+                  "camp-supper:opening:at-apogee"
+                ]
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "core_position": 2,
+                "direction": "right",
+                "slot": "meal",
+                "local_offset": 2,
+                "required_chars_from_active_mirror_domain": [
+                  "s"
+                ],
+                "mirror_slot": "opening",
+                "mirror_local_offset": 2,
+                "required_tape_length": 5,
+                "syntactic_category": "np",
+                "semantic_category": "food",
+                "number": "sg",
+                "valency": "na",
+                "terminals_matching": 1,
+                "nodes_visited": 149,
+                "truncated": false,
+                "returned_column_ids": [
+                  "camp-supper:meal:paste"
+                ]
+              }
+            ],
+            "reparse_evidence": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 0,
+                "column_id": "camp-supper:opening:at-autumn",
+                "slot": "opening",
+                "surface": "At autumn",
+                "tape": "atautumn",
+                "source": {
+                  "column_id": "camp-supper:opening:at-autumn",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At autumn",
+                  "tape": "atautumn",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "autumn",
+                  "brown_count": 22,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "fall.n.01"
+                  ]
+                },
+                "full_clause_surface": "At autumn the ranger lights the camp.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
+                "full_plan_accepted": true,
+                "checks": {
+                  "camp_setup:all_slots_present": true,
+                  "camp_setup:finite_clause": true,
+                  "camp_setup:agreement": true,
+                  "camp_setup:valency": true,
+                  "camp_setup:attachment": true,
+                  "supper:all_slots_present": true,
+                  "supper:finite_clause": true,
+                  "supper:agreement": true,
+                  "supper:valency": true,
+                  "supper:attachment": true,
+                  "anaphora": true,
+                  "shared_scene": true,
+                  "fresh_content_lemmas": true,
+                  "complete_clause_only": true
+                },
+                "decision": "add"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 0,
+                "column_id": "camp-supper:meal:paste",
+                "slot": "meal",
+                "surface": "paste",
+                "tape": "paste",
+                "source": {
+                  "column_id": "camp-supper:meal:paste",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "paste",
+                  "tape": "paste",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "paste",
+                  "brown_count": 9,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "spread.n.05"
+                  ]
+                },
+                "full_clause_surface": "Later there the cook serves paste.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
+                "full_plan_accepted": true,
+                "checks": {
+                  "camp_setup:all_slots_present": true,
+                  "camp_setup:finite_clause": true,
+                  "camp_setup:agreement": true,
+                  "camp_setup:valency": true,
+                  "camp_setup:attachment": true,
+                  "supper:all_slots_present": true,
+                  "supper:finite_clause": true,
+                  "supper:agreement": true,
+                  "supper:valency": true,
+                  "supper:attachment": true,
+                  "anaphora": true,
+                  "shared_scene": true,
+                  "fresh_content_lemmas": true,
+                  "complete_clause_only": true
+                },
+                "decision": "add"
+              }
+            ],
+            "rejections": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 1,
+                "column_id": "camp-supper:opening:at-advent",
+                "slot": "opening",
+                "surface": "At advent",
+                "tape": "atadvent",
+                "source": {
+                  "column_id": "camp-supper:opening:at-advent",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At advent",
+                  "tape": "atadvent",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "advent",
+                  "brown_count": 5,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "advent.n.02"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 2,
+                "column_id": "camp-supper:opening:at-apogee",
+                "slot": "opening",
+                "surface": "At apogee",
+                "tape": "atapogee",
+                "source": {
+                  "column_id": "camp-supper:opening:at-apogee",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At apogee",
+                  "tape": "atapogee",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "apogee",
+                  "brown_count": 2,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "apogee.n.01"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              }
+            ],
+            "added_column_ids": [
+              "camp-supper:opening:at-autumn",
+              "camp-supper:meal:paste"
+            ],
+            "addition_cap": 2,
+            "core_targeted_only": true
+          }
+        },
+        {
+          "iteration": 4,
+          "status": "INFEASIBLE",
+          "active_column_ids": {
+            "opening": [
+              "camp-supper:opening:at-sunset",
+              "camp-supper:opening:at-autumn"
+            ],
+            "camper": [
+              "camp-supper:camper:the-ranger"
+            ],
+            "light": [
+              "camp-supper:light:lights"
+            ],
+            "camp_object": [
+              "camp-supper:camp_object:the-camp"
+            ],
+            "anaphoric_link": [
+              "camp-supper:anaphoric_link:later-there"
+            ],
+            "server": [
+              "camp-supper:server:the-cook"
+            ],
+            "serve": [
+              "camp-supper:serve:serves"
+            ],
+            "meal": [
+              "camp-supper:meal:salad",
+              "camp-supper:meal:pizza",
+              "camp-supper:meal:cocoa",
+              "camp-supper:meal:plate",
+              "camp-supper:meal:white",
+              "camp-supper:meal:paste"
+            ]
+          },
+          "packed_sentence_lattice": {
+            "start": "opening",
+            "finish": "meal",
+            "nodes": [
+              {
+                "slot": "opening",
+                "column_ids": [
+                  "camp-supper:opening:at-sunset",
+                  "camp-supper:opening:at-autumn"
+                ],
+                "tape_lengths": [
+                  8
+                ]
+              },
+              {
+                "slot": "camper",
+                "column_ids": [
+                  "camp-supper:camper:the-ranger"
+                ],
+                "tape_lengths": [
+                  9
+                ]
+              },
+              {
+                "slot": "light",
+                "column_ids": [
+                  "camp-supper:light:lights"
+                ],
+                "tape_lengths": [
+                  6
+                ]
+              },
+              {
+                "slot": "camp_object",
+                "column_ids": [
+                  "camp-supper:camp_object:the-camp"
+                ],
+                "tape_lengths": [
+                  7
+                ]
+              },
+              {
+                "slot": "anaphoric_link",
+                "column_ids": [
+                  "camp-supper:anaphoric_link:later-there"
+                ],
+                "tape_lengths": [
+                  10
+                ]
+              },
+              {
+                "slot": "server",
+                "column_ids": [
+                  "camp-supper:server:the-cook"
+                ],
+                "tape_lengths": [
+                  7
+                ]
+              },
+              {
+                "slot": "serve",
+                "column_ids": [
+                  "camp-supper:serve:serves"
+                ],
+                "tape_lengths": [
+                  6
+                ]
+              },
+              {
+                "slot": "meal",
+                "column_ids": [
+                  "camp-supper:meal:salad",
+                  "camp-supper:meal:pizza",
+                  "camp-supper:meal:cocoa",
+                  "camp-supper:meal:plate",
+                  "camp-supper:meal:white",
+                  "camp-supper:meal:paste"
+                ],
+                "tape_lengths": [
+                  5
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "from": "opening",
+                "to": "camper"
+              },
+              {
+                "from": "camper",
+                "to": "light"
+              },
+              {
+                "from": "light",
+                "to": "camp_object"
+              },
+              {
+                "from": "camp_object",
+                "to": "anaphoric_link"
+              },
+              {
+                "from": "anaphoric_link",
+                "to": "server"
+              },
+              {
+                "from": "server",
+                "to": "serve"
+              },
+              {
+                "from": "serve",
+                "to": "meal"
+              }
+            ],
+            "represented_paths": 12
+          },
+          "char_offsets": [
+            {
+              "position": 0,
+              "slot": "opening",
+              "local_offset": 0
+            },
+            {
+              "position": 1,
+              "slot": "opening",
+              "local_offset": 1
+            },
+            {
+              "position": 2,
+              "slot": "opening",
+              "local_offset": 2
+            },
+            {
+              "position": 3,
+              "slot": "opening",
+              "local_offset": 3
+            },
+            {
+              "position": 4,
+              "slot": "opening",
+              "local_offset": 4
+            },
+            {
+              "position": 5,
+              "slot": "opening",
+              "local_offset": 5
+            },
+            {
+              "position": 6,
+              "slot": "opening",
+              "local_offset": 6
+            },
+            {
+              "position": 7,
+              "slot": "opening",
+              "local_offset": 7
+            },
+            {
+              "position": 8,
+              "slot": "camper",
+              "local_offset": 0
+            },
+            {
+              "position": 9,
+              "slot": "camper",
+              "local_offset": 1
+            },
+            {
+              "position": 10,
+              "slot": "camper",
+              "local_offset": 2
+            },
+            {
+              "position": 11,
+              "slot": "camper",
+              "local_offset": 3
+            },
+            {
+              "position": 12,
+              "slot": "camper",
+              "local_offset": 4
+            },
+            {
+              "position": 13,
+              "slot": "camper",
+              "local_offset": 5
+            },
+            {
+              "position": 14,
+              "slot": "camper",
+              "local_offset": 6
+            },
+            {
+              "position": 15,
+              "slot": "camper",
+              "local_offset": 7
+            },
+            {
+              "position": 16,
+              "slot": "camper",
+              "local_offset": 8
+            },
+            {
+              "position": 17,
+              "slot": "light",
+              "local_offset": 0
+            },
+            {
+              "position": 18,
+              "slot": "light",
+              "local_offset": 1
+            },
+            {
+              "position": 19,
+              "slot": "light",
+              "local_offset": 2
+            },
+            {
+              "position": 20,
+              "slot": "light",
+              "local_offset": 3
+            },
+            {
+              "position": 21,
+              "slot": "light",
+              "local_offset": 4
+            },
+            {
+              "position": 22,
+              "slot": "light",
+              "local_offset": 5
+            },
+            {
+              "position": 23,
+              "slot": "camp_object",
+              "local_offset": 0
+            },
+            {
+              "position": 24,
+              "slot": "camp_object",
+              "local_offset": 1
+            },
+            {
+              "position": 25,
+              "slot": "camp_object",
+              "local_offset": 2
+            },
+            {
+              "position": 26,
+              "slot": "camp_object",
+              "local_offset": 3
+            },
+            {
+              "position": 27,
+              "slot": "camp_object",
+              "local_offset": 4
+            },
+            {
+              "position": 28,
+              "slot": "camp_object",
+              "local_offset": 5
+            },
+            {
+              "position": 29,
+              "slot": "camp_object",
+              "local_offset": 6
+            },
+            {
+              "position": 30,
+              "slot": "anaphoric_link",
+              "local_offset": 0
+            },
+            {
+              "position": 31,
+              "slot": "anaphoric_link",
+              "local_offset": 1
+            },
+            {
+              "position": 32,
+              "slot": "anaphoric_link",
+              "local_offset": 2
+            },
+            {
+              "position": 33,
+              "slot": "anaphoric_link",
+              "local_offset": 3
+            },
+            {
+              "position": 34,
+              "slot": "anaphoric_link",
+              "local_offset": 4
+            },
+            {
+              "position": 35,
+              "slot": "anaphoric_link",
+              "local_offset": 5
+            },
+            {
+              "position": 36,
+              "slot": "anaphoric_link",
+              "local_offset": 6
+            },
+            {
+              "position": 37,
+              "slot": "anaphoric_link",
+              "local_offset": 7
+            },
+            {
+              "position": 38,
+              "slot": "anaphoric_link",
+              "local_offset": 8
+            },
+            {
+              "position": 39,
+              "slot": "anaphoric_link",
+              "local_offset": 9
+            },
+            {
+              "position": 40,
+              "slot": "server",
+              "local_offset": 0
+            },
+            {
+              "position": 41,
+              "slot": "server",
+              "local_offset": 1
+            },
+            {
+              "position": 42,
+              "slot": "server",
+              "local_offset": 2
+            },
+            {
+              "position": 43,
+              "slot": "server",
+              "local_offset": 3
+            },
+            {
+              "position": 44,
+              "slot": "server",
+              "local_offset": 4
+            },
+            {
+              "position": 45,
+              "slot": "server",
+              "local_offset": 5
+            },
+            {
+              "position": 46,
+              "slot": "server",
+              "local_offset": 6
+            },
+            {
+              "position": 47,
+              "slot": "serve",
+              "local_offset": 0
+            },
+            {
+              "position": 48,
+              "slot": "serve",
+              "local_offset": 1
+            },
+            {
+              "position": 49,
+              "slot": "serve",
+              "local_offset": 2
+            },
+            {
+              "position": 50,
+              "slot": "serve",
+              "local_offset": 3
+            },
+            {
+              "position": 51,
+              "slot": "serve",
+              "local_offset": 4
+            },
+            {
+              "position": 52,
+              "slot": "serve",
+              "local_offset": 5
+            },
+            {
+              "position": 53,
+              "slot": "meal",
+              "local_offset": 0
+            },
+            {
+              "position": 54,
+              "slot": "meal",
+              "local_offset": 1
+            },
+            {
+              "position": 55,
+              "slot": "meal",
+              "local_offset": 2
+            },
+            {
+              "position": 56,
+              "slot": "meal",
+              "local_offset": 3
+            },
+            {
+              "position": 57,
+              "slot": "meal",
+              "local_offset": 4
+            }
+          ],
+          "mirror_equalities": 29,
+          "nogoods_before_solve": [
+            {
+              "id": "camp-supper:nogood:1",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 1,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:2",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 3,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:3",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 5,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            }
+          ],
+          "unsat_core": {
+            "sufficient_assumption_positions": [
               3
             ],
             "minimum_cardinality": 1,
@@ -3197,8 +3802,2683 @@
               "meal",
               "opening"
             ],
+            "queries": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "core_position": 3,
+                "direction": "left",
+                "slot": "opening",
+                "local_offset": 3,
+                "required_chars_from_active_mirror_domain": [
+                  "a",
+                  "h",
+                  "i",
+                  "l",
+                  "o"
+                ],
+                "mirror_slot": "meal",
+                "mirror_local_offset": 1,
+                "required_tape_length": 8,
+                "syntactic_category": "locative",
+                "semantic_category": "time_place",
+                "number": "na",
+                "valency": "na",
+                "terminals_matching": 7,
+                "nodes_visited": 251,
+                "truncated": false,
+                "returned_column_ids": [
+                  "camp-supper:opening:at-moment",
+                  "camp-supper:opening:at-window",
+                  "camp-supper:opening:at-winter",
+                  "camp-supper:opening:at-minute",
+                  "camp-supper:opening:at-flower",
+                  "camp-supper:opening:at-picnic",
+                  "camp-supper:opening:at-payday"
+                ]
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "core_position": 3,
+                "direction": "right",
+                "slot": "meal",
+                "local_offset": 1,
+                "required_chars_from_active_mirror_domain": [
+                  "u"
+                ],
+                "mirror_slot": "opening",
+                "mirror_local_offset": 3,
+                "required_tape_length": 5,
+                "syntactic_category": "np",
+                "semantic_category": "food",
+                "number": "sg",
+                "valency": "na",
+                "terminals_matching": 5,
+                "nodes_visited": 80,
+                "truncated": false,
+                "returned_column_ids": [
+                  "camp-supper:meal:sugar",
+                  "camp-supper:meal:lunch",
+                  "camp-supper:meal:juice",
+                  "camp-supper:meal:punch",
+                  "camp-supper:meal:julep"
+                ]
+              }
+            ],
+            "reparse_evidence": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 0,
+                "column_id": "camp-supper:opening:at-moment",
+                "slot": "opening",
+                "surface": "At moment",
+                "tape": "atmoment",
+                "source": {
+                  "column_id": "camp-supper:opening:at-moment",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At moment",
+                  "tape": "atmoment",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "moment",
+                  "brown_count": 246,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "moment.n.02"
+                  ]
+                },
+                "full_clause_surface": "At moment the ranger lights the camp.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
+                "full_plan_accepted": true,
+                "checks": {
+                  "camp_setup:all_slots_present": true,
+                  "camp_setup:finite_clause": true,
+                  "camp_setup:agreement": true,
+                  "camp_setup:valency": true,
+                  "camp_setup:attachment": true,
+                  "supper:all_slots_present": true,
+                  "supper:finite_clause": true,
+                  "supper:agreement": true,
+                  "supper:valency": true,
+                  "supper:attachment": true,
+                  "anaphora": true,
+                  "shared_scene": true,
+                  "fresh_content_lemmas": true,
+                  "complete_clause_only": true
+                },
+                "decision": "add"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 0,
+                "column_id": "camp-supper:meal:sugar",
+                "slot": "meal",
+                "surface": "sugar",
+                "tape": "sugar",
+                "source": {
+                  "column_id": "camp-supper:meal:sugar",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "sugar",
+                  "tape": "sugar",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "sugar",
+                  "brown_count": 34,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "sugar.n.01"
+                  ]
+                },
+                "full_clause_surface": "Later there the cook serves sugar.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
+                "full_plan_accepted": true,
+                "checks": {
+                  "camp_setup:all_slots_present": true,
+                  "camp_setup:finite_clause": true,
+                  "camp_setup:agreement": true,
+                  "camp_setup:valency": true,
+                  "camp_setup:attachment": true,
+                  "supper:all_slots_present": true,
+                  "supper:finite_clause": true,
+                  "supper:agreement": true,
+                  "supper:valency": true,
+                  "supper:attachment": true,
+                  "anaphora": true,
+                  "shared_scene": true,
+                  "fresh_content_lemmas": true,
+                  "complete_clause_only": true
+                },
+                "decision": "add"
+              }
+            ],
+            "rejections": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 1,
+                "column_id": "camp-supper:opening:at-window",
+                "slot": "opening",
+                "surface": "At window",
+                "tape": "atwindow",
+                "source": {
+                  "column_id": "camp-supper:opening:at-window",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At window",
+                  "tape": "atwindow",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "window",
+                  "brown_count": 119,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "window.n.05"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 1,
+                "column_id": "camp-supper:meal:lunch",
+                "slot": "meal",
+                "surface": "lunch",
+                "tape": "lunch",
+                "source": {
+                  "column_id": "camp-supper:meal:lunch",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "lunch",
+                  "tape": "lunch",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "lunch",
+                  "brown_count": 32,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "lunch.n.01"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 2,
+                "column_id": "camp-supper:opening:at-winter",
+                "slot": "opening",
+                "surface": "At winter",
+                "tape": "atwinter",
+                "source": {
+                  "column_id": "camp-supper:opening:at-winter",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At winter",
+                  "tape": "atwinter",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "winter",
+                  "brown_count": 80,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "winter.n.01"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 2,
+                "column_id": "camp-supper:meal:juice",
+                "slot": "meal",
+                "surface": "juice",
+                "tape": "juice",
+                "source": {
+                  "column_id": "camp-supper:meal:juice",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "juice",
+                  "tape": "juice",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "juice",
+                  "brown_count": 11,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "juice.n.01"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 3,
+                "column_id": "camp-supper:opening:at-minute",
+                "slot": "opening",
+                "surface": "At minute",
+                "tape": "atminute",
+                "source": {
+                  "column_id": "camp-supper:opening:at-minute",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At minute",
+                  "tape": "atminute",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "minute",
+                  "brown_count": 44,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "moment.n.02"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 3,
+                "column_id": "camp-supper:meal:punch",
+                "slot": "meal",
+                "surface": "punch",
+                "tape": "punch",
+                "source": {
+                  "column_id": "camp-supper:meal:punch",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "punch",
+                  "tape": "punch",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "punch",
+                  "brown_count": 4,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "punch.n.02"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 4,
+                "column_id": "camp-supper:opening:at-flower",
+                "slot": "opening",
+                "surface": "At flower",
+                "tape": "atflower",
+                "source": {
+                  "column_id": "camp-supper:opening:at-flower",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At flower",
+                  "tape": "atflower",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "flower",
+                  "brown_count": 21,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "flower.n.03"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 4,
+                "column_id": "camp-supper:meal:julep",
+                "slot": "meal",
+                "surface": "julep",
+                "tape": "julep",
+                "source": {
+                  "column_id": "camp-supper:meal:julep",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "julep",
+                  "tape": "julep",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "julep",
+                  "brown_count": 2,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "julep.n.01"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 5,
+                "column_id": "camp-supper:opening:at-picnic",
+                "slot": "opening",
+                "surface": "At picnic",
+                "tape": "atpicnic",
+                "source": {
+                  "column_id": "camp-supper:opening:at-picnic",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At picnic",
+                  "tape": "atpicnic",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "picnic",
+                  "brown_count": 15,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "field_day.n.04"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 6,
+                "column_id": "camp-supper:opening:at-payday",
+                "slot": "opening",
+                "surface": "At payday",
+                "tape": "atpayday",
+                "source": {
+                  "column_id": "camp-supper:opening:at-payday",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At payday",
+                  "tape": "atpayday",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "payday",
+                  "brown_count": 3,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "payday.n.01"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              }
+            ],
+            "added_column_ids": [
+              "camp-supper:opening:at-moment",
+              "camp-supper:meal:sugar"
+            ],
+            "addition_cap": 2,
+            "core_targeted_only": true
+          }
+        },
+        {
+          "iteration": 5,
+          "status": "INFEASIBLE",
+          "active_column_ids": {
+            "opening": [
+              "camp-supper:opening:at-sunset",
+              "camp-supper:opening:at-autumn",
+              "camp-supper:opening:at-moment"
+            ],
+            "camper": [
+              "camp-supper:camper:the-ranger"
+            ],
+            "light": [
+              "camp-supper:light:lights"
+            ],
+            "camp_object": [
+              "camp-supper:camp_object:the-camp"
+            ],
+            "anaphoric_link": [
+              "camp-supper:anaphoric_link:later-there"
+            ],
+            "server": [
+              "camp-supper:server:the-cook"
+            ],
+            "serve": [
+              "camp-supper:serve:serves"
+            ],
+            "meal": [
+              "camp-supper:meal:salad",
+              "camp-supper:meal:pizza",
+              "camp-supper:meal:cocoa",
+              "camp-supper:meal:plate",
+              "camp-supper:meal:white",
+              "camp-supper:meal:paste",
+              "camp-supper:meal:sugar"
+            ]
+          },
+          "packed_sentence_lattice": {
+            "start": "opening",
+            "finish": "meal",
+            "nodes": [
+              {
+                "slot": "opening",
+                "column_ids": [
+                  "camp-supper:opening:at-sunset",
+                  "camp-supper:opening:at-autumn",
+                  "camp-supper:opening:at-moment"
+                ],
+                "tape_lengths": [
+                  8
+                ]
+              },
+              {
+                "slot": "camper",
+                "column_ids": [
+                  "camp-supper:camper:the-ranger"
+                ],
+                "tape_lengths": [
+                  9
+                ]
+              },
+              {
+                "slot": "light",
+                "column_ids": [
+                  "camp-supper:light:lights"
+                ],
+                "tape_lengths": [
+                  6
+                ]
+              },
+              {
+                "slot": "camp_object",
+                "column_ids": [
+                  "camp-supper:camp_object:the-camp"
+                ],
+                "tape_lengths": [
+                  7
+                ]
+              },
+              {
+                "slot": "anaphoric_link",
+                "column_ids": [
+                  "camp-supper:anaphoric_link:later-there"
+                ],
+                "tape_lengths": [
+                  10
+                ]
+              },
+              {
+                "slot": "server",
+                "column_ids": [
+                  "camp-supper:server:the-cook"
+                ],
+                "tape_lengths": [
+                  7
+                ]
+              },
+              {
+                "slot": "serve",
+                "column_ids": [
+                  "camp-supper:serve:serves"
+                ],
+                "tape_lengths": [
+                  6
+                ]
+              },
+              {
+                "slot": "meal",
+                "column_ids": [
+                  "camp-supper:meal:salad",
+                  "camp-supper:meal:pizza",
+                  "camp-supper:meal:cocoa",
+                  "camp-supper:meal:plate",
+                  "camp-supper:meal:white",
+                  "camp-supper:meal:paste",
+                  "camp-supper:meal:sugar"
+                ],
+                "tape_lengths": [
+                  5
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "from": "opening",
+                "to": "camper"
+              },
+              {
+                "from": "camper",
+                "to": "light"
+              },
+              {
+                "from": "light",
+                "to": "camp_object"
+              },
+              {
+                "from": "camp_object",
+                "to": "anaphoric_link"
+              },
+              {
+                "from": "anaphoric_link",
+                "to": "server"
+              },
+              {
+                "from": "server",
+                "to": "serve"
+              },
+              {
+                "from": "serve",
+                "to": "meal"
+              }
+            ],
+            "represented_paths": 21
+          },
+          "char_offsets": [
+            {
+              "position": 0,
+              "slot": "opening",
+              "local_offset": 0
+            },
+            {
+              "position": 1,
+              "slot": "opening",
+              "local_offset": 1
+            },
+            {
+              "position": 2,
+              "slot": "opening",
+              "local_offset": 2
+            },
+            {
+              "position": 3,
+              "slot": "opening",
+              "local_offset": 3
+            },
+            {
+              "position": 4,
+              "slot": "opening",
+              "local_offset": 4
+            },
+            {
+              "position": 5,
+              "slot": "opening",
+              "local_offset": 5
+            },
+            {
+              "position": 6,
+              "slot": "opening",
+              "local_offset": 6
+            },
+            {
+              "position": 7,
+              "slot": "opening",
+              "local_offset": 7
+            },
+            {
+              "position": 8,
+              "slot": "camper",
+              "local_offset": 0
+            },
+            {
+              "position": 9,
+              "slot": "camper",
+              "local_offset": 1
+            },
+            {
+              "position": 10,
+              "slot": "camper",
+              "local_offset": 2
+            },
+            {
+              "position": 11,
+              "slot": "camper",
+              "local_offset": 3
+            },
+            {
+              "position": 12,
+              "slot": "camper",
+              "local_offset": 4
+            },
+            {
+              "position": 13,
+              "slot": "camper",
+              "local_offset": 5
+            },
+            {
+              "position": 14,
+              "slot": "camper",
+              "local_offset": 6
+            },
+            {
+              "position": 15,
+              "slot": "camper",
+              "local_offset": 7
+            },
+            {
+              "position": 16,
+              "slot": "camper",
+              "local_offset": 8
+            },
+            {
+              "position": 17,
+              "slot": "light",
+              "local_offset": 0
+            },
+            {
+              "position": 18,
+              "slot": "light",
+              "local_offset": 1
+            },
+            {
+              "position": 19,
+              "slot": "light",
+              "local_offset": 2
+            },
+            {
+              "position": 20,
+              "slot": "light",
+              "local_offset": 3
+            },
+            {
+              "position": 21,
+              "slot": "light",
+              "local_offset": 4
+            },
+            {
+              "position": 22,
+              "slot": "light",
+              "local_offset": 5
+            },
+            {
+              "position": 23,
+              "slot": "camp_object",
+              "local_offset": 0
+            },
+            {
+              "position": 24,
+              "slot": "camp_object",
+              "local_offset": 1
+            },
+            {
+              "position": 25,
+              "slot": "camp_object",
+              "local_offset": 2
+            },
+            {
+              "position": 26,
+              "slot": "camp_object",
+              "local_offset": 3
+            },
+            {
+              "position": 27,
+              "slot": "camp_object",
+              "local_offset": 4
+            },
+            {
+              "position": 28,
+              "slot": "camp_object",
+              "local_offset": 5
+            },
+            {
+              "position": 29,
+              "slot": "camp_object",
+              "local_offset": 6
+            },
+            {
+              "position": 30,
+              "slot": "anaphoric_link",
+              "local_offset": 0
+            },
+            {
+              "position": 31,
+              "slot": "anaphoric_link",
+              "local_offset": 1
+            },
+            {
+              "position": 32,
+              "slot": "anaphoric_link",
+              "local_offset": 2
+            },
+            {
+              "position": 33,
+              "slot": "anaphoric_link",
+              "local_offset": 3
+            },
+            {
+              "position": 34,
+              "slot": "anaphoric_link",
+              "local_offset": 4
+            },
+            {
+              "position": 35,
+              "slot": "anaphoric_link",
+              "local_offset": 5
+            },
+            {
+              "position": 36,
+              "slot": "anaphoric_link",
+              "local_offset": 6
+            },
+            {
+              "position": 37,
+              "slot": "anaphoric_link",
+              "local_offset": 7
+            },
+            {
+              "position": 38,
+              "slot": "anaphoric_link",
+              "local_offset": 8
+            },
+            {
+              "position": 39,
+              "slot": "anaphoric_link",
+              "local_offset": 9
+            },
+            {
+              "position": 40,
+              "slot": "server",
+              "local_offset": 0
+            },
+            {
+              "position": 41,
+              "slot": "server",
+              "local_offset": 1
+            },
+            {
+              "position": 42,
+              "slot": "server",
+              "local_offset": 2
+            },
+            {
+              "position": 43,
+              "slot": "server",
+              "local_offset": 3
+            },
+            {
+              "position": 44,
+              "slot": "server",
+              "local_offset": 4
+            },
+            {
+              "position": 45,
+              "slot": "server",
+              "local_offset": 5
+            },
+            {
+              "position": 46,
+              "slot": "server",
+              "local_offset": 6
+            },
+            {
+              "position": 47,
+              "slot": "serve",
+              "local_offset": 0
+            },
+            {
+              "position": 48,
+              "slot": "serve",
+              "local_offset": 1
+            },
+            {
+              "position": 49,
+              "slot": "serve",
+              "local_offset": 2
+            },
+            {
+              "position": 50,
+              "slot": "serve",
+              "local_offset": 3
+            },
+            {
+              "position": 51,
+              "slot": "serve",
+              "local_offset": 4
+            },
+            {
+              "position": 52,
+              "slot": "serve",
+              "local_offset": 5
+            },
+            {
+              "position": 53,
+              "slot": "meal",
+              "local_offset": 0
+            },
+            {
+              "position": 54,
+              "slot": "meal",
+              "local_offset": 1
+            },
+            {
+              "position": 55,
+              "slot": "meal",
+              "local_offset": 2
+            },
+            {
+              "position": 56,
+              "slot": "meal",
+              "local_offset": 3
+            },
+            {
+              "position": 57,
+              "slot": "meal",
+              "local_offset": 4
+            }
+          ],
+          "mirror_equalities": 29,
+          "nogoods_before_solve": [
+            {
+              "id": "camp-supper:nogood:1",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 1,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:2",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 3,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:3",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 5,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:4",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 6,
+                "opening": 2
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            }
+          ],
+          "unsat_core": {
+            "sufficient_assumption_positions": [
+              4
+            ],
+            "minimum_cardinality": 1,
+            "minimum_positions": [
+              {
+                "position": 4,
+                "mirror_position": 53,
+                "left": {
+                  "position": 4,
+                  "slot": "opening",
+                  "local_offset": 4
+                },
+                "right": {
+                  "position": 53,
+                  "slot": "meal",
+                  "local_offset": 0
+                }
+              }
+            ],
+            "implicated_slots": [
+              "meal",
+              "opening"
+            ],
+            "subset_solves": 1,
+            "proper_subset_checks": [
+              {
+                "positions": [],
+                "feasible": true
+              }
+            ]
+          },
+          "oracle_response": {
+            "requested_slots": [
+              "meal",
+              "opening"
+            ],
+            "queries": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "core_position": 4,
+                "direction": "left",
+                "slot": "opening",
+                "local_offset": 4,
+                "required_chars_from_active_mirror_domain": [
+                  "c",
+                  "p",
+                  "s",
+                  "w"
+                ],
+                "mirror_slot": "meal",
+                "mirror_local_offset": 0,
+                "required_tape_length": 8,
+                "syntactic_category": "locative",
+                "semantic_category": "time_place",
+                "number": "na",
+                "valency": "na",
+                "terminals_matching": 3,
+                "nodes_visited": 149,
+                "truncated": false,
+                "returned_column_ids": [
+                  "camp-supper:opening:at-decade",
+                  "camp-supper:opening:at-second",
+                  "camp-supper:opening:at-picnic"
+                ]
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "core_position": 4,
+                "direction": "right",
+                "slot": "meal",
+                "local_offset": 0,
+                "required_chars_from_active_mirror_domain": [
+                  "m",
+                  "n",
+                  "t"
+                ],
+                "mirror_slot": "opening",
+                "mirror_local_offset": 4,
+                "required_tape_length": 5,
+                "syntactic_category": "np",
+                "semantic_category": "food",
+                "number": "sg",
+                "valency": "na",
+                "terminals_matching": 4,
+                "nodes_visited": 76,
+                "truncated": false,
+                "returned_column_ids": [
+                  "camp-supper:meal:table",
+                  "camp-supper:meal:toast",
+                  "camp-supper:meal:mixer",
+                  "camp-supper:meal:treat"
+                ]
+              }
+            ],
+            "reparse_evidence": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 0,
+                "column_id": "camp-supper:opening:at-decade",
+                "slot": "opening",
+                "surface": "At decade",
+                "tape": "atdecade",
+                "source": {
+                  "column_id": "camp-supper:opening:at-decade",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At decade",
+                  "tape": "atdecade",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "decade",
+                  "brown_count": 46,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "decade.n.01"
+                  ]
+                },
+                "full_clause_surface": "At decade the ranger lights the camp.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
+                "full_plan_accepted": true,
+                "checks": {
+                  "camp_setup:all_slots_present": true,
+                  "camp_setup:finite_clause": true,
+                  "camp_setup:agreement": true,
+                  "camp_setup:valency": true,
+                  "camp_setup:attachment": true,
+                  "supper:all_slots_present": true,
+                  "supper:finite_clause": true,
+                  "supper:agreement": true,
+                  "supper:valency": true,
+                  "supper:attachment": true,
+                  "anaphora": true,
+                  "shared_scene": true,
+                  "fresh_content_lemmas": true,
+                  "complete_clause_only": true
+                },
+                "decision": "add"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 0,
+                "column_id": "camp-supper:meal:table",
+                "slot": "meal",
+                "surface": "table",
+                "tape": "table",
+                "source": {
+                  "column_id": "camp-supper:meal:table",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "table",
+                  "tape": "table",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "table",
+                  "brown_count": 197,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "board.n.04"
+                  ]
+                },
+                "full_clause_surface": "Later there the cook serves table.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
+                "full_plan_accepted": true,
+                "checks": {
+                  "camp_setup:all_slots_present": true,
+                  "camp_setup:finite_clause": true,
+                  "camp_setup:agreement": true,
+                  "camp_setup:valency": true,
+                  "camp_setup:attachment": true,
+                  "supper:all_slots_present": true,
+                  "supper:finite_clause": true,
+                  "supper:agreement": true,
+                  "supper:valency": true,
+                  "supper:attachment": true,
+                  "anaphora": true,
+                  "shared_scene": true,
+                  "fresh_content_lemmas": true,
+                  "complete_clause_only": true
+                },
+                "decision": "add"
+              }
+            ],
+            "rejections": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 1,
+                "column_id": "camp-supper:opening:at-second",
+                "slot": "opening",
+                "surface": "At second",
+                "tape": "atsecond",
+                "source": {
+                  "column_id": "camp-supper:opening:at-second",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At second",
+                  "tape": "atsecond",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "second",
+                  "brown_count": 28,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "moment.n.02"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 1,
+                "column_id": "camp-supper:meal:toast",
+                "slot": "meal",
+                "surface": "toast",
+                "tape": "toast",
+                "source": {
+                  "column_id": "camp-supper:meal:toast",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "toast",
+                  "tape": "toast",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "toast",
+                  "brown_count": 14,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "toast.n.01"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "rank": 2,
+                "column_id": "camp-supper:opening:at-picnic",
+                "slot": "opening",
+                "surface": "At picnic",
+                "tape": "atpicnic",
+                "source": {
+                  "column_id": "camp-supper:opening:at-picnic",
+                  "plan": "camp-supper",
+                  "slot": "opening",
+                  "surface": "At picnic",
+                  "tape": "atpicnic",
+                  "category": "locative",
+                  "semantic_type": "time_place",
+                  "number": "na",
+                  "valency": "na",
+                  "lexical_lemma": "picnic",
+                  "brown_count": 15,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "field_day.n.04"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 2,
+                "column_id": "camp-supper:meal:mixer",
+                "slot": "meal",
+                "surface": "mixer",
+                "tape": "mixer",
+                "source": {
+                  "column_id": "camp-supper:meal:mixer",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "mixer",
+                  "tape": "mixer",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "mixer",
+                  "brown_count": 2,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "mixer.n.02"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 3,
+                "column_id": "camp-supper:meal:treat",
+                "slot": "meal",
+                "surface": "treat",
+                "tape": "treat",
+                "source": {
+                  "column_id": "camp-supper:meal:treat",
+                  "plan": "camp-supper",
+                  "slot": "meal",
+                  "surface": "treat",
+                  "tape": "treat",
+                  "category": "np",
+                  "semantic_type": "food",
+                  "number": "sg",
+                  "valency": "na",
+                  "lexical_lemma": "treat",
+                  "brown_count": 2,
+                  "brown_tags": [
+                    "NN"
+                  ],
+                  "wordnet_synsets": [
+                    "dainty.n.01"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              }
+            ],
+            "added_column_ids": [
+              "camp-supper:opening:at-decade",
+              "camp-supper:meal:table"
+            ],
+            "addition_cap": 2,
+            "core_targeted_only": true
+          }
+        },
+        {
+          "iteration": 6,
+          "status": "INFEASIBLE",
+          "active_column_ids": {
+            "opening": [
+              "camp-supper:opening:at-sunset",
+              "camp-supper:opening:at-autumn",
+              "camp-supper:opening:at-moment",
+              "camp-supper:opening:at-decade"
+            ],
+            "camper": [
+              "camp-supper:camper:the-ranger"
+            ],
+            "light": [
+              "camp-supper:light:lights"
+            ],
+            "camp_object": [
+              "camp-supper:camp_object:the-camp"
+            ],
+            "anaphoric_link": [
+              "camp-supper:anaphoric_link:later-there"
+            ],
+            "server": [
+              "camp-supper:server:the-cook"
+            ],
+            "serve": [
+              "camp-supper:serve:serves"
+            ],
+            "meal": [
+              "camp-supper:meal:salad",
+              "camp-supper:meal:pizza",
+              "camp-supper:meal:cocoa",
+              "camp-supper:meal:plate",
+              "camp-supper:meal:white",
+              "camp-supper:meal:paste",
+              "camp-supper:meal:sugar",
+              "camp-supper:meal:table"
+            ]
+          },
+          "packed_sentence_lattice": {
+            "start": "opening",
+            "finish": "meal",
+            "nodes": [
+              {
+                "slot": "opening",
+                "column_ids": [
+                  "camp-supper:opening:at-sunset",
+                  "camp-supper:opening:at-autumn",
+                  "camp-supper:opening:at-moment",
+                  "camp-supper:opening:at-decade"
+                ],
+                "tape_lengths": [
+                  8
+                ]
+              },
+              {
+                "slot": "camper",
+                "column_ids": [
+                  "camp-supper:camper:the-ranger"
+                ],
+                "tape_lengths": [
+                  9
+                ]
+              },
+              {
+                "slot": "light",
+                "column_ids": [
+                  "camp-supper:light:lights"
+                ],
+                "tape_lengths": [
+                  6
+                ]
+              },
+              {
+                "slot": "camp_object",
+                "column_ids": [
+                  "camp-supper:camp_object:the-camp"
+                ],
+                "tape_lengths": [
+                  7
+                ]
+              },
+              {
+                "slot": "anaphoric_link",
+                "column_ids": [
+                  "camp-supper:anaphoric_link:later-there"
+                ],
+                "tape_lengths": [
+                  10
+                ]
+              },
+              {
+                "slot": "server",
+                "column_ids": [
+                  "camp-supper:server:the-cook"
+                ],
+                "tape_lengths": [
+                  7
+                ]
+              },
+              {
+                "slot": "serve",
+                "column_ids": [
+                  "camp-supper:serve:serves"
+                ],
+                "tape_lengths": [
+                  6
+                ]
+              },
+              {
+                "slot": "meal",
+                "column_ids": [
+                  "camp-supper:meal:salad",
+                  "camp-supper:meal:pizza",
+                  "camp-supper:meal:cocoa",
+                  "camp-supper:meal:plate",
+                  "camp-supper:meal:white",
+                  "camp-supper:meal:paste",
+                  "camp-supper:meal:sugar",
+                  "camp-supper:meal:table"
+                ],
+                "tape_lengths": [
+                  5
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "from": "opening",
+                "to": "camper"
+              },
+              {
+                "from": "camper",
+                "to": "light"
+              },
+              {
+                "from": "light",
+                "to": "camp_object"
+              },
+              {
+                "from": "camp_object",
+                "to": "anaphoric_link"
+              },
+              {
+                "from": "anaphoric_link",
+                "to": "server"
+              },
+              {
+                "from": "server",
+                "to": "serve"
+              },
+              {
+                "from": "serve",
+                "to": "meal"
+              }
+            ],
+            "represented_paths": 32
+          },
+          "char_offsets": [
+            {
+              "position": 0,
+              "slot": "opening",
+              "local_offset": 0
+            },
+            {
+              "position": 1,
+              "slot": "opening",
+              "local_offset": 1
+            },
+            {
+              "position": 2,
+              "slot": "opening",
+              "local_offset": 2
+            },
+            {
+              "position": 3,
+              "slot": "opening",
+              "local_offset": 3
+            },
+            {
+              "position": 4,
+              "slot": "opening",
+              "local_offset": 4
+            },
+            {
+              "position": 5,
+              "slot": "opening",
+              "local_offset": 5
+            },
+            {
+              "position": 6,
+              "slot": "opening",
+              "local_offset": 6
+            },
+            {
+              "position": 7,
+              "slot": "opening",
+              "local_offset": 7
+            },
+            {
+              "position": 8,
+              "slot": "camper",
+              "local_offset": 0
+            },
+            {
+              "position": 9,
+              "slot": "camper",
+              "local_offset": 1
+            },
+            {
+              "position": 10,
+              "slot": "camper",
+              "local_offset": 2
+            },
+            {
+              "position": 11,
+              "slot": "camper",
+              "local_offset": 3
+            },
+            {
+              "position": 12,
+              "slot": "camper",
+              "local_offset": 4
+            },
+            {
+              "position": 13,
+              "slot": "camper",
+              "local_offset": 5
+            },
+            {
+              "position": 14,
+              "slot": "camper",
+              "local_offset": 6
+            },
+            {
+              "position": 15,
+              "slot": "camper",
+              "local_offset": 7
+            },
+            {
+              "position": 16,
+              "slot": "camper",
+              "local_offset": 8
+            },
+            {
+              "position": 17,
+              "slot": "light",
+              "local_offset": 0
+            },
+            {
+              "position": 18,
+              "slot": "light",
+              "local_offset": 1
+            },
+            {
+              "position": 19,
+              "slot": "light",
+              "local_offset": 2
+            },
+            {
+              "position": 20,
+              "slot": "light",
+              "local_offset": 3
+            },
+            {
+              "position": 21,
+              "slot": "light",
+              "local_offset": 4
+            },
+            {
+              "position": 22,
+              "slot": "light",
+              "local_offset": 5
+            },
+            {
+              "position": 23,
+              "slot": "camp_object",
+              "local_offset": 0
+            },
+            {
+              "position": 24,
+              "slot": "camp_object",
+              "local_offset": 1
+            },
+            {
+              "position": 25,
+              "slot": "camp_object",
+              "local_offset": 2
+            },
+            {
+              "position": 26,
+              "slot": "camp_object",
+              "local_offset": 3
+            },
+            {
+              "position": 27,
+              "slot": "camp_object",
+              "local_offset": 4
+            },
+            {
+              "position": 28,
+              "slot": "camp_object",
+              "local_offset": 5
+            },
+            {
+              "position": 29,
+              "slot": "camp_object",
+              "local_offset": 6
+            },
+            {
+              "position": 30,
+              "slot": "anaphoric_link",
+              "local_offset": 0
+            },
+            {
+              "position": 31,
+              "slot": "anaphoric_link",
+              "local_offset": 1
+            },
+            {
+              "position": 32,
+              "slot": "anaphoric_link",
+              "local_offset": 2
+            },
+            {
+              "position": 33,
+              "slot": "anaphoric_link",
+              "local_offset": 3
+            },
+            {
+              "position": 34,
+              "slot": "anaphoric_link",
+              "local_offset": 4
+            },
+            {
+              "position": 35,
+              "slot": "anaphoric_link",
+              "local_offset": 5
+            },
+            {
+              "position": 36,
+              "slot": "anaphoric_link",
+              "local_offset": 6
+            },
+            {
+              "position": 37,
+              "slot": "anaphoric_link",
+              "local_offset": 7
+            },
+            {
+              "position": 38,
+              "slot": "anaphoric_link",
+              "local_offset": 8
+            },
+            {
+              "position": 39,
+              "slot": "anaphoric_link",
+              "local_offset": 9
+            },
+            {
+              "position": 40,
+              "slot": "server",
+              "local_offset": 0
+            },
+            {
+              "position": 41,
+              "slot": "server",
+              "local_offset": 1
+            },
+            {
+              "position": 42,
+              "slot": "server",
+              "local_offset": 2
+            },
+            {
+              "position": 43,
+              "slot": "server",
+              "local_offset": 3
+            },
+            {
+              "position": 44,
+              "slot": "server",
+              "local_offset": 4
+            },
+            {
+              "position": 45,
+              "slot": "server",
+              "local_offset": 5
+            },
+            {
+              "position": 46,
+              "slot": "server",
+              "local_offset": 6
+            },
+            {
+              "position": 47,
+              "slot": "serve",
+              "local_offset": 0
+            },
+            {
+              "position": 48,
+              "slot": "serve",
+              "local_offset": 1
+            },
+            {
+              "position": 49,
+              "slot": "serve",
+              "local_offset": 2
+            },
+            {
+              "position": 50,
+              "slot": "serve",
+              "local_offset": 3
+            },
+            {
+              "position": 51,
+              "slot": "serve",
+              "local_offset": 4
+            },
+            {
+              "position": 52,
+              "slot": "serve",
+              "local_offset": 5
+            },
+            {
+              "position": 53,
+              "slot": "meal",
+              "local_offset": 0
+            },
+            {
+              "position": 54,
+              "slot": "meal",
+              "local_offset": 1
+            },
+            {
+              "position": 55,
+              "slot": "meal",
+              "local_offset": 2
+            },
+            {
+              "position": 56,
+              "slot": "meal",
+              "local_offset": 3
+            },
+            {
+              "position": 57,
+              "slot": "meal",
+              "local_offset": 4
+            }
+          ],
+          "mirror_equalities": 29,
+          "nogoods_before_solve": [
+            {
+              "id": "camp-supper:nogood:1",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 1,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:2",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 3,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:3",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 5,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:4",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 6,
+                "opening": 2
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:5",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 7,
+                "opening": 3
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            }
+          ],
+          "unsat_core": {
+            "sufficient_assumption_positions": [
+              7
+            ],
+            "minimum_cardinality": 1,
+            "minimum_positions": [
+              {
+                "position": 7,
+                "mirror_position": 50,
+                "left": {
+                  "position": 7,
+                  "slot": "opening",
+                  "local_offset": 7
+                },
+                "right": {
+                  "position": 50,
+                  "slot": "serve",
+                  "local_offset": 3
+                }
+              }
+            ],
+            "implicated_slots": [
+              "opening",
+              "serve"
+            ],
+            "subset_solves": 1,
+            "proper_subset_checks": [
+              {
+                "positions": [],
+                "feasible": true
+              }
+            ]
+          },
+          "oracle_response": {
+            "requested_slots": [
+              "opening",
+              "serve"
+            ],
+            "queries": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "core_position": 7,
+                "direction": "left",
+                "slot": "opening",
+                "local_offset": 7,
+                "required_chars_from_active_mirror_domain": [
+                  "v"
+                ],
+                "mirror_slot": "serve",
+                "mirror_local_offset": 3,
+                "required_tape_length": 8,
+                "syntactic_category": "locative",
+                "semantic_category": "time_place",
+                "number": "na",
+                "valency": "na",
+                "terminals_matching": 0,
+                "nodes_visited": 452,
+                "truncated": false,
+                "returned_column_ids": []
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "core_position": 7,
+                "direction": "right",
+                "slot": "serve",
+                "local_offset": 3,
+                "required_chars_from_active_mirror_domain": [
+                  "e",
+                  "n",
+                  "t"
+                ],
+                "mirror_slot": "opening",
+                "mirror_local_offset": 7,
+                "required_tape_length": 6,
+                "syntactic_category": "finite_verb",
+                "semantic_category": "na",
+                "number": "sg",
+                "valency": "transitive",
+                "terminals_matching": 3,
+                "nodes_visited": 115,
+                "truncated": false,
+                "returned_column_ids": [
+                  "camp-supper:serve:covers",
+                  "camp-supper:serve:spends",
+                  "camp-supper:serve:mounts"
+                ]
+              }
+            ],
+            "reparse_evidence": [
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 0,
+                "column_id": "camp-supper:serve:covers",
+                "slot": "serve",
+                "surface": "covers",
+                "tape": "covers",
+                "source": {
+                  "column_id": "camp-supper:serve:covers",
+                  "plan": "camp-supper",
+                  "slot": "serve",
+                  "surface": "covers",
+                  "tape": "covers",
+                  "category": "finite_verb",
+                  "semantic_type": "na",
+                  "number": "sg",
+                  "valency": "transitive",
+                  "lexical_lemma": "cover",
+                  "brown_count": 15,
+                  "brown_tags": [
+                    "VBZ"
+                  ],
+                  "wordnet_synsets": [
+                    "breed.v.02",
+                    "cover.v.04"
+                  ]
+                },
+                "full_clause_surface": "Later there the cook covers salad.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
+                "full_plan_accepted": true,
+                "checks": {
+                  "camp_setup:all_slots_present": true,
+                  "camp_setup:finite_clause": true,
+                  "camp_setup:agreement": true,
+                  "camp_setup:valency": true,
+                  "camp_setup:attachment": true,
+                  "supper:all_slots_present": true,
+                  "supper:finite_clause": true,
+                  "supper:agreement": true,
+                  "supper:valency": true,
+                  "supper:attachment": true,
+                  "anaphora": true,
+                  "shared_scene": true,
+                  "fresh_content_lemmas": true,
+                  "complete_clause_only": true
+                },
+                "decision": "add"
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 1,
+                "column_id": "camp-supper:serve:spends",
+                "slot": "serve",
+                "surface": "spends",
+                "tape": "spends",
+                "source": {
+                  "column_id": "camp-supper:serve:spends",
+                  "plan": "camp-supper",
+                  "slot": "serve",
+                  "surface": "spends",
+                  "tape": "spends",
+                  "category": "finite_verb",
+                  "semantic_type": "na",
+                  "number": "sg",
+                  "valency": "transitive",
+                  "lexical_lemma": "spend",
+                  "brown_count": 8,
+                  "brown_tags": [
+                    "VBZ"
+                  ],
+                  "wordnet_synsets": [
+                    "spend.v.01"
+                  ]
+                },
+                "full_clause_surface": "Later there the cook spends salad.",
+                "full_clause_checks": {
+                  "all_slots_present": true,
+                  "finite_clause": true,
+                  "agreement": true,
+                  "valency": true,
+                  "attachment": true
+                },
+                "full_plan_accepted": true,
+                "checks": {
+                  "camp_setup:all_slots_present": true,
+                  "camp_setup:finite_clause": true,
+                  "camp_setup:agreement": true,
+                  "camp_setup:valency": true,
+                  "camp_setup:attachment": true,
+                  "supper:all_slots_present": true,
+                  "supper:finite_clause": true,
+                  "supper:agreement": true,
+                  "supper:valency": true,
+                  "supper:attachment": true,
+                  "anaphora": true,
+                  "shared_scene": true,
+                  "fresh_content_lemmas": true,
+                  "complete_clause_only": true
+                },
+                "decision": "add"
+              }
+            ],
+            "rejections": [
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "rank": 2,
+                "column_id": "camp-supper:serve:mounts",
+                "slot": "serve",
+                "surface": "mounts",
+                "tape": "mounts",
+                "source": {
+                  "column_id": "camp-supper:serve:mounts",
+                  "plan": "camp-supper",
+                  "slot": "serve",
+                  "surface": "mounts",
+                  "tape": "mounts",
+                  "category": "finite_verb",
+                  "semantic_type": "na",
+                  "number": "sg",
+                  "valency": "transitive",
+                  "lexical_lemma": "mount",
+                  "brown_count": 3,
+                  "brown_tags": [
+                    "VBZ"
+                  ],
+                  "wordnet_synsets": [
+                    "ride.v.14"
+                  ]
+                },
+                "reason": "two_column_core_cap_reached"
+              }
+            ],
+            "added_column_ids": [
+              "camp-supper:serve:covers",
+              "camp-supper:serve:spends"
+            ],
+            "addition_cap": 2,
+            "core_targeted_only": true
+          }
+        },
+        {
+          "iteration": 7,
+          "status": "INFEASIBLE",
+          "active_column_ids": {
+            "opening": [
+              "camp-supper:opening:at-sunset",
+              "camp-supper:opening:at-autumn",
+              "camp-supper:opening:at-moment",
+              "camp-supper:opening:at-decade"
+            ],
+            "camper": [
+              "camp-supper:camper:the-ranger"
+            ],
+            "light": [
+              "camp-supper:light:lights"
+            ],
+            "camp_object": [
+              "camp-supper:camp_object:the-camp"
+            ],
+            "anaphoric_link": [
+              "camp-supper:anaphoric_link:later-there"
+            ],
+            "server": [
+              "camp-supper:server:the-cook"
+            ],
+            "serve": [
+              "camp-supper:serve:serves",
+              "camp-supper:serve:covers",
+              "camp-supper:serve:spends"
+            ],
+            "meal": [
+              "camp-supper:meal:salad",
+              "camp-supper:meal:pizza",
+              "camp-supper:meal:cocoa",
+              "camp-supper:meal:plate",
+              "camp-supper:meal:white",
+              "camp-supper:meal:paste",
+              "camp-supper:meal:sugar",
+              "camp-supper:meal:table"
+            ]
+          },
+          "packed_sentence_lattice": {
+            "start": "opening",
+            "finish": "meal",
+            "nodes": [
+              {
+                "slot": "opening",
+                "column_ids": [
+                  "camp-supper:opening:at-sunset",
+                  "camp-supper:opening:at-autumn",
+                  "camp-supper:opening:at-moment",
+                  "camp-supper:opening:at-decade"
+                ],
+                "tape_lengths": [
+                  8
+                ]
+              },
+              {
+                "slot": "camper",
+                "column_ids": [
+                  "camp-supper:camper:the-ranger"
+                ],
+                "tape_lengths": [
+                  9
+                ]
+              },
+              {
+                "slot": "light",
+                "column_ids": [
+                  "camp-supper:light:lights"
+                ],
+                "tape_lengths": [
+                  6
+                ]
+              },
+              {
+                "slot": "camp_object",
+                "column_ids": [
+                  "camp-supper:camp_object:the-camp"
+                ],
+                "tape_lengths": [
+                  7
+                ]
+              },
+              {
+                "slot": "anaphoric_link",
+                "column_ids": [
+                  "camp-supper:anaphoric_link:later-there"
+                ],
+                "tape_lengths": [
+                  10
+                ]
+              },
+              {
+                "slot": "server",
+                "column_ids": [
+                  "camp-supper:server:the-cook"
+                ],
+                "tape_lengths": [
+                  7
+                ]
+              },
+              {
+                "slot": "serve",
+                "column_ids": [
+                  "camp-supper:serve:serves",
+                  "camp-supper:serve:covers",
+                  "camp-supper:serve:spends"
+                ],
+                "tape_lengths": [
+                  6
+                ]
+              },
+              {
+                "slot": "meal",
+                "column_ids": [
+                  "camp-supper:meal:salad",
+                  "camp-supper:meal:pizza",
+                  "camp-supper:meal:cocoa",
+                  "camp-supper:meal:plate",
+                  "camp-supper:meal:white",
+                  "camp-supper:meal:paste",
+                  "camp-supper:meal:sugar",
+                  "camp-supper:meal:table"
+                ],
+                "tape_lengths": [
+                  5
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "from": "opening",
+                "to": "camper"
+              },
+              {
+                "from": "camper",
+                "to": "light"
+              },
+              {
+                "from": "light",
+                "to": "camp_object"
+              },
+              {
+                "from": "camp_object",
+                "to": "anaphoric_link"
+              },
+              {
+                "from": "anaphoric_link",
+                "to": "server"
+              },
+              {
+                "from": "server",
+                "to": "serve"
+              },
+              {
+                "from": "serve",
+                "to": "meal"
+              }
+            ],
+            "represented_paths": 96
+          },
+          "char_offsets": [
+            {
+              "position": 0,
+              "slot": "opening",
+              "local_offset": 0
+            },
+            {
+              "position": 1,
+              "slot": "opening",
+              "local_offset": 1
+            },
+            {
+              "position": 2,
+              "slot": "opening",
+              "local_offset": 2
+            },
+            {
+              "position": 3,
+              "slot": "opening",
+              "local_offset": 3
+            },
+            {
+              "position": 4,
+              "slot": "opening",
+              "local_offset": 4
+            },
+            {
+              "position": 5,
+              "slot": "opening",
+              "local_offset": 5
+            },
+            {
+              "position": 6,
+              "slot": "opening",
+              "local_offset": 6
+            },
+            {
+              "position": 7,
+              "slot": "opening",
+              "local_offset": 7
+            },
+            {
+              "position": 8,
+              "slot": "camper",
+              "local_offset": 0
+            },
+            {
+              "position": 9,
+              "slot": "camper",
+              "local_offset": 1
+            },
+            {
+              "position": 10,
+              "slot": "camper",
+              "local_offset": 2
+            },
+            {
+              "position": 11,
+              "slot": "camper",
+              "local_offset": 3
+            },
+            {
+              "position": 12,
+              "slot": "camper",
+              "local_offset": 4
+            },
+            {
+              "position": 13,
+              "slot": "camper",
+              "local_offset": 5
+            },
+            {
+              "position": 14,
+              "slot": "camper",
+              "local_offset": 6
+            },
+            {
+              "position": 15,
+              "slot": "camper",
+              "local_offset": 7
+            },
+            {
+              "position": 16,
+              "slot": "camper",
+              "local_offset": 8
+            },
+            {
+              "position": 17,
+              "slot": "light",
+              "local_offset": 0
+            },
+            {
+              "position": 18,
+              "slot": "light",
+              "local_offset": 1
+            },
+            {
+              "position": 19,
+              "slot": "light",
+              "local_offset": 2
+            },
+            {
+              "position": 20,
+              "slot": "light",
+              "local_offset": 3
+            },
+            {
+              "position": 21,
+              "slot": "light",
+              "local_offset": 4
+            },
+            {
+              "position": 22,
+              "slot": "light",
+              "local_offset": 5
+            },
+            {
+              "position": 23,
+              "slot": "camp_object",
+              "local_offset": 0
+            },
+            {
+              "position": 24,
+              "slot": "camp_object",
+              "local_offset": 1
+            },
+            {
+              "position": 25,
+              "slot": "camp_object",
+              "local_offset": 2
+            },
+            {
+              "position": 26,
+              "slot": "camp_object",
+              "local_offset": 3
+            },
+            {
+              "position": 27,
+              "slot": "camp_object",
+              "local_offset": 4
+            },
+            {
+              "position": 28,
+              "slot": "camp_object",
+              "local_offset": 5
+            },
+            {
+              "position": 29,
+              "slot": "camp_object",
+              "local_offset": 6
+            },
+            {
+              "position": 30,
+              "slot": "anaphoric_link",
+              "local_offset": 0
+            },
+            {
+              "position": 31,
+              "slot": "anaphoric_link",
+              "local_offset": 1
+            },
+            {
+              "position": 32,
+              "slot": "anaphoric_link",
+              "local_offset": 2
+            },
+            {
+              "position": 33,
+              "slot": "anaphoric_link",
+              "local_offset": 3
+            },
+            {
+              "position": 34,
+              "slot": "anaphoric_link",
+              "local_offset": 4
+            },
+            {
+              "position": 35,
+              "slot": "anaphoric_link",
+              "local_offset": 5
+            },
+            {
+              "position": 36,
+              "slot": "anaphoric_link",
+              "local_offset": 6
+            },
+            {
+              "position": 37,
+              "slot": "anaphoric_link",
+              "local_offset": 7
+            },
+            {
+              "position": 38,
+              "slot": "anaphoric_link",
+              "local_offset": 8
+            },
+            {
+              "position": 39,
+              "slot": "anaphoric_link",
+              "local_offset": 9
+            },
+            {
+              "position": 40,
+              "slot": "server",
+              "local_offset": 0
+            },
+            {
+              "position": 41,
+              "slot": "server",
+              "local_offset": 1
+            },
+            {
+              "position": 42,
+              "slot": "server",
+              "local_offset": 2
+            },
+            {
+              "position": 43,
+              "slot": "server",
+              "local_offset": 3
+            },
+            {
+              "position": 44,
+              "slot": "server",
+              "local_offset": 4
+            },
+            {
+              "position": 45,
+              "slot": "server",
+              "local_offset": 5
+            },
+            {
+              "position": 46,
+              "slot": "server",
+              "local_offset": 6
+            },
+            {
+              "position": 47,
+              "slot": "serve",
+              "local_offset": 0
+            },
+            {
+              "position": 48,
+              "slot": "serve",
+              "local_offset": 1
+            },
+            {
+              "position": 49,
+              "slot": "serve",
+              "local_offset": 2
+            },
+            {
+              "position": 50,
+              "slot": "serve",
+              "local_offset": 3
+            },
+            {
+              "position": 51,
+              "slot": "serve",
+              "local_offset": 4
+            },
+            {
+              "position": 52,
+              "slot": "serve",
+              "local_offset": 5
+            },
+            {
+              "position": 53,
+              "slot": "meal",
+              "local_offset": 0
+            },
+            {
+              "position": 54,
+              "slot": "meal",
+              "local_offset": 1
+            },
+            {
+              "position": 55,
+              "slot": "meal",
+              "local_offset": 2
+            },
+            {
+              "position": 56,
+              "slot": "meal",
+              "local_offset": 3
+            },
+            {
+              "position": 57,
+              "slot": "meal",
+              "local_offset": 4
+            }
+          ],
+          "mirror_equalities": 29,
+          "nogoods_before_solve": [
+            {
+              "id": "camp-supper:nogood:1",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 1,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:2",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 3,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:3",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 5,
+                "opening": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:4",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 6,
+                "opening": 2
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:5",
+              "slots": [
+                "meal",
+                "opening"
+              ],
+              "old_domain_sizes": {
+                "meal": 7,
+                "opening": 3
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            },
+            {
+              "id": "camp-supper:nogood:6",
+              "slots": [
+                "opening",
+                "serve"
+              ],
+              "old_domain_sizes": {
+                "opening": 4,
+                "serve": 1
+              },
+              "meaning": "at least one implicated slot must select a newly reparsed column"
+            }
+          ],
+          "unsat_core": {
+            "sufficient_assumption_positions": [
+              8
+            ],
+            "minimum_cardinality": 1,
+            "minimum_positions": [
+              {
+                "position": 8,
+                "mirror_position": 49,
+                "left": {
+                  "position": 8,
+                  "slot": "camper",
+                  "local_offset": 0
+                },
+                "right": {
+                  "position": 49,
+                  "slot": "serve",
+                  "local_offset": 2
+                }
+              }
+            ],
+            "implicated_slots": [
+              "camper",
+              "serve"
+            ],
+            "subset_solves": 1,
+            "proper_subset_checks": [
+              {
+                "positions": [],
+                "feasible": true
+              }
+            ]
+          },
+          "oracle_response": {
+            "requested_slots": [
+              "camper",
+              "serve"
+            ],
+            "queries": [
+              {
+                "query_id": "camp-supper:core-query:0:left",
+                "core_position": 8,
+                "direction": "left",
+                "slot": "camper",
+                "local_offset": 0,
+                "required_chars_from_active_mirror_domain": [
+                  "e",
+                  "r",
+                  "v"
+                ],
+                "mirror_slot": "serve",
+                "mirror_local_offset": 2,
+                "required_tape_length": 9,
+                "syntactic_category": "np",
+                "semantic_category": "human",
+                "number": "sg",
+                "valency": "na",
+                "terminals_matching": 0,
+                "nodes_visited": 1,
+                "truncated": false,
+                "returned_column_ids": []
+              },
+              {
+                "query_id": "camp-supper:core-query:0:right",
+                "core_position": 8,
+                "direction": "right",
+                "slot": "serve",
+                "local_offset": 2,
+                "required_chars_from_active_mirror_domain": [
+                  "t"
+                ],
+                "mirror_slot": "camper",
+                "mirror_local_offset": 0,
+                "required_tape_length": 6,
+                "syntactic_category": "finite_verb",
+                "semantic_category": "na",
+                "number": "sg",
+                "valency": "transitive",
+                "terminals_matching": 0,
+                "nodes_visited": 64,
+                "truncated": false,
+                "returned_column_ids": []
+              }
+            ],
             "reparse_evidence": [],
-            "added_column_ids": []
+            "rejections": [],
+            "added_column_ids": [],
+            "addition_cap": 2,
+            "core_targeted_only": true
           }
         }
       ],
@@ -3214,13 +6494,139 @@
             "opening": 1
           },
           "meaning": "at least one implicated slot must select a newly reparsed column"
+        },
+        {
+          "id": "camp-supper:nogood:2",
+          "slots": [
+            "meal",
+            "opening"
+          ],
+          "old_domain_sizes": {
+            "meal": 3,
+            "opening": 1
+          },
+          "meaning": "at least one implicated slot must select a newly reparsed column"
+        },
+        {
+          "id": "camp-supper:nogood:3",
+          "slots": [
+            "meal",
+            "opening"
+          ],
+          "old_domain_sizes": {
+            "meal": 5,
+            "opening": 1
+          },
+          "meaning": "at least one implicated slot must select a newly reparsed column"
+        },
+        {
+          "id": "camp-supper:nogood:4",
+          "slots": [
+            "meal",
+            "opening"
+          ],
+          "old_domain_sizes": {
+            "meal": 6,
+            "opening": 2
+          },
+          "meaning": "at least one implicated slot must select a newly reparsed column"
+        },
+        {
+          "id": "camp-supper:nogood:5",
+          "slots": [
+            "meal",
+            "opening"
+          ],
+          "old_domain_sizes": {
+            "meal": 7,
+            "opening": 3
+          },
+          "meaning": "at least one implicated slot must select a newly reparsed column"
+        },
+        {
+          "id": "camp-supper:nogood:6",
+          "slots": [
+            "opening",
+            "serve"
+          ],
+          "old_domain_sizes": {
+            "opening": 4,
+            "serve": 1
+          },
+          "meaning": "at least one implicated slot must select a newly reparsed column"
         }
       ],
       "added_columns": [
         {
           "after_iteration": 1,
           "slot": "meal",
-          "column_id": "camp-supper:meal:pasta",
+          "column_id": "camp-supper:meal:pizza",
+          "reparsed_complete_clause": true
+        },
+        {
+          "after_iteration": 1,
+          "slot": "meal",
+          "column_id": "camp-supper:meal:cocoa",
+          "reparsed_complete_clause": true
+        },
+        {
+          "after_iteration": 2,
+          "slot": "meal",
+          "column_id": "camp-supper:meal:plate",
+          "reparsed_complete_clause": true
+        },
+        {
+          "after_iteration": 2,
+          "slot": "meal",
+          "column_id": "camp-supper:meal:white",
+          "reparsed_complete_clause": true
+        },
+        {
+          "after_iteration": 3,
+          "slot": "opening",
+          "column_id": "camp-supper:opening:at-autumn",
+          "reparsed_complete_clause": true
+        },
+        {
+          "after_iteration": 3,
+          "slot": "meal",
+          "column_id": "camp-supper:meal:paste",
+          "reparsed_complete_clause": true
+        },
+        {
+          "after_iteration": 4,
+          "slot": "opening",
+          "column_id": "camp-supper:opening:at-moment",
+          "reparsed_complete_clause": true
+        },
+        {
+          "after_iteration": 4,
+          "slot": "meal",
+          "column_id": "camp-supper:meal:sugar",
+          "reparsed_complete_clause": true
+        },
+        {
+          "after_iteration": 5,
+          "slot": "opening",
+          "column_id": "camp-supper:opening:at-decade",
+          "reparsed_complete_clause": true
+        },
+        {
+          "after_iteration": 5,
+          "slot": "meal",
+          "column_id": "camp-supper:meal:table",
+          "reparsed_complete_clause": true
+        },
+        {
+          "after_iteration": 6,
+          "slot": "serve",
+          "column_id": "camp-supper:serve:covers",
+          "reparsed_complete_clause": true
+        },
+        {
+          "after_iteration": 6,
+          "slot": "serve",
+          "column_id": "camp-supper:serve:spends",
           "reparsed_complete_clause": true
         }
       ],
@@ -3229,28 +6635,28 @@
         "reason": "contextual oracle exhausted for minimum conflict",
         "core": {
           "sufficient_assumption_positions": [
-            3
+            8
           ],
           "minimum_cardinality": 1,
           "minimum_positions": [
             {
-              "position": 3,
-              "mirror_position": 54,
+              "position": 8,
+              "mirror_position": 49,
               "left": {
-                "position": 3,
-                "slot": "opening",
-                "local_offset": 3
+                "position": 8,
+                "slot": "camper",
+                "local_offset": 0
               },
               "right": {
-                "position": 54,
-                "slot": "meal",
-                "local_offset": 1
+                "position": 49,
+                "slot": "serve",
+                "local_offset": 2
               }
             }
           ],
           "implicated_slots": [
-            "meal",
-            "opening"
+            "camper",
+            "serve"
           ],
           "subset_solves": 1,
           "proper_subset_checks": [
@@ -3262,7 +6668,10 @@
         },
         "active_column_ids": {
           "opening": [
-            "camp-supper:opening:at-sunset"
+            "camp-supper:opening:at-sunset",
+            "camp-supper:opening:at-autumn",
+            "camp-supper:opening:at-moment",
+            "camp-supper:opening:at-decade"
           ],
           "camper": [
             "camp-supper:camper:the-ranger"
@@ -3280,11 +6689,19 @@
             "camp-supper:server:the-cook"
           ],
           "serve": [
-            "camp-supper:serve:serves"
+            "camp-supper:serve:serves",
+            "camp-supper:serve:covers",
+            "camp-supper:serve:spends"
           ],
           "meal": [
             "camp-supper:meal:salad",
-            "camp-supper:meal:pasta"
+            "camp-supper:meal:pizza",
+            "camp-supper:meal:cocoa",
+            "camp-supper:meal:plate",
+            "camp-supper:meal:white",
+            "camp-supper:meal:paste",
+            "camp-supper:meal:sugar",
+            "camp-supper:meal:table"
           ]
         }
       }
@@ -3312,9 +6729,7 @@
   "provenance": {
     "host": "hst-bench",
     "python": "3.12.3",
-    "source_sha256": "bc5dcfc4f4a78330b519e3fef2e62fb908204d2eeb5ab00992e3d00824d65899",
-    "committed_source_sha256": "db9fc398a0a9338be6a281dba826b062e9809384a120012fb4adfebaf6a58268",
-    "committed_source_difference": "adds only a lazy missing-dependency error so artifact inspection works without OR-Tools; solver logic is unchanged",
+    "source_sha256": "eb0b9d397fe6f53c033395b6ae687f87bc25f4877d3676c309d6b6f06f7624a4",
     "seed_text_used": false,
     "catalogue_text_used": false,
     "local_r_equals_s_family_used": false,

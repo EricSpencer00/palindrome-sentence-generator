@@ -3,7 +3,10 @@ import json
 from pathlib import Path
 
 from experiments.conflict_directed_column_generation_20260922 import (
+    CharacterTrie,
+    Column,
     EXPERIMENT_ID,
+    OracleEntry,
     PREFLIGHT_SIGNATURE,
 )
 
@@ -22,17 +25,33 @@ def test_remote_cp_sat_run_is_source_identical_and_bounded():
     assert row["preflight_signature"] == PREFLIGHT_SIGNATURE
     assert row["provenance"]["host"] == "hst-bench"
     assert row["solver"]["engine"] == "OR-Tools CP-SAT"
-    assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == row["provenance"]["committed_source_sha256"]
-    assert row["provenance"]["source_sha256"] == (
-        "bc5dcfc4f4a78330b519e3fef2e62fb908204d2eeb5ab00992e3d00824d65899"
-    )
+    assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == row["provenance"]["source_sha256"]
     assert row["bounds"] == {
         "scene_plans": 2,
         "max_iterations_per_plan": 8,
         "max_reparsed_columns_per_core": 2,
-        "vocabulary": "fixed common-word pools declared in source",
+        "vocabulary": "fixed pre-solve common Brown/WordNet character tries",
+        "max_oracle_entries_per_slot": 512,
+        "max_query_terminals": 32,
     }
     assert len(row["plans"]) == 2
+    oracle = row["lexical_oracle"]
+    assert oracle["construction"] == "fixed pre-solve character tries by existing plan and slot"
+    assert oracle["proper_name_tags_allowed"] is False
+    assert len(oracle["inventory_sha256"]) == 64
+    assert len(oracle["brown_index_sha256"]) == 64
+
+
+def test_character_trie_enforces_length_offset_and_required_character():
+    entries = tuple(
+        OracleEntry(Column(f"p:s:{word}", "s", word, "np", lemma=word),
+                    word, count, ("NN",), (f"{word}.n.01",))
+        for word, count in (("stone", 8), ("stare", 5), ("store", 7), ("at", 20))
+    )
+    result = CharacterTrie(entries).query(length=5, local_offset=2,
+                                          required_chars=("o",))
+    assert [entry.column.text for entry in result["entries"]] == ["stone", "store"]
+    assert result["terminals_matching"] == 2
 
 
 def test_every_starting_path_is_complete_and_semantically_typed():
@@ -61,11 +80,38 @@ def test_conflicts_are_minimum_and_drive_only_contextual_columns():
             assert all(check["feasible"] for check in core["proper_subset_checks"])
             response = iteration["oracle_response"]
             assert len(response["added_column_ids"]) <= 2
+            assert response["core_targeted_only"]
+            assert len(response["queries"]) == 2 * len(core["minimum_positions"])
+            core_offsets = {
+                (side["slot"], side["local_offset"])
+                for position in core["minimum_positions"]
+                for side in (position["left"], position["right"])
+            }
+            accounted = response["reparse_evidence"] + response["rejections"]
+            for query in response["queries"]:
+                assert (query["slot"], query["local_offset"]) in core_offsets
+                assert query["returned_column_ids"] == [
+                    item["column_id"] for item in accounted
+                    if item["query_id"] == query["query_id"]
+                ]
+                for item in accounted:
+                    if item["query_id"] != query["query_id"]:
+                        continue
+                    assert len(item["tape"]) == query["required_tape_length"]
+                    assert item["tape"][query["local_offset"]] in (
+                        query["required_chars_from_active_mirror_domain"]
+                    )
             for item in response["reparse_evidence"]:
                 assert item["slot"] in core["implicated_slots"]
-                assert item["full_plan_accepted"]
                 assert item["full_clause_surface"].endswith(".")
-                assert all(item["checks"].values())
+                assert all(item["full_clause_checks"].values())
+                if item["decision"] == "add":
+                    assert item["full_plan_accepted"]
+                    assert all(item["checks"].values())
+            assert set(response["added_column_ids"]) == {
+                item["column_id"] for item in response["reparse_evidence"]
+                if item["decision"] == "add"
+            }
         assert all(item["reparsed_complete_clause"] for item in plan["added_columns"])
         requested = {slot for iteration in plan["iterations"] if "unsat_core" in iteration
                      for slot in iteration["unsat_core"]["implicated_slots"]}

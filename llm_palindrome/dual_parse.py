@@ -16,6 +16,8 @@ from __future__ import annotations
 from collections import defaultdict, deque
 from dataclasses import dataclass
 import re
+from pathlib import Path
+import json
 
 
 def letter_tape(text: str) -> str:
@@ -50,6 +52,105 @@ class Edge:
     choice_id: int
     offset: int
     choice_length: int
+
+
+def word_residual_search(
+    left_slots: tuple[tuple[str, tuple[str, ...]], ...],
+    right_slots: tuple[tuple[str, tuple[str, ...]], ...],
+    *, max_states: int = 50_000, max_results: int = 100,
+) -> dict:
+    """Search two POS/role plans while carrying the live unmatched tape.
+
+    A state contains both grammar cursors, both role traces, and the residual
+    characters exposed by the most recently selected word.  Words are selected
+    only when their side is needed; no completed sentence or reversed word is
+    materialized as a search primitive.
+    """
+    queue = deque([(0, 0, (), (), "", (), ())])
+    seen = set(); results = []; transitions = 0
+    while queue and len(seen) < max_states and len(results) < max_results:
+        li, ri, lw, rw, residual, lroles, rroles = queue.popleft()
+        key = (li, ri, lw, rw, residual, lroles, rroles)
+        if key in seen: continue
+        seen.add(key)
+        if li == len(left_slots) and ri == len(right_slots) and not residual:
+            left, right = " ".join(lw), " ".join(rw)
+            results.append({"left": left, "right": right,
+                            "rendered": (left + " " + right).strip(),
+                            "left_roles": list(lroles), "right_roles": list(rroles),
+                            "residual": "", "exact_half_equation": True})
+            continue
+        # If a residual exists, only the opposite side may advance. Otherwise
+        # branch on either side, which is the productive word-boundary choice.
+        sides = ("right",) if residual.startswith("L:") else (("left",) if residual.startswith("R:") else ("left", "right"))
+        for side in sides:
+            slots, index = (left_slots, li) if side == "left" else (right_slots, ri)
+            if index >= len(slots): continue
+            role, alternatives = slots[index]
+            for word in alternatives:
+                tape = letter_tape(word)
+                if not tape: continue
+                other = residual[2:] if residual else ""
+                if other:
+                    # The right tape is consumed backwards, so compare it to
+                    # the reverse of the newly exposed left tape.
+                    exposed = tape if side == "right" else tape[::-1]
+                    common = min(len(other), len(exposed))
+                    if other[:common] != exposed[:common]: continue
+                    remain = other[common:] or exposed[common:]
+                    owner = "L:" if len(other) > len(exposed) else ("R:" if len(exposed) > len(other) else "")
+                    next_residual = owner + remain if remain else ""
+                else:
+                    next_residual = ("L:" if side == "left" else "R:") + tape
+                queue.append((li + (side == "left"), ri + (side == "right"),
+                              lw + ((word,) if side == "left" else ()),
+                              rw + ((word,) if side == "right" else ()), next_residual,
+                              lroles + ((role,) if side == "left" else ()),
+                              rroles + ((role,) if side == "right" else ())))
+                transitions += 1
+    return {"results": results, "states": len(seen), "transitions": transitions,
+            "cap_reached": bool(queue)}
+
+
+@dataclass(frozen=True)
+class Morphology:
+    """Features carried by a lexical choice, rather than repaired afterwards."""
+    agreement: str = "any"
+    tense: str = "any"
+    determiner: str = "any"
+    noun_number: str = "any"
+    clitic_boundary: str = "none"
+
+
+def productive_lattice(slots: list[tuple[str, list[tuple[str, Morphology]]]]) -> SurfaceLattice:
+    """Build a lattice while retaining productive inflectional features."""
+    lattice = SurfaceLattice()
+    lattice.morphology: dict[int, Morphology] = {}
+    lattice.slot_features: list[str] = []
+    for role, alternatives in slots:
+        lattice.slot_features.append(role)
+        lattice.slot(role, [surface for surface, _ in alternatives])
+        ids = [i for i, c in lattice.choices.items() if c.role == role]
+        for choice_id, (_, features) in zip(ids, alternatives):
+            lattice.morphology[choice_id] = features
+    return lattice
+
+
+def _morphology_compatible(left: SurfaceLattice, right: SurfaceLattice,
+                           left_ids: tuple[int, ...], right_ids: tuple[int, ...]) -> bool:
+    """Check agreement/tense and boundary features at admission only."""
+    lm = getattr(left, "morphology", {})
+    rm = getattr(right, "morphology", {})
+    # Opposing parses may use different lexical realizations, but their clause
+    # features must agree.  This is deliberately independent of tape equality.
+    for a, b in zip((lm.get(i) for i in left_ids), (rm.get(i) for i in right_ids)):
+        if a is None or b is None:
+            continue
+        for field in ("agreement", "tense", "determiner", "noun_number"):
+            av, bv = getattr(a, field), getattr(b, field)
+            if av != "any" and bv != "any" and av != bv:
+                return False
+    return True
 
 
 class SurfaceLattice:
@@ -117,6 +218,7 @@ def intersect_surfaces(
     seen: set[tuple[int, int, tuple[int, ...], tuple[int, ...]]] = set()
     results: list[dict] = []
     transitions = 0
+    morphology_rejections = 0
     dead_frontiers: list[dict] = []
 
     while queue and len(seen) < max_states and len(results) < max_results:
@@ -128,6 +230,9 @@ def intersect_surfaces(
 
         if left_state == left.finish and right_state == right.start:
             right_choices = tuple(reversed(right_choices_reverse))
+            if not _morphology_compatible(left, right, left_choices, right_choices):
+                morphology_rejections += 1
+                continue
             left_surfaces = [left.choices[c].surface for c in left_choices]
             right_surfaces = [right.choices[c].surface for c in right_choices]
             left_text = " ".join(left_surfaces)
@@ -150,6 +255,9 @@ def intersect_surfaces(
                 "left_word_boundaries": list(left_breaks),
                 "reflected_right_word_boundaries": list(reflected_right_breaks),
                 "different_word_segmentation": left_breaks != reflected_right_breaks,
+                "central_admission": {"exact_half_equation": left_letters == right_letters[::-1],
+                                      "morphology_compatible": True,
+                                      "post_render_repair": False},
             })
             continue
 
@@ -190,6 +298,7 @@ def intersect_surfaces(
         "results": results,
         "states": len(seen),
         "transitions": transitions,
+        "morphology_rejections": morphology_rejections,
         "cap_reached": bool(queue),
         "dead_frontiers": dead_frontiers,
     }

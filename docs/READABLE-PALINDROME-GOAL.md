@@ -8742,3 +8742,25 @@ generated, non-formulaic candidate.
   (`{a,b,i}` versus `{l,n,s}` at the exposed onset). The frame is retired as
   configured; only the consequence/reflection boundary is worth changing.
   Artifact: `runs/packed-nonmirror-paragraph-frame-20260930.json`.
+
+- **Shared-entity event completion, 2026-09-30:** a typed discourse graph
+  carried entity introduction and later reference through a packed character
+  product. Reference-before-introduction was rejected before compilation; the
+  valid event order reached a concrete `h`/`i` frontier and produced no new
+  exact closure. Artifact:
+  `runs/shared-entity-event-completion-20260930.json`.
+
+- **Agreement-bearing shared-noun seam, 2026-09-30:** determiner,
+  subject-number, and tense/aspect were added as live grammar state while the
+  shared patient noun remained fixed. The product explored 11,460 states and
+  pruned 65,988 branches, with zero exact closures. This retires the fixed
+  agreement configuration; the next change must alter the event boundary, not
+  just add synonyms. Artifact:
+  `runs/shared-noun-agreement-variation-20260930.json`.
+
+- **Consequence/reflection boundary ablation, 2026-09-30:** the narrow
+  boundary product had one state and zero compatible transitions, confirming
+  that the original onset classes cannot be repaired by another broad bank.
+  The successor is one copular/anaphoric state noun under the same typed
+  boundary. Artifact:
+  `runs/packed-consequence-reflection-boundary-20260930.json`.

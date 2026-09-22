@@ -139,8 +139,8 @@ def build_payload() -> dict[str, object]:
         "working_status": "contextual_reciprocal_seam_candidate",
         "promotion_status": {
             "promoted": False,
-            "status": "comparison_pending_full_text_review",
-            "reason": "A globally novel reciprocal seam repair closes exactly, but remains unpromoted pending full-text readability review.",
+            "status": "rejected_for_naturalness_debt",
+            "reason": "The left clause is semantically ambiguous and telegraphic, while the right clause reads as generated filler; no material full-text improvement.",
         },
         "rendered": rendered,
         "audit": project_audit,
@@ -177,6 +177,12 @@ def build_payload() -> dict[str, object]:
             "varied_relations": ["sees"],
             "repeated_subject_verb_frames": [],
             "repeated_neighboring_clauses": False,
+            "left_semantically_ambiguous_or_telegraphic": True,
+            "right_generated_filler": True,
+        },
+        "readability_delta": {
+            "material_full_text_improvement": False,
+            "reason": "Exactness and novelty do not offset the ambiguous left clause and filler-like right clause.",
         },
         "grammar_debt": {
             "inherited_proper_palindromic_spans": True,
@@ -203,7 +209,7 @@ def build_payload() -> dict[str, object]:
         },
         "preserved_frontier": list(FRONTIER),
         "rows": [row],
-        "next_operator": "review contextual reciprocal seam child without promoting over 568 incumbent",
+        "next_operator": "naturalness-aware repair at the next untouched reciprocal seam",
     }
 
 

@@ -45,8 +45,8 @@
       "working_status": "contextual_reciprocal_seam_candidate",
       "promotion_status": {
         "promoted": false,
-        "status": "comparison_pending_full_text_review",
-        "reason": "A globally novel reciprocal seam repair closes exactly, but remains unpromoted pending full-text readability review."
+        "status": "rejected_for_naturalness_debt",
+        "reason": "The left clause is semantically ambiguous and telegraphic, while the right clause reads as generated filler; no material full-text improvement."
       },
       "rendered": "Leon won. Wolf spots Nora. Nora sees Nadia. Nadia sees Ira. Sara saw God. Ari saw Dog. Mara stops rats. Nora spots a ram. Mara sees rats. Nora stops rats. Nora sees Aram. Mara sees Nadia. Nadia saw Noel live. Mara stops Nadia. Nora sees Aram. Sara saw Noel live. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Liam sees Aram live. Nadia sees Mara. Aidan spots Ira. Ari sees God. Dog sees Ira. Ari stops Nadia. Aram sees Aidan. Evil Mara sees mail. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Evil Leon was Aras. Mara sees Aron. Aidan spots Aram. Evil Leon was Aidan. Aidan sees Aram. Mara sees Aron; star spots Aron. Star sees Aram. Mara stops Aron. Star spots Aram. God was Ira. Dog was Aras. Ari sees Aidan. Aidan sees Aron. Aron stops flow now, Noel.",
       "audit": {
@@ -378,7 +378,13 @@
           "sees"
         ],
         "repeated_subject_verb_frames": [],
-        "repeated_neighboring_clauses": false
+        "repeated_neighboring_clauses": false,
+        "left_semantically_ambiguous_or_telegraphic": true,
+        "right_generated_filler": true
+      },
+      "readability_delta": {
+        "material_full_text_improvement": false,
+        "reason": "Exactness and novelty do not offset the ambiguous left clause and filler-like right clause."
       },
       "grammar_debt": {
         "inherited_proper_palindromic_spans": true,
@@ -389,5 +395,5 @@
       "provenance": "bounded context-aware reciprocal seam repair with global clause/frame novelty and explicit residual ownership"
     }
   ],
-  "next_operator": "review contextual reciprocal seam child without promoting over 568 incumbent"
+  "next_operator": "naturalness-aware repair at the next untouched reciprocal seam"
 }

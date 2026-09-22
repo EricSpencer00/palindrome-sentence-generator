@@ -1,0 +1,147 @@
+{
+  "experiment_id": "shared-object-event-product-20260930",
+  "method": "live character intersection over a shared-object event product",
+  "geometry": "introduce object -> discourse attachment -> same-object access",
+  "candidates": [],
+  "search": {
+    "states": 7,
+    "transitions": 6,
+    "grammar_states": 222,
+    "grammar_character_edges": 256,
+    "dead_frontiers": [
+      {
+        "matched_pairs": 1,
+        "left_state": 9,
+        "right_state": 176,
+        "left_next": [
+          "c"
+        ],
+        "right_next": [
+          "t"
+        ],
+        "left_partial": "a clerk",
+        "right_partial": ""
+      },
+      {
+        "matched_pairs": 1,
+        "left_state": 9,
+        "right_state": 191,
+        "left_next": [
+          "c"
+        ],
+        "right_next": [
+          "t"
+        ],
+        "left_partial": "a clerk",
+        "right_partial": ""
+      },
+      {
+        "matched_pairs": 1,
+        "left_state": 14,
+        "right_state": 176,
+        "left_next": [
+          "n"
+        ],
+        "right_next": [
+          "t"
+        ],
+        "left_partial": "an aide",
+        "right_partial": ""
+      },
+      {
+        "matched_pairs": 1,
+        "left_state": 14,
+        "right_state": 191,
+        "left_next": [
+          "n"
+        ],
+        "right_next": [
+          "t"
+        ],
+        "left_partial": "an aide",
+        "right_partial": ""
+      },
+      {
+        "matched_pairs": 1,
+        "left_state": 2,
+        "right_state": 184,
+        "left_next": [
+          "h"
+        ],
+        "right_next": [
+          "r"
+        ],
+        "left_partial": "the nurse",
+        "right_partial": ""
+      },
+      {
+        "matched_pairs": 1,
+        "left_state": 19,
+        "right_state": 184,
+        "left_next": [
+          "h"
+        ],
+        "right_next": [
+          "r"
+        ],
+        "left_partial": "the poet",
+        "right_partial": ""
+      }
+    ]
+  },
+  "controls": [
+    {
+      "rendered": "The nurse reads the note, and she files it.",
+      "audit": {
+        "letters": 33,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ],
+        "normalized": "thenursereadsthenoteandshefilesit",
+        "sha256_forward": "19e723178e2a498a950f5bf8b1b497a013dfd5095a32b8483e7b38e8b21a3526",
+        "sha256_reverse": "8cbe11d8e2626961360daea9751361a9b2c1d7a4ab8b104eb69ad5c53da87c42",
+        "sha_equal": false,
+        "validator_exact": false
+      },
+      "kind": "intact ordinary prose control"
+    },
+    {
+      "rendered": "The clerk marks a letter; then he carries it.",
+      "audit": {
+        "letters": 35,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ],
+        "normalized": "theclerkmarksaletterthenhecarriesit",
+        "sha256_forward": "b7a09b2fda9f69dee90eaa6c309b9bde660bc041b653b0de008daa10a6731f8f",
+        "sha256_reverse": "ba090462eb006b5935f4c58a174a10d21fcc4de0c7c9760f66096ab458552893",
+        "sha_equal": false,
+        "validator_exact": false
+      },
+      "kind": "intact ordinary prose control"
+    }
+  ],
+  "independent_exact_gate": "two-pointer mismatch + validator + forward/reverse SHA-256",
+  "provenance": {
+    "complete_sentence_enumeration": false,
+    "catalogue_replay": false,
+    "semordnilap_bank": false,
+    "per_candidate_rlaif": false,
+    "generator_sha256": "05fcad6d76ed1b88b2644d373b27f7137b2454f829d4a9ef098e410bff8be7f5"
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "difference": "shared semantic object access is represented in one event product; no phrase-pair scaffold",
+    "reader_gate": "closed until blinded human ratings"
+  },
+  "next_repair": {
+    "operator": "widen the shared-object attachment with agreement-carrying pronouns while retaining event identity",
+    "reason": "the current frontier shows which first character blocks prevent ordinary transitive closures"
+  }
+}

@@ -1,7 +1,6 @@
 """Atomically produce one reciprocal two-sided clause pair on the 666 parent."""
 from __future__ import annotations
 
-import hashlib
 import json
 import re
 import sys
@@ -70,11 +69,21 @@ def compare_stream(emission: str, obligation: str, owner: str) -> dict[str, obje
     }
 
 
-def frame(text: str) -> str:
-    words = normalize(text).split()
-    # Candidate metadata is authored below; this helper is only for the parent
-    # boundary checks where normalized word boundaries are not required.
-    return "|".join(words[:2])
+FRAME_VERBS = {"was", "saw", "sees", "stops", "spots", "won", "did", "notes", "live", "tap", "sit"}
+
+
+def extract_frames(rendered: str) -> set[str]:
+    """Extract subject|verb frames from raw clause tokens before normalization."""
+    frames: set[str] = set()
+    for raw_clause in re.split(r"[.!?;]+", rendered):
+        words = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?", raw_clause)
+        for index, word in enumerate(words):
+            verb = word.lower()
+            if verb in FRAME_VERBS and index:
+                subject = " ".join(words[:index]).lower()
+                frames.add(f"{subject}|{verb}")
+                break
+    return frames
 
 
 def boundary_context(rendered: str, raw_window: tuple[int, int]) -> dict[str, object]:
@@ -120,19 +129,13 @@ def build_payload() -> dict[str, object]:
     right_stream = compare_stream(NEW_RIGHT, right_obligation, "right")
     assert left_stream["exact"] and right_stream["exact"]
 
-    parent_clauses = set(re.findall(r"[^.!?;]+", parent_rendered))
-    assert NEW_LEFT.strip() not in parent_clauses
-    assert NEW_RIGHT.strip() not in parent_clauses
-    parent_frames = {
-        "mara|sees",
-        "mara|stops",
-        "aidan|spots",
-        "aidan|sees",
-        "evil leon|was",
-    }
-    candidate_frames = {"evil mara|was", "aidan|saw"}
+    parent_clauses = {clause.strip().lower() for clause in re.findall(r"[^.!?;]+", parent_rendered)}
+    assert NEW_LEFT.strip().lower() not in parent_clauses
+    assert NEW_RIGHT.strip().lower() not in parent_clauses
+    parent_frames = extract_frames(parent_rendered)
+    candidate_frames = extract_frames(NEW_LEFT) | extract_frames(NEW_RIGHT)
+    assert candidate_frames == {"evil mara|was", "aidan|saw"}
     assert candidate_frames.isdisjoint(parent_frames)
-    assert candidate_frames.isdisjoint({"mara|sees", "mara|stops", "aidan|spots", "aidan|sees"})
 
     paired_state_before = {
         "left_cursor": 0,
@@ -141,10 +144,10 @@ def build_payload() -> dict[str, object]:
         "right_residual": right_obligation,
         "left_owner": "left",
         "right_owner": "right",
-        "left_subject_object_stack": {"subject": "Mara", "object": "Nadia"},
-        "right_subject_object_stack": {"subject": "Aidan", "object": "Aidan"},
-        "left_active_discourse_entity": "Mara",
-        "right_active_discourse_entity": "Aidan",
+        "left_subject_object_stack": {"subjects": ["Nadia"], "objects": ["Noel"]},
+        "right_subject_object_stack": {"subjects": ["Aidan"], "objects": ["Aram"]},
+        "left_active_discourse_entity": "Nadia",
+        "right_active_discourse_entity": "Aram",
     }
     paired_state_after = {
         "left_cursor": 16,
@@ -178,6 +181,11 @@ def build_payload() -> dict[str, object]:
         "complete_finite_clause": {"left": True, "right": True},
         "global_clause_novelty": {"left": True, "right": True},
         "global_frame_novelty": {"left": True, "right": True},
+        "frame_novelty_evidence": {
+            "parent_frames_extracted_from_rendered_tokens": sorted(parent_frames),
+            "candidate_frames_extracted_from_rendered_tokens": sorted(candidate_frames),
+            "candidate_frames_absent_from_parent": True,
+        },
         "boundary_context": {
             "left": boundary_context(parent_rendered, LEFT_RAW),
             "right": boundary_context(parent_rendered, RIGHT_RAW),
@@ -209,7 +217,7 @@ def build_payload() -> dict[str, object]:
         "promotion_status": {
             "promoted": False,
             "status": "pending_full_text_readability_review",
-            "reason": "The paired production is independently exact and globally novel on both sides; it remains a comparison frontier pending full-text review.",
+            "reason": "The paired production is independently exact and globally novel on both sides, but full-text semantic and repetition debt remains; it stays unpromoted pending readability review.",
         },
         "rendered": child_rendered,
         "audit": child_audit,
@@ -219,6 +227,19 @@ def build_payload() -> dict[str, object]:
         "parent_sha256": PARENT_SHA256,
         "growth_over_parent": 0,
         "new_event_content": ["Evil Mara was Nadia", "Aidan saw Aram live"],
+        "full_text_review": {
+            "material_full_text_improvement": False,
+            "semantic_debt": [
+                "Evil Mara was Nadia is an identity-style clause whose event meaning is ambiguous.",
+                "Aidan saw Aram live has a bare live adjunct and remains telegraphic in context.",
+            ],
+            "repetition_debt_details": [
+                "The replacement changes only one paired seam and inherits the surrounding repeated stops/spots scaffold.",
+                "The child does not yet demonstrate a material full-text readability improvement over the promoted parent.",
+            ],
+            "grammar_debt": True,
+            "repetition_debt_present": True,
+        },
         "live_seam": {
             "normalized_left": list(LEFT_WINDOW),
             "normalized_right": list(RIGHT_WINDOW),

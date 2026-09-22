@@ -22,7 +22,7 @@ def test_paired_production_is_exact_and_pending_full_text_review():
     assert row["promotion_status"] == {
         "promoted": False,
         "status": "pending_full_text_readability_review",
-        "reason": "The paired production is independently exact and globally novel on both sides; it remains a comparison frontier pending full-text review.",
+        "reason": "The paired production is independently exact and globally novel on both sides, but full-text semantic and repetition debt remains; it stays unpromoted pending readability review.",
     }
     assert result["normalized_letters"] == 666
     assert result["two_pointer_exact"]
@@ -62,6 +62,11 @@ def test_paired_seam_updates_both_sides_atomically_with_empty_residuals():
     assert pair["complete_finite_clause"] == {"left": True, "right": True}
     assert pair["global_clause_novelty"] == {"left": True, "right": True}
     assert pair["global_frame_novelty"] == {"left": True, "right": True}
+    assert pair["frame_novelty_evidence"]["candidate_frames_extracted_from_rendered_tokens"] == ["aidan|saw", "evil mara|was"]
+    assert pair["frame_novelty_evidence"]["candidate_frames_absent_from_parent"] is True
+    assert pair["state_before"]["left_active_discourse_entity"] == "Nadia"
+    assert pair["state_before"]["right_active_discourse_entity"] == "Aram"
+    assert pair["state_before"]["right_subject_object_stack"]["objects"] == ["Aram"]
     assert pair["fragment_or_catalogue_rejection"] is False
     assert pair["accepted"] is True
     assert pair["atomic_state_update"]["atomic_entity_update"] == {
@@ -69,3 +74,8 @@ def test_paired_seam_updates_both_sides_atomically_with_empty_residuals():
         "right": {"from": "Aidan", "to": "Aram"},
     }
     assert row["switch_after_rejection"]["attempted"] is False
+    assert row["full_text_review"]["material_full_text_improvement"] is False
+    assert row["full_text_review"]["grammar_debt"] is True
+    assert row["full_text_review"]["repetition_debt_present"] is True
+    assert row["full_text_review"]["semantic_debt"]
+    assert row["full_text_review"]["repetition_debt_details"]

@@ -46,7 +46,7 @@
       "promotion_status": {
         "promoted": false,
         "status": "pending_full_text_readability_review",
-        "reason": "The paired production is independently exact and globally novel on both sides; it remains a comparison frontier pending full-text review."
+        "reason": "The paired production is independently exact and globally novel on both sides, but full-text semantic and repetition debt remains; it stays unpromoted pending readability review."
       },
       "rendered": "Leon won. Wolf spots Nora. Nora sees Nadia. Nadia sees Ira. Sara saw God. Ari saw Dog. Mara stops rats. Nora spots a ram. Mara sees rats. Nora stops rats. Nora sees Aram. Mara sees Nadia. Evil Mara was Nadia. Mara stops Nadia. Nora sees Aram. Sara saw Noel live. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Leon stops Noel. Noel spots Nadia. Nadia stops Aidan. Ari sees God. Dog sees Ira. Nadia spots Aidan. Aidan stops Leon. Leon spots Noel. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Evil Leon was Aras. Mara sees Aron. Aidan spots Aram. Aidan saw Aram live. Aidan sees Aram. Mara sees Aron; star spots Aron. Star sees Aram. Mara stops Aron. Star spots Aram. God was Ira. Dog was Aras. Ari sees Aidan. Aidan sees Aron. Aron stops flow now, Noel.",
       "audit": {
@@ -75,6 +75,19 @@
         "Evil Mara was Nadia",
         "Aidan saw Aram live"
       ],
+      "full_text_review": {
+        "material_full_text_improvement": false,
+        "semantic_debt": [
+          "Evil Mara was Nadia is an identity-style clause whose event meaning is ambiguous.",
+          "Aidan saw Aram live has a bare live adjunct and remains telegraphic in context."
+        ],
+        "repetition_debt_details": [
+          "The replacement changes only one paired seam and inherits the surrounding repeated stops/spots scaffold.",
+          "The child does not yet demonstrate a material full-text readability improvement over the promoted parent."
+        ],
+        "grammar_debt": true,
+        "repetition_debt_present": true
+      },
       "live_seam": {
         "normalized_left": [
           140,
@@ -123,15 +136,23 @@
               "left_owner": "left",
               "right_owner": "right",
               "left_subject_object_stack": {
-                "subject": "Mara",
-                "object": "Nadia"
+                "subjects": [
+                  "Nadia"
+                ],
+                "objects": [
+                  "Noel"
+                ]
               },
               "right_subject_object_stack": {
-                "subject": "Aidan",
-                "object": "Aidan"
+                "subjects": [
+                  "Aidan"
+                ],
+                "objects": [
+                  "Aram"
+                ]
               },
-              "left_active_discourse_entity": "Mara",
-              "right_active_discourse_entity": "Aidan"
+              "left_active_discourse_entity": "Nadia",
+              "right_active_discourse_entity": "Aram"
             },
             "left_stream": {
               "exact": true,
@@ -446,6 +467,52 @@
             "global_frame_novelty": {
               "left": true,
               "right": true
+            },
+            "frame_novelty_evidence": {
+              "parent_frames_extracted_from_rendered_tokens": [
+                "aidan|sees",
+                "aidan|spots",
+                "aidan|stops",
+                "ari|saw",
+                "ari|sees",
+                "aron|stops",
+                "dog|sees",
+                "dog|was",
+                "evil i|did",
+                "evil leon|was",
+                "god|was",
+                "leon|spots",
+                "leon|stops",
+                "leon|won",
+                "mara|saw",
+                "mara|sees",
+                "mara|stops",
+                "nadia|saw",
+                "nadia|sees",
+                "nadia|spots",
+                "nadia|stops",
+                "noel i|sit",
+                "noel|spots",
+                "nora i|saw",
+                "nora|saw",
+                "nora|sees",
+                "nora|spots",
+                "nora|stops",
+                "now noel|did",
+                "pat|notes",
+                "sara|did",
+                "sara|saw",
+                "seton|tap",
+                "star|sees",
+                "star|spots",
+                "stressed|was",
+                "wolf|spots"
+              ],
+              "candidate_frames_extracted_from_rendered_tokens": [
+                "aidan|saw",
+                "evil mara|was"
+              ],
+              "candidate_frames_absent_from_parent": true
             },
             "boundary_context": {
               "left": {

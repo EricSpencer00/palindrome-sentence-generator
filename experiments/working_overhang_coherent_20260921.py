@@ -13,6 +13,7 @@ from pathlib import Path
 
 from llm_palindrome.bigram import BigramModel
 from llm_palindrome.centerout import centerout_search
+from llm_palindrome.paragraphs import is_novel_palindrome
 from llm_palindrome.scoring import adjacent, first_word, last_word, unit_words
 from llm_palindrome.search import WordTries, unit_letters
 
@@ -110,6 +111,7 @@ def run(*, seeds_per_center: int = 3, min_growth: int = 20,
                 "left_extension": left,
                 "right_extension": right,
                 "audit": au,
+                "novelty_preflight": is_novel_palindrome(text) if text else False,
                 "provenance": {
                     "generator": "llm_palindrome.centerout_search",
                     "scorer": "JoinScorer forward/backward count_2w",
@@ -144,6 +146,11 @@ def run(*, seeds_per_center: int = 3, min_growth: int = 20,
         },
         "rows": rows,
         "exact_growths": exact,
+        "novelty_preflight": {
+            "catalogue": "data/known_palindromes.json",
+            "novel_exact_growths": sum(bool(row.get("novelty_preflight")) for row in exact),
+            "catalogue_text_presented_as_generated": False,
+        },
         "reader_gate": "closed; join score is diagnostic and no draft is reader-certified",
         "next_growth": "use the smoothest complete clause window as an ABBA paragraph seam seed, then reopen only its residual character obligation",
         "provenance": {"bigram_sha256": hashlib.sha256(BIGRAMS.read_bytes()).hexdigest()},

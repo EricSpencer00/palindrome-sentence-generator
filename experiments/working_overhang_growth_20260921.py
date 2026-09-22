@@ -16,6 +16,7 @@ from pathlib import Path
 from llm_palindrome.overhang import DebtIndex
 from llm_palindrome.search import WordTries, unit_letters
 from llm_palindrome.centerout import centerout_search
+from llm_palindrome.paragraphs import is_novel_palindrome
 from llm_palindrome.validator import is_palindrome, normalize
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -143,6 +144,7 @@ def run(*, seeds_per_center: int = 3, min_growth: int = 20,
                 "left_extension": left,
                 "right_extension": right,
                 "audit": au,
+                "novelty_preflight": is_novel_palindrome(text) if text else False,
                 "provenance": {
                     "generator": "llm_palindrome.centerout_search",
                     "center_replayed_exact": True,
@@ -177,6 +179,11 @@ def run(*, seeds_per_center: int = 3, min_growth: int = 20,
         },
         "rows": rows,
         "exact_growths": exact,
+        "novelty_preflight": {
+            "catalogue": "data/known_palindromes.json",
+            "novel_exact_growths": sum(bool(row.get("novelty_preflight")) for row in exact),
+            "catalogue_text_presented_as_generated": False,
+        },
         "reader_gate": "closed; exact closure is necessary but no draft is reader-certified",
         "next_growth": "retain the longest exact lineage and replace only its worst boundary word pair with syntax-realized phrase windows; keep the 44- and 54-letter centers as separate branches",
     }

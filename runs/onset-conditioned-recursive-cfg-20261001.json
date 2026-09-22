@@ -1,0 +1,94 @@
+{
+  "experiment_id": "onset-conditioned-recursive-cfg-20261001",
+  "method": "onset-conditioned recursive CFG product: pair first-left/final-right terminal classes before interior expansion comparison",
+  "grammar": {
+    "S": [
+      [
+        "NP",
+        "VP"
+      ]
+    ],
+    "NP": [
+      [
+        "DET",
+        "N"
+      ],
+      [
+        "DET",
+        "ADJ",
+        "N"
+      ],
+      [
+        "DET",
+        "N",
+        "REL"
+      ]
+    ],
+    "VP": [
+      [
+        "V",
+        "NP"
+      ],
+      [
+        "ADV",
+        "V",
+        "NP"
+      ],
+      [
+        "V",
+        "NP",
+        "PP"
+      ]
+    ],
+    "PP": [
+      [
+        "P",
+        "NP"
+      ]
+    ],
+    "REL": [
+      [
+        "that",
+        "VP"
+      ],
+      [
+        "who",
+        "VP"
+      ]
+    ]
+  },
+  "stats": {
+    "raw_recursive_chart": 1200,
+    "onset_compatible_pairs": 0,
+    "paired_prefix_states": 0,
+    "onset_classes": {
+      "a": 0
+    },
+    "exact": 0,
+    "reader_eligible": 0
+  },
+  "candidates": [],
+  "best_diagnostic": {
+    "matched": 0,
+    "left": "",
+    "right": "",
+    "onset": null
+  },
+  "controls": [
+    "The quiet writer reads a bright book.",
+    "A kind teacher helps the young student."
+  ],
+  "independent_audit": [
+    "two-pointer tape audit",
+    "llm_palindrome.validator.is_palindrome",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "onset-conditioned-recursive-cfg-20261001",
+    "lexical_sweep": false,
+    "catalogue_imported": false
+  },
+  "readability_gate": "closed; no human readers run, and exactness does not certify English prose",
+  "next_construction": "retain onset-conditioned product and add agreement-carrying subject/object features inside the surviving terminal classes"
+}

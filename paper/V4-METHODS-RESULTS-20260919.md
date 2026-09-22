@@ -5,7 +5,7 @@ is constructive: choose grammatical lexical paths while satisfying character
 seams during search. Exactness is independently checked; automatic language
 scores and AI feedback only diagnose historical lanes. The active search is
 exact-by-construction from the verified 568-letter causal-scene incumbent and
-now reaches 608 letters, with partial-word ownership, residual characters,
+now reaches 650 letters, with partial-word ownership, residual characters,
 grammar boundaries, and opposing cursors carried together. No output below is
 human certified yet.
 
@@ -15,7 +15,7 @@ in legacy run names or diagnostic fields, is not a diction or imitation
 requirement. Literary vocabulary is neither a shortcut nor a certificate;
 reader ratings decide whether an exact output is readable.
 
-## Current result: live-seam growth and shell repair to 608 letters
+## Current result: live-seam growth and shell repair to 650 letters
 
 The working lineage is anchored by the independently exact 568-letter causal
 scene in `runs/incumbent-560-outer-causal-scene-20261002.json`, normalized
@@ -23,9 +23,9 @@ SHA-256
 `6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`.
 That candidate is a working result rather than a rejected control. Its proper
 palindromic spans, repeated units, and rough transitions are explicit repair
-debt. The 560 repaired child and 556 varied-frame child are preserved as a
-diverse frontier; the shorter 531/532 shortcut-cleaning variants are diagnostic
-branches, not the active line.
+debt. The 608 and 568 construction parents, 560 repaired child, and 556
+varied-frame child are preserved as a diverse frontier; the shorter 531/532
+shortcut-cleaning variants are diagnostic branches, not the active line.
 
 The candidate-producing operator reopens an actual partial-word seam of the
 568 tape at normalized cursors 2 and 566. The retained 564-letter middle begins
@@ -39,22 +39,28 @@ The longest seam child then receives a paired shell repair rather than another
 fixed wrapper. The exact equation replaces “Mara stops rats. A tub? He maps
 Aron” and its opposing surface with “Mara spots rats. Leon maps Nora. Draw no
 maps” and the required opposing clauses. This reduces each of three conspicuous
-duplicate phrases from two occurrences to one while growing to **608 letters**.
-The rendered working incumbent is:
+duplicate phrases from two occurrences to one while growing to 608 letters.
 
-> **A ram saw Nadia. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara spots rats. Leon maps Nora. Draw no maps. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Spam onward. Aron, spam Noel. Star stops Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel. Aidan was Mara.**
+A second paired-shell repair acts on two remaining `delivers maps` / `spam's
+reviled` equations. It substitutes eight distinct, finite spotting and stopping
+events, halves each repeated formula from four occurrences to two, and grows
+the tape by 42 letters. The rendered **650-letter** working incumbent is:
 
-An independent regular-expression normalizer reports 608 letters; a direct
+> **A ram saw Nadia. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora spots a rat. Nadia spots a ram. Mara spots rats. Leon maps Nora. Draw no maps. Aidan spots a rat. Nora spots a ram. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Mara stops Aron. Tara stops Nadia. Spam onward. Aron, spam Noel. Star stops Aram. Mara stops Aidan. Tara stops Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel. Aidan was Mara.**
+
+An independent regular-expression normalizer reports 650 letters; a direct
 two-pointer comparison accepts the tape; and SHA-256 of both the forward tape
 and its reverse is
-`eacd84ecc82aacb84fe19b557faf91494370e86c986248be5e37de9ad7298248`.
+`2bd92686cbd01945be3869fbeee7ae9415cfcdae5cd616b26d89ec4f0acc54a9`.
 The generator, complete rendered frontier, residual trace, provenance, and
 repair deltas are in
 `experiments/incumbent_568_live_partial_seam_growth_20261002.py` and
-`runs/incumbent-568-live-partial-seam-growth-20261002.json`.
+`runs/incumbent-568-live-partial-seam-growth-20261002.json`, followed by
+`experiments/incumbent_608_repeated_shell_repair_20261002.py` and
+`runs/incumbent-608-repeated-shell-repair-20261002.json`.
 
 This is a construction result, not yet a human-readability result. The next
-experiment keeps the 608 tape and repairs its worst remaining repeated shell;
+experiment keeps the 650 tape and repairs its worst remaining repeated shell;
 it does not retreat to a shorter candidate merely because automated structural
 diagnostics identify debt.
 

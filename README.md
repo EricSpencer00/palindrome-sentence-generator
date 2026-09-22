@@ -1,6 +1,6 @@
 # Palindrome Sentence Generator
 
-## Current status: exact 608-letter working incumbent; no reader-validated output
+## Current status: exact 650-letter working incumbent; no reader-validated output
 
 The active lineage runs through the independently exact 568-letter causal-scene
 row in `runs/incumbent-560-outer-causal-scene-20261002.json` (normalized
@@ -11,14 +11,18 @@ children retained as a diverse repair frontier. Proper palindromic spans,
 repeated units, and rough prose are repair debt on this construction track,
 not reasons to replace it with the shorter 531/532 shortcut-cleaning branch.
 
-The current operator reopens the parent's real `Le|on ... No|el` partial-word
+The first operator reopens the parent's real `Le|on ... No|el` partial-word
 seam and carries the character owner and residual through closure. Three new
 event-bearing children reach 590, 590, and 592 exact letters. A mirrored shell
-repair on the 592 row then reduces three duplicated phrases from two copies to
-one and yields the current **608-letter** exact child, normalized SHA-256
-`eacd84ecc82aacb84fe19b557faf91494370e86c986248be5e37de9ad7298248`.
+repair yields an exact 608-letter child. A second paired-shell repair replaces
+two `delivers maps` / `spam's reviled` equations with eight distinct rat/ram
+spotting and stopping events. It halves both repeated formulas from four
+occurrences to two and yields the current **650-letter** exact child, normalized
+SHA-256
+`2bd92686cbd01945be3869fbeee7ae9415cfcdae5cd616b26d89ec4f0acc54a9`.
 The complete rendered frontier and live traces are in
-`runs/incumbent-568-live-partial-seam-growth-20261002.json`.
+`runs/incumbent-568-live-partial-seam-growth-20261002.json` and
+`runs/incumbent-608-repeated-shell-repair-20261002.json`.
 
 These rows are constructive progress, not yet reader-validated English.
 This project still has no long palindrome that has passed blinded human reader

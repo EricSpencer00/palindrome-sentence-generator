@@ -1,0 +1,85 @@
+{
+  "experiment_id": "paragraph-abba-registry-audit-20261002",
+  "scope": "paragraph and ABBA artifacts only; registry/provenance audit",
+  "decision": "Most named paragraph/ABBA methods are search or repair variants over the same complete-clause bank/composition operator. The genuinely distinct evidence is (1) independently authored intact-unit ABBA seam search, (2) complete-word residual targeting, and (3) the exact but readability-poor grammar-abba reader candidates. None has reader certification.",
+  "authoritative_artifacts": [
+    "docs/EXPERIMENT-NOVELTY-REGISTRY.md",
+    "runs/paragraph-abba-seam-20260921.json",
+    "runs/paragraph-topology-scene-lattice-20260921.json",
+    "runs/abba-authored-paragraph-seam-20260930.json",
+    "runs/typed-abba-residual-authoring-20260930.json",
+    "runs/abba-two-char-boundary-authoring-20260930.json",
+    "runs/abba-full-word-span-20261001.json",
+    "runs/abba-wordtarget-residual-20261001.json",
+    "runs/abba-inflectional-span-20261002.json",
+    "runs/paragraph-generation-abba-reader-20261002.json"
+  ],
+  "classification": {
+    "genuinely_distinct": [
+      {
+        "artifacts": ["runs/abba-authored-paragraph-seam-20260930.json"],
+        "operator": "four independently authored intact prose units with live ABBA seam",
+        "changed_dimension": "provenance/authoring boundary; intact sentence units rather than a generated clause bank",
+        "finding": "distinct construction, but no closure; supported_depth 0 and first mismatch at offset 0"
+      },
+      {
+        "artifacts": ["runs/abba-full-word-span-20261001.json", "runs/abba-wordtarget-residual-20261001.json", "runs/abba-inflectional-span-20261002.json"],
+        "operator": "complete-word residual gate, then ordinary agreement/inflection",
+        "changed_dimension": "word-boundary admission policy and inflectional inventory",
+        "finding": "genuinely new gate relative to character-prefix seam search; no exact candidate was admitted"
+      },
+      {
+        "artifacts": ["runs/paragraph-generation-abba-reader-20261002.json"],
+        "operator": "blinded reader packet with intact and shuffled controls",
+        "changed_dimension": "evaluation protocol, not a generator",
+        "finding": "useful independent readability test; ratings are still absent"
+      }
+    ],
+    "renamed_or_compositional_shortcuts": [
+      {
+        "artifacts": ["runs/paragraph-abba-constructive-20260921.json", "runs/paragraph-abba-seam-20260921.json", "runs/paragraph-abba-surface-trie-20260921.json", "runs/paragraph-topology-scene-lattice-20260921.json", "runs/packed-abba-paragraph-seams-20260928.json", "runs/grammar-abba-paragraph-20260928.json"],
+        "reason": "same A1/B1/B2/A2 (or nested clause-pair) composition with a live character equation; changing topology/trie/index names does not change lexical-role, dependency, or repair state"
+      },
+      {
+        "artifacts": ["runs/typed-abba-residual-authoring-20260930.json", "runs/abba-two-char-boundary-authoring-20260930.json"],
+        "reason": "residual-directed authoring is a bounded prefix-selection repair over the same four-unit composition; two-character versus one-character targeting is parameterization, not a new construction operator"
+      },
+      {
+        "artifacts": ["runs/abba-centerout-semantic-seam-20260922.json", "runs/abba-connector-first-trie-20260922.json", "runs/abba-function-word-seam-20260922.json", "runs/abba-relation-first-trie-20260922.json", "runs/abba-right-first-boundary-20260922.json", "runs/abba-residual-conditioned-arguments-20260922.json", "runs/abba-variable-boundary-lexical-dp-20260922.json"],
+        "reason": "all are clause-bank/trie orderings or residual-conditioned joins; registry's changed-dimension rule rejects larger/reordered search as novelty"
+      }
+    ]
+  },
+  "rendered_examples_and_exact_audits": [
+    {
+      "source": "runs/paragraph-abba-seam-20260921.json",
+      "text": "At dawn, the cartographer left the harbor to chart a quiet inlet. Meanwhile, the mechanic tightened a loose wheel beside the workshop. Later, the apprentice mended a frayed strap behind the tool shed. By dusk, the surveyor returned from the pier after mapping a sheltered bay.",
+      "audit": {"letters": 223, "exact": false, "first_mismatches": [[0,"a","y"],[1,"t","a"],[2,"d","b"]], "sha_equal": false},
+      "provenance_flags": ["four independently authored intact units", "no repeated/self-palindromic unit", "finished_text_reversal=false"]
+    },
+    {
+      "source": "runs/abba-authored-paragraph-seam-20260930.json",
+      "text": "After rain, the old harbor keeper opened the gate. The quiet students copied the river map. The patient baker shared warm bread with neighbors. At sunset, the harbor keeper closed the gate.",
+      "audit": {"letters": 152, "exact": false, "supported_depth": 0, "required_right_onset": "dthegate", "first_mismatch": [0,"a","e"], "sha_equal": false},
+      "provenance_flags": ["independently_authored_units", "sentence_boundaries_intact", "posthoc_repair=false"]
+    },
+    {
+      "source": "runs/paragraph-generation-abba-reader-20261002.json",
+      "text": "Nora, I saw evil. Noel, I saw war. Raw was I, Leon. Live was I, Aron.",
+      "audit": {"letters": 46, "exact": true, "two_pointer_exact": true, "sha_equal": true, "project_validator": true},
+      "provenance_flags": ["four distinct units", "reader_certified=false", "exact but highly constrained/unnatural phrase morphology"]
+    }
+  ],
+  "shortcut_flags": [
+    "No exact result should be counted as readable evidence.",
+    "The 2026-10-01/02 complete-word gates are useful diagnostics but remain composition over fixed authored frames; they do not supply a new discourse or dependency operator.",
+    "The 2026-10-02 reader packet is prepared, not rated; its two exact candidates inherit the grammar-abba source and therefore are not independent generator evidence."
+  ],
+  "next_untried_construction_boundary": {
+    "name": "discourse-linked sentence-opening/closing frame lattice",
+    "boundary": "Author each A/B unit as a two-sentence micro-scene with an explicit topic state and a complete ordinary opening word. Solve only the seam between the prior unit's final content word and the next unit's opening word; do not concatenate or reverse-render a prebuilt clause bank. A/B units must introduce distinct events, while B2 and A2 inherit discourse referents (not lexical text) from B1/A1.",
+    "why_readability_may_improve": "Topic continuity and referent tracking constrain paraphrase choices, while sentence-level complete-word seams avoid the fragmentary residuals seen in character-prefix targeting.",
+    "admission_tests": ["all four units independently authored", "3+ words per sentence and ordinary punctuation", "no repeated unit/self-palindromic unit/catalogue text", "two-pointer exact plus forward/reverse SHA audit", "blind reader gate before claiming readability"],
+    "do_not_repeat": ["larger clause banks", "trie/index ordering changes", "one-vs-two-character prefix targeting", "post-hoc repair of an already rendered paragraph"]
+  }
+}

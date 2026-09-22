@@ -1,0 +1,3651 @@
+{
+  "experiment_id": "incumbent-550-typed-center-product-20261002",
+  "method": "intersect two finite-clause feature grammars online while carrying the exact opposing-character residual",
+  "parent": {
+    "artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+    "letters": 550,
+    "sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+    "source_498_artifact": "runs/overhang-growth-from-240-20261001.json",
+    "source_498_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032"
+  },
+  "grammar": {
+    "left": "VOCATIVE PROPER.sg V_FIN.trans.sg DET NOUN",
+    "right": "PROPER.sg V_FIN.trans.sg PROPER.object VOCATIVE",
+    "names": [
+      "Aram",
+      "Mara",
+      "Aron",
+      "Nora",
+      "Aidan",
+      "Nadia",
+      "Tara",
+      "Sara",
+      "Noel",
+      "Leon",
+      "Liam",
+      "Diana",
+      "Eva",
+      "Ada",
+      "Iris",
+      "Nina"
+    ],
+    "verbs": {
+      "stops": [
+        "animal",
+        "person"
+      ],
+      "spots": [
+        "animal",
+        "person"
+      ],
+      "sees": [
+        "animal",
+        "person"
+      ],
+      "reads": [
+        "text"
+      ],
+      "notes": [
+        "person",
+        "text"
+      ],
+      "maps": [
+        "place"
+      ],
+      "meets": [
+        "person"
+      ],
+      "calls": [
+        "person"
+      ],
+      "helps": [
+        "person"
+      ],
+      "draws": [
+        "artifact"
+      ],
+      "saves": [
+        "animal",
+        "person"
+      ],
+      "serves": [
+        "person"
+      ],
+      "greets": [
+        "person"
+      ],
+      "finds": [
+        "animal",
+        "artifact",
+        "person"
+      ],
+      "watches": [
+        "animal",
+        "person"
+      ],
+      "repaid": [
+        "person"
+      ],
+      "was": [],
+      "saw": [
+        "animal",
+        "artifact",
+        "person"
+      ]
+    },
+    "determiners": [
+      "a",
+      "the"
+    ],
+    "nouns": {
+      "rat": "animal",
+      "ram": "animal",
+      "cat": "animal",
+      "dog": "animal",
+      "eel": "animal",
+      "map": "artifact",
+      "note": "text",
+      "book": "text",
+      "park": "place"
+    },
+    "valency_checked_before_acceptance": true,
+    "punctuation_added_after_acceptance": true
+  },
+  "search": {
+    "layer_counts": [
+      1,
+      1,
+      9,
+      45,
+      405,
+      54
+    ],
+    "terminal_unique_exact_closures": 54,
+    "selection_rule": [
+      "maximum full length",
+      "distinct predicates",
+      "prefer stops(animal) plus spots(person)",
+      "prefer rat/Tara boundary shift",
+      "lexicographic center"
+    ]
+  },
+  "stats": {
+    "maximum_live_states": 405,
+    "independently_exact_children": 54,
+    "unique_centers": 54,
+    "longest_letters": 558
+  },
+  "active_method_winner": "typed-center-25",
+  "rows": [
+    {
+      "id": "typed-center-25",
+      "center": "Leon, Aidan stops a rat. Tara spots Nadia, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aidan stops a rat. Tara spots Nadia, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 558,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa",
+        "sha256_reverse": "29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aidan",
+        "right_object": "Nadia",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aidan",
+          "right_outside_in": "Nadia",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-31",
+      "center": "Leon, Nadia stops a rat. Tara spots Aidan, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nadia stops a rat. Tara spots Aidan, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 558,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "2f174d4e60b035964b3b2ec4a5dd077d2efdabe972e2f7359724426567d9f0a3",
+        "sha256_reverse": "2f174d4e60b035964b3b2ec4a5dd077d2efdabe972e2f7359724426567d9f0a3",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nadia",
+        "right_object": "Aidan",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nadia",
+          "right_outside_in": "Aidan",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-24",
+      "center": "Leon, Aidan stops a ram. Mara spots Nadia, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aidan stops a ram. Mara spots Nadia, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 558,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "3495c483eb51ba61976cfdad1914b3288dd6c6db76ea5810cd6da8cb20636e21",
+        "sha256_reverse": "3495c483eb51ba61976cfdad1914b3288dd6c6db76ea5810cd6da8cb20636e21",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aidan",
+        "right_object": "Nadia",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aidan",
+          "right_outside_in": "Nadia",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-30",
+      "center": "Leon, Nadia stops a ram. Mara spots Aidan, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nadia stops a ram. Mara spots Aidan, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 558,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "2a6eea6bb8caf9ce13299cfe5c8a9945aff8175c8eee8ced039fc8fdf90880b1",
+        "sha256_reverse": "2a6eea6bb8caf9ce13299cfe5c8a9945aff8175c8eee8ced039fc8fdf90880b1",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nadia",
+        "right_object": "Aidan",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nadia",
+          "right_outside_in": "Aidan",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-27",
+      "center": "Leon, Aidan spots a rat. Tara stops Nadia, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aidan spots a rat. Tara stops Nadia, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 558,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "7b8d3dd5037a0f308a3f850874e7e7d89a33f06e0d71971cab8494239bd24a5d",
+        "sha256_reverse": "7b8d3dd5037a0f308a3f850874e7e7d89a33f06e0d71971cab8494239bd24a5d",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aidan",
+        "right_object": "Nadia",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aidan",
+          "right_outside_in": "Nadia",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-33",
+      "center": "Leon, Nadia spots a rat. Tara stops Aidan, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nadia spots a rat. Tara stops Aidan, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 558,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "6da5be414de05750282a88f8d1833e3e985dbf555ccab4bf4940592b1d16d609",
+        "sha256_reverse": "6da5be414de05750282a88f8d1833e3e985dbf555ccab4bf4940592b1d16d609",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nadia",
+        "right_object": "Aidan",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nadia",
+          "right_outside_in": "Aidan",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-26",
+      "center": "Leon, Aidan spots a ram. Mara stops Nadia, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aidan spots a ram. Mara stops Nadia, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 558,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "b6377aa0d29f35b4c4e96b38236cf2023f78c0613e68b9fb7b04dbeb487aeb35",
+        "sha256_reverse": "b6377aa0d29f35b4c4e96b38236cf2023f78c0613e68b9fb7b04dbeb487aeb35",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aidan",
+        "right_object": "Nadia",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aidan",
+          "right_outside_in": "Nadia",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-32",
+      "center": "Leon, Nadia spots a ram. Mara stops Aidan, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nadia spots a ram. Mara stops Aidan, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 558,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "ecb9244f13e135777415610cda6c501e2882d34b3fb9260ff9d9438a8f129fd5",
+        "sha256_reverse": "ecb9244f13e135777415610cda6c501e2882d34b3fb9260ff9d9438a8f129fd5",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nadia",
+        "right_object": "Aidan",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nadia",
+          "right_outside_in": "Aidan",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-01",
+      "center": "Leon, Aram stops a rat. Tara spots Mara, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aram stops a rat. Tara spots Mara, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "04eef6f92fd0e6b7b6aeb4df4a44e4c5ea60bf28676d433d2782a7fb7d5eb0b9",
+        "sha256_reverse": "04eef6f92fd0e6b7b6aeb4df4a44e4c5ea60bf28676d433d2782a7fb7d5eb0b9",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aram",
+        "right_object": "Mara",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aram",
+          "right_outside_in": "Mara",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-13",
+      "center": "Leon, Aron stops a rat. Tara spots Nora, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aron stops a rat. Tara spots Nora, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "53b29a5c8adf184513f229986fa942977b758e670bf7c14648c6be4a102fd52b",
+        "sha256_reverse": "53b29a5c8adf184513f229986fa942977b758e670bf7c14648c6be4a102fd52b",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aron",
+        "right_object": "Nora",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aron",
+          "right_outside_in": "Nora",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-43",
+      "center": "Leon, Leon stops a rat. Tara spots Noel, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Leon stops a rat. Tara spots Noel, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "53aaa79293f521764be565fb5de5cdd8b6b55a57a39c6271d895f9d6e8f4c680",
+        "sha256_reverse": "53aaa79293f521764be565fb5de5cdd8b6b55a57a39c6271d895f9d6e8f4c680",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Leon",
+        "right_object": "Noel",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-07",
+      "center": "Leon, Mara stops a rat. Tara spots Aram, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Mara stops a rat. Tara spots Aram, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "3a568e70edef6b3e4bdedd977268dbc3ec007c11b8f68e3830c7eb50270fdaaa",
+        "sha256_reverse": "3a568e70edef6b3e4bdedd977268dbc3ec007c11b8f68e3830c7eb50270fdaaa",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Mara",
+        "right_object": "Aram",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Mara",
+          "right_outside_in": "Aram",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-37",
+      "center": "Leon, Noel stops a rat. Tara spots Leon, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Noel stops a rat. Tara spots Leon, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "eb9fb125d814f16e60c218efef622d509c69feb919959e9cc2cca529719001a2",
+        "sha256_reverse": "eb9fb125d814f16e60c218efef622d509c69feb919959e9cc2cca529719001a2",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Noel",
+        "right_object": "Leon",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Noel",
+          "right_outside_in": "Leon",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-19",
+      "center": "Leon, Nora stops a rat. Tara spots Aron, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nora stops a rat. Tara spots Aron, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "1b2c06067bf5482bcb2e29212624caeae80494d1a35392bf2000c0bfe20483e2",
+        "sha256_reverse": "1b2c06067bf5482bcb2e29212624caeae80494d1a35392bf2000c0bfe20483e2",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nora",
+        "right_object": "Aron",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nora",
+          "right_outside_in": "Aron",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-00",
+      "center": "Leon, Aram stops a ram. Mara spots Mara, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aram stops a ram. Mara spots Mara, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "b34cb16c7df474230e55df11649855566f49caa28ce47bb706f6c4256fff1326",
+        "sha256_reverse": "b34cb16c7df474230e55df11649855566f49caa28ce47bb706f6c4256fff1326",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aram",
+        "right_object": "Mara",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aram",
+          "right_outside_in": "Mara",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-12",
+      "center": "Leon, Aron stops a ram. Mara spots Nora, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aron stops a ram. Mara spots Nora, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "2bdf4f3d2bcc2b4adeed76d5b2d9bfbddc0a42dfdf50ca5bdfcf43b9b64fe2e6",
+        "sha256_reverse": "2bdf4f3d2bcc2b4adeed76d5b2d9bfbddc0a42dfdf50ca5bdfcf43b9b64fe2e6",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aron",
+        "right_object": "Nora",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aron",
+          "right_outside_in": "Nora",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-42",
+      "center": "Leon, Leon stops a ram. Mara spots Noel, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Leon stops a ram. Mara spots Noel, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "ab7f54aa67563b331bb5c778ce1309f68340abf9958c0cd454792c710686c510",
+        "sha256_reverse": "ab7f54aa67563b331bb5c778ce1309f68340abf9958c0cd454792c710686c510",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Leon",
+        "right_object": "Noel",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-06",
+      "center": "Leon, Mara stops a ram. Mara spots Aram, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Mara stops a ram. Mara spots Aram, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "f96494b4d7ccd4731e9ff244a8ca7d153208f1d5e82d0661417e8ae224d3c49d",
+        "sha256_reverse": "f96494b4d7ccd4731e9ff244a8ca7d153208f1d5e82d0661417e8ae224d3c49d",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Mara",
+        "right_object": "Aram",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Mara",
+          "right_outside_in": "Aram",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-36",
+      "center": "Leon, Noel stops a ram. Mara spots Leon, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Noel stops a ram. Mara spots Leon, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "51815da94980b1b3aa9b6d39547344f04749c587641951692237485aef34a7a3",
+        "sha256_reverse": "51815da94980b1b3aa9b6d39547344f04749c587641951692237485aef34a7a3",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Noel",
+        "right_object": "Leon",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Noel",
+          "right_outside_in": "Leon",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-18",
+      "center": "Leon, Nora stops a ram. Mara spots Aron, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nora stops a ram. Mara spots Aron, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "bc23d0006b59d11786adf93e596b0cf440e967e245a92b5e5f996af3db11f01c",
+        "sha256_reverse": "bc23d0006b59d11786adf93e596b0cf440e967e245a92b5e5f996af3db11f01c",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nora",
+        "right_object": "Aron",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nora",
+          "right_outside_in": "Aron",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-03",
+      "center": "Leon, Aram spots a rat. Tara stops Mara, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aram spots a rat. Tara stops Mara, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "31f043e7757bd042b34395d1b5517ec301363a8406df1fccaea3509b52a84213",
+        "sha256_reverse": "31f043e7757bd042b34395d1b5517ec301363a8406df1fccaea3509b52a84213",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aram",
+        "right_object": "Mara",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aram",
+          "right_outside_in": "Mara",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-15",
+      "center": "Leon, Aron spots a rat. Tara stops Nora, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aron spots a rat. Tara stops Nora, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "ffb3095ca39d26a5a27cafc9c31dcb10d67c84200c731dd6360bb14b141b4333",
+        "sha256_reverse": "ffb3095ca39d26a5a27cafc9c31dcb10d67c84200c731dd6360bb14b141b4333",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aron",
+        "right_object": "Nora",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aron",
+          "right_outside_in": "Nora",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-45",
+      "center": "Leon, Leon spots a rat. Tara stops Noel, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Leon spots a rat. Tara stops Noel, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "fed019a0ab6bf831f0daf3daa7344fb619c5f6a4217f3754b46ea2476e88cf68",
+        "sha256_reverse": "fed019a0ab6bf831f0daf3daa7344fb619c5f6a4217f3754b46ea2476e88cf68",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Leon",
+        "right_object": "Noel",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-09",
+      "center": "Leon, Mara spots a rat. Tara stops Aram, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Mara spots a rat. Tara stops Aram, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "90250b3e27e1de17d6a3fbd2f595008ed57fc64f22091f891f799f3e8f77be03",
+        "sha256_reverse": "90250b3e27e1de17d6a3fbd2f595008ed57fc64f22091f891f799f3e8f77be03",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Mara",
+        "right_object": "Aram",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Mara",
+          "right_outside_in": "Aram",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-39",
+      "center": "Leon, Noel spots a rat. Tara stops Leon, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Noel spots a rat. Tara stops Leon, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "d9aa1ddb4611f20e47e49e03b7956662a31dc4d1d03985ed6e7013f63b49b42f",
+        "sha256_reverse": "d9aa1ddb4611f20e47e49e03b7956662a31dc4d1d03985ed6e7013f63b49b42f",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Noel",
+        "right_object": "Leon",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Noel",
+          "right_outside_in": "Leon",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-21",
+      "center": "Leon, Nora spots a rat. Tara stops Aron, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nora spots a rat. Tara stops Aron, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "334c6dfba341f8db8bedb577aa7112d37a77e0e614bdbca676cf9ae950b6633c",
+        "sha256_reverse": "334c6dfba341f8db8bedb577aa7112d37a77e0e614bdbca676cf9ae950b6633c",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nora",
+        "right_object": "Aron",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nora",
+          "right_outside_in": "Aron",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-02",
+      "center": "Leon, Aram spots a ram. Mara stops Mara, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aram spots a ram. Mara stops Mara, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "ed637af3f907ef114312e7b0346dfc18ccfa05ca6fe0aa49e8f7207f374994ab",
+        "sha256_reverse": "ed637af3f907ef114312e7b0346dfc18ccfa05ca6fe0aa49e8f7207f374994ab",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aram",
+        "right_object": "Mara",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aram",
+          "right_outside_in": "Mara",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-14",
+      "center": "Leon, Aron spots a ram. Mara stops Nora, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aron spots a ram. Mara stops Nora, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "4251cd6c9e0bd3b2b5bcffcdd1700eb8ea32070d4bfe079582f8d681e18e56ea",
+        "sha256_reverse": "4251cd6c9e0bd3b2b5bcffcdd1700eb8ea32070d4bfe079582f8d681e18e56ea",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aron",
+        "right_object": "Nora",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aron",
+          "right_outside_in": "Nora",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-44",
+      "center": "Leon, Leon spots a ram. Mara stops Noel, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Leon spots a ram. Mara stops Noel, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "cf6b5ae23b3465ba357d41e044b31b56006c95aa858441a2fd9e9c14196f95b3",
+        "sha256_reverse": "cf6b5ae23b3465ba357d41e044b31b56006c95aa858441a2fd9e9c14196f95b3",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Leon",
+        "right_object": "Noel",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-08",
+      "center": "Leon, Mara spots a ram. Mara stops Aram, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Mara spots a ram. Mara stops Aram, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "54d4045a6a39784c1e1aafbb6ff524646f64b5a378bd8f086ad8528fd6f6f2f2",
+        "sha256_reverse": "54d4045a6a39784c1e1aafbb6ff524646f64b5a378bd8f086ad8528fd6f6f2f2",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Mara",
+        "right_object": "Aram",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Mara",
+          "right_outside_in": "Aram",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-38",
+      "center": "Leon, Noel spots a ram. Mara stops Leon, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Noel spots a ram. Mara stops Leon, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "bcd82f1a3faaca97f00c0ea1988d19b26bc98e295cb39c9f5e90bbe76a853635",
+        "sha256_reverse": "bcd82f1a3faaca97f00c0ea1988d19b26bc98e295cb39c9f5e90bbe76a853635",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Noel",
+        "right_object": "Leon",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Noel",
+          "right_outside_in": "Leon",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-20",
+      "center": "Leon, Nora spots a ram. Mara stops Aron, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nora spots a ram. Mara stops Aron, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "70dfdaf2aabd7330baf42e7b75f809710c3fc1f077861ec2c1452b0cc74e2de8",
+        "sha256_reverse": "70dfdaf2aabd7330baf42e7b75f809710c3fc1f077861ec2c1452b0cc74e2de8",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nora",
+        "right_object": "Aron",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nora",
+          "right_outside_in": "Aron",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-29",
+      "center": "Leon, Aidan sees a rat. Tara sees Nadia, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aidan sees a rat. Tara sees Nadia, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "d5ad52db26541c315b66e40821f3ccf01796759bc3a97b2865115ca600b3774d",
+        "sha256_reverse": "d5ad52db26541c315b66e40821f3ccf01796759bc3a97b2865115ca600b3774d",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aidan",
+        "right_object": "Nadia",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aidan",
+          "right_outside_in": "Nadia",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-35",
+      "center": "Leon, Nadia sees a rat. Tara sees Aidan, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nadia sees a rat. Tara sees Aidan, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "bc762b444fab68f629fd9bb6846aa8e16c5ed0b22ceca17e0205cde878dcb493",
+        "sha256_reverse": "bc762b444fab68f629fd9bb6846aa8e16c5ed0b22ceca17e0205cde878dcb493",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nadia",
+        "right_object": "Aidan",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nadia",
+          "right_outside_in": "Aidan",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-28",
+      "center": "Leon, Aidan sees a ram. Mara sees Nadia, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aidan sees a ram. Mara sees Nadia, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "0f683ef1f5ece741c5366baab652a80e86c6063f78b3818cb1d7a984961093e3",
+        "sha256_reverse": "0f683ef1f5ece741c5366baab652a80e86c6063f78b3818cb1d7a984961093e3",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aidan",
+        "right_object": "Nadia",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aidan",
+          "right_outside_in": "Nadia",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-34",
+      "center": "Leon, Nadia sees a ram. Mara sees Aidan, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nadia sees a ram. Mara sees Aidan, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 556,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "2bee7af62667184565ab440782b54f23d4c478914001b7e9bda498dc5ecafa3e",
+        "sha256_reverse": "2bee7af62667184565ab440782b54f23d4c478914001b7e9bda498dc5ecafa3e",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nadia",
+        "right_object": "Aidan",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nadia",
+          "right_outside_in": "Aidan",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-49",
+      "center": "Leon, Ada stops a rat. Tara spots Ada, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Ada stops a rat. Tara spots Ada, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "0720aa65ba202ed1a90efc76b2faba223c5d93ff31959d9886ddd31dbea6a917",
+        "sha256_reverse": "0720aa65ba202ed1a90efc76b2faba223c5d93ff31959d9886ddd31dbea6a917",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Ada",
+        "right_object": "Ada",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Ada",
+          "right_outside_in": "Ada",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-48",
+      "center": "Leon, Ada stops a ram. Mara spots Ada, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Ada stops a ram. Mara spots Ada, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "6b1626bffdd5bfdf9b6dc3135f9a9ddb92010f8ba51deed2cb9accde24c3e544",
+        "sha256_reverse": "6b1626bffdd5bfdf9b6dc3135f9a9ddb92010f8ba51deed2cb9accde24c3e544",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Ada",
+        "right_object": "Ada",
+        "left_verb": "stops",
+        "right_verb": "spots",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Ada",
+          "right_outside_in": "Ada",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "stops",
+          "right_outside_in": "spots",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-51",
+      "center": "Leon, Ada spots a rat. Tara stops Ada, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Ada spots a rat. Tara stops Ada, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "9444d575454ed5016748d91e49c0fdc1b0c191fa53a90a518cb822323ff40ab6",
+        "sha256_reverse": "9444d575454ed5016748d91e49c0fdc1b0c191fa53a90a518cb822323ff40ab6",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Ada",
+        "right_object": "Ada",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Ada",
+          "right_outside_in": "Ada",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-50",
+      "center": "Leon, Ada spots a ram. Mara stops Ada, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Ada spots a ram. Mara stops Ada, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "6de37d5b0bd1d0126b31ecf11824e81cc29e9263403d42cf3c74541f7ec40f2b",
+        "sha256_reverse": "6de37d5b0bd1d0126b31ecf11824e81cc29e9263403d42cf3c74541f7ec40f2b",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Ada",
+        "right_object": "Ada",
+        "left_verb": "spots",
+        "right_verb": "stops",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Ada",
+          "right_outside_in": "Ada",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "spots",
+          "right_outside_in": "stops",
+          "matched": 5,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-05",
+      "center": "Leon, Aram sees a rat. Tara sees Mara, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aram sees a rat. Tara sees Mara, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "536f67bdb9ec213922781f6e9e86eb646390eaf4bd9340cc976efed27c3c7292",
+        "sha256_reverse": "536f67bdb9ec213922781f6e9e86eb646390eaf4bd9340cc976efed27c3c7292",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aram",
+        "right_object": "Mara",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aram",
+          "right_outside_in": "Mara",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-17",
+      "center": "Leon, Aron sees a rat. Tara sees Nora, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aron sees a rat. Tara sees Nora, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "2fbb4bd2f34e544f0eaa7e3cc31ea2efa36e09675e6b913ca54fc7912e0d93ff",
+        "sha256_reverse": "2fbb4bd2f34e544f0eaa7e3cc31ea2efa36e09675e6b913ca54fc7912e0d93ff",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aron",
+        "right_object": "Nora",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aron",
+          "right_outside_in": "Nora",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-47",
+      "center": "Leon, Leon sees a rat. Tara sees Noel, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Leon sees a rat. Tara sees Noel, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "9c430158cf31d78666f8c134f97fb337ba4e704eb8dffa330db102553db5cb3a",
+        "sha256_reverse": "9c430158cf31d78666f8c134f97fb337ba4e704eb8dffa330db102553db5cb3a",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Leon",
+        "right_object": "Noel",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-11",
+      "center": "Leon, Mara sees a rat. Tara sees Aram, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Mara sees a rat. Tara sees Aram, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "64dd3d26e1436ab7ffd78fec89500450ff5082afa858f3036b34aa4dbf4b5272",
+        "sha256_reverse": "64dd3d26e1436ab7ffd78fec89500450ff5082afa858f3036b34aa4dbf4b5272",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Mara",
+        "right_object": "Aram",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Mara",
+          "right_outside_in": "Aram",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-41",
+      "center": "Leon, Noel sees a rat. Tara sees Leon, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Noel sees a rat. Tara sees Leon, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "e9289d54134c380a0d789d8f6478fa8f1a4e2f8345e9521d0980e1b7657ab31b",
+        "sha256_reverse": "e9289d54134c380a0d789d8f6478fa8f1a4e2f8345e9521d0980e1b7657ab31b",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Noel",
+        "right_object": "Leon",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Noel",
+          "right_outside_in": "Leon",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-23",
+      "center": "Leon, Nora sees a rat. Tara sees Aron, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nora sees a rat. Tara sees Aron, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "a4e766e81337fb279e38e768f4e79d5d066063e8138431a4bccb79faa9a727de",
+        "sha256_reverse": "a4e766e81337fb279e38e768f4e79d5d066063e8138431a4bccb79faa9a727de",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nora",
+        "right_object": "Aron",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nora",
+          "right_outside_in": "Aron",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-04",
+      "center": "Leon, Aram sees a ram. Mara sees Mara, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aram sees a ram. Mara sees Mara, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "a71ee2ccfd592960142ee0fa85d18374810e829a41f245e991e18f142b79bead",
+        "sha256_reverse": "a71ee2ccfd592960142ee0fa85d18374810e829a41f245e991e18f142b79bead",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aram",
+        "right_object": "Mara",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aram",
+          "right_outside_in": "Mara",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-16",
+      "center": "Leon, Aron sees a ram. Mara sees Nora, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Aron sees a ram. Mara sees Nora, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "6202788bd96568c19cfb77e0b5a90482cb3d03bde044dfaa7057f4e8eb16106e",
+        "sha256_reverse": "6202788bd96568c19cfb77e0b5a90482cb3d03bde044dfaa7057f4e8eb16106e",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Aron",
+        "right_object": "Nora",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Aron",
+          "right_outside_in": "Nora",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-46",
+      "center": "Leon, Leon sees a ram. Mara sees Noel, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Leon sees a ram. Mara sees Noel, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "8ae40b353d778f7c56307fac2f2d564e33f07ed4de4bac33d4887cbc32ad3ddf",
+        "sha256_reverse": "8ae40b353d778f7c56307fac2f2d564e33f07ed4de4bac33d4887cbc32ad3ddf",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Leon",
+        "right_object": "Noel",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-10",
+      "center": "Leon, Mara sees a ram. Mara sees Aram, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Mara sees a ram. Mara sees Aram, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "5fb604e874da7dfe455e669b8388c35f01fcf339cbac1666e5273c5b6c5544b9",
+        "sha256_reverse": "5fb604e874da7dfe455e669b8388c35f01fcf339cbac1666e5273c5b6c5544b9",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Mara",
+        "right_object": "Aram",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Mara",
+          "right_outside_in": "Aram",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-40",
+      "center": "Leon, Noel sees a ram. Mara sees Leon, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Noel sees a ram. Mara sees Leon, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "403a3f5337240ae515377603ebdd282d894faf0ff59b39692283f561a1d10249",
+        "sha256_reverse": "403a3f5337240ae515377603ebdd282d894faf0ff59b39692283f561a1d10249",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Noel",
+        "right_object": "Leon",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Noel",
+          "right_outside_in": "Leon",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-22",
+      "center": "Leon, Nora sees a ram. Mara sees Aron, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Nora sees a ram. Mara sees Aron, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "75645992f05e0cbef73b941e6e9f5a2adbacb037fb6c88d9b2f6d0d2d8f66ef5",
+        "sha256_reverse": "75645992f05e0cbef73b941e6e9f5a2adbacb037fb6c88d9b2f6d0d2d8f66ef5",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Nora",
+        "right_object": "Aron",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Nora",
+          "right_outside_in": "Aron",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-53",
+      "center": "Leon, Ada sees a rat. Tara sees Ada, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Ada sees a rat. Tara sees Ada, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 552,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "e3d03cbfcb83f0af2a6354276218c764b28b3b9cd1128d630774cb6346b548ce",
+        "sha256_reverse": "e3d03cbfcb83f0af2a6354276218c764b28b3b9cd1128d630774cb6346b548ce",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Ada",
+        "right_object": "Ada",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Tara",
+        "noun": "rat"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Ada",
+          "right_outside_in": "Ada",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Tara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "rat"
+        },
+        {
+          "left": "rat",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    },
+    {
+      "id": "typed-center-52",
+      "center": "Leon, Ada sees a ram. Mara sees Ada, Noel.",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, Ada sees a ram. Mara sees Ada, Noel. Spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 552,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "213a79ff57d3e04d6a8baabe005c6e90774ef42d59e3ad0c8bb8599deef8aa97",
+        "sha256_reverse": "213a79ff57d3e04d6a8baabe005c6e90774ef42d59e3ad0c8bb8599deef8aa97",
+        "sha_equal": true
+      },
+      "state": {
+        "left_subject": "Ada",
+        "right_object": "Ada",
+        "left_verb": "sees",
+        "right_verb": "sees",
+        "determiner": "a",
+        "right_subject": "Mara",
+        "noun": "ram"
+      },
+      "residual_trace": [
+        {
+          "left": "Leon",
+          "right_outside_in": "Noel",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "Ada",
+          "right_outside_in": "Ada",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "sees",
+          "right_outside_in": "sees",
+          "matched": 4,
+          "owner": "-",
+          "residual": ""
+        },
+        {
+          "left": "a",
+          "right_outside_in": "Mara",
+          "matched": 1,
+          "owner": "R",
+          "residual": "ram"
+        },
+        {
+          "left": "ram",
+          "right_outside_in": "",
+          "matched": 3,
+          "owner": "-",
+          "residual": ""
+        }
+      ],
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "human_certified": false
+    }
+  ]
+}

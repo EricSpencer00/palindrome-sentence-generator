@@ -1,9 +1,10 @@
-"""Recursive discourse grammar over the live word-residual product.
+"""Rejected fixed-frame diagnostic over the live word-residual product.
 
-The product grows a discourse one typed clause at a time.  Each loop carries a
-semantic state (topic, polarity, tense, and discourse phase); lexical choices
-are then admitted by the residual intersection, rather than by rendering a
-finished sentence and repairing it.
+This file originally described its depth loop as recursive discourse growth.
+That was wrong: every iteration starts a fresh residual search against the
+same right frame, so no emitted clause or character debt crosses an iteration.
+The retained run is useful only as evidence that four independent frame probes
+do not implement recursive paragraph composition.
 """
 from __future__ import annotations
 
@@ -44,9 +45,6 @@ def _audit(text: str) -> dict:
             "sha256_forward": hashlib.sha256(tape.encode()).hexdigest(),
             "sha256_reverse": hashlib.sha256(tape[::-1].encode()).hexdigest()}
 
-def _content(text: str) -> set[str]:
-    return {w for w in letter_tape(text).split() if len(w) > 2}
-
 def run(max_depth: int = 4, max_states: int = 4000) -> dict:
     state = {"phase": "observe", "topic": "evidence", "tense": "present", "polarity": "affirmative"}
     frontiers, outputs, seen_content = [], [], set()
@@ -68,8 +66,10 @@ def run(max_depth: int = 4, max_states: int = 4000) -> dict:
                    "audit": _audit(text), "mechanical_admission": checks,
                    "unique_content": unique,
                    "central_admission": all(checks.values()),
-                   "provenance": {"recursive_clause_transition": True,
-                                  "loop_depth": depth, "semantic_state_carried": True,
+                   "provenance": {"recursive_clause_transition": False,
+                                  "loop_depth": depth, "semantic_state_carried": False,
+                                  "composed_across_depths": False,
+                                  "independent_frame_query": True,
                                   "word_residual_product": True,
                                   "reject_intermediate_closure": True,
                                   "finished_tape_reversal": False,
@@ -79,16 +79,20 @@ def run(max_depth: int = 4, max_states: int = 4000) -> dict:
                 outputs.append(row); seen_content.update(words)
         state = {**state, "phase": TRANSITIONS[phase][(depth - 1) % len(TRANSITIONS[phase])]}
     return {"experiment_id": ID,
-            "method": "recursive typed discourse transitions over online word residuals",
+            "method": "independent typed-frame diagnostics over online word residuals",
             "target_depth": max_depth,
             "outputs": outputs, "frontiers": frontiers,
             "stats": {"depths": max_depth, "frontiers": len(frontiers), "outputs": len(outputs)},
-            "provenance": {"recursive_loop": True, "central_admission": True,
+            "provenance": {"recursive_loop": False, "central_admission": True,
                            "reject_intermediate_closure": True, "unique_content": True,
-                           "semantic_clause_state": True, "finished_tape_reversal": False,
+                           "semantic_clause_state": False,
+                           "composed_across_depths": False,
+                           "independent_frame_queries": True,
+                           "finished_tape_reversal": False,
                            "completed_prose_enumeration": False,
                            "exact_subpalindrome_composition": False},
-            "status": "bounded recursive frontier recorded"}
+            "status": "rejected_as_independent_frame_loop",
+            "next_operator": "Carry grammar phase and nonempty character debt in one recurrent product state; detect a coaccessible productive cycle instead of restarting each frame."}
 
 if __name__ == "__main__":
     out = Path(__file__).resolve().parent / "runs" / f"{ID}.json"

@@ -1,0 +1,111 @@
+{
+  "experiment_id": "shared-entity-event-completion-20260930",
+  "method": "typed shared-entity event completion with online character intersection",
+  "conditions": [
+    {
+      "candidates": [],
+      "states": 2,
+      "transitions": 1,
+      "cap_reached": false,
+      "dead_frontiers": [
+        {
+          "matched_pairs": 1,
+          "left_state": 16,
+          "right_state": 99,
+          "left_next": [
+            "h"
+          ],
+          "right_next": [
+            "i"
+          ],
+          "left_partial": "the artist",
+          "right_partial": ""
+        }
+      ],
+      "grammar_states": 100,
+      "grammar_character_edges": 109,
+      "order": [
+        "make_mural",
+        "praise_mural"
+      ],
+      "valid_typed_order": true,
+      "event_trace": [
+        {
+          "event": "make_mural",
+          "required": [],
+          "introduced_before": [],
+          "introduced_after": [
+            "artist",
+            "mural"
+          ],
+          "completion_boundary": "epsilon"
+        },
+        {
+          "event": "praise_mural",
+          "required": [
+            "artist",
+            "mural"
+          ],
+          "introduced_before": [
+            "artist",
+            "mural"
+          ],
+          "introduced_after": [
+            "artist",
+            "mural"
+          ],
+          "completion_boundary": "epsilon"
+        }
+      ]
+    },
+    {
+      "order": [
+        "praise_mural",
+        "make_mural"
+      ],
+      "valid_typed_order": false,
+      "candidates": [],
+      "rejection": "reference event precedes introduction"
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "An aide rips nine memos; some men inspire Diana.",
+      "audit": {
+        "letters": 38,
+        "exact": true,
+        "first_mismatch": [],
+        "normalized": "anaideripsninememossomemeninspirediana",
+        "sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "reverse_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+      },
+      "exact_validator": true,
+      "seed_control": true,
+      "human_readability_evidence": "historically reader-admitted"
+    }
+  ],
+  "provenance": {
+    "complete_sentence_enumeration": false,
+    "generated_sentence_count_before_intersection": 0,
+    "catalogue_replay": false,
+    "semordnilap_only_bank": false,
+    "repeated_unit": false,
+    "posthoc_repair": false,
+    "per_candidate_rlaif": false,
+    "source": "fresh ordinary-English typed event slots authored for this lane",
+    "generator_sha256": "e689fd6b85174678c4d0c9aef0971fe4708d118be690b09c3a3cb2b3a056521c"
+  },
+  "novelty_preflight": {
+    "novel_algorithm_claim": false,
+    "representation_change": "event completion carries introduced artist/mural entities into typed reference slots",
+    "distinction": "the reference event is rejected before compilation when its antecedent is unavailable"
+  },
+  "reader_test": {
+    "status": "not collected",
+    "protocol": "Novel exact outputs require randomized blinded ratings with intact and shuffled controls."
+  },
+  "next_repair": {
+    "operator": "widen the shared mural reference with ordinary plural agreement while retaining online event completion",
+    "reason": "current reference vocabulary has no exact closure beyond controls; keep semantic state and vary only one boundary"
+  }
+}

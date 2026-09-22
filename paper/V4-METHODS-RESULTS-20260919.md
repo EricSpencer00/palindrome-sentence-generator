@@ -55,6 +55,13 @@ packed clause automaton with movable sentence termination; the same word-bank
 sweep will not be repeated.  Reproducible evidence is in
 `runs/staggered-abba-paragraph-product-20260922.json`.
 
+The packed follow-up used four complete clause paths per discourse phase.  It
+reached 227 product states and nine-character live residuals, but neither
+grammar reached its second sentence and there was no exact witness.  This
+localizes the next construction step: induce an outer grammatical entry path
+that crosses `A -> B` before adding any inner lexical choices.  The run is in
+`runs/packed-staggered-paragraph-automaton-20260922.json`.
+
 ### API-inspired open-residual cycle
 
 The deployed v3 API clarifies why length and prose quality separated. Its

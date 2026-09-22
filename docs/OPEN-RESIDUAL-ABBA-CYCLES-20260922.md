@@ -83,6 +83,16 @@ sentence boundaries into a packed automaton instead of widening the same SVO
 word lists.  Artifact:
 `runs/staggered-abba-paragraph-product-20260922.json`.
 
+That packed follow-up is now implemented in
+`experiments/packed_staggered_paragraph_automaton_20260922.py`.  Four complete
+clause shapes per discourse phase increased the reachable product from 49 to
+227 states and the maximum live residual from six to nine characters, but no
+path reached either second-sentence state.  The failure is therefore an entry
+path problem, not a reason to enlarge the nouns and verbs again.  The next
+operator must induce grammatical outer paths that arrive at `A -> B` with a
+live residual, then hold those paths fixed while testing the inner sentences.
+Artifact: `runs/packed-staggered-paragraph-automaton-20260922.json`.
+
 ## Natural cycle diagnostics
 
 A streamed Brown-corpus shape mine found two ordinary open-residual equations:

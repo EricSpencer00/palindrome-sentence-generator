@@ -110,6 +110,27 @@ repetition in the outer delivery, mapping, and rat events. The next operator
 therefore replaces one complete outer event sequence with a causally linked
 scene transition instead of appending more text.
 
+This midpoint construction also has a programmatic counterpart. A typed
+product intersects two finite-clause grammars while carrying number agreement,
+transitive valency, semantic object type, and the exact character residual in
+the same state. It operates over individual lexical terminals, not completed
+sentence pairs, and renders punctuation only after acceptance. The successive
+live layers contain `1, 1, 9, 45, 405, 54` states; all 54 terminals are unique
+exact centers. The deterministic maximum-length winner is:
+
+> **Leon, Aidan stops a rat. Tara spots Nadia, Noel.**
+
+Here `Leon/Noel`, `Aidan/Nadia`, and `stops/spots` cancel before the determiner
+`a` meets reverse(`Tara`) = `arat`, leaving right-owned residual `rat`; the
+noun `rat` closes it. Agreement and both verbs' object-type requirements are
+checked before acceptance. Embedded in the 550 parent, the result has 558
+letters and independent SHA-256
+`29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa`.
+This ablation demonstrates that the finite-event seam can be searched in a
+small exact state space rather than repaired by RLAIF after generation. The
+authored 560 row remains the content incumbent because its central discourse
+is clearer and longer.
+
 Reproducible evidence is in
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
 `runs/incumbent-498-live-seam-growth-20261002.json`, followed by
@@ -122,7 +143,9 @@ Reproducible evidence is in
 `experiments/incumbent_544_cross_boundary_seam_repair_20261002.py` and
 `runs/incumbent-544-cross-boundary-seam-repair-20261002.json`, followed by
 `experiments/incumbent_550_central_event_bridge_20261002.py` and
-`runs/incumbent-550-central-event-bridge-20261002.json`. The historical
+`runs/incumbent-550-central-event-bridge-20261002.json`. The typed-product
+ablation is in `experiments/incumbent_550_typed_center_product_20261002.py`
+and `runs/incumbent-550-typed-center-product-20261002.json`. The historical
 38- and 54-letter sections below are retained only as ablation history.
 
 ## Paragraph-level ABBA generation

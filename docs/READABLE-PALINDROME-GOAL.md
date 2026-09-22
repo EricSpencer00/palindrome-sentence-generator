@@ -80,6 +80,18 @@ reader-facing defect is now discourse-level repetition in the outer delivery,
 mapping, and rat events; the next operator replaces one complete outer event
 sequence with a causally linked scene transition rather than adding length.
 
+An executable typed-product ablation shows that this central improvement is
+searchable rather than dependent on per-candidate AI repair. Two finite-clause
+grammars carry singular agreement, transitive valency, semantic object type,
+and the live character residual together. Their live layers contain
+`1 -> 1 -> 9 -> 45 -> 405 -> 54` states and terminate in 54 unique exact
+centers. The deterministic winner is “Leon, Aidan stops a rat. Tara spots
+Nadia, Noel.” inside a 558-letter exact child (SHA-256
+`29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa`).
+Its `a|rat` / `Tara` seam leaves residual `rat` before the noun closes it.
+This is method evidence and a diverse frontier alternative; the clearer,
+longer 560 row remains the content incumbent.
+
 Evidence:
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
 `runs/incumbent-498-live-seam-growth-20261002.json`, followed by
@@ -92,7 +104,9 @@ Evidence:
 `experiments/incumbent_544_cross_boundary_seam_repair_20261002.py` and
 `runs/incumbent-544-cross-boundary-seam-repair-20261002.json`, followed by
 `experiments/incumbent_550_central_event_bridge_20261002.py` and
-`runs/incumbent-550-central-event-bridge-20261002.json`.
+`runs/incumbent-550-central-event-bridge-20261002.json`. The typed-product
+ablation is in `experiments/incumbent_550_typed_center_product_20261002.py`
+and `runs/incumbent-550-typed-center-product-20261002.json`.
 
 Sol owns this pivot. No Astra or non-Sol agent is used. Human studies remain
 required before a readability claim, but they are not a prerequisite for

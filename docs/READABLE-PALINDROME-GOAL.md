@@ -8787,3 +8787,18 @@ generated, non-formulaic candidate.
   candidate was rendered. This retires the current function-word envelope and
   preserves its onset residual. Artifact:
   `runs/function-attachment-cfg-20260930.json`.
+
+- **Onset-conditioned recursive CFG, 2026-10-01:** the CFG was changed to
+  choose exposed determiner/subject onsets jointly with opposing terminal
+  classes before expanding interiors. Among 1,200 recursive derivations,
+  zero pairs were onset-compatible: all bounded left paths began with `a`,
+  while no right path ended in `a`. This rules out the current lexical frame,
+  not the whole construction principle. Artifact:
+  `runs/onset-conditioned-recursive-cfg-20261001.json`.
+
+- **Shared-object event product, 2026-09-30:** an event introduced an object
+  and a later typed clause accessed that same object while characters were
+  matched online. The product reached seven states and six transitions, with
+  a deepest one-character frontier and zero exact closures. Its next change
+  must alter the lexical event frame while retaining object identity.
+  Artifact: `runs/shared-object-event-product-20260930.json`.

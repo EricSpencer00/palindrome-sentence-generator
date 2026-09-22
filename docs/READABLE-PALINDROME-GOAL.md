@@ -8690,3 +8690,34 @@ reader-admitted result. The 54-letter extension demonstrates that paragraph
 ABBA seams can be searched at the character level, but it does not satisfy the
 English-readability gate until blinded readers accept an independently
 generated, non-formulaic candidate.
+
+- **Phrase-graph growth lineage, 2026-09-29:** two online edge admissions
+  extended the exact graph to 214 letters. The rendered text passes the
+  independent validator, two-pointer scan, and forward/reverse SHA-256, but
+  its new “I saw deliver” / “I saw diaper” edges expose the wrong optimization:
+  length is growing faster than meaning. It is retained as a working draft,
+  not a readable result. Artifact:
+  `runs/typed-phrase-graph-growth-20260929.json`.
+
+- **Accumulated outer-edge composition, 2026-09-30:** applying the previously
+  streamed `Aron saw evil.` / `Live was Nora.` edge to that 214-letter lineage
+  gives a 236-letter exact working tape (SHA-256
+  `81d914d78174d35f0534c6031920a16bd84fe0695fa179fd2a0a5407cacffbce`). This
+  is useful length-bearing state, not an independent readability result; it
+  inherits the formulaic scaffold and remains outside the reader gate.
+  Artifact: `runs/typed-phrase-graph-accumulate-20260930.json`.
+
+- **Natural edge-pair ablation, 2026-09-30:** a fresh typed active/passive
+  seam bank tested 16 online pairs. No new natural closure survived; the
+  existing `deliver/reviled` edge was the only complete lineage admitted, and
+  the strongest fresh pairs were themselves semordnilap-style. The concrete
+  successor is a shared-noun transitive active/passive grammar with both sides
+  variable across word boundaries. Artifact:
+  `runs/natural-edge-pair-20260930.json`.
+
+- **Typed exact-tape resegmentation, 2026-09-30:** an outside-in parser
+  completely re-parsed the 214-letter tape with typed units and zero residual,
+  while independently rechecking exactness. It confirms that the remaining
+  debt is grammatical (`I saw` repetition and copular returns), not a hidden
+  punctuation issue; no reader claim is made. Artifact:
+  `runs/typed-tape-resegmentation-20260930.json`.

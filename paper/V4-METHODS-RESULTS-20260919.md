@@ -89,8 +89,26 @@ the independent character and SHA audits, with SHA-256
 `3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673`.
 It removes two inverted clauses, adds six finite events, and adds no wrapper.
 Programmatic exactness admits it to the working frontier; only blinded readers
-can establish readable English. The next fixed repair is the central “I saw
-diaper / Repaid was I” event.
+can establish readable English.
+
+The next fixed repair removes that central “I saw diaper / Repaid was I” span,
+which was both semantically unmotivated and structurally too close to a
+catalogue palindrome. Its replacement is:
+
+> **Ari delivers maps. Spam's reviled, Ira.**
+
+This is a 30-letter palindrome only at the joint character level. It contains
+two different names, no self-palindromic word, and staggered lexical
+boundaries: left `deliver|s maps` corresponds to right `spam|s reviled`.
+During outside-in matching, `reviled` repays `deliver`, the final `s` of
+`spam's` completes `delivers`, and `spam` repays `maps`. The full child reaches
+**560 letters**, exceeding the rough 556-letter length control, with independent
+forward/reverse SHA-256
+`b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc`.
+Its remaining primary defect is no longer the midpoint; it is discourse-level
+repetition in the outer delivery, mapping, and rat events. The next operator
+therefore replaces one complete outer event sequence with a causally linked
+scene transition instead of appending more text.
 
 Reproducible evidence is in
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
@@ -102,7 +120,9 @@ Reproducible evidence is in
 `experiments/incumbent_534_inner_event_repair_20261002.py`, and
 `runs/incumbent-534-inner-event-repair-20261002.json`, followed by
 `experiments/incumbent_544_cross_boundary_seam_repair_20261002.py` and
-`runs/incumbent-544-cross-boundary-seam-repair-20261002.json`. The historical
+`runs/incumbent-544-cross-boundary-seam-repair-20261002.json`, followed by
+`experiments/incumbent_550_central_event_bridge_20261002.py` and
+`runs/incumbent-550-central-event-bridge-20261002.json`. The historical
 38- and 54-letter sections below are retained only as ablation history.
 
 ## Paragraph-level ABBA generation

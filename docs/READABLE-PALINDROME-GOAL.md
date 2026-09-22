@@ -66,9 +66,19 @@ The independently exact result is **550 letters**, SHA-256
 `3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673`.
 It removes two inverted clauses, adds six finite events, and adds no outer
 wrapper. This is the active readability-repair frontier; the 556 row remains
-only the longer, rougher control. The next editable seam is the central “I saw
-diaper / Repaid was I” event, which must be replaced without losing the live
-cross-sentence residual.
+only the rougher control.
+
+The central repair is now complete as well. The catalogue-like “I saw diaper.
+Repaid was I” midpoint is replaced by “Ari delivers maps. Spam's reviled,
+Ira.” The names are distinct, no self-palindromic word is used, and the seam
+is not a word-order reversal: `delivers` consumes reversed `reviled` plus the
+final `s` of `spam's`, after which `maps` consumes `spam`. The independently
+exact child is **560 letters**, SHA-256
+`b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc`.
+It is both longer and structurally cleaner than the 556 control. The active
+reader-facing defect is now discourse-level repetition in the outer delivery,
+mapping, and rat events; the next operator replaces one complete outer event
+sequence with a causally linked scene transition rather than adding length.
 
 Evidence:
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
@@ -80,7 +90,9 @@ Evidence:
 `experiments/incumbent_534_inner_event_repair_20261002.py`, and
 `runs/incumbent-534-inner-event-repair-20261002.json`, followed by
 `experiments/incumbent_544_cross_boundary_seam_repair_20261002.py` and
-`runs/incumbent-544-cross-boundary-seam-repair-20261002.json`.
+`runs/incumbent-544-cross-boundary-seam-repair-20261002.json`, followed by
+`experiments/incumbent_550_central_event_bridge_20261002.py` and
+`runs/incumbent-550-central-event-bridge-20261002.json`.
 
 Sol owns this pivot. No Astra or non-Sol agent is used. Human studies remain
 required before a readability claim, but they are not a prerequisite for

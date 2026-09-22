@@ -25,6 +25,20 @@ It has 38 ASCII letters, normalized tape
 The independent outside-in pointer audit and the fail-closed mechanical gate
 both pass. It has not yet been rated by blinded humans.
 
+The first longer output to clear the same mechanical gate and direct prose
+preflight is now:
+
+> **An aide rips nine memo-hero memos. Some more home men inspire Diana.**
+
+It has 54 ASCII letters.  Its normalized tape is
+`anaideripsninememoheromemossomemorehomemeninspirediana`; an independent
+two-pointer walk, the project validator, and equal forward/reverse SHA-256
+`2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268`
+all certify exactness.  Every mechanical shortcut gate passes.  This is a
+**reader-study candidate**, not yet a reader-certified result: the compounds
+`memo-hero` and `home men` are interpretable but unusual, so the readability
+claim is withheld pending the frozen blinded study below.
+
 ## Paragraph-level ABBA generation
 
 The paragraph hypothesis is a semantic construction layer above the 1:1
@@ -132,6 +146,30 @@ therefore cross grammatical roles, for example modifier to relative clause,
 rather than widening the same prenominal family.  Evidence:
 `runs/seed-residual-adjective-cycle-20260922.json` and
 `runs/seed-residual-modifier-phrase-cycle-20260922.json`.
+
+The successful successor crosses phrase-generation roles while keeping that
+same live `m` residual.  The right grammar chooses an attested prenominal
+phrase; the left grammar independently parses the opposing tape as a
+productive noun compound.  It enumerated 56 live equations over 22,620
+attested right phrases, yielding 47 distinct exact rows. Four pass every
+mechanical gate. Direct prose preflight rejects the proper-name and determiner
+fragments among them and sends one row—the 54-letter surface above—to humans.
+Its crucial equation is
+`memohero + m = m + reverse(morehome) = memoherom`.  In exposure coordinates,
+the left internal boundaries are at 4 and 8 letters while the right-facing
+boundaries are at 1 and 5; no boundary aligns.  Thus the new material is a
+staggered cross-word seam, not a word-order mirror or a closed palindrome
+inserted into the 38-letter tape.
+
+The reader package freezes 24 independently randomized forms containing the
+54-letter candidate, the 38-letter exact baseline, intact prose, and
+word-shuffled controls. Condition labels and the analysis plan are stored
+separately from rater materials. Readability succeeds only if at least 16 of
+24 blinded readers rate both grammar and meaning at 4 or 5 and independently
+recover both events in free-text paraphrase. No responses exist yet, so the
+paper makes no human-readability claim. Evidence:
+`runs/seed-np-cross-role-intersection-20260922.json` and
+`runs/seed-np-cross-role-reader-study-20260922/`.
 
 ### API-inspired open-residual cycle
 

@@ -27,6 +27,14 @@ The later 240-letter lineage material remains historical diagnostic evidence,
 not the active success criterion: exact length without readable, independently
 authored prose does not beat the 38-letter reader anchor.
 
+The active cross-role successor now improves the mechanical frontier to 54
+letters: “An aide rips nine memo-hero memos. Some more home men inspire
+Diana.” It is generated from a live `m` residual by staggering `memo | hero |
+memos` against `more | home | men`; all exactness, provenance, repetition,
+word-order, catalogue, and hidden-span gates pass. It is not yet a readability
+claim. A frozen 24-rater intact-versus-shuffled package is awaiting blinded
+human responses in `runs/seed-np-cross-role-reader-study-20260922/`.
+
 ## Objective and acceptance gate
 
 Build a reproducible exact-English-palindrome finder and an ACL/NAACL paper
@@ -53,12 +61,13 @@ only blinded readers can establish readability. Failed runs stay in the
 ledger, but immediately hand their residual frontier to a genuinely different
 construction or repair operator.
 
-The current benchmark remains the independently verified 38-letter sentence:
+The independently verified 38-letter sentence remains the reader anchor:
 
 > *An aide rips nine memos; some men inspire Diana.*
 
-This is the **best admitted** result, not the longest mechanically exact string
-ever seen in the ledger.  The audit ledger also contains exact diagnostics at
+The new **best mechanically admitted reader-study candidate** is the 54-letter
+cross-role NP output above; neither it nor the 38-letter anchor has blinded
+human ratings yet. The audit ledger also contains exact diagnostics at
 44, 47, 50, 56, 66, and 132 letters.  They are not progress claims: the
 44-letter `Was Noel an era, a gas, an item? Met in a, saga, arena, Leon saw.`
 is the best human-looking diagnostic but contains a proper self-palindromic
@@ -70,7 +79,8 @@ row embeds the complete 38-letter anchor.  Historical artifact files also
 contain a 142-letter exact but visibly fragmented/gibberish row, and the
 synthetic totality harness reaches 100,001 exact fallback letters.  Neither is
 English output.  The paper and API therefore report scoped fields explicitly:
-`best_admitted_exact_letters = 38`, `longest_named_v4_diagnostic_letters =
+`best_mechanically_admitted_reader_study_candidate_letters = 54`,
+`best_human_certified_exact_letters = null`, `longest_named_v4_diagnostic_letters =
 132`, `longest_rendered_historical_exact_artifact_letters = 142`, and
 `longest_synthetic_exact_fallback_letters = 100001`.
 

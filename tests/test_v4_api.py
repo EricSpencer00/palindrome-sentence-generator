@@ -17,6 +17,7 @@ def test_v4_health_reports_evidence_gate():
     assert body["gate"]["generation"] == "gated"
     assert body["gate"]["reader_evidence"] is False
     assert body["best_known_letters"] == 38
+    assert body["reader_study_candidate_letters"] == 54
     assert body["best_known_scope"].startswith("reader-plausible")
     assert body["exact_scope_summary"]["longest_named_v4_diagnostic_letters"] == 132
     assert body["exact_scope_summary"]["longest_rendered_historical_exact_artifact_letters"] == 142
@@ -33,7 +34,8 @@ def test_v4_evidence_contains_actual_rendered_candidate_and_independent_audit():
     digest = hashlib.sha256(tape.encode("ascii")).hexdigest()
     assert candidate["rendered"] == "An aide rips nine memos; some men inspire Diana."
     assert candidate["claim_scope"].startswith("best admitted exact")
-    assert candidate["exact_scope_summary"]["best_admitted_exact_letters"] == 38
+    assert candidate["exact_scope_summary"]["best_admitted_exact_letters"] == 54
+    assert candidate["exact_scope_summary"]["best_human_certified_exact_letters"] is None
     assert candidate["audit"]["exact"] is True
     assert candidate["audit"]["independent_two_pointer"] is True
     assert candidate["audit"]["sha256_forward"] == digest
@@ -47,6 +49,11 @@ def test_v4_evidence_contains_actual_rendered_candidate_and_independent_audit():
     assert candidate["provenance"]["search_summary"]["longest_rendered_historical_exact_artifact_letters"] == 142
     assert candidate["provenance"]["search_summary"]["longest_synthetic_exact_fallback_letters"] == 100001
     diagnostic_rows = {row["run_id"]: row for row in body["exact_diagnostic_summary"]}
+    study_candidate = body["reader_study_candidate"]
+    assert study_candidate["letters"] == 54
+    assert study_candidate["audit"]["exact"] is True
+    assert all(study_candidate["mechanical_checks"].values())
+    assert study_candidate["provenance"]["reader_status"] == "not_run"
     assert diagnostic_rows["polar-question-boundary-repair-20260918"]["letters"] == 44
     assert diagnostic_rows["broad-pos-clause-intersection-corrected-20260920"]["letters"] == 47
     assert diagnostic_rows["broad-pos-clause-intersection-corrected-20260920"]["status"] == "exact_mechanical_diagnostic"

@@ -1,0 +1,3 @@
+# Frozen analysis plan
+
+The 54-letter candidate succeeds only if at least 16 of 24 independent raters assign both grammar and meaning scores of 4 or 5, and at least 16 unprompted paraphrases recover both events: an aide destroys memos and men inspire Diana. Report every individual response, medians, and bootstrap 95% confidence intervals. Compare candidate, exact baseline, intact control, and both shuffled controls only after all 24 forms are frozen. Exclude no response based on its score; record only predeclared duplicate/incomplete-form exclusions. Programmatic scores cannot replace these outcomes.

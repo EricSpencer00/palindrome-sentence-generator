@@ -31,11 +31,21 @@ GATE_MESSAGE = (
 )
 
 BEST_KNOWN_TEXT = "An aide rips nine memos; some men inspire Diana."
+READER_STUDY_CANDIDATE_TEXT = (
+    "An aide rips nine memo-hero memos. Some more home men inspire Diana."
+)
 ALTERNATE_EXACT_TEXT = "Some men inspire Diana; an aide rips nine memos."
 # Keep the reader-facing claim separate from the mechanical ledger.  The
 # ledger contains longer exact strings, but none is currently eligible for a
 # reader study under the no-shortcuts and intact-prose gates.
 EXACT_DIAGNOSTIC_SUMMARY = [
+    {
+        "run_id": "seed-np-cross-role-intersection-20260922",
+        "rendered": READER_STUDY_CANDIDATE_TEXT,
+        "letters": 54,
+        "status": "exact_mechanically_admitted_reader_study_candidate",
+        "disposition": "all mechanical gates pass; frozen 24-rater blinded study is unrun, so readability is not certified",
+    },
     {
         "run_id": "polar-question-boundary-repair-20260918",
         "rendered": "Was Noel an era, a gas, an item? Met in a, saga, arena, Leon saw.",
@@ -94,11 +104,20 @@ EXACT_DIAGNOSTIC_SUMMARY = [
     },
 ]
 EXACT_SCOPE_SUMMARY = {
-    "best_admitted_exact_letters": 38,
+    "best_admitted_exact_letters": 54,
+    "best_mechanically_admitted_reader_study_candidate_letters": 54,
+    "best_human_certified_exact_letters": None,
     "longest_named_v4_diagnostic_letters": 132,
     "longest_rendered_historical_exact_artifact_letters": 142,
     "longest_synthetic_exact_fallback_letters": 100001,
     "scope_note": "The 142-letter row is gibberish and the 100001-letter rows are synthetic fallback controls, not English outputs or reader candidates.",
+}
+READER_STUDY_CANDIDATE_PROVENANCE = {
+    "run_id": "seed-np-cross-role-intersection-20260922",
+    "method": "cross-role NP phrase intersection at live residual m",
+    "source": "Brown-attested right modifier plus productive left noun compound; not catalogue text",
+    "reader_package": "runs/seed-np-cross-role-reader-study-20260922",
+    "reader_status": "not_run",
 }
 ALTERNATE_EXACT_PROVENANCE = {
     "run_id": "bilateral-grammar-csp-20260920",
@@ -8911,6 +8930,19 @@ def _best_known_record() -> dict[str, Any]:
     }
 
 
+def _reader_study_candidate_record() -> dict[str, Any]:
+    evaluation = _evaluate(READER_STUDY_CANDIDATE_TEXT)
+    return {
+        "rendered": READER_STUDY_CANDIDATE_TEXT,
+        "letters": evaluation["candidate"]["audit"]["letters"],
+        "claim_scope": "mechanically admitted exact candidate awaiting blinded humans",
+        "provenance": READER_STUDY_CANDIDATE_PROVENANCE,
+        "audit": evaluation["candidate"]["audit"],
+        "mechanical_checks": evaluation["candidate"]["mechanical_checks"],
+        "promotion_status": "gated_pending_blinded_readers",
+    }
+
+
 def _rlaif_frontier() -> list[dict[str, Any]]:
     """Compare actual rendered rows without turning a proxy into a gate."""
     rows = [
@@ -9056,6 +9088,7 @@ def health() -> dict[str, Any]:
         },
         "best_known_letters": 38,
         "best_known_scope": "reader-plausible, original, shortcut-clean exact candidate",
+        "reader_study_candidate_letters": 54,
         "exact_scope_summary": EXACT_SCOPE_SUMMARY,
         "optimization": OPTIMIZATION_SPEC,
     }
@@ -9073,6 +9106,7 @@ def evidence() -> dict[str, Any]:
             "human_certification_required": True,
         },
         "best_known": _best_known_record(),
+        "reader_study_candidate": _reader_study_candidate_record(),
         "exact_diagnostic_summary": EXACT_DIAGNOSTIC_SUMMARY,
         "exact_scope_summary": EXACT_SCOPE_SUMMARY,
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,

@@ -1,0 +1,106 @@
+{
+  "experiment_id": "incumbent-602-fragment-seam-repair-20260922",
+  "method": "bounded symmetric window repair with live residual ownership",
+  "working_incumbent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "id": "outer-causal-scene-568-working-incumbent",
+    "letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "stats": {
+    "independently_exact_children": 1,
+    "children_at_least_602": 1,
+    "repaired_child_letters": 620,
+    "fragment_windows_repaired": 2,
+    "committed_character_contradictions": 0,
+    "backtracks": 0
+  },
+  "preserved_frontier": [
+    {
+      "letters": 568,
+      "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+    },
+    {
+      "letters": 560,
+      "sha256": "b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc"
+    },
+    {
+      "letters": 558,
+      "sha256": "29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa"
+    },
+    {
+      "letters": 556,
+      "sha256": "28b303081c7eeae9b0f4c7e274d71e73551c64f5ad389b2d992b6183597f6d14"
+    }
+  ],
+  "rows": [
+    {
+      "id": "fragment-repair-mara-rats-620",
+      "working_status": "602_lineage_repair_frontier",
+      "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. Nora spots a ram. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Mara stops Aron. Star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "audit": {
+        "letters": 620,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "d20fc566d6a636e9826e432550be92e3ce5ace8a3cdaa2f6d291ad0709ffb90a",
+        "sha256_reverse": "d20fc566d6a636e9826e432550be92e3ce5ace8a3cdaa2f6d291ad0709ffb90a",
+        "sha_equal": true
+      },
+      "independent_audit": {
+        "normalized_letters": 620,
+        "two_pointer_exact": true,
+        "sha256_forward": "d20fc566d6a636e9826e432550be92e3ce5ace8a3cdaa2f6d291ad0709ffb90a",
+        "sha256_reverse": "d20fc566d6a636e9826e432550be92e3ce5ace8a3cdaa2f6d291ad0709ffb90a",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/incumbent-568-internal-seam-growth-20260922.json",
+      "parent_id": "internal-mara-stops-602",
+      "parent_sha256": "69696036f9bb9392ae9473884f011cfb767b4700d6407f5a07f3fba595953c89",
+      "growth_over_parent": 18,
+      "new_event_content": [
+        "Mara stops rats",
+        "star spots Aram",
+        "Mara stops Aron"
+      ],
+      "live_seam": {
+        "normalized_window_left": [
+          77,
+          94
+        ],
+        "normalized_window_right": [
+          508,
+          525
+        ],
+        "old_left": "Nora spots a ram. rats",
+        "old_right": "star Mara stops Aron",
+        "new_left": "Nora spots a ram. Mara stops rats",
+        "new_right": "star spots Aram. Mara stops Aron",
+        "initial_owner": "left_window",
+        "left_emission": "noraspotsarammarastopsrats",
+        "right_obligation": "starspotsarammarastopsaron",
+        "right_consumption": "starspotsarammarastopsaron",
+        "final_owner": null,
+        "final_residual": "",
+        "committed_character_contradictions": 0,
+        "backtracks": 0
+      },
+      "syntax_repair": {
+        "removed_fragments": [
+          "Nora spots a ram. rats.",
+          "Eh, but a star Mara stops Aron. Star spots Aram."
+        ],
+        "remaining_debt": [
+          "inherited proper palindromic spans",
+          "repeated Mara stops rats scaffolding",
+          "rough syntax elsewhere",
+          "no reader validation"
+        ]
+      },
+      "provenance": "symmetric character-window repair loaded from the exact 602 child; new residual-owned emissions close before independent admission"
+    }
+  ],
+  "next_operator": "repair the clearest remaining inherited debt in the 620 child; change this actual window only on a committed contradiction"
+}

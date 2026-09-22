@@ -34,11 +34,17 @@ authored name-event pairs then continue outward. One 552-letter child is:
 
 It has 552 normalized letters and independent forward/reverse SHA-256
 `14e55f616284b264d3c97be42a4fcdfdf5651345732054dcc7cad80613290fcd`.
-The complete experiment saves ten exact children above the 530 control. The
-maximum is 554 letters, with SHA-256
-`cc7f98df008c250649a3c5bec7c1062f3d1349b539c97391c9e2ab961208ab42`.
-An orthogonal depth-35 `op|en` child has 546 letters and removes 70 inherited
-filler letters, making it the next repair branch.
+The first experiment saves ten exact children above the 530 control and reaches
+554 letters. The immediate repair replaces the depth-35/39 all-`saw/was`
+outer shells with varied exact event frames using `delivers`, `stops`, `maps`,
+`spam`, `spots`, `deliver`, and `live`. Five repaired children remain above
+530 letters. The longest is 556 letters, SHA-256
+`28b303081c7eeae9b0f4c7e274d71e73551c64f5ad389b2d992b6183597f6d14`.
+The cleaner 554-letter frame-diverse row has SHA-256
+`02e1ded5e201a2dac2b60a23c30eea7853527cab4ed99fcdb131ad2fd4aed08c`;
+at its authored outer shell, `saw/was` occurrences fall from ten to two and
+distinct predicates rise from two to ten. Its depth-39 `i|ts` cursor replaces
+78 inherited outer letters while preserving exactness.
 
 This is a construction advance, not a readability claim. The rendered child
 is shown precisely because its inherited middle is still rough; no automatic
@@ -46,8 +52,10 @@ score can certify it as English prose. Human evaluation is postponed until
 the worst inherited seam is repaired, but no reader gate blocks continued
 construction. Reproducible evidence is in
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
-`runs/incumbent-498-live-seam-growth-20261002.json`. The historical 38- and
-54-letter sections below are retained only as ablation history.
+`runs/incumbent-498-live-seam-growth-20261002.json`, followed by
+`experiments/incumbent_498_event_frame_seam_repair_20261002.py` and
+`runs/incumbent-498-event-frame-seam-repair-20261002.json`. The historical
+38- and 54-letter sections below are retained only as ablation history.
 
 ## Paragraph-level ABBA generation
 
@@ -221,7 +229,7 @@ central gate rejects their boundary-aligned word symmetry. The former
 longest exact tape was 530 letters, but that row only wraps the 498-letter
 parent with a desserts/stressed pair already present inside it. We retain 530
 as an exact repetition control rather than new lexical or event content. The
-incumbent-specific live-seam method above now reaches 554 letters with new
+incumbent-specific live-seam method above now reaches 556 letters with new
 event content; it remains rough working text, not paragraph prose. The
 diagnostic comparison is frozen in
 `runs/paragraph-generation-abba-reader-20261002.json`, with the rejected ABBA

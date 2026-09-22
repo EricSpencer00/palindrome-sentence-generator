@@ -28,11 +28,21 @@ Two different cursor choices also close exactly. A depth-10 `m|e` seam yields
 ten independently exact children above the 530 control. All add lexical or
 event content absent from the parent. These are working-track construction
 results, not readable-prose claims: their inherited middle remains rough and
-their outer name events are formulaic. The active repair keeps the 554 maximum
-and the depth-35 branch, then replaces the latter's weakest name sequence
-without changing its live `op|en` equation. Evidence:
+their outer name events are formulaic. The first repair has now replaced the
+depth-35/39 all-`saw/was` shells with exact event frames using `delivers`,
+`stops`, `maps`, `spam`, `spots`, `deliver`, and `live`. Five repaired children
+remain above 530 letters; the longest is 556 letters (SHA-256
+`28b303081c7eeae9b0f4c7e274d71e73551c64f5ad389b2d992b6183597f6d14`),
+while the more predicate-diverse 554-letter row has SHA-256
+`02e1ded5e201a2dac2b60a23c30eea7853527cab4ed99fcdb131ad2fd4aed08c`.
+At the repaired outer shell, `saw/was` occurrences fall from ten to two and
+distinct predicates rise from two to ten. The depth-39 `i|ts` seam replaces 78
+inherited outer letters. The next repair moves inward again and requires a
+finite main-clause continuation rather than another name pair. Evidence:
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
-`runs/incumbent-498-live-seam-growth-20261002.json`.
+`runs/incumbent-498-live-seam-growth-20261002.json`, followed by
+`experiments/incumbent_498_event_frame_seam_repair_20261002.py` and
+`runs/incumbent-498-event-frame-seam-repair-20261002.json`.
 
 Sol owns this pivot. No Astra or non-Sol agent is used. Human studies remain
 required before a readability claim, but they are not a prerequisite for

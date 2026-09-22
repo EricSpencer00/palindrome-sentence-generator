@@ -46,6 +46,8 @@ def test_widened_graph_closes_characters_but_is_rejected_by_full_parent_frame_ga
     assert graph["normalized_windows"] == {"left": [156, 197], "right": [469, 510]}
     assert graph["raw_windows"] == {"left": [209, 263], "right": [644, 698]}
     assert normalize(GRAPH_LEFT) == normalize(GRAPH_RIGHT)[::-1]
+    assert GRAPH_LEFT.endswith(" ")
+    assert GRAPH_RIGHT.endswith(" ")
     assert len(normalize(GRAPH_LEFT)) == len(normalize(GRAPH_RIGHT)) == 57
     assert graph["clause_boundary_cursors"] == {"left": [14, 29, 43, 57], "right": [14, 28, 43, 57]}
     assert graph["paired_cursors_after"] == [57, 57]
@@ -64,6 +66,29 @@ def test_widened_graph_closes_characters_but_is_rejected_by_full_parent_frame_ga
     assert graph["admission"]["obstruction"]["cursor"] == 57
     assert graph["admission"]["obstruction"]["residual"] == ""
     assert graph["replaced_reused_frames"] == {"noel|stops": True, "evil leon|was": True}
+    assert graph["old_letters_per_side"] == 41
+    assert graph["new_letters_per_side"] == 57
+    assert graph["candidate_letters"] == 698
+    assert graph["reused_frame_count"] == 6
+    assert graph["reused_frames"] == [
+        "aidan|spots",
+        "aidan|stops",
+        "leon|stops",
+        "nadia|sees",
+        "nadia|stops",
+        "noel|spots",
+    ]
+    assert graph["duplicate_clause_evidence"] == {
+        "clause": "Nadia sees Aidan",
+        "occurrences": ["left_clause_3", "right_clause_2"],
+        "count": 2,
+        "reason": "the reciprocal graph repeats the same complete clause across both streams",
+    }
+    assert graph["spacing_assembly"]["left_replacement_ends_with_space"] is True
+    assert graph["spacing_assembly"]["right_replacement_ends_with_space"] is True
+    assert ". Now" in graph["spacing_assembly"]["assembled_left_excerpt"]
+    assert ". Evil" in graph["spacing_assembly"]["assembled_right_excerpt"]
+    assert graph["candidate_independent_audit"]["sha256_forward"] == "5ddc13c89e0f726030a89f260c905008c96965669dcbb2e828d7bed4dafd044d"
     assert child_audit["normalized_letters"] == 698
     assert child_audit["two_pointer_exact"] is True
     assert row["growth_over_parent"] == 0

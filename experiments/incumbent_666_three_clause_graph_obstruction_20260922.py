@@ -35,8 +35,11 @@ PRIMARY_LEFT_TEXT = "Nora sees Aram. Sara saw Noel live."
 PRIMARY_RIGHT_TEXT = "Evil Leon was Aras. Mara sees Aron."
 ATOM_LEFT = "Aidan saw Aram."
 ATOM_RIGHT = "Mara was Nadia."
-GRAPH_LEFT = "Noel spots Aidan. Aidan stops Nadia. Nadia sees Aidan. Aidan spots Noel."
-GRAPH_RIGHT = "Leon stops Nadia. Nadia sees Aidan. Aidan spots Nadia. Nadia stops Leon."
+# The terminal spaces are part of the display shell, not the normalized
+# equation.  They prevent the replacement from splicing ``Noel.Now`` or
+# ``Leon.Evil`` at the two raw-window boundaries.
+GRAPH_LEFT = "Noel spots Aidan. Aidan stops Nadia. Nadia sees Aidan. Aidan spots Noel. "
+GRAPH_RIGHT = "Leon stops Nadia. Nadia sees Aidan. Aidan spots Nadia. Nadia stops Leon. "
 MAX_PAIRED_EXPANSIONS = 8
 
 
@@ -154,6 +157,23 @@ def build_payload() -> dict[str, object]:
     assert not graph_gates["global_clause_novelty"] or graph_gates["global_clause_novelty"]
 
     candidate_rendered = parent_rendered[: WIDE_RAW_LEFT[0]] + GRAPH_LEFT + parent_rendered[WIDE_RAW_LEFT[1] : WIDE_RAW_RIGHT[0]] + GRAPH_RIGHT + parent_rendered[WIDE_RAW_RIGHT[1] :]
+    # Keep the raw assembly auditable: the spaces are deliberately retained in
+    # rendered evidence while normalization and the candidate SHA remain
+    # unchanged from the already-reviewed equation.
+    spacing_assembly = {
+        "left_replacement_ends_with_space": GRAPH_LEFT.endswith(" "),
+        "right_replacement_ends_with_space": GRAPH_RIGHT.endswith(" "),
+        "left_following_parent_prefix": parent_rendered[WIDE_RAW_LEFT[1] : WIDE_RAW_LEFT[1] + 24],
+        "right_following_parent_prefix": parent_rendered[WIDE_RAW_RIGHT[1] : WIDE_RAW_RIGHT[1] + 24],
+        "left_splice_has_display_space": f"{GRAPH_LEFT[-2:]}{parent_rendered[WIDE_RAW_LEFT[1] : WIDE_RAW_LEFT[1] + 12]}".startswith(". "),
+        "right_splice_has_display_space": f"{GRAPH_RIGHT[-2:]}{parent_rendered[WIDE_RAW_RIGHT[1] : WIDE_RAW_RIGHT[1] + 12]}".startswith(". "),
+        "assembled_left_excerpt": candidate_rendered[WIDE_RAW_LEFT[0] : WIDE_RAW_LEFT[0] + len(GRAPH_LEFT) + 18],
+        "assembled_right_excerpt": candidate_rendered[WIDE_RAW_RIGHT[0] + len(GRAPH_LEFT) - len(parent_rendered[WIDE_RAW_LEFT[0] : WIDE_RAW_LEFT[1]]) : WIDE_RAW_RIGHT[0] + len(GRAPH_LEFT) - len(parent_rendered[WIDE_RAW_LEFT[0] : WIDE_RAW_LEFT[1]]) + len(GRAPH_RIGHT) + 18],
+    }
+    assert spacing_assembly["left_replacement_ends_with_space"]
+    assert spacing_assembly["right_replacement_ends_with_space"]
+    assert ". Nora" in candidate_rendered
+    assert ". Sara" in candidate_rendered
     candidate_audit = audit(candidate_rendered)
     candidate_independent = independent_audit(candidate_rendered)
     assert candidate_independent["normalized_letters"] == 698
@@ -192,6 +212,10 @@ def build_payload() -> dict[str, object]:
             "old_right": parent_rendered[WIDE_RAW_RIGHT[0] : WIDE_RAW_RIGHT[1]],
             "new_left": GRAPH_LEFT,
             "new_right": GRAPH_RIGHT,
+            "old_letters_per_side": 41,
+            "new_letters_per_side": 57,
+            "parent_letters": 666,
+            "candidate_letters": 698,
             "clause_boundary_cursors": {"left": [14, 29, 43, 57], "right": [14, 28, 43, 57]},
             "paired_cursors_after": [57, 57],
             "residuals": {"left": left_stream["residual"], "right": right_stream["residual"]},
@@ -201,6 +225,31 @@ def build_payload() -> dict[str, object]:
             "neighboring_entity_pre_state": {"left": "Noel", "right": "Leon"},
             "candidate_frames": sorted(candidate_frames),
             "parent_frames": sorted(parent_frames),
+            "reused_frames": sorted(candidate_frames & parent_frames),
+            "reused_frame_count": len(candidate_frames & parent_frames),
+            "duplicate_clause_evidence": {
+                "clause": "Nadia sees Aidan",
+                "occurrences": ["left_clause_3", "right_clause_2"],
+                "count": 2,
+                "reason": "the reciprocal graph repeats the same complete clause across both streams",
+            },
+            "splice_boundary_failures": [
+                {
+                    "side": "left",
+                    "boundary": "graph-left -> unchanged parent",
+                    "broken_display": "Noel.Now",
+                    "fixed_display": "Noel. Now",
+                    "failure": "original evidence omitted the terminal display space",
+                },
+                {
+                    "side": "right",
+                    "boundary": "graph-right -> unchanged parent",
+                    "broken_display": "Leon.Evil",
+                    "fixed_display": "Leon. Evil",
+                    "failure": "original evidence omitted the terminal display space",
+                },
+            ],
+            "spacing_assembly": spacing_assembly,
             "replaced_reused_frames": {"noel|stops": True, "evil leon|was": True},
             "gates": graph_gates,
             "candidate_audit": candidate_audit,

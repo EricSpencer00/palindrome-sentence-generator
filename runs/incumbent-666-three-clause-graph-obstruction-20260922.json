@@ -181,8 +181,12 @@
         },
         "old_left": "Mara stops Nadia. Nora sees Aram. Sara saw Noel live. ",
         "old_right": "Evil Leon was Aras. Mara sees Aron. Aidan spots Aram. ",
-        "new_left": "Noel spots Aidan. Aidan stops Nadia. Nadia sees Aidan. Aidan spots Noel.",
-        "new_right": "Leon stops Nadia. Nadia sees Aidan. Aidan spots Nadia. Nadia stops Leon.",
+        "new_left": "Noel spots Aidan. Aidan stops Nadia. Nadia sees Aidan. Aidan spots Noel. ",
+        "new_right": "Leon stops Nadia. Nadia sees Aidan. Aidan spots Nadia. Nadia stops Leon. ",
+        "old_letters_per_side": 41,
+        "new_letters_per_side": 57,
+        "parent_letters": 666,
+        "candidate_letters": 698,
         "clause_boundary_cursors": {
           "left": [
             14,
@@ -1206,6 +1210,50 @@
           "stressed|was",
           "wolf|spots"
         ],
+        "reused_frames": [
+          "aidan|spots",
+          "aidan|stops",
+          "leon|stops",
+          "nadia|sees",
+          "nadia|stops",
+          "noel|spots"
+        ],
+        "reused_frame_count": 6,
+        "duplicate_clause_evidence": {
+          "clause": "Nadia sees Aidan",
+          "occurrences": [
+            "left_clause_3",
+            "right_clause_2"
+          ],
+          "count": 2,
+          "reason": "the reciprocal graph repeats the same complete clause across both streams"
+        },
+        "splice_boundary_failures": [
+          {
+            "side": "left",
+            "boundary": "graph-left -> unchanged parent",
+            "broken_display": "Noel.Now",
+            "fixed_display": "Noel. Now",
+            "failure": "original evidence omitted the terminal display space"
+          },
+          {
+            "side": "right",
+            "boundary": "graph-right -> unchanged parent",
+            "broken_display": "Leon.Evil",
+            "fixed_display": "Leon. Evil",
+            "failure": "original evidence omitted the terminal display space"
+          }
+        ],
+        "spacing_assembly": {
+          "left_replacement_ends_with_space": true,
+          "right_replacement_ends_with_space": true,
+          "left_following_parent_prefix": "Now, Noel, did I live? N",
+          "right_following_parent_prefix": "Evil Leon was Aidan. Sar",
+          "left_splice_has_display_space": true,
+          "right_splice_has_display_space": true,
+          "assembled_left_excerpt": "Noel spots Aidan. Aidan stops Nadia. Nadia sees Aidan. Aidan spots Noel. Now, Noel, did I l",
+          "assembled_right_excerpt": "Leon stops Nadia. Nadia sees Aidan. Aidan spots Nadia. Nadia stops Leon. Evil Leon was Aida"
+        },
         "replaced_reused_frames": {
           "noel|stops": true,
           "evil leon|was": true

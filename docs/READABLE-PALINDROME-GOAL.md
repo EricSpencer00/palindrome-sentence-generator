@@ -8976,3 +8976,13 @@ grammar variant.
   `runs/multispan-scene-boundary-search-20261001.json`; the next construction
   is a three-clause bilateral chart that authors a fresh clause against the
   deepest residual rather than repeating a two-clause sweep.
+
+- **Orientation-corrected three-clause chart (2026-10-01):** the follow-up
+  placed fresh clauses at the actual outer edges, so the left opening was
+  matched against the right closing character under reversal. It evaluated
+  1,680 residual frontiers, rejected 2,416 repeated-unit choices, and retained
+  360 correctly edge-conditioned states. The strongest intact-prose control
+  was 193 letters, failed at `(1, e, i)`, and yielded zero exact closures.
+  The next operator must consume that outer pair and author the next clause at
+  the remaining seam, not reuse the invalid first-character gate. Artifact:
+  `runs/multispan-scene-boundary-search-20261001.json`.

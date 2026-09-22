@@ -39,7 +39,7 @@ clause's last character. The third clauses are ordinary prose and are not
 reversals or catalogue entries. The final comparison still runs over normalized
 characters, so a seam may cross a word or sentence boundary.
 
-The chart visited 1,680 distinct two-clause residual frontiers and 372
+The chart visited 1,680 distinct two-clause residual frontiers and 360
 three-clause bilateral states after conditioning the actual outer edge
 obligation. It rejected 2,416 base choices with
 a repeated clause unit. No state closed exactly. The strongest rendered state

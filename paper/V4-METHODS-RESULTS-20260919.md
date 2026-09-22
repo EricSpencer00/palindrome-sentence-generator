@@ -25,6 +25,31 @@ It has 38 ASCII letters, normalized tape
 The independent outside-in pointer audit and the fail-closed mechanical gate
 both pass. It has not yet been rated by blinded humans.
 
+## Paragraph-level ABBA generation
+
+The paragraph hypothesis is a semantic construction layer above the 1:1
+sentence seam. A valid four-generation layout is `A B B' A'`: `A'` and `B'`
+are independently authored prose generations, while their character tapes
+close the live reverse obligations exposed by `A` and `B`. Repeating a
+generation, reversing a finished paragraph, or nesting self-palindromic
+sentences is not this method and is rejected by the same provenance gate.
+
+Two existing typed-grammar constructions demonstrate the mechanical topology:
+
+| candidate | normalized letters | exact audits | structure | status |
+|---|---:|---|---|---|
+| “Nora, I saw evil. Noel, I saw war. Raw was I, Leon. Live was I, Aron.” | 46 | two-pointer, project validator, and forward/reverse SHA agree | `A B B' A'` | exact, not reader-certified |
+| “Nora, I saw evil. Noel, I saw war. Mara, I saw God. Dog was I, Aram. Raw was I, Leon. Live was I, Aron.” | 68 | two-pointer, project validator, and forward/reverse SHA agree | `A B C C' B' A'` | exact, not reader-certified |
+
+These are useful seam certificates, not readability wins: the repeated
+inversion and semordnilap vocabulary makes both surfaces formulaic. The
+longest exact residual-growth child is now 530 letters, but it is a lexical
+filler control rather than paragraph prose. The reader-facing comparison is
+frozen in `runs/paragraph-generation-abba-reader-20261002.json`, with both
+ABBA candidates, two intact prose controls, and reproducibly word-shuffled
+controls in randomized blinded order. Human ratings remain pending; no
+programmatic score is used as a readability certificate.
+
 ## Cross-role clause CSP
 
 As a new constructive lane, we paired complete contemporary clauses while

@@ -8913,10 +8913,12 @@ grammar variant.
 - **Joint word-targeted ABBA residual, 2026-10-01:** six small ordinary
   scene frames selected the lexical ending of A1+B1 and the opening word of
   B2 as one construction decision, then realized B2 and A2 together. The
-  search rendered 144 four-unit, intact-prose candidates, with independent
-  two-pointer, project-validator, and forward/reverse SHA audits. It found
-  zero exact candidates above 38 letters; the deepest live seam was one
-  character, before a complete target word could be discharged. This is a
+  search probed 144 four-unit, intact-prose combinations but emitted zero:
+  the hard gate required the actual reverse residual to begin with the
+  complete preselected B2 word. Independent two-pointer, project-validator,
+  and forward/reverse SHA audits were retained for every rejected probe. It
+  found zero compatible word targets and hence zero exact candidates above
+  38 letters; the deepest live seam was one character. This is a
   constructive failure of the current boundary geometry, not a readability
   certification. Artifact:
   `runs/abba-wordtarget-residual-20261001.json`; generator:

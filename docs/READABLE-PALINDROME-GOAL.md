@@ -8948,3 +8948,20 @@ grammar variant.
   `experiments/abba_full_word_span_20261001.py`. Next: replace the
   semordnilap-compatible terminal bank with held-out ordinary inflectional
   word spans while retaining this non-tautological gate.
+
+- **Held-out ordinary inflectional ABBA span (2026-10-02):** replaced the
+  `evil/live`, `war/raw`, and related terminal inventory with role-typed
+  singular/plural, tense-agreeing ordinary nouns and arguments. The corrected
+  complete-word gate was retained: the live reverse cursor had to land on the
+  final character of a real B2 opening word before emission. Across 13,824
+  intact four-unit prose combinations, zero rows were compatible and therefore
+  zero exact candidates exceeded the 38-letter benchmark. The deepest frontier
+  was zero characters; all probes retain rendered controls, agreement roles,
+  residual spans, provenance, and independent two-pointer/project-validator/
+  SHA audits. This is a clean negative result for this boundary geometry, not
+  a readability claim. Artifact: `runs/abba-inflectional-span-20261002.json`;
+  generator: `experiments/abba_inflectional_span_20261002.py`;
+  regression tests: `tests/test_abba_inflectional_span_20261002.py`. The next
+  construction must author the B2 opening word from the residual span itself
+  while constraining its morphology, rather than preselecting incompatible
+  ordinary openings.

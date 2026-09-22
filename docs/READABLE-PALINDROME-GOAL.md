@@ -18,10 +18,17 @@ the opposing event consumes its exact reverse while completing `won` and
 letters. Every row has an empty final residual, zero backtracks, and zero
 committed character contradictions.
 
-The new 594--596 rows are growth-frontier children, not replacements for the
-568 incumbent. The next operator repairs the clearest inherited repeated shell
-inside one 596 row, preserving 568/560/558/556 and changing seams only on a
-committed normalized-character contradiction.
+The first frontier repair acts inside the Nadia 596 child. It replaces one
+inherited “Mara stops rats. A tub? He maps Aron” shell and its exact opposing
+surface with four finite spotting/stopping events. The resulting 594-letter
+child is independently exact, SHA-256
+`06fcb154a3e1863d0caf0947a111716835def706d0aa87b8e7048893374bb923`.
+The three targeted repeated phrases each fall from two occurrences to one.
+
+The new 594--596 rows are growth-and-repair frontier children, not replacements
+for the 568 incumbent. The next operator repairs a different inherited shell
+in one unrepaired 596 sibling, preserving 568/560/558/556 and changing seams
+only on a committed normalized-character contradiction.
 
 Fresh POS search, productive-affix search, morphology cycles, short witnesses,
 and reader-study operators are stopped. They are not active alternatives.
@@ -30,7 +37,9 @@ Evidence:
 `experiments/incumbent_560_outer_causal_scene_20261002.py`,
 `runs/incumbent-560-outer-causal-scene-20261002.json`,
 `experiments/incumbent_568_won_now_seam_growth_20261002.py`, and
-`runs/incumbent-568-won-now-seam-growth-20261002.json`.
+`runs/incumbent-568-won-now-seam-growth-20261002.json`, followed by
+`experiments/incumbent_596_repeated_shell_repair_20261002.py` and
+`runs/incumbent-596-repeated-shell-repair-20261002.json`.
 
 Sol owns this track. No Astra or non-Sol agent is used.
 

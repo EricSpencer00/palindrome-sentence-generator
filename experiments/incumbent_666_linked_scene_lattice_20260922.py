@@ -1,9 +1,9 @@
-"""Run one bounded linked-scene lattice on the promoted 666 seam.
+"""Bounded seam-local typed production on the promoted 666 parent.
 
-The authored scene is deliberately small: six complete clauses form one
-entity-linked cycle, and the reciprocal stream is obligated online by the
-reverse character equation.  This is an admission-gated comparison, not a
-fresh-seed or whole-sentence search.
+This experiment adds exactly one transitive family from the existing lexical
+inventory (``writes``). It emits a few authored typed event graphs, carrying
+the reverse residual, active entity, global novelty sets, and raw shell spaces
+at every paired cursor. It is not a vocabulary or whole-sentence sweep.
 """
 from __future__ import annotations
 
@@ -32,59 +32,122 @@ NORMALIZED_LEFT = (140, 212)
 NORMALIZED_RIGHT = (454, 526)
 RAW_LEFT = (187, 285)
 RAW_RIGHT = (621, 718)
+ALTERNATE_NORMALIZED_LEFT = (127, 140)
+ALTERNATE_NORMALIZED_RIGHT = (526, 539)
+ALTERNATE_RAW_LEFT = (171, 188)
+ALTERNATE_RAW_RIGHT = (719, 736)
 MAX_PAIRED_SCENE_PRODUCTIONS = 8
 
-# Six 12-letter clauses make a 72-letter side.  The entity handoff is
-# Nora -> Aram -> Noel -> Aras -> Nora, with two attached Aidan events.
-SCENE_LEFT = (
-    "Nora sees Aram. Aram sees Noel. Noel sees Aras. "
-    "Aras sees Nora. Nora was Aidan. Aidan saw Aram."
-)
-SCENE_RIGHT = (
-    "Mara was Nadia. Nadia saw Aron. Aron sees Sara. "
-    "Sara sees Leon. Leon sees Mara. Mara sees Aron."
-)
+# Exactly one newly supported family, sourced from the existing BUNDLES/
+# lexical inventory in two_clause_joint_seam_bundle_search_20260917.py.
+TRANSITIVE_FAMILY = {
+    "predicate": "writes",
+    "source": "experiments/two_clause_joint_seam_bundle_search_20260917.py:BUNDLES",
+    "valency": "subject-writes-object",
+}
+
+# Four authored, finite event graphs are the complete bounded lattice. Every
+# side is 72 letters, connected through the active entity, and uses only the
+# new family so global frame novelty can be checked independently.
 SCENE_PRODUCTIONS = (
     {
-        "id": "linked-six-clause-cycle",
-        "left": SCENE_LEFT,
-        "right": SCENE_RIGHT,
-        "owner": "authored-linked-scene",
+        "id": "writes-chain-nora-mara",
+        "left": "Nora writes Ari. Ari writes Aram. Aram writes Nadia. Nadia writes Aidan. Aidan writes Mara.",
+        "right": "Mara writes Aidan. Aidan writes Nadia. Nadia writes Aram. Aram writes Ari. Ari writes Nora.",
+    },
+    {
+        "id": "writes-chain-sara-mara",
+        "left": "Sara writes Ari. Ari writes Aram. Aram writes Nadia. Nadia writes Aidan. Aidan writes Mara.",
+        "right": "Mara writes Aidan. Aidan writes Nadia. Nadia writes Aram. Aram writes Ari. Ari writes Sara.",
+    },
+    {
+        "id": "writes-chain-nora-aras",
+        "left": "Nora writes Ari. Ari writes Aras. Aras writes Nadia. Nadia writes Aidan. Aidan writes Mara.",
+        "right": "Mara writes Aidan. Aidan writes Nadia. Nadia writes Aras. Aras writes Ari. Ari writes Nora.",
+    },
+    {
+        "id": "writes-chain-nora-sara",
+        "left": "Nora writes Aram. Aram writes Nadia. Nadia writes Aidan. Aidan writes Ari. Ari writes Mara.",
+        "right": "Mara writes Ari. Ari writes Aidan. Aidan writes Nadia. Nadia writes Aram. Aram writes Nora.",
     },
 )
 
 
-def clauses(rendered: str) -> list[str]:
-    return [part.strip() for part in re.split(r"[.!?;]+", rendered) if part.strip()]
+def clauses(text: str) -> list[str]:
+    return [part.strip() + "." for part in re.split(r"[.!?;]+", text) if part.strip()]
 
 
-def paired_trace(left: str, right: str) -> dict[str, object]:
+def typed_events(text: str) -> list[dict[str, str]]:
+    pattern = re.compile(r"\b([A-Z][a-z]+) writes ([A-Z][a-z]+)\.")
+    return [{"subject": s, "predicate": "writes", "object": o} for s, o in pattern.findall(text)]
+
+
+def typed_frames(text: str) -> set[str]:
+    return {f"{event['subject'].lower()}|{event['predicate']}" for event in typed_events(text)}
+
+
+def online_pair(production: dict[str, str], parent_frames: set[str], parent_clauses: set[str], shell: dict[str, str]) -> dict[str, object]:
+    left = production["left"]
+    right = production["right"]
     left_tape = normalize(left)
     right_tape = normalize(right)
     expected_right = left_tape[::-1]
+    left_events = typed_events(left)
+    candidate_frames = typed_frames(left) | typed_frames(right)
+    candidate_clauses = {clause.lower() for clause in clauses(left + " " + right)}
+    reused_frames = sorted(candidate_frames & parent_frames)
+    reused_clauses = sorted(candidate_clauses & parent_clauses)
     trace: list[dict[str, object]] = []
-    for cursor, emitted in enumerate(left_tape):
-        expected = expected_right[cursor]
-        trace.append(
-            {
-                "paired_cursor": [cursor + 1, cursor + 1],
-                "left_owner": "authored-linked-scene",
-                "right_owner": "reverse-obligation",
-                "left_emitted": emitted,
-                "right_emitted": right_tape[cursor],
-                "right_expected": expected,
-                "left_residual_after": left_tape[cursor + 1 :],
-                "right_residual_after": expected_right[cursor + 1 :],
-            }
-        )
-        if right_tape[cursor] != expected:
+    active_entity = shell["left_before"]
+    used_frames: set[str] = set()
+    used_clauses: set[str] = set()
+    clause_ranges: list[tuple[int, int, str, str]] = []
+    clause_cursor = 0
+    for event in left_events:
+        clause = f"{event['subject']} writes {event['object']}."
+        clause_tape = normalize(clause)
+        clause_ranges.append((clause_cursor, clause_cursor + len(clause_tape), clause.lower(), f"{event['subject'].lower()}|writes"))
+        clause_cursor += len(clause_tape)
+    for cursor, emitted_left in enumerate(left_tape):
+        emitted_right = right_tape[cursor] if cursor < len(right_tape) else None
+        owner_start, owner_end, clause_owner, frame_owner = next(item for item in clause_ranges if item[0] <= cursor < item[1])
+        active_entity_before = active_entity
+        used_clauses.add(clause_owner)
+        used_frames.add(frame_owner)
+        active_entity = left_events[len(used_clauses) - 1]["object"]
+        state = {
+            "cursor": cursor,
+            "reverse_residual": expected_right[cursor:],
+            "emitted_left": emitted_left,
+            "emitted_right": emitted_right,
+            "expected_right": expected_right[cursor],
+            "active_entity": active_entity,
+            "active_entity_before": active_entity_before,
+            "owner": "typed-writes-production",
+            "clause_owner": clause_owner,
+            "clause_cursor": [owner_start, owner_end],
+            "leading_shell_space": shell["left_leading"],
+            "trailing_shell_space": shell["left_trailing"],
+            "used_frames": sorted(used_frames),
+            "used_clauses": sorted(used_clauses),
+        }
+        trace.append(state)
+        if emitted_right != expected_right[cursor]:
             return {
                 "exact": False,
                 "cursor": cursor,
-                "expected": expected,
-                "emitted": right_tape[cursor],
+                "expected": expected_right[cursor],
+                "emitted": emitted_right,
                 "residual": expected_right[cursor:],
-                "owner": "reverse-obligation",
+                "owner": "reverse-residual",
+                "grammar_state": {
+                    "active_entity": active_entity,
+                    "candidate_frames": sorted(candidate_frames),
+                    "reused_frames": reused_frames,
+                    "reused_clauses": reused_clauses,
+                    "used_frames": sorted(used_frames),
+                    "used_clauses": sorted(used_clauses),
+                },
                 "trace": trace,
             }
     return {
@@ -93,9 +156,36 @@ def paired_trace(left: str, right: str) -> dict[str, object]:
         "expected": None,
         "emitted": None,
         "residual": "",
-        "owner": "reverse-obligation",
+        "owner": "reverse-residual",
+        "grammar_state": {"active_entity": active_entity, "candidate_frames": sorted(candidate_frames), "reused_frames": reused_frames, "reused_clauses": reused_clauses},
         "trace": trace,
     }
+
+
+def assemble(parent: str, left: str, right: str, raw_left: tuple[int, int], raw_right: tuple[int, int]) -> tuple[str, dict[str, object]]:
+    left_leading = parent[raw_left[0]]
+    right_leading = parent[raw_right[0]]
+    left_trailing = parent[raw_left[1]]
+    right_trailing = parent[raw_right[1]]
+    assert left_leading == right_leading == left_trailing == right_trailing == " "
+    rendered = parent[: raw_left[0]] + left_leading + left + parent[raw_left[1] : raw_right[0]] + right_leading + right + parent[raw_right[1] :]
+    left_start = raw_left[0]
+    left_end = left_start + len(left_leading) + len(left)
+    left_delta = len(left_leading) + len(left) - (raw_left[1] - raw_left[0])
+    right_start = raw_right[0] + left_delta
+    right_end = right_start + len(right_leading) + len(right)
+    spacing = {
+        "left_leading": left_leading,
+        "right_leading": right_leading,
+        "left_trailing": left_trailing,
+        "right_trailing": right_trailing,
+        "left_prefix_excerpt": rendered[left_start - 12 : left_start + 18],
+        "right_prefix_excerpt": rendered[right_start - 12 : right_start + 18],
+        "leading_shell_spaces_preserved": rendered[left_start - 1 : left_start + 2] == ". N" and rendered[right_start - 1 : right_start + 2] == ". M",
+        "trailing_shell_spaces_preserved": rendered[left_end - 1 : left_end + 2].startswith(". ") and rendered[right_end - 1 : right_end + 2].startswith(". "),
+    }
+    spacing["spacing_shell_preserved"] = bool(spacing["leading_shell_spaces_preserved"] and spacing["trailing_shell_spaces_preserved"])
+    return rendered, spacing
 
 
 def build_payload() -> dict[str, object]:
@@ -103,173 +193,68 @@ def build_payload() -> dict[str, object]:
     parent_row = next(row for row in payload["rows"] if row["id"] == PARENT_ID)
     parent_rendered = str(parent_row["rendered"])
     parent_audit = independent_audit(parent_rendered)
-    assert parent_audit["normalized_letters"] == 666
-    assert parent_audit["two_pointer_exact"]
+    assert parent_audit["normalized_letters"] == 666 and parent_audit["two_pointer_exact"]
     assert parent_audit["sha256_forward"] == PARENT_SHA256
     assert parent_row["promotion_status"]["promoted"] is True
     for entry in FRONTIER:
         validate_frontier_entry(entry)
+    parent_frames = extract_frames(parent_rendered) | typed_frames(parent_rendered)
+    parent_clauses = {clause.lower() for clause in clauses(parent_rendered)}
+    target = normalize(parent_rendered)
+    assert target[NORMALIZED_LEFT[0] : NORMALIZED_LEFT[1]] == target[NORMALIZED_RIGHT[0] : NORMALIZED_RIGHT[1]][::-1]
+    assert len(target[NORMALIZED_LEFT[0] : NORMALIZED_LEFT[1]]) == 72
 
-    parent_tape = normalize(parent_rendered)
-    target_left = parent_tape[NORMALIZED_LEFT[0] : NORMALIZED_LEFT[1]]
-    target_right = parent_tape[NORMALIZED_RIGHT[0] : NORMALIZED_RIGHT[1]]
-    old_left = parent_rendered[RAW_LEFT[0] : RAW_LEFT[1]]
-    old_right = parent_rendered[RAW_RIGHT[0] : RAW_RIGHT[1]]
-    assert len(target_left) == len(target_right) == 72
-    assert target_left == target_right[::-1]
-    assert old_left.endswith("live?")
-    assert old_right.endswith("Aidan.")
-    assert parent_rendered[RAW_LEFT[0]] == " "
-    assert parent_rendered[RAW_LEFT[1]] == " "
-    assert parent_rendered[RAW_RIGHT[0]] == " "
-    assert parent_rendered[RAW_RIGHT[1]] == " "
+    shell = {"left_before": "Noel", "right_before": "Leon", "left_leading": " ", "left_trailing": " ", "right_leading": " ", "right_trailing": " "}
+    attempts: list[dict[str, object]] = []
+    for production in SCENE_PRODUCTIONS:
+        left_tape = normalize(production["left"])
+        right_tape = normalize(production["right"])
+        assert len(left_tape) == len(right_tape) == 72
+        attempt = online_pair(production, parent_frames, parent_clauses, shell)
+        attempt.update({"id": production["id"], "letters_per_side": 72, "complete_scene": len(typed_events(production["left"])) == 5 and len(typed_events(production["right"])) == 5, "candidate_clause_count": 10})
+        attempts.append(attempt)
+    primary = attempts[0]
+    candidate_rendered, spacing = assemble(parent_rendered, SCENE_PRODUCTIONS[0]["left"], SCENE_PRODUCTIONS[0]["right"], RAW_LEFT, RAW_RIGHT)
+    candidate_audit = independent_audit(candidate_rendered)
+    assert candidate_audit["normalized_letters"] == 666
+    assert candidate_audit["two_pointer_exact"] is False
+    primary["spacing"] = spacing
+    primary["exact_candidate_audit"] = candidate_audit
+    primary["admission"] = {"accepted": False, "exact_character_closure": False, "exact_child_saved": False, "reason": "writes residual contradicts the natural typed reverse stream"}
 
-    production = SCENE_PRODUCTIONS[0]
-    scene_left = str(production["left"])
-    scene_right = str(production["right"])
-    scene_left_tape = normalize(scene_left)
-    scene_right_tape = normalize(scene_right)
-    assert len(scene_left_tape) == len(scene_right_tape) == 72
-    assert scene_left_tape == scene_right_tape[::-1]
-    assert scene_left[0].isupper() and scene_right[0].isupper()
-    assert not scene_left.endswith(" ") and not scene_right.endswith(" ")
-    trace = paired_trace(scene_left, scene_right)
-    assert trace["exact"] and trace["residual"] == ""
-
-    parent_frames = extract_frames(parent_rendered)
-    candidate_frames = extract_frames(scene_left) | extract_frames(scene_right)
-    parent_clauses = {part.lower() for part in clauses(parent_rendered)}
-    scene_clauses = clauses(scene_left) + clauses(scene_right)
-    repeated_scene_clauses = sorted(
-        clause.lower() for clause in scene_clauses if scene_clauses.count(clause) > 1
-    )
-    reused_frames = sorted(candidate_frames & parent_frames)
-    reused_clauses = sorted(clause.lower() for clause in scene_clauses if clause.lower() in parent_clauses)
-    scene_gates = {
-        "connected_multi_event_scene": True,
-        "varied_predicates": len({re.search(r"\b(sees|was|saw)\b", clause.lower()).group(1) for clause in scene_clauses}) >= 3,
-        "complete_finite_clauses": all(clause.endswith(".") for clause in [scene_left, scene_right]),
-        "no_duplicate_frames": not reused_frames,
-        "no_duplicate_clauses": not repeated_scene_clauses and not reused_clauses,
-        "no_duplicate_adjacent_roles": all(
-            (a.split()[0].lower(), a.split()[1].lower()) != (b.split()[0].lower(), b.split()[1].lower())
-            for a, b in zip(scene_clauses, scene_clauses[1:])
-        ),
-        "neighbor_entity_continuity": True,
-        "spacing_shell_preserved": False,
-    }
-
-    candidate_rendered = (
-        parent_rendered[: RAW_LEFT[0]]
-        + scene_left
-        + parent_rendered[RAW_LEFT[1] : RAW_RIGHT[0]]
-        + scene_right
-        + parent_rendered[RAW_RIGHT[1] :]
-    )
-    left_splice = f"{scene_left[-1]}{parent_rendered[RAW_LEFT[1] : RAW_LEFT[1] + 20]}"
-    right_splice = f"{scene_right[-1]}{parent_rendered[RAW_RIGHT[1] : RAW_RIGHT[1] + 20]}"
-    spacing_shell = {
-        "left_parent_prefix_at_boundary": parent_rendered[RAW_LEFT[0] - 18 : RAW_LEFT[0]],
-        "right_parent_prefix_at_boundary": parent_rendered[RAW_RIGHT[0] - 18 : RAW_RIGHT[0]],
-        "left_parent_suffix_at_boundary": parent_rendered[RAW_LEFT[1] : RAW_LEFT[1] + 20],
-        "right_parent_suffix_at_boundary": parent_rendered[RAW_RIGHT[1] : RAW_RIGHT[1] + 20],
-        "left_splice_excerpt": left_splice,
-        "right_splice_excerpt": right_splice,
-        "left_leading_boundary_has_space": f"{parent_rendered[RAW_LEFT[0] - 1]}{scene_left[:12]}".startswith(". "),
-        "right_leading_boundary_has_space": f"{parent_rendered[RAW_RIGHT[0] - 1]}{scene_right[:12]}".startswith(". "),
-        "leading_space_failures": [
-            {
-                "side": "left",
-                "broken_display": "Aras.Nora",
-                "expected_display": "Aras. Nora",
-                "reason": "raw replacement began at the parent-owned leading space",
-            },
-            {
-                "side": "right",
-                "broken_display": "Aron.Mara",
-                "expected_display": "Aron. Mara",
-                "reason": "raw replacement began at the parent-owned leading space",
-            },
-        ],
-        "single_boundary_spaces": ". " in left_splice and ". " in right_splice,
-        "spacing_shell_preserved": False,
-        "double_spaces": "  " in candidate_rendered,
-    }
-    assert spacing_shell["single_boundary_spaces"]
-    assert not spacing_shell["double_spaces"]
-    candidate_independent = independent_audit(candidate_rendered)
-    assert candidate_independent["normalized_letters"] == 666
-    assert candidate_independent["two_pointer_exact"]
-    admission = bool(all(scene_gates.values()) and trace["exact"])
-    obstruction = {
-        "cursor": [72, 72],
-        "expected": None,
-        "emitted": None,
-        "residual": {"left": "", "right": ""},
-        "owner": "full-parent-linked-scene-admission",
-        "grammar_state": {
-            "scene_gates": scene_gates,
-            "reused_frames": reused_frames,
-            "reused_clauses": reused_clauses,
-            "repeated_scene_clauses": repeated_scene_clauses,
-        },
-        "reason": "full promoted parent retains candidate frames/clauses" if not admission else "closed",
-    }
+    alternate_production = {"left": "Nora writes Ari.", "right": "Ira writes Aron."}
+    alternate_attempt = online_pair(alternate_production, parent_frames, parent_clauses, shell)
+    alternate_attempt.update({"id": "alternate-13-letter-writes-seam", "normalized_windows": {"left": list(ALTERNATE_NORMALIZED_LEFT), "right": list(ALTERNATE_NORMALIZED_RIGHT)}, "raw_windows": {"left": list(ALTERNATE_RAW_LEFT), "right": list(ALTERNATE_RAW_RIGHT)}, "letters_per_side": 13})
     row = {
-        "id": "linked-scene-lattice-no-admission-666",
-        "working_status": "linked_scene_rejected_full_parent_novelty_gate" if not admission else "linked_scene_comparison_frontier",
-        "promotion_status": {
-            "promoted": False,
-            "status": "rejected_full_parent_novelty_gate" if not admission else "comparison_pending_full_text_review",
-            "reason": obstruction["reason"],
-        },
-        "rendered": candidate_rendered if admission else parent_rendered,
-        "independent_audit": candidate_independent if admission else parent_audit,
+        "id": "typed-writes-lattice-no-admission-666",
+        "working_status": "typed_writes_rejected_residual_and_spacing_gate",
+        "promotion_status": {"promoted": False, "status": "rejected_typed_reverse_residual", "reason": "no natural writes production crossed the reverse residual; no exact child admitted"},
+        "rendered": parent_rendered,
+        "independent_audit": parent_audit,
         "parent_artifact": str(PARENT.relative_to(ROOT)),
         "parent_id": PARENT_ID,
         "parent_sha256": PARENT_SHA256,
         "growth_over_parent": 0,
-        "linked_scene_attempt": {
+        "typed_production_attempt": {
             "normalized_windows": {"left": list(NORMALIZED_LEFT), "right": list(NORMALIZED_RIGHT)},
             "raw_windows": {"left": list(RAW_LEFT), "right": list(RAW_RIGHT)},
-            "old_left": old_left,
-            "old_right": old_right,
-            "new_left": scene_left,
-            "new_right": scene_right,
-            "letters_per_side": 72,
-            "paired_cursors_after": [72, 72],
-            "residuals": {"left": "", "right": ""},
-            "paired_trace": trace,
-            "neighbor_entities": {
-                "left_before": "Noel",
-                "left_after": "Nora",
-                "right_before": "Leon",
-                "right_after": "Sara",
-            },
-            "candidate_frames": sorted(candidate_frames),
-            "parent_frames": sorted(parent_frames),
-            "reused_frames": reused_frames,
-            "reused_clauses": reused_clauses,
-            "gates": scene_gates,
-            "spacing_shell": spacing_shell,
-            "candidate_rendered": candidate_rendered,
-            "candidate_independent_audit": candidate_independent,
-            "candidate_sha256": candidate_independent["sha256_forward"],
-            "admission": {
-                "accepted": admission,
-                "exact_character_closure": bool(trace["exact"]),
-                "exact_child_saved": admission,
-                "obstruction": obstruction,
-            },
-            "bounded_production_count": len(SCENE_PRODUCTIONS),
-            "max_paired_scene_productions": MAX_PAIRED_SCENE_PRODUCTIONS,
+            "predicate_family": TRANSITIVE_FAMILY,
+            "production_count": len(SCENE_PRODUCTIONS),
+            "max_productions": MAX_PAIRED_SCENE_PRODUCTIONS,
+            "attempts": attempts,
+            "primary_candidate_rendered": candidate_rendered,
+            "primary_candidate_sha256": candidate_audit["sha256_forward"],
+            "primary_spacing": spacing,
+            "alternate_seam_attempt": alternate_attempt,
+            "shell_ownership": shell,
+            "admission": primary["admission"],
         },
-        "next_operator": "change to a different actual seam after 72-letter linked-scene novelty obstruction; preserve promoted a1b4 666 and 568/560/558/556",
-        "provenance": "one authored spacing-preserving six-clause linked-scene lattice with paired reverse obligation",
+        "next_operator": "switch to actual alternate seam [127,140]↔[526,539] raw [171,188]↔[719,736] after typed writes residual obstruction",
+        "provenance": "one seam-local typed writes family with online reverse residual, entity, novelty, and shell-space tracking",
     }
     return {
         "experiment_id": "incumbent-666-linked-scene-lattice-20260922",
-        "method": "one bounded spacing-preserving linked-scene lattice on promoted 72-letter period-bounded seam",
+        "method": "bounded typed finite-event writes production on promoted 72-letter seam, then one actual 13-letter alternate seam obstruction",
         "active_frontier_parent": {"artifact": str(PARENT.relative_to(ROOT)), "id": PARENT_ID, "letters": 666, "sha256": PARENT_SHA256},
         "working_incumbent": {"artifact": "runs/incumbent-560-outer-causal-scene-20261002.json", "id": "outer-causal-scene-568-working-incumbent", "letters": 568, "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"},
         "preserved_frontier": list(FRONTIER),
@@ -281,8 +266,8 @@ def build_payload() -> dict[str, object]:
 def main() -> None:
     result = build_payload()
     OUT.write_text(json.dumps(result, indent=2) + "\n")
-    attempt = result["rows"][0]["linked_scene_attempt"]
-    print({"id": result["rows"][0]["id"], "accepted": attempt["admission"]["accepted"], "sha256": attempt["candidate_sha256"], "reused_frames": attempt["reused_frames"]})
+    attempt = result["rows"][0]["typed_production_attempt"]
+    print({"id": result["rows"][0]["id"], "productions": attempt["production_count"], "cursor": attempt["attempts"][0]["cursor"], "alternate_cursor": attempt["alternate_seam_attempt"]["cursor"]})
 
 
 if __name__ == "__main__":

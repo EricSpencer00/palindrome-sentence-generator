@@ -61,7 +61,7 @@ DIRECT_LEFT = (
     "Nadia sees Mara. Nadia stops Aram."
 )
 DIRECT_RIGHT = (
-    "Mara spots Aidan. Aram sees Aidan. Seton tap. Dog was Aras. "
+    "Mara spots Aidan. Aram sees Aidan. Seton, tap. Dog was Aras. "
     "Dog was Aram. Evil Leon was Aron."
 )
 
@@ -333,7 +333,14 @@ def build_payload() -> dict[str, object]:
         "typed_lattice_attempt": lattice,
         "readability_delta": {
             "material_full_text_improvement": False,
-            "complete_finite_clauses": True,
+            "complete_clauses": True,
+            "imperative_vocative_clause": {
+                "text": "Seton, tap.",
+                "complete": True,
+                "vocative": "Seton",
+                "predicate": "tap",
+                "dangling_vocative_or_appositive": False,
+            },
             "predicate_less_fragment": False,
             "dangling_vocative_or_appositive": False,
         },

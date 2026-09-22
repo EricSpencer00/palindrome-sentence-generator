@@ -29,6 +29,14 @@ def test_typed_lattice_persists_zero_closure_and_changed_seam_exact_child():
     assert result["sha256_forward"] == DIRECT_CHILD_SHA256
     assert result["sha_equal"]
     assert normalize(DIRECT_LEFT) == normalize(DIRECT_RIGHT)[::-1]
+    assert "Seton, tap." in row["rendered"]
+    assert row["readability_delta"]["imperative_vocative_clause"] == {
+        "text": "Seton, tap.",
+        "complete": True,
+        "vocative": "Seton",
+        "predicate": "tap",
+        "dangling_vocative_or_appositive": False,
+    }
 
 
 def test_lattice_uses_relation_and_template_gates():

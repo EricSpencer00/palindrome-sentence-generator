@@ -165,6 +165,7 @@ def search_inventory(inventory: dict, *, max_shape_pairs: int,
                 max_results=max_results - len(rows),
                 allow_choice=allow_choice,
                 allow_partial=allow_partial,
+                reject_intermediate_closure=True,
             )
             states += result["states"]
             transitions += result["transitions"]

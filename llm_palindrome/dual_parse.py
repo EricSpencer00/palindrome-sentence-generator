@@ -59,6 +59,7 @@ def word_residual_search(
     *, max_states: int = 50_000, max_results: int = 100,
     allow_choice: Callable[[str, str, str | None, str], bool] | None = None,
     allow_partial: Callable[[tuple[str, ...], tuple[str, ...]], bool] | None = None,
+    reject_intermediate_closure: bool = False,
 ) -> dict:
     """Search two POS/role plans while carrying the live unmatched tape.
 
@@ -72,6 +73,7 @@ def word_residual_search(
     # the first surface exposed by the palindrome equation.
     queue = deque([(0, len(right_slots) - 1, (), (), "", "", (), ())])
     seen = set(); results = []; transitions = 0; dead_frontiers = []
+    intermediate_closure_rejections = 0
     while queue and len(seen) < max_states and len(results) < max_results:
         li, ri, lw, rw_reverse, owner, residual, lroles, rroles_reverse = queue.popleft()
         key = (li, ri, lw, rw_reverse, owner, residual, lroles, rroles_reverse)
@@ -119,7 +121,14 @@ def word_residual_search(
                 if (allow_partial is not None
                         and not allow_partial(next_lw, tuple(reversed(next_rw_reverse)))):
                     continue
-                queue.append((li + (side == "left"), ri - (side == "right"),
+                next_li = li + (side == "left")
+                next_ri = ri - (side == "right")
+                complete_after = next_li == len(left_slots) and next_ri < 0
+                if (reject_intermediate_closure and not next_residual
+                        and not complete_after and next_lw and next_rw_reverse):
+                    intermediate_closure_rejections += 1
+                    continue
+                queue.append((next_li, next_ri,
                               next_lw,
                               next_rw_reverse,
                               next_owner, next_residual,
@@ -141,7 +150,8 @@ def word_residual_search(
             dead_frontiers.sort(key=lambda row: (-row["matched_letters"], len(row["residual"])))
             del dead_frontiers[32:]
     return {"results": results, "states": len(seen), "transitions": transitions,
-            "cap_reached": bool(queue), "dead_frontiers": dead_frontiers}
+            "cap_reached": bool(queue), "dead_frontiers": dead_frontiers,
+            "intermediate_closure_rejections": intermediate_closure_rejections}
 
 
 @dataclass(frozen=True)

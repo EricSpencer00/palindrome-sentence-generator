@@ -128,3 +128,17 @@ def test_word_residual_partial_gate_prunes_before_closure():
     assert unrestricted["results"]
     assert gated["results"] == []
     assert gated["states"] < unrestricted["states"]
+
+
+def test_word_residual_can_reject_composed_interior_closures():
+    left = (("left-a", ("a",)), ("left-b", ("b",)))
+    right = (("right-b", ("b",)), ("right-a", ("a",)))
+    composed = word_residual_search(left, right)
+    irreducible = word_residual_search(
+        left,
+        right,
+        reject_intermediate_closure=True,
+    )
+    assert composed["results"]
+    assert irreducible["results"] == []
+    assert irreducible["intermediate_closure_rejections"] > 0

@@ -9185,6 +9185,18 @@ grammar variant.
   in that state, not a larger lexical bank. Artifact:
   `runs/semantic-valency-dual-parse-20260921.json`.
 
+- **Irreducible two-clause ABBA product (2026-10-02):** the residual engine
+  now has a hard no-intermediate-closure invariant. If both parses discharge
+  their character debt before the complete discourse grammar finishes, that
+  branch is rejected instead of composing another independently palindromic
+  block. A two-clause `A -> B` / `B' -> A'` valency grammar then visited 54
+  states and 77 transitions, reached seven matched letters, and produced zero
+  exact closures. This retires whole-word two-clause banks: adding more verbs
+  or nouns would be a duplicate sweep. The next representation must compile
+  word-internal morphology, clause state, and character residual into one
+  packed lattice while retaining irreducibility. Artifact:
+  `runs/two-clause-irreducible-dual-parse-20260921.json`.
+
 ## Current orchestration routing (2026-10-02)
 
 GPT-5.6 Sol owns architecture and coordinated direction for this goal.

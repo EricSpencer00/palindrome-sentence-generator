@@ -4622,3 +4622,12 @@ methodologically: syntax and valency now constrain branching before exact
 closure rather than ranking completed palindromes. The next grammar change is
 to carry a two-clause discourse transition in this same product; no larger
 lexical sweep is scheduled.
+
+To prevent compositional reward hacking, we added an irreducibility invariant:
+the character residual may become empty only at the accepting state of both
+grammars. Thus a longer output cannot be assembled from independently exact
+sentence pairs. The ensuing two-clause semantic `A -> B` / `B' -> A'` product
+visited 54 states and 77 transitions, reached a seven-letter frontier, and
+closed no tape. We therefore retire fixed whole-word two-clause banks rather
+than enlarging them. The successor representation must expose word-internal
+inflectional states inside the same valency and discourse product.

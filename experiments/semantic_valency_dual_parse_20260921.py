@@ -154,6 +154,7 @@ def run() -> dict:
             max_states=500_000,
             max_results=100,
             allow_partial=_unique_content,
+            reject_intermediate_closure=True,
         )
         stats["states"] += result["states"]
         stats["transitions"] += result["transitions"]

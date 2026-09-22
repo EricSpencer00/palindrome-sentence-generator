@@ -15,8 +15,48 @@ reader ratings decide whether an exact output is readable.
 
 ## Anchor and frontier
 
-The active construction parent is the 498-letter residual-growth artifact,
-not the historical 38/54-letter seed lane. Its exact normalized tape has
+The current strict mechanical incumbent is a fresh 42-letter output:
+
+> **No trace. Note: Spot spoons; snoop; stop. Set one carton.**
+
+After normalization its tape is
+`notracenotespotspoonssnoopstopsetonecarton`; a direct two-pointer walk and an
+independent forward/reverse SHA-256 comparison both accept it, with digest
+`1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3`.
+The central admission gate also accepts it: all content words are distinct,
+and it contains no self-palindromic word, proper palindromic multiword span,
+word-order reflection, repeated nontrivial unit, or catalogue match. This is
+a mechanical and syntactic result, not a human-readability claim.
+
+The construction carries grammar phase, exact-character owner and residual,
+a lemma freshness set, complementary token-boundary masks, and a LIFO return
+stack in the same state. Its live residual is the productive plural `s`. A
+cycle selects fresh typed lemmas `x_i,y_i` satisfying
+
+```text
+T(x_i) s = s reverse(T(y_i)),
+```
+
+emits `x_i` on the left, and pushes `y_i`; the return phase flushes
+`y_k ... y_1`. At depth two, `spot/stop` and `spoon/snoop` produce the center
+`spot spoon+s snoop stop`. The residual stays nonempty until the innermost
+noun realizes ordinary plural morphology, so the construction never appends
+a completed palindrome or mirrors a finished prose unit. A bounded common-word
+inventory contains 12 directed lemma equations (six reversible families) and
+120 all-four-lemma-distinct depth-two tuples. The rendered incumbent is the
+first candidate chosen for syntax from that exact family.
+
+We opened a reproducible eight-item blinded pilot rather than using an
+automatic score as evidence. It randomizes the target and a matched word
+shuffle with three intact prose controls and their matched shuffles; the rater
+file hides every condition and the answer key is separate. Reader ratings are
+pending, so the paper does not yet claim that the output is readable English.
+The active construction work extends the freshness-indexed stack and searches
+additional productive affix boundaries for a longer, more coherent witness.
+
+The earlier 498-letter residual-growth artifact is retained as a permissive
+structural-control branch, not as the active content incumbent. Its exact
+normalized tape has
 SHA-256 `e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032`;
 an independent normalizer, direct two-pointer scan, the project validator, and
 forward/reverse SHA all agree. The 530-letter desserts/stressed wrapper is a

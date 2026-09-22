@@ -186,10 +186,25 @@ The independently verified 38-letter sentence remains the reader anchor:
 
 > *An aide rips nine memos; some men inspire Diana.*
 
-The new **best mechanically admitted reader-study candidate** is the 54-letter
-cross-role NP output above; neither it nor the 38-letter anchor has blinded
-human ratings yet. The audit ledger also contains exact diagnostics at
-44, 47, 50, 56, 66, and 132 letters.  They are not progress claims: the
+The new **strict mechanical incumbent** is this 42-letter productive-morphology
+construction:
+
+> *No trace. Note: Spot spoons; snoop; stop. Set one carton.*
+
+Its normalized tape is
+`notracenotespotspoonssnoopstopsetonecarton`, with SHA-256
+`1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3`.
+A literal two-pointer scan and the shared central gate agree: it has distinct
+content, no self-palindromic word, no proper palindromic multiword span, no
+word-order reflection, no repeated nontrivial unit, and no catalogue match.
+It is syntactically interpretable, but **not yet human-certified readable**.
+Its randomized eight-item rater packet includes the intact target, a matched
+word shuffle, three intact prose controls, and their matched shuffles; the
+condition key is stored separately.
+
+The older 54-letter cross-role NP row and exact diagnostics at 44, 47, 50,
+56, 66, and 132 letters remain historical controls, not current progress
+claims. The
 44-letter `Was Noel an era, a gas, an item? Met in a, saga, arena, Leon saw.`
 is the best human-looking diagnostic but contains a proper self-palindromic
 multiword span and fragmentary answer; the 47-letter row has malformed clause
@@ -199,10 +214,12 @@ Dream-RSI rows are incoherent or contain a hidden self-palindromic span, the
 row embeds the complete 38-letter anchor.  Historical artifact files also
 contain a 142-letter exact but visibly fragmented/gibberish row, and the
 synthetic totality harness reaches 100,001 exact fallback letters.  Neither is
-English output.  The paper and API therefore report scoped fields explicitly:
-`best_mechanically_admitted_reader_study_candidate_letters = 54`,
-`best_human_certified_exact_letters = null`, `longest_named_v4_diagnostic_letters =
-132`, `longest_rendered_historical_exact_artifact_letters = 142`, and
+English output. The paper and API therefore report scoped fields explicitly:
+`best_current_strict_candidate_letters = 42`,
+`best_legacy_reader_study_candidate_letters = 54`,
+`best_human_certified_exact_letters = null`,
+`longest_named_v4_diagnostic_letters = 132`,
+`longest_rendered_historical_exact_artifact_letters = 142`, and
 `longest_synthetic_exact_fallback_letters = 100001`.
 
 The live public API is a useful architectural reference, not a readability
@@ -213,7 +230,7 @@ The active construction borrows the state-space/inspection ideas while
 intersecting them with typed grammar, agreement, valency, and semantic scene
 states before rendering any candidate.
 
-The latest three Luna lanes keep that constructive reset honest. A semantic
+Three historical Luna lanes kept that constructive reset honest. A semantic
 role-skeleton CSP chose transitive, intransitive, and copular roles lazily
 inside the opposing-character state and rendered ten controls to 39 letters;
 a bilateral discourse-graph CSP carried relation, tense, agreement, and
@@ -225,9 +242,10 @@ letters. Their concrete successors are held-out temporal/instrumental roles,
 a relative-clause attachment edge, and held-out ditransitive/relative-
 complement productions respectively—not repair or another lexical sweep.
 
-The active target is an original, coherent, intact-prose palindrome longer than
-that benchmark (with the paper's promotion floor at 100 letters), followed by
-the blinded intact-prose versus shuffled-control study. No wrapper, catalogue
+The active target is an original, coherent, intact-prose palindrome longer
+than the 42-letter strict incumbent (with the paper's promotion floor at 100
+letters), followed by the blinded intact-prose versus shuffled-control study.
+No wrapper, catalogue
 relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
 ### ABBA paragraph seam probe (2026-09-30)
@@ -9314,7 +9332,9 @@ grammar variant.
   endpoint probes. The next version has already moved distinct-content and
   self-palindromic-word rejection into partial-state admission, so those
   shortcut branches cannot consume another run. This is method evidence, not
-  a reader result; the 38-letter incumbent remains the only promoted output.
+  a reader result; at the time of that run the 38-letter incumbent was the only
+  promoted output. It has since been superseded mechanically by the 42-letter
+  productive-morphology witness described above.
   Artifact: `runs/brown-pos-dual-parse-search-20260921.json`.
 
 - **Semantic-valency dual parse (2026-10-02):** agent, agreement, action,
@@ -9343,9 +9363,8 @@ grammar variant.
 
 ## Current orchestration routing (2026-10-02)
 
-GPT-5.6 Sol owns architecture and coordinated direction for this goal.
-GPT-5.6 Luna is used only for bounded implementation or monitoring lanes. No
-Astra worker is used for this cycle.
+GPT-5.6 Sol owns architecture, implementation, and coordinated direction for
+this cycle. No Astra or non-Sol worker is used.
 
 - **Fresh common-word POS/residual product (2026-10-02):** after proving that
   inherited cuts at raw offsets 357 and 48 preserve fatal repetition or

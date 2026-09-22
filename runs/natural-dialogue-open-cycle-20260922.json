@@ -1,0 +1,51 @@
+{
+  "experiment_id": "natural-dialogue-open-cycle-20260922",
+  "method": "finite product of two independently authored dialogue grammars with strict nonempty-residual cycle search",
+  "grammar": {
+    "left": {
+      "S": [
+        "The lantern marks the harbor."
+      ],
+      "Q": [
+        "A patient sailor listens.",
+        "The tide turns at dawn."
+      ]
+    },
+    "right": {
+      "S": [
+        "At dawn the tide turns."
+      ],
+      "Q": [
+        "The sailor listens patiently.",
+        "The harbor marks the lantern."
+      ]
+    }
+  },
+  "frontier": {
+    "reachable_states": 3,
+    "coaccessible_states": 0,
+    "intermediate_empty_closures_rejected": 0,
+    "deepest_nonempty_residual": 24,
+    "first_unsupported_frontier": "State(left='Q', right='S', owner='L', residual='thelanternmarkstheharbor', phase='observation')",
+    "next_grammar_operator": "add one authored acknowledgement clause whose exposed reverse tape starts with the frontier debt, then re-run the same finite product"
+  },
+  "rendered_candidates": [],
+  "cycle_materializations": [],
+  "exact_candidates_gt38": [],
+  "novelty_preflight": {
+    "status": "collision_with_complete_clause_atomic_lanes",
+    "signature": "authored-dialogue|open-residual|recursive-product|complete-clause-edges",
+    "catalogue_text": false,
+    "fixed_tape": false,
+    "posthoc_repair": false,
+    "nested_palindrome_units": false
+  },
+  "reader_gate": {
+    "status": "closed",
+    "reason": "no new exact >38 output",
+    "human_evidence": "not collected"
+  },
+  "status": "rejected_as_complete_clause_atomic_probe",
+  "decision": "This three-state failure occurs before dialogue or recurrence is tested. Do not author a clause to copy the full residual; mine reusable fresh lexicalized cycle transitions at an open debt instead.",
+  "generator_sha256": "de9f1172a19242af0ac4b90574c8954b74b1bef5c5ec186db6a2d7551f2487b2"
+}

@@ -1,0 +1,669 @@
+{
+  "experiment_id": "anchored-np-cycle-clause-search-20260922",
+  "method": "typed clause dual parse with one natural cyclic-reversal NP transition",
+  "anchors": {
+    "name": {
+      "residual": "name",
+      "left": "no name",
+      "right": "one man",
+      "equation": {
+        "start_debt": "name",
+        "right_exposed": "nameno",
+        "mid_debt": "no",
+        "left_exposed": "noname",
+        "end_debt": "name",
+        "exact_open_cycle": true
+      }
+    },
+    "race": {
+      "residual": "race",
+      "left": "no race",
+      "right": "one car",
+      "equation": {
+        "start_debt": "race",
+        "right_exposed": "raceno",
+        "mid_debt": "no",
+        "left_exposed": "norace",
+        "end_debt": "race",
+        "exact_open_cycle": true
+      }
+    }
+  },
+  "grammar": {
+    "subjects": [
+      "the aide",
+      "a clerk",
+      "the guide",
+      "a sailor",
+      "the pilot",
+      "a reader",
+      "the ranger",
+      "a mason"
+    ],
+    "verbs": [
+      "marked",
+      "kept",
+      "found",
+      "carried",
+      "recorded",
+      "guarded",
+      "remembered",
+      "mapped",
+      "named",
+      "noted",
+      "met",
+      "saw"
+    ],
+    "objects": [
+      "the map",
+      "a memo",
+      "the record",
+      "a route",
+      "the gate",
+      "a letter",
+      "the harbor",
+      "a signal",
+      "the trail",
+      "a note"
+    ],
+    "adjuncts": [
+      "at dawn",
+      "after rain",
+      "near the harbor",
+      "by the gate",
+      "under the tree",
+      "before noon"
+    ],
+    "anchor_positions": [
+      "subject",
+      "object"
+    ]
+  },
+  "stats": {
+    "grammar_pairs": 8,
+    "states": 92,
+    "transitions": 84,
+    "capped_pairs": 0,
+    "intermediate_closure_rejections": 0,
+    "exact_closures": 0,
+    "mechanically_admitted_gt38": 0
+  },
+  "exact_candidates": [],
+  "mechanically_admitted_candidates": [],
+  "deepest_frontiers": [
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "no name"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "noname",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "subject",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [],
+      "right_words_reverse": [
+        "at dawn"
+      ],
+      "owner": "right",
+      "residual": "nwadta",
+      "next_left_role": "subject:anchored-np",
+      "next_right_role": "object:ordinary-np",
+      "family": "name",
+      "left_anchor_position": "subject",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "no name"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "noname",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "subject",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [],
+      "right_words_reverse": [
+        "at dawn"
+      ],
+      "owner": "right",
+      "residual": "nwadta",
+      "next_left_role": "subject:anchored-np",
+      "next_right_role": "object:anchored-np",
+      "family": "name",
+      "left_anchor_position": "subject",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a clerk"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "aclerk",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a mason"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "amason",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [],
+      "right_words_reverse": [
+        "at dawn"
+      ],
+      "owner": "right",
+      "residual": "nwadta",
+      "next_left_role": "subject:ordinary-np",
+      "next_right_role": "object:ordinary-np",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a clerk"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "aclerk",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a mason"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "amason",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [],
+      "right_words_reverse": [
+        "at dawn"
+      ],
+      "owner": "right",
+      "residual": "nwadta",
+      "next_left_role": "subject:ordinary-np",
+      "next_right_role": "object:anchored-np",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "no race"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "norace",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "subject",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [],
+      "right_words_reverse": [
+        "at dawn"
+      ],
+      "owner": "right",
+      "residual": "nwadta",
+      "next_left_role": "subject:anchored-np",
+      "next_right_role": "object:ordinary-np",
+      "family": "race",
+      "left_anchor_position": "subject",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "no race"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "norace",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "subject",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [],
+      "right_words_reverse": [
+        "at dawn"
+      ],
+      "owner": "right",
+      "residual": "nwadta",
+      "next_left_role": "subject:anchored-np",
+      "next_right_role": "object:anchored-np",
+      "family": "race",
+      "left_anchor_position": "subject",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a clerk"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "aclerk",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a mason"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "amason",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [],
+      "right_words_reverse": [
+        "at dawn"
+      ],
+      "owner": "right",
+      "residual": "nwadta",
+      "next_left_role": "subject:ordinary-np",
+      "next_right_role": "object:ordinary-np",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a clerk"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "aclerk",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a mason"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "amason",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [],
+      "right_words_reverse": [
+        "at dawn"
+      ],
+      "owner": "right",
+      "residual": "nwadta",
+      "next_left_role": "subject:ordinary-np",
+      "next_right_role": "object:anchored-np",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the aide"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "theaide",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a sailor"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "asailor",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a reader"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "areader",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the aide"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "theaide",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a sailor"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "asailor",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a reader"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "areader",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the aide"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "theaide",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a sailor"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "asailor",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a reader"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "areader",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the aide"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "theaide",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a sailor"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "asailor",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "a reader"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "areader",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the guide"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "theguide",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the pilot"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "thepilot",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the guide"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "theguide",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the pilot"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "thepilot",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "name",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the guide"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "theguide",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the pilot"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "thepilot",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "subject"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the guide"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "theguide",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    },
+    {
+      "matched_letters": 0,
+      "left_words": [
+        "the pilot"
+      ],
+      "right_words_reverse": [],
+      "owner": "left",
+      "residual": "thepilot",
+      "next_left_role": "predicate:past-transitive",
+      "next_right_role": "adjunct",
+      "family": "race",
+      "left_anchor_position": "object",
+      "right_anchor_position": "object"
+    }
+  ],
+  "reader_packet": [],
+  "provenance": {
+    "anchor_discovery": "Brown cyclic-reversal diagnostic; common NP equations only",
+    "surrounding_text": "fresh authored typed lexical domains",
+    "borrowed_sentence": false,
+    "anchor_used_once": true,
+    "literal_cycle_pumping": false,
+    "post_hoc_repair": false,
+    "per_candidate_rlaif": false,
+    "central_mechanical_admission": true,
+    "readability_claim": "requires blinded human readers"
+  },
+  "status": "no exact admitted closure; anchored NP cycle does not survive this clause grammar",
+  "next_discriminator": "If empty, retain the measured deepest frontier and change the grammar topology; do not widen these lexical banks or repeat the NP-anchor sweep."
+}

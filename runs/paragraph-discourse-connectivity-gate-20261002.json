@@ -1,0 +1,257 @@
+{
+  "experiment_id": "paragraph-discourse-connectivity-gate-20261002",
+  "method": "deterministic adjacent-unit lexical and typed-anaphora gate",
+  "input": "runs/paragraph-abba-boundary-carrier-20261002.json",
+  "source_experiment_id": "paragraph-abba-boundary-carrier-20261002",
+  "scope": "diagnose/filter exact ABBA candidates; preserve controls; never certify readability",
+  "rule": "Every adjacent candidate pair must share a non-stopword participant/object/event token or have an explicit pronoun/demonstrative anaphor in the right unit.",
+  "results": [
+    {
+      "id": "carrier-abba-64",
+      "kind": "exact_abba_candidate",
+      "decision": "reject_disconnected",
+      "filter_applied": true,
+      "edge_evidence": [
+        {
+          "left_index": 0,
+          "right_index": 1,
+          "left": "Aron saw deer.",
+          "right": "Mara saw mail.",
+          "shared_tokens": [
+            "saw"
+          ],
+          "anaphoric_tokens": [],
+          "relation_types": [
+            "shared_event"
+          ],
+          "connected": true
+        },
+        {
+          "left_index": 1,
+          "right_index": 2,
+          "left": "Mara saw mail.",
+          "right": "Noel saw war.",
+          "shared_tokens": [
+            "saw"
+          ],
+          "anaphoric_tokens": [],
+          "relation_types": [
+            "shared_event"
+          ],
+          "connected": true
+        },
+        {
+          "left_index": 2,
+          "right_index": 3,
+          "left": "Noel saw war.",
+          "right": "Raw was Leon.",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        },
+        {
+          "left_index": 3,
+          "right_index": 4,
+          "left": "Raw was Leon.",
+          "right": "Liam was Aram.",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        },
+        {
+          "left_index": 4,
+          "right_index": 5,
+          "left": "Liam was Aram.",
+          "right": "Reed was Nora.",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        }
+      ],
+      "note": "Diagnostic filter only; no readability or coherence certification."
+    },
+    {
+      "id": "shuffled-scene",
+      "kind": "shuffled_control",
+      "decision": "control_preserved",
+      "filter_applied": false,
+      "edge_evidence": [
+        {
+          "left_index": 0,
+          "right_index": 1,
+          "left": "gate Aron the watched walked home, before and river.",
+          "right": "the dawn, carried the Mara Noel toward letters dusk.",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        },
+        {
+          "left_index": 1,
+          "right_index": 2,
+          "left": "the dawn, carried the Mara Noel toward letters dusk.",
+          "right": "At",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        }
+      ],
+      "note": "Diagnostic filter only; no readability or coherence certification."
+    },
+    {
+      "id": "intact-archive",
+      "kind": "intact_control",
+      "decision": "control_preserved",
+      "filter_applied": false,
+      "edge_evidence": [
+        {
+          "left_index": 0,
+          "right_index": 1,
+          "left": "Nora opened the archive before breakfast.",
+          "right": "Sara marked the map, then Mara closed the window at evening.",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        }
+      ],
+      "note": "Diagnostic filter only; no readability or coherence certification."
+    },
+    {
+      "id": "intact-scene",
+      "kind": "intact_control",
+      "decision": "control_preserved",
+      "filter_applied": false,
+      "edge_evidence": [
+        {
+          "left_index": 0,
+          "right_index": 1,
+          "left": "At dawn, Aron walked toward the river.",
+          "right": "Mara carried the letters home, and Noel watched the gate before dusk.",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        }
+      ],
+      "note": "Diagnostic filter only; no readability or coherence certification."
+    },
+    {
+      "id": "shuffled-archive",
+      "kind": "shuffled_control",
+      "decision": "control_preserved",
+      "filter_applied": false,
+      "edge_evidence": [
+        {
+          "left_index": 0,
+          "right_index": 1,
+          "left": "at marked archive window before the breakfast.",
+          "right": "then closed Nora Mara evening.",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        },
+        {
+          "left_index": 1,
+          "right_index": 2,
+          "left": "then closed Nora Mara evening.",
+          "right": "opened the Sara map, the",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        }
+      ],
+      "note": "Diagnostic filter only; no readability or coherence certification."
+    },
+    {
+      "id": "carrier-abba-66",
+      "kind": "exact_abba_candidate",
+      "decision": "reject_disconnected",
+      "filter_applied": true,
+      "edge_evidence": [
+        {
+          "left_index": 0,
+          "right_index": 1,
+          "left": "Nora saw deer.",
+          "right": "Sara saw mail.",
+          "shared_tokens": [
+            "saw"
+          ],
+          "anaphoric_tokens": [],
+          "relation_types": [
+            "shared_event"
+          ],
+          "connected": true
+        },
+        {
+          "left_index": 1,
+          "right_index": 2,
+          "left": "Sara saw mail.",
+          "right": "Mara saw evil.",
+          "shared_tokens": [
+            "saw"
+          ],
+          "anaphoric_tokens": [],
+          "relation_types": [
+            "shared_event"
+          ],
+          "connected": true
+        },
+        {
+          "left_index": 2,
+          "right_index": 3,
+          "left": "Mara saw evil.",
+          "right": "Live was Aram.",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        },
+        {
+          "left_index": 3,
+          "right_index": 4,
+          "left": "Live was Aram.",
+          "right": "Liam was Aras.",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        },
+        {
+          "left_index": 4,
+          "right_index": 5,
+          "left": "Liam was Aras.",
+          "right": "Reed was Aron.",
+          "shared_tokens": [],
+          "anaphoric_tokens": [],
+          "relation_types": [],
+          "connected": false
+        }
+      ],
+      "note": "Diagnostic filter only; no readability or coherence certification."
+    }
+  ],
+  "summary": {
+    "candidate_count": 2,
+    "candidate_rejected": 2,
+    "controls_preserved": 4
+  },
+  "provenance": {
+    "lm": false,
+    "rlaif": false,
+    "input_sha256": "c7306dd0f6ba9c5475f49fa0970e6b2f0f8ce3668dbdec1b54325d7d042d5889",
+    "assertions": [
+      "candidate/control counts",
+      "all packet candidates reject",
+      "all controls preserved",
+      "synthetic anaphora retain"
+    ]
+  },
+  "next_repair": "Author explicit participant/object/event bridges or typed anaphora between every adjacent candidate sentence, then rerun this gate; a retained result still requires human readability review."
+}

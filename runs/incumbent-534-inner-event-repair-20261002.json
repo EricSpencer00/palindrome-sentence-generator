@@ -1,0 +1,290 @@
+{
+  "experiment_id": "incumbent-534-inner-event-repair-20261002",
+  "method": "target exact interior clause spans in the 534-letter child, substituting finite events before rendering while preserving the live outer residual",
+  "parent": {
+    "artifact": "runs/incumbent-498-deep-clause-transducer-20261002.json",
+    "letters": 534,
+    "sha256": "4df622f18dc04d737f0c3644e52a03e7d391e1baaf0f6d8c179b1f3eb38f6a0d",
+    "source_498_artifact": "runs/overhang-growth-from-240-20261001.json",
+    "source_498_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032"
+  },
+  "stats": {
+    "authored_repair_paths": 4,
+    "independently_exact_children": 4,
+    "children_over_530": 4,
+    "shortest_letters": 536,
+    "longest_letters": 544
+  },
+  "active_frontier": [
+    "combined-finite-role-544",
+    "single-role-event-540",
+    "single-finite-delivery-538",
+    "single-svo-536"
+  ],
+  "worst_remaining_seam": {
+    "text": "Noel, did I draw Mara? / Ward I did, Leon.",
+    "center_offsets": [
+      [
+        24,
+        40
+      ],
+      [
+        200,
+        216
+      ]
+    ],
+    "next_operator": "replace the paired interrogative/inversion with a new finite event whose word boundaries cross the reflected span"
+  },
+  "rows": [
+    {
+      "id": "combined-finite-role-544",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, did I draw Mara? Was I God? Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, I saw diaper. Repaid was I, Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog I saw, Aram. Ward I did, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 544,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "2ea2411e5fea4d27d3db24ba0e471cc6a52a4a2196b52fb6a82b5cc6033b0655",
+        "sha256_reverse": "2ea2411e5fea4d27d3db24ba0e471cc6a52a4a2196b52fb6a82b5cc6033b0655",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/incumbent-498-deep-clause-transducer-20261002.json",
+      "parent_sha256": "4df622f18dc04d737f0c3644e52a03e7d391e1baaf0f6d8c179b1f3eb38f6a0d",
+      "growth_over_534": 10,
+      "retained_498_parent_letters_before_repairs": 240,
+      "repairs": [
+        {
+          "id": "finite-delivery",
+          "kind": "cross-sentence finite-clause substitution",
+          "center_offsets_before": [
+            [
+              91,
+              110
+            ],
+            [
+              130,
+              149
+            ]
+          ],
+          "old_left": "Nora, I saw deliver Noel.",
+          "old_right": "Leon. Reviled was I, Aron.",
+          "new_left": "Nadia delivers maps. Leon,",
+          "new_right": "Noel; spam's reviled, Aidan.",
+          "old_letters_per_side": 19,
+          "new_letters_per_side": 21,
+          "replacement_reverse_exact": true,
+          "new_event_content": "Nadia delivers maps before Leon reports what he saw"
+        },
+        {
+          "id": "role-event",
+          "kind": "finite performance event plus named role",
+          "center_offsets_before": [
+            [
+              12,
+              24
+            ],
+            [
+              216,
+              228
+            ]
+          ],
+          "old_left": "Nora, was I evil?",
+          "old_right": "Live I saw, Aron.",
+          "new_left": "Nora saw Noel live.",
+          "new_right": "\u201cEvil Leon\u201d was Aron.",
+          "old_letters_per_side": 12,
+          "new_letters_per_side": 15,
+          "replacement_reverse_exact": true,
+          "new_event_content": "Nora sees Noel perform; Aron plays Evil Leon"
+        }
+      ],
+      "live_state": {
+        "owner": "R",
+        "residual_before_center": "won",
+        "right_boundary_consumption": "Leon|won",
+        "residual_after_shell": ""
+      },
+      "provenance": {
+        "targeted_inner_repairs": true,
+        "outer_wrapper_added": false,
+        "larger_pair_bank_sweep": false,
+        "finished_tape_reversal": false,
+        "posthoc_character_repair": false,
+        "human_certified": false
+      }
+    },
+    {
+      "id": "single-role-event-540",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, did I draw Mara? Was I God? Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nora, I saw deliver Noel. I saw diaper. Repaid was I, Leon. Reviled was I, Aron. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog I saw, Aram. Ward I did, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 540,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "51cbdcce560bf88e7761c817ee5e15b498735c1a92786a175c12fd0e24113ca2",
+        "sha256_reverse": "51cbdcce560bf88e7761c817ee5e15b498735c1a92786a175c12fd0e24113ca2",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/incumbent-498-deep-clause-transducer-20261002.json",
+      "parent_sha256": "4df622f18dc04d737f0c3644e52a03e7d391e1baaf0f6d8c179b1f3eb38f6a0d",
+      "growth_over_534": 6,
+      "retained_498_parent_letters_before_repairs": 240,
+      "repairs": [
+        {
+          "id": "role-event",
+          "kind": "finite performance event plus named role",
+          "center_offsets_before": [
+            [
+              12,
+              24
+            ],
+            [
+              216,
+              228
+            ]
+          ],
+          "old_left": "Nora, was I evil?",
+          "old_right": "Live I saw, Aron.",
+          "new_left": "Nora saw Noel live.",
+          "new_right": "\u201cEvil Leon\u201d was Aron.",
+          "old_letters_per_side": 12,
+          "new_letters_per_side": 15,
+          "replacement_reverse_exact": true,
+          "new_event_content": "Nora sees Noel perform; Aron plays Evil Leon"
+        }
+      ],
+      "live_state": {
+        "owner": "R",
+        "residual_before_center": "won",
+        "right_boundary_consumption": "Leon|won",
+        "residual_after_shell": ""
+      },
+      "provenance": {
+        "targeted_inner_repairs": true,
+        "outer_wrapper_added": false,
+        "larger_pair_bank_sweep": false,
+        "finished_tape_reversal": false,
+        "posthoc_character_repair": false,
+        "human_certified": false
+      }
+    },
+    {
+      "id": "single-finite-delivery-538",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora, was I evil? Noel, did I draw Mara? Was I God? Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, I saw diaper. Repaid was I, Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog I saw, Aram. Ward I did, Leon. Live I saw, Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 538,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "8bb6b80027e688df1d0ec9a56a5ed1be75adb661bcb572995efce70a9761f693",
+        "sha256_reverse": "8bb6b80027e688df1d0ec9a56a5ed1be75adb661bcb572995efce70a9761f693",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/incumbent-498-deep-clause-transducer-20261002.json",
+      "parent_sha256": "4df622f18dc04d737f0c3644e52a03e7d391e1baaf0f6d8c179b1f3eb38f6a0d",
+      "growth_over_534": 4,
+      "retained_498_parent_letters_before_repairs": 240,
+      "repairs": [
+        {
+          "id": "finite-delivery",
+          "kind": "cross-sentence finite-clause substitution",
+          "center_offsets_before": [
+            [
+              91,
+              110
+            ],
+            [
+              130,
+              149
+            ]
+          ],
+          "old_left": "Nora, I saw deliver Noel.",
+          "old_right": "Leon. Reviled was I, Aron.",
+          "new_left": "Nadia delivers maps. Leon,",
+          "new_right": "Noel; spam's reviled, Aidan.",
+          "old_letters_per_side": 19,
+          "new_letters_per_side": 21,
+          "replacement_reverse_exact": true,
+          "new_event_content": "Nadia delivers maps before Leon reports what he saw"
+        }
+      ],
+      "live_state": {
+        "owner": "R",
+        "residual_before_center": "won",
+        "right_boundary_consumption": "Leon|won",
+        "residual_after_shell": ""
+      },
+      "provenance": {
+        "targeted_inner_repairs": true,
+        "outer_wrapper_added": false,
+        "larger_pair_bank_sweep": false,
+        "finished_tape_reversal": false,
+        "posthoc_character_repair": false,
+        "human_certified": false
+      }
+    },
+    {
+      "id": "single-svo-536",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora, was I evil? Noel, did I draw Mara? Was I God? Sara spots rats. Nora, I saw desserts. Noel, was I stressed? Nora, I saw deliver Noel. I saw diaper. Repaid was I, Leon. Reviled was I, Aron. Desserts I saw, Leon. Stressed was I, Aron. Star stops Aras. Dog I saw, Aram. Ward I did, Leon. Live I saw, Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 536,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "cb0ac4ab0c2a765c19e49b8760554aa28d0341e9d1d921df0e24bcb66990f1c8",
+        "sha256_reverse": "cb0ac4ab0c2a765c19e49b8760554aa28d0341e9d1d921df0e24bcb66990f1c8",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/incumbent-498-deep-clause-transducer-20261002.json",
+      "parent_sha256": "4df622f18dc04d737f0c3644e52a03e7d391e1baaf0f6d8c179b1f3eb38f6a0d",
+      "growth_over_534": 2,
+      "retained_498_parent_letters_before_repairs": 240,
+      "repairs": [
+        {
+          "id": "svo-event",
+          "kind": "subject-verb-object substitution",
+          "center_offsets_before": [
+            [
+              47,
+              59
+            ],
+            [
+              181,
+              193
+            ]
+          ],
+          "old_left": "Sara, did I live?",
+          "old_right": "Evil I did, Aras.",
+          "new_left": "Sara spots rats.",
+          "new_right": "Star stops Aras.",
+          "old_letters_per_side": 12,
+          "new_letters_per_side": 13,
+          "replacement_reverse_exact": true,
+          "new_event_content": "Sara spots rats; Star stops Aras"
+        }
+      ],
+      "live_state": {
+        "owner": "R",
+        "residual_before_center": "won",
+        "right_boundary_consumption": "Leon|won",
+        "residual_after_shell": ""
+      },
+      "provenance": {
+        "targeted_inner_repairs": true,
+        "outer_wrapper_added": false,
+        "larger_pair_bank_sweep": false,
+        "finished_tape_reversal": false,
+        "posthoc_character_repair": false,
+        "human_certified": false
+      }
+    }
+  ]
+}

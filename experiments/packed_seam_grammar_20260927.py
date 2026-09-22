@@ -90,6 +90,16 @@ def intersect(g, max_letters=120, cap=100000):
     for edge_id, (left, right, char, _, _) in enumerate(g.edges):
         forward[left].append(edge_id)
         backward[right].append(edge_id)
+
+    @lru_cache(None)
+    def reachable(node):
+        # Graph reachability, never numeric state ordering: alternatives have
+        # independently allocated lexical interiors and shared destinations.
+        reached = {node}
+        successors = list(g.epsilon[node]) + [g.edges[i][1] for i in forward[node]]
+        for nxt in successors:
+            reached.update(reachable(nxt))
+        return frozenset(reached)
     reverse_epsilon = defaultdict(list)
     for left, rights in list(g.epsilon.items()):
         for right in rights:
@@ -162,8 +172,10 @@ def intersect(g, max_letters=120, cap=100000):
         for char in sorted(common):
             for a in fw[char]:
                 for b in bw[char]:
-                    queue.append((g.edges[a][1], g.edges[b][0], lp+(a,), rp+(b,)))
-                    transitions += 1
+                    nl, nr = g.edges[a][1], g.edges[b][0]
+                    if nr in reachable(nl):
+                        queue.append((nl, nr, lp+(a,), rp+(b,)))
+                        transitions += 1
     return dict(candidates=sorted(candidates.values(), key=lambda x:-x['audit']['letters']),
                 states=len(seen), transitions=transitions, cap_reached=bool(queue),
                 dead_frontiers=dead, grammar_states=g.count,

@@ -184,6 +184,17 @@ that remains clean for both repeated units and distinct content. A 531-letter
 candidate from this cut requires at least 495 generated suffix letters; that
 is the active one-sided discourse-product target.
 
+That cut also fails for an endpoint-specific reason. Its required reverse tape
+ends `reviledaidan`. The only finite common-word parse, “Rev! I led Aidan,”
+places a token boundary at reverse cursor 31, exactly complementary to the
+frozen `Nadia` boundary at prefix cursor 5. It therefore creates a forbidden
+proper centered span. The only boundary-avoiding lexical tail is fragmentary:
+`rev | i | leda | i | dan`. We stop cutting this inherited rendering here.
+The next method starts from a fresh common-word endpoint and intersects POS,
+agreement, valency, character residual, and a complementary-boundary mask
+online, before surface realization. This is the representation change implied
+by the incumbent evidence, rather than another repair of the 498 tape.
+
 Evidence:
 `experiments/incumbent_550_asymmetric_smaps_repair_20261002.py`,
 `runs/incumbent-550-asymmetric-smaps-repair-20261002.json`, and

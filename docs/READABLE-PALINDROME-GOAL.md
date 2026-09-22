@@ -122,6 +122,16 @@ The search has moved to raw offset 48 / normalized offset 36, retaining only
 clean for repeated units and distinct content; a 531-letter result now needs
 at least 495 newly generated suffix letters.
 
+The raw-48 cut is also closed by endpoint geometry. Its required reverse tape
+ends `...reviledaidan`. The only finite common-word reading, “Rev! I led
+Aidan,” places a boundary at reverse cursor 31, complementary to the frozen
+`Nadia` boundary at prefix cursor 5; this recreates a forbidden proper span.
+Avoiding cursor 31 leaves only fragmentary `rev | i | leda | i | dan`.
+Therefore no further cut that retains the inherited raw-0 endpoint is active.
+The construction pivot is now a fresh common-word POS/residual product that
+chooses endpoints and token boundaries jointly and rejects complementary
+boundary cursors before rendering.
+
 Evidence:
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
 `runs/incumbent-498-live-seam-growth-20261002.json`, followed by

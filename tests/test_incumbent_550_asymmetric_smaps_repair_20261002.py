@@ -34,3 +34,8 @@ def test_asymmetric_window_removes_four_spans_and_creates_none() -> None:
     assert eof_obstruction["repeated_unit"] == ["delivers", "maps"]
     assert eof_obstruction["next_globally_clean_prefix"]["raw_end"] == 48
     assert eof_obstruction["next_globally_clean_prefix"]["normalized_end"] == 36
+    endpoint = row["raw48_endpoint_obstruction"]
+    assert endpoint["strict_accepts"] == 0
+    assert endpoint["fatal_reverse_cursor"] == 31
+    assert endpoint["reflected_prefix_cursor"] == 5
+    assert endpoint["representation_pivot"].startswith("replace the inherited endpoint")

@@ -1,0 +1,68 @@
+{
+  "method": "typed phrase graph with online one-edge growth",
+  "candidate": {
+    "text": "Nora, I saw evil. Noel, I saw war. Mara, I saw God. Sara, I saw live. Nora, I saw desserts. Noel, I saw stressed. Nora, I saw deliver. Noel, I saw diaper. Repaid was I, Leon. Reviled was I, Aron. Desserts was I, Leon. Stressed was I, Aron. Evil was I, Aras. Dog was I, Aram. Raw was I, Leon. Live was I, Aron.",
+    "letters": 214,
+    "normalized": "noraisawevilnoelisawwarmaraisawgodsaraisawlivenoraisawdessertsnoelisawstressednoraisawdelivernoelisawdiaperrepaidwasileonreviledwasiarondessertswasileonstressedwasiaronevilwasiarasdogwasiaramrawwasileonlivewasiaron",
+    "exact_two_pointer": true,
+    "validator": true,
+    "sha256": "e53ee30535d4c28c7690ccf7cd041698cc12aaf7e8b5d3aa8824df5298a22ac8",
+    "independent_forward_reverse_sha256": "e53ee30535d4c28c7690ccf7cd041698cc12aaf7e8b5d3aa8824df5298a22ac8",
+    "novelty_preflight": true,
+    "provenance": {
+      "base": "typed-phrase-graph-palindromes-20260928.json",
+      "growth_operator": "online typed edge admission with distinct clause tapes",
+      "growth_edges": [
+        {
+          "left": "Nora, I saw deliver.",
+          "right": "Reviled was I, Aron.",
+          "matched_online": true,
+          "duplicate_unit": false,
+          "accepted": true
+        },
+        {
+          "left": "Noel, I saw diaper.",
+          "right": "Repaid was I, Leon.",
+          "matched_online": true,
+          "duplicate_unit": false,
+          "accepted": true
+        }
+      ],
+      "distinct_units": true,
+      "self_palindromic_units": false,
+      "catalogue_text": false,
+      "posthoc_character_repair": false
+    },
+    "reader_gate": "pending-blinded-human-ratings; formulaic seam debt disclosed"
+  },
+  "edge_count": 8,
+  "growth_trace": [
+    {
+      "edge": "incumbent",
+      "accepted": true,
+      "reason": "seed lineage"
+    },
+    {
+      "left": "Nora, I saw deliver.",
+      "right": "Reviled was I, Aron.",
+      "matched_online": true,
+      "duplicate_unit": false,
+      "accepted": true
+    },
+    {
+      "left": "Noel, I saw diaper.",
+      "right": "Repaid was I, Leon.",
+      "matched_online": true,
+      "duplicate_unit": false,
+      "accepted": true
+    }
+  ],
+  "controls": {
+    "incumbent_letters": 156,
+    "intact": [
+      "The pilot maps the chart near the harbor."
+    ],
+    "shuffle_seed": 20260929
+  },
+  "next_operator": "replace one copular-return growth edge with a non-copular transitive scene clause while preserving its live boundary tape"
+}

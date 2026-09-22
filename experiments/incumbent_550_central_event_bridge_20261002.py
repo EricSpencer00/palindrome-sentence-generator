@@ -149,6 +149,23 @@ def build_payload() -> dict[str, object]:
                         "widen past the Ari/Ira endpoint cuts and require no "
                         "complementary internal token-boundary cuts"
                     ),
+                    "incumbent_specific_obstruction": {
+                        "parent_raw_window": [357, 403],
+                        "parent_normalized_window": [261, 294],
+                        "parent_window_text": (
+                            "Leon, I saw diaper. Repaid was I, Noel; spam's"
+                        ),
+                        "frozen_prefix_letters": 261,
+                        "frozen_suffix_letters": 256,
+                        "owner": "L",
+                        "residual": "smaps",
+                        "equation": (
+                            "smaps + normalize(new_window) must close the whole "
+                            "palindrome while normalize(new_window) is non-palindromic"
+                        ),
+                        "minimum_replacement_letters": 14,
+                        "minimum_full_candidate_letters": 531,
+                    },
                 },
             }
         ],

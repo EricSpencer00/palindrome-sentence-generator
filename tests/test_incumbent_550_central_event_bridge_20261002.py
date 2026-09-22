@@ -30,3 +30,7 @@ def test_central_bridge_has_distinct_events_and_staggered_boundaries() -> None:
     assert not structure["word_boundaries_reflect_one_to_one"]
     assert row["live_state"]["residual"] == "s"
     assert row["live_state"]["residual_after_shell"] == ""
+    obstruction = row["worst_remaining_seam"]["incumbent_specific_obstruction"]
+    assert obstruction["residual"] == "smaps"
+    assert obstruction["parent_normalized_window"] == [261, 294]
+    assert obstruction["minimum_full_candidate_letters"] == 531

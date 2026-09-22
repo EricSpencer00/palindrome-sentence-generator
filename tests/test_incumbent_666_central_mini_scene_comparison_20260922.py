@@ -19,8 +19,9 @@ def test_central_mini_scene_is_exact_and_pending_review():
     result = independent_audit(row["rendered"])
 
     assert row["parent_sha256"] == PARENT_SHA256
-    assert row["promotion_status"]["promoted"] is False
-    assert row["promotion_status"]["status"] == "comparison_pending_full_text_review"
+    assert row["promotion_status"]["promoted"] is True
+    assert row["promotion_status"]["status"] == "promoted_active_readability_frontier"
+    assert row["promotion_status"]["comparison_retained"]["sha256"] == PARENT_SHA256
     assert result["normalized_letters"] == 666
     assert result["two_pointer_exact"]
     assert result["sha256_forward"] == CHILD_SHA256
@@ -32,6 +33,8 @@ def test_central_mini_scene_is_exact_and_pending_review():
     assert len(row["live_seam"]["left_trace"]) == 42
     assert len(row["live_seam"]["right_trace"]) == 42
     assert normalize(NEW_LEFT) == normalize(NEW_RIGHT)[::-1]
+    assert payload["active_readability_frontier"]["sha256"] == CHILD_SHA256
+    assert payload["comparison_retained"]["sha256"] == PARENT_SHA256
 
 
 def test_central_mini_scene_has_connected_novel_complete_clauses():
@@ -54,4 +57,10 @@ def test_central_mini_scene_has_connected_novel_complete_clauses():
         "varied_relations": ["stops", "spots"],
         "repeated_subject_verb_frames": [],
         "repeated_neighboring_clauses": False,
+    }
+    assert row["readability_delta"] == {
+        "material_full_text_improvement": True,
+        "connected_central_event_scene": True,
+        "complete_finite_svo_clauses": True,
+        "inherited_debt_remains": True,
     }

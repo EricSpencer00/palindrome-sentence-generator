@@ -1,7 +1,15 @@
 {
   "experiment_id": "incumbent-666-central-mini-scene-comparison-20260922",
   "method": "one bounded connected central mini-scene comparison",
-  "active_frontier_parent": {
+  "active_readability_frontier": {
+    "artifact": "runs/incumbent-666-central-mini-scene-comparison-20260922.json",
+    "id": "central-mini-scene-comparison-leon-noel-666",
+    "letters": 666,
+    "sha256": "3951b9449ed3ab28f55d9798e344dfaf3123035f5f07c9dffdf0047bed0e1d79",
+    "promoted": true,
+    "working_incumbent_unchanged": true
+  },
+  "comparison_retained": {
     "artifact": "runs/incumbent-666-comparison-alternative-20260922.json",
     "id": "comparison-alternative-nora-sees-666",
     "letters": 666,
@@ -42,11 +50,18 @@
   "rows": [
     {
       "id": "central-mini-scene-comparison-leon-noel-666",
-      "working_status": "central_mini_scene_comparison",
+      "working_status": "active_666_readability_frontier",
       "promotion_status": {
-        "promoted": false,
-        "status": "comparison_pending_full_text_review",
-        "reason": "Reviewer-specified connected mini-scene closes exactly with global novelty; retain as comparison pending full-text review."
+        "promoted": true,
+        "status": "promoted_active_readability_frontier",
+        "working_incumbent_unchanged": true,
+        "rationale": "The connected three-clause mini-scene replaces the inherited stressed/desserts shell with linked Leon-Noel-Nadia-Aidan events while preserving the unchanged center, exact 666 letters, exact reversal, and empty residual ownership.",
+        "tradeoff": "This is a readability-frontier promotion only: inherited repetition and rough syntax remain, the cafd parent is retained as comparison evidence, and the 568 child remains the working incumbent.",
+        "comparison_retained": {
+          "artifact": "runs/incumbent-666-comparison-alternative-20260922.json",
+          "id": "comparison-alternative-nora-sees-666",
+          "sha256": "cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297"
+        }
       },
       "rendered": "Leon won. Wolf spots Nora. Nora sees Nadia. Nadia sees Ira. Sara saw God. Ari saw Dog. Mara stops rats. Nora spots a ram. Mara sees rats. Nora stops rats. Nora sees Aram. Mara sees Nadia. Nadia saw Noel live. Mara stops Nadia. Nora sees Aram. Sara saw Noel live. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Leon stops Noel. Noel spots Nadia. Nadia stops Aidan. Ari sees God. Dog sees Ira. Nadia spots Aidan. Aidan stops Leon. Leon spots Noel. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Evil Leon was Aras. Mara sees Aron. Aidan spots Aram. Evil Leon was Aidan. Aidan sees Aram. Mara sees Aron; star spots Aron. Star sees Aram. Mara stops Aron. Star spots Aram. God was Ira. Dog was Aras. Ari sees Aidan. Aidan sees Aron. Aron stops flow now, Noel.",
       "audit": {
@@ -817,10 +832,23 @@
         "inherited_proper_palindromic_spans": true,
         "remaining_full_text_repetition": true,
         "human_reader_validation": false,
-        "effect": "retain 568 incumbent and promoted 666 parent until review"
+        "effect": "active readability frontier; do not demote 568; retain cafd 666 comparison"
       },
-      "provenance": "reviewer-derived 42-letter connected mini-scene with exact clause boundaries and explicit residual ownership"
+      "readability_delta": {
+        "material_full_text_improvement": true,
+        "connected_central_event_scene": true,
+        "complete_finite_svo_clauses": true,
+        "inherited_debt_remains": true
+      },
+      "provenance": "reviewer-derived 42-letter connected mini-scene promoted for readability while retaining cafd comparison evidence"
     }
   ],
-  "next_operator": "review central mini-scene comparison without promoting over 568 incumbent"
+  "stats": {
+    "independently_exact_children": 1,
+    "children_at_least_666": 1,
+    "active_frontier_letters": 666,
+    "committed_character_contradictions": 0,
+    "backtracks": 0
+  },
+  "next_operator": "repair center pair at normalized [323,343), raw [438,466); retain 568 incumbent and cafd comparison"
 }

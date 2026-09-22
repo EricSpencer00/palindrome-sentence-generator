@@ -145,11 +145,26 @@ def build_payload() -> dict[str, object]:
 
     row = {
         "id": "central-mini-scene-comparison-leon-noel-666",
-        "working_status": "central_mini_scene_comparison",
+        "working_status": "active_666_readability_frontier",
         "promotion_status": {
-            "promoted": False,
-            "status": "comparison_pending_full_text_review",
-            "reason": "Reviewer-specified connected mini-scene closes exactly with global novelty; retain as comparison pending full-text review.",
+            "promoted": True,
+            "status": "promoted_active_readability_frontier",
+            "working_incumbent_unchanged": True,
+            "rationale": (
+                "The connected three-clause mini-scene replaces the inherited stressed/desserts shell "
+                "with linked Leon-Noel-Nadia-Aidan events while preserving the unchanged center, "
+                "exact 666 letters, exact reversal, and empty residual ownership."
+            ),
+            "tradeoff": (
+                "This is a readability-frontier promotion only: inherited repetition and rough syntax "
+                "remain, the cafd parent is retained as comparison evidence, and the 568 child remains "
+                "the working incumbent."
+            ),
+            "comparison_retained": {
+                "artifact": str(PARENT.relative_to(ROOT)),
+                "id": PARENT_ID,
+                "sha256": PARENT_SHA256,
+            },
         },
         "rendered": rendered,
         "audit": project_audit,
@@ -195,14 +210,28 @@ def build_payload() -> dict[str, object]:
             "inherited_proper_palindromic_spans": True,
             "remaining_full_text_repetition": True,
             "human_reader_validation": False,
-            "effect": "retain 568 incumbent and promoted 666 parent until review",
+            "effect": "active readability frontier; do not demote 568; retain cafd 666 comparison",
         },
-        "provenance": "reviewer-derived 42-letter connected mini-scene with exact clause boundaries and explicit residual ownership",
+        "readability_delta": {
+            "material_full_text_improvement": True,
+            "connected_central_event_scene": True,
+            "complete_finite_svo_clauses": True,
+            "inherited_debt_remains": True,
+        },
+        "provenance": "reviewer-derived 42-letter connected mini-scene promoted for readability while retaining cafd comparison evidence",
     }
     return {
         "experiment_id": "incumbent-666-central-mini-scene-comparison-20260922",
         "method": "one bounded connected central mini-scene comparison",
-        "active_frontier_parent": {
+        "active_readability_frontier": {
+            "artifact": str(OUT.relative_to(ROOT)),
+            "id": "central-mini-scene-comparison-leon-noel-666",
+            "letters": 666,
+            "sha256": CHILD_SHA256,
+            "promoted": True,
+            "working_incumbent_unchanged": True,
+        },
+        "comparison_retained": {
             "artifact": str(PARENT.relative_to(ROOT)),
             "id": PARENT_ID,
             "letters": 666,
@@ -216,7 +245,14 @@ def build_payload() -> dict[str, object]:
         },
         "preserved_frontier": list(FRONTIER),
         "rows": [row],
-        "next_operator": "review central mini-scene comparison without promoting over 568 incumbent",
+        "stats": {
+            "independently_exact_children": 1,
+            "children_at_least_666": 1,
+            "active_frontier_letters": 666,
+            "committed_character_contradictions": 0,
+            "backtracks": 0,
+        },
+        "next_operator": "repair center pair at normalized [323,343), raw [438,466); retain 568 incumbent and cafd comparison",
     }
 
 

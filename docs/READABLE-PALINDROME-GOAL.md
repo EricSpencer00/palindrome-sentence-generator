@@ -10,19 +10,24 @@ The exact 560, 558, and 556 children remain preserved frontier entries with
 independently verified hashes. Proper spans, repeated scaffolding, rough syntax,
 and absent reader validation are repair debt and do not demote the 568 result.
 
-The latest candidate loads that exact artifact and edits the actual internal
-`Mara stops|spots Aram` seam at normalized cursor 73. Its residual-owned shell
-is `rats. Nora spots a ram.` ↔ `Mara stops Aron. Star`; the retained 422-letter
-center remains exact, with an empty final residual, zero backtracks, and zero
-committed character contradictions. The independently exact new-content child
-is **602 letters** in
+The latest repair loads the exact 602 child in
 `runs/incumbent-568-internal-seam-growth-20260922.json`, row
 `internal-mara-stops-602`, SHA-256
 `69696036f9bb9392ae9473884f011cfb767b4700d6407f5a07f3fba595953c89`.
-It remains a growth-frontier child, not a replacement for the 568 incumbent.
+At symmetric normalized windows `[77,94)` and `[508,525)`, it replaces
+`Nora spots a ram. rats` ↔ `star Mara stops Aron` with the residual-owned
+equation `Nora spots a ram. Mara stops rats` ↔
+`star spots Aram. Mara stops Aron`. This removes the broken rendered fragments `Nora spots a ram. rats.`
+and `Eh, but a star Mara stops Aron. Star spots Aram.` while retaining exact
+reversal. The independently exact **620-letter** child is row
+`fragment-repair-mara-rats-620` in
+`runs/incumbent-602-fragment-seam-repair-20260922.json`, SHA-256
+`d20fc566d6a636e9826e432550be92e3ce5ace8a3cdaa2f6d291ad0709ffb90a`;
+focused tests pass (`2 passed`) and the independent Ruby audit agrees.
+It remains a repair-frontier child, not a replacement for the 568 incumbent.
 
-The next action repairs the clearest inherited debt inside the 602 child, or
-changes the actual seam only on a committed normalized-character contradiction.
+The next action repairs the clearest remaining grammar debt in the 620 child,
+or uses the clean 594 cursor-204/364 fallback only on a committed contradiction.
 
 Fresh POS search, productive-affix search, morphology cycles, short witnesses,
 and reader-study operators are stopped. They are not active alternatives.
@@ -30,8 +35,8 @@ The model policy is **gpt-5.6-luna at high reasoning only**: no Sol, Astra,
 Terra, or other model.
 
 Evidence:
-`experiments/incumbent_568_internal_seam_growth_20260922.py` and
-`runs/incumbent-568-internal-seam-growth-20260922.json`.
+`experiments/incumbent_602_fragment_seam_repair_20260922.py` and
+`runs/incumbent-602-fragment-seam-repair-20260922.json`.
 
 ## Historical 498-to-568 construction ledger (superseded by the override above)
 

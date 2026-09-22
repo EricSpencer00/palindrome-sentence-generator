@@ -56,11 +56,27 @@ def main() -> None:
           "syntax": {"left_role": "complete witnessed-event clause", "right_role": "complete retrospective clause",
                       "residual_carry": rr, "phrase_units_complete": True},
           "seam_readability": "ordinary clauses, but residual mismatch prevents exact admission"})
+    # Follow-up construction: retain the two depth-4 frontiers and let a new
+    # complete phrase cross one internal partial-word seam.  The partial token
+    # is only an ownership boundary; no text is repaired after rendering.
+    followups = [
+        ("Sara, I carried a small lantern. The lantern warmed the room.", "Returned, I was, Aras."),
+        ("Nora, I heard the winter bell. The bell marked dawn.", "Remembered, I was, Aron."),
+    ]
+    for n, (left, right) in enumerate(followups):
+        rr = residual(left, right); rendered = f"{left} {parent} {right}"; au = audit(rendered)
+        rows.append({"id": f"internal-seam-{n}", "rendered": rendered, "parent_lineage": "parent-530",
+          "added_left_span": left, "added_right_span": right, "normalized_length": au["letters"],
+          "growth_over_parent": au["letters"] - parent_a["letters"], "audit": au,
+          "syntax": {"left_role": "two complete witnessed-event clauses", "right_role": "complete retrospective clause",
+                      "partial_word_seam": "lantern|returned" if n == 0 else "dawn|remembered",
+                      "residual_carry": rr, "phrase_units_complete": True},
+          "seam_readability": "new clause is readable; internal partial-word ownership remains unresolved"})
     exact = [r for r in rows if r["audit"]["two_pointer_exact"] and r["audit"]["validator_exact"] and r["audit"]["sha_equal"]]
     payload = {"experiment_id": "growth-from-530-syntax-20261002", "method": "authored complete-clause span growth with live unequal residual ownership",
       "parent_artifact": str(SOURCE.relative_to(ROOT)), "parent_sha256": parent_a["sha256_forward"], "parent_letters": 530,
       "rows": rows, "stats": {"attempts": len(pairs), "exact_children": len(exact), "longest_letters": max(r["normalized_length"] for r in rows)},
-      "reader_gate": "closed; no blinded ratings", "next_operator": "float a typed internal partial-word seam at the first residual while retaining parent-530 frontier",
+      "reader_gate": "closed; no blinded ratings", "next_operator": "split the first mismatching morpheme into an authored agreement-bearing phrase, preserving the parent-530 frontier",
       "provenance": {"grammar": "three authored event/retrospective clause pairs", "bank_sweep": False, "finished_tape_reversal": False, "posthoc_repair": False, "repeated_units": False}}
     OUT.write_text(json.dumps(payload, indent=2) + "\n")
 

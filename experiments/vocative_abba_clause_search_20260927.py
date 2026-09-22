@@ -128,6 +128,14 @@ def compose(pair_path: list[dict]) -> str:
     return " ".join(left + right)
 
 
+def paragraph_shape(width: int) -> str:
+    """Name the nested seam topology independently of the rendered text."""
+    if width == 1:
+        return "A A'"
+    labels = [chr(ord("A") + i) for i in range(width)]
+    return " ".join(labels + [f"{label}'" for label in reversed(labels)])
+
+
 def reader_package(candidate: str) -> dict[str, object]:
     controls = [
         "Nora described the war while Noel recorded the damage, and Mara named the witness.",
@@ -195,6 +203,7 @@ def run() -> dict[str, object]:
         candidate = {
             "rendered": text,
             "letters": au["letters"],
+            "paragraph_shape": paragraph_shape(width),
             "units": units,
             "audit": au,
             "novelty_preflight": is_novel_palindrome(text),
@@ -219,6 +228,12 @@ def run() -> dict[str, object]:
     return {
         "experiment_id": "vocative-abba-clause-search-20260927",
         "method": "independent typed vocative clause banks with indexed live reversed-character seam intersection and ABBA nesting",
+        "construction_rule": {
+            "unit": "complete authored clause",
+            "seam": "each left clause is matched against the live reverse obligation of an independently generated right clause",
+            "nested_shapes": [paragraph_shape(width) for width in range(1, len(chosen) + 1)],
+            "finished_tape_reversal": False,
+        },
         "stats": {"left_clauses": len(left), "right_clauses": len(right),
                   "exact_pairs": len(pairs), "candidate_widths": len(candidates),
                   "exact_admissible": len(exact),

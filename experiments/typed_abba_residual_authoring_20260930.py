@@ -8,6 +8,9 @@ reversed closing paragraph.
 import hashlib, json
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / 'runs/typed-abba-residual-authoring-20260930.json'
+
 def norm(s): return ''.join(c.lower() for c in s if c.isalpha())
 def audit(s):
     t=norm(s); r=t[::-1]
@@ -72,5 +75,6 @@ def main():
       'reader_status':'not reader-certified; all outputs are construction evidence',
       'next_construction':'add semantic B2 clauses whose first two required letters form ordinary openings (a, i, he, she), then author A2 with matching discourse role and inflection; retain residuals rather than reverse-rendering them.',
       'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
-    print(json.dumps(out,indent=2))
+    OUT.write_text(json.dumps(out, indent=2) + '\n')
+    print(json.dumps(out, indent=2))
 if __name__=='__main__': main()

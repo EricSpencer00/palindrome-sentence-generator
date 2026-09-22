@@ -8700,6 +8700,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   observed residual itself. Artifact:
   `runs/floating-boundary-abba-20260930.json`.
 
+- **Residual-directed ABBA authoring:** a new probe selected `B2` only after
+  observing the live `A1+B1` residual, then authored `A2` against the remaining
+  frontier. Three typed discourse cases produced five intact paragraph
+  candidates, with zero exact closures and zero `A2` prefix matches; one
+  residual began `gnit...`, showing that a one-character opening target is
+  insufficient to keep the closing role grammatical. This is a construction
+  failure, not a readability claim. The next operator targets two characters
+  or a full word boundary before authoring `B2`, while retaining semantic
+  agreement and the ABBA graph. Artifact:
+  `runs/typed-abba-residual-authoring-20260930.json`.
+
 - **Argument-sharing paragraph continuation:** a typed outer event was streamed
   around the verified center, yielding the following 54-letter exact tape:
 

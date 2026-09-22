@@ -65,7 +65,14 @@ def test_widened_graph_closes_characters_but_is_rejected_by_full_parent_frame_ga
     assert graph["admission"]["exact_child_saved"] is False
     assert graph["admission"]["obstruction"]["cursor"] == 57
     assert graph["admission"]["obstruction"]["residual"] == ""
-    assert graph["replaced_reused_frames"] == {"noel|stops": True, "evil leon|was": True}
+    assert graph["replaced_reused_frames"] == {
+        "aidan|spots": True,
+        "aidan|stops": True,
+        "leon|stops": True,
+        "nadia|sees": True,
+        "nadia|stops": True,
+        "noel|spots": True,
+    }
     assert graph["old_letters_per_side"] == 41
     assert graph["new_letters_per_side"] == 57
     assert graph["candidate_letters"] == 698

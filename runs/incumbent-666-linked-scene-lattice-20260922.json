@@ -1118,7 +1118,7 @@
           "no_duplicate_clauses": false,
           "no_duplicate_adjacent_roles": true,
           "neighbor_entity_continuity": true,
-          "spacing_shell_preserved": true
+          "spacing_shell_preserved": false
         },
         "spacing_shell": {
           "left_parent_prefix_at_boundary": ". Noel stops Aras.",
@@ -1127,7 +1127,24 @@
           "right_parent_suffix_at_boundary": " Sara spots Leon. Ma",
           "left_splice_excerpt": ". Nora saw Noel live.",
           "right_splice_excerpt": ". Sara spots Leon. Ma",
+          "left_leading_boundary_has_space": false,
+          "right_leading_boundary_has_space": false,
+          "leading_space_failures": [
+            {
+              "side": "left",
+              "broken_display": "Aras.Nora",
+              "expected_display": "Aras. Nora",
+              "reason": "raw replacement began at the parent-owned leading space"
+            },
+            {
+              "side": "right",
+              "broken_display": "Aron.Mara",
+              "expected_display": "Aron. Mara",
+              "reason": "raw replacement began at the parent-owned leading space"
+            }
+          ],
           "single_boundary_spaces": true,
+          "spacing_shell_preserved": false,
           "double_spaces": false
         },
         "candidate_rendered": "Leon won. Wolf spots Nora. Nora sees Nadia. Nadia sees Ira. Sara saw God. Ari saw Dog. Mara stops rats. Nora spots a ram. Mara sees rats. Nora stops rats. Nora sees Aram. Noel stops Aras.Nora sees Aram. Aram sees Noel. Noel sees Aras. Aras sees Nora. Nora was Aidan. Aidan saw Aram. Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Leon stops Noel. Noel spots Nadia. Nadia stops Aidan. Ari sees God. Dog sees Ira. Nadia spots Aidan. Aidan stops Leon. Leon spots Noel. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron.Mara was Nadia. Nadia saw Aron. Aron sees Sara. Sara sees Leon. Leon sees Mara. Mara sees Aron. Sara spots Leon. Mara sees Aron; star spots Aron. Star sees Aram. Mara stops Aron. Star spots Aram. God was Ira. Dog was Aras. Ari sees Aidan. Aidan sees Aron. Aron stops flow now, Noel.",
@@ -1164,7 +1181,7 @@
                 "no_duplicate_clauses": false,
                 "no_duplicate_adjacent_roles": true,
                 "neighbor_entity_continuity": true,
-                "spacing_shell_preserved": true
+                "spacing_shell_preserved": false
               },
               "reused_frames": [
                 "mara|sees",

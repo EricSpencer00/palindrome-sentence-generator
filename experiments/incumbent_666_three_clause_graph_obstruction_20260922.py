@@ -250,7 +250,9 @@ def build_payload() -> dict[str, object]:
                 },
             ],
             "spacing_assembly": spacing_assembly,
-            "replaced_reused_frames": {"noel|stops": True, "evil leon|was": True},
+            # All six candidate frames are already present in the promoted
+            # parent; the former two-entry summary was stale.
+            "replaced_reused_frames": {frame: True for frame in sorted(candidate_frames & parent_frames)},
             "gates": graph_gates,
             "candidate_audit": candidate_audit,
             "candidate_independent_audit": candidate_independent,

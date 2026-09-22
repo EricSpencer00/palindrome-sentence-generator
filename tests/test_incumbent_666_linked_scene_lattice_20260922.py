@@ -20,11 +20,16 @@ def test_bounded_linked_scene_closes_and_preserves_72_letter_seam_equation():
     assert attempt["residuals"] == {"left": "", "right": ""}
     assert attempt["paired_trace"]["exact"] is True
     assert attempt["spacing_shell"]["single_boundary_spaces"] is True
+    assert attempt["spacing_shell"]["left_leading_boundary_has_space"] is False
+    assert attempt["spacing_shell"]["right_leading_boundary_has_space"] is False
+    assert attempt["spacing_shell"]["spacing_shell_preserved"] is False
+    assert len(attempt["spacing_shell"]["leading_space_failures"]) == 2
     assert attempt["spacing_shell"]["double_spaces"] is False
     assert attempt["gates"]["connected_multi_event_scene"] is True
     assert attempt["gates"]["varied_predicates"] is True
     assert attempt["gates"]["complete_finite_clauses"] is True
     assert attempt["gates"]["no_duplicate_adjacent_roles"] is True
+    assert attempt["gates"]["spacing_shell_preserved"] is False
 
 
 def test_full_parent_novelty_obstruction_is_persisted_without_promotion():

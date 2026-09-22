@@ -156,7 +156,7 @@ def build_payload() -> dict[str, object]:
             for a, b in zip(scene_clauses, scene_clauses[1:])
         ),
         "neighbor_entity_continuity": True,
-        "spacing_shell_preserved": True,
+        "spacing_shell_preserved": False,
     }
 
     candidate_rendered = (
@@ -175,7 +175,24 @@ def build_payload() -> dict[str, object]:
         "right_parent_suffix_at_boundary": parent_rendered[RAW_RIGHT[1] : RAW_RIGHT[1] + 20],
         "left_splice_excerpt": left_splice,
         "right_splice_excerpt": right_splice,
+        "left_leading_boundary_has_space": f"{parent_rendered[RAW_LEFT[0] - 1]}{scene_left[:12]}".startswith(". "),
+        "right_leading_boundary_has_space": f"{parent_rendered[RAW_RIGHT[0] - 1]}{scene_right[:12]}".startswith(". "),
+        "leading_space_failures": [
+            {
+                "side": "left",
+                "broken_display": "Aras.Nora",
+                "expected_display": "Aras. Nora",
+                "reason": "raw replacement began at the parent-owned leading space",
+            },
+            {
+                "side": "right",
+                "broken_display": "Aron.Mara",
+                "expected_display": "Aron. Mara",
+                "reason": "raw replacement began at the parent-owned leading space",
+            },
+        ],
         "single_boundary_spaces": ". " in left_splice and ". " in right_splice,
+        "spacing_shell_preserved": False,
         "double_spaces": "  " in candidate_rendered,
     }
     assert spacing_shell["single_boundary_spaces"]

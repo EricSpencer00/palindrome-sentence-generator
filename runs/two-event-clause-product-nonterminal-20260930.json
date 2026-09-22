@@ -1,0 +1,140 @@
+{
+  "experiment_id": "two-event-clause-product-nonterminal-20260930",
+  "signature": "independent-two-event-nonterminal-product|online-character-intersection|typed-roles-agreement-attachment",
+  "novelty_preflight": {
+    "passed": true,
+    "catalogue_text_imported": false,
+    "known_palindrome_used_as_generated": false,
+    "finished_sentence_sweep": false,
+    "reversed_word_or_clause_shortcut": false,
+    "rlaif_per_candidate": false
+  },
+  "grammar": {
+    "nonterminals": [
+      "Event",
+      "Agent",
+      "Verb",
+      "Patient",
+      "Attachment"
+    ],
+    "left_event_semantics": "agent performs action on patient; optional setting",
+    "right_event_semantics": "independent agent performs related action; agreement enforced by lexical class",
+    "punctuation": "semicolon and period are epsilon for letter tape"
+  },
+  "search": {
+    "online_character_matching": true,
+    "states": 4,
+    "transitions_examined": 22,
+    "dead_frontier": [
+      {
+        "depth": 1,
+        "left_chars": [
+          "n"
+        ],
+        "right_chars": [
+          "a",
+          "e",
+          "r",
+          "s"
+        ]
+      },
+      {
+        "depth": 1,
+        "left_chars": [
+          "n"
+        ],
+        "right_chars": [
+          "a",
+          "e",
+          "r",
+          "s"
+        ]
+      },
+      {
+        "depth": 1,
+        "left_chars": [
+          "c"
+        ],
+        "right_chars": [
+          "a",
+          "e",
+          "r",
+          "s"
+        ]
+      }
+    ]
+  },
+  "rendered_candidates": [],
+  "frontier_samples": [
+    {
+      "letters": 39,
+      "two_pointer_exact": false,
+      "first_mismatch": [
+        0,
+        "a",
+        "s"
+      ],
+      "sha256_forward": "043492fc3e5a07379cf7c418f07439c3ba7f822ad9c55593d6b354f710741037",
+      "sha256_reverse": "2521d4624e8872d226a8899689ac7f973212ebe57518f97901363af999ad0024",
+      "normalized": "anaidereadsthereportdianaguidestheclass",
+      "rendered": "An aide reads the report; Diana guides the class.",
+      "candidate_kind": "ordinary_two_event_frontier_sample",
+      "generated": false,
+      "reader_gate": {
+        "status": "closed",
+        "reason": "residual control"
+      }
+    },
+    {
+      "letters": 55,
+      "two_pointer_exact": false,
+      "first_mismatch": [
+        0,
+        "t",
+        "r"
+      ],
+      "sha256_forward": "3f1aa3f77ed94a6744c325a27f7a925f3eeff83b16f2361dce84e21fa0cc1aff",
+      "sha256_reverse": "4770318887e84f8bdb06fcdd3af0b127316b45f111da7531f2088b19f4dbfecd",
+      "normalized": "thecarefulaidesortsoldletterstheteacherpraisesthereader",
+      "rendered": "The careful aide sorts old letters; the teacher praises the reader.",
+      "candidate_kind": "ordinary_two_event_frontier_sample",
+      "generated": false,
+      "reader_gate": {
+        "status": "closed",
+        "reason": "residual control"
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "controls": [
+    "The patient gardener waters the cedar seedlings beside the schoolhouse before sunrise.",
+    "The teacher labels every seedling and stores the tools beneath the quiet porch."
+  ],
+  "summary": {
+    "rendered": 0,
+    "frontier_samples": 2,
+    "exact_novel": 0,
+    "max_letters": 55,
+    "frontier_depth": 1
+  },
+  "next_repair": {
+    "operator": "hold the first exposed agent/patient role pair open and add a finite relative attachment on both event grammars",
+    "reason": "ordinary role product reaches a character frontier but no accepting closure; repair a live nonterminal boundary, not a completed clause",
+    "forbidden": [
+      "catalogue",
+      "semordnilap-only lexical pairs",
+      "finished-sentence sweep",
+      "post-hoc edit",
+      "per-candidate RLAIF"
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "e891600035f3fe89ae75875f04603295149a39781c4892541d012cb07610e8f3",
+    "lexical_source": "hand-authored ordinary role lexicon",
+    "independent_audits": [
+      "two-pointer normalized tape",
+      "llm_palindrome.validator equivalent reversal",
+      "forward/reverse SHA-256"
+    ]
+  }
+}

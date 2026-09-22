@@ -15,29 +15,39 @@ reader ratings decide whether an exact output is readable.
 
 ## Anchor and frontier
 
-The frozen single-sentence reader anchor remains:
+The active construction parent is the 498-letter residual-growth artifact,
+not the historical 38/54-letter seed lane. Its exact normalized tape has
+SHA-256 `e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032`;
+an independent normalizer, direct two-pointer scan, the project validator, and
+forward/reverse SHA all agree. The 530-letter desserts/stressed wrapper is a
+repetition control, not an incumbent. A separate 528-letter drawer/reward
+descendant adds a new event and is retained in the working frontier.
 
-> **An aide rips nine memos; some men inspire Diana.**
+The new method reopens the parent's actual outer closure instead of wrapping a
+finished tape. Removing `to` and `got` retains `get ... estate` at normalized
+cursors 2 and 495. The live state is owner `R`, residual `g`: the mixed word
+`get` repays left debt `et` and exposes `g`; “Get a map” consumes that `g` and
+creates left residual `pamate`; “Pam ate” discharges it. Two independently
+authored name-event pairs then continue outward. One 552-letter child is:
 
-It has 38 ASCII letters, normalized tape
-`anaideripsninememossomemeninspirediana`, and forward/reverse SHA-256
-`ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6`.
-The independent outside-in pointer audit and the fail-closed mechanical gate
-both pass. It has not yet been rated by blinded humans.
+> **Nora saw Nadia. Mara saw Leon. Pam ate. get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate. Get a map. Noel was Aram. Aidan was Aron.**
 
-The first longer output to clear the same mechanical gate and direct prose
-preflight is now:
+It has 552 normalized letters and independent forward/reverse SHA-256
+`14e55f616284b264d3c97be42a4fcdfdf5651345732054dcc7cad80613290fcd`.
+The complete experiment saves ten exact children above the 530 control. The
+maximum is 554 letters, with SHA-256
+`cc7f98df008c250649a3c5bec7c1062f3d1349b539c97391c9e2ab961208ab42`.
+An orthogonal depth-35 `op|en` child has 546 letters and removes 70 inherited
+filler letters, making it the next repair branch.
 
-> **An aide rips nine memo-hero memos. Some more home men inspire Diana.**
-
-It has 54 ASCII letters.  Its normalized tape is
-`anaideripsninememoheromemossomemorehomemeninspirediana`; an independent
-two-pointer walk, the project validator, and equal forward/reverse SHA-256
-`2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268`
-all certify exactness.  Every mechanical shortcut gate passes.  This is a
-**reader-study candidate**, not yet a reader-certified result: the compounds
-`memo-hero` and `home men` are interpretable but unusual, so the readability
-claim is withheld pending the frozen blinded study below.
+This is a construction advance, not a readability claim. The rendered child
+is shown precisely because its inherited middle is still rough; no automatic
+score can certify it as English prose. Human evaluation is postponed until
+the worst inherited seam is repaired, but no reader gate blocks continued
+construction. Reproducible evidence is in
+`experiments/incumbent_498_live_seam_growth_20261002.py` and
+`runs/incumbent-498-live-seam-growth-20261002.json`. The historical 38- and
+54-letter sections below are retained only as ablation history.
 
 ## Paragraph-level ABBA generation
 
@@ -207,12 +217,12 @@ Two existing typed-grammar constructions demonstrate the mechanical topology:
 
 These are useful seam certificates, not readability wins: the repeated
 inversion and semordnilap vocabulary makes both surfaces formulaic, and the
-central gate rejects their boundary-aligned word symmetry. The
-longest exact tape is 530 letters, but that row only wraps the genuine
-498-letter raw-length incumbent with a desserts/stressed pair already present
-inside it. We therefore record 530 as an exact repetition control rather than
-new lexical or event content; 498 remains the meaningful residual-growth
-incumbent, and both are lexical filler rather than paragraph prose. The
+central gate rejects their boundary-aligned word symmetry. The former
+longest exact tape was 530 letters, but that row only wraps the 498-letter
+parent with a desserts/stressed pair already present inside it. We retain 530
+as an exact repetition control rather than new lexical or event content. The
+incumbent-specific live-seam method above now reaches 554 letters with new
+event content; it remains rough working text, not paragraph prose. The
 diagnostic comparison is frozen in
 `runs/paragraph-generation-abba-reader-20261002.json`, with the rejected ABBA
 controls, two intact prose controls, and reproducibly word-shuffled controls.

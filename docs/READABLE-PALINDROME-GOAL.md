@@ -2,38 +2,41 @@
 
 ## Active working-track override (2026-09-22)
 
-The primary construction is a strict dual-parse paragraph product with
-staggered `A | B || B' | A'` sentence seams.  Exact letters still match as one
-global left/right tape, but neither sentence boundary is tied to its reflected
-counterpart.  The product must carry nonempty residual character debt across
-each internal grammar boundary; an empty residual at a complete word before
-the full paragraph ends is rejected as a nested shortcut.
+The active parent is the independently verified 498-letter content-bearing
+closure in `runs/overhang-growth-from-240-20261001.json`, SHA-256
+`e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032`.
+The 38/54-letter seed lanes, fixed paragraph shells, short dialogue lanes,
+m-state cycles, historical central gates, and their reader prerequisite are
+frozen. The 530-letter desserts/stressed wrapper is retained only as a
+repetition control. The overlooked 528-letter drawer/reward child remains a
+content-bearing frontier member.
 
-The current strict graph reaches both inner sentence phases independently:
-216 product states, ten entering left B, 21 entering outside-in right B', nine
-premature word-aligned closures rejected, and zero states reaching both inner
-sentences simultaneously.  That graph contained no exact paragraph.  The
-subsequent joins solved the measured middle seam in two ways.  A 48-letter POS-valid output is
-exact but semantically incoherent and remains rejected.  A clean 32-letter
-output—“No trace. Note spots. Stop. Set one carton.”—is exact, staggered, and
-shortcut-clean, but does not beat the 38-letter reader anchor.  The active
-operator now jointly grows the two outer sentences around that open seam;
-wrapping the finished 32-letter tape as a closed unit is forbidden.  Evidence
-is in `runs/packed-staggered-paragraph-strict-symmetric-20260922.json`,
-`runs/paragraph-middle-seam-phrase-join-typed-3gram-20260922.json`, and
-`runs/paragraph-note-sentence-join-20260922.json`.
+The live construction now reopens the parent's actual `to ... got` closure.
+After removing only those outer words, the retained 493-letter surface is
+`get ... estate`, with owner `R` and residual `g`. The mixed-ownership word
+`get` first repays left residual `et` and then exposes `g` to the right. A new
+right event, “Get a map,” consumes `g` and creates left residual `pamate`;
+“Pam ate” closes it. Two further event-pair choices are made outside that
+seam. This produces four independently exact children at 552--554 letters.
+The two 554-letter maxima have SHA-256 values
+`cc7f98df008c250649a3c5bec7c1062f3d1349b539c97391c9e2ab961208ab42`
+and `bee6cc2db760aea2a931a8adba421e1a92e56c257acf021a16a45a2d4be04370`.
 
-The later 240-letter lineage material remains historical diagnostic evidence,
-not the active success criterion: exact length without readable, independently
-authored prose does not beat the 38-letter reader anchor.
+Two different cursor choices also close exactly. A depth-10 `m|e` seam yields
+550--552 letters, and a depth-35 `op|en` seam yields 546 letters while replacing
+70 inherited filler letters. In total, the incumbent-specific experiment saves
+ten independently exact children above the 530 control. All add lexical or
+event content absent from the parent. These are working-track construction
+results, not readable-prose claims: their inherited middle remains rough and
+their outer name events are formulaic. The active repair keeps the 554 maximum
+and the depth-35 branch, then replaces the latter's weakest name sequence
+without changing its live `op|en` equation. Evidence:
+`experiments/incumbent_498_live_seam_growth_20261002.py` and
+`runs/incumbent-498-live-seam-growth-20261002.json`.
 
-The active cross-role successor now improves the mechanical frontier to 54
-letters: “An aide rips nine memo-hero memos. Some more home men inspire
-Diana.” It is generated from a live `m` residual by staggering `memo | hero |
-memos` against `more | home | men`; all exactness, provenance, repetition,
-word-order, catalogue, and hidden-span gates pass. It is not yet a readability
-claim. A frozen 24-rater intact-versus-shuffled package is awaiting blinded
-human responses in `runs/seed-np-cross-role-reader-study-20260922/`.
+Sol owns this pivot. No Astra or non-Sol agent is used. Human studies remain
+required before a readability claim, but they are not a prerequisite for
+continuing construction and do not gate the working frontier.
 
 ## Objective and acceptance gate
 

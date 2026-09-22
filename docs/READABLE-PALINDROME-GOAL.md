@@ -28,21 +28,29 @@ repair then loads that row at `[115,133)` / `[519,537)` and produces row
 `runs/incumbent-652-clause-window-repair-20260922.json`, SHA-256
 `b6ccddf4d34f9d2705238f615336e633cb76bccdd010913d44799881df75584e`.
 
-The current diversified frontier remains independently exact at **666 letters**:
-row `central-diversification-nadia-spots-666` in
+The diversified parent was independently exact at **666 letters**, row
+`central-diversification-nadia-spots-666` in
 `runs/incumbent-666-central-diversification-20260922.json`, SHA-256
-`6d96e68c2f9cffec70f2c688a89ed5ad2dcdf0a80097f1d711c28ec4fdad298a`. Its
-residual-owned center equation at normalized windows `[297,333)` / `[333,369)`
-is `Nadia sees Mara. Aidan spots Ira. Ari sees God.` ↔
-`Dog sees Ira. Ari stops Nadia. Aram sees Aidan`; the local `sees` count falls
-from 6 to 4. Clean Luna review confirms complete clauses, empty residual, exact
-reversal, and no dangling vocative/appositive or predicate-less fragment.
+`6d96e68c2f9cffec70f2c688a89ed5ad2dcdf0a80097f1d711c28ec4fdad298a`.
+
+The promoted active **666-letter readability frontier** is row
+`comparison-alternative-nora-sees-666` in
+`runs/incumbent-666-comparison-alternative-20260922.json`, SHA-256
+`cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297`.
+Promotion is to the readability frontier only: the 568 child remains the
+working incumbent. The causal 666 parent remains retained as comparison
+evidence at SHA-256
+`268012039a4f838fdd86b15f37e4bd6d554208f6dd7fd4ceb8fb01c26776b015`, because
+the promoted alternative removes a good causal clause while removing the
+targeted right-cluster fragment. Clean Luna review confirms exact reversal,
+empty residual, and complete finite replacement clauses.
 
 Remaining debt is inherited proper-palindromic spans, rough syntax, repeated
 star/spam and Mara-stops-rats scaffolding, residual delivers-maps repetition
-elsewhere, and absent reader validation. The next candidate action must load
-this diversified 666 artifact, edit another actual seam with explicit residual
-ownership, and preserve the 568 incumbent and 560/558/556 frontier.
+elsewhere, and absent reader validation. The next candidate repair is the
+actual stop/spot seam at normalized `[64,127)` ↔ `[539,602)`, raw
+`[86,170)` ↔ `[739,822)`; preserve residual ownership, the 568 incumbent, and
+the 560/558/556 frontier.
 
 Fresh POS search, productive-affix search, morphology cycles, short witnesses,
 and reader-study operators are stopped. They are not active alternatives.
@@ -53,7 +61,8 @@ Evidence:
 `experiments/incumbent_644_scaffold_repair_20260922.py`,
 `experiments/incumbent_652_clause_window_repair_20260922.py`,
 `experiments/incumbent_666_central_cluster_repair_20260922.py`, and
-`experiments/incumbent_666_central_diversification_20260922.py` with their
+`experiments/incumbent_666_central_diversification_20260922.py`,
+`experiments/incumbent_666_comparison_alternative_20260922.py` with their
 committed run artifacts.
 
 ## Historical 498-to-568 construction ledger (superseded by the override above)

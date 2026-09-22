@@ -1,0 +1,113 @@
+{
+  "candidates": [],
+  "states": 3,
+  "transitions": 2,
+  "cap_reached": false,
+  "dead_frontiers": [
+    {
+      "matched_pairs": 1,
+      "left_state": 2,
+      "right_state": 317,
+      "left_next": [
+        "h"
+      ],
+      "right_next": [
+        "r"
+      ],
+      "left_partial": "the quiet clerk files a report.",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 75,
+      "right_state": 317,
+      "left_next": [
+        "h"
+      ],
+      "right_next": [
+        "r"
+      ],
+      "left_partial": "the young poet keeps a journal.",
+      "right_partial": ""
+    }
+  ],
+  "grammar_states": 391,
+  "grammar_character_edges": 402,
+  "experiment_id": "packed-abba-paragraph-seams-20260928",
+  "method": "live character-level intersection over four intact clause slots",
+  "topology": "A B | B A; two intact clauses on each side of the middle seam",
+  "source_banks": {
+    "A": [
+      "the quiet clerk files a report.",
+      "an old nurse reads the note.",
+      "a patient editor sorts the letters.",
+      "the young poet keeps a journal."
+    ],
+    "B": [
+      "the careful aide sends a memo.",
+      "some writers praise the actor.",
+      "a senior teacher marks the essay.",
+      "the kind doctor helps a child."
+    ]
+  },
+  "controls": [
+    {
+      "rendered": "The quiet clerk files a report. A careful aide sends a memo.",
+      "audit": {
+        "letters": 47,
+        "exact": false,
+        "first_mismatch": [
+          [
+            0,
+            "t",
+            "o"
+          ]
+        ],
+        "normalized": "thequietclerkfilesareportacarefulaidesendsamemo",
+        "sha256": "67a2ddf75903e03fb3b7fb8cbea9e5253043b3a2757ef4703eab6ed4c82f88a2",
+        "reverse_sha256": "7981ffe0023a00cfe44f5f90f4bee601c354a2aa19ffa527a4bb434ede11fbf0"
+      },
+      "kind": "intact ordinary prose, non-palindrome"
+    },
+    {
+      "rendered": "The quiet clerk files a report. A careful aide sends a memo. A careful aide sends a memo. The quiet clerk files a report.",
+      "audit": {
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": [
+          [
+            1,
+            "h",
+            "r"
+          ]
+        ],
+        "normalized": "thequietclerkfilesareportacarefulaidesendsamemoacarefulaidesendsamemothequietclerkfilesareport",
+        "sha256": "e59758e0f17d4248f0f22edbffe58bfd60b2334fbcdbbc137e582e10b75cc365",
+        "reverse_sha256": "f4940d0c42244bda546f537562d92d5a5b776c976b560ebe4facaa22953f344f"
+      },
+      "kind": "ABBA surface control, not an exact palindrome"
+    }
+  ],
+  "provenance": {
+    "complete_sentence_enumeration": false,
+    "catalogue_replay": false,
+    "repeated_self_palindromic_units": false,
+    "semordnilap_bank": false,
+    "per_candidate_rlaif": false,
+    "generator_sha256": "a1ea7dca6b9358f8cb1d4eac85c272600d01b134446e010fe194e03662483911"
+  },
+  "novelty_preflight": {
+    "novel_algorithm_claim": false,
+    "representation_change": "paragraph-level four-slot ABBA seam with independent B realizations",
+    "exact_gate": "two-pointer audit plus llm_palindrome.validator.is_palindrome plus forward/reverse SHA"
+  },
+  "reader_test": {
+    "status": "not collected",
+    "next": "If a novel exact survives, randomize blinded intact and shuffled controls before calling it readable."
+  },
+  "next_repair": {
+    "operator": "Replace one A/B clause bank with a typed two-clause scene lattice while retaining the same live seam product.",
+    "reason": "Current residual has no exact closure; widening unrelated lexical banks would duplicate search rather than change topology.",
+    "concrete": "Add subject/verb/object agreement states and a second event per side, then rerun the same ABBA product."
+  }
+}

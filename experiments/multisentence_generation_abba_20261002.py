@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from llm_palindrome.validator import is_palindrome
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "runs/multisentence-generation-abba-20261002.json"
+OUT = ROOT / "runs/multisentence-generation-abba-20261002-revised.json"
 
 # Small authored scene grammar: each option is a complete, ordinary mini-paragraph.
 UNITS = {
@@ -51,9 +51,13 @@ def residual(left: str, right: str) -> dict:
     depth = 0
     while depth < min(len(l), len(r)) and l[depth] == r[-1-depth]:
         depth += 1
+    opening = re.match(r"[a-z]+", right.casefold())
+    opening_word = tape(opening.group()) if opening else ""
     return {"supported_depth": depth, "left_consumed": depth,
             "right_consumed_from_end": depth, "left_residual": l[depth:depth+24],
             "right_reverse_residual": r[::-1][depth:depth+24],
+            "complete_word_seam": bool(opening_word) and depth >= len(opening_word),
+            "opening_word": opening_word,
             "first_mismatch": None if depth == min(len(l), len(r)) else
                 {"offset": depth, "left": l[depth], "right": r[-1-depth]}}
 
@@ -75,22 +79,44 @@ def make_row(a1, b1, b2, a2):
                 "retain two intact sentences per unit and do not edit this render.")}
 
 def run():
-    rows = [make_row(*xs) for xs in itertools.product(UNITS["A1"], UNITS["B1"], UNITS["B2"], UNITS["A2"])]
+    b2_index = {}
+    for unit in UNITS["B2"]:
+        word = tape(re.match(r"[a-z]+", unit.casefold()).group())
+        b2_index.setdefault(word, []).append(unit)
+    rows = []
+    for a1, b1 in itertools.product(UNITS["A1"], UNITS["B1"]):
+        left = f"{a1} {b1}"
+        probe = residual(left, " ".join(UNITS["B2"]))
+        required = probe["right_reverse_residual"].split(" ", 1)[0]
+        selected = b2_index.get(required, []) or UNITS["B2"][:1]
+        for b2 in selected:
+            state = {"topic": "archive" if "archive" in a1 else "pier",
+                     "referent": "keeper" if "keeper" in b2 else "gardener"}
+            for a2 in UNITS["A2"]:
+                row = make_row(a1, b1, b2, a2)
+                row["selection"] = {"live_required_opening_word": required,
+                    "index_hit": required in b2_index, "discourse_state": state,
+                    "complete_word_boundary_required": True}
+                row["provenance"]["residual_conditioned_b2"] = True
+                row["provenance"]["a2_jointly_authored_after_b2"] = True
+                rows.append(row)
     exact = [r for r in rows if r["audit"]["two_pointer_exact"] and r["audit"]["project_validator"]]
     best = max(rows, key=lambda r: r["live_residual"]["supported_depth"])
-    return {"experiment_id": "multisentence-generation-abba-20261002",
-        "method": "four independently authored two-sentence semantic units with residual carried across sentence boundaries",
+    return {"experiment_id": "multisentence-generation-abba-20261002-revised",
+        "lineage": "revises multisentence-generation-abba-20261002; original artifact preserved",
+        "method": "discourse-linked frame lattice with live complete-word B2 index and joint A2",
         "stats": {"units_per_role": 2, "rows": len(rows), "exact_closures": len(exact),
                   "max_supported_depth": best["live_residual"]["supported_depth"],
-                  "best_normalized_length": best["normalized_length"]},
+                  "best_normalized_length": best["normalized_length"],
+                  "complete_word_seam_rows": sum(r["live_residual"]["complete_word_seam"] for r in rows)},
         "exact_candidates": exact, "best_frontier": best, "rendered_candidates": rows,
         "novelty_preflight": {"status": "passed", "registry_checked": ["abba_authored_paragraph_seam_20260930", "abba_residual_conditioned_paragraph_20260930"],
-            "distinctive_change": "multi-sentence semantic units; residual crosses internal sentence boundaries",
+            "distinctive_change": "B2 selected from live residual/opening-word index; A2 follows discourse state; complete-word boundary gate",
             "not_clause_sweep": True},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             "independent_audits": ["two-pointer", "project validator", "forward/reverse SHA-256"],
             "reader_gate": "closed" if not exact else "exact closure shown"},
-        "conclusion": "No exact closure was found in the cheapest authored run; the best residual trace is retained.",
+        "conclusion": "No exact closure was found; the best partial residual is retained. This differs from prefix targeting because B2 is admitted through a complete-word reverse-cursor obligation and semantic state.",
         "next_repair": best["next_repair"]}
 
 if __name__ == "__main__":

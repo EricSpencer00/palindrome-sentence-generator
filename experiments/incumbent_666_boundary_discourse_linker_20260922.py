@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -73,6 +74,14 @@ NEW_LEFT = (
 NEW_RIGHT = (
     "Ari stops God. Dog sees Ira. Aidan spots Ira. Ira sees Aram. "
     "Ari spots Nadia. Ari sees Aidan."
+)
+FULL_TEXT_DUPLICATE_CLAUSES = (
+    "Nadia sees Ira",
+    "Ari stops Nadia",
+    "Ari sees God",
+    "Aidan spots Ira",
+    "Dog sees Ira",
+    "Ari sees Aidan",
 )
 OLD_SWITCH_LEFT = " Mara sees Nadia. Nadia saw Noel live. Mara stops Nadia. Nora sees Aram. Sara saw Noel live."
 OLD_SWITCH_RIGHT = " Evil Leon was Aras. Mara sees Aron. Aidan spots Aram. Evil Leon was Aidan. Aidan sees Aram."
@@ -157,6 +166,19 @@ def consume_online(emission: str, obligation: str, owner: str) -> dict[str, obje
         residual = residual[1:]
         trace.append({"cursor": cursor, "owner": owner, "emitted": character, "expected": expected, "residual_after": residual})
     return {"exact": not residual, "cursor": len(trace), "residual": residual, "trace": trace, "reason": "closed" if not residual else "nonempty_residual"}
+
+
+def clause_parts(text: str) -> list[str]:
+    return [part.strip() for part in re.split(r"[.!?;]+", text) if part.strip()]
+
+
+def duplicate_clause_evidence(text: str) -> list[dict[str, object]]:
+    clauses = clause_parts(text)
+    occurrences = {clause: [index for index, value in enumerate(clauses) if value == clause] for clause in FULL_TEXT_DUPLICATE_CLAUSES}
+    return [
+        {"clause": clause + ".", "count": len(occurrences[clause]), "clause_indices": occurrences[clause]}
+        for clause in FULL_TEXT_DUPLICATE_CLAUSES
+    ]
 
 
 def build_payload() -> dict[str, object]:
@@ -267,6 +289,17 @@ def build_payload() -> dict[str, object]:
     assert independent["sha256_forward"] == CHILD_SHA256
     assert independent["sha_equal"]
     assert project_audit["project_validator_exact"]
+    duplicate_evidence = duplicate_clause_evidence(rendered)
+    assert all(entry["count"] == 2 for entry in duplicate_evidence)
+    clauses = clause_parts(rendered)
+    frame_counts = Counter((clause.split()[0], clause.split()[1]) for clause in clauses if len(clause.split()) >= 2)
+    repeated_frames = [
+        {"subject": subject, "verb": verb, "count": count}
+        for (subject, verb), count in sorted(frame_counts.items())
+        if count > 1
+    ]
+    assert repeated_frames
+    repeated_neighboring = any(left == right for left, right in zip(clauses, clauses[1:]))
 
     row = {
         "id": "boundary-linker-switch-graft-666",
@@ -319,16 +352,18 @@ def build_payload() -> dict[str, object]:
             "backtracks": 0,
         },
         "semantic_roles": {
-        "varied_relations": ["sees", "stops", "spots"],
-        "complete_svo_clauses": True,
-        "repeated_subject_verb_frames": [],
-        "repeated_neighboring_clauses": False,
+            "varied_relations": ["sees", "stops", "spots"],
+            "complete_svo_clauses": True,
+            "repeated_subject_verb_frames": repeated_frames,
+            "repeated_neighboring_clauses": repeated_neighboring,
             "vocative_or_appositive_fragments": False,
+            "full_text_duplicate_clause_evidence": duplicate_evidence,
         },
         "readability_delta": {
             "repeated_saw_noel_live_before": 2,
             "repeated_saw_noel_live_after": 0,
-            "material_full_text_improvement": True,
+            "material_full_text_improvement": False,
+            "reason": "The changed seam removes the repeated saw-Noel pair but retains six repeated exact clauses and repeated subject-verb frames across the full text.",
         },
         "grammar_debt": {
             "inherited_proper_palindromic_spans": True,

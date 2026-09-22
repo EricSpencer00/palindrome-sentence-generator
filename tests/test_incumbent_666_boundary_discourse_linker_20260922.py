@@ -58,11 +58,30 @@ def test_linker_is_connective_and_neighbor_aware_and_changed_graft_is_clean():
     assert row["semantic_roles"] == {
         "varied_relations": ["sees", "stops", "spots"],
         "complete_svo_clauses": True,
-        "repeated_subject_verb_frames": [],
+        "repeated_subject_verb_frames": [
+            {"subject": "Aidan", "verb": "spots", "count": 2},
+            {"subject": "Ari", "verb": "sees", "count": 4},
+            {"subject": "Ari", "verb": "stops", "count": 3},
+            {"subject": "Dog", "verb": "sees", "count": 2},
+            {"subject": "Dog", "verb": "was", "count": 2},
+            {"subject": "Evil", "verb": "I", "count": 2},
+            {"subject": "Mara", "verb": "sees", "count": 3},
+            {"subject": "Mara", "verb": "stops", "count": 2},
+            {"subject": "Nadia", "verb": "sees", "count": 3},
+            {"subject": "Nora", "verb": "sees", "count": 2},
+        ],
         "repeated_neighboring_clauses": False,
         "vocative_or_appositive_fragments": False,
+        "full_text_duplicate_clause_evidence": [
+            {"clause": "Nadia sees Ira.", "count": 2, "clause_indices": [3, 11]},
+            {"clause": "Ari stops Nadia.", "count": 2, "clause_indices": [14, 29]},
+            {"clause": "Ari sees God.", "count": 2, "clause_indices": [15, 27]},
+            {"clause": "Aidan spots Ira.", "count": 2, "clause_indices": [26, 41]},
+            {"clause": "Dog sees Ira.", "count": 2, "clause_indices": [28, 40]},
+            {"clause": "Ari sees Aidan.", "count": 2, "clause_indices": [44, 52]},
+        ],
     }
-    assert row["readability_delta"]["material_full_text_improvement"] is True
+    assert row["readability_delta"]["material_full_text_improvement"] is False
     assert row["readability_delta"]["repeated_saw_noel_live_before"] == 2
     assert row["readability_delta"]["repeated_saw_noel_live_after"] == 0
     assert normalize(NEW_LEFT) == normalize(NEW_RIGHT)[::-1]

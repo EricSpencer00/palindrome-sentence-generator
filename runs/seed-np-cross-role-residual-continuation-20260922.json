@@ -1,0 +1,777 @@
+{
+  "experiment_id": "seed-np-cross-role-residual-continuation-20260922",
+  "method": "bounded cross-role SVO continuation with inherited NP residual ownership",
+  "control": {
+    "rendered": "An aide rips nine memo-hero memos. Some more home men inspire Diana.",
+    "audit": {
+      "normalized": "anaideripsninememoheromemossomemorehomemeninspirediana",
+      "letters": 54,
+      "two_pointer_exact": true,
+      "first_mismatch": null,
+      "first_mismatch_letters": null,
+      "sha256_forward": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268",
+      "sha256_reverse": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268",
+      "hashes_agree": true
+    },
+    "source_seam": {
+      "residual": "m",
+      "left_exposure": "memoherom",
+      "right_exposure": "memoherom",
+      "equation": "memohero + m = m + reverse(morehome)",
+      "left_role": "nine memo-hero memos: object of rips",
+      "right_role": "some more home men: subject of inspire",
+      "nonempty": true
+    },
+    "role": "54-letter exact control; retained separately"
+  },
+  "preserved_frontiers": {
+    "568": {
+      "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+      "id": "outer-causal-scene-568-working-incumbent",
+      "letters": 568,
+      "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+    },
+    "666": {
+      "artifact": "runs/incumbent-666-comparison-alternative-20260922.json",
+      "id": "comparison-alternative-nora-sees-666",
+      "letters": 666,
+      "sha256": "cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297"
+    }
+  },
+  "rejected_evidence": {
+    "commit": "a9d23763",
+    "artifact": "runs/seed-np-cross-role-clause-growth-20260922.json",
+    "reason": "prior rows used a complete center pair and Aram/Aron; preserved only as rejected evidence",
+    "rows": [
+      {
+        "id": "spot-stop",
+        "letters": 82,
+        "sha256": "b54d261662a8ef3baec37176fb442e6c983e45e8db08517ffcea04a3647477c5"
+      },
+      {
+        "id": "see-see",
+        "letters": 80,
+        "sha256": "f15ccc62f7f03f5b6a8419e71662d6355b6cccf92f914339d0d9c7a430904f28"
+      },
+      {
+        "id": "nora-spot-stop",
+        "letters": 82,
+        "sha256": "13fafbbed28ede837867197728674d611ad8ff1b8cc73578dec75f1c9caccdf5"
+      }
+    ]
+  },
+  "stats": {
+    "bounded_operators": 3,
+    "exact_closures": 0,
+    "children_longer_than_54": 3,
+    "reader_certified": 0
+  },
+  "rows": [
+    {
+      "id": "relative_np_roles",
+      "rendered": "An aide rips nine memo-hero memos that Mara helps. Some more home men who stop a dog inspire Diana.",
+      "length": 78,
+      "semantic_roles": {
+        "left": {
+          "subject": "Mara",
+          "verb": "helps",
+          "object": "memos (relative gap)"
+        },
+        "right": {
+          "subject": "men (relative who)",
+          "verb": "stop",
+          "object": "a dog"
+        }
+      },
+      "source_live_residual": {
+        "residual": "m",
+        "left_exposure": "memoherom",
+        "right_exposure": "memoherom",
+        "equation": "memohero + m = m + reverse(morehome)",
+        "left_role": "nine memo-hero memos: object of rips",
+        "right_role": "some more home men: subject of inspire",
+        "nonempty": true
+      },
+      "event_residual_obstruction": {
+        "closed": false,
+        "left_cursor": 12,
+        "right_cursor": 65,
+        "left_char": "n",
+        "right_char": "g",
+        "residual_owner": "right_event_shift",
+        "residual": "ginspire",
+        "grammar_state": "added continuation changes the opposing subject/object frame before the inherited NP seam is reached",
+        "seam_cursor": 27,
+        "trace_prefix": [
+          {
+            "left_cursor": 0,
+            "right_cursor": 77,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 1,
+            "right_cursor": 76,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 2,
+            "right_cursor": 75,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 74,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 4,
+            "right_cursor": 73,
+            "left_char": "d",
+            "right_char": "d",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 5,
+            "right_cursor": 72,
+            "left_char": "e",
+            "right_char": "e",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 6,
+            "right_cursor": 71,
+            "left_char": "r",
+            "right_char": "r",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 7,
+            "right_cursor": 70,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 8,
+            "right_cursor": 69,
+            "left_char": "p",
+            "right_char": "p",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 9,
+            "right_cursor": 68,
+            "left_char": "s",
+            "right_char": "s",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 10,
+            "right_cursor": 67,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 11,
+            "right_cursor": 66,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 12,
+            "right_cursor": 65,
+            "left_char": "n",
+            "right_char": "g",
+            "residual_owner": null,
+            "residual": ""
+          }
+        ]
+      },
+      "independent_exact_audit": {
+        "normalized": "anaideripsninememoheromemosthatmarahelpssomemorehomemenwhostopadoginspirediana",
+        "letters": 78,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          12,
+          65
+        ],
+        "first_mismatch_letters": [
+          "n",
+          "g"
+        ],
+        "sha256_forward": "05abe1ffe6183ebb7343bb52340070e9c4e04894376c40783b9793c47f978091",
+        "sha256_reverse": "96a5cb1f5196fc8b28d1ab23c473f644781cccc180cf4dfe868f8e5d717e7db9",
+        "hashes_agree": false
+      },
+      "mechanical_diagnostics": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "project_lexicon_gate": {
+        "scope": "new operator words only; inherited control is not reclassified",
+        "all_project_lexicon": true,
+        "no_new_self_palindromic_word": true,
+        "words": {
+          "mara": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "helps": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "stop": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "a": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "dog": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          }
+        }
+      },
+      "novelty_shortcut_gates": {
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "whole_sentence_sweep": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "independently_left_reverse_right": false,
+        "added_material_has_no_self_palindromic_word": true,
+        "inherited_control_proper_spans_not_reclassified": true
+      },
+      "provenance": {
+        "method": "bounded cross-role SVO continuation at inherited NP residual",
+        "source_experiment": "experiments/seed_np_cross_role_intersection_20260922.py",
+        "seam": "after object NP / before subject NP",
+        "added_material_is_complete_event_or_relative": true,
+        "event_residual_consumed_by_surrounding_np": false,
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "reader_packet_used_as_evidence": false,
+        "prior_center_pair_reused": false
+      },
+      "reader_status": "not_certified; no exact closure",
+      "promotion_status": "rejected_obstruction"
+    },
+    {
+      "id": "relative_np_role_shift",
+      "rendered": "An aide rips nine memo-hero memos that Nora spots. Some more home men who stop a dog inspire Diana.",
+      "length": 78,
+      "semantic_roles": {
+        "left": {
+          "subject": "Nora",
+          "verb": "spots",
+          "object": "memos (relative gap)"
+        },
+        "right": {
+          "subject": "men (relative who)",
+          "verb": "stop",
+          "object": "a dog"
+        }
+      },
+      "source_live_residual": {
+        "residual": "m",
+        "left_exposure": "memoherom",
+        "right_exposure": "memoherom",
+        "equation": "memohero + m = m + reverse(morehome)",
+        "left_role": "nine memo-hero memos: object of rips",
+        "right_role": "some more home men: subject of inspire",
+        "nonempty": true
+      },
+      "event_residual_obstruction": {
+        "closed": false,
+        "left_cursor": 12,
+        "right_cursor": 65,
+        "left_char": "n",
+        "right_char": "g",
+        "residual_owner": "right_event_shift",
+        "residual": "ginspire",
+        "grammar_state": "added continuation changes the opposing subject/object frame before the inherited NP seam is reached",
+        "seam_cursor": 27,
+        "trace_prefix": [
+          {
+            "left_cursor": 0,
+            "right_cursor": 77,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 1,
+            "right_cursor": 76,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 2,
+            "right_cursor": 75,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 74,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 4,
+            "right_cursor": 73,
+            "left_char": "d",
+            "right_char": "d",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 5,
+            "right_cursor": 72,
+            "left_char": "e",
+            "right_char": "e",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 6,
+            "right_cursor": 71,
+            "left_char": "r",
+            "right_char": "r",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 7,
+            "right_cursor": 70,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 8,
+            "right_cursor": 69,
+            "left_char": "p",
+            "right_char": "p",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 9,
+            "right_cursor": 68,
+            "left_char": "s",
+            "right_char": "s",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 10,
+            "right_cursor": 67,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 11,
+            "right_cursor": 66,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 12,
+            "right_cursor": 65,
+            "left_char": "n",
+            "right_char": "g",
+            "residual_owner": null,
+            "residual": ""
+          }
+        ]
+      },
+      "independent_exact_audit": {
+        "normalized": "anaideripsninememoheromemosthatnoraspotssomemorehomemenwhostopadoginspirediana",
+        "letters": 78,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          12,
+          65
+        ],
+        "first_mismatch_letters": [
+          "n",
+          "g"
+        ],
+        "sha256_forward": "01a0aaa3d4226ffdff4ad3e1b5c60c0eb1a897ed82a1cc1a4d85fe19d52ef740",
+        "sha256_reverse": "9830748a05ce89438eddd46dfbaf154908bbdc1ffa833ca7e0c527b74c75a46e",
+        "hashes_agree": false
+      },
+      "mechanical_diagnostics": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "project_lexicon_gate": {
+        "scope": "new operator words only; inherited control is not reclassified",
+        "all_project_lexicon": true,
+        "no_new_self_palindromic_word": true,
+        "words": {
+          "nora": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "spots": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "stop": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "a": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "dog": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          }
+        }
+      },
+      "novelty_shortcut_gates": {
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "whole_sentence_sweep": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "independently_left_reverse_right": false,
+        "added_material_has_no_self_palindromic_word": true,
+        "inherited_control_proper_spans_not_reclassified": true
+      },
+      "provenance": {
+        "method": "bounded cross-role SVO continuation at inherited NP residual",
+        "source_experiment": "experiments/seed_np_cross_role_intersection_20260922.py",
+        "seam": "after object NP / before subject NP",
+        "added_material_is_complete_event_or_relative": true,
+        "event_residual_consumed_by_surrounding_np": false,
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "reader_packet_used_as_evidence": false,
+        "prior_center_pair_reused": false
+      },
+      "reader_status": "not_certified; no exact closure",
+      "promotion_status": "rejected_obstruction"
+    },
+    {
+      "id": "subordinate_cross_role",
+      "rendered": "An aide rips nine memo-hero memos, while Diana helps. Some more home men, while a dog stops a memo, inspire Diana.",
+      "length": 88,
+      "semantic_roles": {
+        "left": {
+          "subject": "Diana",
+          "verb": "helps",
+          "object": "implicit"
+        },
+        "right": {
+          "subject": "a dog",
+          "verb": "stops",
+          "object": "a memo"
+        }
+      },
+      "source_live_residual": {
+        "residual": "m",
+        "left_exposure": "memoherom",
+        "right_exposure": "memoherom",
+        "equation": "memohero + m = m + reverse(morehome)",
+        "left_role": "nine memo-hero memos: object of rips",
+        "right_role": "some more home men: subject of inspire",
+        "nonempty": true
+      },
+      "event_residual_obstruction": {
+        "closed": false,
+        "left_cursor": 12,
+        "right_cursor": 75,
+        "left_char": "n",
+        "right_char": "o",
+        "residual_owner": "right_event_shift",
+        "residual": "oinspire",
+        "grammar_state": "added continuation changes the opposing subject/object frame before the inherited NP seam is reached",
+        "seam_cursor": 27,
+        "trace_prefix": [
+          {
+            "left_cursor": 0,
+            "right_cursor": 87,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 1,
+            "right_cursor": 86,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 2,
+            "right_cursor": 85,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 84,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 4,
+            "right_cursor": 83,
+            "left_char": "d",
+            "right_char": "d",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 5,
+            "right_cursor": 82,
+            "left_char": "e",
+            "right_char": "e",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 6,
+            "right_cursor": 81,
+            "left_char": "r",
+            "right_char": "r",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 7,
+            "right_cursor": 80,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 8,
+            "right_cursor": 79,
+            "left_char": "p",
+            "right_char": "p",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 9,
+            "right_cursor": 78,
+            "left_char": "s",
+            "right_char": "s",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 10,
+            "right_cursor": 77,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 11,
+            "right_cursor": 76,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 12,
+            "right_cursor": 75,
+            "left_char": "n",
+            "right_char": "o",
+            "residual_owner": null,
+            "residual": ""
+          }
+        ]
+      },
+      "independent_exact_audit": {
+        "normalized": "anaideripsninememoheromemoswhiledianahelpssomemorehomemenwhileadogstopsamemoinspirediana",
+        "letters": 88,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          12,
+          75
+        ],
+        "first_mismatch_letters": [
+          "n",
+          "o"
+        ],
+        "sha256_forward": "82fba4a9b17a4f0bcc8d417819b81ea160f3c97f4ab874f05bd98ad66d8660fc",
+        "sha256_reverse": "8ada1ff5d9bfbb14559438baf07ab294682f4358d2b4950afe92421d1028ed59",
+        "hashes_agree": false
+      },
+      "mechanical_diagnostics": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "project_lexicon_gate": {
+        "scope": "new operator words only; inherited control is not reclassified",
+        "all_project_lexicon": true,
+        "no_new_self_palindromic_word": true,
+        "words": {
+          "diana": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "helps": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "a": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "dog": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "stops": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "memo": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          }
+        }
+      },
+      "novelty_shortcut_gates": {
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "whole_sentence_sweep": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "independently_left_reverse_right": false,
+        "added_material_has_no_self_palindromic_word": true,
+        "inherited_control_proper_spans_not_reclassified": true
+      },
+      "provenance": {
+        "method": "bounded cross-role SVO continuation at inherited NP residual",
+        "source_experiment": "experiments/seed_np_cross_role_intersection_20260922.py",
+        "seam": "object adjunct / subject adjunct",
+        "added_material_is_complete_event_or_relative": true,
+        "event_residual_consumed_by_surrounding_np": false,
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "reader_packet_used_as_evidence": false,
+        "prior_center_pair_reused": false
+      },
+      "reader_status": "not_certified; no exact closure",
+      "promotion_status": "rejected_obstruction"
+    }
+  ],
+  "operator_change": {
+    "first": "relative NP roles",
+    "second": "subordinate cross-role adjuncts",
+    "changed_within_run": true,
+    "closure": false,
+    "obstruction": "all bounded continuations mismatch before the inherited seam; residual remains right-owned after the frame shift"
+  },
+  "programmatic_metrics_are_diagnostic": true,
+  "status": "no exact closure under bounded project-lexicon continuation; obstruction persisted",
+  "next_operator": "retain the 54 control and widen only the typed NP-to-relative boundary grammar after a new independently authored seam, not the rejected center pair",
+  "provenance": {
+    "generator_sha256": "0c4d9d28431d74d78b2ee59976c26a79f1df8990eb3b67308b6b02aabdba3542",
+    "source_generator": "experiments/seed_np_cross_role_intersection_20260922.py",
+    "reader_packet": "not used as evidence"
+  }
+}

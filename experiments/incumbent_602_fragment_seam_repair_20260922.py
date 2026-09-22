@@ -23,6 +23,32 @@ PARENT = ROOT / "runs" / "incumbent-568-internal-seam-growth-20260922.json"
 OUT = ROOT / "runs" / "incumbent-602-fragment-seam-repair-20260922.json"
 PARENT_ID = "internal-mara-stops-602"
 PARENT_SHA256 = "69696036f9bb9392ae9473884f011cfb767b4700d6407f5a07f3fba595953c89"
+FRONTIER = (
+    {
+        "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+        "id": "outer-causal-scene-568-working-incumbent",
+        "letters": 568,
+        "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    },
+    {
+        "artifact": "runs/incumbent-550-central-event-bridge-20261002.json",
+        "id": "central-distinct-events-560",
+        "letters": 560,
+        "sha256": "b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc",
+    },
+    {
+        "artifact": "runs/incumbent-550-typed-center-product-20261002.json",
+        "id": "typed-center-25",
+        "letters": 558,
+        "sha256": "29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa",
+    },
+    {
+        "artifact": "runs/incumbent-498-event-frame-seam-repair-20261002.json",
+        "id": "depth39-longest-f1g1h1r",
+        "letters": 556,
+        "sha256": "28b303081c7eeae9b0f4c7e274d71e73551c64f5ad389b2d992b6183597f6d14",
+    },
+)
 
 OLD_LEFT = "Nora spots a ram. rats"
 OLD_RIGHT = "star Mara stops Aron"
@@ -50,6 +76,18 @@ def independent_audit(text: str) -> dict[str, object]:
     }
 
 
+def validate_frontier_entry(entry: dict[str, object]) -> None:
+    artifact = ROOT / str(entry["artifact"])
+    assert artifact.exists(), artifact
+    payload = json.loads(artifact.read_text())
+    row = next(row for row in payload["rows"] if row["id"] == entry["id"])
+    recomputed = independent_audit(str(row["rendered"]))
+    assert recomputed["normalized_letters"] == entry["letters"]
+    assert recomputed["two_pointer_exact"]
+    assert recomputed["sha256_forward"] == entry["sha256"]
+    assert recomputed["sha_equal"]
+
+
 def raw_span_for_normalized_window(text: str, start: int, end: int) -> tuple[int, int]:
     letter_indices = [
         index for index, char in enumerate(text) if "a" <= char.lower() <= "z"
@@ -67,6 +105,8 @@ def build_payload() -> dict[str, object]:
     assert parent_independent["sha256_forward"] == PARENT_SHA256
     assert parent_independent["sha_equal"]
     assert parent["audit"]["sha256_forward"] == PARENT_SHA256
+    for frontier_entry in FRONTIER:
+        validate_frontier_entry(frontier_entry)
 
     left_start, left_end = raw_span_for_normalized_window(
         parent_rendered, WINDOW_LEFT_START, WINDOW_LEFT_END
@@ -171,12 +211,7 @@ def build_payload() -> dict[str, object]:
             "committed_character_contradictions": 0,
             "backtracks": 0,
         },
-        "preserved_frontier": [
-            {"letters": 568, "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"},
-            {"letters": 560, "sha256": "b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc"},
-            {"letters": 558, "sha256": "29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa"},
-            {"letters": 556, "sha256": "28b303081c7eeae9b0f4c7e274d71e73551c64f5ad389b2d992b6183597f6d14"},
-        ],
+        "preserved_frontier": list(FRONTIER),
         "rows": [row],
         "next_operator": (
             "repair the clearest remaining inherited debt in the 620 child; "

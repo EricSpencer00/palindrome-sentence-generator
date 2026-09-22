@@ -1,0 +1,1062 @@
+{
+  "experiment_id": "seed-np-typed-relative-boundary-20260922",
+  "method": "typed NP-to-relative boundary continuation from live m residual",
+  "typed_productions": [
+    {
+      "id": "L_subject_svo",
+      "side": "left",
+      "role": "subject",
+      "choices": [
+        "An aide"
+      ]
+    },
+    {
+      "id": "L_action",
+      "side": "left",
+      "role": "finite_action",
+      "choices": [
+        "rips nine"
+      ]
+    },
+    {
+      "id": "L_object_relative",
+      "side": "left",
+      "role": "object_relative",
+      "choices": [
+        "memo-hero memos that Mara reads",
+        "memo-hero memos that Nora marks"
+      ]
+    },
+    {
+      "id": "L_subject_relative",
+      "side": "left",
+      "role": "subject_relative",
+      "choices": [
+        "An aide who helps Nora rips nine memo-hero memos",
+        "An aide who helps the nurse rips nine memo-hero memos"
+      ]
+    },
+    {
+      "id": "R_subject_np",
+      "side": "right",
+      "role": "subject_np",
+      "choices": [
+        "Some more home men"
+      ]
+    },
+    {
+      "id": "R_subject_relative",
+      "side": "right",
+      "role": "subject_relative",
+      "choices": [
+        "who stop the dog",
+        "who help the aide"
+      ]
+    },
+    {
+      "id": "R_action",
+      "side": "right",
+      "role": "finite_action",
+      "choices": [
+        "inspire"
+      ]
+    },
+    {
+      "id": "R_object",
+      "side": "right",
+      "role": "object",
+      "choices": [
+        "Diana"
+      ]
+    }
+  ],
+  "control": {
+    "rendered": "An aide rips nine memo-hero memos. Some more home men inspire Diana.",
+    "audit": {
+      "normalized": "anaideripsninememoheromemossomemorehomemeninspirediana",
+      "letters": 54,
+      "two_pointer_exact": true,
+      "first_mismatch": null,
+      "first_mismatch_letters": null,
+      "sha256_forward": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268",
+      "sha256_reverse": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268",
+      "hashes_agree": true
+    },
+    "source_seam": {
+      "residual": "m",
+      "left_exposure": "memoherom",
+      "right_exposure": "memoherom",
+      "equation": "memohero + m = m + reverse(morehome)",
+      "left_role": "nine memo-hero memos: object of rips",
+      "right_role": "some more home men: subject of inspire",
+      "nonempty": true
+    }
+  },
+  "preserved_frontiers": {
+    "568": {
+      "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+      "id": "outer-causal-scene-568-working-incumbent",
+      "letters": 568,
+      "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+    },
+    "666": {
+      "artifact": "runs/incumbent-666-comparison-alternative-20260922.json",
+      "id": "comparison-alternative-nora-sees-666",
+      "letters": 666,
+      "sha256": "cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297"
+    }
+  },
+  "rejected_prior_run": {
+    "commit": "e3fbc5cf",
+    "artifact": "runs/seed-np-cross-role-residual-continuation-20260922.json",
+    "reused": false
+  },
+  "stats": {
+    "typed_production_count": 8,
+    "bounded_rows": 4,
+    "exact_closures": 0,
+    "rows_longer_than_54": 4,
+    "reader_certified": 0
+  },
+  "rows": [
+    {
+      "id": "object-relative-boundary",
+      "rendered": "An aide rips nine memo-hero memos that Mara reads. Some more home men who stop the dog inspire Diana.",
+      "length": 80,
+      "semantic_roles": {
+        "left_relative": {
+          "head": "memos",
+          "subject": "Mara",
+          "verb": "reads",
+          "object": "relative gap"
+        },
+        "right_relative": {
+          "head": "men",
+          "subject": "men",
+          "verb": "stop",
+          "object": "the dog"
+        }
+      },
+      "production_path": [
+        "L_subject_svo",
+        "L_action",
+        "L_object_relative",
+        "R_subject_np",
+        "R_subject_relative",
+        "R_action",
+        "R_object"
+      ],
+      "source_live_residual": {
+        "residual": "m",
+        "left_exposure": "memoherom",
+        "right_exposure": "memoherom",
+        "equation": "memohero + m = m + reverse(morehome)",
+        "left_role": "nine memo-hero memos: object of rips",
+        "right_role": "some more home men: subject of inspire",
+        "nonempty": true
+      },
+      "online_join": {
+        "closed": false,
+        "left_cursor": 12,
+        "right_cursor": 67,
+        "first_mismatch": [
+          12,
+          67
+        ],
+        "residual_owner": "right_relative_boundary",
+        "residual": "ginspiredi",
+        "grammar_state": "typed relative production shifts the opposing NP before the m seam closes",
+        "seam_cursor": 27,
+        "trace_prefix": [
+          {
+            "left_cursor": 0,
+            "right_cursor": 79,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 1,
+            "right_cursor": 78,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 2,
+            "right_cursor": 77,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 76,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 4,
+            "right_cursor": 75,
+            "left_char": "d",
+            "right_char": "d",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 5,
+            "right_cursor": 74,
+            "left_char": "e",
+            "right_char": "e",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 6,
+            "right_cursor": 73,
+            "left_char": "r",
+            "right_char": "r",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 7,
+            "right_cursor": 72,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 8,
+            "right_cursor": 71,
+            "left_char": "p",
+            "right_char": "p",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 9,
+            "right_cursor": 70,
+            "left_char": "s",
+            "right_char": "s",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 10,
+            "right_cursor": 69,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 11,
+            "right_cursor": 68,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 12,
+            "right_cursor": 67,
+            "left_char": "n",
+            "right_char": "g",
+            "residual_owner": null,
+            "residual": ""
+          }
+        ]
+      },
+      "independent_exact_audit": {
+        "normalized": "anaideripsninememoheromemosthatmarareadssomemorehomemenwhostopthedoginspirediana",
+        "letters": 80,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          12,
+          67
+        ],
+        "first_mismatch_letters": [
+          "n",
+          "g"
+        ],
+        "sha256_forward": "f0990bf83ab2e5414b249e56f05281acc91ab995e6e0340e333f7633283b243b",
+        "sha256_reverse": "036f2ca1dd9ae7cd357d457ca427b63df93a90cc902b039b943b0a21b4276a64",
+        "hashes_agree": false
+      },
+      "project_lexicon_gate": {
+        "scope": "new relative productions only",
+        "all_project_lexicon": true,
+        "no_self_palindromic_added_word": true,
+        "words": {
+          "aide": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "dog": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "help": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "helps": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "mara": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "marks": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "nora": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "nurse": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "reads": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "stop": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "that": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "the": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "who": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          }
+        }
+      },
+      "novelty_shortcut_gates": {
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "independently_left_reverse_right": false,
+        "no_self_palindromic_added_word": true,
+        "no_self_palindromic_added_span": true,
+        "no_repeated_content_shortcut": true,
+        "new_typed_relative_boundary": true,
+        "added_tape_diagnostic_length": 80
+      },
+      "provenance": {
+        "method": "bounded typed NP-to-relative boundary grammar",
+        "seam": "after object head / before plural subject head",
+        "typed_production_count": 8,
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "center_event_pair_reused": false,
+        "reader_packet_used_as_evidence": false
+      },
+      "reader_status": "not_certified; exact closure required",
+      "promotion_status": "rejected_obstruction"
+    },
+    {
+      "id": "object-relative-role-shift",
+      "rendered": "An aide rips nine memo-hero memos that Nora marks. Some more home men who stop the dog inspire Diana.",
+      "length": 80,
+      "semantic_roles": {
+        "left_relative": {
+          "head": "memos",
+          "subject": "Nora",
+          "verb": "marks",
+          "object": "relative gap"
+        },
+        "right_relative": {
+          "head": "men",
+          "subject": "men",
+          "verb": "stop",
+          "object": "the dog"
+        }
+      },
+      "production_path": [
+        "L_subject_svo",
+        "L_action",
+        "L_object_relative",
+        "R_subject_np",
+        "R_subject_relative",
+        "R_action",
+        "R_object"
+      ],
+      "source_live_residual": {
+        "residual": "m",
+        "left_exposure": "memoherom",
+        "right_exposure": "memoherom",
+        "equation": "memohero + m = m + reverse(morehome)",
+        "left_role": "nine memo-hero memos: object of rips",
+        "right_role": "some more home men: subject of inspire",
+        "nonempty": true
+      },
+      "online_join": {
+        "closed": false,
+        "left_cursor": 12,
+        "right_cursor": 67,
+        "first_mismatch": [
+          12,
+          67
+        ],
+        "residual_owner": "right_relative_boundary",
+        "residual": "ginspiredi",
+        "grammar_state": "typed relative production shifts the opposing NP before the m seam closes",
+        "seam_cursor": 27,
+        "trace_prefix": [
+          {
+            "left_cursor": 0,
+            "right_cursor": 79,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 1,
+            "right_cursor": 78,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 2,
+            "right_cursor": 77,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 76,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 4,
+            "right_cursor": 75,
+            "left_char": "d",
+            "right_char": "d",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 5,
+            "right_cursor": 74,
+            "left_char": "e",
+            "right_char": "e",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 6,
+            "right_cursor": 73,
+            "left_char": "r",
+            "right_char": "r",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 7,
+            "right_cursor": 72,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 8,
+            "right_cursor": 71,
+            "left_char": "p",
+            "right_char": "p",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 9,
+            "right_cursor": 70,
+            "left_char": "s",
+            "right_char": "s",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 10,
+            "right_cursor": 69,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 11,
+            "right_cursor": 68,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 12,
+            "right_cursor": 67,
+            "left_char": "n",
+            "right_char": "g",
+            "residual_owner": null,
+            "residual": ""
+          }
+        ]
+      },
+      "independent_exact_audit": {
+        "normalized": "anaideripsninememoheromemosthatnoramarkssomemorehomemenwhostopthedoginspirediana",
+        "letters": 80,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          12,
+          67
+        ],
+        "first_mismatch_letters": [
+          "n",
+          "g"
+        ],
+        "sha256_forward": "6df296374469cf7ed9258dcdf65b1fd48201de0b3581b8cfd5c586350e6a3ad6",
+        "sha256_reverse": "ffe38c52e9b0758b24a2ffd47803bff0d70c43c0657cbf2b2cb953be0b2ebdfd",
+        "hashes_agree": false
+      },
+      "project_lexicon_gate": {
+        "scope": "new relative productions only",
+        "all_project_lexicon": true,
+        "no_self_palindromic_added_word": true,
+        "words": {
+          "aide": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "dog": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "help": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "helps": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "mara": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "marks": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "nora": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "nurse": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "reads": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "stop": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "that": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "the": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "who": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          }
+        }
+      },
+      "novelty_shortcut_gates": {
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "independently_left_reverse_right": false,
+        "no_self_palindromic_added_word": true,
+        "no_self_palindromic_added_span": true,
+        "no_repeated_content_shortcut": true,
+        "new_typed_relative_boundary": true,
+        "added_tape_diagnostic_length": 80
+      },
+      "provenance": {
+        "method": "bounded typed NP-to-relative boundary grammar",
+        "seam": "after object head / before plural subject head",
+        "typed_production_count": 8,
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "center_event_pair_reused": false,
+        "reader_packet_used_as_evidence": false
+      },
+      "reader_status": "not_certified; exact closure required",
+      "promotion_status": "rejected_obstruction"
+    },
+    {
+      "id": "subject-relative-boundary",
+      "rendered": "An aide who helps Nora rips nine memo-hero memos. Some more home men who stop the dog inspire Diana.",
+      "length": 79,
+      "semantic_roles": {
+        "left_relative": {
+          "head": "aide",
+          "subject": "aide",
+          "verb": "helps",
+          "object": "Nora"
+        },
+        "right_relative": {
+          "head": "men",
+          "subject": "men",
+          "verb": "stop",
+          "object": "the dog"
+        }
+      },
+      "production_path": [
+        "L_subject_relative",
+        "L_action",
+        "R_subject_np",
+        "R_subject_relative",
+        "R_action",
+        "R_object"
+      ],
+      "source_live_residual": {
+        "residual": "m",
+        "left_exposure": "memoherom",
+        "right_exposure": "memoherom",
+        "equation": "memohero + m = m + reverse(morehome)",
+        "left_role": "nine memo-hero memos: object of rips",
+        "right_role": "some more home men: subject of inspire",
+        "nonempty": true
+      },
+      "online_join": {
+        "closed": false,
+        "left_cursor": 6,
+        "right_cursor": 72,
+        "first_mismatch": [
+          6,
+          72
+        ],
+        "residual_owner": "right_relative_boundary",
+        "residual": "rediana",
+        "grammar_state": "typed relative production shifts the opposing NP before the m seam closes",
+        "seam_cursor": 27,
+        "trace_prefix": [
+          {
+            "left_cursor": 0,
+            "right_cursor": 78,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 1,
+            "right_cursor": 77,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 2,
+            "right_cursor": 76,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 75,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 4,
+            "right_cursor": 74,
+            "left_char": "d",
+            "right_char": "d",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 5,
+            "right_cursor": 73,
+            "left_char": "e",
+            "right_char": "e",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 6,
+            "right_cursor": 72,
+            "left_char": "w",
+            "right_char": "r",
+            "residual_owner": null,
+            "residual": ""
+          }
+        ]
+      },
+      "independent_exact_audit": {
+        "normalized": "anaidewhohelpsnoraripsninememoheromemossomemorehomemenwhostopthedoginspirediana",
+        "letters": 79,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          6,
+          72
+        ],
+        "first_mismatch_letters": [
+          "w",
+          "r"
+        ],
+        "sha256_forward": "c30a9309b5347e600a7cdb09db947b107756237336aa7a58dd00c58573a20ed4",
+        "sha256_reverse": "a49786f8c783781d49666b2ff4ec56940583faac2629d857f9fc9ec9753bc2c5",
+        "hashes_agree": false
+      },
+      "project_lexicon_gate": {
+        "scope": "new relative productions only",
+        "all_project_lexicon": true,
+        "no_self_palindromic_added_word": true,
+        "words": {
+          "aide": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "dog": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "help": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "helps": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "mara": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "marks": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "nora": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "nurse": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "reads": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "stop": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "that": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "the": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "who": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          }
+        }
+      },
+      "novelty_shortcut_gates": {
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "independently_left_reverse_right": false,
+        "no_self_palindromic_added_word": true,
+        "no_self_palindromic_added_span": true,
+        "no_repeated_content_shortcut": true,
+        "new_typed_relative_boundary": true,
+        "added_tape_diagnostic_length": 79
+      },
+      "provenance": {
+        "method": "bounded typed NP-to-relative boundary grammar",
+        "seam": "after left subject relative / before unchanged object NP",
+        "typed_production_count": 8,
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "center_event_pair_reused": false,
+        "reader_packet_used_as_evidence": false
+      },
+      "reader_status": "not_certified; exact closure required",
+      "promotion_status": "rejected_obstruction"
+    },
+    {
+      "id": "subject-relative-role-shift",
+      "rendered": "An aide who helps the nurse rips nine memo-hero memos. Some more home men who stop the dog inspire Diana.",
+      "length": 83,
+      "semantic_roles": {
+        "left_relative": {
+          "head": "aide",
+          "subject": "aide",
+          "verb": "helps",
+          "object": "the nurse"
+        },
+        "right_relative": {
+          "head": "men",
+          "subject": "men",
+          "verb": "stop",
+          "object": "the dog"
+        }
+      },
+      "production_path": [
+        "L_subject_relative",
+        "L_action",
+        "R_subject_np",
+        "R_subject_relative",
+        "R_action",
+        "R_object"
+      ],
+      "source_live_residual": {
+        "residual": "m",
+        "left_exposure": "memoherom",
+        "right_exposure": "memoherom",
+        "equation": "memohero + m = m + reverse(morehome)",
+        "left_role": "nine memo-hero memos: object of rips",
+        "right_role": "some more home men: subject of inspire",
+        "nonempty": true
+      },
+      "online_join": {
+        "closed": false,
+        "left_cursor": 6,
+        "right_cursor": 76,
+        "first_mismatch": [
+          6,
+          76
+        ],
+        "residual_owner": "right_relative_boundary",
+        "residual": "rediana",
+        "grammar_state": "typed relative production shifts the opposing NP before the m seam closes",
+        "seam_cursor": 27,
+        "trace_prefix": [
+          {
+            "left_cursor": 0,
+            "right_cursor": 82,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 1,
+            "right_cursor": 81,
+            "left_char": "n",
+            "right_char": "n",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 2,
+            "right_cursor": 80,
+            "left_char": "a",
+            "right_char": "a",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 79,
+            "left_char": "i",
+            "right_char": "i",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 4,
+            "right_cursor": 78,
+            "left_char": "d",
+            "right_char": "d",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 5,
+            "right_cursor": 77,
+            "left_char": "e",
+            "right_char": "e",
+            "residual_owner": null,
+            "residual": ""
+          },
+          {
+            "left_cursor": 6,
+            "right_cursor": 76,
+            "left_char": "w",
+            "right_char": "r",
+            "residual_owner": null,
+            "residual": ""
+          }
+        ]
+      },
+      "independent_exact_audit": {
+        "normalized": "anaidewhohelpsthenurseripsninememoheromemossomemorehomemenwhostopthedoginspirediana",
+        "letters": 83,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          6,
+          76
+        ],
+        "first_mismatch_letters": [
+          "w",
+          "r"
+        ],
+        "sha256_forward": "de8c597cab8edcb7cafe01577827eb3673a8f0e9d182ef0525ae138e9a33df4b",
+        "sha256_reverse": "91603c21173d8d4b1e8118d78376e74f41a6b44b9c4b99befeb03a0154793af5",
+        "hashes_agree": false
+      },
+      "project_lexicon_gate": {
+        "scope": "new relative productions only",
+        "all_project_lexicon": true,
+        "no_self_palindromic_added_word": true,
+        "words": {
+          "aide": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "dog": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "help": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "helps": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "mara": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "marks": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "nora": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "nurse": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "reads": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "stop": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "that": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "the": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          },
+          "who": {
+            "project_lexicon": true,
+            "self_palindromic": false
+          }
+        }
+      },
+      "novelty_shortcut_gates": {
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "independently_left_reverse_right": false,
+        "no_self_palindromic_added_word": true,
+        "no_self_palindromic_added_span": true,
+        "no_repeated_content_shortcut": true,
+        "new_typed_relative_boundary": true,
+        "added_tape_diagnostic_length": 83
+      },
+      "provenance": {
+        "method": "bounded typed NP-to-relative boundary grammar",
+        "seam": "after left subject relative / before unchanged object NP",
+        "typed_production_count": 8,
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "center_event_pair_reused": false,
+        "reader_packet_used_as_evidence": false
+      },
+      "reader_status": "not_certified; exact closure required",
+      "promotion_status": "rejected_obstruction"
+    }
+  ],
+  "operator_change": {
+    "first_seam": "object-relative-boundary",
+    "second_seam": "subject-relative-boundary",
+    "changed_within_run": true,
+    "obstruction_persisted": true
+  },
+  "status": "no exact closure; both typed relative seams persisted first mismatch and residual",
+  "programmatic_metrics_are_diagnostic": true,
+  "next_operator": "author a new typed head/relative production with a fresh lexical boundary; do not reopen center-pair or clause-bank products",
+  "provenance": {
+    "generator_sha256": "ff731cd28f9df51ae833656570dcbb174d84f1a06ac2ca281d0f26794192044f",
+    "reader_status": "not_certified"
+  }
+}

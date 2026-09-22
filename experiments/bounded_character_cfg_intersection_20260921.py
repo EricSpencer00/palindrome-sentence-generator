@@ -1,8 +1,12 @@
-"""A tiny constructive character-CFG intersection for prose palindromes.
+"""Quarantined regression for a character-CFG intersection.
 
 The two sides are expanded independently from typed productions.  The frontier
 stores unmatched characters, so equality is checked while expanding, not by
-reversing a finished tape.  This is deliberately bounded and auditable.
+reversing a finished tape.  This fixture is deliberately *not* admissible:
+it reproduces the canonical catalogue palindrome ``Able was I ere I saw
+Elba.`` and uses the same lexical path on both sides.  Keeping it here
+prevents a future character-CFG implementation from treating catalogue replay
+as progress.
 """
 from __future__ import annotations
 
@@ -67,8 +71,15 @@ def intersect() -> dict:
         "right_expansions": len(right_nodes),
         "provenance": [GRAMMAR[n][0].role for n in left_nodes + right_nodes],
         # The construction never calls reverse(); lexical roles are expanded
-        # twice and the live frontier performs the only equality check.
-        "shortcut_gate": True,
+        # This is intentionally false: the two sides are the same lexical
+        # path and the surface is a known catalogue palindrome.
+        "shortcut_gate": False,
+        "shortcut_reasons": [
+            "known catalogue palindrome",
+            "same lexical path reused on both sides",
+            "single fixture is not an independently authored long prose output",
+        ],
+        "admission": "rejected",
     }
 
 
@@ -87,8 +98,9 @@ def main() -> None:
     print("normalized:", result["normalized"])
     print("two_pointer:", result["two_pointer"], "sha_equal:", result["sha_equal"])
     print("frontier_empty:", result["frontier_empty"], "provenance:", ",".join(result["provenance"]))
-    print("novelty_gate: true shortcut_gate:", result["shortcut_gate"])
-    print("next_operator: add a bounded adjective/locative production pair and retain only live-frontier matches")
+    print("novelty_gate: false shortcut_gate:", result["shortcut_gate"])
+    print("admission:", result["admission"])
+    print("next_operator: author disjoint left/right typed productions and require a fresh >38-letter closure")
 
 
 if __name__ == "__main__":

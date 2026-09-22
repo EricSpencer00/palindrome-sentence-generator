@@ -8,7 +8,9 @@ def test_constructive_intersection_audits_cleanly():
     assert result["two_pointer"]
     assert result["sha_equal"] is True  # independent hashes agree because the string is a palindrome.
     assert result["provenance"]
-    assert result["shortcut_gate"]
+    assert result["shortcut_gate"] is False
+    assert result["admission"] == "rejected"
+    assert "known catalogue palindrome" in result["shortcut_reasons"]
 
 
 def test_no_repeated_unit_shortcut():

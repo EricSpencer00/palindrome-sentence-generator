@@ -46,11 +46,16 @@ def matched_outer(a: str, b: str) -> int:
 
 def run() -> dict:
     rows = []
+    rejected_repeats = []
     # Independent choices on each side; boundaries may fall inside a word
     # obligation because the comparison is character-level.
     for li in itertools.product(range(len(CLAUSES)), repeat=2):
         left = " ".join(CLAUSES[i] for i in li)
         for ri in itertools.product(range(len(CLAUSES)), repeat=2):
+            if len(set(li + ri)) != 4:
+                rejected_repeats.append({"left_indices": li, "right_indices": ri,
+                                         "reason": "repeated clause unit"})
+                continue
             right = " ".join(CLAUSES[i] for i in ri)
             score = matched_outer(left, right)
             lt, rt = tape(left), tape(right)
@@ -66,12 +71,15 @@ def run() -> dict:
             "method": "independent two-clause scene sequences with live character obligations and free word/sentence boundaries",
             "search": {"clause_count": len(CLAUSES), "left_sequences": len(CLAUSES)**2,
                        "right_sequences": len(CLAUSES)**2, "states": len(rows),
+                       "rejected_repeated_units": len(rejected_repeats),
                        "exact_closures": len(exact)},
             "best_frontier": best,
             "rendered_candidates": rows[:5],
+            "rejected_repeated_units": rejected_repeats[:32],
             "provenance": {"clauses": CLAUSES, "fresh_authored": True,
                            "catalogue_text": False, "finished_tape_reversal": False,
-                           "repeated_self_palindromic_unit": False, "punctuation_changes_letters": False,
+                           "repeated_self_palindromic_unit": False, "repeated_units": False,
+                           "punctuation_changes_letters": False,
                            "reader_gate": "closed: no human ratings; frontier is diagnostic",
                            "novelty": "independent multiword spans cross sentence/word boundaries; no semordnilap terminal requirement"},
             "next_construction": {"operator": "author a third clause against the exact residual suffix at the deepest cross-word frontier, then re-run bilateral chart",

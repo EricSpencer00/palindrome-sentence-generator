@@ -6,17 +6,19 @@ clause sequences on each side. The bilateral search compared characters while
 allowing the obligation to cross word and sentence boundaries; no side was
 constructed by reversing a finished tape.
 
-The 64 × 64 search visited 4,096 independently selected sequence pairs and
-found zero exact closures. Its strongest outer frontier matched one letter;
-the best rendered pair was:
+The 64 × 64 search rejected 2,416 sequence pairs that reused a clause unit
+across the two sides, then visited 1,680 four-distinct-clause pairs. It found
+zero exact closures. Its strongest outer frontier still matched one letter;
+the best permitted rendered pair was:
 
-> Near the river, Lena found a blue button. At dawn, Mira opened the garden gate. At dawn, Mira opened the garden gate. Near the river, Lena found a blue button.
+> Near the river, Lena found a blue button. At dawn, Mira opened the garden gate. A patient fox watched the quiet road. By noon, the keeper had mended the lantern.
 
-This is an ordinary-prose control, not a palindrome: 122 letters, independent
+This is an ordinary-prose control, not a palindrome: 125 letters, independent
 two-pointer `false`, validator `false`, and unequal forward/reverse SHA-256
 digests. It is retained because the source clauses are fresh, intact prose and
 the failure occurred under a live character obligation rather than a
-post-hoc reversal. The reader gate is closed.
+post-hoc reversal. Repeated units are explicitly rejected; the reader gate is
+closed.
 
 Run artifact: `runs/multispan-scene-boundary-search-20261001.json`.
 

@@ -8965,3 +8965,14 @@ grammar variant.
   construction must author the B2 opening word from the residual span itself
   while constraining its morphology, rather than preselecting incompatible
   ordinary openings.
+
+- **Multiword scene-boundary search (2026-10-01):** stepped outside ABBA and
+  compared independently authored two-clause scene sequences while allowing
+  the reverse obligation to cross word and sentence boundaries. The corrected
+  run rejected 2,416 pairs that reused a clause unit and evaluated 1,680
+  four-distinct-clause pairs. Its best ordinary-prose control was 125 letters,
+  matched one outer character, and failed both exact audits; zero exact rows
+  survived. Artifact:
+  `runs/multispan-scene-boundary-search-20261001.json`; the next construction
+  is a three-clause bilateral chart that authors a fresh clause against the
+  deepest residual rather than repeating a two-clause sweep.

@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "runs" / "two-character-paragraph-abba-20261002.json"
 sys.path.insert(0, str(ROOT))
 from llm_palindrome.validator import is_palindrome
+from llm_palindrome.admission import mechanical_admission_checks
 
 
 ENTITY = {"observer": "Nora", "state_holder": "Aron"}
@@ -119,6 +120,8 @@ def render() -> dict[str, object]:
             "posthoc_character_repair": False,
             "per_candidate_rlaif": False,
             "reader_certified": False,
+            "word_order_symmetry": True,
+            "repeated_phrase_scaffold": True,
         },
     }
     assert result["audit"]["two_pointer_exact"]
@@ -130,6 +133,15 @@ def render() -> dict[str, object]:
     assert result["unit_guard"]["distinct_units"]
     assert not result["unit_guard"]["self_palindromic_units"]
     assert not result["unit_guard"]["self_palindromic_paragraphs"]
+    checks = mechanical_admission_checks(rendered, min_letters=30, max_letters=2000)
+    result["mechanical_admission"] = {
+        "checks": checks,
+        "admitted": all(checks.values()),
+        "blocking_failures": sorted(key for key, value in checks.items() if not value),
+    }
+    assert not result["mechanical_admission"]["admitted"]
+    assert not checks["not_word_order_symmetry"]
+    assert not checks["no_repeated_nontrivial_unit"]
     return result
 
 
@@ -158,17 +170,19 @@ def main() -> dict[str, object]:
         "experiment_id": "two-character-paragraph-abba-20261002",
         "method": "joint typed search over reversible entity names and object/state lexemes in A/B/B-prime/A-prime paragraphs",
         "candidate": candidate,
-        "stats": {"exact_candidates": 1, "candidate_letters": candidate["audit"]["letters"],
+        "stats": {"exact_topology_controls": 1, "reader_candidates": 0,
+                  "control_letters": candidate["audit"]["letters"],
                   "typed_object_state_pairs": len(PAIR_BANK), "typed_entity_pairs": 1},
-        "reader_packet": packet,
+        "diagnostic_packet": packet,
+        "reader_packet": [],
         "reader_instructions": "Rate ordinary English readability, event coherence, and listiness from 1-5 in randomized order. Do not reveal exactness. Human judgments, not these diagnostics, decide admission.",
-        "reader_status": "prepared; blinded human ratings pending",
+        "reader_status": "closed: exact tableau fails central anti-shortcut admission for word-order symmetry and repeated Nora-saw/was-Aron phrase units",
         "novelty_preflight": {
             "status": "passed",
             "distinctive_change": "reversible character binding replaces the one-letter narrator while preserving participant roles in the exact construction state",
             "not_a_larger_duplicate_sweep": True,
         },
-        "next_operator": "add an exact discourse relation span between the observation and state paragraphs by solving it in the same entity/object/state character ledger; do not append an unconstrained connector",
+        "next_operator": "replace repeated Nora-saw/was-Aron scaffolds with independently varied clauses and require cross-word exact seams before rendering; do not send this control to readers",
     }
 
 

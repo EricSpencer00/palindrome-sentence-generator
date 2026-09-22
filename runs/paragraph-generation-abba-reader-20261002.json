@@ -3,7 +3,8 @@
   "method": "reader packet for independently authored paragraph-level ABBA seams",
   "hypothesis": "ABBA generation topology can preserve a paragraph-like event progression only if each mirrored generation is independently authored and its live character seam closes.",
   "stats": {
-    "exact_abba_candidates": 2,
+    "exact_abba_controls": 2,
+    "reader_candidates": 0,
     "candidate_lengths": [
       46,
       68
@@ -66,7 +67,37 @@
         "finished_tape_reversal": false,
         "catalogue_text": false,
         "repeated_units": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "lexicon_words",
+          "no_repeated_nontrivial_unit",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       },
       "blind_id": "item-01"
     },
@@ -135,12 +166,42 @@
         "finished_tape_reversal": false,
         "catalogue_text": false,
         "repeated_units": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "lexicon_words",
+          "no_repeated_nontrivial_unit",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       },
       "blind_id": "item-06"
     }
   ],
-  "items": [
+  "diagnostic_items": [
     {
       "id": "abba-46",
       "kind": "exact_abba_candidate",
@@ -195,7 +256,37 @@
         "finished_tape_reversal": false,
         "catalogue_text": false,
         "repeated_units": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "lexicon_words",
+          "no_repeated_nontrivial_unit",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       },
       "blind_id": "item-01"
     },
@@ -502,15 +593,46 @@
         "finished_tape_reversal": false,
         "catalogue_text": false,
         "repeated_units": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "lexicon_words",
+          "no_repeated_nontrivial_unit",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       },
       "blind_id": "item-06"
     }
   ],
+  "reader_packet": [],
   "random_seed": 20261002,
   "reader_instructions": "Rate each item for ordinary English readability and event coherence, 1\u20135. Do not infer or rate exactness. The packet contains intact prose and word-shuffled controls; order is blinded.",
-  "reader_status": "prepared; human ratings not yet collected",
-  "next_test": "Run the packet with blinded human readers, then author multi-sentence generation units at the first residual frontier rather than expanding the existing clause bank.",
+  "reader_status": "closed: both exact rows fail central anti-shortcut admission for boundary-aligned word symmetry",
+  "next_test": "Author varied multi-sentence frames at a cross-word residual frontier; do not run these controls with human readers.",
   "independent_audits": [
     "local two-pointer comparison",
     "project validator",

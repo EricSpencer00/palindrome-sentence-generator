@@ -4,8 +4,9 @@
   "hypothesis": "A recurring participant can make independently exact sentence pairs read as one scene rather than an identity list.",
   "stats": {
     "typed_pairs": 3,
-    "exact_candidates": 1,
-    "candidate_letters": 56,
+    "exact_topology_controls": 1,
+    "reader_candidates": 0,
+    "control_letters": 56,
     "controls": 2
   },
   "candidates": [
@@ -134,12 +135,41 @@
         "catalogue_text": false,
         "posthoc_repair": false,
         "per_candidate_rlaif": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "no_repeated_nontrivial_unit",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       },
       "blind_id": "item-03"
     }
   ],
-  "items": [
+  "diagnostic_items": [
     {
       "id": "intact-first-person",
       "kind": "intact_control",
@@ -384,13 +414,43 @@
         "catalogue_text": false,
         "posthoc_repair": false,
         "per_candidate_rlaif": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "no_repeated_nontrivial_unit",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       },
       "blind_id": "item-03"
     }
   ],
+  "reader_packet": [],
   "reader_instructions": "Rate ordinary English readability and event coherence from 1\u20135. Do not infer exactness. The single-letter narrator carrier is disclosed to the study designer but not highlighted to raters.",
-  "reader_status": "prepared; blinded human ratings not yet collected",
+  "reader_status": "closed: exact topology control fails the central anti-shortcut gate for boundary-aligned word symmetry and repeated phrase units",
   "independent_audits": [
     "local two-pointer walk",
     "project validator",
@@ -402,5 +462,5 @@
     "distinctive_change": "one discourse participant is preserved across every independently authored sentence pair",
     "not_a_larger_bank_sweep": true
   },
-  "next_repair": "Hold the 56-letter candidate fixed for blinded comparison against the 38-letter anchor; only add a fourth typed pair if readers accept the inversion and the new pair preserves the same scene."
+  "next_repair": "Replace the repeated saw/was frame with independently varied clauses whose exact symmetry crosses word boundaries; do not send this control to readers."
 }

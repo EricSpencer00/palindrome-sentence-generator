@@ -6,7 +6,7 @@
   "candidates": [
     {
       "id": "paragraph-abba-reader-90",
-      "role": "reader candidate; longer than the 56-letter sentence anchor",
+      "role": "exact paragraph-topology control; mechanically rejected before reader study",
       "rendered": "I saw lager. I saw desserts.\n\nI saw trams. I saw guns. I saw war.\n\nRaw was I. Snug was I. Smart was I.\n\nStressed was I. Regal was I.",
       "paragraphs": [
         "I saw lager. I saw desserts.",
@@ -114,12 +114,42 @@
         "catalogue_borrowing": false,
         "posthoc_character_repair": false,
         "per_candidate_rlaif": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true,
+        "repeated_phrase_scaffold": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "no_repeated_nontrivial_unit",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       }
     },
     {
       "id": "paragraph-abba-length-106",
-      "role": "length stress test; gums/smug pair adds awkwardness and is not the preferred reader row",
+      "role": "exact length stress control; mechanically rejected before reader study",
       "rendered": "I saw lager. I saw desserts. I saw gums.\n\nI saw trams. I saw guns. I saw war.\n\nRaw was I. Snug was I. Smart was I.\n\nSmug was I. Stressed was I. Regal was I.",
       "paragraphs": [
         "I saw lager. I saw desserts. I saw gums.",
@@ -238,17 +268,48 @@
         "catalogue_borrowing": false,
         "posthoc_character_repair": false,
         "per_candidate_rlaif": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true,
+        "repeated_phrase_scaffold": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "no_repeated_nontrivial_unit",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       }
     }
   ],
   "stats": {
     "typed_pairs_available": 6,
-    "exact_candidates": 2,
-    "preferred_reader_letters": 90,
+    "exact_topology_controls": 2,
+    "reader_candidates": 0,
+    "shorter_control_letters": 90,
     "longest_letters": 106
   },
-  "reader_packet": [
+  "diagnostic_packet": [
     {
       "id": "intact-scene-control",
       "kind": "intact_control",
@@ -275,12 +336,13 @@
       "blind_id": "paragraph-item-04"
     }
   ],
+  "reader_packet": [],
   "reader_instructions": "In randomized order, rate ordinary English readability, coherence, and listiness from 1-5. Do not show exactness labels. Programmatic diagnostics are not readability evidence.",
-  "reader_status": "prepared; blinded human ratings pending",
+  "reader_status": "closed: both exact rows fail central anti-shortcut admission for boundary-aligned word symmetry and repeated phrase scaffolds",
   "novelty_preflight": {
     "status": "passed",
     "distinctive_change": "paragraph boundaries are first-class mirrored spans, not punctuation pasted onto a one-sentence tape",
     "not_a_larger_duplicate_sweep": true
   },
-  "next_operator": "mine multiword object/predicate reverse equations with corpus grammar tags, then add only pairs that reduce rather than increase template listiness"
+  "next_operator": "replace the repeated saw/was units with varied grammatical frames whose exact character seams cross word boundaries; do not expand this mirrored-pair family"
 }

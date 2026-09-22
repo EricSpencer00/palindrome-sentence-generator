@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "runs" / "hierarchical-paragraph-abba-20261002.json"
 sys.path.insert(0, str(ROOT))
 from llm_palindrome.validator import is_palindrome
+from llm_palindrome.admission import mechanical_admission_checks
 
 
 PAIR_BANK = {
@@ -108,6 +109,8 @@ def build(candidate_id: str, outer: list[str], inner: list[str], role: str) -> d
             "posthoc_character_repair": False,
             "per_candidate_rlaif": False,
             "reader_certified": False,
+            "word_order_symmetry": True,
+            "repeated_phrase_scaffold": True,
         },
     }
     assert result["two_pointer_exact"] and result["project_validator"] and result["sha_equal"]
@@ -116,6 +119,15 @@ def build(candidate_id: str, outer: list[str], inner: list[str], role: str) -> d
     assert row["unit_guard"]["distinct_units"]
     assert not row["unit_guard"]["self_palindromic_units"]
     assert not row["unit_guard"]["self_palindromic_paragraphs"]
+    checks = mechanical_admission_checks(rendered, min_letters=30, max_letters=2000)
+    row["mechanical_admission"] = {
+        "checks": checks,
+        "admitted": all(checks.values()),
+        "blocking_failures": sorted(key for key, value in checks.items() if not value),
+    }
+    assert not row["mechanical_admission"]["admitted"]
+    assert not checks["not_word_order_symmetry"]
+    assert not checks["no_repeated_nontrivial_unit"]
     return row
 
 
@@ -130,13 +142,13 @@ def main() -> dict[str, object]:
         "paragraph-abba-reader-90",
         outer=["lager", "desserts"],
         inner=["trams", "guns", "war"],
-        role="reader candidate; longer than the 56-letter sentence anchor",
+        role="exact paragraph-topology control; mechanically rejected before reader study",
     )
     length_stress = build(
         "paragraph-abba-length-106",
         outer=["lager", "desserts", "gums"],
         inner=["trams", "guns", "war"],
-        role="length stress test; gums/smug pair adds awkwardness and is not the preferred reader row",
+        role="exact length stress control; mechanically rejected before reader study",
     )
     intact = (
         "I saw lager and desserts near the tram stop. Then I saw guns and war. "
@@ -160,19 +172,21 @@ def main() -> dict[str, object]:
         "candidates": [reader_candidate, length_stress],
         "stats": {
             "typed_pairs_available": len(PAIR_BANK),
-            "exact_candidates": 2,
-            "preferred_reader_letters": reader_candidate["audit"]["letters"],
+            "exact_topology_controls": 2,
+            "reader_candidates": 0,
+            "shorter_control_letters": reader_candidate["audit"]["letters"],
             "longest_letters": length_stress["audit"]["letters"],
         },
-        "reader_packet": packet,
+        "diagnostic_packet": packet,
+        "reader_packet": [],
         "reader_instructions": "In randomized order, rate ordinary English readability, coherence, and listiness from 1-5. Do not show exactness labels. Programmatic diagnostics are not readability evidence.",
-        "reader_status": "prepared; blinded human ratings pending",
+        "reader_status": "closed: both exact rows fail central anti-shortcut admission for boundary-aligned word symmetry and repeated phrase scaffolds",
         "novelty_preflight": {
             "status": "passed",
             "distinctive_change": "paragraph boundaries are first-class mirrored spans, not punctuation pasted onto a one-sentence tape",
             "not_a_larger_duplicate_sweep": True,
         },
-        "next_operator": "mine multiword object/predicate reverse equations with corpus grammar tags, then add only pairs that reduce rather than increase template listiness",
+        "next_operator": "replace the repeated saw/was units with varied grammatical frames whose exact character seams cross word boundaries; do not expand this mirrored-pair family",
     }
 
 

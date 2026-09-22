@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from llm_palindrome.validator import is_palindrome
+from llm_palindrome.admission import mechanical_admission_checks
 
 OUT = ROOT / "runs" / "paragraph-generation-abba-reader-20261002.json"
 
@@ -85,7 +86,8 @@ def seam_certificate(units: list[str]) -> dict[str, object]:
 def load_candidate(path: str, rendered: str, units: list[str], label: str) -> dict[str, object]:
     text = " ".join(units)
     assert text == rendered, f"candidate surface changed for {label}"
-    return {
+    checks = mechanical_admission_checks(text, min_letters=30, max_letters=2000)
+    row = {
         "id": label,
         "kind": "exact_abba_candidate",
         "rendered": text,
@@ -100,8 +102,17 @@ def load_candidate(path: str, rendered: str, units: list[str], label: str) -> di
             "catalogue_text": False,
             "repeated_units": False,
             "reader_certified": False,
+            "word_order_symmetry": True,
+        },
+        "mechanical_admission": {
+            "checks": checks,
+            "admitted": all(checks.values()),
+            "blocking_failures": sorted(key for key, value in checks.items() if not value),
         },
     }
+    assert not row["mechanical_admission"]["admitted"]
+    assert not checks["not_word_order_symmetry"]
+    return row
 
 
 def shuffled_words(text: str, seed: int) -> str:
@@ -112,9 +123,8 @@ def shuffled_words(text: str, seed: int) -> str:
 
 
 def main() -> dict[str, object]:
-    # These are the two existing exact ABBA constructions.  This packet does
-    # not promote either one: it is the first reader-facing comparison of the
-    # topology, with exactness already independently rechecked above.
+    # These are two existing exact ABBA constructions. The central gate below
+    # now keeps them diagnostic-only because both use word-order symmetry.
     candidates = [
         load_candidate(
             "runs/grammar-abba-paragraph-20260928.json",
@@ -192,20 +202,22 @@ def main() -> dict[str, object]:
         "method": "reader packet for independently authored paragraph-level ABBA seams",
         "hypothesis": "ABBA generation topology can preserve a paragraph-like event progression only if each mirrored generation is independently authored and its live character seam closes.",
         "stats": {
-            "exact_abba_candidates": len(candidates),
+            "exact_abba_controls": len(candidates),
+            "reader_candidates": 0,
             "candidate_lengths": [c["audit"]["letters"] for c in candidates],
             "controls": len(controls),
             "items": len(items),
         },
         "candidates": candidates,
-        "items": items,
+        "diagnostic_items": items,
+        "reader_packet": [],
         "random_seed": 20261002,
         "reader_instructions": (
             "Rate each item for ordinary English readability and event coherence, 1–5. "
             "Do not infer or rate exactness. The packet contains intact prose and word-shuffled controls; order is blinded."
         ),
-        "reader_status": "prepared; human ratings not yet collected",
-        "next_test": "Run the packet with blinded human readers, then author multi-sentence generation units at the first residual frontier rather than expanding the existing clause bank.",
+        "reader_status": "closed: both exact rows fail central anti-shortcut admission for boundary-aligned word symmetry",
+        "next_test": "Author varied multi-sentence frames at a cross-word residual frontier; do not run these controls with human readers.",
         "independent_audits": ["local two-pointer comparison", "project validator", "forward/reverse SHA-256", "ABBA pair seam certificates"],
     }
 

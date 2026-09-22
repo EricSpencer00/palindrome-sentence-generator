@@ -14,7 +14,9 @@ from pathlib import Path
 
 
 WORD = re.compile(r"[a-z]+(?:'[a-z]+)?")
-ALLOWED_RENDERING = re.compile(r"[A-Za-z][A-Za-z '\-.,;:!?]*")
+# Paragraph candidates may contain line breaks. ``\s`` admits ordinary layout
+# whitespace while the surrounding class still rejects unsupported symbols.
+ALLOWED_RENDERING = re.compile(r"[A-Za-z][A-Za-z\s'\-.,;:!?]*")
 FORBIDDEN_CATALOGUE_TAPES = frozenset({"margeletsnorahseesharonstelegram"})
 # A few classic palindromes are routinely reused as an *outer scaffold*: the
 # author retains their distinctive opening and final word(s), then claims a

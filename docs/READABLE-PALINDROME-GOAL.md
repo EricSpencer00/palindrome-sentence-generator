@@ -9037,13 +9037,14 @@ grammar variant.
   shell longer than 258 letters. Artifact:
   `runs/reopen-498-outer-window-20261002.json`.
 
-- **Paragraph ABBA reader packet (2026-10-02):** the strict `A B B' A'`
+- **Paragraph ABBA diagnostic packet (2026-10-02):** the strict `A B B' A'`
   topology has two exact typed-grammar examples at 46 and 68 letters. Their
   units are distinct and independently audited, but their inversion and
   semordnilap vocabulary are formulaic. The packet
   (`runs/paragraph-generation-abba-reader-20261002.json`) randomizes those
-  candidates with two intact and two shuffled prose controls; ratings have not
-  been collected, so neither example is a readability result.
+  controls with two intact and two shuffled prose controls. A later central
+  admission audit rejects both exact rows for boundary-aligned word symmetry,
+  so the human reader packet is empty and neither is a readability result.
 
 - **Discourse-linked multi-sentence generation lattice (2026-10-02):** an
   initial 16-row two-sentence micro-scene product was replaced by an
@@ -9065,13 +9066,12 @@ grammar variant.
   and 66 letters, with two-pointer, project-validator, forward/reverse SHA,
   and pair-seam audits agreeing; each has six distinct terminal-punctuated
   units and no self-palindromic unit. The rendered candidates are retained in
-  `runs/paragraph-abba-boundary-carrier-20261002.json`, but their discourse
-  may still feel like an identity list; the reader gate is closed. This is a
-  paragraph topology/prose test, not a claim that length alone solved
-  readability. The next operator replaces identity-style right clauses with
-  discourse-linked answers while preserving the live carriers.
+  `runs/paragraph-abba-boundary-carrier-20261002.json`. The central gate rejects
+  both for boundary-aligned word symmetry, so they are exact topology controls,
+  not reader items. The next operator replaces paired saw/was clauses with
+  varied grammatical frames whose exact seams cross word boundaries.
 
-- **First-person discourse ABBA (2026-10-02):** the deterministic connectivity
+- **First-person discourse ABBA topology control (2026-10-02):** the deterministic connectivity
   gate rejected both 64/66-letter boundary-carrier rows as disconnected. A
   smaller typed construction then preserved one first-person narrator across
   three independently exact observation/state pairs and produced the
@@ -9080,11 +9080,13 @@ grammar variant.
   forward/reverse SHA, and pair certificates agree; all six sentence units are
   distinct and non-self-palindromic. The repeated `I` is explicitly recorded
   as the ordinary discourse participant, not a repeated generated unit. The
-  output is more connected than the identity-list paragraphs but remains a
-  reader candidate: literary inversion and scene coherence require blinded
-  human ratings. Artifact: `runs/first-person-discourse-abba-20261002.json`.
+  output is more connected than the identity-list paragraphs, but the central
+  gate rejects its boundary-aligned word ordering and repeated `I saw` / `was
+  I` phrase scaffold. It is an exact topology control, not a reader candidate;
+  its reader packet is empty. Artifact:
+  `runs/first-person-discourse-abba-20261002.json`.
 
-- **Hierarchical four-paragraph ABBA (2026-10-02):** paragraph boundaries are
+- **Hierarchical four-paragraph ABBA control (2026-10-02):** paragraph boundaries are
   now part of the typed construction state. Fresh object/state pairs are
   partitioned between observation paragraphs `A` and `B`, then emitted in
   reverse pair order as state paragraphs `B'` and `A'`. The preferred longer
@@ -9094,15 +9096,14 @@ grammar variant.
   forward/reverse SHA-256, two paragraph-pair checks, and five clause-pair
   checks. All ten clauses are distinct; no sentence or paragraph is
   self-palindromic. Adding the fresh `gums/smug` pair gives a separately exact
-  106-letter stress test, but it is not preferred because it increases
-  awkwardness. Both candidates are in a randomized packet with intact and
-  word-shuffled controls, and both remain uncertified until blinded human
-  ratings. This is a genuine linear scaling rule over fresh typed pairs, not a
-  claim of unlimited readable output: the present reader-plausible pair bank
-  is still small. Artifact: `runs/hierarchical-paragraph-abba-20261002.json`;
+  106-letter stress test. The central gate rejects both rows for
+  boundary-aligned word-order symmetry, repeated phrase scaffolds, and proper
+  embedded palindromic spans. The apparent linear scaling rule is therefore a
+  disallowed mechanical construction, not a prose algorithm; no reader packet
+  is issued. Artifact: `runs/hierarchical-paragraph-abba-20261002.json`;
   generator: `experiments/hierarchical_paragraph_abba_20261002.py`.
 
-- **Two-character paragraph binding (2026-10-02):** the typed state now
+- **Two-character paragraph binding control (2026-10-02):** the typed state now
   selects a reversible entity pair as well as object/state lexemes. Binding
   observer `Nora` to state holder `Aron` yields a 120-letter exact tableau:
   “Nora saw lager. Nora saw desserts. / Nora saw trams. Nora saw guns. Nora
@@ -9110,10 +9111,11 @@ grammar variant.
   Regal was Aron.” The independent two-pointer walk, project validator,
   forward/reverse SHA-256, two paragraph-pair checks, one entity-name equation,
   and five object/state equations agree. Its ten clauses are distinct, with no
-  self-palindromic sentence or paragraph. This removes reliance on the
-  single-letter narrator and gives a longer scene, but repeated syntax and the
-  implicit Nora/Aron causal link remain reader-facing risks; blinded ratings
-  are prepared and pending. Artifact:
+  self-palindromic sentence or paragraph. The central gate nonetheless rejects
+  its boundary-aligned word symmetry and repeated `Nora saw` / `was Aron`
+  multiword units. It is not reader-facing evidence, and its reader packet is
+  empty. The next operator requires varied grammatical frames with cross-word
+  residual ownership. Artifact:
   `runs/two-character-paragraph-abba-20261002.json`; generator:
   `experiments/two_character_paragraph_abba_20261002.py`.
 

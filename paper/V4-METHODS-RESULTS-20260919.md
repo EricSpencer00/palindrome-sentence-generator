@@ -38,21 +38,22 @@ Two existing typed-grammar constructions demonstrate the mechanical topology:
 
 | candidate | normalized letters | exact audits | structure | status |
 |---|---:|---|---|---|
-| “Nora, I saw evil. Noel, I saw war. Raw was I, Leon. Live was I, Aron.” | 46 | two-pointer, project validator, and forward/reverse SHA agree | `A B B' A'` | exact, not reader-certified |
-| “Nora, I saw evil. Noel, I saw war. Mara, I saw God. Dog was I, Aram. Raw was I, Leon. Live was I, Aron.” | 68 | two-pointer, project validator, and forward/reverse SHA agree | `A B C C' B' A'` | exact, not reader-certified |
+| “Nora, I saw evil. Noel, I saw war. Raw was I, Leon. Live was I, Aron.” | 46 | two-pointer, project validator, and forward/reverse SHA agree | `A B B' A'` | exact topology control; shortcut gate rejects |
+| “Nora, I saw evil. Noel, I saw war. Mara, I saw God. Dog was I, Aram. Raw was I, Leon. Live was I, Aron.” | 68 | two-pointer, project validator, and forward/reverse SHA agree | `A B C C' B' A'` | exact topology control; shortcut gate rejects |
 
 These are useful seam certificates, not readability wins: the repeated
-inversion and semordnilap vocabulary makes both surfaces formulaic. The
+inversion and semordnilap vocabulary makes both surfaces formulaic, and the
+central gate rejects their boundary-aligned word symmetry. The
 longest exact tape is 530 letters, but that row only wraps the genuine
 498-letter raw-length incumbent with a desserts/stressed pair already present
 inside it. We therefore record 530 as an exact repetition control rather than
 new lexical or event content; 498 remains the meaningful residual-growth
 incumbent, and both are lexical filler rather than paragraph prose. The
-reader-facing comparison is
-frozen in `runs/paragraph-generation-abba-reader-20261002.json`, with both
-ABBA candidates, two intact prose controls, and reproducibly word-shuffled
-controls in randomized blinded order. Human ratings remain pending; no
-programmatic score is used as a readability certificate.
+diagnostic comparison is frozen in
+`runs/paragraph-generation-abba-reader-20261002.json`, with the rejected ABBA
+controls, two intact prose controls, and reproducibly word-shuffled controls.
+Its human reader packet is empty; automatic scores are not substituted for
+the failed construction gate.
 
 The follow-up editable-window audit makes the next construction requirement
 precise. Across all symmetric cut depths from one to 129 letters per side of
@@ -75,24 +76,23 @@ obligation (`deer/reed`, `mail/Liam`, and `war/raw`), then assembled them as
 
 | candidate | normalized letters | rendered surface | exact audits | status |
 |---|---:|---|---|---|
-| carrier-abba-64 | 64 | “Aron saw deer. Mara saw mail. Noel saw war. Raw was Leon. Liam was Aram. Reed was Nora.” | two-pointer, project validator, forward/reverse SHA, and pair seams agree | reader packet; not certified |
-| carrier-abba-66 | 66 | “Nora saw deer. Sara saw mail. Mara saw evil. Live was Aram. Liam was Aras. Reed was Aron.” | two-pointer, project validator, forward/reverse SHA, and pair seams agree | reader packet; not certified |
+| carrier-abba-64 | 64 | “Aron saw deer. Mara saw mail. Noel saw war. Raw was Leon. Liam was Aram. Reed was Nora.” | two-pointer, project validator, forward/reverse SHA, and pair seams agree | exact control; shortcut gate rejects |
+| carrier-abba-66 | 66 | “Nora saw deer. Sara saw mail. Mara saw evil. Live was Aram. Liam was Aras. Reed was Aron.” | two-pointer, project validator, forward/reverse SHA, and pair seams agree | exact control; shortcut gate rejects |
 
 All six units in each row are distinct, terminal-punctuated, and pass a
 surface-shape diagnostic (`subject–verb–complement`); neither row contains a
-self-palindromic unit or a finished-tape reversal. These diagnostics only
-filter the packet. The scenes may still read as a list of identity statements,
-so no readability claim is made before blinded ratings. The reproducible packet
-and provenance are in
-`runs/paragraph-abba-boundary-carrier-20261002.json`; its next repair is to
-replace the identity-style right clauses with discourse-linked answers while
-keeping the live boundary carriers.
+self-palindromic unit or a finished-tape reversal. Those unit-level checks were
+insufficient: the central gate detects boundary-aligned word symmetry in both
+whole texts. They are diagnostic controls, the reader packet is empty, and no
+readability claim is made. Provenance is in
+`runs/paragraph-abba-boundary-carrier-20261002.json`; the next construction
+must replace paired saw/was clauses with varied cross-word seams.
 
 ### First-person discourse ABBA
 
 The connectivity diagnostic rejected both boundary-carrier paragraphs because
 their identity clauses did not preserve a participant across every adjacent
-sentence. A smaller construction fixes that failure directly. It keeps one
+sentence. A smaller construction tests that failure directly. It keeps one
 ordinary first-person narrator in every unit and selects typed
 observation/state pairs only when their complete normalized tapes are exact
 reverses:
@@ -112,11 +112,11 @@ validator, equal forward/reverse SHA-256
 (`a8b0b21d5393128ea9e89af8af59774c10d2dc0fa2fb6333f13d532e3f0dbc50`),
 and three pair certificates all agree. Its six sentence units are distinct and
 none is self-palindromic. Every adjacent unit names the same first-person
-participant, giving the paragraph an observation-to-state arc. The repeated
-single-letter pronoun is disclosed as a lexical discourse carrier, not hidden
-as a generated unit; whether the inversion reads naturally is reserved for
-blinded readers. The randomized packet contains the candidate, a freshly
-authored intact first-person control, and a word-shuffled control. Artifact:
+participant, giving the paragraph an observation-to-state arc. The central
+admission gate nevertheless rejects it: its words form a boundary-aligned
+reverse ordering, and `I saw` / `was I` is a repeated nontrivial phrase unit.
+It is an exact topology control, not a reader candidate; no human packet is
+issued. Artifact:
 `runs/first-person-discourse-abba-20261002.json`; generator:
 `experiments/first_person_discourse_abba_20261002.py`.
 
@@ -127,7 +127,7 @@ search state rather than adding them after generation. We partition fresh
 object/state pairs between two observation spans, `A` and `B`, and emit their
 state clauses in reverse pair order as `B'` and `A'`. Each paragraph has its
 own reverse-tape certificate; no paragraph or sentence is self-palindromic.
-The preferred longer reader row is:
+The shorter exact topology control is:
 
 > **I saw lager. I saw desserts.**
 >
@@ -141,20 +141,17 @@ It has 90 normalized letters and SHA-256
 `5b6eca79c4bc0cc0659b1b6a0d8718214166b005c96d70c1794b0a08bd39cd74`
 in both directions. The independent two-pointer walk, project validator, two
 paragraph-pair checks, and five clause-pair checks agree. A sixth fresh pair
-(`gums/smug`) gives a 106-letter exact stress test, but that version is not the
-preferred reader row because the added observation increases awkwardness.
-Both surfaces are fully disclosed in the blinded packet alongside intact and
-word-shuffled controls. Repeated syntax remains a high-listiness diagnostic,
-not a hidden success claim; human ratings are pending. Artifact:
+(`gums/smug`) gives a 106-letter exact stress test. Both fail the central
+anti-shortcut gate for boundary-aligned word-order symmetry, repeated phrase
+scaffolds, and embedded proper palindromic spans. They remain fully rendered
+diagnostic controls, but the reader packet is empty. Artifact:
 `runs/hierarchical-paragraph-abba-20261002.json`; generator:
 `experiments/hierarchical_paragraph_abba_20261002.py`.
 
-This yields a simple linear composition rule: every newly admitted,
-non-self-palindromic object/state reverse pair can extend either `A/A'` or
-`B/B'` without breaking exactness. The current limitation is lexical rather
-than mechanical: the reader-plausible pair bank is small. The next generator
-must mine multiword object/predicate equations with grammar tags, admitting a
-pair only when it improves the scene rather than merely lengthening the list.
+This yields a simple linear exactness rule, but it is precisely the disallowed
+word-order construction rather than a scalable prose algorithm. The result
+redirects the generator toward varied clause frames whose mirrored characters
+cross word boundaries; extending this pair bank would be non-progress.
 
 The one-letter narrator is not required. A joint entity/object/state variant
 binds the reversible names `Nora/Aron` before lexical realization and produces
@@ -172,11 +169,11 @@ This surface has 120 normalized letters and matching forward/reverse SHA-256
 `bffca164c7ff03e9b3d5e929a5afc9d25ee8aadb034ecdc9be12e1e418d8646e`.
 The two-pointer walk, project validator, paragraph-pair checks, entity-name
 equation, and five object/state equations all pass. All ten clauses are
-distinct and no clause or paragraph is self-palindromic. The entity binding
-improves the construction method and length, but it does not by itself prove
-coherence: the causal relation between Nora's observations and Aron's states
-is implicit, and repeated syntax remains list-like. We therefore submit the
-120-letter row to blinded comparison rather than declaring it readable.
+distinct and no clause or paragraph is self-palindromic. The central gate
+still rejects the row for boundary-aligned word symmetry and repeated `Nora
+saw` / `was Aron` phrase units, so it is not submitted to blinded comparison.
+This closes the mirrored sentence-pair family as a reader-facing lane; the
+next method must vary complete frames while carrying a cross-word residual.
 Artifact: `runs/two-character-paragraph-abba-20261002.json`; generator:
 `experiments/two_character_paragraph_abba_20261002.py`.
 

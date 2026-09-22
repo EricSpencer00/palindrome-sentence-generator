@@ -123,16 +123,48 @@
       "catalogue_borrowing": false,
       "posthoc_character_repair": false,
       "per_candidate_rlaif": false,
-      "reader_certified": false
+      "reader_certified": false,
+      "word_order_symmetry": true,
+      "repeated_phrase_scaffold": true
+    },
+    "mechanical_admission": {
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": false,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false,
+      "blocking_failures": [
+        "distinct_words",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit",
+        "no_self_palindromic_proper_multiword_span",
+        "not_word_order_symmetry"
+      ]
     }
   },
   "stats": {
-    "exact_candidates": 1,
-    "candidate_letters": 120,
+    "exact_topology_controls": 1,
+    "reader_candidates": 0,
+    "control_letters": 120,
     "typed_object_state_pairs": 5,
     "typed_entity_pairs": 1
   },
-  "reader_packet": [
+  "diagnostic_packet": [
     {
       "id": "nora-aron-intact",
       "kind": "intact_control",
@@ -153,12 +185,13 @@
       "blind_id": "cast-item-03"
     }
   ],
+  "reader_packet": [],
   "reader_instructions": "Rate ordinary English readability, event coherence, and listiness from 1-5 in randomized order. Do not reveal exactness. Human judgments, not these diagnostics, decide admission.",
-  "reader_status": "prepared; blinded human ratings pending",
+  "reader_status": "closed: exact tableau fails central anti-shortcut admission for word-order symmetry and repeated Nora-saw/was-Aron phrase units",
   "novelty_preflight": {
     "status": "passed",
     "distinctive_change": "reversible character binding replaces the one-letter narrator while preserving participant roles in the exact construction state",
     "not_a_larger_duplicate_sweep": true
   },
-  "next_operator": "add an exact discourse relation span between the observation and state paragraphs by solving it in the same entity/object/state character ledger; do not append an unconstrained connector"
+  "next_operator": "replace repeated Nora-saw/was-Aron scaffolds with independently varied clauses and require cross-word exact seams before rendering; do not send this control to readers"
 }

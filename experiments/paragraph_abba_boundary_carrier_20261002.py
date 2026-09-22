@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "runs" / "paragraph-abba-boundary-carrier-20261002.json"
 sys.path.insert(0, str(ROOT))
 from llm_palindrome.validator import is_palindrome
+from llm_palindrome.admission import mechanical_admission_checks
 
 
 def letters(text: str) -> str:
@@ -104,6 +105,7 @@ def candidate(label: str, units: list[str], carriers: list[str]) -> dict[str, ob
     rendered = " ".join(units)
     seam = seam_certificate(units)
     guard = unit_guard(units)
+    checks = mechanical_admission_checks(rendered, min_letters=30, max_letters=2000)
     row = {
         "id": label,
         "kind": "exact_abba_candidate",
@@ -121,6 +123,12 @@ def candidate(label: str, units: list[str], carriers: list[str]) -> dict[str, ob
             "posthoc_repair": False,
             "repeated_units": False,
             "reader_certified": False,
+            "word_order_symmetry": True,
+        },
+        "mechanical_admission": {
+            "checks": checks,
+            "admitted": all(checks.values()),
+            "blocking_failures": sorted(key for key, value in checks.items() if not value),
         },
     }
     assert row["audit"]["two_pointer_exact"]
@@ -129,6 +137,8 @@ def candidate(label: str, units: list[str], carriers: list[str]) -> dict[str, ob
     assert row["seam_certificate"]["all_pairs_exact"]
     assert row["unit_guard"]["distinct_units"]
     assert not row["unit_guard"]["self_palindromic_units"]
+    assert not row["mechanical_admission"]["admitted"]
+    assert not checks["not_word_order_symmetry"]
     return row
 
 
@@ -206,22 +216,24 @@ def main() -> dict[str, object]:
         "method": "authored discourse ABBA with ordinary boundary carriers",
         "hypothesis": "A paragraph can grow beyond the one-sentence 1:1 seam when each sentence pair is authored as a complete clause and the outer character obligation is carried by ordinary boundary words.",
         "stats": {
-            "exact_abba_candidates": len(candidates),
+            "exact_abba_controls": len(candidates),
+            "reader_candidates": 0,
             "candidate_lengths": [c["audit"]["letters"] for c in candidates],
             "controls": len(controls),
             "items": len(items),
         },
         "candidates": candidates,
-        "items": items,
+        "diagnostic_items": items,
+        "reader_packet": [],
         "random_seed": 20261002,
         "reader_instructions": "Rate ordinary English readability and event coherence from 1–5 without inferring exactness. Programmatic diagnostics are filters, not certificates.",
-        "reader_status": "prepared; human ratings not yet collected",
+        "reader_status": "closed: exact rows fail central anti-shortcut admission for boundary-aligned word symmetry",
         "novelty_preflight": {
             "status": "passed",
             "distinctive_change": "three authored sentence pairs with ordinary mass/plural complements and copular right clauses; no repeated or self-palindromic units",
             "not_a_catalogue_or_finished_tape": True,
         },
-        "next_repair": "Keep the three-pair topology but replace identity-style right clauses with discourse-linked answers while preserving the live boundary carriers; do not widen the bank before a reader test.",
+        "next_repair": "Replace paired saw/was clauses with varied grammatical frames that carry exactness across word boundaries; do not widen or reader-test this mirrored-pair bank.",
         "independent_audits": ["local two-pointer comparison", "project validator", "forward/reverse SHA-256", "ABBA pair seam certificates"],
     }
 

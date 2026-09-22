@@ -3,7 +3,8 @@
   "method": "authored discourse ABBA with ordinary boundary carriers",
   "hypothesis": "A paragraph can grow beyond the one-sentence 1:1 seam when each sentence pair is authored as a complete clause and the outer character obligation is carried by ordinary boundary words.",
   "stats": {
-    "exact_abba_candidates": 2,
+    "exact_abba_controls": 2,
+    "reader_candidates": 0,
     "candidate_lengths": [
       64,
       66
@@ -96,7 +97,36 @@
         "catalogue_text": false,
         "posthoc_repair": false,
         "repeated_units": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "lexicon_words",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       },
       "blind_id": "item-01"
     },
@@ -184,12 +214,41 @@
         "catalogue_text": false,
         "posthoc_repair": false,
         "repeated_units": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "lexicon_words",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       },
       "blind_id": "item-06"
     }
   ],
-  "items": [
+  "diagnostic_items": [
     {
       "id": "carrier-abba-64",
       "kind": "exact_abba_candidate",
@@ -274,7 +333,36 @@
         "catalogue_text": false,
         "posthoc_repair": false,
         "repeated_units": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "lexicon_words",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       },
       "blind_id": "item-01"
     },
@@ -600,20 +688,50 @@
         "catalogue_text": false,
         "posthoc_repair": false,
         "repeated_units": false,
-        "reader_certified": false
+        "reader_certified": false,
+        "word_order_symmetry": true
+      },
+      "mechanical_admission": {
+        "checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "admitted": false,
+        "blocking_failures": [
+          "distinct_words",
+          "lexicon_words",
+          "no_self_palindromic_proper_multiword_span",
+          "not_word_order_symmetry"
+        ]
       },
       "blind_id": "item-06"
     }
   ],
+  "reader_packet": [],
   "random_seed": 20261002,
   "reader_instructions": "Rate ordinary English readability and event coherence from 1\u20135 without inferring exactness. Programmatic diagnostics are filters, not certificates.",
-  "reader_status": "prepared; human ratings not yet collected",
+  "reader_status": "closed: exact rows fail central anti-shortcut admission for boundary-aligned word symmetry",
   "novelty_preflight": {
     "status": "passed",
     "distinctive_change": "three authored sentence pairs with ordinary mass/plural complements and copular right clauses; no repeated or self-palindromic units",
     "not_a_catalogue_or_finished_tape": true
   },
-  "next_repair": "Keep the three-pair topology but replace identity-style right clauses with discourse-linked answers while preserving the live boundary carriers; do not widen the bank before a reader test.",
+  "next_repair": "Replace paired saw/was clauses with varied grammatical frames that carry exactness across word boundaries; do not widen or reader-test this mirrored-pair bank.",
   "independent_audits": [
     "local two-pointer comparison",
     "project validator",

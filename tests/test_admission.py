@@ -61,6 +61,13 @@ def test_reverse_whole_word_construction_is_not_admitted():
     assert checks["not_word_order_symmetry"] is False
 
 
+def test_paragraph_line_breaks_are_valid_rendering_but_not_a_gate_bypass():
+    text = "An aide rips nine memos;\n\nsome men inspire Diana."
+    checks = mechanical_admission_checks(text, max_letters=100)
+    assert checks["word_form"] is True
+    assert all(checks.values())
+
+
 def test_unsupported_unicode_fails_closed_instead_of_silently_disappearing():
     checks = mechanical_admission_checks("Márge lets Hara see Sarah's telegram.")
     assert checks["supported_ascii_letters"] is False

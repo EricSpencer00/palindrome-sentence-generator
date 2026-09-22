@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "runs" / "first-person-discourse-abba-20261002.json"
 sys.path.insert(0, str(ROOT))
 from llm_palindrome.validator import is_palindrome
+from llm_palindrome.admission import mechanical_admission_checks
 
 
 PAIR_INVENTORY = [
@@ -147,6 +148,7 @@ def candidate() -> dict[str, object]:
             "posthoc_repair": False,
             "per_candidate_rlaif": False,
             "reader_certified": False,
+            "word_order_symmetry": True,
         },
     }
     assert result["two_pointer_exact"]
@@ -155,6 +157,14 @@ def candidate() -> dict[str, object]:
     assert row["unit_guard"]["distinct_units"]
     assert not row["unit_guard"]["self_palindromic_units"]
     assert row["discourse_diagnostic"]["all_adjacent_units_connected"]
+    checks = mechanical_admission_checks(rendered, min_letters=30, max_letters=2000)
+    row["mechanical_admission"] = {
+        "checks": checks,
+        "admitted": all(checks.values()),
+        "blocking_failures": sorted(key for key, value in checks.items() if not value),
+    }
+    assert not row["mechanical_admission"]["admitted"]
+    assert not checks["not_word_order_symmetry"]
     return row
 
 
@@ -196,14 +206,16 @@ def main() -> dict[str, object]:
         "hypothesis": "A recurring participant can make independently exact sentence pairs read as one scene rather than an identity list.",
         "stats": {
             "typed_pairs": len(PAIR_INVENTORY),
-            "exact_candidates": 1,
-            "candidate_letters": exact["audit"]["letters"],
+            "exact_topology_controls": 1,
+            "reader_candidates": 0,
+            "control_letters": exact["audit"]["letters"],
             "controls": len(controls),
         },
         "candidates": [exact],
-        "items": items,
+        "diagnostic_items": items,
+        "reader_packet": [],
         "reader_instructions": "Rate ordinary English readability and event coherence from 1–5. Do not infer exactness. The single-letter narrator carrier is disclosed to the study designer but not highlighted to raters.",
-        "reader_status": "prepared; blinded human ratings not yet collected",
+        "reader_status": "closed: exact topology control fails the central anti-shortcut gate for boundary-aligned word symmetry and repeated phrase units",
         "independent_audits": [
             "local two-pointer walk",
             "project validator",
@@ -215,7 +227,7 @@ def main() -> dict[str, object]:
             "distinctive_change": "one discourse participant is preserved across every independently authored sentence pair",
             "not_a_larger_bank_sweep": True,
         },
-        "next_repair": "Hold the 56-letter candidate fixed for blinded comparison against the 38-letter anchor; only add a fourth typed pair if readers accept the inversion and the new pair preserves the same scene.",
+        "next_repair": "Replace the repeated saw/was frame with independently varied clauses whose exact symmetry crosses word boundaries; do not send this control to readers.",
     }
 
 

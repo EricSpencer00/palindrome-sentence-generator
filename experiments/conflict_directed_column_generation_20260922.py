@@ -25,7 +25,10 @@ import re
 import socket
 from typing import Any
 
-from ortools.sat.python import cp_model
+try:
+    from ortools.sat.python import cp_model
+except ModuleNotFoundError:  # Artifact-only inspection does not need the solver.
+    cp_model = None
 
 from llm_palindrome.admission import mechanical_admission_checks, normalize_letters
 
@@ -258,6 +261,10 @@ def char_layout(plan: ScenePlan, active: dict[str, list[Column]]) -> list[dict[s
 
 def _build_model(plan: ScenePlan, active: dict[str, list[Column]], nogoods: list[dict[str, Any]],
                  equalities: tuple[int, ...] | None, assumptions: bool = False):
+    if cp_model is None:
+        raise RuntimeError(
+            "OR-Tools is required to run the column generator; install the pinned requirements."
+        )
     model = cp_model.CpModel()
     selects = {slot: model.new_int_var(0, len(active[slot]) - 1, f"select_{slot}")
                for slot in plan.slots}

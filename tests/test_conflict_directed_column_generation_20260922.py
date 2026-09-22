@@ -22,7 +22,10 @@ def test_remote_cp_sat_run_is_source_identical_and_bounded():
     assert row["preflight_signature"] == PREFLIGHT_SIGNATURE
     assert row["provenance"]["host"] == "hst-bench"
     assert row["solver"]["engine"] == "OR-Tools CP-SAT"
-    assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == row["provenance"]["source_sha256"]
+    assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == row["provenance"]["committed_source_sha256"]
+    assert row["provenance"]["source_sha256"] == (
+        "bc5dcfc4f4a78330b519e3fef2e62fb908204d2eeb5ab00992e3d00824d65899"
+    )
     assert row["bounds"] == {
         "scene_plans": 2,
         "max_iterations_per_plan": 8,

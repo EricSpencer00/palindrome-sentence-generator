@@ -1,5 +1,19 @@
 # Readable palindrome finder: goal record
 
+## Active working-track override (2026-10-02)
+
+The primary cycle is now growth from the verified 240-letter exact lineage,
+not another completed-clause bank. Use the overhang/composition engine on an
+actual incumbent, allow unequal partial word/phrase spans, carry unmatched
+character ownership and incomplete grammar across several steps, and save
+longer exact closures even when their seams are rough. Every growth row still
+requires rendered text, normalized length, provenance, independent exact
+audits, and an explicit seam/readability diagnosis. Do not require a complete
+preselected word or pristine clause before consuming residual debt; do not
+count states, controls, or ledger entries as output gains. A minority of the
+cycle may repair the worst seam, but the main measure is added exact length
+from a named parent artifact. The 240-letter lineage is not completion.
+
 ## Objective and acceptance gate
 
 Build a reproducible exact-English-palindrome finder and an ACL/NAACL paper

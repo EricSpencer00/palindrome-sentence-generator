@@ -9346,3 +9346,23 @@ grammar variant.
 GPT-5.6 Sol owns architecture and coordinated direction for this goal.
 GPT-5.6 Luna is used only for bounded implementation or monitoring lanes. No
 Astra worker is used for this cycle.
+
+- **Fresh common-word POS/residual product (2026-10-02):** after proving that
+  inherited cuts at raw offsets 357 and 48 preserve fatal repetition or
+  endpoint obligations, the search discarded the 498-derived endpoints.
+  Twenty-two fresh POS/agreement/valency templates were crossed in both
+  directions while character equality, distinct content, and complementary
+  token-boundary rejection stayed live in every state. The complete
+  484-template-pair run on `hst-bench` visited 507,871 states, tried 5,365,996
+  lexical emissions, and hit no state cap. It rejected 4,844,390 emissions on
+  the character equation and 10,820 on the shortcut boundary mask, but closed
+  no exact tape. The deepest masked frontier matched nine letters; its exposed
+  residual `olc` met a determiner slot on both sides, where neither lexical
+  domain could advance. Disabling the mask exposes `stops live / evil spots`
+  at a shared internal cursor, confirming that the mask removes precisely the
+  disallowed easy closure. This exhausts flat single-clause templates, not
+  recursive dual parsing. The next representation compiles the same common
+  lexical domains into bidirectional character tries and adds one typed
+  relative-clause recursion. Artifact:
+  `runs/fresh-common-dual-pos-boundary-mask-20261002.json`; generator:
+  `experiments/fresh_common_dual_pos_boundary_mask_20261002.py`.

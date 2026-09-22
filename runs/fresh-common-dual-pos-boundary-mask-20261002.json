@@ -1,0 +1,108 @@
+{
+  "experiment_id": "fresh-common-dual-pos-boundary-mask-20261002",
+  "status": "completed_zero_closure",
+  "method": "common-word dual POS/agreement/valency grammars intersected during decoding with a live character residual, lexical distinctness, and an online complementary-boundary mask",
+  "novelty_preflight": {
+    "inherited_498_endpoint": false,
+    "proper_names": false,
+    "finished_phrase_units": false,
+    "phrase_bank": false,
+    "finished_tape_reversal": false,
+    "post_render_repair": false,
+    "difference_from_prior_runs": "grammar, exact character equality, and shortcut rejection are simultaneous state constraints rather than post-hoc scoring or repair"
+  },
+  "grammar": {
+    "template_count": 22,
+    "ordered_template_pairs": 484,
+    "agreement": "NSG-VSGT and NPL-VPLT; VPAST is number-neutral",
+    "valency": "finite verbs require a WordNet transitive frame and every transitive template realizes its object"
+  },
+  "lexicon": {
+    "sources": [
+      "NLTK Brown word and tag counts",
+      "wordfreq English frequency",
+      "WordNet verb frames"
+    ],
+    "brown_tokens": 981716,
+    "proper_forms_excluded": 7805,
+    "thresholds": {
+      "brown_count": 3,
+      "wordfreq_zipf": 3.7
+    },
+    "domain_sizes": {
+      "ADJ": 500,
+      "ADP": 9,
+      "ADV": 300,
+      "COPPL": 2,
+      "COPSG": 2,
+      "DET": 9,
+      "NOBJ": 1492,
+      "NPL": 600,
+      "NSG": 900,
+      "OBJPRON": 6,
+      "PRONPL": 2,
+      "PRONSG": 3,
+      "VPAST": 360,
+      "VPLT": 360,
+      "VSGT": 360
+    },
+    "domain_sha256": "e708e9e91e75fcb5f4a1d0456bc29b9c714a522e085aa3ca9cee4e1752869428"
+  },
+  "result": {
+    "states": 507871,
+    "transitions": 510781,
+    "lexical_attempts": 5365996,
+    "character_prunes": 4844390,
+    "complementary_boundary_prunes": 10820,
+    "distinct_content_prunes": 5,
+    "state_cap_reached": false,
+    "closures": 0,
+    "exact_gt38": 0,
+    "mechanically_admitted": 0,
+    "elapsed_seconds_remote": 27.755,
+    "maximum_live_match_letters": 9,
+    "deepest_masked_frontier": {
+      "left": [
+        "no",
+        "it",
+        "cares"
+      ],
+      "right_partial": [
+        "closer",
+        "action"
+      ],
+      "owner": "right",
+      "residual": "olc",
+      "next_left_role": "DET",
+      "next_right_role": "DET",
+      "obstruction": "neither determiner domain has an exposed form beginning olc"
+    },
+    "diagnostic_without_boundary_mask": {
+      "left": [
+        "stops",
+        "live"
+      ],
+      "right": [
+        "evil",
+        "spots"
+      ],
+      "shared_internal_cursor": 5,
+      "interpretation": "the unmasked closure is exactly the complementary token-boundary shortcut that the online mask must reject"
+    }
+  },
+  "provenance": {
+    "execution_host": "hst-bench",
+    "remote_source": "/home/eric/fresh_search_adjunct.py",
+    "remote_log": "/home/eric/fresh-search-adjunct.log",
+    "remote_generator_sha256": "93f5883b53e4b5efceb4b60e4bf751c86a234f1f1c65ba9acd3d148d63ca9ec9",
+    "committed_generator_sha256": "f2c7dccb067bee1a70afd0b32f85bac4886c4cd947ee9ea87037c5c7854967c2",
+    "remote_log_sha256": "09e0d5c5e26d7f45c33d20237f6949e474d4b01e26b50e2ce96d879ebfef7f95",
+    "remote_result_sha256": "3e874293ee708d6c20d95e91deb1b5695961efaa42771ef1568f6c1364ae1d74",
+    "source_difference": "the committed source replaces the remote checkout path with repository-root discovery and updates only the experiment date"
+  },
+  "candidate": null,
+  "incumbent_specific_obstruction": {
+    "statement": "the finite single-clause product exhausts all 484 template pairs without closure; its deepest surviving residual is olc at a DET-DET cursor, so merely enlarging the same flat templates is not a new method",
+    "next_operator": "compile the same lexical domains into bidirectional character tries and add one typed optional relative-clause recursion, while retaining the live residual and online complementary-boundary mask"
+  }
+}

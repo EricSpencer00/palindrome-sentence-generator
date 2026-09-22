@@ -4973,3 +4973,26 @@ visited 54 states and 77 transitions, reached a seven-letter frontier, and
 closed no tape. We therefore retire fixed whole-word two-clause banks rather
 than enlarging them. The successor representation must expose word-internal
 inflectional states inside the same valency and discourse product.
+
+### Fresh common-word product with online shortcut exclusion
+
+We then removed the inherited 498-letter endpoints entirely and constructed
+both halves from common English words. The product paired 22 independently
+typed POS/agreement/valency templates in all 484 ordered combinations. Each
+transition simultaneously advanced the grammatical cursor, consumed the
+exact character residual, enforced distinct content words, and rejected any
+shared internal reflected token boundary. Consequently, completed prose was
+never generated and repaired after the fact.
+
+The bounded run exhausted 507,871 states and 5,365,996 lexical attempts
+without hitting a cap. Character incompatibility pruned 4,844,390 emissions,
+the complementary-boundary mask pruned 10,820, and no exact closure survived.
+The best masked frontier matched nine letters and stopped with residual
+`olc` at opposing determiner slots. A diagnostic run without the boundary mask
+found the aligned `stops live / evil spots` shortcut at cursor five, showing
+that the mask is operational rather than cosmetic. This is a representation
+result: a finite flat clause product is insufficient, while the live
+character/grammar intersection remains the construction mechanism. The next
+experiment replaces flat word enumeration with bidirectional character tries
+and adds one typed relative-clause recursion; it does not enlarge the same
+template bank.

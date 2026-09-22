@@ -4,19 +4,32 @@
 
 This is the short version of the experiment record. The repository contains many failed searches and repair attempts, so this page keeps the useful progression in view and links to the complete committed ledger when the details matter.
 
-## Current generation
+## Current exact-construction status
 
-The current promoted readability frontier is **666 letters**, independently exact after normalizing case and punctuation. It is a connected central mini-scene over the existing working track; it still carries repeated vocabulary and rough discourse as construction debt.
+The **38-letter** reader-facing benchmark is the only established
+human-readability result. No candidate longer than 38 letters has
+human-readability evidence, and no candidate may be called a readable world
+record. The exact **568-letter** causal-scene row remains the working-length
+incumbent; the exact 666-letter comparison parent and naturalness child are
+retained as unpromoted comparison evidence after whole-text review.
+
+The rendered block below is a retained earlier 666-letter comparison text;
+it is not a readability claim.
 
 ```text
 Leon won. Wolf spots Nora. Nora sees Nadia. Nadia sees Ira. Sara saw God. Ari saw Dog. Mara stops rats. Nora spots a ram. Mara sees rats. Nora stops rats. Nora sees Aram. Mara sees Nadia. Nadia saw Noel live. Mara stops Nadia. Nora sees Aram. Sara saw Noel live. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Leon stops Noel. Noel spots Nadia. Nadia stops Aidan. Ari sees God. Dog sees Ira. Nadia spots Aidan. Aidan stops Leon. Leon spots Noel. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Evil Leon was Aras. Mara sees Aron. Aidan spots Aram. Evil Leon was Aidan. Aidan sees Aram. Mara sees Aron; star spots Aron. Star sees Aram. Mara stops Aron. Star spots Aram. God was Ira. Dog was Aras. Ari sees Aidan. Aidan sees Aron. Aron stops flow now, Noel.
 ```
 
-- Artifact: [`runs/incumbent-666-central-mini-scene-comparison-20260922.json`](runs/incumbent-666-central-mini-scene-comparison-20260922.json)
-- SHA-256: `3951b9449ed3ab28f55d9798e344dfaf3123035f5f07c9dffdf0047bed0e1d79`
+- Earlier retained artifact: [`runs/incumbent-666-central-mini-scene-comparison-20260922.json`](runs/incumbent-666-central-mini-scene-comparison-20260922.json)
+- Current comparison parent: [`runs/incumbent-666-comparison-alternative-20260922.json`](runs/incumbent-666-comparison-alternative-20260922.json)
+- Retained naturalness child: [`runs/incumbent-666-naturalness-seam-repair-20260922.json`](runs/incumbent-666-naturalness-seam-repair-20260922.json)
+- Comparison parent SHA-256: `cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297`
+- Naturalness child SHA-256: `2dc6afd1545b52b24f2d53d04e6e2529929f52dd45b81c00495f5cf3b86b19ed` (retained unpromoted)
 - Audit: two-pointer exact, byte-pointer exact, and forward/reverse hashes agree
 
-The separate **568-letter** causal-scene row remains the working incumbent because it has the clearest construction lineage. The 666-letter result is promoted as the readability frontier, not presented as finished prose.
+The separate **568-letter** causal-scene row remains the working incumbent
+because it has the clearest construction lineage. These 666-letter rows are
+exact comparison artifacts, not finished prose or readability evidence.
 
 ## A longer earlier generation
 
@@ -42,7 +55,7 @@ A ram saw Nadia. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. 
 | 498 | Content-bearing center-out growth | exact working parent |
 | 568 | Causal-scene outer-shell construction | working incumbent |
 | 650 | Event-shell substitution with a closed live equation | exact frontier |
-| 666 | Connected central mini-scene comparison | promoted readability frontier |
+| 666 | Connected central mini-scene comparison | exact comparison evidence; no human evidence |
 
 The 38–240 rows are historical diagnostics. They remain useful because they show where construction debt entered, but they are not reader-validated prose claims.
 

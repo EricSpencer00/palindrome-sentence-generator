@@ -5,9 +5,10 @@ is constructive: choose grammatical lexical paths while satisfying character
 seams during search. Exactness is independently checked; automatic language
 scores and AI feedback only diagnose historical lanes. The active search is
 exact-by-construction from the verified 568-letter causal-scene incumbent. The
-same lineage now has exact 594--596-letter growth-frontier children, with
+same lineage has exact 594-, 600-, and 592-letter construction children, with
 partial-word ownership, residual characters, grammar boundaries, and opposing
-cursors carried together. No output below is human certified yet.
+cursors carried together. These are non-reader evidence; no output below is
+human certified yet.
 
 The readability target is broad English: an intact, grammatical, scene-bearing
 line that a blinded reader can understand. “Shakespearean,” where it appears
@@ -15,7 +16,37 @@ in legacy run names or diagnostic fields, is not a diction or imitation
 requirement. Literary vocabulary is neither a shortcut nor a certificate;
 reader ratings decide whether an exact output is readable.
 
-## Current result: verified 568 incumbent and live 594--596 frontier
+## Current evidence status (2026-09-22)
+
+This ledger keeps exact construction, reader-facing material, and human
+readability separate. The only established human-readability result remains
+the 38-letter reader-facing benchmark, **“An aide rips nine memos; some men
+inspire Diana.”** No candidate longer than 38 letters has human-readability
+evidence, and no candidate may be called a readable world record.
+
+| Lane | Authoritative exact evidence | Reader status |
+|---|---|---|
+| 38 letters | Reader-facing benchmark; the only established human-readability result | Benchmark/control, not a longer-length claim |
+| 54 letters | NP cross-role candidate, SHA-256 `2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268`; [`runs/seed-np-cross-role-intersection-20260922.json`](../runs/seed-np-cross-role-intersection-20260922.json) | Reader packet frozen but unrun; promising, not readable evidence |
+| 568 letters | Working-length incumbent, SHA-256 `6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`; [`runs/incumbent-560-outer-causal-scene-20261002.json`](../runs/incumbent-560-outer-causal-scene-20261002.json) | Rough exact construction; no human evidence |
+| 666 letters | Exact comparison frontier parent, SHA-256 `cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297`; naturalness child SHA-256 `2dc6afd1545b52b24f2d53d04e6e2529929f52dd45b81c00495f5cf3b86b19ed`; [`comparison`](../runs/incumbent-666-comparison-alternative-20260922.json), [`naturalness repair`](../runs/incumbent-666-naturalness-seam-repair-20260922.json) | Comparison evidence only; child retained unpromoted after whole-text review; no human evidence |
+| 594 / 600 / 592 letters | Exact 568-lineage construction children: [`594`](../runs/incumbent-596-repeated-shell-repair-20261002.json), [`600`](../runs/incumbent-568-partial-varied-intersection-20261002.json), [`592`](../runs/incumbent-568-sentence-boundary-clause-intersection-20261002.json) | Explicitly non-reader construction evidence |
+| 82 letters | Rejected `spot/stop` center-pair shortcut; [`bounded clause-growth artifact`](../runs/seed-np-cross-role-clause-growth-20260922.json) | Not a reader candidate |
+| Strict 54 continuation | Bounded NP continuation leaves the live `memohero + m = m + reverse(morehome)` residual unresolved; [`obstruction`](../runs/seed-np-cross-role-residual-continuation-20260922.json) | Negative construction evidence; no exact closure |
+
+The exact mechanical length baselines are separate from the reader lanes:
+the repository's [Norvig-v3 artifact](../artifacts/norvig-v3/) is 90,937
+letters; [Norvig's primary page](https://www.norvig.com/palindrome.html)
+reports 90,439 letters and its earlier construction reports 540 words; and
+the [remote dictionary run](../docs/RESULTS-REMOTE-NORVIG-500K-20260920.md)
+reaches 286,561 exact catalogue-like letters. These are unreadable length
+baselines only, not readable results or world records.
+
+These boundaries do not change the constructive thesis. The paper centers the
+working construction method, exact validation, readable examples and controls,
+and reader evidence as the pending next gate.
+
+## Working 568 result and exact construction children
 
 The working incumbent is the independently exact 568-letter causal scene in
 `runs/incumbent-560-outer-causal-scene-20261002.json`, normalized SHA-256

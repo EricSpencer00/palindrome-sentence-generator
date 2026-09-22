@@ -3,6 +3,25 @@
 This archive description is historical. It does not document a current
 readable-palindrome result and must not be used to build or distribute a release.
 
+## Current evidence boundary (2026-09-22)
+
+For the current ledger, see [`V4-METHODS-RESULTS-20260919.md`](V4-METHODS-RESULTS-20260919.md).
+The 38-letter reader-facing benchmark is the only established
+human-readability result. No candidate above 38 letters has human-readability
+evidence, and no candidate may be called a readable world record.
+
+The 54-letter NP candidate has a frozen but unrun reader packet; the exact
+568-letter construction is the working-length incumbent; the exact 666 parent
+and its naturalness child are comparison evidence retained unpromoted after
+whole-text review. Exact 594/600/592 children remain non-reader construction
+evidence. The 82-letter center-pair shortcut and strict 54 residual
+continuation are rejected or obstructed lanes.
+
+Mechanical length baselines are separate: the repository's Norvig-v3 artifact
+is 90,937 letters, Norvig's primary page reports 90,439 letters and an earlier
+540-word construction, and the remote dictionary run reaches 286,561 exact
+catalogue-like letters. These are unreadable length baselines only.
+
 This archive accompanies *Measuring Reversal Cost in English for Exact
 Palindrome Search*. It contains the frozen samples and measurements behind the
 paper, the current source needed to audit or rerun them, the two long-form

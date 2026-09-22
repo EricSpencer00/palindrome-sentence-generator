@@ -2,24 +2,28 @@
 
 [Results](RESULTS.md) · [Full results ledger](docs/RESULTS-LEDGER.md) · [Design](DESIGN.md) · [Product](PRODUCT.md)
 
-## Current status: exact 666-letter readability frontier, 568-letter working incumbent
+## Current status: 38-letter reader benchmark, exact longer construction lanes
 
-The latest promoted readability frontier is an independently exact **666-letter**
-palindrome. It improves a connected central scene while keeping the rough seams
-and repeated vocabulary visible. The separate **568-letter** causal-scene row
-remains the working incumbent because it has the clearest construction lineage.
+The **38-letter** reader-facing benchmark is the only established
+human-readability result. The separate **568-letter** causal-scene row remains
+the exact working-length incumbent because it has the clearest construction
+lineage. The exact **666-letter** comparison parent (SHA-256
+`cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297`) and its
+naturalness child (SHA-256
+`2dc6afd1545b52b24f2d53d04e6e2529929f52dd45b81c00495f5cf3b86b19ed`) are
+retained unpromoted after whole-text review.
 
-The frontier is a result, not a claim that 666 letters of polished prose now
-exist. Exactness is mechanical; readability, repetition, and discourse are
-separate debts. The short version is on [`RESULTS.md`](RESULTS.md), and the
-complete committed artifact index is in
+No candidate longer than 38 letters has human-readability evidence. Exactness
+is mechanical; readability, repetition, and discourse are separate debts, and
+no candidate is a readable world record. The short version is on
+[`RESULTS.md`](RESULTS.md), and the complete committed artifact index is in
 [`docs/RESULTS-LEDGER.md`](docs/RESULTS-LEDGER.md).
 
-The active frontier is [`central-mini-scene-comparison-leon-noel-666`](runs/incumbent-666-central-mini-scene-comparison-20260922.json), with normalized SHA-256
-`3951b9449ed3ab28f55d9798e344dfaf3123035f5f07c9dffdf0047bed0e1d79`.
+The comparison parent is [`comparison-alternative-nora-sees-666`](runs/incumbent-666-comparison-alternative-20260922.json).
 
 The 560, 558, and 556 children remain preserved as a diverse repair frontier.
-The 594--596 children remain available for seam repair. Fresh POS searches,
+The 594-, 600-, and 592-letter children remain available as exact construction
+evidence for seam repair. Fresh POS searches,
 productive-affix cycles, short witnesses, and reader-study packets are frozen.
 Construction stays on the long exact lineage.
 
@@ -41,7 +45,7 @@ casing are presentation choices.
 | 240 | paired seam growth | the first substantial exact center with visible formulaic debt |
 | 568 | causal-scene outer shell | the working incumbent and its repair lineage |
 | 650 | event-shell substitution | a long exact candidate with a closed live equation |
-| 666 | connected central mini-scene | the current promoted readability frontier |
+| 666 | connected central mini-scene | exact comparison evidence; no human evidence |
 
 <details>
 <summary>Show the 650-letter generation</summary>
@@ -54,7 +58,8 @@ A ram saw Nadia. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. 
 
 </details>
 
-The [results page](RESULTS.md) includes the current 666-letter generation,
+The [results page](RESULTS.md) includes a retained 666-letter comparison
+generation,
 the 650-letter generation above, hashes, status notes, and the full historical
 length progression.
 
@@ -259,7 +264,7 @@ server/
 training/          corpus, judge, inventory and lexicon builders
 experiments/       dated construction searches, controls, and measurements
 tests/             pytest suite, kept separate from experiment modules
-RESULTS.md         curated generations and the current readability frontier
+RESULTS.md         curated generations and the current exact-construction status
 docs/RESULTS-LEDGER.md
                    full method-by-method artifact index
 web/               the page at palindrome.ericspencer.us

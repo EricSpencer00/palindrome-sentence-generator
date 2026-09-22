@@ -5,6 +5,27 @@ whose search and proxy claims do not meet the reader-evidence standard; it is
 retained only to identify material that must not be released or cited as
 current evidence.
 
+## Current evidence boundary (2026-09-22)
+
+The historical audit below remains useful for provenance, but it is not a
+readability certification or a record claim. The current paper ledger in
+[`V4-METHODS-RESULTS-20260919.md`](V4-METHODS-RESULTS-20260919.md) is the
+authoritative status summary. The 38-letter reader-facing benchmark is the
+only established human-readability result; no candidate above 38 letters has
+human-readability evidence, and no candidate is a readable world record.
+
+The 54-letter NP packet is frozen but unrun. The exact 568-letter construction
+is the working-length incumbent; the exact 666-letter comparison parent and
+its naturalness child remain unpromoted after whole-text review. The 594/600/592
+children are exact 568-lineage construction evidence only, and the 82-letter
+center-pair shortcut plus the strict 54 residual continuation are rejected or
+obstructed construction lanes, not reader results.
+
+Length baselines are reported separately: the repository's Norvig-v3 artifact
+has 90,937 letters; Norvig's primary page reports 90,439 letters and an earlier
+540-word construction; and the remote dictionary run reaches 286,561 exact
+catalogue-like letters. These are unreadable mechanical baselines only.
+
 ## Historical audit details
 
 The historical release was a controlled study of sound Brown POS-shape pruning,

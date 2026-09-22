@@ -23,7 +23,7 @@ forward/reverse SHA all agree. The 530-letter desserts/stressed wrapper is a
 repetition control, not an incumbent. A separate 528-letter drawer/reward
 descendant adds a new event and is retained in the working frontier.
 
-The new method reopens the parent's actual outer closure instead of wrapping a
+The first live-seam method reopens the parent's actual outer closure instead of wrapping a
 finished tape. Removing `to` and `got` retains `get ... estate` at normalized
 cursors 2 and 495. The live state is owner `R`, residual `g`: the mixed word
 `get` repays left debt `et` and exposes `g`; “Get a map” consumes that `g` and
@@ -46,15 +46,45 @@ at its authored outer shell, `saw/was` occurrences fall from ten to two and
 distinct predicates rise from two to ten. Its depth-39 `i|ts` cursor replaces
 78 inherited outer letters while preserving exactness.
 
-This is a construction advance, not a readability claim. The rendered child
-is shown precisely because its inherited middle is still rough; no automatic
-score can certify it as English prose. Human evaluation is postponed until
-the worst inherited seam is repaired, but no reader gate blocks continued
-construction. Reproducible evidence is in
+That outer-shell result is now a frozen length control, not the active repair
+frontier: 418--493 inherited letters remain, so more outer events cannot fix
+the dominant reader-facing defect. The successor reopens the first bilateral
+complete-word seam of the 498 parent, normalized offsets `[129,369)`. It keeps
+only the exact 240-letter center and replaces 258 inherited outer letters with
+a boundary-shifting 147-letter shell on each side. Its crucial transduction is
+`A tub? He` -> `Eh, but a`: two left sentence constituents become a right
+interjection and conjunction inside one finite clause. The shell also carries
+the nonempty residual `won` across the retained center and consumes it only at
+the final `Leon|won` boundary. This produces an independently exact 534-letter
+child, SHA-256
+`4df622f18dc04d737f0c3644e52a03e7d391e1baaf0f6d8c179b1f3eb38f6a0d`.
+
+The next operator acts **inside** that center. It replaces specified symmetric
+phrase spans with finite events before rendering; it does not add another
+wrapper. Four exact children survive above 530 letters. The active combined
+row is 544 letters (SHA-256
+`2ea2411e5fea4d27d3db24ba0e471cc6a52a4a2196b52fb6a82b5cc6033b0655`):
+
+> **Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, did I draw Mara? Was I God? Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, I saw diaper. Repaid was I, Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog I saw, Aram. Ward I did, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.**
+
+The row is not human certified and still contains conspicuous formulaic seams.
+It is nevertheless a more informative construction result than the 556-letter
+control: it changes two interior events, keeps the live residual trace, and
+reduces inherited material rather than surrounding it. Programmatic exactness
+admits it to the working frontier; only blinded readers can establish readable
+English. The next repair is fixed in advance: replace the paired “Noel, did I
+draw Mara?” / “Ward I did, Leon” span with a new finite event whose word
+boundaries cross the reflected span.
+
+Reproducible evidence is in
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
 `runs/incumbent-498-live-seam-growth-20261002.json`, followed by
 `experiments/incumbent_498_event_frame_seam_repair_20261002.py` and
-`runs/incumbent-498-event-frame-seam-repair-20261002.json`. The historical
+`runs/incumbent-498-event-frame-seam-repair-20261002.json`,
+`experiments/incumbent_498_deep_clause_transducer_20261002.py`,
+`runs/incumbent-498-deep-clause-transducer-20261002.json`,
+`experiments/incumbent_534_inner_event_repair_20261002.py`, and
+`runs/incumbent-534-inner-event-repair-20261002.json`. The historical
 38- and 54-letter sections below are retained only as ablation history.
 
 ## Paragraph-level ABBA generation

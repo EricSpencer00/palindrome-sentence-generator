@@ -37,12 +37,40 @@ while the more predicate-diverse 554-letter row has SHA-256
 `02e1ded5e201a2dac2b60a23c30eea7853527cab4ed99fcdb131ad2fd4aed08c`.
 At the repaired outer shell, `saw/was` occurrences fall from ten to two and
 distinct predicates rise from two to ten. The depth-39 `i|ts` seam replaces 78
-inherited outer letters. The next repair moves inward again and requires a
-finite main-clause continuation rather than another name pair. Evidence:
+inherited outer letters.
+
+The outer-frame branch is now frozen as a length control. Its 418--493
+inherited letters still dominate the surface, so adding more outside it cannot
+repair readability. The constructive frontier instead cuts the 498 parent at
+its first bilateral complete-word seam, offsets `[129,369)`, retains the exact
+240-letter center, and replaces **258 inherited letters** with a 147-letter
+shell on each side. The shell changes grammatical boundaries while matching:
+`A tub? He` reverses to `Eh, but a`, so two left sentences feed one right
+finite clause. It also keeps owner `R` and residual `won` live across the
+center; the right edge consumes that debt as `Leon|won`. The resulting child
+is independently exact at 534 letters, SHA-256
+`4df622f18dc04d737f0c3644e52a03e7d391e1baaf0f6d8c179b1f3eb38f6a0d`.
+
+The first center repair then substitutes finite events at exact symmetric
+spans instead of adding another wrapper. Four children remain above 530
+letters. The active 544-letter row replaces “Nora, I saw deliver Noel” with
+“Nadia delivers maps” and replaces an inverted question pair with “Nora saw
+Noel live” / “Evil Leon was Aron.” Its independent forward/reverse SHA-256 is
+`2ea2411e5fea4d27d3db24ba0e471cc6a52a4a2196b52fb6a82b5cc6033b0655`.
+This is the readability-repair frontier; the 556 row remains only the longer,
+rougher control. The next editable seam is the paired “Noel, did I draw Mara?”
+/ “Ward I did, Leon” span, and it must receive a new finite event whose word
+boundaries cross the reflected span.
+
+Evidence:
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
 `runs/incumbent-498-live-seam-growth-20261002.json`, followed by
 `experiments/incumbent_498_event_frame_seam_repair_20261002.py` and
-`runs/incumbent-498-event-frame-seam-repair-20261002.json`.
+`runs/incumbent-498-event-frame-seam-repair-20261002.json`, then
+`experiments/incumbent_498_deep_clause_transducer_20261002.py`,
+`runs/incumbent-498-deep-clause-transducer-20261002.json`,
+`experiments/incumbent_534_inner_event_repair_20261002.py`, and
+`runs/incumbent-534-inner-event-repair-20261002.json`.
 
 Sol owns this pivot. No Astra or non-Sol agent is used. Human studies remain
 required before a readability claim, but they are not a prerequisite for

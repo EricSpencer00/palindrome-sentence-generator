@@ -8721,3 +8721,24 @@ generated, non-formulaic candidate.
   debt is grammatical (`I saw` repetition and copular returns), not a hidden
   punctuation issue; no reader claim is made. Artifact:
   `runs/typed-tape-resegmentation-20260930.json`.
+
+- **Shared-noun active/passive intersection, 2026-09-30:** a new grammar
+  carried a shared patient noun, valency, agreement, and tense while consuming
+  opposing characters online. It explored 3,048 states and pruned 17,220
+  incompatible character transitions, but produced zero exact closures. The
+  next operator is determiner/tense/agreement variation while retaining the
+  shared entity, not a larger lexical bank. Artifact:
+  `runs/shared-noun-active-passive-20260930.json`.
+
+- **Fresh typed scene lattice, 2026-09-30:** an independent agent/theme/
+  verb/attachment lattice explored 20,000 states and 5,228 complete ordinary
+  controls; all failed exactness at a concrete first mismatch. This is a
+  separate grammar geometry, not a phrase-graph sweep. Its successor is a
+  shared-entity seam at event completion. Artifact:
+  `runs/scene-lattice-live-intersection-20260930.json`.
+
+- **Non-mirrored paragraph frame, 2026-09-30:** a setting → action →
+  consequence → reflection frame died before its first matched character
+  (`{a,b,i}` versus `{l,n,s}` at the exposed onset). The frame is retired as
+  configured; only the consequence/reflection boundary is worth changing.
+  Artifact: `runs/packed-nonmirror-paragraph-frame-20260930.json`.

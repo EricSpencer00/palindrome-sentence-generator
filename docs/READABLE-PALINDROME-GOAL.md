@@ -8910,6 +8910,20 @@ locally repaired child; the next useful action is another paired seam edit or
 meaningful growth from one of these actual tapes, not another unrelated
 grammar variant.
 
+- **Joint word-targeted ABBA residual, 2026-10-01:** six small ordinary
+  scene frames selected the lexical ending of A1+B1 and the opening word of
+  B2 as one construction decision, then realized B2 and A2 together. The
+  search rendered 144 four-unit, intact-prose candidates, with independent
+  two-pointer, project-validator, and forward/reverse SHA audits. It found
+  zero exact candidates above 38 letters; the deepest live seam was one
+  character, before a complete target word could be discharged. This is a
+  constructive failure of the current boundary geometry, not a readability
+  certification. Artifact:
+  `runs/abba-wordtarget-residual-20261001.json`; generator:
+  `experiments/abba_wordtarget_residual_20261001.py`. The next operator must
+  make the target word span the live residual boundary (including its final
+  character) before selecting A2.
+
 - **Noel/Leon seam repair:** on the 238-letter parent, `Noel, I saw war.` /
   `Raw was I, Leon.` was jointly replaced by `Noel, did I draw?` /
   `Ward, I did, Leon.`. The resulting child is 240 letters and exact (SHA-256

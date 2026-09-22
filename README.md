@@ -5,19 +5,20 @@
 The active construction parent is the independently exact 498-letter row in
 `runs/overhang-growth-from-240-20261001.json` (normalized SHA-256
 `e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032`).
-The current live partial-word seam experiment produces a diverse exact
-552--560-letter frontier from that parent; it does not use the 530-letter
-duplicated-wrapper control. The 560-letter row has normalized SHA-256
-`7b75356b778309fe0fe221cfed5642f7f47b52f73e308556e11f7a04cd0e5dfa`.
+The current live partial-word seam experiments produce exact 534--568-letter
+children from that parent; they do not use the 530-letter duplicated-wrapper
+control. The 568-letter row has normalized SHA-256
+`5817fbfefe5f0c6d9bfe6fb5e7ed4aaa05067a406c785c760145485b0900de86`.
 
 Those rows are rough construction evidence, not reader-validated English.
 This project still has no long palindrome that has passed blinded human reader
 evaluation. Exact-letter validation and automatic language scores are filters,
 not readability evidence. Public output routes remain retired while the first
 inherited discourse seam is repaired. The active method and complete rendered
-frontier are recorded in
-`runs/incumbent-498-partial-boundary-frontier-20261002.json`; legacy service
-descriptions below are historical development material.
+frontiers are recorded in
+`runs/incumbent-498-partial-boundary-frontier-20261002.json` and
+`runs/incumbent-498-note-seam-growth-20261002.json`; legacy service descriptions
+below are historical development material.
 
 The active acceptance standard is documented in
 [`docs/READABLE-PALINDROME-GOAL.md`](docs/READABLE-PALINDROME-GOAL.md): an

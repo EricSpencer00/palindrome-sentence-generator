@@ -59,6 +59,26 @@ no human reader result is claimed. Generator, live traces, rendered rows, and
 audits are in
 `runs/incumbent-498-partial-boundary-frontier-20261002.json`.
 
+The next bounded seam change removes that diagnosed opening rather than adding
+more punctuation to it. At parent cursors 88/410, the left boundary *A note*
+has tape `anote`; its live reverse residual is `etona`, rendered on the right
+as `s|et on a` by borrowing the retained initial `s` of *still*. The surface
+therefore opens “A note: State…” and closes the opposing cut as “Set on a…”.
+This removes 34 more inherited letters per side. Three independently exact
+children remain above the 530 control; their lengths are 534, 534, and 568.
+The 568-letter row is:
+
+> **A ram saw Nadia. Nadia delivers maps. Mara spots rats. Mara maps Leon. Draw no maps. Deliver no evil. A ram saw Leon. Aidan stops rats. Nora delivers maps. A note: State: 'Go two.' 'No, do two.' her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at Set on a Spam's reviled, Aron. Star spots Nadia. Noel was Mara. Live on, reviled. Spam onward. Noel, spam Aram. Star stops Aram. Spam's reviled, Aidan. Aidan was Mara.**
+
+Its normalized forward/reverse SHA-256 is
+`5817fbfefe5f0c6d9bfe6fb5e7ed4aaa05067a406c785c760145485b0900de86`.
+The note/set boundary is a concrete improvement, not a readability claim: the
+retained function-word run after the quoted *two/no* instruction remains the
+worst seam. The next operator must reopen at the first complete Noel event and
+introduce a causal transition; another fixed wrapper is disallowed. Full
+owner/residual traces and all three rendered rows are in
+`runs/incumbent-498-note-seam-growth-20261002.json`.
+
 ## Retired short-form exact witnesses
 
 The branch budget for 38-letter recovery, morphology cycles, short dialogue,

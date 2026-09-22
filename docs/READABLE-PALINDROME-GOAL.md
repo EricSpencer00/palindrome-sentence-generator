@@ -8851,3 +8851,11 @@ The active working set is therefore the 238-letter parent plus the 232-letter
 locally repaired child; the next useful action is another paired seam edit or
 meaningful growth from one of these actual tapes, not another unrelated
 grammar variant.
+
+- **Noel/Leon seam repair:** on the 238-letter parent, `Noel, I saw war.` /
+  `Raw was I, Leon.` was jointly replaced by `Noel, did I draw?` /
+  `Ward, I did, Leon.`. The resulting child is 240 letters and exact (SHA-256
+  `e12b8cf656b0ff9eb96ded12a0ace24808a36ee3d35b40eca47ca10299cfd95c`). This
+  is the current longest edited lineage, but its untouched dessert/diaper and
+  copular seams keep it outside the readability gate. Artifact:
+  `runs/typed-phrase-graph-noel-war-window-edit-20260930.json`.

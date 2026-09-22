@@ -12,10 +12,16 @@ the full paragraph ends is rejected as a nested shortcut.
 The current strict graph reaches both inner sentence phases independently:
 216 product states, ten entering left B, 21 entering outside-in right B', nine
 premature word-aligned closures rejected, and zero states reaching both inner
-sentences simultaneously.  There is no exact paragraph yet.  The next run
-must solve that measured middle-seam equation with one typed grammatical
-production, not widen the general word banks.  Evidence is in
-`runs/packed-staggered-paragraph-strict-symmetric-20260922.json`.
+sentences simultaneously.  That graph contained no exact paragraph.  The
+subsequent joins solved the measured middle seam in two ways.  A 48-letter POS-valid output is
+exact but semantically incoherent and remains rejected.  A clean 32-letter
+output—“No trace. Note spots. Stop. Set one carton.”—is exact, staggered, and
+shortcut-clean, but does not beat the 38-letter reader anchor.  The active
+operator now jointly grows the two outer sentences around that open seam;
+wrapping the finished 32-letter tape as a closed unit is forbidden.  Evidence
+is in `runs/packed-staggered-paragraph-strict-symmetric-20260922.json`,
+`runs/paragraph-middle-seam-phrase-join-typed-3gram-20260922.json`, and
+`runs/paragraph-note-sentence-join-20260922.json`.
 
 The later 240-letter lineage material remains historical diagnostic evidence,
 not the active success criterion: exact length without readable, independently

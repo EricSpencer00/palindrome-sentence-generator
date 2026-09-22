@@ -108,6 +108,40 @@ This isolates the next construction problem at the middle seam rather than at
 either paragraph boundary.  Evidence:
 `runs/packed-staggered-paragraph-strict-symmetric-20260922.json`.
 
+The first exact middle-seam join now supplies two complementary results.  A
+typed Brown phrase hash join found one 48-letter, mechanically admissible
+paragraph:
+
+> No. Trace note stress as an era. Arenas assert. Set one carton.
+
+It is exact and structurally staggered, but it fails direct prose review:
+`arenas` is not a plausible asserting agent and the discourse is incoherent.
+It is therefore not in a reader packet.  The type error is useful because it
+shows that nominal POS tags alone are insufficient; semantic role types must
+participate in the join.  Evidence:
+`runs/paragraph-middle-seam-phrase-join-typed-3gram-20260922.json`.
+
+A simpler typed object/sentence equation produced a cleaner topology proof:
+
+> No trace. Note spots. Stop. Set one carton.
+
+The 32-letter tape is independently exact, its sentence boundaries are
+staggered, no whole sentence mirrors another, and it contains no proper
+palindromic multiword island.  The text is below the 38-letter benchmark, so
+it is not a new length result and has no reader packet.  An intact-sentence
+join over 10,056 corpus sentence types, a generated join over 178,806 typed
+sentence realizations, and a one-to-three-utterance trie composition all
+recover only this short family.  Evidence:
+`runs/paragraph-note-sentence-join-20260922.json`,
+`runs/paragraph-note-grammar-join-20260922.json`, and
+`runs/paragraph-note-dialogue-composition-20260922.json`.
+
+The next length operator keeps this clean cross-sentence middle and jointly
+grows the outer observation/action pair.  For outer sentences `A` and `A'`,
+the exact condition is `reverse(tape(A')) = tape(A) + "notes"`; both sentences
+must be generated in one semantic grammar product, not wrapped around the
+finished 32-letter tape as a closed palindrome.
+
 ## Natural cycle diagnostics
 
 A streamed Brown-corpus shape mine found two ordinary open-residual equations:

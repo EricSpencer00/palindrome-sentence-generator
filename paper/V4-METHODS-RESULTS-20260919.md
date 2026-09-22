@@ -77,6 +77,24 @@ paragraph seams are individually traversable, while the middle live-debt
 equation remains unsolved.  Evidence:
 `runs/packed-staggered-paragraph-strict-symmetric-20260922.json`.
 
+The measured middle seam then yielded an exact phrase equation.  A typed
+corpus join produced a 48-letter mechanically eligible row, “No. Trace note
+stress as an era. Arenas assert. Set one carton.”  We do not treat it as a
+reader result: the asserting subject is semantically inanimate and the four
+sentences do not form a coherent discourse.  This is a concrete failure of a
+POS-only type system, not evidence that automatic filters certify English.
+
+A stricter object/sentence join gives a shorter but cleaner construction:
+“No trace. Note spots. Stop. Set one carton.”  Its 32 letters are exact, its
+internal sentence offsets are staggered, and it passes the repetition,
+whole-sentence mirror, and proper-palindromic-span screens.  It remains below
+the 38-letter anchor and has not been rated by blinded readers.  Searches over
+10,056 intact sentence types, 178,806 generated typed sentences, and up to
+three composed inner utterances found no longer realization of this equation.
+The next operator therefore grows the outer sentence pair jointly while
+retaining the open middle seam; it does not nest another closed palindrome
+around this 32-letter proof.
+
 ### API-inspired open-residual cycle
 
 The deployed v3 API clarifies why length and prose quality separated. Its

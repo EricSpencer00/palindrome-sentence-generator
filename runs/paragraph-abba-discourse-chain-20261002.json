@@ -1,0 +1,223 @@
+{
+  "experiment_id": "paragraph-abba-discourse-chain-20261002",
+  "method": "bounded authored A B C C' B' A' clause construction with referent chaining",
+  "hypothesis": "A palindrome can carry a micro-scene when adjacent outer clauses share an event referent.",
+  "candidates": [
+    {
+      "id": "discourse-chain-64",
+      "kind": "exact_abba_candidate",
+      "rendered": "Aron saw deer. Deer saw mail. Noel saw war. Raw was Leon. Liam was Reed. Reed was Nora.",
+      "units": [
+        "Aron saw deer.",
+        "Deer saw mail.",
+        "Noel saw war.",
+        "Raw was Leon.",
+        "Liam was Reed.",
+        "Reed was Nora."
+      ],
+      "audit": {
+        "letters": 64,
+        "two_pointer_exact": true,
+        "first_mismatches": [],
+        "forward_sha256": "a615c28b63c69704b67d7a084d710256eec1cb9fa287729d84a1301af3611ddc",
+        "reverse_sha256": "a615c28b63c69704b67d7a084d710256eec1cb9fa287729d84a1301af3611ddc",
+        "sha_equal": true,
+        "project_validator": true
+      },
+      "seam_certificate": {
+        "pairs": [
+          {
+            "left_index": 0,
+            "right_index": 5,
+            "left_unit": "Aron saw deer.",
+            "right_unit": "Reed was Nora.",
+            "pair_exact": true
+          },
+          {
+            "left_index": 1,
+            "right_index": 4,
+            "left_unit": "Deer saw mail.",
+            "right_unit": "Liam was Reed.",
+            "pair_exact": true
+          },
+          {
+            "left_index": 2,
+            "right_index": 3,
+            "left_unit": "Noel saw war.",
+            "right_unit": "Raw was Leon.",
+            "pair_exact": true
+          }
+        ],
+        "all_pairs_exact": true
+      },
+      "discourse_links": [
+        {
+          "adjacent_units": [
+            0,
+            1
+          ],
+          "shared_referent": "deer",
+          "relation": "Aron sees deer; deer is then the observer of mail"
+        },
+        {
+          "adjacent_units": [
+            4,
+            5
+          ],
+          "shared_referent": "Reed",
+          "relation": "Liam is Reed; Reed is then Nora"
+        }
+      ],
+      "unit_guard": {
+        "distinct_units": true,
+        "self_palindromic_units": [],
+        "word_order_mirror": []
+      },
+      "provenance": {
+        "independently_authored_units": true,
+        "finished_tape_reversal": false,
+        "catalogue_text": false,
+        "posthoc_repair": false,
+        "repeated_units": false,
+        "reader_certified": false
+      }
+    }
+  ],
+  "stats": {
+    "exact_abba_candidates": 1,
+    "candidate_lengths": [
+      64
+    ],
+    "controls": 2
+  },
+  "controls": [
+    {
+      "id": "intact-scene",
+      "rendered": "Aron saw a deer; the deer crossed the mail road.",
+      "audit": {
+        "letters": 37,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "d"
+          },
+          {
+            "offset": 1,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "n",
+            "right": "r"
+          },
+          {
+            "offset": 4,
+            "left": "s",
+            "right": "l"
+          },
+          {
+            "offset": 5,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "offset": 6,
+            "left": "w",
+            "right": "a"
+          },
+          {
+            "offset": 7,
+            "left": "a",
+            "right": "m"
+          },
+          {
+            "offset": 8,
+            "left": "d",
+            "right": "e"
+          }
+        ],
+        "forward_sha256": "95d5e6b106fe9aaa35352cf7eeb2b995137e78a278c9d997052eb8d63d5f54d0",
+        "reverse_sha256": "9765ecea3c1194e9c28fd0142a8cea0404e98a50197f2a0b5a8d3f43dee01b4a",
+        "sha_equal": false,
+        "project_validator": false
+      }
+    },
+    {
+      "id": "seam-break",
+      "rendered": "Aron saw deer. Deer saw mail. Noel saw war. Raw was Leon. Liam was Reed. Nora was Reed.",
+      "audit": {
+        "letters": 64,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "d"
+          },
+          {
+            "offset": 1,
+            "left": "r",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "o",
+            "right": "e"
+          },
+          {
+            "offset": 3,
+            "left": "n",
+            "right": "r"
+          },
+          {
+            "offset": 7,
+            "left": "d",
+            "right": "a"
+          },
+          {
+            "offset": 8,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "offset": 10,
+            "left": "r",
+            "right": "n"
+          }
+        ],
+        "forward_sha256": "0d9947d2b8dabe313576682d12348056438f0f008067219064506cd0684b322a",
+        "reverse_sha256": "b0d1602ed2f46b36ca87f3a181d8a49889dc43258d5712468a315beb39f15e4c",
+        "sha_equal": false,
+        "project_validator": false
+      }
+    }
+  ],
+  "deepest_seam": {
+    "closed": "deer/reed and mail/Liam boundary carriers",
+    "residual": "Noel saw war / Raw was Leon is grammatical but only loosely event-linked",
+    "next_repair_operator": "typed event-role substitution: replace the center object with a witnessed event noun whose reverse-name carrier can be an agent in C' while preserving saw/was valency",
+    "why_not_applied": "Applying it would be posthoc repair without a pre-authored role inventory."
+  },
+  "independent_audits": [
+    "local two-pointer walk",
+    "forward/reverse SHA-256",
+    "llm_palindrome.validator.is_palindrome"
+  ],
+  "provenance": {
+    "generator_sha256": "74ab4927120319bab5edcdeaafc09a110362f727de1ba630654f52a03a821d74",
+    "shortcuts_excluded": [
+      "finished-tape reversal",
+      "catalogue text",
+      "posthoc repair",
+      "self-palindromic units"
+    ]
+  }
+}

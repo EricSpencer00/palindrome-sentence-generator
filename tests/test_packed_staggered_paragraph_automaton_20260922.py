@@ -11,6 +11,10 @@ def test_packed_grammars_have_two_sentence_phases_on_both_sides():
     right_phases = {edge.phase for edges in right.values() for edge in edges}
     assert left_phases == {"A", "B"}
     assert right_phases == {"A-prime", "B-prime"}
+    assert any(edge.word == "no" and edge.target == "Q"
+               for edge in left["S"])
+    assert any(edge.word == "trace" and edge.phase == "B"
+               for edge in left["Q"])
 
 
 def test_witness_phase_groups_render_as_complete_sentences():

@@ -62,6 +62,15 @@ localizes the next construction step: induce an outer grammatical entry path
 that crosses `A -> B` before adding any inner lexical choices.  The run is in
 `runs/packed-staggered-paragraph-automaton-20260922.json`.
 
+The induced short-answer path does cross that boundary: `No.` against a
+sentence-final `carton` leaves residual `trac`, which licenses an independently
+complete imperative `Trace ...` B-clause.  This targeted production reaches
+280 product states and 29 left-B states, while right B' remains unreachable.
+No exact output is claimed.  The recorded frontier now specifies the next
+operator—right-side boundary induction from the remaining reversed A' verb
+debts—without another undirected lexical sweep.  Evidence:
+`runs/packed-staggered-paragraph-dialogue-entry-20260922.json`.
+
 ### API-inspired open-residual cycle
 
 The deployed v3 API clarifies why length and prose quality separated. Its

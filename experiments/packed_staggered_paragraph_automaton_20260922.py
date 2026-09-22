@@ -50,7 +50,7 @@ PRESENT = (
     "support", "surprise", "thank",
 )
 DOCUMENT = (
-    "article", "book", "chart", "essay", "journal", "ledger", "letter",
+    "article", "book", "carton", "chart", "essay", "journal", "ledger", "letter",
     "map", "memo", "memos", "message", "note", "page", "plan", "poem",
     "report", "route", "story",
 )
@@ -86,8 +86,20 @@ def _intro_patterns() -> tuple[Pattern, ...]:
     )
 
 
+def _left_intro_patterns() -> tuple[Pattern, ...]:
+    """Add a complete short answer that can hand debt to sentence B.
+
+    ``No.`` was selected from the measured outer equation with sentence-final
+    ``carton`` (reverse prefix ``notrac``).  This is a boundary-production
+    change, not a wider sweep of the same SVO endpoints.
+    """
+    return _intro_patterns() + ((("dialogue-answer", ("no",)),),)
+
+
 def _followup_patterns() -> tuple[Pattern, ...]:
     return (
+        (("imperative", ("trace",)), ("object-determiner", DET),
+         ("document", DOCUMENT)),
         (("pronoun", PRONOUN), ("event-past", PAST),
          ("object-determiner", DET), ("document", DOCUMENT)),
         (("name", NAMES), ("event-past", PAST),
@@ -121,7 +133,7 @@ def grammars() -> tuple[dict[str, tuple[Edge, ...]],
                         dict[str, tuple[Edge, ...]]]:
     left: dict[str, list[Edge]] = defaultdict(list)
     right: dict[str, list[Edge]] = defaultdict(list)
-    _add_patterns(left, "S", "Q", "A", _intro_patterns())
+    _add_patterns(left, "S", "Q", "A", _left_intro_patterns())
     _add_patterns(left, "Q", "F", "B", _followup_patterns())
     # Outside-in traversal sees the last sentence and its last word first.
     _add_patterns(right, "S", "Q", "A-prime", _intro_patterns(),
@@ -199,6 +211,15 @@ def run(*, max_states: int = 2_000_000,
                                 for state in report.reachable)
     reachable_second_right = sum(state.right == "Q" or state.right.startswith("B-prime:")
                                  for state in report.reachable)
+    boundary_states = sorted(
+        (
+            state for state in report.reachable
+            if state.left == "Q" or state.left.startswith("B:")
+            or state.right == "Q" or state.right.startswith("B-prime:")
+        ),
+        key=lambda state: (state.left, state.right, state.owner,
+                           state.residual, state.phase),
+    )
     return {
         "experiment_id": ID,
         "method": "packed alternative-clause ABBA automata intersected online at character residuals",
@@ -222,6 +243,16 @@ def run(*, max_states: int = 2_000_000,
         },
         "exact_candidates": rows,
         "mechanically_admitted_candidates": admitted,
+        "boundary_frontiers": [
+            {
+                "left_state": state.left,
+                "right_state": state.right,
+                "owner": state.owner,
+                "residual": state.residual,
+                "phase": state.phase,
+            }
+            for state in boundary_states[:64]
+        ],
         "reader_packet": [],
         "novelty_preflight": {
             "status": "passed",
@@ -230,6 +261,7 @@ def run(*, max_states: int = 2_000_000,
             "finished_tape_reversal": False,
             "preclosed_sentence_pairs": False,
             "per_candidate_rlaif": False,
+            "targeted_boundary_production": "No. / sentence-final carton exposes live trac debt to B",
         },
         "provenance": {
             "lexical_domains": "finite authored typed domains",
@@ -241,6 +273,8 @@ def run(*, max_states: int = 2_000_000,
             else "no admitted paragraph in the packed automaton"
         ),
         "next_discriminator": (
+            "The targeted No./carton/Trace production now reaches left sentence B; induce a right-side B-prime entry from the recorded A-prime verb residuals before adding any new general vocabulary."
+            if reachable_second_left and not reachable_second_right else
             "If no witness reaches both second-sentence states, learn entry paths from the measured residual graph; if both do, add semantic discourse binding before any lexical expansion."
         ),
     }

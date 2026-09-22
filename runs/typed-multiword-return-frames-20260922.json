@@ -1,0 +1,1348 @@
+{
+  "experiment_id": "typed-multiword-return-frames-20260922",
+  "decision": "can a typed multiword return extend the successful r=s stack past 44 letters as complete connected prose?",
+  "acceptance_gate": {
+    "exact": true,
+    "minimum_letters_exclusive": 44,
+    "all_sentences_complete": true,
+    "single_connected_event_register": true,
+    "global_lemma_freshness": true,
+    "complementary_boundary_mask": true,
+    "proper_span_mask": true,
+    "central_admission": true
+  },
+  "fixed_conditions": {
+    "carrier": {
+      "left": [
+        "no",
+        "trace",
+        "note"
+      ],
+      "right": [
+        "set",
+        "one",
+        "carton"
+      ]
+    },
+    "inner_productive_cycle": {
+      "x": [
+        "spoon"
+      ],
+      "surface": [
+        "spoons"
+      ],
+      "y": [
+        "snoop"
+      ]
+    },
+    "residual": "s",
+    "frame_types": [
+      "V_PRON",
+      "V_DET_N",
+      "V_PARTICLE",
+      "FINITE_SUBJECT_VERB"
+    ],
+    "lifo_returns": true,
+    "finished_palindromic_spans_excluded": true,
+    "bare_lemma_bank_widened": false
+  },
+  "corpus": {
+    "sentences": 89829,
+    "tokens": 945633,
+    "occurrences_FINITE_SUBJECT_VERB": 52532,
+    "occurrences_V_DET_N": 4427,
+    "occurrences_V_PRON": 3385,
+    "occurrences_V_PARTICLE": 1362,
+    "unique_V_PRON": 1492,
+    "unique_V_DET_N": 4170,
+    "unique_V_PARTICLE": 469,
+    "unique_FINITE_SUBJECT_VERB": 22691,
+    "brown_raw_sha256": "0f7e73534a6aa2cabd8a685b5da7108f32a6e31df9b83509e7d8cd99b75a7de4",
+    "frame_types": [
+      "V_PRON",
+      "V_DET_N",
+      "V_PARTICLE",
+      "FINITE_SUBJECT_VERB"
+    ]
+  },
+  "search": {
+    "lanes": [
+      {
+        "frame_type": "V_PRON",
+        "stats": {
+          "typed_y_frames": 1492,
+          "initial_residual_rejections": 1313,
+          "equations_solved_online": 179,
+          "no_typed_x": 179
+        },
+        "best_obstruction": {
+          "target_x_tape": "stireve",
+          "cursor": 7,
+          "lexical_prefix_words": [
+            "stir",
+            "eve"
+          ],
+          "unresolved_residual": "",
+          "owner": "x_grammar_phase",
+          "failure": "lexical segmentation closes, but no segmentation has one of the four declared frame types",
+          "y_frame": {
+            "frame_type": "V_PRON",
+            "words": [
+              "sever",
+              "it"
+            ],
+            "tags": [
+              "vb",
+              "ppo"
+            ],
+            "source": "cf16",
+            "sentence": 29956,
+            "start": 16,
+            "agreement": "imperative-subject=you",
+            "completeness": "complete transitive imperative"
+          },
+          "frame_type": "V_PRON"
+        },
+        "obstruction_samples": [
+          {
+            "target_x_tape": "sflesmihecifirca",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "sflesmihecifirca",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_PRON",
+              "words": [
+                "sacrifice",
+                "himself"
+              ],
+              "tags": [
+                "vb",
+                "ppl"
+              ],
+              "source": "cg29",
+              "sentence": 38271,
+              "start": 2,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_PRON"
+          },
+          {
+            "target_x_tape": "sreheva",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "sreheva",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_PRON",
+              "words": [
+                "save",
+                "her"
+              ],
+              "tags": [
+                "vb",
+                "ppo"
+              ],
+              "source": "ck06",
+              "sentence": 61011,
+              "start": 2,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_PRON"
+          },
+          {
+            "target_x_tape": "smiheva",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "smiheva",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_PRON",
+              "words": [
+                "save",
+                "him"
+              ],
+              "tags": [
+                "vb",
+                "ppo"
+              ],
+              "source": "ca14",
+              "sentence": 3157,
+              "start": 6,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_PRON"
+          },
+          {
+            "target_x_tape": "sflesmiheva",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "sflesmiheva",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_PRON",
+              "words": [
+                "save",
+                "himself"
+              ],
+              "tags": [
+                "vb",
+                "ppl"
+              ],
+              "source": "cd06",
+              "sentence": 18747,
+              "start": 4,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_PRON"
+          },
+          {
+            "target_x_tape": "smehteva",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "smehteva",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_PRON",
+              "words": [
+                "save",
+                "them"
+              ],
+              "tags": [
+                "vb",
+                "ppo"
+              ],
+              "source": "cb05",
+              "sentence": 10888,
+              "start": 25,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_PRON"
+          },
+          {
+            "target_x_tape": "ssueva",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "ssueva",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_PRON",
+              "words": [
+                "save",
+                "us"
+              ],
+              "tags": [
+                "vb",
+                "ppo"
+              ],
+              "source": "cg16",
+              "sentence": 36624,
+              "start": 7,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_PRON"
+          },
+          {
+            "target_x_tape": "suoyeva",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "suoyeva",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_PRON",
+              "words": [
+                "save",
+                "you"
+              ],
+              "tags": [
+                "vb",
+                "ppo"
+              ],
+              "source": "ce16",
+              "sentence": 23477,
+              "start": 12,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_PRON"
+          },
+          {
+            "target_x_tape": "smehtwa",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "smehtwa",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_PRON",
+              "words": [
+                "saw",
+                "them"
+              ],
+              "tags": [
+                "vb",
+                "ppo"
+              ],
+              "source": "cd12",
+              "sentence": 19610,
+              "start": 22,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_PRON"
+          }
+        ]
+      },
+      {
+        "frame_type": "V_DET_N",
+        "stats": {
+          "typed_y_frames": 4170,
+          "initial_residual_rejections": 3684,
+          "equations_solved_online": 486,
+          "no_typed_x": 485,
+          "typed_x_tape_hits": 1,
+          "typed_pair_hits": 1,
+          "complete_pairs": 1
+        },
+        "best_obstruction": {
+          "target_x_tape": "sezarcatrat",
+          "cursor": 11,
+          "lexical_prefix_words": [
+            "sez",
+            "arc",
+            "at",
+            "rat"
+          ],
+          "unresolved_residual": "",
+          "owner": "x_grammar_phase",
+          "failure": "lexical segmentation closes, but no segmentation has one of the four declared frame types",
+          "y_frame": {
+            "frame_type": "V_DET_N",
+            "words": [
+              "start",
+              "a",
+              "craze"
+            ],
+            "tags": [
+              "vb",
+              "at",
+              "nn"
+            ],
+            "source": "cg73",
+            "sentence": 44114,
+            "start": 4,
+            "agreement": "imperative-subject=you",
+            "completeness": "complete transitive imperative"
+          },
+          "frame_type": "V_DET_N"
+        },
+        "obstruction_samples": [
+          {
+            "target_x_tape": "ssesrohehteldda",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "ssesrohehteldda",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_DET_N",
+              "words": [
+                "saddle",
+                "the",
+                "horses"
+              ],
+              "tags": [
+                "vb",
+                "at",
+                "nns"
+              ],
+              "source": "cn02",
+              "sentence": 74235,
+              "start": 1,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_DET_N"
+          },
+          {
+            "target_x_tape": "serutarepmetehtelpma",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "serutarepmetehtelpma",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_DET_N",
+              "words": [
+                "sample",
+                "the",
+                "temperature"
+              ],
+              "tags": [
+                "vb",
+                "at",
+                "nn"
+              ],
+              "source": "cj01",
+              "sentence": 49158,
+              "start": 19,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_DET_N"
+          },
+          {
+            "target_x_tape": "saedinanoitcna",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "saedinanoitcna",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_DET_N",
+              "words": [
+                "sanction",
+                "an",
+                "idea"
+              ],
+              "tags": [
+                "vb",
+                "at",
+                "nn"
+              ],
+              "source": "cp07",
+              "sentence": 82688,
+              "start": 19,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_DET_N"
+          },
+          {
+            "target_x_tape": "secnetnesehtnoitcna",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "secnetnesehtnoitcna",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_DET_N",
+              "words": [
+                "sanction",
+                "the",
+                "sentence"
+              ],
+              "tags": [
+                "vb",
+                "at",
+                "nn"
+              ],
+              "source": "cg53",
+              "sentence": 41912,
+              "start": 18,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_DET_N"
+          },
+          {
+            "target_x_tape": "stsitogeynayfsita",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "stsitogeynayfsita",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_DET_N",
+              "words": [
+                "satisfy",
+                "any",
+                "egotist"
+              ],
+              "tags": [
+                "vb",
+                "dti",
+                "nn"
+              ],
+              "source": "cp07",
+              "sentence": 82761,
+              "start": 8,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_DET_N"
+          },
+          {
+            "target_x_tape": "stseretnisihtyfsita",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "stseretnisihtyfsita",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_DET_N",
+              "words": [
+                "satisfy",
+                "this",
+                "interest"
+              ],
+              "tags": [
+                "vb",
+                "dt",
+                "nn"
+              ],
+              "source": "cg06",
+              "sentence": 35381,
+              "start": 15,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_DET_N"
+          },
+          {
+            "target_x_tape": "sremmilgaeva",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "sremmilgaeva",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_DET_N",
+              "words": [
+                "save",
+                "a",
+                "glimmer"
+              ],
+              "tags": [
+                "vb",
+                "at",
+                "nn"
+              ],
+              "source": "cp26",
+              "sentence": 87312,
+              "start": 50,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_DET_N"
+          },
+          {
+            "target_x_tape": "sstsocllaeva",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "sstsocllaeva",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_DET_N",
+              "words": [
+                "save",
+                "all",
+                "costs"
+              ],
+              "tags": [
+                "vb",
+                "abn",
+                "nns"
+              ],
+              "source": "cf45",
+              "sentence": 33999,
+              "start": 17,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete transitive imperative"
+            },
+            "frame_type": "V_DET_N"
+          }
+        ]
+      },
+      {
+        "frame_type": "V_PARTICLE",
+        "stats": {
+          "typed_y_frames": 469,
+          "incomplete_y_rejections": 457,
+          "initial_residual_rejections": 10,
+          "equations_solved_online": 2,
+          "no_typed_x": 2
+        },
+        "best_obstruction": {
+          "target_x_tape": "snwodti",
+          "cursor": 0,
+          "lexical_prefix_words": [],
+          "unresolved_residual": "snwodti",
+          "owner": "x_lexical_cursor",
+          "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+          "y_frame": {
+            "frame_type": "V_PARTICLE",
+            "words": [
+              "sit",
+              "down"
+            ],
+            "tags": [
+              "vb",
+              "rp"
+            ],
+            "source": "cg09",
+            "sentence": 35779,
+            "start": 13,
+            "agreement": "imperative-subject=you",
+            "completeness": "complete licensed particle imperative"
+          },
+          "frame_type": "V_PARTICLE"
+        },
+        "obstruction_samples": [
+          {
+            "target_x_tape": "snwodti",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "snwodti",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_PARTICLE",
+              "words": [
+                "sit",
+                "down"
+              ],
+              "tags": [
+                "vb",
+                "rp"
+              ],
+              "source": "cg09",
+              "sentence": 35779,
+              "start": 13,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete licensed particle imperative"
+            },
+            "frame_type": "V_PARTICLE"
+          },
+          {
+            "target_x_tape": "spudnat",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "spudnat",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "V_PARTICLE",
+              "words": [
+                "stand",
+                "up"
+              ],
+              "tags": [
+                "vb",
+                "rp"
+              ],
+              "source": "ca23",
+              "sentence": 5143,
+              "start": 6,
+              "agreement": "imperative-subject=you",
+              "completeness": "complete licensed particle imperative"
+            },
+            "frame_type": "V_PARTICLE"
+          }
+        ]
+      },
+      {
+        "frame_type": "FINITE_SUBJECT_VERB",
+        "stats": {
+          "typed_y_frames": 22691,
+          "initial_residual_rejections": 5676,
+          "incomplete_y_rejections": 16259,
+          "equations_solved_online": 756,
+          "no_typed_x": 756
+        },
+        "best_obstruction": {
+          "target_x_tape": "seraslangi",
+          "cursor": 10,
+          "lexical_prefix_words": [
+            "sera",
+            "slang",
+            "i"
+          ],
+          "unresolved_residual": "",
+          "owner": "x_grammar_phase",
+          "failure": "lexical segmentation closes, but no segmentation has one of the four declared frame types",
+          "y_frame": {
+            "frame_type": "FINITE_SUBJECT_VERB",
+            "words": [
+              "signals",
+              "are"
+            ],
+            "tags": [
+              "nns",
+              "ber"
+            ],
+            "source": "ce07",
+            "sentence": 21672,
+            "start": 1,
+            "agreement": "plural-subject/plural-finite",
+            "completeness": "complete finite intransitive clause"
+          },
+          "frame_type": "FINITE_SUBJECT_VERB"
+        },
+        "obstruction_samples": [
+          {
+            "target_x_tape": "ssi",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "ssi",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "FINITE_SUBJECT_VERB",
+              "words": [
+                "s",
+                "is"
+              ],
+              "tags": [
+                "nn",
+                "bez"
+              ],
+              "source": "cd02",
+              "sentence": 18364,
+              "start": 11,
+              "agreement": "singular-subject/singular-finite",
+              "completeness": "complete finite intransitive clause"
+            },
+            "frame_type": "FINITE_SUBJECT_VERB"
+          },
+          {
+            "target_x_tape": "seraselba",
+            "cursor": 4,
+            "lexical_prefix_words": [
+              "sera"
+            ],
+            "unresolved_residual": "selba",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "FINITE_SUBJECT_VERB",
+              "words": [
+                "sables",
+                "are"
+              ],
+              "tags": [
+                "nns",
+                "ber"
+              ],
+              "source": "ce23",
+              "sentence": 24708,
+              "start": 2,
+              "agreement": "plural-subject/plural-finite",
+              "completeness": "complete finite intransitive clause"
+            },
+            "frame_type": "FINITE_SUBJECT_VERB"
+          },
+          {
+            "target_x_tape": "ssawkca",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "ssawkca",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "FINITE_SUBJECT_VERB",
+              "words": [
+                "sack",
+                "was"
+              ],
+              "tags": [
+                "nn-tl",
+                "bedz"
+              ],
+              "source": "cm03",
+              "sentence": 72983,
+              "start": 6,
+              "agreement": "singular-subject/neutral-finite",
+              "completeness": "complete finite intransitive clause"
+            },
+            "frame_type": "FINITE_SUBJECT_VERB"
+          },
+          {
+            "target_x_tape": "ssiefa",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "ssiefa",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "FINITE_SUBJECT_VERB",
+              "words": [
+                "safe",
+                "is"
+              ],
+              "tags": [
+                "nn",
+                "bez"
+              ],
+              "source": "cl17",
+              "sentence": 70289,
+              "start": 1,
+              "agreement": "singular-subject/singular-finite",
+              "completeness": "complete finite intransitive clause"
+            },
+            "frame_type": "FINITE_SUBJECT_VERB"
+          },
+          {
+            "target_x_tape": "sseogytefa",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "sseogytefa",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "FINITE_SUBJECT_VERB",
+              "words": [
+                "safety",
+                "goes"
+              ],
+              "tags": [
+                "nn",
+                "vbz"
+              ],
+              "source": "ce06",
+              "sentence": 21617,
+              "start": 3,
+              "agreement": "singular-subject/singular-finite",
+              "completeness": "complete finite intransitive clause"
+            },
+            "frame_type": "FINITE_SUBJECT_VERB"
+          },
+          {
+            "target_x_tape": "ssiytefa",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "ssiytefa",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "FINITE_SUBJECT_VERB",
+              "words": [
+                "safety",
+                "is"
+              ],
+              "tags": [
+                "nn",
+                "bez"
+              ],
+              "source": "ce10",
+              "sentence": 22393,
+              "start": 20,
+              "agreement": "singular-subject/singular-finite",
+              "completeness": "complete finite intransitive clause"
+            },
+            "frame_type": "FINITE_SUBJECT_VERB"
+          },
+          {
+            "target_x_tape": "ssawlia",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "ssawlia",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "FINITE_SUBJECT_VERB",
+              "words": [
+                "sail",
+                "was"
+              ],
+              "tags": [
+                "nn",
+                "bedz"
+              ],
+              "source": "cm03",
+              "sentence": 72930,
+              "start": 1,
+              "agreement": "singular-subject/neutral-finite",
+              "completeness": "complete finite intransitive clause"
+            },
+            "frame_type": "FINITE_SUBJECT_VERB"
+          },
+          {
+            "target_x_tape": "ssnruterrolia",
+            "cursor": 0,
+            "lexical_prefix_words": [],
+            "unresolved_residual": "ssnruterrolia",
+            "owner": "x_lexical_cursor",
+            "failure": "ordinary lexical segmentation stops before the derived x tape closes",
+            "y_frame": {
+              "frame_type": "FINITE_SUBJECT_VERB",
+              "words": [
+                "sailor",
+                "returns"
+              ],
+              "tags": [
+                "nn",
+                "vbz"
+              ],
+              "source": "cc07",
+              "sentence": 16407,
+              "start": 33,
+              "agreement": "singular-subject/singular-finite",
+              "completeness": "complete finite intransitive clause"
+            },
+            "frame_type": "FINITE_SUBJECT_VERB"
+          }
+        ]
+      }
+    ],
+    "complete_pairs": 1
+  },
+  "equation_pairs": [
+    {
+      "x_words": [
+        "set",
+        "a",
+        "date"
+      ],
+      "x_type": "V_DET_N",
+      "y_words": [
+        "set",
+        "a",
+        "date"
+      ],
+      "y_type": "V_DET_N",
+      "y_lane": "V_DET_N",
+      "equation": {
+        "equation": "T(x) s = s reverse(T(y))",
+        "left": "setadates",
+        "right": "setadates",
+        "holds": true,
+        "owner_residual_cursor_trace": [
+          {
+            "grammar_phase": "x_token_1",
+            "owner": "x_grammar",
+            "cursor_before": 0,
+            "emitted": "set",
+            "opposed": "set",
+            "matched": true,
+            "cursor_after": 3
+          },
+          {
+            "grammar_phase": "x_token_2",
+            "owner": "x_grammar",
+            "cursor_before": 3,
+            "emitted": "a",
+            "opposed": "a",
+            "matched": true,
+            "cursor_after": 4
+          },
+          {
+            "grammar_phase": "x_token_3",
+            "owner": "x_grammar",
+            "cursor_before": 4,
+            "emitted": "date",
+            "opposed": "date",
+            "matched": true,
+            "cursor_after": 8
+          },
+          {
+            "grammar_phase": "residual_close",
+            "owner": "morphology_residual",
+            "cursor_before": 8,
+            "emitted": "s",
+            "opposed": "s",
+            "matched": true,
+            "cursor_after": 9
+          }
+        ],
+        "closed_before_render": true
+      }
+    }
+  ],
+  "gate_failures": {
+    "global_lemma_freshness": 2,
+    "central_admission": 2
+  },
+  "admission_obstructions": [
+    {
+      "rendered": "No trace. Note: Set a date. Spoons snoop. Set a date. Set one carton.",
+      "x_frame": {
+        "frame_type": "V_DET_N",
+        "words": [
+          "set",
+          "a",
+          "date"
+        ],
+        "tags": [
+          "vb",
+          "at",
+          "nn"
+        ],
+        "source": "ca21",
+        "sentence": 4620,
+        "start": 7,
+        "agreement": "imperative-subject=you",
+        "completeness": "complete transitive imperative"
+      },
+      "y_frame": {
+        "frame_type": "V_DET_N",
+        "words": [
+          "set",
+          "a",
+          "date"
+        ],
+        "tags": [
+          "vb",
+          "at",
+          "nn"
+        ],
+        "source": "ca21",
+        "sentence": 4620,
+        "start": 7,
+        "agreement": "imperative-subject=you",
+        "completeness": "complete transitive imperative"
+      },
+      "y_lane": "V_DET_N",
+      "equation": {
+        "equation": "T(x) s = s reverse(T(y))",
+        "left": "setadates",
+        "right": "setadates",
+        "holds": true,
+        "owner_residual_cursor_trace": [
+          {
+            "grammar_phase": "x_token_1",
+            "owner": "x_grammar",
+            "cursor_before": 0,
+            "emitted": "set",
+            "opposed": "set",
+            "matched": true,
+            "cursor_after": 3
+          },
+          {
+            "grammar_phase": "x_token_2",
+            "owner": "x_grammar",
+            "cursor_before": 3,
+            "emitted": "a",
+            "opposed": "a",
+            "matched": true,
+            "cursor_after": 4
+          },
+          {
+            "grammar_phase": "x_token_3",
+            "owner": "x_grammar",
+            "cursor_before": 4,
+            "emitted": "date",
+            "opposed": "date",
+            "matched": true,
+            "cursor_after": 8
+          },
+          {
+            "grammar_phase": "residual_close",
+            "owner": "morphology_residual",
+            "cursor_before": 8,
+            "emitted": "s",
+            "opposed": "s",
+            "matched": true,
+            "cursor_after": 9
+          }
+        ],
+        "closed_before_render": true
+      },
+      "failed_gates": [
+        "global_lemma_freshness",
+        "central_admission"
+      ],
+      "failed_central_checks": [
+        "distinct_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "lemma_freshness": {
+        "carrier_and_inner_lemmas": [
+          "carton",
+          "note",
+          "set",
+          "snoop",
+          "spoon",
+          "trace"
+        ],
+        "frame_lemmas": [
+          "set",
+          "date",
+          "set",
+          "date"
+        ],
+        "all_lemmas_distinct": false
+      },
+      "semantic_event_register": {
+        "scene": "inspect anomalous spoons, report the observation, then pack one carton",
+        "carrier_domains": [
+          "inspection",
+          "handling"
+        ],
+        "inner_event": {
+          "subject": "spoons",
+          "verb": "snoop",
+          "domains": [
+            "inspection"
+          ]
+        },
+        "x_event": {
+          "verb": "set",
+          "domains": [
+            "handling"
+          ],
+          "connected": true
+        },
+        "y_event": {
+          "verb": "set",
+          "domains": [
+            "handling"
+          ],
+          "connected": true
+        },
+        "all_events_connected": true
+      },
+      "complementary_token_boundary_mask": {
+        "left": [
+          2,
+          7,
+          11,
+          14,
+          15,
+          19,
+          25
+        ],
+        "right_from_outer_edge": [
+          6,
+          9,
+          12,
+          16,
+          17,
+          20,
+          25
+        ],
+        "shared": [
+          25
+        ],
+        "allowed_terminal": [
+          25
+        ],
+        "forbidden_internal": [],
+        "passes": true
+      },
+      "proper_span_mask": {
+        "forbidden_spans": [],
+        "passes": true
+      },
+      "independent_audit": {
+        "letters": 50,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "886c2fafbbbe50bbc8dd1b11b2db984eb14fc665c28b7b80aaaea28df726deea",
+        "sha256_reverse": "886c2fafbbbe50bbc8dd1b11b2db984eb14fc665c28b7b80aaaea28df726deea",
+        "hashes_agree": true
+      }
+    },
+    {
+      "rendered": "No trace. Note: Set a date. Spot spoons. Snoop. Stop. Set a date. Set one carton.",
+      "x_frame": {
+        "frame_type": "V_DET_N",
+        "words": [
+          "set",
+          "a",
+          "date"
+        ],
+        "tags": [
+          "vb",
+          "at",
+          "nn"
+        ],
+        "source": "ca21",
+        "sentence": 4620,
+        "start": 7,
+        "agreement": "imperative-subject=you",
+        "completeness": "complete transitive imperative"
+      },
+      "y_frame": {
+        "frame_type": "V_DET_N",
+        "words": [
+          "set",
+          "a",
+          "date"
+        ],
+        "tags": [
+          "vb",
+          "at",
+          "nn"
+        ],
+        "source": "ca21",
+        "sentence": 4620,
+        "start": 7,
+        "agreement": "imperative-subject=you",
+        "completeness": "complete transitive imperative"
+      },
+      "y_lane": "V_DET_N",
+      "equation": {
+        "equation": "T(x) s = s reverse(T(y))",
+        "left": "setadates",
+        "right": "setadates",
+        "holds": true,
+        "owner_residual_cursor_trace": [
+          {
+            "grammar_phase": "x_token_1",
+            "owner": "x_grammar",
+            "cursor_before": 0,
+            "emitted": "set",
+            "opposed": "set",
+            "matched": true,
+            "cursor_after": 3
+          },
+          {
+            "grammar_phase": "x_token_2",
+            "owner": "x_grammar",
+            "cursor_before": 3,
+            "emitted": "a",
+            "opposed": "a",
+            "matched": true,
+            "cursor_after": 4
+          },
+          {
+            "grammar_phase": "x_token_3",
+            "owner": "x_grammar",
+            "cursor_before": 4,
+            "emitted": "date",
+            "opposed": "date",
+            "matched": true,
+            "cursor_after": 8
+          },
+          {
+            "grammar_phase": "residual_close",
+            "owner": "morphology_residual",
+            "cursor_before": 8,
+            "emitted": "s",
+            "opposed": "s",
+            "matched": true,
+            "cursor_after": 9
+          }
+        ],
+        "closed_before_render": true
+      },
+      "failed_gates": [
+        "global_lemma_freshness",
+        "central_admission"
+      ],
+      "failed_central_checks": [
+        "distinct_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "lemma_freshness": {
+        "carrier_and_inner_lemmas": [
+          "carton",
+          "note",
+          "set",
+          "snoop",
+          "spoon",
+          "spot",
+          "stop",
+          "trace"
+        ],
+        "frame_lemmas": [
+          "set",
+          "date",
+          "set",
+          "date"
+        ],
+        "all_lemmas_distinct": false
+      },
+      "semantic_event_register": {
+        "scene": "inspect anomalous spoons, report the observation, then pack one carton",
+        "carrier_domains": [
+          "inspection",
+          "handling"
+        ],
+        "inner_event": {
+          "subject": "spoons",
+          "verb": "snoop",
+          "domains": [
+            "inspection"
+          ]
+        },
+        "x_event": {
+          "verb": "set",
+          "domains": [
+            "handling"
+          ],
+          "connected": true
+        },
+        "y_event": {
+          "verb": "set",
+          "domains": [
+            "handling"
+          ],
+          "connected": true
+        },
+        "all_events_connected": true
+      },
+      "complementary_token_boundary_mask": {
+        "left": [
+          2,
+          7,
+          11,
+          14,
+          15,
+          19,
+          23,
+          29
+        ],
+        "right_from_outer_edge": [
+          6,
+          9,
+          12,
+          16,
+          17,
+          20,
+          24,
+          29
+        ],
+        "shared": [
+          29
+        ],
+        "allowed_terminal": [
+          29
+        ],
+        "forbidden_internal": [],
+        "passes": true
+      },
+      "proper_span_mask": {
+        "forbidden_spans": [],
+        "passes": true
+      },
+      "independent_audit": {
+        "letters": 58,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "6ea7ddc4897b082d03b5f06779c435eec160e206cb2077f6fd6d63ed2a0a88fb",
+        "sha256_reverse": "6ea7ddc4897b082d03b5f06779c435eec160e206cb2077f6fd6d63ed2a0a88fb",
+        "hashes_agree": true
+      }
+    }
+  ],
+  "survivors": [],
+  "stats": {
+    "equation_pairs": 1,
+    "rendered_survivors": 0,
+    "max_survivor_letters": 0,
+    "elapsed_seconds": 49.104
+  },
+  "verdict": "abort this bounded operator: no declared typed frame clears equation, syntax, event, freshness, boundary, and central gates",
+  "provenance": {
+    "host": "hst-bench",
+    "python": "3.12.3",
+    "source_sha256": "020de78ae8aec1b35b032a77f5eb4120ce07833138b4584f0ee8cb7808fe3837",
+    "independent_audit_every_survivor": true
+  }
+}

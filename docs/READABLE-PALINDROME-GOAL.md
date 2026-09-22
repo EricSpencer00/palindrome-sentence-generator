@@ -186,8 +186,8 @@ The independently verified 38-letter sentence remains the reader anchor:
 
 > *An aide rips nine memos; some men inspire Diana.*
 
-The new **strict mechanically admitted, reader-testable incumbent** is this
-42-letter productive-morphology construction:
+The new **strict mechanically admitted, reader-testable frontier** begins with
+this 42-letter productive-morphology construction:
 
 > *No trace. Note: Spot spoons; snoop; stop. Set one carton.*
 
@@ -201,6 +201,21 @@ It is syntactically interpretable, but **not yet human-certified readable**.
 Its randomized eight-item rater packet includes the intact target, a matched
 word shuffle, three intact prose controls, and their matched shuffles; the
 condition key is stored separately.
+
+A productive-affix generalization produced one longer gate-clean survivor:
+
+> *No trace. Note sleet. Spoons snoop. Steel? Set one carton.*
+
+It has 44 normalized letters and independently matching forward/reverse
+SHA-256
+`96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104`.
+All shared mechanical gates pass. Its ordinary plural subject-verb core is
+`spoons snoop`; `sleet/steel` is a fresh outer equation. The surface still has
+an elliptical material-check question, so it joins the 42-letter row in a new
+ten-item blinded packet with an explicit completeness/fragment rating instead
+of being declared readable. This makes 44 the longest reader-testable mechanical
+candidate and 42 the more directly interpretable instruction candidate until
+human ratings arrive.
 
 The same exact construction extends without repetition through stack depths
 three, four, and five, producing separately audited, shortcut-clean tapes of
@@ -257,7 +272,7 @@ a relative-clause attachment edge, and held-out ditransitive/relative-
 complement productions respectively—not repair or another lexical sweep.
 
 The active target is an original, coherent, intact-prose palindrome longer
-than the 42-letter strict incumbent (with the paper's promotion floor at 100
+than the 44-letter mechanical frontier (with the paper's promotion floor at 100
 letters), followed by the blinded intact-prose versus shuffled-control study.
 No wrapper, catalogue
 relexicalization, repeated unit, fragment, or filler output can satisfy it.

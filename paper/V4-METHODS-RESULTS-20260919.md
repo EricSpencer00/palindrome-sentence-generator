@@ -15,7 +15,7 @@ reader ratings decide whether an exact output is readable.
 
 ## Anchor and frontier
 
-The current strict mechanical incumbent is a fresh 42-letter output:
+The current strict mechanical frontier begins with a fresh 42-letter output:
 
 > **No trace. Note: Spot spoons; snoop; stop. Set one carton.**
 
@@ -53,6 +53,30 @@ file hides every condition and the answer key is separate. Reader ratings are
 pending, so the paper does not yet claim that the output is readable English.
 The active construction work extends the freshness-indexed stack and searches
 additional productive affix boundaries for a longer, more coherent witness.
+
+That generalization searched seven inflection families on the NUC bench. It
+found 108 open carriers, 51 character cycles, and 11 productive inner cycles
+for plural `-s`; only one complete surface survived freshness, boundary,
+proper-span, and central admission gates:
+
+> **No trace. Note sleet. Spoons snoop. Steel? Set one carton.**
+
+The tape has 44 letters and independent SHA-256
+`96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104`.
+The finite core `spoons snoop` has ordinary plural agreement, and the return
+stack is `snoop`, `steel`, `set one carton`. All mechanical gates pass. We
+still do not equate that with readable prose: the elliptical `Steel?` may be
+judged fragmentary. A second blinded packet therefore places both the 42- and
+44-letter candidates beside matched word shuffles and intact controls, adding
+an explicit completeness rating.
+
+The other affixes give useful exact obstructions rather than candidates.
+Plural/third-person `-es` each had two character cycles but no attested base
+with the required productive surface; past `-ed` had 37 carriers and zero
+cycles; progressive `-ing` had no carrier because the opposing cursor requires
+an unattested ordinary `gni...` opening; comparative `-er` had one character
+cycle but no legitimate comparative base. Thus productive `-s`, not arbitrary
+suffix attachment, is the evidence-backed return-stack operator.
 
 The exact stack itself scales beyond the reader-testable row. Depths three,
 four, and five produce independently audited, central-gate-clean tapes of 50,

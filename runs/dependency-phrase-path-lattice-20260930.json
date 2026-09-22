@@ -1,0 +1,193 @@
+{
+  "experiment_id": "dependency-phrase-path-lattice-20260930",
+  "method": "typed NP/finite-VP/argument/PP/relative dependency paths with live opposing-character intersection",
+  "bank_checks": {
+    "phrase_count": 40,
+    "authored_reverse_pairs": [],
+    "reverse_pair_free": true,
+    "typed_roles": [
+      "subject",
+      "finite_verb",
+      "object",
+      "pp",
+      "relative"
+    ],
+    "dependency_order": [
+      "NP:subject",
+      "VP:finite",
+      "NP:object",
+      "PP:adjunct",
+      "CP:relative"
+    ]
+  },
+  "controls": [
+    {
+      "rendered": "The pilot maps the chart near the harbor.",
+      "audit": {
+        "letters": 33,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "fe76f7d6cd3357a8b06145d6e704ede444682573f62e135e4ecb4021ad0e8817",
+        "sha256_reverse": "01e60114defc2636fed9bc3327aba455154f5d8d99eddde0387ad56a5e739e8a",
+        "sha_equal": false
+      },
+      "kind": "intact_prose_control"
+    },
+    {
+      "rendered": "A careful nurse reads a letter beside the gate.",
+      "audit": {
+        "letters": 38,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "55b060ba2e3a9fb1c92580d88a1bbd974320c1080ca005ccb1438aadcc73b37c",
+        "sha256_reverse": "2eee017f0fe53d055c47495f6030ad22d3285109dc28774b41a869c9cb2e02dc",
+        "sha_equal": false
+      },
+      "kind": "intact_prose_control"
+    },
+    {
+      "rendered": "An aide rips nine memos; some men inspire Diana.",
+      "audit": {
+        "letters": 38,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "kind": "incumbent_exact_control"
+    }
+  ],
+  "exact_candidates": [],
+  "accepting_witnesses": [],
+  "solver_stats": {
+    "states": 10,
+    "transitions": 9,
+    "cap_reached": false,
+    "grammar_states": 306,
+    "grammar_character_edges": 340
+  },
+  "reader_gate": "closed: no blinded human ratings collected",
+  "next_repair": [
+    {
+      "matched_pairs": 1,
+      "left_state": 9,
+      "right_state": 241,
+      "left_next": [
+        "b"
+      ],
+      "right_next": [
+        "e"
+      ],
+      "left_partial": "a baker",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 21,
+      "right_state": 241,
+      "left_next": [
+        "p"
+      ],
+      "right_next": [
+        "e"
+      ],
+      "left_partial": "a poet",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 32,
+      "right_state": 241,
+      "left_next": [
+        "t"
+      ],
+      "right_next": [
+        "e"
+      ],
+      "left_partial": "a teacher",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 47,
+      "right_state": 241,
+      "left_next": [
+        "g"
+      ],
+      "right_next": [
+        "e"
+      ],
+      "left_partial": "a gardener",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 2,
+      "right_state": 119,
+      "left_next": [
+        "h"
+      ],
+      "right_next": [
+        "r"
+      ],
+      "left_partial": "the pilot",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 14,
+      "right_state": 119,
+      "left_next": [
+        "h"
+      ],
+      "right_next": [
+        "r"
+      ],
+      "left_partial": "the nurse",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 25,
+      "right_state": 119,
+      "left_next": [
+        "h"
+      ],
+      "right_next": [
+        "r"
+      ],
+      "left_partial": "the clerk",
+      "right_partial": ""
+    },
+    {
+      "matched_pairs": 1,
+      "left_state": 39,
+      "right_state": 119,
+      "left_next": [
+        "h"
+      ],
+      "right_next": [
+        "r"
+      ],
+      "left_partial": "the sailor",
+      "right_partial": ""
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "6b51d67c2ce091f999e026babd87de1b7bcc6ea234159b2eb040cb2048a04dbd",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256",
+      "llm_palindrome.validator.is_palindrome"
+    ]
+  }
+}

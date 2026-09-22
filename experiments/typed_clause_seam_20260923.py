@@ -65,11 +65,25 @@ def run() -> dict:
     for cid, source in CENTERS.items():
         center = center_unit(source)
         scorer = JoinScorer(bg, center)
+        # Distance from the center is the grammar state.  The same typed seam
+        # is required on both sides, so a legal partial state can still grow
+        # while its eventual paragraph shape is already constrained.
+        seam = ("CLAUSE", "SETTING", "CLAUSE", "NP")
+        def typed_state(left, right):
+            lt = [type_of.get(x) for x in left]
+            rt = [type_of.get(x) for x in right]
+            # left is stored outer->inner; reverse it to measure from center.
+            li, ri = list(reversed(lt)), rt
+            if len(li) > len(seam) or len(ri) > len(seam):
+                return False
+            return (all(x == seam[i] for i, x in enumerate(li)) and
+                    all(x == seam[i] for i, x in enumerate(ri)))
         for seed in range(4):
             seq = centerout_search(tries, scorer, center=center,
                 min_letters=len(unit_letters(center)) + 12, beam_width=64,
                 per_parent=8, candidate_limit=300, max_steps=80, seed=seed,
                 diversity=.8, max_overhang=18, maximize="score",
+                allow_state=typed_state,
                 allow_word=lambda placement, unit, state: unit != center and
                     unit_letters(unit) != unit_letters(unit)[::-1] and
                     state.left.count(unit) + state.right.count(unit) == 0)

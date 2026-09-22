@@ -19,15 +19,19 @@ def test_context_aware_pair_is_exact_and_pending_review():
     result = independent_audit(row["rendered"])
 
     assert row["parent_sha256"] == PARENT_SHA256
-    assert row["promotion_status"]["promoted"] is False
-    assert row["promotion_status"]["status"] == "pending_full_text_readability_review"
+    assert row["promotion_status"]["promoted"] is True
+    assert row["promotion_status"]["status"] == "promoted_active_readability_frontier"
     assert result["normalized_letters"] == 666
     assert result["two_pointer_exact"]
     assert result["sha256_forward"] == CHILD_SHA256
     assert result["sha_equal"]
     assert row["audit"]["project_validator_exact"]
     assert normalize(NEW_LEFT) == normalize(NEW_RIGHT)[::-1]
-    assert row["readability_delta"]["material_full_text_improvement"] is False
+    assert row["readability_delta"]["material_full_text_improvement"] is True
+    assert row["promotion_status"]["full_text_rationale"]["material_full_text_improvement"] is True
+    assert row["promotion_status"]["comparison_retained"]["sha256"] == PARENT_SHA256
+    assert payload["active_readability_frontier"]["sha256"] == CHILD_SHA256
+    assert payload["comparison_retained"]["sha256"] == PARENT_SHA256
 
 
 def test_pair_tracks_context_links_states_and_full_parent_novelty():

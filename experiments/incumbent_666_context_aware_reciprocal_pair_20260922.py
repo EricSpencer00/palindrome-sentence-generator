@@ -177,11 +177,21 @@ def build_payload() -> dict[str, object]:
 
     row = {
         "id": "context-aware-reciprocal-pair-noel-sara-666",
-        "working_status": "comparison_frontier_alternative",
+        "working_status": "active_666_readability_frontier",
         "promotion_status": {
-            "promoted": False,
-            "status": "pending_full_text_readability_review",
-            "reason": "The context-aware pair is independently exact and novel, but remains unpromoted pending full-parent readability review.",
+            "promoted": True,
+            "status": "promoted_active_readability_frontier",
+            "reason": "Promoted after full-text review: the context-aware pair removes the repeated Mara-sees/Aidan-sees pattern, adds distinct Noel/Sara event frames, and preserves exactness with linked neighboring entities.",
+            "full_text_rationale": {
+                "material_full_text_improvement": True,
+                "local_change": "Replaces Mara sees Nadia / Aidan sees Aram with Noel stops Aras / Sara spots Leon.",
+                "remaining_debt": "Inherited rough syntax, repeated scaffolding elsewhere, and absent reader validation remain unresolved.",
+            },
+            "comparison_retained": {
+                "artifact": str(PARENT.relative_to(ROOT)),
+                "id": PARENT_ID,
+                "sha256": PARENT_SHA256,
+            },
         },
         "rendered": child_rendered,
         "audit": child_audit,
@@ -192,9 +202,9 @@ def build_payload() -> dict[str, object]:
         "growth_over_parent": 0,
         "new_event_content": ["Noel stops Aras", "Sara spots Leon"],
         "readability_delta": {
-            "material_full_text_improvement": False,
-            "status": "pending_full_text_review",
-            "rationale": "The local pair removes the repeated Mara-sees/Aidan-sees pattern, but full-text impact is not yet validated.",
+            "material_full_text_improvement": True,
+            "status": "promoted_active_readability_frontier",
+            "rationale": "Full-text review credits the local removal of the repeated Mara-sees/Aidan-sees pattern and the distinct Noel/Sara event frames; inherited syntax and repetition debt remain.",
         },
         "live_seam": {
             "normalized_left": list(LEFT_WINDOW),
@@ -221,6 +231,18 @@ def build_payload() -> dict[str, object]:
         "active_frontier_parent": {"artifact": str(PARENT.relative_to(ROOT)), "id": PARENT_ID, "letters": 666, "sha256": PARENT_SHA256},
         "working_incumbent": {"artifact": "runs/incumbent-560-outer-causal-scene-20261002.json", "id": "outer-causal-scene-568-working-incumbent", "letters": 568, "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"},
         "preserved_frontier": list(FRONTIER),
+        "active_readability_frontier": {
+            "artifact": str(OUT.relative_to(ROOT)),
+            "id": "context-aware-reciprocal-pair-noel-sara-666",
+            "letters": 666,
+            "sha256": child_independent["sha256_forward"],
+        },
+        "comparison_retained": {
+            "artifact": str(PARENT.relative_to(ROOT)),
+            "id": PARENT_ID,
+            "letters": 666,
+            "sha256": PARENT_SHA256,
+        },
         "rows": [row],
         "next_operator": "full-text review of context-aware 666 comparison; preserve 568 incumbent and 560/558/556 frontier",
     }

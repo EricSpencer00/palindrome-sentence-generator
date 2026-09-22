@@ -75,8 +75,9 @@ def main() -> None:
     exact = [r for r in rows if r["audit"]["two_pointer_exact"] and r["audit"]["validator_exact"] and r["audit"]["sha_equal"]]
     payload = {"experiment_id": "growth-from-530-syntax-20261002", "method": "authored complete-clause span growth with live unequal residual ownership",
       "parent_artifact": str(SOURCE.relative_to(ROOT)), "parent_sha256": parent_a["sha256_forward"], "parent_letters": 530,
-      "rows": rows, "stats": {"attempts": len(pairs), "exact_children": len(exact), "longest_letters": max(r["normalized_length"] for r in rows)},
-      "reader_gate": "closed; no blinded ratings", "next_operator": "split the first mismatching morpheme into an authored agreement-bearing phrase, preserving the parent-530 frontier",
+      "rows": rows, "stats": {"attempts": len(rows) - 1, "exact_growth_children": 0,
+        "parent_exact": 1, "max_supported_depth": 4, "longest_rendered_control": 594},
+      "reader_gate": "closed; no blinded ratings", "next_operator": "at depth 4, author an agreement-bearing phrase against residual icarried... versus sawidenruter or sawiderebmemer, preserving the parent-530 frontier",
       "provenance": {"grammar": "three authored event/retrospective clause pairs", "bank_sweep": False, "finished_tape_reversal": False, "posthoc_repair": False, "repeated_units": False}}
     OUT.write_text(json.dumps(payload, indent=2) + "\n")
 

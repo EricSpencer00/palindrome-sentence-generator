@@ -34,9 +34,21 @@ def test_semantic_role_graft_has_varied_complete_svo_relations():
     roles = row["semantic_roles"]
 
     assert roles["varied_relations"] == ["sees", "stops", "spots"]
-    assert roles["repeated_neighboring_clauses"] is False
+    assert roles["repeated_neighboring_clauses"] is True
+    assert roles["duplicate_boundary_evidence"] == {
+        "left": {
+            "normalized_cursor": 127,
+            "parent_clause": "Nora sees Aram.",
+            "graft_clause": "Nora sees Aram.",
+        },
+        "right": {
+            "normalized_cursor": 539,
+            "graft_clause": "Mara sees Aron.",
+            "parent_clause": "Mara sees Aron;",
+        },
+    }
     assert roles["complete_svo_clauses"] is True
     assert roles["vocative_or_appositive_fragments"] is False
     assert row["readability_delta"]["repeated_saw_noel_live_before"] == 2
     assert row["readability_delta"]["repeated_saw_noel_live_after"] == 0
-    assert row["readability_delta"]["material_full_text_improvement"] is True
+    assert row["readability_delta"]["material_full_text_improvement"] is False

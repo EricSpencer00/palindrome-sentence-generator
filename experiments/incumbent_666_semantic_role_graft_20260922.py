@@ -218,7 +218,19 @@ def build_payload() -> dict[str, object]:
             "left_subjects": [clause.split()[0] for clause in left_clauses],
             "left_objects": [clause.split()[-1] for clause in left_clauses],
             "varied_relations": ["sees", "stops", "spots"],
-            "repeated_neighboring_clauses": False,
+            "repeated_neighboring_clauses": True,
+            "duplicate_boundary_evidence": {
+                "left": {
+                    "normalized_cursor": 127,
+                    "parent_clause": "Nora sees Aram.",
+                    "graft_clause": "Nora sees Aram.",
+                },
+                "right": {
+                    "normalized_cursor": 539,
+                    "graft_clause": "Mara sees Aron.",
+                    "parent_clause": "Mara sees Aron;",
+                },
+            },
             "complete_svo_clauses": True,
             "vocative_or_appositive_fragments": False,
         },
@@ -226,7 +238,7 @@ def build_payload() -> dict[str, object]:
             "repeated_saw_noel_live_before": 2,
             "repeated_saw_noel_live_after": 0,
             "varied_relations": ["sees", "stops", "spots"],
-            "material_full_text_improvement": True,
+            "material_full_text_improvement": False,
         },
         "grammar_debt": {
             "inherited_proper_palindromic_spans": True,

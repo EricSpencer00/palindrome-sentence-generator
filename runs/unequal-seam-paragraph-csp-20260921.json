@@ -1,6 +1,6 @@
 {
   "experiment_id": "unequal-seam-paragraph-csp-20260921",
-  "method": "semantic A/B/B-prime/A-prime unequal seam CSP with cross-boundary character admission",
+  "method": "audit unequal semantic labels against the central anti-shortcut gate",
   "candidate": {
     "rendered": "Nora saw lager. Nora saw desserts. Nora saw trams. Nora saw guns. Nora saw war. Raw was Aron. Snug was Aron. Smart was Aron. Stressed was Aron. Regal was Aron.",
     "semantic_spans": {
@@ -35,21 +35,50 @@
       "reverse_sha256": "bffca164c7ff03e9b3d5e929a5afc9d25ee8aadb034ecdc9be12e1e418d8646e",
       "sha_equal": true
     },
-    "mechanical_admission_checks": {
+    "local_seam_checks": {
       "whole_tape_exact": true,
       "semantic_spans_complete_clauses": true,
       "unequal_A_A_prime": true,
       "unequal_B_B_prime": true,
-      "center_not_proper_palindrome": true,
-      "word_boundary_crossing": true,
-      "actual_prose": true
+      "center_not_proper_palindrome": true
+    },
+    "central_mechanical_admission": {
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": false,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false,
+      "blocking_failures": [
+        "distinct_words",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit",
+        "no_self_palindromic_proper_multiword_span",
+        "not_word_order_symmetry"
+      ]
     },
     "provenance": {
-      "construction": "unequal complete-clause semantic partition over a shared exact word tape",
-      "whole_tape_solved_jointly": true,
+      "construction": "unequal semantic labels over the pre-existing mirrored Nora/Aron control",
+      "whole_tape_solved_jointly": false,
       "finished_tape_reversal": false,
       "posthoc_repair": false,
       "catalogue_text": false,
+      "word_order_symmetry": true,
+      "repeated_phrase_scaffold": true,
       "distinct_units": true,
       "self_palindromic_units": []
     }
@@ -57,18 +86,20 @@
   "stats": {
     "candidate_count": 1,
     "letters": 120,
-    "exact_count": 1,
+    "exact_controls": 1,
+    "mechanically_admitted": 0,
     "pair_reverse_exact_count": 0
   },
   "novelty_preflight": {
-    "status": "passed",
+    "status": "failed_after_central_audit",
     "signature": "unequal-semantic-seams|cross-boundary-word-ledger|nora-aron",
-    "distinct_from": "connector-shell insertion and exact paragraph-pair construction"
+    "reason": "semantic repartitioning does not change the pre-existing word-symmetric tape"
   },
   "independent_validation": [
     "two-pointer full tape",
     "forward/reverse SHA-256",
-    "mechanical seam checks"
+    "central mechanical_admission_checks"
   ],
-  "next_operator": "vary the complete-clause partition while preserving unequal seam lengths and central non-palindrome"
+  "status": "rejected exact control; no reader candidate",
+  "next_operator": "generate a fresh varied-frame tape with cross-word seams; do not relabel the mirrored Nora/Aron control"
 }

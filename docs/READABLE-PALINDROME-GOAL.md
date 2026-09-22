@@ -9119,6 +9119,26 @@ grammar variant.
   `runs/two-character-paragraph-abba-20261002.json`; generator:
   `experiments/two_character_paragraph_abba_20261002.py`.
 
+- **Central-gate correction and varied-frame pivots (2026-10-02):** relabeling
+  the same 120-letter Nora/Aron tape with unequal semantic `A/B/B'/A'` spans
+  does not change its construction. The authoritative central gate rejects it
+  for boundary-aligned word symmetry, repeated phrase units, duplicate content
+  words, and a proper palindromic span; the corrected artifact reports zero
+  mechanically admitted rows (`runs/unequal-seam-paragraph-csp-20260921.json`).
+  Three genuinely fresh pivots also remain negative: 396 passive,
+  ditransitive, locative, and subordinate frame pairs close zero tapes; 500
+  endpoint-conditioned varied-frame assignments all fail their outer
+  three-character equation; and 30,000 Brown clause-like spans yield zero
+  boundary-different exact half-clause joins. The connector ledger likewise
+  closes zero of four cause/contrast shells. These failures stop the mirrored
+  paragraph family and route the next construction to a fresh cross-word tape
+  with endpoint compatibility solved before clause expansion, never to another
+  semantic relabeling or larger saw/was bank. Artifacts:
+  `runs/alternate-clause-frame-pairs-20260921.json`,
+  `runs/endpoint-conditioned-varied-frames-20260921.json`,
+  `runs/bounded-corpus-crossboundary-halfclause-20260921.json`, and
+  `runs/joint-discourse-connector-20260921.json`.
+
 ## Current orchestration routing (2026-10-02)
 
 GPT-5.6 Sol owns architecture and coordinated direction for this goal.

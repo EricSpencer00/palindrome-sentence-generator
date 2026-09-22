@@ -177,6 +177,15 @@ next method must vary complete frames while carrying a cross-word residual.
 Artifact: `runs/two-character-paragraph-abba-20261002.json`; generator:
 `experiments/two_character_paragraph_abba_20261002.py`.
 
+An unequal semantic repartition of that same tape was also rejected. Although
+the labels make `A/A'` and `B/B'` unequal and non-reversing, the words and
+letters are unchanged; central admission still detects the original
+word-order symmetry, repeated phrase units, and proper palindromic span. This
+guards against treating semantic labels as a construction change. Fresh
+varied-frame, endpoint-conditioned, connector, and Brown cross-boundary probes
+then produced zero exact clean closures, so the active successor solves outer
+cross-word compatibility before expanding any complete clause.
+
 ## Cross-role clause CSP
 
 As a new constructive lane, we paired complete contemporary clauses while

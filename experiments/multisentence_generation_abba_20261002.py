@@ -134,7 +134,7 @@ def run():
         "lineage": "revises multisentence-generation-abba-20261002; original artifact preserved",
         "method": "discourse-linked frame lattice with live complete-word B2 index and joint A2",
         "stats": {"units_per_role": 2, "rows": len(rows), "exact_closures": len(exact),
-                  "max_supported_depth": best["live_residual"]["supported_depth"],
+                  "max_supported_depth": best["live_residual"]["supported_depth"] if best else 0,
                   "best_normalized_length": best["normalized_length"] if best else 0,
                   "complete_word_seam_rows": sum(r["live_residual"]["complete_word_seam"] for r in rows)},
         "exact_candidates": exact, "best_frontier": best, "frontier_states": frontiers, "rendered_candidates": rows,

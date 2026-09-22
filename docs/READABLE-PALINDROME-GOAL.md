@@ -8711,6 +8711,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   agreement and the ABBA graph. Artifact:
   `runs/typed-abba-residual-authoring-20260930.json`.
 
+- **Two-character ABBA boundary target:** the next operator required `B2` to
+  consume two live reverse-tape characters before authoring `A2`. Three fresh
+  scene frames exposed obligations `nr`, `ht`, and `wo`; no ordinary authored
+  `B2` opening matched any of them, so there were zero exact closures. The
+  residual is now a complete-word target, not merely a prefix target; the next
+  operator must select an ordinary word from that residual and carry its
+  syntactic role into `A2`. Artifact:
+  `runs/abba-two-char-boundary-authoring-20260930.json`.
+
 - **Argument-sharing paragraph continuation:** a typed outer event was streamed
   around the verified center, yielding the following 54-letter exact tape:
 

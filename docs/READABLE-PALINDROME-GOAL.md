@@ -8820,3 +8820,34 @@ generated, non-formulaic candidate.
   It produced no closure, but preserved ordinary residual controls at 39 and
   55 letters; both fail at their exposed seam and are not palindrome claims.
   Artifact: `runs/two-event-clause-product-nonterminal-20260930.json`.
+
+## Incumbent seam-edit lineage (2026-09-30)
+
+- **Outer question/answer edit:** the 236-letter accumulated draft was edited
+  only at its outer mirrored pair, replacing `Aron saw evil.` / `Live was
+  Nora.` with `Noel, did I live?` / `Evil, I did, Leon.`. The child is 238
+  letters and exact (SHA-256
+  `a4420f53b4773d63c12b03193973acb15798149cca53a68bb31b2c917c455930`). The
+  question is ordinary English; the answer is stylized, and the interior still
+  carries formulaic debt. Artifact:
+  `runs/typed-phrase-graph-outer-question-answer-20260930.json`.
+
+- **Sara/Aras local repair:** on that 238-letter parent, `Sara, I saw live.` /
+  `Evil was I, Aras.` was replaced jointly by `Sara, did I live?` / `Evil, I
+  did, Aras.`. Length and exactness were preserved (SHA-256
+  `d64eb512bcbc16444df2c3e77a12b77756db6e0843d4dd0eedee54b4c382d2fc`), but
+  the whole draft remains unrated and repetitive. Artifact:
+  `runs/typed-phrase-graph-sara-window-edit-20260930.json`.
+
+- **Nora/Aron local repair:** the adjacent `Nora, I saw deliver.` /
+  `Reviled was I, Aron.` window was replaced by `Nora, did I live?` / `Evil, I
+  did, Aron.`. This yields a 232-letter exact child (SHA-256
+  `7cf962b9846d12c1770e9a8c6eb18b6660def774d73e6792eabe54ab6807a148`) with
+  the outside tape preserved. It is a cleaner local seam at a small length
+  cost, not a reader-admitted result. Artifact:
+  `runs/typed-phrase-graph-nora-window-edit-20260930.json`.
+
+The active working set is therefore the 238-letter parent plus the 232-letter
+locally repaired child; the next useful action is another paired seam edit or
+meaningful growth from one of these actual tapes, not another unrelated
+grammar variant.

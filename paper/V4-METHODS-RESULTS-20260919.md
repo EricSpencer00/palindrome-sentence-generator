@@ -70,11 +70,27 @@ row is 544 letters (SHA-256
 The row is not human certified and still contains conspicuous formulaic seams.
 It is nevertheless a more informative construction result than the 556-letter
 control: it changes two interior events, keeps the live residual trace, and
-reduces inherited material rather than surrounding it. Programmatic exactness
-admits it to the working frontier; only blinded readers can establish readable
-English. The next repair is fixed in advance: replace the paired “Noel, did I
-draw Mara?” / “Ward I did, Leon” span with a new finite event whose word
-boundaries cross the reflected span.
+reduces inherited material rather than surrounding it.
+
+The predeclared next repair then replaces the paired “Noel, did I draw Mara?
+Was I God?” / “Dog I saw, Aram. Ward I did, Leon” span with:
+
+> **Noel, I sit. Pat notes. Mara saw God.**
+
+and its boundary-shifted counterpart:
+
+> **Dog was Aram. Seton, tap. 'Tis I, Leon.**
+
+This is not a one-to-one reversal of word units. At `Pat|notes` versus
+`Seton|tap`, matching `notes` against `on` leaves residual `tes`, which the
+following `Set` closes. The outer residual `won` remains live across the whole
+center and still closes only at `Leon|won`. The result is 550 letters, exact by
+the independent character and SHA audits, with SHA-256
+`3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673`.
+It removes two inverted clauses, adds six finite events, and adds no wrapper.
+Programmatic exactness admits it to the working frontier; only blinded readers
+can establish readable English. The next fixed repair is the central “I saw
+diaper / Repaid was I” event.
 
 Reproducible evidence is in
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
@@ -84,7 +100,9 @@ Reproducible evidence is in
 `experiments/incumbent_498_deep_clause_transducer_20261002.py`,
 `runs/incumbent-498-deep-clause-transducer-20261002.json`,
 `experiments/incumbent_534_inner_event_repair_20261002.py`, and
-`runs/incumbent-534-inner-event-repair-20261002.json`. The historical
+`runs/incumbent-534-inner-event-repair-20261002.json`, followed by
+`experiments/incumbent_544_cross_boundary_seam_repair_20261002.py` and
+`runs/incumbent-544-cross-boundary-seam-repair-20261002.json`. The historical
 38- and 54-letter sections below are retained only as ablation history.
 
 ## Paragraph-level ABBA generation

@@ -57,10 +57,18 @@ letters. The active 544-letter row replaces “Nora, I saw deliver Noel” with
 “Nadia delivers maps” and replaces an inverted question pair with “Nora saw
 Noel live” / “Evil Leon was Aron.” Its independent forward/reverse SHA-256 is
 `2ea2411e5fea4d27d3db24ba0e471cc6a52a4a2196b52fb6a82b5cc6033b0655`.
-This is the readability-repair frontier; the 556 row remains only the longer,
-rougher control. The next editable seam is the paired “Noel, did I draw Mara?”
-/ “Ward I did, Leon” span, and it must receive a new finite event whose word
-boundaries cross the reflected span.
+That 544 row has now undergone the predeclared next repair. The paired “Noel,
+did I draw Mara? Was I God?” / “Dog I saw, Aram. Ward I did, Leon” span is
+replaced by “Noel, I sit. Pat notes. Mara saw God.” / “Dog was Aram. Seton,
+tap. 'Tis I, Leon.” The inner `Pat|notes` boundary reflects as `Seton|tap`:
+matching `notes` first leaves nonempty residual `tes`, which `Set` closes.
+The independently exact result is **550 letters**, SHA-256
+`3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673`.
+It removes two inverted clauses, adds six finite events, and adds no outer
+wrapper. This is the active readability-repair frontier; the 556 row remains
+only the longer, rougher control. The next editable seam is the central “I saw
+diaper / Repaid was I” event, which must be replaced without losing the live
+cross-sentence residual.
 
 Evidence:
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
@@ -70,7 +78,9 @@ Evidence:
 `experiments/incumbent_498_deep_clause_transducer_20261002.py`,
 `runs/incumbent-498-deep-clause-transducer-20261002.json`,
 `experiments/incumbent_534_inner_event_repair_20261002.py`, and
-`runs/incumbent-534-inner-event-repair-20261002.json`.
+`runs/incumbent-534-inner-event-repair-20261002.json`, followed by
+`experiments/incumbent_544_cross_boundary_seam_repair_20261002.py` and
+`runs/incumbent-544-cross-boundary-seam-repair-20261002.json`.
 
 Sol owns this pivot. No Astra or non-Sol agent is used. Human studies remain
 required before a readability claim, but they are not a prerequisite for

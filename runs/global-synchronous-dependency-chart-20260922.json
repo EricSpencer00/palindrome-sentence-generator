@@ -1,0 +1,247 @@
+{
+  "experiment_id": "global-synchronous-dependency-chart-20260922",
+  "decision": "Can a genuinely global packed chart jointly construct two complete finite dependency clauses from common Brown/WordNet terminals while matching all characters online and passing every central admission gate above 38 letters?",
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "global-synchronous-dependency-chart|dual-finite-clause-dependency-automata|brown-wordnet-character-tries|packed-live-residual|dual-boundary-masks|discourse-referents",
+    "registry_read": true,
+    "registry_entries_checked": 708,
+    "exact_signature_collisions": [],
+    "closest_five": [],
+    "bounded_comparisons": 708,
+    "distinction": "global dual finite-clause dependency state and both token masks are chart keys; the retired r=s family carried only a local residual stack"
+  },
+  "acceptance_gate": {
+    "minimum_letters_exclusive": 38,
+    "two_complete_finite_dependency_parses": true,
+    "agreement_tense_and_transitive_valency": true,
+    "connected_discourse_referents": true,
+    "exact_two_pointer_and_sha": true,
+    "different_opposite_segmentation": true,
+    "complementary_token_boundary_masks": true,
+    "all_central_mechanical_checks": true
+  },
+  "fixed_domain": {
+    "clause_plans": [
+      {
+        "plan_id": "definite-subject-indefinite-object",
+        "slots": [
+          "determiner",
+          "subject",
+          "verb",
+          "determiner",
+          "object"
+        ],
+        "subject_determiner": "the",
+        "object_determiner": "a"
+      },
+      {
+        "plan_id": "indefinite-subject-definite-object",
+        "slots": [
+          "determiner",
+          "subject",
+          "verb",
+          "determiner",
+          "object"
+        ],
+        "subject_determiner": "a",
+        "object_determiner": "the"
+      }
+    ],
+    "per_slot_frequency_cap": 64,
+    "max_packed_states": 500000,
+    "proper_names": false,
+    "fragments": false,
+    "completed_phrase_banks": false,
+    "catalogue_text": false,
+    "repeated_units": false,
+    "seed_recovery": false,
+    "post_hoc_repair": false,
+    "lexical_widening_after_run": false,
+    "retired_local_residual_stack": false
+  },
+  "state_contract": {
+    "parse_state": [
+      "open_valencies",
+      "subject_head",
+      "predicate_head",
+      "object_head",
+      "agreement_resolved",
+      "tense",
+      "discourse_referents"
+    ],
+    "character_state": [
+      "owner",
+      "residual",
+      "left_cursor",
+      "right_cursor"
+    ],
+    "boundary_state": [
+      "left_boundary_mask",
+      "right_boundary_mask"
+    ],
+    "packing_key_excludes": [
+      "rendered_text",
+      "completed_phrase",
+      "posthoc_score"
+    ],
+    "terminal_access": "slot-specific forward/reverse character tries"
+  },
+  "inventory": {
+    "noun_lemmas": 117798,
+    "verb_lemmas": 11529,
+    "wordnet_zip_sha256": "cbda5ea6eef7f36a97a43d4a75f85e07fccbb4f23657d27b4ccbc93e2646ab59",
+    "brown_raw_sha256": "7b49cda74e7d99bc27d5b12540f13143c45956b1d8d89f36933d9e5b1885949c",
+    "per_slot_cap": 64,
+    "terminals": {
+      "determiner": 2,
+      "subject": 64,
+      "object": 64,
+      "verb": 64
+    },
+    "brown_token_types": 37857,
+    "minimum_brown_count": 4
+  },
+  "search": {
+    "stats": {
+      "states_expanded": 10,
+      "trie_queries": 10,
+      "trie_terminals_returned": 10,
+      "terminal_attempts": 10,
+      "packed_cells_created": 6,
+      "packed_cells": 10,
+      "dead_cells": 4,
+      "complete_cells": 0,
+      "audited_candidates": 0,
+      "accepted_candidates": 0
+    },
+    "rejections": {
+      "dependency_or_agreement": 4
+    },
+    "domain_exhausted": true,
+    "cap_reached": false,
+    "audited_candidates": [],
+    "accepted_candidates": [],
+    "obstruction": {
+      "reason": "trie_prefix_obstruction",
+      "matched_cursor": 1,
+      "state": {
+        "owner": "right",
+        "residual": "era",
+        "left_cursor": 1,
+        "right_cursor": 4,
+        "left_boundary_positions": [
+          1
+        ],
+        "right_boundary_positions": [
+          4
+        ],
+        "left_parse": {
+          "plan_id": "indefinite-subject-definite-object",
+          "cursor": 1,
+          "subject_head": "",
+          "subject_number": "",
+          "predicate_head": "",
+          "predicate_number": "",
+          "tense": "",
+          "object_head": "",
+          "open_valencies": [
+            "subject",
+            "finite_predicate",
+            "object"
+          ],
+          "discourse_referents": [],
+          "agreement_resolved": false,
+          "valency_resolved": false
+        },
+        "right_parse": {
+          "plan_id": "definite-subject-indefinite-object",
+          "cursor": 3,
+          "subject_head": "",
+          "subject_number": "",
+          "predicate_head": "",
+          "predicate_number": "",
+          "tense": "",
+          "object_head": "area",
+          "open_valencies": [
+            "subject",
+            "finite_predicate"
+          ],
+          "discourse_referents": [
+            [
+              "object",
+              "area",
+              [
+                "noun.artifact",
+                "noun.attribute",
+                "noun.body",
+                "noun.cognition",
+                "noun.location",
+                "noun.state"
+              ]
+            ]
+          ],
+          "agreement_resolved": false,
+          "valency_resolved": false
+        }
+      },
+      "witness": {
+        "left_tokens": [
+          "a"
+        ],
+        "right_tokens_reverse": [
+          "area"
+        ]
+      },
+      "local_rejections": {
+        "trie_prefix_obstruction": 1
+      },
+      "next_required_side": "left",
+      "next_required_slot": "subject",
+      "best_terminal_probe": {
+        "terminal": {
+          "surface": "end",
+          "lemma": "end",
+          "slot": "subject",
+          "number": "singular",
+          "tense": "",
+          "person": "third",
+          "valency": "",
+          "semantic_types": [
+            "noun.act",
+            "noun.artifact",
+            "noun.cognition",
+            "noun.communication",
+            "noun.event",
+            "noun.location",
+            "noun.person",
+            "noun.state",
+            "noun.time"
+          ],
+          "brown_count": 369,
+          "brown_source": "ca01:18:16",
+          "wordnet_frames": []
+        },
+        "exposed_tape": "end",
+        "matching_prefix_characters": 1,
+        "expected_residual": "era",
+        "expected_next_character": "r",
+        "observed_next_character": "n"
+      },
+      "domain_exhausted": true,
+      "interpretation": "No trie terminal for the required dependency slot can consume the live residual without violating character equality, syntax, agreement, freshness, or the two boundary masks."
+    }
+  },
+  "verdict": "precise exhausted packed-chart obstruction",
+  "provenance": {
+    "host": "hst-bench",
+    "python": "3.12.3",
+    "source_sha256": "03df4e96d03c5407daa9e2e49f8cda11e180553ccca5a1864037e0192b1c630d",
+    "brown_source": "/home/eric/nltk_data/corpora/brown",
+    "wordnet_source": "/home/eric/nltk_data/corpora/wordnet.zip",
+    "elapsed_seconds": 3.332,
+    "every_complete_cell_rendered_and_independently_audited": true,
+    "all_nonterminal_text_retained_only_as_obstruction_witness": true
+  },
+  "result_sha256": "c4a6ef42a46d06a60c88de8ba88d1e7eba58cd9cb1527cc06ec412cf4b8f53b7"
+}

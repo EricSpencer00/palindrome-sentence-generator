@@ -186,8 +186,8 @@ The independently verified 38-letter sentence remains the reader anchor:
 
 > *An aide rips nine memos; some men inspire Diana.*
 
-The new **strict mechanical incumbent** is this 42-letter productive-morphology
-construction:
+The new **strict mechanically admitted, reader-testable incumbent** is this
+42-letter productive-morphology construction:
 
 > *No trace. Note: Spot spoons; snoop; stop. Set one carton.*
 
@@ -201,6 +201,20 @@ It is syntactically interpretable, but **not yet human-certified readable**.
 Its randomized eight-item rater packet includes the intact target, a matched
 word shuffle, three intact prose controls, and their matched shuffles; the
 condition key is stored separately.
+
+The same exact construction extends without repetition through stack depths
+three, four, and five, producing separately audited, shortcut-clean tapes of
+50, 60, and 66 letters. The 66-letter mechanical frontier is:
+
+> *No trace. Note: Sap steel. Snap. Spot spoons. Snoop. Stop. Span sleet. Spa. Set one carton.*
+
+It is **not** a prose incumbent: the return phase exposes bare transitive or
+semantically incompatible lemmas (`span`, `sleet`, `spa`) without their needed
+arguments. Punctuation cannot supply those missing characters or roles. The
+next productive operator therefore puts typed verb-particle or verb-object
+frames inside each return transduction before solving the live character
+equation. This keeps the scalable LIFO mechanism and repairs the first failed
+grammar phase instead of celebrating a longer fragment.
 
 The older 54-letter cross-role NP row and exact diagnostics at 44, 47, 50,
 56, 66, and 132 letters remain historical controls, not current progress

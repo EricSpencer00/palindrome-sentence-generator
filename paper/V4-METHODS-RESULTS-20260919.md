@@ -54,6 +54,22 @@ pending, so the paper does not yet claim that the output is readable English.
 The active construction work extends the freshness-indexed stack and searches
 additional productive affix boundaries for a longer, more coherent witness.
 
+The exact stack itself scales beyond the reader-testable row. Depths three,
+four, and five produce independently audited, central-gate-clean tapes of 50,
+60, and 66 letters, with every lemma globally fresh. The longest is:
+
+> **No trace. Note: Sap steel. Snap. Spot spoons. Snoop. Stop. Span sleet. Spa. Set one carton.**
+
+We do not promote it. At depth three the return stack first exposes `span` in
+the fixed phase without the object required by its transitive reading; deeper
+cycles add `sleet` and `spa` with the same event-register problem. This cleanly
+separates exact scalability from prose scalability. The immediate grammar
+change is to let `T(y)` contain a typed verb-particle or verb-object frame and
+derive its left partner from the live residual before rendering. Carrier
+variation alone is not the answer: four additional common-word carrier pairs
+were exact and boundary-clean at depth two, but all reduced event continuity
+relative to `No trace. Note ... Set one carton`.
+
 The earlier 498-letter residual-growth artifact is retained as a permissive
 structural-control branch, not as the active content incumbent. Its exact
 normalized tape has

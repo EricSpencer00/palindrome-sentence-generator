@@ -25,6 +25,32 @@ OUT = ROOT / "runs" / "incumbent-568-internal-seam-growth-20260922.json"
 PARENT_ID = "outer-causal-scene-568-working-incumbent"
 PARENT_SHA256 = "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
 SEAM_LETTERS = 73
+FRONTIER = (
+    {
+        "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+        "id": "outer-causal-scene-568-working-incumbent",
+        "letters": 568,
+        "sha256": PARENT_SHA256,
+    },
+    {
+        "artifact": "runs/incumbent-550-central-event-bridge-20261002.json",
+        "id": "central-distinct-events-560",
+        "letters": 560,
+        "sha256": "b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc",
+    },
+    {
+        "artifact": "runs/incumbent-550-typed-center-product-20261002.json",
+        "id": "typed-center-25",
+        "letters": 558,
+        "sha256": "29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa",
+    },
+    {
+        "artifact": "runs/incumbent-498-event-frame-seam-repair-20261002.json",
+        "id": "depth39-longest-f1g1h1r",
+        "letters": 556,
+        "sha256": "28b303081c7eeae9b0f4c7e274d71e73551c64f5ad389b2d992b6183597f6d14",
+    },
+)
 
 
 def normalize(text: str) -> str:
@@ -55,14 +81,34 @@ def independent_audit(text: str) -> dict[str, object]:
     }
 
 
+def validate_frontier_entry(entry: dict[str, object]) -> None:
+    artifact = ROOT / str(entry["artifact"])
+    assert artifact.exists(), artifact
+    payload = json.loads(artifact.read_text())
+    row = next(row for row in payload["rows"] if row["id"] == entry["id"])
+    rendered = str(row["rendered"])
+    recomputed = independent_audit(rendered)
+    assert recomputed["normalized_letters"] == entry["letters"]
+    assert recomputed["two_pointer_exact"]
+    assert recomputed["sha256_forward"] == entry["sha256"]
+    assert recomputed["sha_equal"]
+
+
 def build_payload() -> dict[str, object]:
     parent_payload = json.loads(PARENT.read_text())
     parent = next(row for row in parent_payload["rows"] if row["id"] == PARENT_ID)
     parent_rendered = str(parent["rendered"])
     parent_tape = normalize(parent_rendered)
+    parent_independent = independent_audit(parent_rendered)
     assert parent["audit"]["letters"] == 568
     assert parent["audit"]["sha256_forward"] == PARENT_SHA256
+    assert parent_independent["normalized_letters"] == 568
+    assert parent_independent["two_pointer_exact"]
+    assert parent_independent["sha256_forward"] == PARENT_SHA256
+    assert parent_independent["sha_equal"]
     assert len(parent_tape) == 568 and parent_tape == parent_tape[::-1]
+    for frontier_entry in FRONTIER:
+        validate_frontier_entry(frontier_entry)
 
     left_raw = raw_boundary_after_letters(parent_rendered, SEAM_LETTERS)
     right_raw = raw_boundary_after_letters(parent_rendered, len(parent_tape) - SEAM_LETTERS)
@@ -91,7 +137,7 @@ def build_payload() -> dict[str, object]:
     assert project_audit["project_validator_exact"]
 
     row = {
-        "id": "internal-mara-stops-604",
+        "id": "internal-mara-stops-602",
         "working_status": "568_lineage_growth_frontier",
         "rendered": rendered,
         "audit": project_audit,
@@ -108,7 +154,7 @@ def build_payload() -> dict[str, object]:
         "live_seam": {
             "normalized_cut_letters": SEAM_LETTERS,
             "left_cursor_raw_exclusive": left_raw,
-            "right_cursor_raw_inclusive": right_raw,
+            "right_cursor_raw_exclusive": right_raw,
             "left_partial_join": "Mara stops|spots",
             "right_partial_join": "spots|Aram",
             "retained_letters": len(normalize(retained)),
@@ -154,27 +200,21 @@ def build_payload() -> dict[str, object]:
         },
         "preserved_frontier": [
             {
-                "artifact": str(PARENT.relative_to(ROOT)),
-                "id": PARENT_ID,
-                "letters": 568,
-                "sha256": PARENT_SHA256,
+            **FRONTIER[0],
             },
             {
-                "artifact": "runs/incumbent-550-central-event-bridge-20261002.json",
-                "letters": 560,
+                **FRONTIER[1],
             },
             {
-                "artifact": "runs/incumbent-550-typed-center-product-20261002.json",
-                "letters": 558,
+                **FRONTIER[2],
             },
             {
-                "artifact": "runs/incumbent-498-event-frame-seam-repair-20261002.json",
-                "letters": 556,
+                **FRONTIER[3],
             },
         ],
         "rows": [row],
         "next_operator": (
-            "retain the 568 incumbent and this 604 child; if the internal seam "
+            "retain the 568 incumbent and this 602 child; if the internal seam "
             "is changed, record its residual obstruction before moving to a new seam"
         ),
     }

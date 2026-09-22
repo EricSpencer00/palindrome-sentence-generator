@@ -1,0 +1,162 @@
+{
+  "experiment_id": "attested-compound-event-stack-20260922",
+  "decision": "Can Brown-attested verb-object and noun-compound bigrams repair the r=s depth-3 syntax frontier above 44 letters?",
+  "acceptance_gate": {
+    "exact": true,
+    "minimum_letters_exclusive": 44,
+    "complete_finite_or_imperative_clauses": true,
+    "wordnet_direct_object_valency": true,
+    "semantic_event_register": true,
+    "strict_lifo": true,
+    "global_lemma_freshness": true,
+    "complementary_boundary_mask": true,
+    "proper_span_mask": true
+  },
+  "fixed_conditions": {
+    "residual": "s",
+    "stack_depth": 3,
+    "carrier": {
+      "left": [
+        "we"
+      ],
+      "right": [
+        "sew"
+      ]
+    },
+    "inner_productive_cycle": {
+      "left_lemma": "spoon",
+      "left_surface": "spoons",
+      "right": "snoop"
+    },
+    "outer_left_type": "Brown-contiguous base-verb plus common-noun object",
+    "outer_right_type": "Brown-contiguous common-noun compound with plural head",
+    "wordnet_transitive_frames": [
+      5,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      24,
+      25,
+      26,
+      30,
+      31
+    ],
+    "bare_lemma_pairs": false,
+    "proper_names": false,
+    "fragments": false,
+    "catalogue_text": false,
+    "finished_palindromic_units": false,
+    "post_hoc_repair": false,
+    "lexical_widening_after_run": false
+  },
+  "inventory": {
+    "sentences": 89329,
+    "noun_compound_occurrences": 20332,
+    "verb_object_bigrams_seen": 2369,
+    "wordnet_valency_licensed_occurrences": 2356,
+    "wordnet_valency_rejections": 13,
+    "unique_noun_compounds": 14547,
+    "unique_wordnet_licensed_verb_objects": 2092,
+    "brown_raw_sha256": "7b49cda74e7d99bc27d5b12540f13143c45956b1d8d89f36933d9e5b1885949c",
+    "wordnet_zip_sha256": "cbda5ea6eef7f36a97a43d4a75f85e07fccbb4f23657d27b4ccbc93e2646ab59"
+  },
+  "search_stats": {
+    "licensed_verb_object_tapes": 2091,
+    "residual_prefix_rejections": 1840,
+    "residual_supported_verb_object_tapes": 251,
+    "compound_tape_misses": 251
+  },
+  "exact_stack_count": 0,
+  "independently_audited_exact_stacks": [],
+  "survivors": [],
+  "first_compound_or_valency_obstruction": {
+    "grammar_phase": "noun_compound_return_lookup",
+    "character_cursor": 5,
+    "verb_object": {
+      "kind": "verb_object",
+      "words": [
+        "sacrifice",
+        "part"
+      ],
+      "tags": [
+        "vb",
+        "nn"
+      ],
+      "count": 1,
+      "first_source": "ca35:95:20",
+      "verb_lemma": "sacrifice",
+      "wordnet_frames": [
+        8,
+        9,
+        15
+      ],
+      "noun_lemmas": [
+        "part"
+      ],
+      "noun_lexnames": [
+        [
+          "noun.act",
+          "noun.artifact",
+          "noun.body",
+          "noun.cognition",
+          "noun.communication",
+          "noun.location",
+          "noun.object",
+          "noun.possession",
+          "noun.relation"
+        ]
+      ]
+    },
+    "best_compound": {
+      "kind": "noun_compound",
+      "words": [
+        "strap",
+        "iron"
+      ],
+      "tags": [
+        "nn",
+        "nn"
+      ],
+      "count": 1,
+      "first_source": "cn10:287:12",
+      "verb_lemma": null,
+      "wordnet_frames": [],
+      "noun_lemmas": [
+        "strap",
+        "iron"
+      ],
+      "noun_lexnames": [
+        [
+          "noun.artifact"
+        ],
+        [
+          "noun.artifact",
+          "noun.substance"
+        ]
+      ]
+    },
+    "required_compound_tape": "strapecifirca",
+    "observed_compound_tape": "strapiron",
+    "unmatched_required_suffix": "ecifirca",
+    "unmatched_observed_suffix": "iron",
+    "failure": "first character cursor at which the best attested compound misses the exact r=s return"
+  },
+  "verdict": "bounded compound/valency intersection closes with no accepted survivor",
+  "provenance": {
+    "host": "hst-bench",
+    "python": "3.12.3",
+    "source_sha256": "6b94ec68e0b518dfd88069a39cd12f564838b6f713743fcd32ad6b21b77cc366",
+    "brown_source": "/home/eric/nltk_data/corpora/brown",
+    "wordnet_source": "/home/eric/nltk_data/corpora/wordnet.zip",
+    "elapsed_seconds": 5.003
+  }
+}

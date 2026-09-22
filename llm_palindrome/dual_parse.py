@@ -58,6 +58,7 @@ def word_residual_search(
     right_slots: tuple[tuple[str, tuple[str, ...]], ...],
     *, max_states: int = 50_000, max_results: int = 100,
     allow_choice: Callable[[str, str, str | None, str], bool] | None = None,
+    allow_partial: Callable[[tuple[str, ...], tuple[str, ...]], bool] | None = None,
 ) -> dict:
     """Search two POS/role plans while carrying the live unmatched tape.
 
@@ -113,9 +114,14 @@ def word_residual_search(
                         next_owner, next_residual = "", ""
                 else:
                     next_owner, next_residual = side, exposed
+                next_lw = lw + ((word,) if side == "left" else ())
+                next_rw_reverse = rw_reverse + ((word,) if side == "right" else ())
+                if (allow_partial is not None
+                        and not allow_partial(next_lw, tuple(reversed(next_rw_reverse)))):
+                    continue
                 queue.append((li + (side == "left"), ri - (side == "right"),
-                              lw + ((word,) if side == "left" else ()),
-                              rw_reverse + ((word,) if side == "right" else ()),
+                              next_lw,
+                              next_rw_reverse,
                               next_owner, next_residual,
                               lroles + ((role,) if side == "left" else ()),
                               rroles_reverse + ((role,) if side == "right" else ())))

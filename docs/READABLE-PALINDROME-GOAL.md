@@ -9157,6 +9157,34 @@ grammar variant.
   content). Their artifacts remain reproducible controls, with novelty status
   set to rejected and every reader-facing list empty.
 
+- **Exact POS/bigram dual-parse product (2026-10-02):** the corrected
+  word-residual transition first recovered the 38-letter incumbent in 11
+  states, then matched brute-force enumeration on a finite toy grammar. A
+  remote bounded run intersected 64 Brown-derived sentence shapes against all
+  64 opposing shapes, using 240 lexical choices per POS class and 34,082
+  forward-prose bigrams as transition gates. Across 4,096 shape pairs it
+  visited 1,393,376 joint grammar/residual states without hitting a cap. The
+  only three exact closures were 14-letter repeated-unit controls such as
+  “I say as I; I say as I”; central admission rejected all three. The deepest
+  nonclosing frontier matched 12 letters, versus the earlier four-letter
+  endpoint probes. The next version has already moved distinct-content and
+  self-palindromic-word rejection into partial-state admission, so those
+  shortcut branches cannot consume another run. This is method evidence, not
+  a reader result; the 38-letter incumbent remains the only promoted output.
+  Artifact: `runs/brown-pos-dual-parse-search-20260921.json`.
+
+- **Semantic-valency dual parse (2026-10-02):** agent, agreement, action,
+  quantity, document-object, response, and human-patient roles now advance in
+  the same state as the exact word residual; distinct-content rejection also
+  occurs before closure. The three-frame bounded product visited 82 states,
+  independently recovered the 38-letter control once, promoted no fresh row,
+  and reached an 18-letter clean frontier. This is the first corrected
+  dual-parse run in which the user-requested verb/noun state space and exact
+  palindrome state are literally the same search rather than a later prose
+  filter. Its next representation change is a two-clause discourse transition
+  in that state, not a larger lexical bank. Artifact:
+  `runs/semantic-valency-dual-parse-20260921.json`.
+
 ## Current orchestration routing (2026-10-02)
 
 GPT-5.6 Sol owns architecture and coordinated direction for this goal.

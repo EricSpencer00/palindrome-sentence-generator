@@ -113,3 +113,18 @@ def test_word_residual_search_matches_brute_force_on_tiny_grammars():
     actual = {(row["left"], row["right"]) for row in search["results"]}
     assert actual == expected
     assert search["cap_reached"] is False
+
+
+def test_word_residual_partial_gate_prunes_before_closure():
+    left = (("left-1", ("a",)), ("left-2", ("a",)))
+    right = (("right-1", ("a",)), ("right-2", ("a",)))
+    unrestricted = word_residual_search(left, right)
+    gated = word_residual_search(
+        left,
+        right,
+        allow_partial=lambda left_words, right_words:
+            len(left_words + right_words) == len(set(left_words + right_words)),
+    )
+    assert unrestricted["results"]
+    assert gated["results"] == []
+    assert gated["states"] < unrestricted["states"]

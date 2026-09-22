@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from llm_palindrome.admission import (
+    REPEATABLE_FUNCTION_WORDS,
     is_lexical_word,
     mechanical_admission_checks,
     normalize_letters,
@@ -142,6 +143,16 @@ def search_inventory(inventory: dict, *, max_shape_pairs: int,
         pair = (neighbor, word) if side == "left" else (word, neighbor)
         return pair in bigrams
 
+    def allow_partial(left_words: tuple[str, ...], right_words: tuple[str, ...]) -> bool:
+        content = [
+            word for word in left_words + right_words
+            if word not in REPEATABLE_FUNCTION_WORDS
+        ]
+        return (
+            len(content) == len(set(content))
+            and all(word != word[::-1] for word in content)
+        )
+
     for left_shape in shapes:
         for right_shape in shapes:
             if pairs >= max_shape_pairs or len(rows) >= max_results:
@@ -153,6 +164,7 @@ def search_inventory(inventory: dict, *, max_shape_pairs: int,
                 max_states=states_per_pair,
                 max_results=max_results - len(rows),
                 allow_choice=allow_choice,
+                allow_partial=allow_partial,
             )
             states += result["states"]
             transitions += result["transitions"]

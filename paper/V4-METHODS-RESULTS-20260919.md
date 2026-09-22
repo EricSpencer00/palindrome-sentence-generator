@@ -4599,3 +4599,26 @@ not a new result. Three proposed paragraph lanes that first enumerated
 complete prose and only then measured seams were reclassified as rejected
 diagnostics; one also repeated its A subject and object. They contribute no
 reader candidates and are excluded from method-progress counts.
+
+We next compiled 64 Brown-derived sentence shapes on each side of the
+dual-parse equation. Each POS slot drew from 240 frequent lexical choices, and
+34,082 forward-prose bigrams gated word transitions while the exact residual
+remained live. The complete 4,096-shape product visited 1,393,376 states and
+1,419,557 transitions without reaching its per-pair cap. It found three exact
+closures, all 14-letter repeated-unit controls (“I say as I; I say as I” and
+two analogues). Central admission rejected every closure for length,
+repetition, duplicate content, and an embedded palindromic span. The deepest
+clean nonclosing frontier matched 12 letters. Consequently, this run supplies
+no reader candidate; its concrete successor moves the anti-shortcut content
+constraints into partial-state admission and adds semantic valency to the
+same exact product rather than widening the vocabulary.
+
+The semantic successor compiled human-agent agreement, document actions,
+quantities, document objects, plural response agents, response verbs, and
+human patients into the same residual state. Its three bounded frame products
+visited 82 states. It recovered the 38-letter control exactly, promoted no
+fresh closure, and retained an 18-letter clean frontier. This recovery matters
+methodologically: syntax and valency now constrain branching before exact
+closure rather than ranking completed palindromes. The next grammar change is
+to carry a two-clause discourse transition in this same product; no larger
+lexical sweep is scheduled.

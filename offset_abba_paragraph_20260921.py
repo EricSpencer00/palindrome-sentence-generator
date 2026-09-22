@@ -93,30 +93,32 @@ def run() -> dict:
             au = audit(rendered)
             admission = mechanical_admission_checks(rendered, min_letters=30, max_letters=500)
             exact_admitted = au["two_pointer_exact"] and all(admission.values())
+            repeated_surface = len(set(choices)) != len(choices)
             rows.append({"rendered": rendered, "semantic_pattern": ["A", "B", "B", "A"],
                          "roles": path, "scene_indices": [SCENES[r].index(s) for r, s in zip(path, choices)],
                          "seam_residuals": seams, "audit": au, "admission": admission,
                          "exact_admitted": exact_admitted,
-                         "provenance": {"independently_authored": True, "crosses_word_boundaries": True,
-                            "crosses_clause_boundaries": True, "joint_scene_and_offset_search": True,
-                            "repeated_units": False, "mirrored_word_order": False,
-                            "nested_palindromic_spans": False, "finished_tape_reversal": False,
+                         "provenance": {"independently_authored": not repeated_surface, "crosses_word_boundaries": True,
+                            "crosses_clause_boundaries": True, "joint_scene_and_offset_search": False,
+                            "post_render_diagnostic": True,
+                            "repeated_units": repeated_surface, "mirrored_word_order": not admission["not_word_order_symmetry"],
+                            "nested_palindromic_spans": not admission["no_self_palindromic_proper_multiword_span"], "finished_tape_reversal": False,
                             "posthoc_repair": False}})
     exact = [r for r in rows if r["exact_admitted"]]
     return {
         "experiment_id": "offset-abba-paragraph-20260921",
-        "method": "joint authored-scene lattice and arbitrary seam-offset residual search for paragraph ABBA",
+        "method": "rejected post-render authored-scene seam diagnostic for paragraph ABBA",
         "stats": {"scene_paths": len(role_paths), "candidate_completions": len(rows),
                   "seam_states": sum(len(r["seam_residuals"]) for r in rows),
                   "exact_admitted": len(exact), "max_letters": max(r["audit"]["letters"] for r in rows)},
         "rendered_candidates": rows, "exact_candidates": exact,
-        "novelty_preflight": {"status": "passed", "signature": "offset-abba|scene-lattice|cross-boundary-residual",
-            "distinct_from": "fixed ABBA units, dialogue trie, clause residual chart, word-order mirrors",
+        "novelty_preflight": {"status": "rejected_as_duplicate_sweep", "signature": "offset-abba|scene-lattice|cross-boundary-residual",
+            "reason": "the implementation enumerates complete scene tuples and measures offsets afterward; it duplicates prior paragraph topology probes instead of constraining generation",
             "duplicate_sweep": True, "forbidden_shortcuts": ["A↔A' pairs", "B↔B' pairs", "seed wrapping", "semantic relabeling"]},
         "provenance": {"independent_audits": ["outside-in character comparison", "forward/reverse SHA-256", "mechanical_admission_checks"],
                        "reader_gate": "closed unless exact_admitted", "generator_sha256": digest(Path(__file__).read_text())},
-        "next_repair": "Widen only the held-out scene lattice keyed by the first residual; retain arbitrary seam offsets and all admission checks.",
-        "status": "fresh exact candidate requires reading" if exact else "no mechanically admitted exact closure; residual frontier retained",
+        "next_repair": "Close this post-render lane; compile scene grammar and opposite-character residuals into one pre-render automaton.",
+        "status": "fresh exact candidate requires reading" if exact else "closed as non-progress: no exact closure and no live constrained generation",
     }
 
 

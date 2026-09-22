@@ -8,6 +8,7 @@ repaired or reversed to manufacture a candidate.
 from __future__ import annotations
 import hashlib, json
 from pathlib import Path
+from llm_palindrome.admission import mechanical_admission_checks
 
 ID = "paragraph-residual-state-dp-20260921"
 ROLES = ("A", "B", "B_prime", "A_prime")
@@ -63,10 +64,12 @@ def run(limit=64):
              li += 1; ri += 1
          if ok: closed += 1
          au=audit(text)
+         admission=mechanical_admission_checks(text,min_letters=39,max_letters=500)
          row={"rendered":text,"roles":list(ROLES),"grammar_state":{"finite_clauses":4,"tense":"past","agreement":"singular","discourse":"ABBA"},
               "residual_trace":residual[:12],"residual_closed":ok,"audit":au,
-              "provenance":{"independently_authored_roles":True,"joint_bilateral_generation":True,
-               "finished_tape_reversal":False,"post_hoc_repair":False,"exact_candidate_central_gate":au["pointer_exact"],
+              "mechanical_admission":admission,
+              "provenance":{"independently_authored_roles":True,"joint_bilateral_generation":False,
+               "post_render_enumeration":True,"finished_tape_reversal":False,"post_hoc_repair":False,"exact_candidate_central_gate":au["pointer_exact"] and all(admission.values()),
                "hard_exclusions":["repeated_units","mirrored_units","catalogue_text"]}}
          rows.append(row)
          if len(rows)>=limit: break
@@ -74,12 +77,13 @@ def run(limit=64):
        if len(rows)>=limit: break
       if len(rows)>=limit: break
     exact=[r for r in rows if r["residual_closed"] and r["audit"]["pointer_exact"] and r["audit"]["sha256_forward"]==r["audit"]["sha256_reverse"] and r["audit"]["letters"]>38 and r["provenance"]["exact_candidate_central_gate"]]
-    return {"experiment_id":ID,"method":"bounded paragraph residual-state DP: grammar + ABBA discourse role + live character residual",
+    return {"experiment_id":ID,"method":"rejected post-render four-role paragraph preflight",
       "stats":{"states":states,"rendered":len(rows),"residual_prunes":pruned,"closed_states":closed,"exact_gt38":len(exact)},
       "exact_candidates":exact,"rendered_controls":rows[:12],
-      "novelty_preflight":{"status":"passed","signature":"paragraph|four-role-ABBA|grammar-state|live-residual","distinct_from":"prior clause and scene residual lanes: four paragraph discourse roles are jointly grammar-gated during bilateral character search"},
+      "novelty_preflight":{"status":"rejected_as_duplicate_preflight","signature":"paragraph|four-role-ABBA|grammar-state|live-residual","reason":"the implementation enumerates all four completed clauses and then audits the finished tape; it is not a residual-state generator and duplicates packed ABBA paragraph probes"},
       "provenance":{"audits":["independent normalized pointer comparison","forward/reverse SHA-256"],"reader_gate":"exact >38 only; no claims from controls","hard_exclusions":["post-hoc repair","finished tape reversal","mirrored units","catalogue text"]},
-      "status":"fresh exact >38 requires reading" if exact else "no exact >38; bounded grammatical controls retained"}
+      "next_operator":"Do not widen this bank. Replace completed-clause enumeration with a compiled bilateral grammar whose state contains discourse role, syntax state, word-boundary offset, and unmatched character residual.",
+      "status":"fresh exact >38 requires reading" if exact else "closed as non-progress: post-render preflight, not a DP generator"}
 
 if __name__ == "__main__":
     out=run(); Path("runs").mkdir(exist_ok=True); Path("runs/"+ID+".json").write_text(json.dumps(out,indent=2)+"\n")

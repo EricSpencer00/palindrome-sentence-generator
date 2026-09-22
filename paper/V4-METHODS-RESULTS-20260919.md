@@ -4578,3 +4578,24 @@ retaining complete prose controls to 298 letters but no exact row. The next
 state selects a typed center event before continuation without widening the
 Cartesian pairing. Artifact:
 `runs/typed-event-composition-buffer-20260920.json`.
+
+## Paragraph-level semantic symmetry without textual unit mirrors
+
+We treat paragraph `A B B' A'` as a semantic discourse plan, not as permission
+to concatenate reversible sentence pairs. Let `H` be the normalized left-half
+character tape. A candidate is generated only when a left grammar parses `H`
+as `A -> B` and an independently parameterized right grammar parses
+`reverse(H)` as `B' -> A'`. Word and sentence boundaries belong to the two
+grammar states and need not coincide under reflection. This turns exactness
+into a hard transition constraint during generation while allowing the
+linguistic analyses to differ.
+
+The reusable dual-parse product recovers the 38-letter control in 20 states
+and 19 character transitions. Its left word boundaries are
+`[2, 6, 10, 14]`; the reflected right boundaries are `[5, 12, 15]`, confirming
+that the control is a character-level match with different lexical
+segmentation rather than a word-order mirror. Recovery is a regression test,
+not a new result. Three proposed paragraph lanes that first enumerated
+complete prose and only then measured seams were reclassified as rejected
+diagnostics; one also repeated its A subject and object. They contribute no
+reader candidates and are excluded from method-progress counts.

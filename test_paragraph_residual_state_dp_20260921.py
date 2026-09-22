@@ -11,10 +11,12 @@ def test_bounded_run_tracks_grammar_roles_and_live_prunes():
     assert result["stats"]["exact_gt38"] == 0
     assert all(row["grammar_state"]["discourse"] == "ABBA" for row in result["rendered_controls"])
     assert all(row["provenance"]["post_hoc_repair"] is False for row in result["rendered_controls"])
+    assert result["novelty_preflight"]["status"] == "rejected_as_duplicate_preflight"
+    assert all(row["provenance"]["joint_bilateral_generation"] is False for row in result["rendered_controls"])
 
 def test_exact_gate_is_independent_and_hashes_disagree_for_controls():
     result=lane.run()
     for row in result["rendered_controls"]:
         assert row["audit"]["pointer_exact"] is False
         assert row["audit"]["sha256_forward"] != row["audit"]["sha256_reverse"]
-
+        assert row["provenance"]["exact_candidate_central_gate"] is False

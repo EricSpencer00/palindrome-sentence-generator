@@ -9139,6 +9139,24 @@ grammar variant.
   `runs/bounded-corpus-crossboundary-halfclause-20260921.json`, and
   `runs/joint-discourse-connector-20260921.json`.
 
+- **Paragraph ABBA is now a dual-parse problem, not a unit-mirroring
+  recipe (2026-10-02):** every exact palindrome necessarily equates a left
+  character half `H` with the reversal of its right half. The admissible
+  construction asks two different English grammars to parse those tapes:
+  `H` carries semantic roles `A -> B`, while `reverse(H)` carries
+  `B' -> A'`. Their word and sentence boundaries must differ, and central
+  admission still rejects repeated content, embedded palindromic units, and
+  boundary-aligned word mirrors. The reusable `llm_palindrome.dual_parse`
+  product intersects the two surface lattices one character at a time before
+  a complete surface is selected. As a recovery test it reconstructs the
+  38-letter incumbent in 20 states and 19 transitions, with left boundaries
+  `[2, 6, 10, 14]` and reflected right boundaries `[5, 12, 15]`. This is the
+  scalable paragraph architecture; the recovery test is not a new candidate.
+  Three same-day proposals were audited out of the active ledger because they
+  enumerated completed paragraphs before measuring seams (and one repeated A
+  content). Their artifacts remain reproducible controls, with novelty status
+  set to rejected and every reader-facing list empty.
+
 ## Current orchestration routing (2026-10-02)
 
 GPT-5.6 Sol owns architecture and coordinated direction for this goal.

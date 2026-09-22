@@ -34,6 +34,33 @@ close the live reverse obligations exposed by `A` and `B`. Repeating a
 generation, reversing a finished paragraph, or nesting self-palindromic
 sentences is not this method and is rejected by the same provenance gate.
 
+### API-inspired open-residual cycle
+
+The deployed v3 API clarifies why length and prose quality separated. Its
+composition endpoint can nest already closed mirror-pairs to thousands of
+letters, but a deterministic 174-letter audit sample is fragmentary prose
+(“Pro, cat estimates am. Meet at seat...”). We retain the compositional state
+idea and reject the closed-pair bank as a solution to the paper target.
+
+Our scalable paragraph operator instead intersects two recursive discourse
+grammars and searches their reachable, coaccessible product graph for a cycle
+at the same **nonempty** character residual. An internal empty residual is
+rejected: it would make the growth step another independently closed nested
+palindrome. A legal cycle may be replayed before a terminal exit, giving
+`prefix + cycle^k + suffix` while preserving both grammatical parses and the
+global character equation.
+
+A synthetic operator certificate recurs through
+`left:b -> right:c -> left:b` and reconstructs exact tapes of 10, 14, 18, 22,
+and 26 letters for pump counts 0--4. The two-pointer check and independent
+forward/reverse SHA-256 agree on every row, and the two parses have shifted
+word boundaries. This proves the scalable search primitive, not English
+readability: the symbols are synthetic, no reader candidate is exposed, and
+the 38-letter anchor remains the best readable result. Source:
+`llm_palindrome/recursive_product.py`; reproducible certificate:
+`experiments/open_residual_cycle_certificate_20260922.py`; artifact:
+`runs/open-residual-cycle-certificate-20260922.json`.
+
 Two existing typed-grammar constructions demonstrate the mechanical topology:
 
 | candidate | normalized letters | exact audits | structure | status |

@@ -4,10 +4,10 @@ This note is the current evidence-led core for the paper. The working claim
 is constructive: choose grammatical lexical paths while satisfying character
 seams during search. Exactness is independently checked; automatic language
 scores and AI feedback only diagnose historical lanes. The active search is
-exact-by-construction from the verified 568-letter causal-scene incumbent and
-now reaches 650 letters, with partial-word ownership, residual characters,
-grammar boundaries, and opposing cursors carried together. No output below is
-human certified yet.
+exact-by-construction from the verified 568-letter causal-scene incumbent. The
+same lineage now has exact 594--596-letter growth-frontier children, with
+partial-word ownership, residual characters, grammar boundaries, and opposing
+cursors carried together. No output below is human certified yet.
 
 The readability target is broad English: an intact, grammatical, scene-bearing
 line that a blinded reader can understand. “Shakespearean,” where it appears
@@ -15,7 +15,39 @@ in legacy run names or diagnostic fields, is not a diction or imitation
 requirement. Literary vocabulary is neither a shortcut nor a certificate;
 reader ratings decide whether an exact output is readable.
 
-## Current result: live-seam growth and shell repair to 650 letters
+## Current result: verified 568 incumbent and live 594--596 frontier
+
+The working incumbent is the independently exact 568-letter causal scene in
+`runs/incumbent-560-outer-causal-scene-20261002.json`, normalized SHA-256
+`6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`:
+
+> **Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.**
+
+Proper palindromic spans, repeated scaffolding, rough syntax, and absent reader
+validation are repair debt. They do not demote or conceal this long exact
+result. The exact 560-, 558-, and 556-letter children remain the diverse repair
+frontier. Fresh POS, productive-affix, morphology-cycle, short-witness, and
+reader-packet operators are frozen.
+
+The current candidate-producing operator loads the 568 artifact and reopens
+its actual `w|on ... no|w` seam at normalized cursors 5 and 563. The retained
+558-letter middle stays exact. The left event owns the new residual; the right
+event consumes its exact reverse while completing the words *won* and *now*.
+Three independently exact new-content children close at 594, 596, and 596
+letters with empty residuals, zero backtracks, and distinct hashes. One 596
+row is:
+
+> **Nadia spots a ram. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel. Mara stops Aidan.**
+
+Its normalized SHA-256 is
+`c48b3e11531d2a81b4f7a1c525556fd22d3098e949455de6a6be83ab00aadc3a`.
+The complete rows, provenance, and owner/residual trace are in
+`experiments/incumbent_568_won_now_seam_growth_20261002.py` and
+`runs/incumbent-568-won-now-seam-growth-20261002.json`. The next construction
+repairs an inherited repeated shell inside one 596 row without changing the
+568 working-incumbent designation.
+
+## Superseded exploratory 608/650 descendants (not the active incumbent)
 
 The working lineage is anchored by the independently exact 568-letter causal
 scene in `runs/incumbent-560-outer-causal-scene-20261002.json`, normalized
@@ -44,7 +76,7 @@ duplicate phrases from two occurrences to one while growing to 608 letters.
 A second paired-shell repair acts on two remaining `delivers maps` / `spam's
 reviled` equations. It substitutes eight distinct, finite spotting and stopping
 events, halves each repeated formula from four occurrences to two, and grows
-the tape by 42 letters. The rendered **650-letter** working incumbent is:
+the tape by 42 letters. The rendered 650-letter exploratory descendant was:
 
 > **A ram saw Nadia. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora spots a rat. Nadia spots a ram. Mara spots rats. Leon maps Nora. Draw no maps. Aidan spots a rat. Nora spots a ram. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Mara stops Aron. Tara stops Nadia. Spam onward. Aron, spam Noel. Star stops Aram. Mara stops Aidan. Tara stops Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel. Aidan was Mara.**
 
@@ -59,10 +91,8 @@ repair deltas are in
 `experiments/incumbent_608_repeated_shell_repair_20261002.py` and
 `runs/incumbent-608-repeated-shell-repair-20261002.json`.
 
-This is a construction result, not yet a human-readability result. The next
-experiment keeps the 650 tape and repairs its worst remaining repeated shell;
-it does not retreat to a shorter candidate merely because automated structural
-diagnostics identify debt.
+This branch is frozen under the current 568-lineage correction; it is preserved
+for provenance and does not replace the working incumbent or active frontier.
 
 ## Prior 498-letter lineage and live-seam frontier
 

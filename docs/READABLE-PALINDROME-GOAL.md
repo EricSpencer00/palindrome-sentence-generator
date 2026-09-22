@@ -2,48 +2,35 @@
 
 ## Active working-track override (2026-10-02)
 
-The working length incumbent is the independently verified **650-letter**
-child in `runs/incumbent-608-repeated-shell-repair-20261002.json`, row
-`double-event-shell-repair-650`, normalized SHA-256
-`2bd92686cbd01945be3869fbeee7ae9415cfcdae5cd616b26d89ec4f0acc54a9`.
-It descends through the exact 608-letter seam-repair child from the verified
-568-letter causal-scene incumbent in
-`runs/incumbent-560-outer-causal-scene-20261002.json`, SHA-256
+The working incumbent is the independently verified **568-letter** causal
+scene in `runs/incumbent-560-outer-causal-scene-20261002.json`, row
+`outer-causal-scene-568-working-incumbent`, normalized SHA-256
 `6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`.
-The 608 and 568 rows are preserved as construction parents; the 560 repaired
-child and 556 varied-frame child remain the diverse repair frontier. The
-531/532 shortcut-cleaning variants are historical diagnostics and do not
-define the active length line.
+The exact 560, 558, and 556 children remain the diverse repair frontier.
+Proper spans, repeated scaffolding, rough syntax, and absent reader validation
+are repair debt and do not demote the 568 result.
 
-The new construction reopens the 568 tape after the first two letters and
-before the last two: `Le|on ... No|el`. The retained 564-letter middle remains
-an exact palindrome. A left-authored event owns the new residual; the opposing
-surface consumes its exact reverse, including the two partial-word joins.
-Three distinct events produce exact children of 590, 590, and 592 letters.
-The 592 row is then repaired at a mirrored outer shell: “Mara stops rats,”
-“A tub?”, and “Eh, but a star spots Aram” each fall from two occurrences to
-one. That repaired child reaches 608 letters. A second paired-shell repair
-replaces two remaining `delivers maps` / `spam's reviled` equations with eight
-distinct rat/ram spotting and stopping events. Both repeated formulas fall
-from four occurrences to two, while the exact tape grows to 650 letters.
-Every row closes with empty residual, zero backtracks, and no committed
-character contradiction.
+The current construction loads that exact artifact and reopens its actual
+`w|on ... no|w` partial-word seam at normalized cursors 5 and 563. The retained
+558-letter middle is exact. A left-authored finite event owns the new residual;
+the opposing event consumes its exact reverse while completing `won` and
+`now`. Three new-content children close independently at 594, 596, and 596
+letters. Every row has an empty final residual, zero backtracks, and zero
+committed character contradictions.
 
-The 650 row's proper spans and rough prose remain repair debt. They do not
-invalidate the exact construction or send the active line back to a shorter
-candidate. Human readers are still required before claiming readable English,
-but reader certification is not a prerequisite for continued constructive
-growth and repair. The next operator reopens the highest-impact remaining
-repeated shell of the 650 tape, preserving a small exact frontier and
-backtracking only on an actual normalized-character contradiction.
+The new 594--596 rows are growth-frontier children, not replacements for the
+568 incumbent. The next operator repairs the clearest inherited repeated shell
+inside one 596 row, preserving 568/560/558/556 and changing seams only on a
+committed normalized-character contradiction.
+
+Fresh POS search, productive-affix search, morphology cycles, short witnesses,
+and reader-study operators are stopped. They are not active alternatives.
 
 Evidence:
 `experiments/incumbent_560_outer_causal_scene_20261002.py`,
 `runs/incumbent-560-outer-causal-scene-20261002.json`,
-`experiments/incumbent_568_live_partial_seam_growth_20261002.py`, and
-`runs/incumbent-568-live-partial-seam-growth-20261002.json`, followed by
-`experiments/incumbent_608_repeated_shell_repair_20261002.py` and
-`runs/incumbent-608-repeated-shell-repair-20261002.json`.
+`experiments/incumbent_568_won_now_seam_growth_20261002.py`, and
+`runs/incumbent-568-won-now-seam-growth-20261002.json`.
 
 Sol owns this track. No Astra or non-Sol agent is used.
 

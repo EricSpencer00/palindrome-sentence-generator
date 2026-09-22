@@ -1,35 +1,27 @@
 # Palindrome Sentence Generator
 
-## Current status: exact 650-letter working incumbent; no reader-validated output
+## Current status: exact 568-letter working incumbent with 594--596 growth frontier
 
 The active lineage runs through the independently exact 568-letter causal-scene
 row in `runs/incumbent-560-outer-causal-scene-20261002.json` (normalized
 SHA-256
 `6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`).
-That row is preserved as the working parent, with the 560- and 556-letter
-children retained as a diverse repair frontier. Proper palindromic spans,
-repeated units, and rough prose are repair debt on this construction track,
-not reasons to replace it with the shorter 531/532 shortcut-cleaning branch.
+That row remains the working incumbent. The exact 560, 558, and 556 children
+are preserved as the diverse repair frontier. Proper palindromic spans,
+repeated scaffolding, rough syntax, and absent reader validation are repair
+debt; they do not demote or hide the long exact result.
 
-The first operator reopens the parent's real `Le|on ... No|el` partial-word
-seam and carries the character owner and residual through closure. Three new
-event-bearing children reach 590, 590, and 592 exact letters. A mirrored shell
-repair yields an exact 608-letter child. A second paired-shell repair replaces
-two `delivers maps` / `spam's reviled` equations with eight distinct rat/ram
-spotting and stopping events. It halves both repeated formulas from four
-occurrences to two and yields the current **650-letter** exact child, normalized
-SHA-256
-`2bd92686cbd01945be3869fbeee7ae9415cfcdae5cd616b26d89ec4f0acc54a9`.
-The complete rendered frontier and live traces are in
-`runs/incumbent-568-live-partial-seam-growth-20261002.json` and
-`runs/incumbent-608-repeated-shell-repair-20261002.json`.
+The current construction reopens the incumbent's actual `w|on ... no|w`
+partial-word seam at normalized cursors 5 and 563. Live residual ownership
+produces three independently exact new-content children at 594, 596, and 596
+letters, all with empty residuals and zero backtracks. The 568 row remains the
+incumbent while these children form the active growth-and-repair frontier.
+Rendered text, hashes, provenance, and seam state are in
+`runs/incumbent-568-won-now-seam-growth-20261002.json`.
 
-These rows are constructive progress, not yet reader-validated English.
-This project still has no long palindrome that has passed blinded human reader
-evaluation. Exact-letter validation and automatic language scores are filters,
-not readability evidence. Public output routes remain retired while the
-remaining repeated shells and rough transitions are repaired. Legacy service
-descriptions below are historical development material.
+Fresh POS searches, productive-affix and morphology cycles, short witnesses,
+and reader-study packets are frozen. Construction stays on the 568 lineage.
+Legacy service descriptions below are historical development material.
 
 The active acceptance standard is documented in
 [`docs/READABLE-PALINDROME-GOAL.md`](docs/READABLE-PALINDROME-GOAL.md): an

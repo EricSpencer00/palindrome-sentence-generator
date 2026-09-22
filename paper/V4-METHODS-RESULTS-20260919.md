@@ -145,6 +145,17 @@ columns for the implicated slots after reparsing each full clause. This differs
 from a larger lexical bank because the core decides which constituent may gain
 an alternative and all unrelated domains remain frozen.
 
+In the first bounded implementation, the orbital-meal plan required three
+solves, three minimum cores, and three reparsed columns; camp-supper required
+two solves, two cores, and one column. Both end with zero survivors when their
+small predeclared contextual oracles exhaust. Crucially, the final cores are
+singletons and agree structurally: one opening-slot character conflicts with
+one meal-slot character. The successor is therefore not another scene or
+grammar sweep. It keeps both plans and all solver bounds fixed, and replaces
+only the oracle with a character trie queried by the core's required local
+offset, syntactic category, and semantic type. Every returned word must still
+reparse inside the complete clause before it becomes a column.
+
 The exact stack itself scales beyond these surface witnesses. Depths three,
 four, and five produce independently audited, central-gate-clean tapes of 50,
 60, and 66 letters, with every lemma globally fresh. The longest is:

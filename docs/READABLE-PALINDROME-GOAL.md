@@ -284,6 +284,18 @@ core, persist it as a nogood, and add only fully reparsed contextual columns
 for the implicated slots. Its bounded preflight signature is
 `conflict-directed-column-generation|unsat-core-mirror-positions|contextual-constituent-oracle|packed-sentence-lattice|palindrome-equality-cp-sat|complete-clause-only|reader-gates`.
 
+The first bounded column-generation run confirms the feedback loop. The
+orbital-meal plan ran three solves, extracted three minimum cores, and added
+three fully reparsed columns; the camp-supper plan ran two solves, extracted
+two cores, and added one column. Neither produced a survivor. Both terminate
+on a singleton conflict between an opening-slot character and a meal-slot
+character after the small predeclared contextual oracle is exhausted. The
+next operator preserves the solver, nogoods, plans, and iteration cap, but
+replaces that tiny oracle with a core-conditioned common-word character trie:
+only words of the same syntactic and semantic category whose required local
+character satisfies the reported mirror position may enter, and each must
+reparse in its full clause.
+
 The older 54-letter cross-role NP row and exact diagnostics at 44, 47, 50,
 56, 66, and 132 letters remain historical controls, not current progress
 claims. The

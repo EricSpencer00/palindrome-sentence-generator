@@ -34,6 +34,27 @@ close the live reverse obligations exposed by `A` and `B`. Repeating a
 generation, reversing a finished paragraph, or nesting self-palindromic
 sentences is not this method and is rejected by the same provenance gate.
 
+More precisely, the generator intersects two paragraph grammars over one
+half-tape.  The forward grammar must finish sentences `A` and `B`; the
+reverse-facing grammar must independently finish `B'` and `A'`.  The internal
+sentence boundaries are not tied.  We require their letter offsets to be
+different, reject every whole-sentence mirror pair, and reject every proper
+palindromic sentence block.  Thus the reflected letters of at least the two
+middle sentences cross a sentence boundary instead of reducing to a bank of
+preclosed sentence pairs.  This is the paragraph analogue of the 38-letter
+anchor's 19/19 dual parse, but with an additional free grammatical seam.
+
+The executable product and structural audit are in
+`llm_palindrome/paragraph_product.py`.  Its formulaic 46-letter calibration is
+exact and has staggered boundaries, but is not a result: it resegments an
+inherited tape with punctuation and fails central admission.  A fresh typed
+four-sentence run then explored 49 states and 69 transitions and stopped after
+six matched outer letters, with zero exact closures.  Because the failure is
+at fixed outer SVO endpoints, the next method changes representation to a
+packed clause automaton with movable sentence termination; the same word-bank
+sweep will not be repeated.  Reproducible evidence is in
+`runs/staggered-abba-paragraph-product-20260922.json`.
+
 ### API-inspired open-residual cycle
 
 The deployed v3 API clarifies why length and prose quality separated. Its

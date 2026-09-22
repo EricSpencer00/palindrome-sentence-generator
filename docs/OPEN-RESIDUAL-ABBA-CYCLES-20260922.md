@@ -59,6 +59,43 @@ establishes the missing scalable algorithmic primitive so the next experiment
 can ask a clean linguistic question: does an authored ABBA discourse grammar
 contain a natural coaccessible open-debt cycle?
 
+## Staggered paragraph seams
+
+The paragraph version is not four closed palindromic units.  It is a dual parse
+of one half-tape: the forward parse contains complete sentences `A` then `B`,
+while the reverse-facing parse contains independently generated sentences
+`B'` then `A'`.  Their sentence boundaries are variables.  A closure is
+cross-sentence only when the forward boundary and the reflected reverse
+boundary occur at different letter offsets, no complete sentence mirrors
+another complete sentence, and no proper contiguous sentence block is itself
+a palindrome.
+
+`llm_palindrome/paragraph_product.py` implements that audit and the associated
+online word-residual product.  A 46-letter inherited formulaic tape can be
+repunctuated to exercise the staggered geometry, but remains a rejected
+topology control: punctuation did not create new letters, and the central
+admission gate still detects its formulaic symmetry.  The first fresh typed
+four-sentence grammar explored 49 states and 69 transitions, reached six
+matched outer letters, and produced no exact closure.  That run is a bounded
+endpoint test, not evidence against the paragraph method.  Its concrete next
+change is structural: compile alternative complete-clause paths and movable
+sentence boundaries into a packed automaton instead of widening the same SVO
+word lists.  Artifact:
+`runs/staggered-abba-paragraph-product-20260922.json`.
+
+## Natural cycle diagnostics
+
+A streamed Brown-corpus shape mine found two ordinary open-residual equations:
+`no name` / `one man` preserves residual `name`, and `no race` / `one car`
+preserves residual `race`.  These phrases are diagnostic grammar shapes, not
+generated candidates.  Replaying either literal phrase would repeat content
+and is forbidden; a scalable prose grammar must realize the same state cycle
+with fresh lexical choices.  A targeted search found no compatible Brown
+cycle at the live residuals of the 38-letter anchor, and a first fixed-position
+clause grammar failed before reaching either NP anchor because its outer
+adjuncts were incompatible.  The paragraph product therefore moves the
+sentence seam itself rather than enlarging those same lexical banks.
+
 ## Promotion gate
 
 The next grammar run is promoted only if it yields all of:

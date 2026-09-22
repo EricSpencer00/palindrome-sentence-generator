@@ -154,7 +154,7 @@ def build_payload() -> dict[str, object]:
         "new_event_content": [
             "Mara sees rats",
             "Nora stops rats",
-            "Star stops Aron",
+            "Star spots Aron",
             "Star sees Aram",
         ],
         "live_seam": {

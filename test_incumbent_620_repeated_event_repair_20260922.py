@@ -18,6 +18,8 @@ def test_repeated_event_repair_is_exact_and_improves_counts():
     assert row["independent_audit"]["two_pointer_exact"]
     assert row["independent_audit"]["sha_equal"]
     assert row["parent_sha256"] == PARENT_SHA256
+    assert "Star spots Aron" in row["new_event_content"]
+    assert "Star stops Aron" not in row["new_event_content"]
     assert row["live_seam"]["final_residual"] == ""
     assert row["live_seam"]["committed_character_contradictions"] == 0
     assert row["repetition_delta"]["Mara stops rats"] == {"before": 3, "after": 2}

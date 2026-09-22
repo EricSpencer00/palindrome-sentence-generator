@@ -1,0 +1,759 @@
+{
+  "experiment_id": "incumbent-498-live-seam-growth-20261002",
+  "method": "incumbent-specific partial-word seam growth with live owner, residual, and cursor state",
+  "parent": {
+    "artifact": "runs/overhang-growth-from-240-20261001.json",
+    "rendered": "to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got",
+    "letters": 498,
+    "sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+    "independent_exact": true,
+    "role": "content-bearing raw-length incumbent"
+  },
+  "live_seam": {
+    "left_cursor": {
+      "normalized_offset": 2,
+      "token_index": 1,
+      "token": "get",
+      "token_offset": 0
+    },
+    "right_cursor": {
+      "normalized_offset": 495,
+      "token_index": 160,
+      "token": "got",
+      "token_offset": 0
+    },
+    "removed_left_tape": "to",
+    "removed_right_tape": "got",
+    "retained_letters": 493,
+    "retained_tape_plus_residual_exact": true,
+    "partial_word": "(et)|g in get",
+    "boundary_owner": "R",
+    "trace": [
+      {
+        "action": "reopen_parent_closure",
+        "surface": "get ... estate",
+        "owner_after": "R",
+        "residual_after": "g",
+        "ownership_proof": "left residual et + get -> right residual g"
+      },
+      {
+        "action": "emit_right",
+        "surface": "Get a map.",
+        "owner_after": "L",
+        "residual_after": "pamate"
+      },
+      {
+        "action": "emit_left",
+        "surface": "Pam ate.",
+        "owner_after": null,
+        "residual_after": ""
+      }
+    ]
+  },
+  "alternate_live_seams": [
+    {
+      "normalized_depth": 10,
+      "left_cursor": 10,
+      "right_cursor": 488,
+      "retained_letters": 478,
+      "partial_word": "m|e",
+      "boundary_owner": "R",
+      "supplied_residual": "e",
+      "seam_left": "Nora saw an aide.",
+      "seam_right_tail": "Diana was Aron.",
+      "residual_before_boundary": "edianawasaron",
+      "residual_after_boundary": "dianawasaron"
+    },
+    {
+      "normalized_depth": 35,
+      "left_cursor": 35,
+      "right_cursor": 463,
+      "retained_letters": 428,
+      "partial_word": "op|en",
+      "boundary_owner": "R",
+      "supplied_residual": "en",
+      "seam_left": "Nora saw a nine.",
+      "seam_right_tail": "Ina was Aron."
+    },
+    {
+      "normalized_depth": 39,
+      "left_cursor": 39,
+      "right_cursor": 459,
+      "retained_letters": 420,
+      "partial_word": "i|ts",
+      "boundary_owner": "R",
+      "supplied_residual": "ts",
+      "seam_left": "Nora saw a post.",
+      "seam_right_tail": "Opa was Aron."
+    }
+  ],
+  "pair_library": {
+    "A": {
+      "left": "Nora saw Nadia.",
+      "right": "Aidan was Aron."
+    },
+    "B": {
+      "left": "Mara saw Leon.",
+      "right": "Noel was Aram."
+    },
+    "C": {
+      "left": "Nadia saw Leon.",
+      "right": "Noel was Aidan."
+    },
+    "D": {
+      "left": "Nadia saw Aron.",
+      "right": "Nora was Aidan."
+    },
+    "E": {
+      "left": "Aidan saw Noel.",
+      "right": "Leon was Nadia."
+    }
+  },
+  "stats": {
+    "authored_paths": 10,
+    "independently_exact_children": 10,
+    "children_over_530": 10,
+    "shortest_letters": 538,
+    "longest_letters": 554
+  },
+  "frontier": {
+    "retained_parent": {
+      "letters": 498,
+      "sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032"
+    },
+    "prior_content_child": {
+      "artifact": "runs/syntax-residual-growth-from-498-20261001.json",
+      "id": "syntax-window-0",
+      "letters": 528,
+      "sha256": "052505666bf5f660c56b8edf13e2b5282739ef6ea1b93a8be09685f356e7afe0"
+    },
+    "duplicate_control": {
+      "artifact": "runs/syntax-residual-growth-from-498-20261001.json",
+      "id": "syntax-window-1",
+      "letters": 530,
+      "sha256": "3b44778dcb3f1542d71716f259d0190ebb47b675300f921422622bdf30b7034c",
+      "role": "repetition control only"
+    },
+    "new_children": [
+      {
+        "id": "depth2-live-g-ac",
+        "letters": 554,
+        "sha256": "cc7f98df008c250649a3c5bec7c1062f3d1349b539c97391c9e2ab961208ab42"
+      },
+      {
+        "id": "depth2-live-g-cd",
+        "letters": 554,
+        "sha256": "bee6cc2db760aea2a931a8adba421e1a92e56c257acf021a16a45a2d4be04370"
+      },
+      {
+        "id": "depth10-live-seam-ac",
+        "letters": 552,
+        "sha256": "f0bae5cc2aedd25f084606cf7d0b24c86fd3b925b777186df466fbb3a79c5801"
+      },
+      {
+        "id": "depth10-live-seam-cd",
+        "letters": 552,
+        "sha256": "fd456510c2ab7dece2b6a5c3ac4b61deb3dcff0f4eb5ef99e57a30da6d15d6a2"
+      },
+      {
+        "id": "depth2-live-g-ab",
+        "letters": 552,
+        "sha256": "14e55f616284b264d3c97be42a4fcdfdf5651345732054dcc7cad80613290fcd"
+      },
+      {
+        "id": "depth2-live-g-bd",
+        "letters": 552,
+        "sha256": "e6ac3128278065421efe45a7f4604ca2aeba52aee8f4bf1ff8fcee38b4b88eba"
+      },
+      {
+        "id": "depth10-live-seam-ab",
+        "letters": 550,
+        "sha256": "923ea4a184d775bead1a8c5a66e16331dc8966dec156c44659c81fe11a5b2582"
+      },
+      {
+        "id": "depth10-live-seam-bd",
+        "letters": 550,
+        "sha256": "621f19fa11400df8655086547208783fd24ec8155f5062bea4e2426a2398b89f"
+      },
+      {
+        "id": "depth35-live-seam-abce",
+        "letters": 546,
+        "sha256": "78f8d4f17f2f204fee7619caefa70e28442ff6a0e09e3da263b01d0659bc17be"
+      },
+      {
+        "id": "depth39-live-seam-abce",
+        "letters": 538,
+        "sha256": "789121ad512b409e9d655cd8e62a56fb18ca8647061cc1027dbec4b401fabb80"
+      }
+    ],
+    "active_diverse_ids": [
+      "depth2-live-g-ac",
+      "depth2-live-g-cd",
+      "depth10-live-seam-ac",
+      "depth35-live-seam-abce"
+    ]
+  },
+  "provenance": {
+    "parent_loaded_and_verified_at_runtime": true,
+    "finished_parent_tape_reversal": false,
+    "posthoc_character_repair": false,
+    "catalogue_text": false,
+    "per_candidate_model_scoring": false,
+    "new_event_content_required": true
+  },
+  "next_repair": "retain both 554-letter depth-2 maxima and the depth-35 branch that removes 70 filler letters; repair the depth-35 branch's formulaic outer name sequence without changing its op|en cursor equation",
+  "rows": [
+    {
+      "id": "depth2-live-g-ac",
+      "seam_id": "depth2-live-g",
+      "pair_path": [
+        "A",
+        "C"
+      ],
+      "rendered": "Nora saw Nadia. Nadia saw Leon. Pam ate. get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate. Get a map. Noel was Aidan. Aidan was Aron.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 56,
+      "left_spans": [
+        "Nora saw Nadia.",
+        "Nadia saw Leon.",
+        "Pam ate."
+      ],
+      "right_spans": [
+        "Get a map.",
+        "Noel was Aidan.",
+        "Aidan was Aron."
+      ],
+      "new_content_words": [
+        "aidan",
+        "ate",
+        "map",
+        "nadia",
+        "pam"
+      ],
+      "new_event_signatures": [
+        "Nora saw Nadia",
+        "Nadia saw Leon",
+        "Noel was Aidan",
+        "Aidan was Aron"
+      ],
+      "added_left_occurrences_in_parent": 0,
+      "added_right_occurrences_in_parent": 0,
+      "repetition_control": false,
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "cc7f98df008c250649a3c5bec7c1062f3d1349b539c97391c9e2ab961208ab42",
+        "sha256_reverse": "cc7f98df008c250649a3c5bec7c1062f3d1349b539c97391c9e2ab961208ab42",
+        "sha_equal": true
+      },
+      "working_track_debt": [
+        "the inherited 493-letter middle remains rough generated text",
+        "the outer name events retain literary inversion",
+        "no human readability claim is made for this working-track child"
+      ]
+    },
+    {
+      "id": "depth2-live-g-cd",
+      "seam_id": "depth2-live-g",
+      "pair_path": [
+        "C",
+        "D"
+      ],
+      "rendered": "Nadia saw Leon. Nadia saw Aron. Pam ate. get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate. Get a map. Nora was Aidan. Noel was Aidan.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 56,
+      "left_spans": [
+        "Nadia saw Leon.",
+        "Nadia saw Aron.",
+        "Pam ate."
+      ],
+      "right_spans": [
+        "Get a map.",
+        "Nora was Aidan.",
+        "Noel was Aidan."
+      ],
+      "new_content_words": [
+        "aidan",
+        "ate",
+        "map",
+        "nadia",
+        "pam"
+      ],
+      "new_event_signatures": [
+        "Nadia saw Leon",
+        "Nadia saw Aron",
+        "Nora was Aidan",
+        "Noel was Aidan"
+      ],
+      "added_left_occurrences_in_parent": 0,
+      "added_right_occurrences_in_parent": 0,
+      "repetition_control": false,
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "bee6cc2db760aea2a931a8adba421e1a92e56c257acf021a16a45a2d4be04370",
+        "sha256_reverse": "bee6cc2db760aea2a931a8adba421e1a92e56c257acf021a16a45a2d4be04370",
+        "sha_equal": true
+      },
+      "working_track_debt": [
+        "the inherited 493-letter middle remains rough generated text",
+        "the outer name events retain literary inversion",
+        "no human readability claim is made for this working-track child"
+      ]
+    },
+    {
+      "id": "depth10-live-seam-ac",
+      "seam_id": "depth10-m|e",
+      "pair_path": [
+        "A",
+        "C"
+      ],
+      "rendered": "Nora saw Nadia. Nadia saw Leon. Nora saw an aide. men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me. Diana was Aron. Noel was Aidan. Aidan was Aron.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 54,
+      "left_spans": [
+        "Nora saw Nadia.",
+        "Nadia saw Leon.",
+        "Nora saw an aide."
+      ],
+      "right_spans": [
+        "Diana was Aron.",
+        "Noel was Aidan.",
+        "Aidan was Aron."
+      ],
+      "new_content_words": [
+        "aidan",
+        "aide",
+        "diana",
+        "nadia"
+      ],
+      "new_event_signatures": [
+        "Nora saw Nadia",
+        "Nadia saw Leon",
+        "Noel was Aidan",
+        "Aidan was Aron"
+      ],
+      "added_left_occurrences_in_parent": 0,
+      "added_right_occurrences_in_parent": 0,
+      "repetition_control": false,
+      "audit": {
+        "letters": 552,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "f0bae5cc2aedd25f084606cf7d0b24c86fd3b925b777186df466fbb3a79c5801",
+        "sha256_reverse": "f0bae5cc2aedd25f084606cf7d0b24c86fd3b925b777186df466fbb3a79c5801",
+        "sha_equal": true
+      },
+      "working_track_debt": [
+        "the inherited 478-letter middle remains rough generated text",
+        "the outer event sequence uses literary inversion and name reuse",
+        "no human readability claim is made for this working-track child"
+      ]
+    },
+    {
+      "id": "depth10-live-seam-cd",
+      "seam_id": "depth10-m|e",
+      "pair_path": [
+        "C",
+        "D"
+      ],
+      "rendered": "Nadia saw Leon. Nadia saw Aron. Nora saw an aide. men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me. Diana was Aron. Nora was Aidan. Noel was Aidan.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 54,
+      "left_spans": [
+        "Nadia saw Leon.",
+        "Nadia saw Aron.",
+        "Nora saw an aide."
+      ],
+      "right_spans": [
+        "Diana was Aron.",
+        "Nora was Aidan.",
+        "Noel was Aidan."
+      ],
+      "new_content_words": [
+        "aidan",
+        "aide",
+        "diana",
+        "nadia"
+      ],
+      "new_event_signatures": [
+        "Nadia saw Leon",
+        "Nadia saw Aron",
+        "Nora was Aidan",
+        "Noel was Aidan"
+      ],
+      "added_left_occurrences_in_parent": 0,
+      "added_right_occurrences_in_parent": 0,
+      "repetition_control": false,
+      "audit": {
+        "letters": 552,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "fd456510c2ab7dece2b6a5c3ac4b61deb3dcff0f4eb5ef99e57a30da6d15d6a2",
+        "sha256_reverse": "fd456510c2ab7dece2b6a5c3ac4b61deb3dcff0f4eb5ef99e57a30da6d15d6a2",
+        "sha_equal": true
+      },
+      "working_track_debt": [
+        "the inherited 478-letter middle remains rough generated text",
+        "the outer event sequence uses literary inversion and name reuse",
+        "no human readability claim is made for this working-track child"
+      ]
+    },
+    {
+      "id": "depth2-live-g-ab",
+      "seam_id": "depth2-live-g",
+      "pair_path": [
+        "A",
+        "B"
+      ],
+      "rendered": "Nora saw Nadia. Mara saw Leon. Pam ate. get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate. Get a map. Noel was Aram. Aidan was Aron.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 54,
+      "left_spans": [
+        "Nora saw Nadia.",
+        "Mara saw Leon.",
+        "Pam ate."
+      ],
+      "right_spans": [
+        "Get a map.",
+        "Noel was Aram.",
+        "Aidan was Aron."
+      ],
+      "new_content_words": [
+        "aidan",
+        "ate",
+        "map",
+        "nadia",
+        "pam"
+      ],
+      "new_event_signatures": [
+        "Nora saw Nadia",
+        "Mara saw Leon",
+        "Noel was Aram",
+        "Aidan was Aron"
+      ],
+      "added_left_occurrences_in_parent": 0,
+      "added_right_occurrences_in_parent": 0,
+      "repetition_control": false,
+      "audit": {
+        "letters": 552,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "14e55f616284b264d3c97be42a4fcdfdf5651345732054dcc7cad80613290fcd",
+        "sha256_reverse": "14e55f616284b264d3c97be42a4fcdfdf5651345732054dcc7cad80613290fcd",
+        "sha_equal": true
+      },
+      "working_track_debt": [
+        "the inherited 493-letter middle remains rough generated text",
+        "the outer name events retain literary inversion",
+        "no human readability claim is made for this working-track child"
+      ]
+    },
+    {
+      "id": "depth2-live-g-bd",
+      "seam_id": "depth2-live-g",
+      "pair_path": [
+        "B",
+        "D"
+      ],
+      "rendered": "Mara saw Leon. Nadia saw Aron. Pam ate. get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate. Get a map. Nora was Aidan. Noel was Aram.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 54,
+      "left_spans": [
+        "Mara saw Leon.",
+        "Nadia saw Aron.",
+        "Pam ate."
+      ],
+      "right_spans": [
+        "Get a map.",
+        "Nora was Aidan.",
+        "Noel was Aram."
+      ],
+      "new_content_words": [
+        "aidan",
+        "ate",
+        "map",
+        "nadia",
+        "pam"
+      ],
+      "new_event_signatures": [
+        "Mara saw Leon",
+        "Nadia saw Aron",
+        "Nora was Aidan",
+        "Noel was Aram"
+      ],
+      "added_left_occurrences_in_parent": 0,
+      "added_right_occurrences_in_parent": 0,
+      "repetition_control": false,
+      "audit": {
+        "letters": 552,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "e6ac3128278065421efe45a7f4604ca2aeba52aee8f4bf1ff8fcee38b4b88eba",
+        "sha256_reverse": "e6ac3128278065421efe45a7f4604ca2aeba52aee8f4bf1ff8fcee38b4b88eba",
+        "sha_equal": true
+      },
+      "working_track_debt": [
+        "the inherited 493-letter middle remains rough generated text",
+        "the outer name events retain literary inversion",
+        "no human readability claim is made for this working-track child"
+      ]
+    },
+    {
+      "id": "depth10-live-seam-ab",
+      "seam_id": "depth10-m|e",
+      "pair_path": [
+        "A",
+        "B"
+      ],
+      "rendered": "Nora saw Nadia. Mara saw Leon. Nora saw an aide. men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me. Diana was Aron. Noel was Aram. Aidan was Aron.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 52,
+      "left_spans": [
+        "Nora saw Nadia.",
+        "Mara saw Leon.",
+        "Nora saw an aide."
+      ],
+      "right_spans": [
+        "Diana was Aron.",
+        "Noel was Aram.",
+        "Aidan was Aron."
+      ],
+      "new_content_words": [
+        "aidan",
+        "aide",
+        "diana",
+        "nadia"
+      ],
+      "new_event_signatures": [
+        "Nora saw Nadia",
+        "Mara saw Leon",
+        "Noel was Aram",
+        "Aidan was Aron"
+      ],
+      "added_left_occurrences_in_parent": 0,
+      "added_right_occurrences_in_parent": 0,
+      "repetition_control": false,
+      "audit": {
+        "letters": 550,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "923ea4a184d775bead1a8c5a66e16331dc8966dec156c44659c81fe11a5b2582",
+        "sha256_reverse": "923ea4a184d775bead1a8c5a66e16331dc8966dec156c44659c81fe11a5b2582",
+        "sha_equal": true
+      },
+      "working_track_debt": [
+        "the inherited 478-letter middle remains rough generated text",
+        "the outer event sequence uses literary inversion and name reuse",
+        "no human readability claim is made for this working-track child"
+      ]
+    },
+    {
+      "id": "depth10-live-seam-bd",
+      "seam_id": "depth10-m|e",
+      "pair_path": [
+        "B",
+        "D"
+      ],
+      "rendered": "Mara saw Leon. Nadia saw Aron. Nora saw an aide. men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me. Diana was Aron. Nora was Aidan. Noel was Aram.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 52,
+      "left_spans": [
+        "Mara saw Leon.",
+        "Nadia saw Aron.",
+        "Nora saw an aide."
+      ],
+      "right_spans": [
+        "Diana was Aron.",
+        "Nora was Aidan.",
+        "Noel was Aram."
+      ],
+      "new_content_words": [
+        "aidan",
+        "aide",
+        "diana",
+        "nadia"
+      ],
+      "new_event_signatures": [
+        "Mara saw Leon",
+        "Nadia saw Aron",
+        "Nora was Aidan",
+        "Noel was Aram"
+      ],
+      "added_left_occurrences_in_parent": 0,
+      "added_right_occurrences_in_parent": 0,
+      "repetition_control": false,
+      "audit": {
+        "letters": 550,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "621f19fa11400df8655086547208783fd24ec8155f5062bea4e2426a2398b89f",
+        "sha256_reverse": "621f19fa11400df8655086547208783fd24ec8155f5062bea4e2426a2398b89f",
+        "sha_equal": true
+      },
+      "working_track_debt": [
+        "the inherited 478-letter middle remains rough generated text",
+        "the outer event sequence uses literary inversion and name reuse",
+        "no human readability claim is made for this working-track child"
+      ]
+    },
+    {
+      "id": "depth35-live-seam-abce",
+      "seam_id": "depth35-op|en",
+      "pair_path": [
+        "A",
+        "B",
+        "C",
+        "E"
+      ],
+      "rendered": "Nora saw Nadia. Mara saw Leon. Nadia saw Leon. Aidan saw Noel. Nora saw a nine. post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open. Ina was Aron. Leon was Nadia. Noel was Aidan. Noel was Aram. Aidan was Aron.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 48,
+      "left_spans": [
+        "Nora saw Nadia.",
+        "Mara saw Leon.",
+        "Nadia saw Leon.",
+        "Aidan saw Noel.",
+        "Nora saw a nine."
+      ],
+      "right_spans": [
+        "Ina was Aron.",
+        "Leon was Nadia.",
+        "Noel was Aidan.",
+        "Noel was Aram.",
+        "Aidan was Aron."
+      ],
+      "new_content_words": [
+        "aidan",
+        "ina",
+        "nadia"
+      ],
+      "new_event_signatures": [
+        "Nora saw Nadia",
+        "Mara saw Leon",
+        "Nadia saw Leon",
+        "Aidan saw Noel",
+        "Leon was Nadia",
+        "Noel was Aidan",
+        "Noel was Aram",
+        "Aidan was Aron"
+      ],
+      "added_left_occurrences_in_parent": 0,
+      "added_right_occurrences_in_parent": 0,
+      "repetition_control": false,
+      "audit": {
+        "letters": 546,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "78f8d4f17f2f204fee7619caefa70e28442ff6a0e09e3da263b01d0659bc17be",
+        "sha256_reverse": "78f8d4f17f2f204fee7619caefa70e28442ff6a0e09e3da263b01d0659bc17be",
+        "sha_equal": true
+      },
+      "working_track_debt": [
+        "the inherited 428-letter middle remains rough generated text",
+        "the added name events are formulaic working-track scaffolding",
+        "no human readability claim is made for this working-track child"
+      ]
+    },
+    {
+      "id": "depth39-live-seam-abce",
+      "seam_id": "depth39-i|ts",
+      "pair_path": [
+        "A",
+        "B",
+        "C",
+        "E"
+      ],
+      "rendered": "Nora saw Nadia. Mara saw Leon. Nadia saw Leon. Aidan saw Noel. Nora saw a post. its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its. Opa was Aron. Leon was Nadia. Noel was Aidan. Noel was Aram. Aidan was Aron.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 40,
+      "left_spans": [
+        "Nora saw Nadia.",
+        "Mara saw Leon.",
+        "Nadia saw Leon.",
+        "Aidan saw Noel.",
+        "Nora saw a post."
+      ],
+      "right_spans": [
+        "Opa was Aron.",
+        "Leon was Nadia.",
+        "Noel was Aidan.",
+        "Noel was Aram.",
+        "Aidan was Aron."
+      ],
+      "new_content_words": [
+        "aidan",
+        "nadia",
+        "opa"
+      ],
+      "new_event_signatures": [
+        "Nora saw Nadia",
+        "Mara saw Leon",
+        "Nadia saw Leon",
+        "Aidan saw Noel",
+        "Leon was Nadia",
+        "Noel was Aidan",
+        "Noel was Aram",
+        "Aidan was Aron"
+      ],
+      "added_left_occurrences_in_parent": 0,
+      "added_right_occurrences_in_parent": 0,
+      "repetition_control": false,
+      "audit": {
+        "letters": 538,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "789121ad512b409e9d655cd8e62a56fb18ca8647061cc1027dbec4b401fabb80",
+        "sha256_reverse": "789121ad512b409e9d655cd8e62a56fb18ca8647061cc1027dbec4b401fabb80",
+        "sha_equal": true
+      },
+      "working_track_debt": [
+        "the inherited 420-letter middle remains rough generated text",
+        "the added name events are formulaic working-track scaffolding",
+        "no human readability claim is made for this working-track child"
+      ]
+    }
+  ]
+}

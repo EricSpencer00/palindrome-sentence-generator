@@ -47,6 +47,10 @@ class Witness:
     phase_trace: tuple[str, ...]
     left_boundaries: tuple[int, ...]
     reflected_right_boundaries: tuple[int, ...]
+    left_phases: tuple[str, ...]
+    right_phases: tuple[str, ...]
+    left_roles: tuple[str, ...]
+    right_roles: tuple[str, ...]
 
 
 @dataclass(frozen=True)
@@ -89,8 +93,14 @@ def _step(s: State, side: str, edge: Edge) -> tuple[State, bool] | None:
 
 def _witness_from_steps(steps: tuple[tuple[str, Edge], ...]) -> Witness:
     lw = tuple(edge.word for side, edge in steps if side == "L")
+    lp = tuple(edge.phase for side, edge in steps if side == "L")
+    lr = tuple(edge.role for side, edge in steps if side == "L")
     rw_outside_in = tuple(edge.word for side, edge in steps if side == "R")
+    rp_outside_in = tuple(edge.phase for side, edge in steps if side == "R")
+    rr_outside_in = tuple(edge.role for side, edge in steps if side == "R")
     rw = tuple(reversed(rw_outside_in))
+    rp = tuple(reversed(rp_outside_in))
+    rr = tuple(reversed(rr_outside_in))
     phases = tuple(edge.phase for _side, edge in steps if edge.phase)
     left_offsets, consumed = [], 0
     for word in lw[:-1]:
@@ -100,7 +110,7 @@ def _witness_from_steps(steps: tuple[tuple[str, Edge], ...]) -> Witness:
     for word in rw[:-1]:
         consumed += len(tape(word)); right_offsets.append(right_letters - consumed)
     return Witness(lw, rw, phases, tuple(left_offsets),
-                   tuple(sorted(right_offsets)))
+                   tuple(sorted(right_offsets)), lp, rp, lr, rr)
 
 
 def materialize_pump(pump: PumpCycle, repetitions: int) -> Witness:

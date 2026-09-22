@@ -52,6 +52,10 @@ def test_boundary_shift_acceptance():
     assert witness.right_words == ("cb", "a")
     assert witness.left_boundaries == (2,)
     assert witness.reflected_right_boundaries == (1,)
+    assert witness.left_phases == ("", "")
+    assert witness.right_phases == ("", "")
+    assert witness.left_roles == ("", "")
+    assert witness.right_roles == ("", "")
 
 
 def test_intermediate_empty_closure_is_counted_and_rejected():

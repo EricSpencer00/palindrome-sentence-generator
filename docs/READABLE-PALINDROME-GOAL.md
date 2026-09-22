@@ -8802,3 +8802,21 @@ generated, non-formulaic candidate.
   a deepest one-character frontier and zero exact closures. Its next change
   must alter the lexical event frame while retaining object identity.
   Artifact: `runs/shared-object-event-product-20260930.json`.
+
+- **Dependency phrase-path lattice, 2026-09-30:** a corpus-derived but
+  typed path grammar (subject NP → finite VP → object NP → optional attachment)
+  admitted 42 ordinary phrases and intersected them online. It reached 10
+  states and 9 transitions with no exact closure; the early boundary mismatch
+  shows that the fixed path envelope is not productive. Artifact:
+  `runs/dependency-phrase-path-lattice-20260930.json`.
+
+- **Semantic-pivot flexible CFG, 2026-10-01:** a typed pivot nonterminal with
+  unequal word boundaries and optional function material reached six states
+  before its first-character domain collapsed. No exact candidate was
+  rendered. Artifact: `runs/semantic-pivot-cfg-20261001.json`.
+
+- **Two-event nonterminal product, 2026-09-30:** whole typed event
+  nonterminals were expanded while opposing characters were matched online.
+  It produced no closure, but preserved ordinary residual controls at 39 and
+  55 letters; both fail at their exposed seam and are not palindrome claims.
+  Artifact: `runs/two-event-clause-product-nonterminal-20260930.json`.

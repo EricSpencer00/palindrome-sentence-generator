@@ -13,6 +13,8 @@ def test_packed_grammars_have_two_sentence_phases_on_both_sides():
     assert right_phases == {"A-prime", "B-prime"}
     assert any(edge.word == "no" and edge.target == "Q"
                for edge in left["S"])
+    assert any(edge.word == "no" and edge.target == "Q"
+               for edge in right["S"])
     assert any(edge.word == "trace" and edge.phase == "B"
                for edge in left["Q"])
 
@@ -27,6 +29,8 @@ def test_witness_phase_groups_render_as_complete_sentences():
 def test_small_packed_run_preserves_reader_gate():
     result = run(max_states=1_000, max_results=5)
     assert result["novelty_preflight"]["word_bank_widening"] is False
+    assert result["novelty_preflight"]["intermediate_word_closure_rejected"] is True
+    assert "states_reaching_both_second_sentences" in result["stats"]
     assert result["reader_packet"] == []
     assert all(row["mechanically_admitted"]
                for row in result["mechanically_admitted_candidates"])

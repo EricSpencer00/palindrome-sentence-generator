@@ -96,6 +96,16 @@ def _left_intro_patterns() -> tuple[Pattern, ...]:
     return _intro_patterns() + ((("dialogue-answer", ("no",)),),)
 
 
+def _right_intro_patterns() -> tuple[Pattern, ...]:
+    """Allow A-prime to be a complete answer with a live seam debt.
+
+    Outside-in, ``No.`` exposes ``on``.  The ordinary left determiner ``one``
+    can consume that prefix while retaining ``e``; therefore the A-prime to
+    B-prime transition is tested without inserting a preclosed mirror unit.
+    """
+    return _intro_patterns() + ((("dialogue-answer", ("no",)),),)
+
+
 def _followup_patterns() -> tuple[Pattern, ...]:
     return (
         (("imperative", ("trace",)), ("object-determiner", DET),
@@ -136,7 +146,7 @@ def grammars() -> tuple[dict[str, tuple[Edge, ...]],
     _add_patterns(left, "S", "Q", "A", _left_intro_patterns())
     _add_patterns(left, "Q", "F", "B", _followup_patterns())
     # Outside-in traversal sees the last sentence and its last word first.
-    _add_patterns(right, "S", "Q", "A-prime", _intro_patterns(),
+    _add_patterns(right, "S", "Q", "A-prime", _right_intro_patterns(),
                   reverse_slots=True)
     _add_patterns(right, "Q", "F", "B-prime", _followup_patterns(),
                   reverse_slots=True)
@@ -178,7 +188,11 @@ def run(*, max_states: int = 2_000_000,
     left, right = grammars()
     report = search(left, right, max_states=max_states,
                     max_results=max_results,
-                    reject_intermediate_closure=False)
+                    # A complete-word closure before both paragraph grammars
+                    # finish is a nested outer shell, even if later sentence
+                    # boundaries differ.  Word boundaries may shift; closed
+                    # word-aligned blocks may not be composed.
+                    reject_intermediate_closure=True)
     rows = []
     for witness in report.witnesses:
         left_sentences = _sentences(witness.left_words, witness.left_phases,
@@ -211,6 +225,11 @@ def run(*, max_states: int = 2_000_000,
                                 for state in report.reachable)
     reachable_second_right = sum(state.right == "Q" or state.right.startswith("B-prime:")
                                  for state in report.reachable)
+    reachable_both_seconds = sum(
+        (state.left == "Q" or state.left.startswith("B:"))
+        and (state.right == "Q" or state.right.startswith("B-prime:"))
+        for state in report.reachable
+    )
     boundary_states = sorted(
         (
             state for state in report.reachable
@@ -237,9 +256,11 @@ def run(*, max_states: int = 2_000_000,
             "mechanically_admitted_gt38": len(admitted),
             "states_reaching_left_B": reachable_second_left,
             "states_reaching_outside_in_right_B_prime": reachable_second_right,
+            "states_reaching_both_second_sentences": reachable_both_seconds,
             "maximum_live_residual": max(
                 (len(state.residual) for state in report.reachable), default=0
             ),
+            "intermediate_word_closures_rejected": report.intermediate_empty_closures,
         },
         "exact_candidates": rows,
         "mechanically_admitted_candidates": admitted,
@@ -260,8 +281,9 @@ def run(*, max_states: int = 2_000_000,
             "word_bank_widening": False,
             "finished_tape_reversal": False,
             "preclosed_sentence_pairs": False,
+            "intermediate_word_closure_rejected": True,
             "per_candidate_rlaif": False,
-            "targeted_boundary_production": "No. / sentence-final carton exposes live trac debt to B",
+            "targeted_boundary_production": "symmetric complete dialogue answers expose live debt across both paragraph seams",
         },
         "provenance": {
             "lexical_domains": "finite authored typed domains",
@@ -273,7 +295,7 @@ def run(*, max_states: int = 2_000_000,
             else "no admitted paragraph in the packed automaton"
         ),
         "next_discriminator": (
-            "The targeted No./carton/Trace production now reaches left sentence B; induce a right-side B-prime entry from the recorded A-prime verb residuals before adding any new general vocabulary."
+            "The targeted No./carton/Trace production reaches left sentence B; the symmetric answer production tests right B-prime entry without adding general vocabulary."
             if reachable_second_left and not reachable_second_right else
             "If no witness reaches both second-sentence states, learn entry paths from the measured residual graph; if both do, add semantic discourse binding before any lexical expansion."
         ),

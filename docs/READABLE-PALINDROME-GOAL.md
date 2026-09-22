@@ -1,18 +1,25 @@
 # Readable palindrome finder: goal record
 
-## Active working-track override (2026-10-02)
+## Active working-track override (2026-09-22)
 
-The primary cycle is now growth from the verified 240-letter exact lineage,
-not another completed-clause bank. Use the overhang/composition engine on an
-actual incumbent, allow unequal partial word/phrase spans, carry unmatched
-character ownership and incomplete grammar across several steps, and save
-longer exact closures even when their seams are rough. Every growth row still
-requires rendered text, normalized length, provenance, independent exact
-audits, and an explicit seam/readability diagnosis. Do not require a complete
-preselected word or pristine clause before consuming residual debt; do not
-count states, controls, or ledger entries as output gains. A minority of the
-cycle may repair the worst seam, but the main measure is added exact length
-from a named parent artifact. The 240-letter lineage is not completion.
+The primary construction is a strict dual-parse paragraph product with
+staggered `A | B || B' | A'` sentence seams.  Exact letters still match as one
+global left/right tape, but neither sentence boundary is tied to its reflected
+counterpart.  The product must carry nonempty residual character debt across
+each internal grammar boundary; an empty residual at a complete word before
+the full paragraph ends is rejected as a nested shortcut.
+
+The current strict graph reaches both inner sentence phases independently:
+216 product states, ten entering left B, 21 entering outside-in right B', nine
+premature word-aligned closures rejected, and zero states reaching both inner
+sentences simultaneously.  There is no exact paragraph yet.  The next run
+must solve that measured middle-seam equation with one typed grammatical
+production, not widen the general word banks.  Evidence is in
+`runs/packed-staggered-paragraph-strict-symmetric-20260922.json`.
+
+The later 240-letter lineage material remains historical diagnostic evidence,
+not the active success criterion: exact length without readable, independently
+authored prose does not beat the 38-letter reader anchor.
 
 ## Objective and acceptance gate
 

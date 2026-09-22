@@ -93,15 +93,20 @@ operator must induce grammatical outer paths that arrive at `A -> B` with a
 live residual, then hold those paths fixed while testing the inner sentences.
 Artifact: `runs/packed-staggered-paragraph-automaton-20260922.json`.
 
-A targeted dialogue production now crosses that first boundary.  The complete
-answer `No.` matches the exposed end of sentence-final `carton`, handing the
-nonempty residual `trac` to an imperative `Trace ...` B-clause.  With this one
-structural production, the packed product reaches 280 states and 29 states in
-left sentence B; it still reaches zero states in outside-in right sentence
-B'.  The next experiment is therefore asymmetric and precise: induce the
-right B' entry from the recorded reversed A' verb residuals.  The boundary
-frontiers and independent run are in
-`runs/packed-staggered-paragraph-dialogue-entry-20260922.json`.
+A targeted dialogue production crossed the first boundary in a permissive
+diagnostic, but that 280-state graph admitted a complete-word empty residual
+before the paragraph finished.  It is retained as failure evidence, not as the
+authoritative result.  With premature closure rejected, the same left-side
+production leaves 195 reachable states, ten in sentence B, and rejects nine
+closed shells.
+
+The strict symmetric follow-up gives both sides the same complete `No.` answer
+path.  It reaches 216 product states: ten enter left sentence B and 21 enter
+outside-in right sentence B' while character debt remains live.  No state yet
+enters both inner sentences simultaneously, and there is no exact paragraph.
+This isolates the next construction problem at the middle seam rather than at
+either paragraph boundary.  Evidence:
+`runs/packed-staggered-paragraph-strict-symmetric-20260922.json`.
 
 ## Natural cycle diagnostics
 

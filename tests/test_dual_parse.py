@@ -95,3 +95,21 @@ def test_productive_lattice_attaches_features_to_repeated_role_slots():
         first,
         second,
     ]
+
+
+def test_word_residual_search_matches_brute_force_on_tiny_grammars():
+    from itertools import product
+
+    left = (("left-1", ("a", "ab")), ("left-2", ("c", "bc")))
+    right = (("right-1", ("a", "ca")), ("right-2", ("c", "cba")))
+    expected = {
+        (" ".join(left_words), " ".join(right_words))
+        for left_words in product(*(slot[1] for slot in left))
+        for right_words in product(*(slot[1] for slot in right))
+        if letter_tape(" ".join(left_words))
+        == letter_tape(" ".join(right_words))[::-1]
+    }
+    search = word_residual_search(left, right, max_states=10_000)
+    actual = {(row["left"], row["right"]) for row in search["results"]}
+    assert actual == expected
+    assert search["cap_reached"] is False

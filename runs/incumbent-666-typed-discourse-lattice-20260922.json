@@ -1,0 +1,232 @@
+{
+  "experiment_id": "incumbent-666-typed-discourse-lattice-20260922",
+  "method": "bounded seam-local typed discourse lattice with immediate changed-seam repair",
+  "active_frontier_parent": {
+    "artifact": "runs/incumbent-666-comparison-alternative-20260922.json",
+    "id": "comparison-alternative-nora-sees-666",
+    "letters": 666,
+    "sha256": "cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297"
+  },
+  "working_incumbent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "id": "outer-causal-scene-568-working-incumbent",
+    "letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "lattice_attempt": {
+    "target_equation": {
+      "normalized_left": "marastopsratsnoraspotsarammaraseesratsnorastopsratsnoraseesaram",
+      "normalized_right": "maraseesaronstarspotsaronstarseesarammarastopsaronstarspotsaram",
+      "right_is_reverse": true
+    },
+    "authored_clause_count": 11,
+    "connector_count": 5,
+    "relation_gate": "every candidate contains one of because/so/after/when/then",
+    "template_gate": "reject identical subject-verb template pairs",
+    "stats": {
+      "ordered_pairs_considered": 550,
+      "template_pair_rejections": 10,
+      "relation_candidates": 540,
+      "online_prefix_states": 540,
+      "character_contradictions": 540,
+      "closures": 0
+    },
+    "closures": [],
+    "deepest_prefix_obstruction": {
+      "candidate": {
+        "first": "mara_stops_rats",
+        "second": "nora_spots_ram",
+        "connector": "because",
+        "emission": "Mara stops rats because Nora spots a ram.",
+        "left_trace": {
+          "exact": false,
+          "consumed": 13,
+          "cursor": 13,
+          "expected": "n",
+          "emitted": "b",
+          "residual": "noraspotsarammaraseesratsnorastopsratsnoraseesaram",
+          "reason": "character_contradiction"
+        }
+      },
+      "cursor": 13,
+      "residual": "noraspotsarammaraseesratsnorastopsratsnoraseesaram",
+      "reason": "character_contradiction"
+    }
+  },
+  "changed_seam_after_zero_closure": {
+    "normalized_left": [
+      127,
+      197
+    ],
+    "normalized_right": [
+      469,
+      539
+    ],
+    "raw_left": [
+      170,
+      262
+    ],
+    "raw_right": [
+      647,
+      739
+    ],
+    "exact_children": 1,
+    "child_sha256": "4f4aca22e8858379cb2f5a4931df1773c2a68b318ac9b8225ec447025f3d6230",
+    "material_full_text_improvement": false
+  },
+  "preserved_frontier": [
+    {
+      "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+      "id": "outer-causal-scene-568-working-incumbent",
+      "letters": 568,
+      "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+    },
+    {
+      "artifact": "runs/incumbent-550-central-event-bridge-20261002.json",
+      "id": "central-distinct-events-560",
+      "letters": 560,
+      "sha256": "b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc"
+    },
+    {
+      "artifact": "runs/incumbent-550-typed-center-product-20261002.json",
+      "id": "typed-center-25",
+      "letters": 558,
+      "sha256": "29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa"
+    },
+    {
+      "artifact": "runs/incumbent-498-event-frame-seam-repair-20261002.json",
+      "id": "depth39-longest-f1g1h1r",
+      "letters": 556,
+      "sha256": "28b303081c7eeae9b0f4c7e274d71e73551c64f5ad389b2d992b6183597f6d14"
+    }
+  ],
+  "rows": [
+    {
+      "id": "typed-lattice-direct-seam-666",
+      "working_status": "comparison_frontier_alternative",
+      "promotion_status": {
+        "promoted": false,
+        "status": "pending_full_text_readability_review",
+        "reason": "The typed lattice had zero closure; the direct changed-seam child is exact but is not promoted without material full-text review."
+      },
+      "rendered": "Leon won. Wolf spots Nora. Nora sees Nadia. Nadia sees Ira. Sara saw God. Ari saw Dog. Mara stops rats. Nora spots a ram. Mara sees rats. Nora stops rats. Nora sees Aram. Nora saw Noel live. Mara saw God. Sara saw God. Pat notes. Nadia sees Mara. Nadia stops Aram. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia sees Mara. Aidan spots Ira. Ari sees God. Dog sees Ira. Ari stops Nadia. Aram sees Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Mara spots Aidan. Aram sees Aidan. Seton tap. Dog was Aras. Dog was Aram. Evil Leon was Aron. Mara sees Aron; star spots Aron. Star sees Aram. Mara stops Aron. Star spots Aram. God was Ira. Dog was Aras. Ari sees Aidan. Aidan sees Aron. Aron stops flow now, Noel.",
+      "audit": {
+        "letters": 666,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "4f4aca22e8858379cb2f5a4931df1773c2a68b318ac9b8225ec447025f3d6230",
+        "sha256_reverse": "4f4aca22e8858379cb2f5a4931df1773c2a68b318ac9b8225ec447025f3d6230",
+        "sha_equal": true
+      },
+      "independent_audit": {
+        "normalized_letters": 666,
+        "two_pointer_exact": true,
+        "sha256_forward": "4f4aca22e8858379cb2f5a4931df1773c2a68b318ac9b8225ec447025f3d6230",
+        "sha256_reverse": "4f4aca22e8858379cb2f5a4931df1773c2a68b318ac9b8225ec447025f3d6230",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/incumbent-666-comparison-alternative-20260922.json",
+      "parent_id": "comparison-alternative-nora-sees-666",
+      "parent_sha256": "cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297",
+      "growth_over_parent": 0,
+      "new_event_content": [
+        "Nora saw Noel live",
+        "Mara saw God",
+        "Sara saw God",
+        "Pat notes",
+        "Nadia sees Mara",
+        "Nadia stops Aram"
+      ],
+      "live_seam": {
+        "normalized_window_left": [
+          127,
+          197
+        ],
+        "normalized_window_right": [
+          469,
+          539
+        ],
+        "raw_window_left": [
+          170,
+          262
+        ],
+        "raw_window_right": [
+          647,
+          739
+        ],
+        "old_left": " Mara sees Nadia. Nadia saw Noel live. Mara stops Nadia. Nora sees Aram. Sara saw Noel live.",
+        "old_right": " Evil Leon was Aras. Mara sees Aron. Aidan spots Aram. Evil Leon was Aidan. Aidan sees Aram.",
+        "new_left": "Nora saw Noel live. Mara saw God. Sara saw God. Pat notes. Nadia sees Mara. Nadia stops Aram.",
+        "new_right": "Mara spots Aidan. Aram sees Aidan. Seton tap. Dog was Aras. Dog was Aram. Evil Leon was Aron.",
+        "initial_owner": "left_direct_repair_window",
+        "left_emission": "norasawnoellivemarasawgodsarasawgodpatnotesnadiaseesmaranadiastopsaram",
+        "right_obligation": "maraspotsaidanaramseesaidansetontapdogwasarasdogwasaramevilleonwasaron",
+        "right_consumption": "maraspotsaidanaramseesaidansetontapdogwasarasdogwasaramevilleonwasaron",
+        "final_owner": null,
+        "final_residual": "",
+        "committed_character_contradictions": 0,
+        "backtracks": 0
+      },
+      "typed_lattice_attempt": {
+        "target_equation": {
+          "normalized_left": "marastopsratsnoraspotsarammaraseesratsnorastopsratsnoraseesaram",
+          "normalized_right": "maraseesaronstarspotsaronstarseesarammarastopsaronstarspotsaram",
+          "right_is_reverse": true
+        },
+        "authored_clause_count": 11,
+        "connector_count": 5,
+        "relation_gate": "every candidate contains one of because/so/after/when/then",
+        "template_gate": "reject identical subject-verb template pairs",
+        "stats": {
+          "ordered_pairs_considered": 550,
+          "template_pair_rejections": 10,
+          "relation_candidates": 540,
+          "online_prefix_states": 540,
+          "character_contradictions": 540,
+          "closures": 0
+        },
+        "closures": [],
+        "deepest_prefix_obstruction": {
+          "candidate": {
+            "first": "mara_stops_rats",
+            "second": "nora_spots_ram",
+            "connector": "because",
+            "emission": "Mara stops rats because Nora spots a ram.",
+            "left_trace": {
+              "exact": false,
+              "consumed": 13,
+              "cursor": 13,
+              "expected": "n",
+              "emitted": "b",
+              "residual": "noraspotsarammaraseesratsnorastopsratsnoraseesaram",
+              "reason": "character_contradiction"
+            }
+          },
+          "cursor": 13,
+          "residual": "noraspotsarammaraseesratsnorastopsratsnoraseesaram",
+          "reason": "character_contradiction"
+        }
+      },
+      "readability_delta": {
+        "material_full_text_improvement": false,
+        "complete_finite_clauses": true,
+        "predicate_less_fragment": false,
+        "dangling_vocative_or_appositive": false
+      },
+      "grammar_debt": {
+        "inherited_proper_palindromic_spans": true,
+        "remaining_delivers_maps_elsewhere": true,
+        "remaining_star_spam_scaffolding": true,
+        "remaining_mara_stops_rats_scaffolding": true,
+        "rough_syntax_elsewhere": true,
+        "human_reader_validation": false,
+        "effect": "retain active 666 and 568; comparison child awaits full-text review"
+      },
+      "provenance": "zero-closure typed discourse lattice persisted with exact cursor/residual obstruction, followed immediately by a different actual seam direct repair"
+    }
+  ],
+  "next_operator": "retain the zero-closure lattice obstruction and review the changed-seam comparison child before any promotion"
+}

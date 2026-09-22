@@ -1,0 +1,115 @@
+{
+  "experiment_id": "packed-consequence-reflection-boundary-20260930",
+  "method": "live character intersection over typed consequence/reflection slots",
+  "frontier_target": {
+    "left_first_classes": [
+      "a",
+      "b",
+      "i"
+    ],
+    "right_first_classes": [
+      "l",
+      "n",
+      "s"
+    ]
+  },
+  "search": {
+    "states": 1,
+    "transitions": 0,
+    "cap_reached": false,
+    "dead_frontiers": [
+      {
+        "matched_pairs": 0,
+        "left_state": 0,
+        "right_state": 200,
+        "left_next": [
+          "a",
+          "b",
+          "i"
+        ],
+        "right_next": [
+          "l",
+          "n",
+          "s"
+        ],
+        "left_partial": "",
+        "right_partial": ""
+      }
+    ],
+    "grammar_states": 293,
+    "grammar_character_edges": 313
+  },
+  "candidates": [],
+  "controls": [
+    {
+      "rendered": "At dawn, a clerk sorts old notes; the room grows calm, and she waits.",
+      "kind": "intact_ordinary_prose",
+      "audit": {
+        "letters": 52,
+        "exact": false,
+        "first_mismatch": [
+          [
+            0,
+            "a",
+            "s"
+          ]
+        ],
+        "normalized": "atdawnaclerksortsoldnotestheroomgrowscalmandshewaits",
+        "sha256": "4f2c4ffed25878ed6da47058f535a286561660796f3d04f530f62b822f5aa3e3",
+        "reverse_sha256": "9ed72976b8e5d2cf65d27133643bebc66a4cc626ea1a354f1bd3a31ecaa560fe"
+      }
+    },
+    {
+      "rendered": "The nurse reads the memos; the work is done, and he listens.",
+      "kind": "intact_ordinary_prose",
+      "audit": {
+        "letters": 46,
+        "exact": false,
+        "first_mismatch": [
+          [
+            0,
+            "t",
+            "s"
+          ]
+        ],
+        "normalized": "thenursereadsthememostheworkisdoneandhelistens",
+        "sha256": "efc0ed99f34fb435fcb8cfb4ab048e95a9a9eb48085109c92ad37fcd429c8522",
+        "reverse_sha256": "2ca43d61a432c161fca0cdff6fab16263b1642d4c09c5dca4737c39ec29464b6"
+      }
+    }
+  ],
+  "positive_control": {
+    "rendered": "An aide rips nine memos; some men inspire Diana.",
+    "audit": {
+      "letters": 38,
+      "exact": true,
+      "first_mismatch": [],
+      "normalized": "anaideripsninememossomemeninspirediana",
+      "sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "reverse_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+    },
+    "independent_validator_exact": true,
+    "kind": "historical_recovery_control"
+  },
+  "provenance": {
+    "complete_sentence_enumeration": false,
+    "reverse_phrase_catalogue": false,
+    "semordnilap_bank": false,
+    "per_candidate_rlaif": false,
+    "generator_sha256": "887e174e11b09b8342cedd6b767842e0c70e70d70de802cc84179447e24ecc43"
+  },
+  "novelty_preflight": {
+    "novel_algorithm_claim": false,
+    "representation_change": "agreement-carrying consequence/reflection seam only",
+    "distinct_from": "packed-nonmirror-paragraph-frame-20260930"
+  },
+  "reader_test": {
+    "status": "not_collected",
+    "protocol": "Novel exact outputs require randomized blinded intact and shuffled controls."
+  },
+  "next_repair": {
+    "operator": "Add a copular consequence with anaphoric state noun while retaining both typed subjects.",
+    "reason": "No accepting path should trigger widening unrelated setting/action slots; use the observed boundary mismatch.",
+    "frontier": "Preserve first-character classes and introduce only one agreement-compatible state noun."
+  }
+}

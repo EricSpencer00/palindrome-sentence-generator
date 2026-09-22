@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import os
 import re
 import time
 from collections import Counter
@@ -70,7 +71,32 @@ class BrownPhraseScorer:
         return score
 
 
-def extract_brown(root: Path, max_units: int = 120_000):
+FUNCTION_WORDS = {
+    "a", "an", "the", "as", "at", "by", "for", "from", "if", "in",
+    "into", "is", "it", "of", "on", "or", "that", "to", "was", "were",
+    "with", "and", "but", "be", "been", "are", "this", "these", "those",
+}
+
+
+def phrase_unit_allowed(unit: str) -> bool:
+    words = unit.split()
+    return any(word not in FUNCTION_WORDS and len(word) > 2 for word in words)
+
+
+def state_allowed(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
+    units = left + right
+    if len(units) != len(set(units)):
+        return False
+    words = " ".join(units).split()
+    if any(a == b for a, b in zip(words, words[1:])):
+        return False
+    content = [word for word in words if word not in FUNCTION_WORDS]
+    return len(content) == len(set(content))
+
+
+def extract_brown(root: Path, max_units: int = 120_000,
+                  min_n: int = 2, max_n: int = 4,
+                  phrase_only: bool = False):
     unigram: Counter = Counter()
     bigram: Counter = Counter()
     phrase_counts: Counter = Counter()
@@ -85,7 +111,7 @@ def extract_brown(root: Path, max_units: int = 120_000):
                     words.append(word)
             unigram.update(words)
             bigram.update(zip(words, words[1:]))
-            for n in range(2, 5):
+            for n in range(min_n, max_n + 1):
                 phrase_counts.update(tuple(words[i:i + n])
                                      for i in range(len(words) - n + 1))
     ranked = sorted(phrase_counts.items(),
@@ -94,7 +120,7 @@ def extract_brown(root: Path, max_units: int = 120_000):
     # carry real syntax; rare Brown tags and one-letter debris are excluded.
     singles = [word for word, count in unigram.most_common()
                if len(word) > 1 or word in {"a", "i"}][:20_000]
-    units = singles + [" ".join(words) for words, count in ranked]
+    units = ([] if phrase_only else singles) + [" ".join(words) for words, count in ranked]
     units = list(dict.fromkeys(units))
     return units, unigram, bigram, phrase_counts
 
@@ -111,7 +137,15 @@ def hidden_span(text: str) -> bool:
 
 
 def run(brown_root: Path, seconds: float = 45.0) -> dict:
-    units, unigram, bigram, phrases = extract_brown(brown_root)
+    min_n = int(os.environ.get("BROWN_MIN_N", "2"))
+    max_n = int(os.environ.get("BROWN_MAX_N", "4"))
+    phrase_only = bool(os.environ.get("BROWN_PHRASE_ONLY"))
+    units, unigram, bigram, phrases = extract_brown(
+        brown_root,
+        max_units=int(os.environ.get("BROWN_MAX_UNITS", "120000")),
+        min_n=min_n,
+        max_n=max_n,
+        phrase_only=phrase_only)
     tries = WordTries(units)
     scorer = BrownPhraseScorer(unigram, bigram, phrases)
     deadline = time.monotonic() + seconds
@@ -122,7 +156,9 @@ def run(brown_root: Path, seconds: float = 45.0) -> dict:
         words = centerout_search(
             tries, scorer, min_letters=39, beam_width=1200, max_steps=80,
             candidate_limit=500, seed=seed, diversity=0.35,
-            max_overhang=18, deadline=deadline, maximize="letters")
+            max_overhang=18, deadline=deadline, maximize="letters",
+            allow_word=lambda _placement, word, _state: phrase_unit_allowed(word),
+            allow_state=state_allowed)
         if not words:
             continue
         text = " ".join(words)
@@ -135,6 +171,8 @@ def run(brown_root: Path, seconds: float = 45.0) -> dict:
     return {"experiment": "brown-phrase-live-overhang-20260920",
             "method": "Brown forward phrase units with center-out live character debt",
             "stats": {"units": len(units), "seeds": 120,
+                      "min_n": min_n, "max_n": max_n,
+                      "phrase_only": phrase_only,
                       "exact": len(rows),
                       "longest_exact": max((r["audit"]["letters"] for r in rows), default=0),
                       "longest_clean_exact": max((r["audit"]["letters"] for r in rows

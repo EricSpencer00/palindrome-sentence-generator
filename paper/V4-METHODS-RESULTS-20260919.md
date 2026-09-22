@@ -131,6 +131,20 @@ synchronous dependency chart and a semantic-plan-first bidirectional
 character trie build two complete finite parses while exact characters,
 agreement, discourse state, and complementary boundaries remain live.
 
+The static global baselines clarify why targeted generation is necessary. A
+semantic-plan-first character trie tested 12 frozen plan pairs but reached only
+cursor one. A packed synchronous dependency chart exhausted ten reachable
+states; its deepest frontier matches left `a` against right object `area`,
+leaves residual `era`, and has no compatible agentive subject terminal. A
+registry audit over 708 methods found no prior implementation of solver
+conflicts feeding back into grammatical alternative generation. We therefore
+predeclare conflict-directed semantic column generation: solve a compact
+complete-sentence lattice exactly, extract the smallest mirrored-character and
+constituent UNSAT core, store it as a nogood, and add only contextually valid
+columns for the implicated slots after reparsing each full clause. This differs
+from a larger lexical bank because the core decides which constituent may gain
+an alternative and all unrelated domains remain frozen.
+
 The exact stack itself scales beyond these surface witnesses. Depths three,
 four, and five produce independently audited, central-gate-clean tapes of 50,
 60, and 66 letters, with every lemma globally fresh. The longest is:

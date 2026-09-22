@@ -271,6 +271,19 @@ The active pivot is global: packed synchronous dependency parsing and a
 semantic-plan-first bidirectional character trie must build complete finite
 clauses while exactness and boundary masks remain live.
 
+The two static global baselines are now bounded. A semantic-plan-first
+character trie tested 12 predeclared plan pairs and died at cursor one. A
+packed synchronous dependency chart exhausted its ten reachable states; its
+deepest staggered frontier matches left `a` against right object `area`, leaves
+right-owned residual `era`, and then finds no compatible agentive subject
+terminal. A registry audit over 708 methods shows that simply widening either
+static lattice would repeat prior work. The genuinely new successor is
+conflict-directed semantic column generation: solve the current complete
+sentence lattice, extract the smallest mirrored-character/constituent UNSAT
+core, persist it as a nogood, and add only fully reparsed contextual columns
+for the implicated slots. Its bounded preflight signature is
+`conflict-directed-column-generation|unsat-core-mirror-positions|contextual-constituent-oracle|packed-sentence-lattice|palindrome-equality-cp-sat|complete-clause-only|reader-gates`.
+
 The older 54-letter cross-role NP row and exact diagnostics at 44, 47, 50,
 56, 66, and 132 letters remain historical controls, not current progress
 claims. The

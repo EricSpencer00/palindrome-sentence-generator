@@ -1,0 +1,85 @@
+{
+  "experiment_id": "incumbent-560-outer-causal-scene-20261002",
+  "method": "replace one complete outer macro with a boundary-shifting causal scene",
+  "parent": {
+    "artifact": "runs/incumbent-550-central-event-bridge-20261002.json",
+    "letters": 560,
+    "sha256": "b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc",
+    "working_track_only": true
+  },
+  "stats": {
+    "independently_exact_children": 1,
+    "longest_letters": 568,
+    "shortcut_clean_children": 0,
+    "proper_span_count": 65
+  },
+  "rows": [
+    {
+      "id": "outer-causal-scene-568-rejected",
+      "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "audit": {
+        "letters": 568,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+        "sha256_reverse": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/incumbent-550-central-event-bridge-20261002.json",
+      "parent_sha256": "b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc",
+      "source_498_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "source_498_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "growth_over_parent": 8,
+      "replacement": {
+        "old_left": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon.",
+        "old_right": "Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+        "new_left": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia.",
+        "new_right": "Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+        "new_event_content": [
+          "Leon wins",
+          "a wolf spots Nora",
+          "Tara rewards Nadia because Nadia stops",
+          "Aron stops a flow"
+        ]
+      },
+      "live_state": {
+        "residual_sequence": [
+          "tara",
+          "s",
+          "nadia"
+        ],
+        "boundary_shifts": [
+          "so|Tara / Aratos",
+          "reward|s / Aidan's"
+        ],
+        "final_residual": ""
+      },
+      "strict_admission": {
+        "proper_span_count": 65,
+        "shortest_proper_span": {
+          "token_offsets": [
+            70,
+            74
+          ],
+          "tokens": [
+            "delivers",
+            "maps",
+            "spam's",
+            "reviled"
+          ],
+          "letters": 24
+        },
+        "no_self_palindromic_proper_multiword_span": false,
+        "no_repeated_nontrivial_unit": false,
+        "distinct_content_words": false,
+        "shortcut_clean": false,
+        "human_certified": false,
+        "status": "exact permissive working child; rejected from reader promotion"
+      },
+      "next_operator": "solve the asymmetric smaps center window before reusing this outer scene; the inherited central proper span remains fatal"
+    }
+  ]
+}

@@ -86,6 +86,8 @@ def build_payloads() -> tuple[dict, dict]:
 
     rater = {
         "packet_id": EXPERIMENT_ID,
+        "status": "closed_pre_reader_parse_gate",
+        "do_not_administer": True,
         "instructions": (
             "Read each item in order without trying to identify how it was made. "
             "Rate the text itself. Do not correct punctuation or silently add words."
@@ -97,7 +99,7 @@ def build_payloads() -> tuple[dict, dict]:
             {"id": "paraphrase", "prompt": "Briefly paraphrase what it says.", "response": "free_text"},
         ],
         "items": blind_items,
-        "readability_claim": "pending independent human ratings",
+        "readability_claim": "not evaluated; packet closed before administration",
     }
     key = {
         "packet_id": EXPERIMENT_ID,
@@ -108,6 +110,8 @@ def build_payloads() -> tuple[dict, dict]:
             "audit": audit(CANDIDATE),
             "mechanical_checks": mechanical_admission_checks(CANDIDATE, min_letters=39, max_letters=100),
             "provenance": "freshness-indexed live plural residual with LIFO return stack; punctuation-only readability rendering",
+            "pre_reader_parse_gate_passed": False,
+            "closure_reason": "fixed-tape surface audit found no nonfragmentary ordinary-English parse",
         },
         "design": {
             "target_count": 1,
@@ -117,6 +121,8 @@ def build_payloads() -> tuple[dict, dict]:
             "condition_hidden_from_rater": True,
             "order_randomized": True,
             "programmatic_scores_certify_readability": False,
+            "pre_reader_parse_gate_passed": False,
+            "administered": False,
         },
     }
     return rater, key

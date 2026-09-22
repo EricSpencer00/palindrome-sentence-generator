@@ -33,6 +33,10 @@ def test_v2_blinds_conditions_and_pairs_every_shuffle() -> None:
     assert len(rater["items"]) == 10
     assert all(set(row) == {"item_id", "order", "text"} for row in rater["items"])
     assert key["design"]["fragment_completeness_question_included"]
+    assert rater["status"] == "closed_pre_reader_parse_gate"
+    assert rater["do_not_administer"]
+    assert not key["design"]["pre_reader_parse_gate_passed"]
+    assert not key["design"]["administered"]
     for row in key["items"]:
         if row["condition"] != "shuffled":
             continue

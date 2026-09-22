@@ -186,8 +186,8 @@ The independently verified 38-letter sentence remains the reader anchor:
 
 > *An aide rips nine memos; some men inspire Diana.*
 
-The new **strict mechanically admitted, reader-testable frontier** begins with
-this 42-letter productive-morphology construction:
+The new **strict mechanical construction frontier** begins with this 42-letter
+productive-morphology witness:
 
 > *No trace. Note: Spot spoons; snoop; stop. Set one carton.*
 
@@ -197,10 +197,10 @@ Its normalized tape is
 A literal two-pointer scan and the shared central gate agree: it has distinct
 content, no self-palindromic word, no proper palindromic multiword span, no
 word-order reflection, no repeated nontrivial unit, and no catalogue match.
-It is syntactically interpretable, but **not yet human-certified readable**.
-Its randomized eight-item rater packet includes the intact target, a matched
-word shuffle, three intact prose controls, and their matched shuffles; the
-condition key is stored separately.
+It is exact and structurally clean, but a subsequent fixed-tape parse audit
+found no nonfragmentary ordinary-English rendering. Its proposed randomized
+reader packet is therefore preserved as a reproducibility artifact but marked
+`do_not_administer`; the candidate did not reach human evaluation.
 
 A productive-affix generalization produced one longer gate-clean survivor:
 
@@ -211,11 +211,13 @@ SHA-256
 `96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104`.
 All shared mechanical gates pass. Its ordinary plural subject-verb core is
 `spoons snoop`; `sleet/steel` is a fresh outer equation. The surface still has
-an elliptical material-check question, so it joins the 42-letter row in a new
-ten-item blinded packet with an explicit completeness/fragment rating instead
-of being declared readable. This makes 44 the longest reader-testable mechanical
-candidate and 42 the more directly interpretable instruction candidate until
-human ratings arrive.
+an elliptical material-check question. A closed 12-variant punctuation audit
+found no rendering of either tape that was both nonfragmentary and ordinary
+English: `No trace` remains a bare NP or elliptical question, while the
+44-letter tape also strands `steel` or gives `snoop` an illicit direct object.
+The ten-item comparison packet is consequently marked `do_not_administer`.
+The 44-letter row is the longest clean surface witness for the method, not a
+reader candidate.
 
 The same exact construction extends without repetition through stack depths
 three, four, and five, producing separately audited, shortcut-clean tapes of
@@ -269,8 +271,8 @@ row embeds the complete 38-letter anchor.  Historical artifact files also
 contain a 142-letter exact but visibly fragmented/gibberish row, and the
 synthetic totality harness reaches 100,001 exact fallback letters.  Neither is
 English output. The paper and API therefore report scoped fields explicitly:
-`best_current_reader_testable_candidate_letters = 44`,
-`best_current_directly_interpretable_candidate_letters = 42`,
+`best_current_nonfragmentary_readable_anchor_letters = 38`,
+`best_current_reader_testable_candidate_letters = null`,
 `longest_current_mechanical_frontier_letters = 66`,
 `best_legacy_reader_study_candidate_letters = 54`,
 `best_human_certified_exact_letters = null`,
@@ -299,7 +301,7 @@ a relative-clause attachment edge, and held-out ditransitive/relative-
 complement productions respectively—not repair or another lexical sweep.
 
 The active target is an original, coherent, intact-prose palindrome longer
-than the 44-letter mechanical frontier (with the paper's promotion floor at 100
+than the 38-letter readable anchor (with the paper's promotion floor at 100
 letters), followed by the blinded intact-prose versus shuffled-control study.
 No wrapper, catalogue
 relexicalization, repeated unit, fragment, or filler output can satisfy it.

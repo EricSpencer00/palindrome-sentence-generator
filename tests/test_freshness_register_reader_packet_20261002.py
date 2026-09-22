@@ -34,6 +34,10 @@ def test_packet_is_blinded_randomized_and_has_intact_controls() -> None:
     assert key["design"]["intact_prose_control_count"] == 3
     assert key["design"]["matched_control_shuffle_count"] == 3
     assert not key["design"]["programmatic_scores_certify_readability"]
+    assert rater["status"] == "closed_pre_reader_parse_gate"
+    assert rater["do_not_administer"]
+    assert not key["design"]["pre_reader_parse_gate_passed"]
+    assert not key["design"]["administered"]
 
 
 def test_every_shuffle_preserves_its_matched_word_multiset() -> None:

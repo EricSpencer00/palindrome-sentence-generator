@@ -15,7 +15,7 @@ reader ratings decide whether an exact output is readable.
 
 ## Anchor and frontier
 
-The current strict mechanical frontier begins with a fresh 42-letter output:
+The current strict mechanical frontier begins with a fresh 42-letter witness:
 
 > **No trace. Note: Spot spoons; snoop; stop. Set one carton.**
 
@@ -46,13 +46,12 @@ inventory contains 12 directed lemma equations (six reversible families) and
 120 all-four-lemma-distinct depth-two tuples. The rendered incumbent is the
 first candidate chosen for syntax from that exact family.
 
-We opened a reproducible eight-item blinded pilot rather than using an
-automatic score as evidence. It randomizes the target and a matched word
-shuffle with three intact prose controls and their matched shuffles; the rater
-file hides every condition and the answer key is separate. Reader ratings are
-pending, so the paper does not yet claim that the output is readable English.
-The active construction work extends the freshness-indexed stack and searches
-additional productive affix boundaries for a longer, more coherent witness.
+We initially prepared a reproducible eight-item blinded pilot, then closed it
+before administration. A later fixed-tape parse audit found no nonfragmentary
+ordinary-English rendering of the 42-letter tape. The packet remains checked
+in with `do_not_administer = true`; no reader rating was solicited. The active
+construction work therefore extends the freshness-indexed stack while keeping
+the 38-letter sentence as the readable anchor.
 
 That generalization searched seven inflection families on the NUC bench. It
 found 108 open carriers, 51 character cycles, and 11 productive inner cycles
@@ -65,10 +64,12 @@ The tape has 44 letters and independent SHA-256
 `96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104`.
 The finite core `spoons snoop` has ordinary plural agreement, and the return
 stack is `snoop`, `steel`, `set one carton`. All mechanical gates pass. We
-still do not equate that with readable prose: the elliptical `Steel?` may be
-judged fragmentary. A second blinded packet therefore places both the 42- and
-44-letter candidates beside matched word shuffles and intact controls, adding
-an explicit completeness rating.
+still do not equate that with readable prose. A 12-variant punctuation audit
+found no rendering of either the 42- or 44-letter tape that was both ordinary
+English and nonfragmentary. `No trace` remains a bare NP or elliptical
+question; the 44-letter tape additionally strands `steel` or makes it an
+illicit direct object of `snoop`. The second blinded packet is therefore also
+closed with `do_not_administer = true`.
 
 The other affixes give useful exact obstructions rather than candidates.
 Plural/third-person `-es` each had two character cycles but no attested base
@@ -112,7 +113,7 @@ the exact state, rather than inserting them after closure. A separate compound
 event product tests whether attested noun compounds can make the depth-three
 stack finite without fragmentary returns.
 
-The exact stack itself scales beyond the reader-testable row. Depths three,
+The exact stack itself scales beyond these surface witnesses. Depths three,
 four, and five produce independently audited, central-gate-clean tapes of 50,
 60, and 66 letters, with every lemma globally fresh. The longest is:
 

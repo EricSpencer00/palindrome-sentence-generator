@@ -8678,6 +8678,19 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   ordinary-English controls remain controls, not candidates. Artifact:
   `runs/packed-abba-paragraph-seams-20260928.json`.
 
+- **Authored ABBA paragraph seam:** 81 fresh four-unit `A1/B1/B2/A2`
+  paragraphs kept all sentence boundaries intact and all units distinct. The
+  longest ordinary-prose control was 152 letters, but the outer seam failed at
+  the first character (`a` versus `e`), with zero exact closures. Conditioning
+  the held-out `B2` bank on the live `A1+B1` residual and solving `A2` jointly
+  then evaluated 225 distinct paragraphs; it likewise reached zero supported
+  characters and zero exact closures above 38. These are topology and ordering
+  tests, not readable candidates. The next operator must author `B2` openings
+  for observed residual character classes while preserving the ABBA discourse
+  graph, rather than widening the same prose bank. Artifacts:
+  `runs/abba-authored-paragraph-seam-20260930.json` and
+  `runs/abba-residual-conditioned-20260930.json`.
+
 - **Argument-sharing paragraph continuation:** a typed outer event was streamed
   around the verified center, yielding the following 54-letter exact tape:
 

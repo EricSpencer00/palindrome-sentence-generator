@@ -1,0 +1,720 @@
+{
+  "experiment_id": "packed-discourse-automaton-20260927",
+  "conditions": [
+    {
+      "candidates": [
+        {
+          "rendered": "An aide rips nine memos. Some men inspire Diana.",
+          "audit": {
+            "letters": 38,
+            "exact": true,
+            "first_mismatch": [],
+            "normalized": "anaideripsninememossomemeninspirediana",
+            "sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+            "reverse_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+            "independent_validator_exact": true
+          },
+          "accepting_path": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23,
+            24,
+            25,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            154,
+            155,
+            156,
+            157,
+            158
+          ],
+          "connected": true,
+          "novel_relative_to_seed": false,
+          "seed_rotation": true,
+          "new_content": false,
+          "human_readability_evidence": "not collected"
+        },
+        {
+          "rendered": "Some men inspire Diana. An aide rips nine memos.",
+          "audit": {
+            "letters": 38,
+            "exact": true,
+            "first_mismatch": [],
+            "normalized": "somemeninspiredianaanaideripsninememos",
+            "sha256": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+            "reverse_sha256": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+            "independent_validator_exact": true
+          },
+          "accepting_path": [
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            106,
+            107,
+            108,
+            109,
+            110,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            181,
+            182,
+            183,
+            184,
+            196,
+            197,
+            198,
+            199,
+            200,
+            201,
+            202,
+            203,
+            204
+          ],
+          "connected": true,
+          "novel_relative_to_seed": true,
+          "seed_rotation": true,
+          "new_content": false,
+          "human_readability_evidence": "not collected"
+        }
+      ],
+      "states": 62,
+      "transitions": 61,
+      "cap_reached": false,
+      "dead_frontiers": [
+        {
+          "matched_pairs": 17,
+          "left_state": 103,
+          "right_state": 166,
+          "left_next": [
+            "n"
+          ],
+          "right_next": [
+            "d"
+          ],
+          "left_partial": "some men inspire Diana.",
+          "right_partial": "rips nine memos."
+        },
+        {
+          "matched_pairs": 15,
+          "left_state": 41,
+          "right_state": 115,
+          "left_next": [
+            "e"
+          ],
+          "right_next": [
+            "o"
+          ],
+          "left_partial": "an aide rips nine memos.",
+          "right_partial": "inspire Diana."
+        },
+        {
+          "matched_pairs": 10,
+          "left_state": 85,
+          "right_state": 178,
+          "left_next": [
+            "p"
+          ],
+          "right_next": [
+            "d"
+          ],
+          "left_partial": "some men inspire",
+          "right_partial": "nine memos."
+        },
+        {
+          "matched_pairs": 10,
+          "left_state": 85,
+          "right_state": 182,
+          "left_next": [
+            "p"
+          ],
+          "right_next": [
+            "r"
+          ],
+          "left_partial": "some men inspire",
+          "right_partial": "nine memos."
+        },
+        {
+          "matched_pairs": 6,
+          "left_state": 3,
+          "right_state": 141,
+          "left_next": [
+            "r",
+            "s",
+            "t"
+          ],
+          "right_next": [
+            "g"
+          ],
+          "left_partial": "an aide",
+          "right_partial": "Diana."
+        },
+        {
+          "matched_pairs": 6,
+          "left_state": 67,
+          "right_state": 201,
+          "left_next": [
+            "n"
+          ],
+          "right_next": [
+            "m"
+          ],
+          "left_partial": "some men",
+          "right_partial": ""
+        },
+        {
+          "matched_pairs": 5,
+          "left_state": 66,
+          "right_state": 194,
+          "left_next": [
+            "e"
+          ],
+          "right_next": [
+            "o"
+          ],
+          "left_partial": "some men",
+          "right_partial": ""
+        },
+        {
+          "matched_pairs": 1,
+          "left_state": 9,
+          "right_state": 149,
+          "left_next": [
+            "c"
+          ],
+          "right_next": [
+            "n"
+          ],
+          "left_partial": "a clerk",
+          "right_partial": ""
+        },
+        {
+          "matched_pairs": 1,
+          "left_state": 14,
+          "right_state": 149,
+          "left_next": [
+            "t"
+          ],
+          "right_next": [
+            "n"
+          ],
+          "left_partial": "a tired aide",
+          "right_partial": ""
+        }
+      ],
+      "grammar_states": 207,
+      "grammar_character_edges": 222,
+      "max_events": 2,
+      "discourse_transitions": [
+        {
+          "source_mask": 0,
+          "target_mask": 1,
+          "event": "tear_documents",
+          "introduced": [],
+          "boundary_is_epsilon": true
+        },
+        {
+          "source_mask": 0,
+          "target_mask": 2,
+          "event": "inspire_person",
+          "introduced": [],
+          "boundary_is_epsilon": true
+        },
+        {
+          "source_mask": 1,
+          "target_mask": 3,
+          "event": "inspire_person",
+          "introduced": [
+            "aide",
+            "memos"
+          ],
+          "boundary_is_epsilon": true
+        },
+        {
+          "source_mask": 2,
+          "target_mask": 3,
+          "event": "tear_documents",
+          "introduced": [
+            "Diana",
+            "men"
+          ],
+          "boundary_is_epsilon": true
+        }
+      ]
+    },
+    {
+      "candidates": [
+        {
+          "rendered": "An aide rips nine memos. Some men inspire Diana.",
+          "audit": {
+            "letters": 38,
+            "exact": true,
+            "first_mismatch": [],
+            "normalized": "anaideripsninememossomemeninspirediana",
+            "sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+            "reverse_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+            "independent_validator_exact": true
+          },
+          "accepting_path": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            22,
+            23,
+            24,
+            25,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            154,
+            155,
+            156,
+            157,
+            158
+          ],
+          "connected": true,
+          "novel_relative_to_seed": false,
+          "seed_rotation": true,
+          "new_content": false,
+          "human_readability_evidence": "not collected"
+        },
+        {
+          "rendered": "Some men inspire Diana. An aide rips nine memos.",
+          "audit": {
+            "letters": 38,
+            "exact": true,
+            "first_mismatch": [],
+            "normalized": "somemeninspiredianaanaideripsninememos",
+            "sha256": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+            "reverse_sha256": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+            "independent_validator_exact": true
+          },
+          "accepting_path": [
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            106,
+            107,
+            108,
+            109,
+            110,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            181,
+            182,
+            183,
+            184,
+            196,
+            197,
+            198,
+            199,
+            200,
+            201,
+            202,
+            203,
+            204
+          ],
+          "connected": true,
+          "novel_relative_to_seed": true,
+          "seed_rotation": true,
+          "new_content": false,
+          "human_readability_evidence": "not collected"
+        }
+      ],
+      "states": 74,
+      "transitions": 73,
+      "cap_reached": false,
+      "dead_frontiers": [
+        {
+          "matched_pairs": 17,
+          "left_state": 103,
+          "right_state": 166,
+          "left_next": [
+            "n"
+          ],
+          "right_next": [
+            "d"
+          ],
+          "left_partial": "some men inspire Diana.",
+          "right_partial": "rips nine memos."
+        },
+        {
+          "matched_pairs": 15,
+          "left_state": 41,
+          "right_state": 115,
+          "left_next": [
+            "e"
+          ],
+          "right_next": [
+            "o"
+          ],
+          "left_partial": "an aide rips nine memos.",
+          "right_partial": "inspire Diana."
+        },
+        {
+          "matched_pairs": 10,
+          "left_state": 85,
+          "right_state": 178,
+          "left_next": [
+            "p"
+          ],
+          "right_next": [
+            "d"
+          ],
+          "left_partial": "some men inspire",
+          "right_partial": "nine memos."
+        },
+        {
+          "matched_pairs": 10,
+          "left_state": 85,
+          "right_state": 182,
+          "left_next": [
+            "p"
+          ],
+          "right_next": [
+            "r"
+          ],
+          "left_partial": "some men inspire",
+          "right_partial": "nine memos."
+        },
+        {
+          "matched_pairs": 6,
+          "left_state": 3,
+          "right_state": 141,
+          "left_next": [
+            "r",
+            "s",
+            "t"
+          ],
+          "right_next": [
+            "g"
+          ],
+          "left_partial": "an aide",
+          "right_partial": "Diana."
+        },
+        {
+          "matched_pairs": 6,
+          "left_state": 67,
+          "right_state": 230,
+          "left_next": [
+            "n"
+          ],
+          "right_next": [
+            "h"
+          ],
+          "left_partial": "some men",
+          "right_partial": ""
+        },
+        {
+          "matched_pairs": 6,
+          "left_state": 67,
+          "right_state": 239,
+          "left_next": [
+            "n"
+          ],
+          "right_next": [
+            "s"
+          ],
+          "left_partial": "some men",
+          "right_partial": ""
+        },
+        {
+          "matched_pairs": 6,
+          "left_state": 67,
+          "right_state": 201,
+          "left_next": [
+            "n"
+          ],
+          "right_next": [
+            "m"
+          ],
+          "left_partial": "some men",
+          "right_partial": ""
+        },
+        {
+          "matched_pairs": 5,
+          "left_state": 66,
+          "right_state": 194,
+          "left_next": [
+            "e"
+          ],
+          "right_next": [
+            "o"
+          ],
+          "left_partial": "some men",
+          "right_partial": ""
+        },
+        {
+          "matched_pairs": 1,
+          "left_state": 9,
+          "right_state": 149,
+          "left_next": [
+            "c"
+          ],
+          "right_next": [
+            "n"
+          ],
+          "left_partial": "a clerk",
+          "right_partial": ""
+        },
+        {
+          "matched_pairs": 1,
+          "left_state": 14,
+          "right_state": 149,
+          "left_next": [
+            "t"
+          ],
+          "right_next": [
+            "n"
+          ],
+          "left_partial": "a tired aide",
+          "right_partial": ""
+        }
+      ],
+      "grammar_states": 248,
+      "grammar_character_edges": 267,
+      "max_events": 3,
+      "discourse_transitions": [
+        {
+          "source_mask": 0,
+          "target_mask": 1,
+          "event": "tear_documents",
+          "introduced": [],
+          "boundary_is_epsilon": true
+        },
+        {
+          "source_mask": 0,
+          "target_mask": 2,
+          "event": "inspire_person",
+          "introduced": [],
+          "boundary_is_epsilon": true
+        },
+        {
+          "source_mask": 1,
+          "target_mask": 3,
+          "event": "inspire_person",
+          "introduced": [
+            "aide",
+            "memos"
+          ],
+          "boundary_is_epsilon": true
+        },
+        {
+          "source_mask": 2,
+          "target_mask": 3,
+          "event": "tear_documents",
+          "introduced": [
+            "Diana",
+            "men"
+          ],
+          "boundary_is_epsilon": true
+        },
+        {
+          "source_mask": 3,
+          "target_mask": 7,
+          "event": "read_documents",
+          "introduced": [
+            "Diana",
+            "aide",
+            "memos",
+            "men"
+          ],
+          "boundary_is_epsilon": true
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "An aide rips nine memos. Some men inspire Diana.",
+      "events": [
+        "tear_documents",
+        "inspire_person"
+      ],
+      "audit": {
+        "letters": 38,
+        "exact": true,
+        "first_mismatch": [],
+        "normalized": "anaideripsninememossomemeninspirediana",
+        "sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "reverse_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+      },
+      "generated_by_grammar": true
+    },
+    {
+      "rendered": "Some men inspire Diana. An aide rips nine memos.",
+      "events": [
+        "inspire_person",
+        "tear_documents"
+      ],
+      "audit": {
+        "letters": 38,
+        "exact": true,
+        "first_mismatch": [],
+        "normalized": "somemeninspiredianaanaideripsninememos",
+        "sha256": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+        "reverse_sha256": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec"
+      },
+      "generated_by_grammar": true
+    },
+    {
+      "rendered": "An aide rips nine memos. Some men inspire Diana. Diana reads the memos.",
+      "events": [
+        "tear_documents",
+        "inspire_person",
+        "read_documents"
+      ],
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatch": [
+          [
+            0,
+            "a",
+            "s"
+          ]
+        ],
+        "normalized": "anaideripsninememossomemeninspiredianadianareadsthememos",
+        "sha256": "41fd6a0079c4a2d63dcce773323744411b0adcd42d621044e7e18a5e46e97f04",
+        "reverse_sha256": "fd65b5391fd85e99eab1d31bb4e3239445c41b5fe17a35960e308fc1680212b0"
+      },
+      "generated_by_grammar": true
+    },
+    {
+      "rendered": "Some men inspire Diana. An aide rips nine memos. Diana reads the memos.",
+      "events": [
+        "inspire_person",
+        "tear_documents",
+        "read_documents"
+      ],
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatch": [
+          [
+            6,
+            "n",
+            "h"
+          ]
+        ],
+        "normalized": "somemeninspiredianaanaideripsninememosdianareadsthememos",
+        "sha256": "b397da562484a11c972d0a5e0b72ceebd2aefa32ef0c0b97ddc1a48e91ad6247",
+        "reverse_sha256": "6e0d38d5893e801eeab68715479ffff4309766fd713d9bfb9a747f0b366b9cfa"
+      },
+      "generated_by_grammar": true
+    }
+  ],
+  "positive_control": {
+    "rendered": "An aide rips nine memos; some men inspire Diana.",
+    "audit": {
+      "letters": 38,
+      "exact": true,
+      "first_mismatch": [],
+      "normalized": "anaideripsninememossomemeninspirediana",
+      "sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "reverse_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+    },
+    "recovered_in_both_conditions": true
+  },
+  "provenance": {
+    "complete_sentence_enumeration": false,
+    "source": "fresh authored typed event slots; seed recovery is inherited",
+    "catalogue_replay": false,
+    "per_candidate_rlaif": false,
+    "event_repetition": false,
+    "semordnilap_bank": false,
+    "generator_sha256": "a48632340a316696c711bf3a31ab20d050eea5be489aadce2506e032c3dd70b2"
+  },
+  "novelty_preflight": {
+    "novel_algorithm_claim": false,
+    "representation_change": "whole forward paragraph with event-mask merges and reference accessibility; no independently closed clause pairs",
+    "boundaries": "epsilon punctuation; asynchronous character fronts"
+  },
+  "reader_test": {
+    "status": "not collected",
+    "next": "For each novel exact paragraph, create randomized blinded ratings with intact controls and shuffled versions. Recovery controls are not new outputs."
+  },
+  "next_repair": {
+    "operator": "Move a postposed temporal adjunct across the sentence boundary while retaining its event attachment.",
+    "reason": "Event ordering changes middle topology but leaves current outer subject/object character sets narrow; moving an existing adjunct changes endpoint possibilities structurally.",
+    "concrete": "Add a single time fact with before/after-clause realization alternatives, shared semantic identity, and exactly-once usage; compare frontier survival using unchanged core event vocabulary."
+  }
+}

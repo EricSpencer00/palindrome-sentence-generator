@@ -1,0 +1,34 @@
+{
+  "experiment_id": "bounded-corpus-abba-object-predicate-miner-20260921",
+  "method": "bounded exact reverse index over intact Brown object/predicate spans",
+  "config": {
+    "max_sentences": 57340,
+    "max_spans": 120000,
+    "max_results": 80,
+    "span_width": [
+      2,
+      5
+    ]
+  },
+  "stats": {
+    "sentences_read": 57340,
+    "spans_examined": 120001,
+    "unique_objects": 11694,
+    "unique_predicates": 6711,
+    "reverse_pairs": 0
+  },
+  "pairs": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "bounded-corpus-abba-object-predicate-miner-20260921",
+    "distinct_from": "whole-sentence span paths and phrase-pair DP: this joins tagged intact NP objects to tagged intact VP predicates by exact normalized tape"
+  },
+  "provenance": {
+    "corpus": "NLTK Brown",
+    "tag_source": "Brown gold POS tags",
+    "post_hoc_reversal": false,
+    "bounded_preflight": true
+  },
+  "status": "obstruction: no exact multiword object/predicate reverse pair in bounded Brown index",
+  "next_operator": "Index shorter tagged predicate complements and allow a grammar-licensed bridge token while retaining intact spans; do not reverse finished clauses."
+}

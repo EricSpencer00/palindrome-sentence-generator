@@ -40,8 +40,12 @@ def test_recomputed_shell_reverse_lattice_and_global_gate() -> None:
     gate = row["full_render_gate"]
     assert all(gate[key] for key in gate if key != "status")
     assert gate["global_frame_count_deltas"]
-    assert all(value == 0 for value in gate["global_subject_count_deltas"].values())
-    assert all(value == 0 for value in gate["global_predicate_count_deltas"].values())
+    assert gate["raw_clause_counter_source"] == "rendered_text"
+    assert gate["global_subject_count_deltas"] == {"aron": 2, "nadia": 2, "star": 2}
+    assert gate["global_object_count_deltas"] == {"aidan": 2, "nora": 1, "rats": 1}
+    assert gate["global_predicate_count_deltas"] == {"sees": 2, "spots": 2, "stops": 1}
+    assert gate["introduced_vs_full_counts"]["deltas"]["subjects"] == gate["global_subject_count_deltas"]
+    assert gate["introduced_vs_full_counts"]["deltas"]["objects"] == gate["global_object_count_deltas"]
     assert row["online_state"]["final_residual"] == ""
     assert row["online_state"]["attempted_paired_expansions"] == 4
     assert row["online_state"]["accepted_paired_expansions"] == 3

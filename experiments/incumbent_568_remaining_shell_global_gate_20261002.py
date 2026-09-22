@@ -49,23 +49,34 @@ def frame_counts(text: str) -> Counter[str]:
     )
 
 
+def raw_clause_counts(text: str) -> dict[str, Counter[str]]:
+    """Count ordinary clauses from raw rendered text, before normalization."""
+    records = list(re.finditer(r"\b([A-Z][a-z]+) (sees|stops|spots|rewards|maps|delivers) ([A-Za-z]+)\b", text))
+    return {
+        "subjects": Counter(match.group(1).casefold() for match in records),
+        "predicates": Counter(match.group(2) for match in records),
+        "objects": Counter(match.group(3).casefold() for match in records),
+        "frames": Counter(f"{match.group(1).casefold()}|{match.group(2)}|{match.group(3).casefold()}" for match in records),
+    }
+
+
 def word_counts(text: str, vocabulary: set[str]) -> Counter[str]:
     return Counter(word for word in normalize(text).split() if word in vocabulary)
 
 
-def global_gate(rendered: str, base: str, introduced: list[Clause], old_left: str, old_right: str) -> dict[str, object]:
+def global_gate(rendered: str, base: str, introduced: list[Clause], old_left: str, old_right: str, *, max_delta: int = 2) -> dict[str, object]:
     inserted_tapes = [unit.tape for unit in introduced]
     inserted_frames = [unit.frame for unit in introduced]
     introduced_subjects = Counter(unit.subject for unit in introduced)
     introduced_predicates = Counter(unit.predicate for unit in introduced)
     introduced_objects = Counter(unit.object for unit in introduced)
-    entity_vocab = set(introduced_subjects) | set(introduced_objects)
+    entity_vocab = set(introduced_subjects)
     predicate_vocab = set(introduced_predicates)
-    base_entities = Counter(re.findall(r"[a-z]+", normalize(base)))
-    rendered_entities = Counter(re.findall(r"[a-z]+", normalize(rendered)))
-    base_predicates = Counter(re.findall(r"\b(?:sees|stops|spots)\b", normalize(base)))
-    rendered_predicates = Counter(re.findall(r"\b(?:sees|stops|spots)\b", normalize(rendered)))
-    base_frames, rendered_frames = frame_counts(base), frame_counts(rendered)
+    base_raw_counts, rendered_raw_counts = raw_clause_counts(base), raw_clause_counts(rendered)
+    base_entities, rendered_entities = base_raw_counts["subjects"], rendered_raw_counts["subjects"]
+    base_objects, rendered_objects = base_raw_counts["objects"], rendered_raw_counts["objects"]
+    base_predicates, rendered_predicates = base_raw_counts["predicates"], rendered_raw_counts["predicates"]
+    base_frames, rendered_frames = base_raw_counts["frames"], rendered_raw_counts["frames"]
     base_sentences, rendered_sentences = Counter(sentences(base)), Counter(sentences(rendered))
     new_sentences = list((rendered_sentences - base_sentences).elements())
     baseline_lowercase = len(re.findall(r"[.!?]\s+[a-z]", base))
@@ -75,6 +86,7 @@ def global_gate(rendered: str, base: str, introduced: list[Clause], old_left: st
     malformed = ("draw no maps", "drawnomaps", "spam onward", "spamonward", "spam on ward")
     clause_pattern = re.compile(r"[A-Z][a-z]+ (?:sees|stops|spots) [A-Za-z]+\.")
     global_entity_deltas = {name: rendered_entities[name] - base_entities[name] for name in sorted(entity_vocab)}
+    global_object_deltas = {name: rendered_objects[name] - base_objects[name] for name in sorted(set(introduced_objects))}
     global_predicate_deltas = {name: rendered_predicates[name] - base_predicates[name] for name in sorted(predicate_vocab)}
     global_frame_deltas = {frame: rendered_frames[frame] - base_frames[frame] for frame in sorted(set(inserted_frames))}
     return {
@@ -83,15 +95,24 @@ def global_gate(rendered: str, base: str, introduced: list[Clause], old_left: st
         "malformed_phrase_global": not any(token in rendered.casefold() for token in malformed),
         "comma_splice_global": rendered_commas <= baseline_commas,
         "global_subject_count_deltas": global_entity_deltas,
-        "global_subject_object_counts_bounded": all(delta <= 2 for delta in global_entity_deltas.values()),
+        "global_object_count_deltas": global_object_deltas,
+        "global_subject_object_counts_bounded": all(delta <= max_delta for delta in (*global_entity_deltas.values(), *global_object_deltas.values())),
         "global_predicate_count_deltas": global_predicate_deltas,
-        "global_predicate_counts_bounded": all(delta <= 2 for delta in global_predicate_deltas.values()),
+        "global_predicate_counts_bounded": all(delta <= max_delta for delta in global_predicate_deltas.values()),
         "global_frame_count_deltas": global_frame_deltas,
         "global_frames_novel_and_single": all(base_frames[frame] == 0 and rendered_frames[frame] == 1 for frame in set(inserted_frames)),
         "inherited_repeat_reduction": rendered.count(old_left) < base.count(old_left) and rendered.count(old_right) < base.count(old_right),
         "no_duplicated_inserted_units": all(normalize(rendered).count(tape) == 1 for tape in inserted_tapes),
         "no_repeated_inserted_frames": len(inserted_frames) == len(set(inserted_frames)),
         "semantic_transition_continuity": len({unit.role_family for unit in introduced}) >= 2 and len(set().union(*(set(unit.active_entities) for unit in introduced))) >= 5,
+        "raw_clause_counter_source": "rendered_text",
+        "count_delta_cap": max_delta,
+        "introduced_vs_full_counts": {
+            "introduced": {"subjects": dict(introduced_subjects), "predicates": dict(introduced_predicates), "objects": dict(introduced_objects), "frames": dict(Counter(inserted_frames))},
+            "parent_full": {name: dict(counter) for name, counter in base_raw_counts.items()},
+            "rendered_full": {name: dict(counter) for name, counter in rendered_raw_counts.items()},
+            "deltas": {"subjects": global_entity_deltas, "predicates": global_predicate_deltas, "objects": global_object_deltas, "frames": global_frame_deltas},
+        },
         "status": "passed",
     }
 

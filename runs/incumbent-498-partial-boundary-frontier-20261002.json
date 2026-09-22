@@ -1,0 +1,1256 @@
+{
+  "experiment_id": "incumbent-498-partial-boundary-frontier-20261002",
+  "method": "load the independently exact 498-letter parent, open one live partial-word seam, then move the cursors eight letters inward to repair its worst boundary while preserving exact growth",
+  "parent": {
+    "artifact": "runs/overhang-growth-from-240-20261001.json",
+    "rendered": "to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got",
+    "letters": 498,
+    "sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+    "independent_exact": true,
+    "role": "content incumbent"
+  },
+  "excluded_control": {
+    "letters": 530,
+    "role": "duplicated-wrapper repetition control only",
+    "used_as_parent": false
+  },
+  "pair_library": {
+    "P": {
+      "left": "A ram saw Leon.",
+      "right": "Noel was Mara.",
+      "letters_per_side": 11,
+      "exact_reverse_equation": true
+    },
+    "Q": {
+      "left": "A ram saw Nora.",
+      "right": "Aron was Mara.",
+      "letters_per_side": 11,
+      "exact_reverse_equation": true
+    },
+    "U": {
+      "left": "A ram saw Nadia.",
+      "right": "Aidan was Mara.",
+      "letters_per_side": 12,
+      "exact_reverse_equation": true
+    },
+    "F1": {
+      "left": "Nadia delivers maps.",
+      "right": "Spam's reviled, Aidan.",
+      "letters_per_side": 17,
+      "exact_reverse_equation": true
+    },
+    "F2": {
+      "left": "Nora delivers maps.",
+      "right": "Spam's reviled, Aron.",
+      "letters_per_side": 16,
+      "exact_reverse_equation": true
+    },
+    "G1": {
+      "left": "Nora stops rats.",
+      "right": "Star spots Aron.",
+      "letters_per_side": 13,
+      "exact_reverse_equation": true
+    },
+    "G2": {
+      "left": "Mara spots rats.",
+      "right": "Star stops Aram.",
+      "letters_per_side": 13,
+      "exact_reverse_equation": true
+    },
+    "H1": {
+      "left": "Mara maps Leon.",
+      "right": "Noel, spam Aram.",
+      "letters_per_side": 12,
+      "exact_reverse_equation": true
+    },
+    "H2": {
+      "left": "Leon maps Nora.",
+      "right": "Aron, spam Noel.",
+      "letters_per_side": 12,
+      "exact_reverse_equation": true
+    },
+    "K": {
+      "left": "Deliver no evil.",
+      "right": "Live on, reviled.",
+      "letters_per_side": 13,
+      "exact_reverse_equation": true
+    },
+    "L": {
+      "left": "Draw no maps.",
+      "right": "Spam onward.",
+      "letters_per_side": 10,
+      "exact_reverse_equation": true
+    },
+    "R": {
+      "left": "Aidan stops rats.",
+      "right": "Star spots Nadia.",
+      "letters_per_side": 14,
+      "exact_reverse_equation": true
+    }
+  },
+  "seams": {
+    "depth46-diagnostic": {
+      "left_cursor": 46,
+      "right_cursor": 452,
+      "start_word_index": 13,
+      "start_fragment": "e",
+      "first_full_word_index": 14,
+      "last_full_word_exclusive": 148,
+      "end_fragment": "he",
+      "left_boundary": "Fir",
+      "right_boundary": "r, if ",
+      "left_word_equation": "fir|e -> fire",
+      "right_word_equation": "he|r -> her",
+      "status": "diagnostic exact child; right seam reads 'were her'"
+    },
+    "depth54-repair": {
+      "left_cursor": 54,
+      "right_cursor": 444,
+      "start_word_index": 16,
+      "start_fragment": "Any. Me?",
+      "first_full_word_index": 18,
+      "last_full_word_exclusive": 146,
+      "end_fragment": "na",
+      "left_boundary": "A poem. ",
+      "right_boundary": "me. Opa,",
+      "left_word_equation": "m|any -> poem | any (new word boundary)",
+      "right_word_equation": "na|me -> name",
+      "status": "repaired exact child; both cut words close as ordinary words"
+    }
+  },
+  "stats": {
+    "paths_per_seam": 3,
+    "independently_exact_children": 6,
+    "children_over_530": 6,
+    "diagnostic_children": 3,
+    "repaired_children": 3,
+    "shortest_letters": 552,
+    "longest_letters": 572
+  },
+  "incumbent_specific_repair": {
+    "diagnosed_seam": "depth46: retained 'were he' plus outer 'r' rendered 'were her'",
+    "changed_editable_seam": "depth54: retained 'na' plus outer 'me' renders 'name'; the opposing m|any cut is resegmented after 'poem'",
+    "cursor_delta": 8,
+    "exact_children_after_repair": 3,
+    "worst_remaining_seam": "the inherited sequence after 'A poem. Any. Me?' remains discourse-poor",
+    "next_operator": "retain the depth54 amber/blue children and re-punctuate or replace the first inherited event span after 'A poem. Any. Me?' under the same live cursor equation"
+  },
+  "active_frontier": [
+    "depth54-repair-amber",
+    "depth54-repair-green",
+    "depth54-repair-blue"
+  ],
+  "provenance": {
+    "parent_loaded_and_verified_at_runtime": true,
+    "parent_is_498_content_incumbent": true,
+    "duplicate_530_control_excluded": true,
+    "finished_parent_tape_reversal": false,
+    "posthoc_character_repair": false,
+    "per_candidate_model_scoring": false,
+    "human_certified": false
+  },
+  "rows": [
+    {
+      "id": "depth46-diagnostic-amber",
+      "seam_id": "depth46-diagnostic",
+      "path_id": "amber",
+      "pair_path": [
+        "P",
+        "F1",
+        "G1",
+        "H1",
+        "K",
+        "R"
+      ],
+      "rendered": "A ram saw Leon. Nadia delivers maps. Nora stops rats. Mara maps Leon. Deliver no evil. Aidan stops rats. Fire here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were her, if  Star spots Nadia. Live on, reviled. Noel, spam Aram. Star spots Aron. Spam's reviled, Aidan. Noel was Mara.",
+      "audit": {
+        "letters": 572,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "648608d16d07b4a319e474833225e94820be55d4cf13d14c0ebfca8c9c20c858",
+        "sha256_reverse": "648608d16d07b4a319e474833225e94820be55d4cf13d14c0ebfca8c9c20c858",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 74,
+      "retained_parent_letters": 406,
+      "new_lexical_content": [
+        "a",
+        "aidan",
+        "delivers",
+        "fir",
+        "maps",
+        "nadia",
+        "r",
+        "ram",
+        "rats",
+        "s",
+        "spam",
+        "spots",
+        "star",
+        "stops"
+      ],
+      "new_event_content": [
+        "A ram saw Leon",
+        "Nadia delivers maps",
+        "Nora stops rats",
+        "Mara maps Leon",
+        "Deliver no evil",
+        "Aidan stops rats"
+      ],
+      "live_state": {
+        "left_cursor": 46,
+        "right_cursor": 452,
+        "left_partial_word": "fir|e -> fire",
+        "right_partial_word": "he|r -> her",
+        "trace": [
+          {
+            "action": "emit_left_event",
+            "pair": "P",
+            "owner": "L",
+            "residual": "noelwasmara",
+            "left_shell_cursor": 11,
+            "right_shell_cursor": 0
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "P",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 11,
+            "right_shell_cursor": 11
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "F1",
+            "owner": "L",
+            "residual": "spamsreviledaidan",
+            "left_shell_cursor": 28,
+            "right_shell_cursor": 11
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "F1",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 28,
+            "right_shell_cursor": 28
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "G1",
+            "owner": "L",
+            "residual": "starspotsaron",
+            "left_shell_cursor": 41,
+            "right_shell_cursor": 28
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "G1",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 41,
+            "right_shell_cursor": 41
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "H1",
+            "owner": "L",
+            "residual": "noelspamaram",
+            "left_shell_cursor": 53,
+            "right_shell_cursor": 41
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "H1",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 53,
+            "right_shell_cursor": 53
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "K",
+            "owner": "L",
+            "residual": "liveonreviled",
+            "left_shell_cursor": 66,
+            "right_shell_cursor": 53
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "K",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 66,
+            "right_shell_cursor": 66
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "R",
+            "owner": "L",
+            "residual": "starspotsnadia",
+            "left_shell_cursor": 80,
+            "right_shell_cursor": 66
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "R",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 80,
+            "right_shell_cursor": 80
+          },
+          {
+            "action": "open_partial_word_boundary",
+            "owner": "L",
+            "residual": "rif",
+            "left_parent_cursor": 46,
+            "right_parent_cursor": 452,
+            "left_shell_cursor": 83,
+            "right_shell_cursor": 80
+          },
+          {
+            "action": "close_partial_word_boundary",
+            "owner": null,
+            "residual": "",
+            "left_parent_cursor": 46,
+            "right_parent_cursor": 452,
+            "left_shell_cursor": 83,
+            "right_shell_cursor": 83
+          }
+        ],
+        "final_owner": null,
+        "final_residual": ""
+      },
+      "working_track_debt": [
+        "the retained parent center remains rough and is not human-certified",
+        "some reverse-facing event clauses use vocative or literary syntax",
+        "proper palindromic event spans are allowed only on this construction track"
+      ],
+      "reader_status": "not promoted; exact working-track frontier only"
+    },
+    {
+      "id": "depth46-diagnostic-green",
+      "seam_id": "depth46-diagnostic",
+      "path_id": "green",
+      "pair_path": [
+        "U",
+        "F1",
+        "G2",
+        "H1",
+        "L",
+        "K"
+      ],
+      "rendered": "A ram saw Nadia. Nadia delivers maps. Mara spots rats. Mara maps Leon. Draw no maps. Deliver no evil. Fire here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were her, if  Live on, reviled. Spam onward. Noel, spam Aram. Star stops Aram. Spam's reviled, Aidan. Aidan was Mara.",
+      "audit": {
+        "letters": 566,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "590c52504cc352c0e8bd26695718ed8094630b5a940721b2780da118d30857b2",
+        "sha256_reverse": "590c52504cc352c0e8bd26695718ed8094630b5a940721b2780da118d30857b2",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 68,
+      "retained_parent_letters": 406,
+      "new_lexical_content": [
+        "a",
+        "aidan",
+        "delivers",
+        "fir",
+        "maps",
+        "nadia",
+        "onward",
+        "r",
+        "ram",
+        "rats",
+        "s",
+        "spam",
+        "spots",
+        "star",
+        "stops"
+      ],
+      "new_event_content": [
+        "A ram saw Nadia",
+        "Nadia delivers maps",
+        "Mara spots rats",
+        "Mara maps Leon",
+        "Draw no maps",
+        "Deliver no evil"
+      ],
+      "live_state": {
+        "left_cursor": 46,
+        "right_cursor": 452,
+        "left_partial_word": "fir|e -> fire",
+        "right_partial_word": "he|r -> her",
+        "trace": [
+          {
+            "action": "emit_left_event",
+            "pair": "U",
+            "owner": "L",
+            "residual": "aidanwasmara",
+            "left_shell_cursor": 12,
+            "right_shell_cursor": 0
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "U",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 12,
+            "right_shell_cursor": 12
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "F1",
+            "owner": "L",
+            "residual": "spamsreviledaidan",
+            "left_shell_cursor": 29,
+            "right_shell_cursor": 12
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "F1",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 29,
+            "right_shell_cursor": 29
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "G2",
+            "owner": "L",
+            "residual": "starstopsaram",
+            "left_shell_cursor": 42,
+            "right_shell_cursor": 29
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "G2",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 42,
+            "right_shell_cursor": 42
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "H1",
+            "owner": "L",
+            "residual": "noelspamaram",
+            "left_shell_cursor": 54,
+            "right_shell_cursor": 42
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "H1",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 54,
+            "right_shell_cursor": 54
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "L",
+            "owner": "L",
+            "residual": "spamonward",
+            "left_shell_cursor": 64,
+            "right_shell_cursor": 54
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "L",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 64,
+            "right_shell_cursor": 64
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "K",
+            "owner": "L",
+            "residual": "liveonreviled",
+            "left_shell_cursor": 77,
+            "right_shell_cursor": 64
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "K",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 77,
+            "right_shell_cursor": 77
+          },
+          {
+            "action": "open_partial_word_boundary",
+            "owner": "L",
+            "residual": "rif",
+            "left_parent_cursor": 46,
+            "right_parent_cursor": 452,
+            "left_shell_cursor": 80,
+            "right_shell_cursor": 77
+          },
+          {
+            "action": "close_partial_word_boundary",
+            "owner": null,
+            "residual": "",
+            "left_parent_cursor": 46,
+            "right_parent_cursor": 452,
+            "left_shell_cursor": 80,
+            "right_shell_cursor": 80
+          }
+        ],
+        "final_owner": null,
+        "final_residual": ""
+      },
+      "working_track_debt": [
+        "the retained parent center remains rough and is not human-certified",
+        "some reverse-facing event clauses use vocative or literary syntax",
+        "proper palindromic event spans are allowed only on this construction track"
+      ],
+      "reader_status": "not promoted; exact working-track frontier only"
+    },
+    {
+      "id": "depth46-diagnostic-blue",
+      "seam_id": "depth46-diagnostic",
+      "path_id": "blue",
+      "pair_path": [
+        "Q",
+        "F2",
+        "G2",
+        "H2",
+        "L",
+        "R"
+      ],
+      "rendered": "A ram saw Nora. Nora delivers maps. Mara spots rats. Leon maps Nora. Draw no maps. Aidan stops rats. Fire here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were her, if  Star spots Nadia. Spam onward. Aron, spam Noel. Star stops Aram. Spam's reviled, Aron. Aron was Mara.",
+      "audit": {
+        "letters": 564,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "f6c089fb7dcbce056e607818004d3251e1f931c655fafbdcc9c8962efc2f8722",
+        "sha256_reverse": "f6c089fb7dcbce056e607818004d3251e1f931c655fafbdcc9c8962efc2f8722",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 66,
+      "retained_parent_letters": 406,
+      "new_lexical_content": [
+        "a",
+        "aidan",
+        "delivers",
+        "fir",
+        "maps",
+        "nadia",
+        "onward",
+        "r",
+        "ram",
+        "rats",
+        "s",
+        "spam",
+        "spots",
+        "star",
+        "stops"
+      ],
+      "new_event_content": [
+        "A ram saw Nora",
+        "Nora delivers maps",
+        "Mara spots rats",
+        "Leon maps Nora",
+        "Draw no maps",
+        "Aidan stops rats"
+      ],
+      "live_state": {
+        "left_cursor": 46,
+        "right_cursor": 452,
+        "left_partial_word": "fir|e -> fire",
+        "right_partial_word": "he|r -> her",
+        "trace": [
+          {
+            "action": "emit_left_event",
+            "pair": "Q",
+            "owner": "L",
+            "residual": "aronwasmara",
+            "left_shell_cursor": 11,
+            "right_shell_cursor": 0
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "Q",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 11,
+            "right_shell_cursor": 11
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "F2",
+            "owner": "L",
+            "residual": "spamsreviledaron",
+            "left_shell_cursor": 27,
+            "right_shell_cursor": 11
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "F2",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 27,
+            "right_shell_cursor": 27
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "G2",
+            "owner": "L",
+            "residual": "starstopsaram",
+            "left_shell_cursor": 40,
+            "right_shell_cursor": 27
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "G2",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 40,
+            "right_shell_cursor": 40
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "H2",
+            "owner": "L",
+            "residual": "aronspamnoel",
+            "left_shell_cursor": 52,
+            "right_shell_cursor": 40
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "H2",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 52,
+            "right_shell_cursor": 52
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "L",
+            "owner": "L",
+            "residual": "spamonward",
+            "left_shell_cursor": 62,
+            "right_shell_cursor": 52
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "L",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 62,
+            "right_shell_cursor": 62
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "R",
+            "owner": "L",
+            "residual": "starspotsnadia",
+            "left_shell_cursor": 76,
+            "right_shell_cursor": 62
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "R",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 76,
+            "right_shell_cursor": 76
+          },
+          {
+            "action": "open_partial_word_boundary",
+            "owner": "L",
+            "residual": "rif",
+            "left_parent_cursor": 46,
+            "right_parent_cursor": 452,
+            "left_shell_cursor": 79,
+            "right_shell_cursor": 76
+          },
+          {
+            "action": "close_partial_word_boundary",
+            "owner": null,
+            "residual": "",
+            "left_parent_cursor": 46,
+            "right_parent_cursor": 452,
+            "left_shell_cursor": 79,
+            "right_shell_cursor": 79
+          }
+        ],
+        "final_owner": null,
+        "final_residual": ""
+      },
+      "working_track_debt": [
+        "the retained parent center remains rough and is not human-certified",
+        "some reverse-facing event clauses use vocative or literary syntax",
+        "proper palindromic event spans are allowed only on this construction track"
+      ],
+      "reader_status": "not promoted; exact working-track frontier only"
+    },
+    {
+      "id": "depth54-repair-amber",
+      "seam_id": "depth54-repair",
+      "path_id": "amber",
+      "pair_path": [
+        "P",
+        "F1",
+        "G1",
+        "H1",
+        "K",
+        "R"
+      ],
+      "rendered": "A ram saw Leon. Nadia delivers maps. Nora stops rats. Mara maps Leon. Deliver no evil. Aidan stops rats. A poem. Any. Me? rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name. Opa, Star spots Nadia. Live on, reviled. Noel, spam Aram. Star spots Aron. Spam's reviled, Aidan. Noel was Mara.",
+      "audit": {
+        "letters": 560,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "7b75356b778309fe0fe221cfed5642f7f47b52f73e308556e11f7a04cd0e5dfa",
+        "sha256_reverse": "7b75356b778309fe0fe221cfed5642f7f47b52f73e308556e11f7a04cd0e5dfa",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 62,
+      "retained_parent_letters": 390,
+      "new_lexical_content": [
+        "a",
+        "aidan",
+        "delivers",
+        "maps",
+        "nadia",
+        "opa",
+        "poem",
+        "ram",
+        "rats",
+        "s",
+        "spam",
+        "spots",
+        "star",
+        "stops"
+      ],
+      "new_event_content": [
+        "A ram saw Leon",
+        "Nadia delivers maps",
+        "Nora stops rats",
+        "Mara maps Leon",
+        "Deliver no evil",
+        "Aidan stops rats"
+      ],
+      "live_state": {
+        "left_cursor": 54,
+        "right_cursor": 444,
+        "left_partial_word": "m|any -> poem | any (new word boundary)",
+        "right_partial_word": "na|me -> name",
+        "trace": [
+          {
+            "action": "emit_left_event",
+            "pair": "P",
+            "owner": "L",
+            "residual": "noelwasmara",
+            "left_shell_cursor": 11,
+            "right_shell_cursor": 0
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "P",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 11,
+            "right_shell_cursor": 11
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "F1",
+            "owner": "L",
+            "residual": "spamsreviledaidan",
+            "left_shell_cursor": 28,
+            "right_shell_cursor": 11
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "F1",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 28,
+            "right_shell_cursor": 28
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "G1",
+            "owner": "L",
+            "residual": "starspotsaron",
+            "left_shell_cursor": 41,
+            "right_shell_cursor": 28
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "G1",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 41,
+            "right_shell_cursor": 41
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "H1",
+            "owner": "L",
+            "residual": "noelspamaram",
+            "left_shell_cursor": 53,
+            "right_shell_cursor": 41
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "H1",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 53,
+            "right_shell_cursor": 53
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "K",
+            "owner": "L",
+            "residual": "liveonreviled",
+            "left_shell_cursor": 66,
+            "right_shell_cursor": 53
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "K",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 66,
+            "right_shell_cursor": 66
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "R",
+            "owner": "L",
+            "residual": "starspotsnadia",
+            "left_shell_cursor": 80,
+            "right_shell_cursor": 66
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "R",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 80,
+            "right_shell_cursor": 80
+          },
+          {
+            "action": "open_partial_word_boundary",
+            "owner": "L",
+            "residual": "meopa",
+            "left_parent_cursor": 54,
+            "right_parent_cursor": 444,
+            "left_shell_cursor": 85,
+            "right_shell_cursor": 80
+          },
+          {
+            "action": "close_partial_word_boundary",
+            "owner": null,
+            "residual": "",
+            "left_parent_cursor": 54,
+            "right_parent_cursor": 444,
+            "left_shell_cursor": 85,
+            "right_shell_cursor": 85
+          }
+        ],
+        "final_owner": null,
+        "final_residual": ""
+      },
+      "working_track_debt": [
+        "the retained parent center remains rough and is not human-certified",
+        "some reverse-facing event clauses use vocative or literary syntax",
+        "proper palindromic event spans are allowed only on this construction track"
+      ],
+      "reader_status": "not promoted; exact working-track frontier only"
+    },
+    {
+      "id": "depth54-repair-green",
+      "seam_id": "depth54-repair",
+      "path_id": "green",
+      "pair_path": [
+        "U",
+        "F1",
+        "G2",
+        "H1",
+        "L",
+        "K"
+      ],
+      "rendered": "A ram saw Nadia. Nadia delivers maps. Mara spots rats. Mara maps Leon. Draw no maps. Deliver no evil. A poem. Any. Me? rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name. Opa, Live on, reviled. Spam onward. Noel, spam Aram. Star stops Aram. Spam's reviled, Aidan. Aidan was Mara.",
+      "audit": {
+        "letters": 554,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "4fc2bded07ba924c77d245b80f11365175165e181c9e1423144c315ef3e363bf",
+        "sha256_reverse": "4fc2bded07ba924c77d245b80f11365175165e181c9e1423144c315ef3e363bf",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 56,
+      "retained_parent_letters": 390,
+      "new_lexical_content": [
+        "a",
+        "aidan",
+        "delivers",
+        "maps",
+        "nadia",
+        "onward",
+        "opa",
+        "poem",
+        "ram",
+        "rats",
+        "s",
+        "spam",
+        "spots",
+        "star",
+        "stops"
+      ],
+      "new_event_content": [
+        "A ram saw Nadia",
+        "Nadia delivers maps",
+        "Mara spots rats",
+        "Mara maps Leon",
+        "Draw no maps",
+        "Deliver no evil"
+      ],
+      "live_state": {
+        "left_cursor": 54,
+        "right_cursor": 444,
+        "left_partial_word": "m|any -> poem | any (new word boundary)",
+        "right_partial_word": "na|me -> name",
+        "trace": [
+          {
+            "action": "emit_left_event",
+            "pair": "U",
+            "owner": "L",
+            "residual": "aidanwasmara",
+            "left_shell_cursor": 12,
+            "right_shell_cursor": 0
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "U",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 12,
+            "right_shell_cursor": 12
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "F1",
+            "owner": "L",
+            "residual": "spamsreviledaidan",
+            "left_shell_cursor": 29,
+            "right_shell_cursor": 12
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "F1",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 29,
+            "right_shell_cursor": 29
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "G2",
+            "owner": "L",
+            "residual": "starstopsaram",
+            "left_shell_cursor": 42,
+            "right_shell_cursor": 29
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "G2",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 42,
+            "right_shell_cursor": 42
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "H1",
+            "owner": "L",
+            "residual": "noelspamaram",
+            "left_shell_cursor": 54,
+            "right_shell_cursor": 42
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "H1",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 54,
+            "right_shell_cursor": 54
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "L",
+            "owner": "L",
+            "residual": "spamonward",
+            "left_shell_cursor": 64,
+            "right_shell_cursor": 54
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "L",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 64,
+            "right_shell_cursor": 64
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "K",
+            "owner": "L",
+            "residual": "liveonreviled",
+            "left_shell_cursor": 77,
+            "right_shell_cursor": 64
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "K",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 77,
+            "right_shell_cursor": 77
+          },
+          {
+            "action": "open_partial_word_boundary",
+            "owner": "L",
+            "residual": "meopa",
+            "left_parent_cursor": 54,
+            "right_parent_cursor": 444,
+            "left_shell_cursor": 82,
+            "right_shell_cursor": 77
+          },
+          {
+            "action": "close_partial_word_boundary",
+            "owner": null,
+            "residual": "",
+            "left_parent_cursor": 54,
+            "right_parent_cursor": 444,
+            "left_shell_cursor": 82,
+            "right_shell_cursor": 82
+          }
+        ],
+        "final_owner": null,
+        "final_residual": ""
+      },
+      "working_track_debt": [
+        "the retained parent center remains rough and is not human-certified",
+        "some reverse-facing event clauses use vocative or literary syntax",
+        "proper palindromic event spans are allowed only on this construction track"
+      ],
+      "reader_status": "not promoted; exact working-track frontier only"
+    },
+    {
+      "id": "depth54-repair-blue",
+      "seam_id": "depth54-repair",
+      "path_id": "blue",
+      "pair_path": [
+        "Q",
+        "F2",
+        "G2",
+        "H2",
+        "L",
+        "R"
+      ],
+      "rendered": "A ram saw Nora. Nora delivers maps. Mara spots rats. Leon maps Nora. Draw no maps. Aidan stops rats. A poem. Any. Me? rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name. Opa, Star spots Nadia. Spam onward. Aron, spam Noel. Star stops Aram. Spam's reviled, Aron. Aron was Mara.",
+      "audit": {
+        "letters": 552,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "project_validator_exact": true,
+        "sha256_forward": "c2d15809633487b717ca9bf297b3895d86423a624173f3ab308cb2c16ea64a35",
+        "sha256_reverse": "c2d15809633487b717ca9bf297b3895d86423a624173f3ab308cb2c16ea64a35",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "parent_letters": 498,
+      "growth_over_parent": 54,
+      "retained_parent_letters": 390,
+      "new_lexical_content": [
+        "a",
+        "aidan",
+        "delivers",
+        "maps",
+        "nadia",
+        "onward",
+        "opa",
+        "poem",
+        "ram",
+        "rats",
+        "s",
+        "spam",
+        "spots",
+        "star",
+        "stops"
+      ],
+      "new_event_content": [
+        "A ram saw Nora",
+        "Nora delivers maps",
+        "Mara spots rats",
+        "Leon maps Nora",
+        "Draw no maps",
+        "Aidan stops rats"
+      ],
+      "live_state": {
+        "left_cursor": 54,
+        "right_cursor": 444,
+        "left_partial_word": "m|any -> poem | any (new word boundary)",
+        "right_partial_word": "na|me -> name",
+        "trace": [
+          {
+            "action": "emit_left_event",
+            "pair": "Q",
+            "owner": "L",
+            "residual": "aronwasmara",
+            "left_shell_cursor": 11,
+            "right_shell_cursor": 0
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "Q",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 11,
+            "right_shell_cursor": 11
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "F2",
+            "owner": "L",
+            "residual": "spamsreviledaron",
+            "left_shell_cursor": 27,
+            "right_shell_cursor": 11
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "F2",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 27,
+            "right_shell_cursor": 27
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "G2",
+            "owner": "L",
+            "residual": "starstopsaram",
+            "left_shell_cursor": 40,
+            "right_shell_cursor": 27
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "G2",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 40,
+            "right_shell_cursor": 40
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "H2",
+            "owner": "L",
+            "residual": "aronspamnoel",
+            "left_shell_cursor": 52,
+            "right_shell_cursor": 40
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "H2",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 52,
+            "right_shell_cursor": 52
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "L",
+            "owner": "L",
+            "residual": "spamonward",
+            "left_shell_cursor": 62,
+            "right_shell_cursor": 52
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "L",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 62,
+            "right_shell_cursor": 62
+          },
+          {
+            "action": "emit_left_event",
+            "pair": "R",
+            "owner": "L",
+            "residual": "starspotsnadia",
+            "left_shell_cursor": 76,
+            "right_shell_cursor": 62
+          },
+          {
+            "action": "consume_right_event",
+            "pair": "R",
+            "owner": null,
+            "residual": "",
+            "left_shell_cursor": 76,
+            "right_shell_cursor": 76
+          },
+          {
+            "action": "open_partial_word_boundary",
+            "owner": "L",
+            "residual": "meopa",
+            "left_parent_cursor": 54,
+            "right_parent_cursor": 444,
+            "left_shell_cursor": 81,
+            "right_shell_cursor": 76
+          },
+          {
+            "action": "close_partial_word_boundary",
+            "owner": null,
+            "residual": "",
+            "left_parent_cursor": 54,
+            "right_parent_cursor": 444,
+            "left_shell_cursor": 81,
+            "right_shell_cursor": 81
+          }
+        ],
+        "final_owner": null,
+        "final_residual": ""
+      },
+      "working_track_debt": [
+        "the retained parent center remains rough and is not human-certified",
+        "some reverse-facing event clauses use vocative or literary syntax",
+        "proper palindromic event spans are allowed only on this construction track"
+      ],
+      "reader_status": "not promoted; exact working-track frontier only"
+    }
+  ]
+}

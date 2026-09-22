@@ -1,8 +1,52 @@
 # Readable palindrome finder: goal record
 
-## Active working-track override (2026-09-22)
+## Active working-track override (2026-10-02)
 
-The active parent is the independently verified 498-letter content-bearing
+The working length incumbent is the independently verified **608-letter**
+child in `runs/incumbent-568-live-partial-seam-growth-20261002.json`, row
+`live-nadia-seam-shell-repair-608`, normalized SHA-256
+`eacd84ecc82aacb84fe19b557faf91494370e86c986248be5e37de9ad7298248`.
+It descends directly from the verified 568-letter causal-scene incumbent in
+`runs/incumbent-560-outer-causal-scene-20261002.json`, SHA-256
+`6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`.
+The 568 row is preserved as the construction parent; the 560 repaired child
+and 556 varied-frame child remain the diverse repair frontier. The 531/532
+shortcut-cleaning variants are historical diagnostics and do not define the
+active length line.
+
+The new construction reopens the 568 tape after the first two letters and
+before the last two: `Le|on ... No|el`. The retained 564-letter middle remains
+an exact palindrome. A left-authored event owns the new residual; the opposing
+surface consumes its exact reverse, including the two partial-word joins.
+Three distinct events produce exact children of 590, 590, and 592 letters.
+The 592 row is then repaired at a mirrored outer shell: “Mara stops rats,”
+“A tub?”, and “Eh, but a star spots Aram” each fall from two occurrences to
+one. The repaired child reaches 608 letters. Every row closes with empty
+residual, zero backtracks, and no committed character contradiction.
+
+The 608 row's proper spans and rough prose remain repair debt. They do not
+invalidate the exact construction or send the active line back to a shorter
+candidate. Human readers are still required before claiming readable English,
+but reader certification is not a prerequisite for continued constructive
+growth and repair. The next operator reopens the highest-impact remaining
+repeated shell of the 608 tape, preserving a small exact frontier and
+backtracking only on an actual normalized-character contradiction.
+
+Evidence:
+`experiments/incumbent_560_outer_causal_scene_20261002.py`,
+`runs/incumbent-560-outer-causal-scene-20261002.json`,
+`experiments/incumbent_568_live_partial_seam_growth_20261002.py`, and
+`runs/incumbent-568-live-partial-seam-growth-20261002.json`.
+
+Sol owns this track. No Astra or non-Sol agent is used.
+
+## Historical 498-to-568 construction ledger (superseded by the override above)
+
+The statements in this subsection describe the sequence of earlier
+experiments. Any contemporaneous label such as “active,” “control,” or
+“rejected” is provenance, not current working-track status.
+
+The then-active parent was the independently verified 498-letter content-bearing
 closure in `runs/overhang-growth-from-240-20261001.json`, SHA-256
 `e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032`.
 The 38/54-letter seed lanes, fixed paragraph shells, short dialogue lanes,
@@ -11,7 +55,7 @@ frozen. The 530-letter desserts/stressed wrapper is retained only as a
 repetition control. The overlooked 528-letter drawer/reward child remains a
 content-bearing frontier member.
 
-The live construction now reopens the parent's actual `to ... got` closure.
+That construction reopened the parent's actual `to ... got` closure.
 After removing only those outer words, the retained 493-letter surface is
 `get ... estate`, with owner `R` and residual `g`. The mixed-ownership word
 `get` first repays left residual `et` and then exposes `g` to the right. A new

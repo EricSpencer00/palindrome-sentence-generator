@@ -1,24 +1,31 @@
 # Palindrome Sentence Generator
 
-## Current status: exact 498-letter content incumbent; no reader-validated output
+## Current status: exact 608-letter working incumbent; no reader-validated output
 
-The active construction parent is the independently exact 498-letter row in
-`runs/overhang-growth-from-240-20261001.json` (normalized SHA-256
-`e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032`).
-The current live partial-word seam experiments produce exact 534--568-letter
-children from that parent; they do not use the 530-letter duplicated-wrapper
-control. The 568-letter row has normalized SHA-256
-`5817fbfefe5f0c6d9bfe6fb5e7ed4aaa05067a406c785c760145485b0900de86`.
+The active lineage runs through the independently exact 568-letter causal-scene
+row in `runs/incumbent-560-outer-causal-scene-20261002.json` (normalized
+SHA-256
+`6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`).
+That row is preserved as the working parent, with the 560- and 556-letter
+children retained as a diverse repair frontier. Proper palindromic spans,
+repeated units, and rough prose are repair debt on this construction track,
+not reasons to replace it with the shorter 531/532 shortcut-cleaning branch.
 
-Those rows are rough construction evidence, not reader-validated English.
+The current operator reopens the parent's real `Le|on ... No|el` partial-word
+seam and carries the character owner and residual through closure. Three new
+event-bearing children reach 590, 590, and 592 exact letters. A mirrored shell
+repair on the 592 row then reduces three duplicated phrases from two copies to
+one and yields the current **608-letter** exact child, normalized SHA-256
+`eacd84ecc82aacb84fe19b557faf91494370e86c986248be5e37de9ad7298248`.
+The complete rendered frontier and live traces are in
+`runs/incumbent-568-live-partial-seam-growth-20261002.json`.
+
+These rows are constructive progress, not yet reader-validated English.
 This project still has no long palindrome that has passed blinded human reader
 evaluation. Exact-letter validation and automatic language scores are filters,
-not readability evidence. Public output routes remain retired while the first
-inherited discourse seam is repaired. The active method and complete rendered
-frontiers are recorded in
-`runs/incumbent-498-partial-boundary-frontier-20261002.json` and
-`runs/incumbent-498-note-seam-growth-20261002.json`; legacy service descriptions
-below are historical development material.
+not readability evidence. Public output routes remain retired while the
+remaining repeated shells and rough transitions are repaired. Legacy service
+descriptions below are historical development material.
 
 The active acceptance standard is documented in
 [`docs/READABLE-PALINDROME-GOAL.md`](docs/READABLE-PALINDROME-GOAL.md): an

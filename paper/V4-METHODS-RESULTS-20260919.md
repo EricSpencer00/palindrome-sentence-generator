@@ -4,9 +4,10 @@ This note is the current evidence-led core for the paper. The working claim
 is constructive: choose grammatical lexical paths while satisfying character
 seams during search. Exactness is independently checked; automatic language
 scores and AI feedback only diagnose historical lanes. The active search is
-exact-by-construction from the verified 498-letter content incumbent, with
-partial-word ownership, residual characters, grammar boundaries, and opposing
-cursors carried together. No output below is human certified yet.
+exact-by-construction from the verified 568-letter causal-scene incumbent and
+now reaches 608 letters, with partial-word ownership, residual characters,
+grammar boundaries, and opposing cursors carried together. No output below is
+human certified yet.
 
 The readability target is broad English: an intact, grammatical, scene-bearing
 line that a blinded reader can understand. “Shakespearean,” where it appears
@@ -14,9 +15,52 @@ in legacy run names or diagnostic fields, is not a diction or imitation
 requirement. Literary vocabulary is neither a shortcut nor a certificate;
 reader ratings decide whether an exact output is readable.
 
-## Active 498-letter content incumbent and live-seam frontier
+## Current result: live-seam growth and shell repair to 608 letters
 
-The active parent is the independently exact 498-letter row in
+The working lineage is anchored by the independently exact 568-letter causal
+scene in `runs/incumbent-560-outer-causal-scene-20261002.json`, normalized
+SHA-256
+`6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`.
+That candidate is a working result rather than a rejected control. Its proper
+palindromic spans, repeated units, and rough transitions are explicit repair
+debt. The 560 repaired child and 556 varied-frame child are preserved as a
+diverse frontier; the shorter 531/532 shortcut-cleaning variants are diagnostic
+branches, not the active line.
+
+The candidate-producing operator reopens an actual partial-word seam of the
+568 tape at normalized cursors 2 and 566. The retained 564-letter middle begins
+with `on` and ends with `No`; new surfaces join it as `Le|on ... No|el`.
+Character ownership is live throughout: the left emission creates the exact
+reverse obligation consumed on the right, and acceptance requires an empty
+residual. Three different event choices produce independently exact children
+of 590, 590, and 592 letters, all with zero backtracks and distinct hashes.
+
+The longest seam child then receives a paired shell repair rather than another
+fixed wrapper. The exact equation replaces “Mara stops rats. A tub? He maps
+Aron” and its opposing surface with “Mara spots rats. Leon maps Nora. Draw no
+maps” and the required opposing clauses. This reduces each of three conspicuous
+duplicate phrases from two occurrences to one while growing to **608 letters**.
+The rendered working incumbent is:
+
+> **A ram saw Nadia. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara spots rats. Leon maps Nora. Draw no maps. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Spam onward. Aron, spam Noel. Star stops Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel. Aidan was Mara.**
+
+An independent regular-expression normalizer reports 608 letters; a direct
+two-pointer comparison accepts the tape; and SHA-256 of both the forward tape
+and its reverse is
+`eacd84ecc82aacb84fe19b557faf91494370e86c986248be5e37de9ad7298248`.
+The generator, complete rendered frontier, residual trace, provenance, and
+repair deltas are in
+`experiments/incumbent_568_live_partial_seam_growth_20261002.py` and
+`runs/incumbent-568-live-partial-seam-growth-20261002.json`.
+
+This is a construction result, not yet a human-readability result. The next
+experiment keeps the 608 tape and repairs its worst remaining repeated shell;
+it does not retreat to a shorter candidate merely because automated structural
+diagnostics identify debt.
+
+## Prior 498-letter lineage and live-seam frontier
+
+The then-active parent was the independently exact 498-letter row in
 `runs/overhang-growth-from-240-20261001.json`, not the historical 38-letter
 sentence and not the 530-letter duplicated wrapper. Its normalized tape has
 SHA-256
@@ -27,12 +71,12 @@ rendered parent is:
 
 > **to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got**
 
-This is the content incumbent because it carries a large original generated
+This was the content incumbent because it carries a large original generated
 tape and a reproducible construction trace. It is not claimed to be readable
 prose. The 530-letter row remains only a repetition control and is never loaded
 as a parent by the active experiment.
 
-The active operator reopens a concrete partial-word seam in that exact parent.
+The operator reopened a concrete partial-word seam in that exact parent.
 At cursors 46/452, it carries live owner `L` and residual `rif`: left `fir|e`
 renders *fire*, while right `he|r` renders *her*. Three exact children expose
 the resulting bad boundary “were her.” Instead of defending it, the repair
@@ -400,8 +444,9 @@ pass the whole-candidate proper-span gate. The next representation change is
 thus the one-sided through-EOF window, raw `[357,768)`, normalized `[261,550)`,
 which removes the frozen right endpoint responsible for the theorem. Keeping
 the full output above 530 requires at least 270 generated letters. A separate
-outer causal replacement reaches 568 exact letters, but it inherits 65 proper
-spans and is retained only as a permissive length control, not a result claim.
+outer causal replacement reaches 568 exact letters. Subsequent independent
+verification promoted it to the working construction parent; its 65 inherited
+proper spans are repair debt rather than a veto.
 
 The through-EOF cut is itself rejected before search by a second monotone
 proof: its frozen prefix already contains `delivers maps` twice, at normalized
@@ -424,10 +469,11 @@ agreement, valency, character residual, and a complementary-boundary mask
 online, before surface realization. This is the representation change implied
 by the incumbent evidence, rather than another repair of the 498 tape.
 
-Evidence:
+Evidence for this historical diagnostic branch:
 `experiments/incumbent_550_asymmetric_smaps_repair_20261002.py`,
 `runs/incumbent-550-asymmetric-smaps-repair-20261002.json`, and
-`runs/incumbent-560-outer-causal-scene-20261002.json`.
+`runs/incumbent-560-outer-causal-scene-20261002.json`. Its promoted successor
+is `runs/incumbent-568-live-partial-seam-growth-20261002.json`.
 
 Reproducible evidence is in
 `experiments/incumbent_498_live_seam_growth_20261002.py` and

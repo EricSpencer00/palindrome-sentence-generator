@@ -95,6 +95,21 @@ The next operator therefore grows the outer sentence pair jointly while
 retaining the open middle seam; it does not nest another closed palindrome
 around this 32-letter proof.
 
+We next reopened the 38-letter sentence at its first nonempty outside-in
+residual rather than treating it as a completed core.  `An aide` against the
+final `Diana` leaves residual `e`; from that state, a typed grammar jointly
+selected verbs, number-agreeing objects, and optional complete bridge
+sentences on both sides.  A factored character join represented 1,160 left
+events, 1,092 right events, 3,228 bridge paths, and 3,524,976 possible right
+discourses without materializing the full product.  Its only exact join was
+the held-out 38-letter oracle itself.  No four-part `A B B' A'` paragraph
+closed.  This rules out independent, symmetric bridge selection at that seam:
+the active paragraph generator must make the next `B` and `B'` productions
+asymmetric functions of the same live residual.  It must also reject any
+intermediate empty residual, which would merely wrap or concatenate a closed
+palindrome.  Evidence:
+`runs/seed-open-residual-discourse-join-20260922.json`.
+
 ### API-inspired open-residual cycle
 
 The deployed v3 API clarifies why length and prose quality separated. Its

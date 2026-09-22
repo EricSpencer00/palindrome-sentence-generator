@@ -78,6 +78,25 @@ an unattested ordinary `gni...` opening; comparative `-er` had one character
 cycle but no legitimate comparative base. Thus productive `-s`, not arbitrary
 suffix attachment, is the evidence-backed return-stack operator.
 
+We evaluated three direct extensions before changing representation. First, a
+carrier search checked 2,749,308 eligible Brown occurrences and 8,344,980
+typed products. Its sole exact row above 42 had 48 letters but failed its
+declared agreement and valency segmentation, so no carrier replaced the
+inspection/carton context. Second, multiword pronoun, object-NP, particle, and
+finite-clause returns solved 1,423 live equations. Their only closure was the
+symmetric `set a date` frame; global lemma freshness and repeated-unit checks
+rejected it. Third, literal possessive `s` yielded 120 exact structural paths,
+29 longer than 44 letters, but no semantically complete survivor. Asymmetric
+returns never discharged finite valency, while the only finite `saw a` return
+repeated a content lemma. Forty candidate `’s = is/has` analyses were rejected
+because expanding the contraction changes the searched letter tape.
+
+These bounded results do not turn the paper into a failure catalogue. They
+locate the missing state: return arguments and finite predicates must be able
+to discharge in a later clause, rather than inside the same cycle. The next
+product carries that cross-clause dependency asynchronously; an orthogonal
+product tests a live ordinary function-word residual instead of morphology.
+
 The exact stack itself scales beyond the reader-testable row. Depths three,
 four, and five produce independently audited, central-gate-clean tapes of 50,
 60, and 66 letters, with every lemma globally fresh. The longest is:

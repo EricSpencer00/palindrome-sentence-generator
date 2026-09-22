@@ -231,6 +231,19 @@ frames inside each return transduction before solving the live character
 equation. This keeps the scalable LIFO mechanism and repairs the first failed
 grammar phase instead of celebrating a longer fragment.
 
+That first repair round is now bounded. A fresh carrier search checked
+2,749,308 eligible Brown occurrences and 8,344,980 typed products; its only
+exact row above 42 was a 48-letter agreement/valency failure, so carrier
+widening is retired. Typed pronoun, object-NP, particle, and finite-clause
+returns solved 1,423 live equations, but only the symmetric `set a date`
+closure survived character equality; freshness and repeated-unit gates reject
+it. Literal possessive `s` produced 120 exact structural paths, 29 above 44
+letters, but asymmetric returns lacked a later finite predicate and the sole
+finite `saw a` return repeated content. These are operator-specific
+obstructions. The active successors change representation: a non-morphological
+function-word residual register and an asynchronous cross-clause genitive
+dependency product.
+
 The older 54-letter cross-role NP row and exact diagnostics at 44, 47, 50,
 56, 66, and 132 letters remain historical controls, not current progress
 claims. The
@@ -244,7 +257,9 @@ row embeds the complete 38-letter anchor.  Historical artifact files also
 contain a 142-letter exact but visibly fragmented/gibberish row, and the
 synthetic totality harness reaches 100,001 exact fallback letters.  Neither is
 English output. The paper and API therefore report scoped fields explicitly:
-`best_current_strict_candidate_letters = 42`,
+`best_current_reader_testable_candidate_letters = 44`,
+`best_current_directly_interpretable_candidate_letters = 42`,
+`longest_current_mechanical_frontier_letters = 66`,
 `best_legacy_reader_study_candidate_letters = 54`,
 `best_human_certified_exact_letters = null`,
 `longest_named_v4_diagnostic_letters = 132`,

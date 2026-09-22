@@ -9000,3 +9000,16 @@ grammar variant.
   The next operator must consume that outer pair and author the next clause at
   the remaining seam, not reuse the invalid first-character gate. Artifact:
   `runs/multispan-scene-boundary-search-20261001.json`.
+
+- **Growth from the actual 240-letter incumbent (2026-10-02):** the primary
+  track switched to the residual-carrying overhang engine and allowed unequal
+  partial word spans. All four seeds produced exact children; the longest is
+  498 normalized letters (+258), independently passing the two-pointer scan,
+  project validator, and equal forward/reverse SHA-256. Its rendered text is
+  retained verbatim in `runs/overhang-growth-from-240-20261001.json`; it is
+  vocabulary filler rather than readable prose, so it is not admitted. This
+  is nevertheless the first scalable exact-length gain from the actual
+  incumbent. The next operator keeps the 498-letter tape and replaces only
+  its outer filler windows with syntax-aware phrase spans while carrying the
+  same residual ownership; no completed-clause bank replaces this growth
+  track.

@@ -1,0 +1,93 @@
+{
+  "experiment_id": "syntax-residual-growth-from-498-20261001",
+  "method": "syntax-aware phrase-window residual carry from actual 498-letter closure",
+  "parent": "to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got",
+  "parent_letters": 498,
+  "stats": {
+    "attempts": 2,
+    "exact_children": 2,
+    "longest_letters": 530
+  },
+  "rows": [
+    {
+      "id": "syntax-window-0",
+      "rendered": "Noel, I saw a drawer. to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got Reward, a was I, Leon.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "added_left_span": "Noel, I saw a drawer.",
+      "added_right_span": "Reward, a was I, Leon.",
+      "normalized_length": 528,
+      "growth_over_parent": 30,
+      "syntax_prior": {
+        "left_role": "agent saw object",
+        "right_role": "retrospective attribution",
+        "partial_word_ownership": true,
+        "residual_carried_across_steps": true
+      },
+      "audit": {
+        "letters": 528,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "validator_exact": true,
+        "sha256_forward": "052505666bf5f660c56b8edf13e2b5282739ef6ea1b93a8be09685f356e7afe0",
+        "sha256_reverse": "052505666bf5f660c56b8edf13e2b5282739ef6ea1b93a8be09685f356e7afe0",
+        "sha_equal": true
+      },
+      "provenance": {
+        "operator": "syntax-aware residual phrase-window growth",
+        "frozen_search_prior": true,
+        "per_candidate_rlaif": false,
+        "finished_tape_reversal": false,
+        "catalogue_text": false,
+        "posthoc_character_repair": false,
+        "human_certified": false
+      },
+      "readability_debt": [
+        "outer reply syntax is intentionally rough",
+        "parent contains repetitive residual filler",
+        "no blinded reader ratings yet"
+      ]
+    },
+    {
+      "id": "syntax-window-1",
+      "rendered": "Nora, I saw desserts. to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got Stressed was I, Aron.",
+      "parent_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "parent_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "added_left_span": "Nora, I saw desserts.",
+      "added_right_span": "Stressed was I, Aron.",
+      "normalized_length": 530,
+      "growth_over_parent": 32,
+      "syntax_prior": {
+        "left_role": "agent saw object",
+        "right_role": "retrospective state",
+        "partial_word_ownership": true,
+        "residual_carried_across_steps": true
+      },
+      "audit": {
+        "letters": 530,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "validator_exact": true,
+        "sha256_forward": "3b44778dcb3f1542d71716f259d0190ebb47b675300f921422622bdf30b7034c",
+        "sha256_reverse": "3b44778dcb3f1542d71716f259d0190ebb47b675300f921422622bdf30b7034c",
+        "sha_equal": true
+      },
+      "provenance": {
+        "operator": "syntax-aware residual phrase-window growth",
+        "frozen_search_prior": true,
+        "per_candidate_rlaif": false,
+        "finished_tape_reversal": false,
+        "catalogue_text": false,
+        "posthoc_character_repair": false,
+        "human_certified": false
+      },
+      "readability_debt": [
+        "outer reply syntax is intentionally rough",
+        "parent contains repetitive residual filler",
+        "no blinded reader ratings yet"
+      ]
+    }
+  ],
+  "reader_gate": "closed; exact drafts are not human-certified",
+  "next_operator": "retain exact longest child and float an internal partial-word seam rather than adding another completed clause"
+}

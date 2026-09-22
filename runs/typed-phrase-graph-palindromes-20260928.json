@@ -1,0 +1,86 @@
+{
+  "method": "typed phrase graph with outside-in frontier",
+  "candidate": {
+    "text": "Nora, I saw evil. Noel, I saw war. Mara, I saw God. Sara, I saw live. Nora, I saw desserts. Noel, I saw stressed. Desserts was I, Leon. Stressed was I, Aron. Evil was I, Aras. Dog was I, Aram. Raw was I, Leon. Live was I, Aron.",
+    "letters": 156,
+    "normalized": "noraisawevilnoelisawwarmaraisawgodsaraisawlivenoraisawdessertsnoelisawstresseddessertswasileonstressedwasiaronevilwasiarasdogwasiaramrawwasileonlivewasiaron",
+    "exact_two_pointer": true,
+    "validator": true,
+    "sha256": "792f6efd8d7deab7fddd4ba5775e4a55cb1ef0d9557bd5cbfe0a66a2fed22963",
+    "independent_forward_reverse_sha256": "792f6efd8d7deab7fddd4ba5775e4a55cb1ef0d9557bd5cbfe0a66a2fed22963",
+    "novelty_preflight": true,
+    "provenance": {
+      "left_bank": "fresh-authored-slot-bank",
+      "right_bank": "fresh-authored-slot-bank",
+      "distinct_units": true,
+      "self_palindromic_units": false,
+      "catalogue_text": false,
+      "posthoc_character_repair": false
+    },
+    "reader_gate": "pending-blinded-human-ratings"
+  },
+  "edges": [
+    {
+      "left": "Nora, I saw evil.",
+      "right": "Live was I, Aron.",
+      "types": [
+        "vocative-perception",
+        "copular-return"
+      ],
+      "matched": 12
+    },
+    {
+      "left": "Noel, I saw war.",
+      "right": "Raw was I, Leon.",
+      "types": [
+        "vocative-perception",
+        "copular-return"
+      ],
+      "matched": 11
+    },
+    {
+      "left": "Mara, I saw God.",
+      "right": "Dog was I, Aram.",
+      "types": [
+        "vocative-perception",
+        "copular-return"
+      ],
+      "matched": 11
+    },
+    {
+      "left": "Sara, I saw live.",
+      "right": "Evil was I, Aras.",
+      "types": [
+        "vocative-perception",
+        "copular-return"
+      ],
+      "matched": 12
+    },
+    {
+      "left": "Nora, I saw desserts.",
+      "right": "Stressed was I, Aron.",
+      "types": [
+        "vocative-perception",
+        "copular-return"
+      ],
+      "matched": 16
+    },
+    {
+      "left": "Noel, I saw stressed.",
+      "right": "Desserts was I, Leon.",
+      "types": [
+        "vocative-perception",
+        "copular-return"
+      ],
+      "matched": 16
+    }
+  ],
+  "next_repair": "replace the most formulaic copular-return edge with a fresh typed scene clause while preserving its boundary tape",
+  "controls": {
+    "intact": [
+      "Nora, I saw evil.",
+      "Noel, I saw war."
+    ],
+    "shuffle_seed": 20260928
+  }
+}

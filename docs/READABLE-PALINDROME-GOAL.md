@@ -244,6 +244,18 @@ obstructions. The active successors change representation: a non-morphological
 function-word residual register and an asynchronous cross-clause genitive
 dependency product.
 
+Both representation pivots are now measured. The function-word product mined
+1,485,264 distinct tapes: `on` and `no` each produced 29 fresh cycles, `as`
+produced nine, and `in` produced none. Its 48-letter exact diagnostic fails a
+complementary boundary at cursor four and contains a proper palindromic span;
+zero rows are admissible. The asynchronous genitive product produced 30 exact
+structural paths, 15 above 44 letters and a maximum of 70, but zero complete
+connected survivors. Its first exact closure attaches `snoops' / spoon` and
+empties the character residual at cursors 12/12 while still owing a
+coreferential `it` and singular finite `stops`; the exposed return is base
+`stop`. The next run inserts neither word afterward: it places anaphora and
+agreement-carrying inflection inside the live product before closure.
+
 The older 54-letter cross-role NP row and exact diagnostics at 44, 47, 50,
 56, 66, and 132 letters remain historical controls, not current progress
 claims. The

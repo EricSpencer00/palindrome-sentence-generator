@@ -97,6 +97,21 @@ to discharge in a later clause, rather than inside the same cycle. The next
 product carries that cross-clause dependency asynchronously; an orthogonal
 product tests a live ordinary function-word residual instead of morphology.
 
+The function-word product mined 1,485,264 distinct tapes. Residuals `on` and
+`no` each yielded 29 fresh cycles, `as` yielded nine, and `in` yielded none.
+Its only long exact diagnostic had 48 letters, but failed the complementary
+boundary mask at cursor four and contained a forbidden proper palindromic
+span; no candidate survived. The asynchronous genitive product reached farther
+structurally: all 30 constructed paths were exact, 15 exceeded 44 letters,
+and the maximum had 70. None discharged a complete connected grammar. At the
+first closure, `snoops' / spoon` is attached and the character residual is
+empty at cursors 12/12, but clause two still owes coreferential `it` and the
+singular finite form `stops`; the tape exposes base `stop`. The next product
+therefore carries pronoun realization and agreement-bearing inflection inside
+the exact state, rather than inserting them after closure. A separate compound
+event product tests whether attested noun compounds can make the depth-three
+stack finite without fragmentary returns.
+
 The exact stack itself scales beyond the reader-testable row. Depths three,
 four, and five produce independently audited, central-gate-clean tapes of 50,
 60, and 66 letters, with every lemma globally fresh. The longest is:

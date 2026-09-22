@@ -1,0 +1,60 @@
+{
+  "experiment": "typed_phrase_graph_accumulate_20260930",
+  "method": "online outer-edge accumulation over an exact editable phrase graph",
+  "candidate": {
+    "text": "Aron saw evil. Nora, I saw evil. Noel, I saw war. Mara, I saw God. Sara, I saw live. Nora, I saw desserts. Noel, I saw stressed. Nora, I saw deliver. Noel, I saw diaper. Repaid was I, Leon. Reviled was I, Aron. Desserts was I, Leon. Stressed was I, Aron. Evil was I, Aras. Dog was I, Aram. Raw was I, Leon. Live was I, Aron. Live was Nora.",
+    "audit": {
+      "letters": 236,
+      "two_pointer_exact": true,
+      "first_mismatch": null,
+      "validator_exact": true,
+      "sha256_forward": "81d914d78174d35f0534c6031920a16bd84fe0695fa179fd2a0a5407cacffbce",
+      "sha256_reverse": "81d914d78174d35f0534c6031920a16bd84fe0695fa179fd2a0a5407cacffbce",
+      "sha_equal": true
+    },
+    "provenance": {
+      "base_artifact": "runs/typed-phrase-graph-growth-20260929.json",
+      "base_letters": 214,
+      "outer_left": "Aron saw evil.",
+      "outer_right": "Live was Nora.",
+      "outer_edge_streamed_online": true,
+      "new_letters": 22,
+      "complete_sentence_sweep": false,
+      "finished_tape_reversal": false,
+      "catalogue_text": false,
+      "posthoc_character_repair": false,
+      "repeated_self_palindromic_unit": false,
+      "reader_gate": "closed: inherited formulaic seams; no blinded ratings"
+    },
+    "novelty_preflight": {
+      "status": "structural_growth; not a new readability result",
+      "new_outer_composition": true,
+      "inherited_graph_lineage": true,
+      "semordnilap_debt_inherited": true
+    }
+  },
+  "controls": [
+    {
+      "kind": "base_214",
+      "text": "Nora, I saw evil. Noel, I saw war. Mara, I saw God. Sara, I saw live. Nora, I saw desserts. Noel, I saw stressed. Nora, I saw deliver. Noel, I saw diaper. Repaid was I, Leon. Reviled was I, Aron. Desserts was I, Leon. Stressed was I, Aron. Evil was I, Aras. Dog was I, Aram. Raw was I, Leon. Live was I, Aron.",
+      "audit": {
+        "letters": 214,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "validator_exact": true,
+        "sha256_forward": "e53ee30535d4c28c7690ccf7cd041698cc12aaf7e8b5d3aa8824df5298a22ac8",
+        "sha256_reverse": "e53ee30535d4c28c7690ccf7cd041698cc12aaf7e8b5d3aa8824df5298a22ac8",
+        "sha_equal": true
+      }
+    },
+    {
+      "kind": "smoother_146",
+      "source": "runs/typed-phrase-graph-scene-repair-20260929.json"
+    }
+  ],
+  "next_construction": {
+    "operator": "replace one inherited formulaic edge with a typed natural event pair while keeping both sides variable",
+    "debt": "I saw arbitrary reversed-word edges and compressed copular returns",
+    "reader_test": "blinded intact-versus-shuffled ratings only after a non-formulaic exact candidate"
+  }
+}

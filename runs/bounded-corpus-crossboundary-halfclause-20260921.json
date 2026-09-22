@@ -1,0 +1,31 @@
+{
+  "experiment_id": "bounded-corpus-crossboundary-halfclause-20260921",
+  "method": "bounded endpoint-indexed join of independently attested Brown half-clauses",
+  "config": {
+    "sentences": 8000,
+    "max_spans": 30000,
+    "width": [
+      3,
+      6
+    ]
+  },
+  "stats": {
+    "sentences_read": 8000,
+    "spans_examined": 30001,
+    "indexed_spans": 30000,
+    "admitted": 0
+  },
+  "candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "distinct_from": "object/predicate-only reverse index: this requires varied full clause frames and boundary-different halves"
+  },
+  "provenance": {
+    "corpus": "NLTK Brown",
+    "tag_source": "Brown gold POS tags",
+    "bounded": true,
+    "duplicate_sweep": false
+  },
+  "status": "obstruction: no boundary-different exact reverse half-clause join survived admission",
+  "next_operator": "Permit one grammar-licensed central connective to absorb boundary mismatch, retaining intact corpus spans and the no-palindromic-span gate."
+}

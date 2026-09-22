@@ -28,6 +28,15 @@ NEW_LEFT = "Aidan draws maps, Aron"
 NEW_RIGHT = "Nora, Spam's ward, Nadia."
 WINDOW_LEFT_START = 115
 WINDOW_LEFT_END = 129
+SUPERSEDING_REPAIR_ARTIFACT = "runs/incumbent-652-clause-window-repair-20260922.json"
+SUPERSEDING_REPAIR_ID = "clause-window-repair-nora-sees-666"
+NEXT_OPERATOR = (
+    "the 652 child is rejected/non-promoted for fragment debt; the completed "
+    "same-window clause repair is in "
+    f"{SUPERSEDING_REPAIR_ARTIFACT} row {SUPERSEDING_REPAIR_ID}; "
+    "repair the clearest remaining grammar debt in the 666 child; use the "
+    "clean 594 cursor-204/364 fallback only on contradiction"
+)
 
 FRONTIER = (
     {
@@ -143,7 +152,7 @@ def build_payload() -> dict[str, object]:
 
     row = {
         "id": "scaffold-repair-aidan-draws-652",
-        "working_status": "644_lineage_repair_frontier",
+        "working_status": "rejected_non_promoted_for_fragment_debt",
         "rendered": rendered,
         "audit": project_audit,
         "independent_audit": independent,
@@ -186,6 +195,21 @@ def build_payload() -> dict[str, object]:
             "human_reader_validation": False,
             "effect": "retain exact 644 lineage; do not demote 568",
         },
+        "promotion_status": {
+            "status": "rejected_non_promoted",
+            "reason_code": "fragment_debt",
+            "reason": (
+                "The rendered Aidan-draws seam leaves a dangling vocative/appositive "
+                "and a lowercase sentence start; it is exact evidence, not a "
+                "promoted readable child."
+            ),
+            "superseded_by": {
+                "artifact": SUPERSEDING_REPAIR_ARTIFACT,
+                "id": SUPERSEDING_REPAIR_ID,
+                "status": "completed_same_window_clause_repair",
+            },
+        },
+        "next_operator": NEXT_OPERATOR,
         "provenance": (
             "smallest symmetric 14-letter window repair loaded from the exact "
             "644 child; new draw/ward event emissions close a live residual before admission"
@@ -211,10 +235,7 @@ def build_payload() -> dict[str, object]:
         },
         "preserved_frontier": list(FRONTIER),
         "rows": [row],
-        "next_operator": (
-            "repair the clearest remaining grammar debt in the 652 child; "
-            "use the clean 594 cursor-204/364 fallback only on contradiction"
-        ),
+        "next_operator": NEXT_OPERATOR,
     }
 
 

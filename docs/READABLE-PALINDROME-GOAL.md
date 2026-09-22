@@ -9014,12 +9014,28 @@ grammar variant.
   same residual ownership; no completed-clause bank replaces this growth
   track.
 
-- **Syntax-aware growth from the 498-letter child (2026-10-02):** carrying a
-  mirrored residual across two independently chosen phrase windows produced a
-  530-letter exact child (`runs/syntax-residual-growth-from-498-20261001.json`).
-  The independent pointer, project-validator, and forward/reverse SHA checks
-  agree, but the rendered tape is still vocabulary filler and is not reader
-  eligible. This is a length gain only; it does not move the readability gate.
+- **Syntax-aware growth from the 498-letter child (2026-10-02):** the
+  530-letter exact tape in
+  `runs/syntax-residual-growth-from-498-20261001.json` passes the independent
+  pointer, project-validator, and forward/reverse SHA checks, but it only wraps
+  the 498-letter child with a desserts/stressed clause pair already present
+  inside the incumbent. It is therefore recorded as a longer exact repetition
+  control, not as new lexical or event content. The genuine new-content
+  raw-length incumbent remains 498 letters, and neither tape is reader prose.
+
+- **Reopening the 498-letter outer window (2026-10-02):**
+  `experiments/reopen_498_outer_window_20261002.py` enumerates every symmetric
+  normalized cut from one through 129 letters per side. The first cut that
+  lands on complete-word boundaries on both sides is depth 129; every depth
+  from 1 through 128 splits at least one inherited word and also retains part
+  of the word-salad shell. Replacing the entire 258-letter shell with the
+  56-letter first-person discourse shell yields a separately verified
+  296-letter exact control, but it is rejected because it shrinks the tape and
+  preserves the formulaic 240-letter center. The result is an operator-level
+  obstruction, not a negative thesis: scalable repair now requires a live
+  partial-word/phrase residual across the reopened seam, or a new exact prose
+  shell longer than 258 letters. Artifact:
+  `runs/reopen-498-outer-window-20261002.json`.
 
 - **Paragraph ABBA reader packet (2026-10-02):** the strict `A B B' A'`
   topology has two exact typed-grammar examples at 46 and 68 letters. Their

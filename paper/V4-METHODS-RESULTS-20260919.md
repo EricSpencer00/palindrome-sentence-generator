@@ -43,12 +43,28 @@ Two existing typed-grammar constructions demonstrate the mechanical topology:
 
 These are useful seam certificates, not readability wins: the repeated
 inversion and semordnilap vocabulary makes both surfaces formulaic. The
-longest exact residual-growth child is now 530 letters, but it is a lexical
-filler control rather than paragraph prose. The reader-facing comparison is
+longest exact tape is 530 letters, but that row only wraps the genuine
+498-letter raw-length incumbent with a desserts/stressed pair already present
+inside it. We therefore record 530 as an exact repetition control rather than
+new lexical or event content; 498 remains the meaningful residual-growth
+incumbent, and both are lexical filler rather than paragraph prose. The
+reader-facing comparison is
 frozen in `runs/paragraph-generation-abba-reader-20261002.json`, with both
 ABBA candidates, two intact prose controls, and reproducibly word-shuffled
 controls in randomized blinded order. Human ratings remain pending; no
 programmatic score is used as a readability certificate.
+
+The follow-up editable-window audit makes the next construction requirement
+precise. Across all symmetric cut depths from one to 129 letters per side of
+the 498-letter incumbent, the first bilateral complete-word boundary occurs
+only at depth 129. Shallower cuts split at least one inherited word and retain
+some of the word-salad shell. A complete-word replacement must therefore
+replace all 258 outer letters; the tested 56-letter discourse shell produces
+an independently verified 296-letter palindrome but is rejected because it
+shrinks the tape and keeps the formulaic 240-letter center. This audit rules
+out fixed whole-clause wrapping as the next growth operator and motivates a
+live residual state that can own partial word or phrase spans across the seam
+(`runs/reopen-498-outer-window-20261002.json`).
 
 ### Boundary-carrier paragraph probe
 

@@ -27,6 +27,25 @@ def audit(text: str):
             "sha256_forward": forward, "sha256_reverse": reverse,
             "sha_equal": forward == reverse}
 
+def residual_trace(left: str, right: str):
+    """Consume the mirrored debt one right-hand word at a time.
+
+    A word is allowed to consume only a prefix of the live debt; the remainder
+    is carried to the next unit. This is the small phrase-unit product used by
+    this experiment, rather than a post-hoc reversal of a finished tape.
+    """
+    debt = normalize(left)[::-1]
+    trace = []
+    for unit in re.findall(r"[A-Za-z]+", right):
+        letters = normalize(unit)
+        owned = min(len(letters), len(debt))
+        trace.append({"unit": unit, "owned": letters[:owned],
+                      "debt_before": debt, "debt_after": debt[owned:]})
+        if letters != debt[:len(letters)]:
+            return trace, False, debt
+        debt = debt[len(letters):]
+    return trace, not debt, debt
+
 def main():
     payload = json.loads(PARENT.read_text())
     parent = max(payload["rows"], key=lambda r: r["audit"]["letters"])
@@ -44,13 +63,16 @@ def main():
     for i,(left,right,left_role,right_role) in enumerate(windows):
         child = left + " " + base + " " + right
         au=audit(child)
+        trace, consumed, residual = residual_trace(left, right)
         rows.append({"id":f"syntax-window-{i}","rendered":child,
           "parent_artifact":str(PARENT.relative_to(ROOT)),
           "parent_sha256":parent["audit"]["sha256_forward"],
           "added_left_span":left,"added_right_span":right,
           "normalized_length":au["letters"],"growth_over_parent":au["letters"]-parent["audit"]["letters"],
           "syntax_prior":{"left_role":left_role,"right_role":right_role,
-                           "partial_word_ownership":True,"residual_carried_across_steps":True},
+                           "partial_word_ownership":True,"residual_carried_across_steps":True,
+                           "residual_consumed":consumed,"final_residual":residual,
+                           "trace":trace},
           "audit":au,
           "provenance":{"operator":"syntax-aware residual phrase-window growth",
              "frozen_search_prior":True,"per_candidate_rlaif":False,

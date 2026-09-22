@@ -258,6 +258,19 @@ coreferential `it` and singular finite `stops`; the exposed return is base
 `stop`. The next run inserts neither word afterward: it places anaphora and
 agreement-carrying inflection inside the live product before closure.
 
+The last local repairs close the `s` family. Committing explicit `it stops`
+before matching leaves zero equation closures: at right cursor four the finite
+verb exposes `s` while the live left residual `potsnoops` requires `p`, and no
+licensed possessive/plural/3sg allocation can move the suffix there. An
+attested-compound product then checked 14,547 Brown noun compounds and 2,092
+WordNet-licensed verb-object analyses. All 251 `s`-compatible returns failed;
+the deepest pair, `sacrifice part` versus `strap iron`, agrees through `strap`
+and then requires `e` where the corpus phrase has `i`. Together with the
+closed fixed-tape surface audit, this retires the whole local morphology basin.
+The active pivot is global: packed synchronous dependency parsing and a
+semantic-plan-first bidirectional character trie must build complete finite
+clauses while exactness and boundary masks remain live.
+
 The older 54-letter cross-role NP row and exact diagnostics at 44, 47, 50,
 56, 66, and 132 letters remain historical controls, not current progress
 claims. The

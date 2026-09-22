@@ -113,6 +113,24 @@ the exact state, rather than inserting them after closure. A separate compound
 event product tests whether attested noun compounds can make the depth-three
 stack finite without fragmentary returns.
 
+Neither final local repair closes the gap. When clause two commits explicit
+`it stops` before character matching, none of 30 fixed-domain paths closes:
+the finite verb exposes `s` at right cursor four while the live left residual
+`potsnoops` requires `p`. Licensed possessive, plural, and 3sg suffix
+allocations lie deeper and cannot migrate to that cursor. A separate product
+compiled 14,547 attested noun compounds and 2,092 WordNet-licensed verb-object
+analyses. It sent 251 `s`-compatible return tapes to compound lookup and found
+zero exact stacks; the deepest frontier matches `sacrifice part` against
+`strap iron` through `strap`, then fails `e` versus `i`.
+
+We therefore retire local morphology, carrier, clitic, compound, and
+same-cycle return extensions as one exhausted family. The constructive result
+remains useful—the exact register stack scales—but it does not supply complete
+prose. The next experiments return to a global representation: a packed
+synchronous dependency chart and a semantic-plan-first bidirectional
+character trie build two complete finite parses while exact characters,
+agreement, discourse state, and complementary boundaries remain live.
+
 The exact stack itself scales beyond these surface witnesses. Depths three,
 four, and five produce independently audited, central-gate-clean tapes of 50,
 60, and 66 letters, with every lemma globally fresh. The longest is:

@@ -8691,6 +8691,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   `runs/abba-authored-paragraph-seam-20260930.json` and
   `runs/abba-residual-conditioned-20260930.json`.
 
+- **Floating-boundary ABBA check:** the same four-role topology was decoded
+  with the character midpoint allowed at every offset, including inside a
+  sentence. Across 81 fresh paragraphs the best outer support was still zero
+  characters and no exact tape exceeded 38 letters. Thus neither fixed
+  sentence boundaries nor the midpoint placement is the dominant obstacle;
+  the next construction must author a held-out `B2/A2` pair against the
+  observed residual itself. Artifact:
+  `runs/floating-boundary-abba-20260930.json`.
+
 - **Argument-sharing paragraph continuation:** a typed outer event was streamed
   around the verified center, yielding the following 54-letter exact tape:
 

@@ -174,6 +174,16 @@ the full output above 530 requires at least 270 generated letters. A separate
 outer causal replacement reaches 568 exact letters, but it inherits 65 proper
 spans and is retained only as a permissive length control, not a result claim.
 
+The through-EOF cut is itself rejected before search by a second monotone
+proof: its frozen prefix already contains `delivers maps` twice, at normalized
+offsets `[5,17)` and `[48,60)`. Appending a suffix cannot erase either token
+span, so every continuation fails the repeated-nontrivial-unit gate. We
+therefore step back to raw offset 48 / normalized offset 36, retaining
+“Nadia delivers maps. Nora stops rats. A tub? He ”. This is the latest prefix
+that remains clean for both repeated units and distinct content. A 531-letter
+candidate from this cut requires at least 495 generated suffix letters; that
+is the active one-sided discourse-product target.
+
 Evidence:
 `experiments/incumbent_550_asymmetric_smaps_repair_20261002.py`,
 `runs/incumbent-550-asymmetric-smaps-repair-20261002.json`, and

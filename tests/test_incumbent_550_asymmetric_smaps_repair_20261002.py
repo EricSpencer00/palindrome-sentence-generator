@@ -29,3 +29,8 @@ def test_asymmetric_window_removes_four_spans_and_creates_none() -> None:
     assert obstruction["strict_accepts_at_fixed_window"] == 0
     assert obstruction["next_editable_window"]["normalized_offsets"] == [261, 550]
     assert obstruction["next_editable_window"]["minimum_new_window_letters_for_531_total"] == 270
+    eof_obstruction = row["through_eof_obstruction"]
+    assert eof_obstruction["strict_accepts_at_through_eof_cut"] == 0
+    assert eof_obstruction["repeated_unit"] == ["delivers", "maps"]
+    assert eof_obstruction["next_globally_clean_prefix"]["raw_end"] == 48
+    assert eof_obstruction["next_globally_clean_prefix"]["normalized_end"] == 36

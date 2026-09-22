@@ -113,6 +113,15 @@ minimum 270-letter replacement to keep the whole above 530. A separate outer
 causal scene reaches 568 exact letters but inherits 65 proper spans and is
 therefore preserved only as a permissive length control.
 
+That one-sided cut is now also closed by a monotone gate proof. Its frozen
+261-letter prefix already contains the nontrivial unit `delivers maps` twice,
+at normalized offsets `[5,17)` and `[48,60)`. No appended suffix can remove
+those token spans, so strict acceptance is exactly zero at raw offset 357.
+The search has moved to raw offset 48 / normalized offset 36, retaining only
+“Nadia delivers maps. Nora stops rats. A tub? He ”. This is the latest prefix
+clean for repeated units and distinct content; a 531-letter result now needs
+at least 495 newly generated suffix letters.
+
 Evidence:
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
 `runs/incumbent-498-live-seam-growth-20261002.json`, followed by

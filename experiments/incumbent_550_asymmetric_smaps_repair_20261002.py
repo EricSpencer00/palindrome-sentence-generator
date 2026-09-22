@@ -158,6 +158,34 @@ def build_payload() -> dict[str, object]:
                     "minimum_new_window_letters_for_531_total": 270,
                 },
             },
+            "through_eof_obstruction": {
+                "statement": (
+                    "the raw [0,357) prefix already contains the nontrivial "
+                    "unit delivers maps twice, so every appended suffix fails "
+                    "the monotone repeated-unit gate"
+                ),
+                "frozen_prefix_raw_end": 357,
+                "frozen_prefix_normalized_end": 261,
+                "repeated_unit": ["delivers", "maps"],
+                "first_occurrence": {
+                    "token_offsets": [1, 3],
+                    "raw_offsets": [6, 19],
+                    "normalized_offsets": [5, 17],
+                },
+                "second_occurrence": {
+                    "token_offsets": [12, 14],
+                    "raw_offsets": [64, 77],
+                    "normalized_offsets": [48, 60],
+                },
+                "strict_accepts_at_through_eof_cut": 0,
+                "next_globally_clean_prefix": {
+                    "raw_end": 48,
+                    "normalized_end": 36,
+                    "token_end": 9,
+                    "rendered": "Nadia delivers maps. Nora stops rats. A tub? He ",
+                    "minimum_generated_suffix_letters_for_531_total": 495,
+                },
+            },
             "provenance": {
                 "outer_wrapper_added": False,
                 "fixed_finished_tape_reversal": False,
@@ -166,8 +194,8 @@ def build_payload() -> dict[str, object]:
                 "working_track_only": True,
             },
             "next_operator": (
-                "move to the recorded one-sided through-EOF window so the "
-                "frozen reviled endpoint no longer forces an enclosing span"
+                "restart the one-sided discourse product at raw 48 / normalized "
+                "36, the last prefix clean for repeated units and distinct content"
             ),
         }],
     }

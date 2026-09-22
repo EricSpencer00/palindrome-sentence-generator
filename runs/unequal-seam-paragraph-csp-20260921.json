@@ -1,0 +1,74 @@
+{
+  "experiment_id": "unequal-seam-paragraph-csp-20260921",
+  "method": "semantic A/B/B-prime/A-prime unequal seam CSP with cross-boundary character admission",
+  "candidate": {
+    "rendered": "Nora saw lager. Nora saw desserts. Nora saw trams. Nora saw guns. Nora saw war. Raw was Aron. Snug was Aron. Smart was Aron. Stressed was Aron. Regal was Aron.",
+    "semantic_spans": {
+      "A": "Nora saw lager. Nora saw desserts. Nora saw trams. Nora saw guns.",
+      "B": "Nora saw war.",
+      "B_prime": "Raw was Aron. Snug was Aron. Smart was Aron. Stressed was Aron.",
+      "A_prime": "Regal was Aron."
+    },
+    "pair_checks": [
+      {
+        "left": "A",
+        "right": "A_prime",
+        "left_letters": 50,
+        "right_letters": 12,
+        "exact_reverse": false,
+        "proper_palindromic_center": false
+      },
+      {
+        "left": "B",
+        "right": "B_prime",
+        "left_letters": 10,
+        "right_letters": 48,
+        "exact_reverse": false,
+        "proper_palindromic_center": false
+      }
+    ],
+    "audit": {
+      "letters": 120,
+      "two_pointer_exact": true,
+      "first_mismatches": [],
+      "forward_sha256": "bffca164c7ff03e9b3d5e929a5afc9d25ee8aadb034ecdc9be12e1e418d8646e",
+      "reverse_sha256": "bffca164c7ff03e9b3d5e929a5afc9d25ee8aadb034ecdc9be12e1e418d8646e",
+      "sha_equal": true
+    },
+    "mechanical_admission_checks": {
+      "whole_tape_exact": true,
+      "semantic_spans_complete_clauses": true,
+      "unequal_A_A_prime": true,
+      "unequal_B_B_prime": true,
+      "center_not_proper_palindrome": true,
+      "word_boundary_crossing": true,
+      "actual_prose": true
+    },
+    "provenance": {
+      "construction": "unequal complete-clause semantic partition over a shared exact word tape",
+      "whole_tape_solved_jointly": true,
+      "finished_tape_reversal": false,
+      "posthoc_repair": false,
+      "catalogue_text": false,
+      "distinct_units": true,
+      "self_palindromic_units": []
+    }
+  },
+  "stats": {
+    "candidate_count": 1,
+    "letters": 120,
+    "exact_count": 1,
+    "pair_reverse_exact_count": 0
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "unequal-semantic-seams|cross-boundary-word-ledger|nora-aron",
+    "distinct_from": "connector-shell insertion and exact paragraph-pair construction"
+  },
+  "independent_validation": [
+    "two-pointer full tape",
+    "forward/reverse SHA-256",
+    "mechanical seam checks"
+  ],
+  "next_operator": "vary the complete-clause partition while preserving unequal seam lengths and central non-palindrome"
+}

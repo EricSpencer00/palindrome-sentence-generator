@@ -1,0 +1,1151 @@
+{
+  "experiment_id": "freshness-register-morphology-cycle-20260922",
+  "method": "freshness-indexed typed register/pushdown cycle with a live plural-s residual, LIFO returns, and an online complementary-boundary mask",
+  "state": {
+    "residual": "s",
+    "residual_must_remain_nonempty": true,
+    "registers": [
+      "grammar_phase",
+      "residual_owner",
+      "boundary_phase",
+      "fresh_lemma_ids",
+      "content_words",
+      "boundary_mask"
+    ],
+    "stack_symbol": "(y_lemma, return_phase)",
+    "transition_equation": "T(x_i) r = r reverse(T(y_i))"
+  },
+  "bounded_domain": {
+    "source": "frozen lowercase Brown-attested open-class lemmas intersected with the repository lexicon",
+    "pair_families": [
+      [
+        "sap",
+        "spa"
+      ],
+      [
+        "sleet",
+        "steel"
+      ],
+      [
+        "snap",
+        "span"
+      ],
+      [
+        "snoop",
+        "spoon"
+      ],
+      [
+        "spot",
+        "stop"
+      ],
+      [
+        "straw",
+        "swart"
+      ]
+    ],
+    "directed_equation_pairs": 12,
+    "depths_materialized": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "same_branch_extension": true,
+    "completed_sentence_cartesian_sweep": false
+  },
+  "carrier_preflight": {
+    "equation": "reverse(T(Q)) = T(P) + s",
+    "common_word_pairs_tested": 5,
+    "rows": [
+      {
+        "id": "inspection_carton",
+        "p_words": [
+          "no",
+          "trace",
+          "note"
+        ],
+        "q_words": [
+          "set",
+          "one",
+          "carton"
+        ],
+        "equation": {
+          "p_tape": "notracenote",
+          "q_tape": "setonecarton",
+          "left": "notracenotes",
+          "right": "notracenotes",
+          "holds": true
+        },
+        "rendered_k2": "No trace. Note: Spot spoons. Snoop. Stop. Set one carton.",
+        "independent_audit": {
+          "letters": 42,
+          "two_pointer_exact": true,
+          "first_mismatch": null,
+          "sha256_forward": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+          "sha256_reverse": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+          "hashes_agree": true
+        },
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": true,
+        "boundary_mask_passed": true,
+        "selected": true,
+        "continuity_assessment": "inspection finding, observation, and packing command share one work scene"
+      },
+      {
+        "id": "race_car",
+        "p_words": [
+          "race",
+          "note"
+        ],
+        "q_words": [
+          "set",
+          "one",
+          "car"
+        ],
+        "equation": {
+          "p_tape": "racenote",
+          "q_tape": "setonecar",
+          "left": "racenotes",
+          "right": "racenotes",
+          "holds": true
+        },
+        "rendered_k2": "Race. Note: Spot spoons. Snoop. Stop. Set one car.",
+        "independent_audit": {
+          "letters": 36,
+          "two_pointer_exact": true,
+          "first_mismatch": null,
+          "sha256_forward": "58919c2209ecf6e5554dbe1215f62a6460e743676b532207d7e4f7d19194baea",
+          "sha256_reverse": "58919c2209ecf6e5554dbe1215f62a6460e743676b532207d7e4f7d19194baea",
+          "hashes_agree": true
+        },
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": true,
+        "boundary_mask_passed": true,
+        "selected": false,
+        "continuity_assessment": "grammatical commands, but the utensil cycle has no role in the car event"
+      },
+      {
+        "id": "name_man",
+        "p_words": [
+          "name",
+          "note"
+        ],
+        "q_words": [
+          "set",
+          "one",
+          "man"
+        ],
+        "equation": {
+          "p_tape": "namenote",
+          "q_tape": "setoneman",
+          "left": "namenotes",
+          "right": "namenotes",
+          "holds": true
+        },
+        "rendered_k2": "Name. Note: Spot spoons. Snoop. Stop. Set one man.",
+        "independent_audit": {
+          "letters": 36,
+          "two_pointer_exact": true,
+          "first_mismatch": null,
+          "sha256_forward": "fa03779b983361633c7576b0de15f5e1a05b5a0d9b1e5dfe16ac26ce649dd3d3",
+          "sha256_reverse": "fa03779b983361633c7576b0de15f5e1a05b5a0d9b1e5dfe16ac26ce649dd3d3",
+          "hashes_agree": true
+        },
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": true,
+        "boundary_mask_passed": true,
+        "selected": false,
+        "continuity_assessment": "bare name command and set-man command lack a recoverable shared task"
+      },
+      {
+        "id": "rise_sir",
+        "p_words": [
+          "rise",
+          "note"
+        ],
+        "q_words": [
+          "set",
+          "one",
+          "sir"
+        ],
+        "equation": {
+          "p_tape": "risenote",
+          "q_tape": "setonesir",
+          "left": "risenotes",
+          "right": "risenotes",
+          "holds": true
+        },
+        "rendered_k2": "Rise. Note: Spot spoons. Snoop. Stop. Set one sir.",
+        "independent_audit": {
+          "letters": 36,
+          "two_pointer_exact": true,
+          "first_mismatch": null,
+          "sha256_forward": "477e58de189ee12069d5f5500f70b4cda39b92635ce9cb1a45e7f5af4ae77e77",
+          "sha256_reverse": "477e58de189ee12069d5f5500f70b4cda39b92635ce9cb1a45e7f5af4ae77e77",
+          "hashes_agree": true
+        },
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": true,
+        "boundary_mask_passed": true,
+        "selected": false,
+        "continuity_assessment": "the closing count phrase is grammatical only under an unsuitable title sense"
+      },
+      {
+        "id": "nose_son",
+        "p_words": [
+          "nose",
+          "note"
+        ],
+        "q_words": [
+          "set",
+          "one",
+          "son"
+        ],
+        "equation": {
+          "p_tape": "nosenote",
+          "q_tape": "setoneson",
+          "left": "nosenotes",
+          "right": "nosenotes",
+          "holds": true
+        },
+        "rendered_k2": "Nose. Note: Spot spoons. Snoop. Stop. Set one son.",
+        "independent_audit": {
+          "letters": 36,
+          "two_pointer_exact": true,
+          "first_mismatch": null,
+          "sha256_forward": "ae39a8ff6baf230db7e3150ac1d937842c72145d775dc46bf1973a68adf7b1b9",
+          "sha256_reverse": "ae39a8ff6baf230db7e3150ac1d937842c72145d775dc46bf1973a68adf7b1b9",
+          "hashes_agree": true
+        },
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": true,
+        "boundary_mask_passed": true,
+        "selected": false,
+        "continuity_assessment": "dictionary words pass, but the two commands do not form an ordinary event"
+      }
+    ],
+    "decision": "retain inspection_carton: every held-out carrier is exact and mechanically checked, but none connects the utensil/inspection cycle to its closing event as well as the selected carrier"
+  },
+  "children": [
+    {
+      "depth": 1,
+      "rendered": "No trace. Note: Spoons snoop. Set one carton.",
+      "normalized_tape": "notracenotespoonssnoopsetonecarton",
+      "surface_words": [
+        "spoons",
+        "snoop"
+      ],
+      "cycles_inner_first": [
+        {
+          "x": "spoon",
+          "y": "snoop",
+          "x_type": "N.STEM->N.PL",
+          "y_type": "V.BASE",
+          "event_role": "artifact observation",
+          "residual": "s",
+          "left": "spoons",
+          "right": "spoons",
+          "holds": true,
+          "residual_nonempty": true
+        }
+      ],
+      "stack_pop_order": [
+        "snoop"
+      ],
+      "stacked_equation": {
+        "left": "spoons",
+        "right": "spoons",
+        "holds": true
+      },
+      "register_trace": [
+        {
+          "cycle_index_inner_first": 1,
+          "boundary_phase": "plural_suffix_pending",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 1,
+          "pushed_y": "snoop",
+          "fresh_lemma_ids": [
+            "spoon",
+            "snoop"
+          ]
+        }
+      ],
+      "freshness": {
+        "lemmas": [
+          "spoon",
+          "snoop"
+        ],
+        "all_lemmas_distinct": true,
+        "carrier_content_disjoint": true
+      },
+      "boundary_mask": {
+        "proper_palindromic_multiword_spans": [],
+        "passed": true
+      },
+      "independent_audit": {
+        "letters": 34,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "d49d83577cbca30d96a2156901e8f5dbebd57ebbed304e18d39a6fc1e6e7bfe0",
+        "sha256_reverse": "d49d83577cbca30d96a2156901e8f5dbebd57ebbed304e18d39a6fc1e6e7bfe0",
+        "hashes_agree": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": true,
+      "proper_names": false,
+      "carrier_id": "inspection_carton",
+      "carrier_equation": {
+        "p_tape": "notracenote",
+        "q_tape": "setonecarton",
+        "left": "notracenotes",
+        "right": "notracenotes",
+        "holds": true
+      },
+      "reader_certified": false,
+      "syntax": {
+        "direct_status": "intact_interpretable",
+        "event_continuity": true,
+        "reading": "plural artifact subject plus present-tense observation verb",
+        "obstruction": null
+      }
+    },
+    {
+      "depth": 2,
+      "rendered": "No trace. Note: Spot spoons. Snoop. Stop. Set one carton.",
+      "normalized_tape": "notracenotespotspoonssnoopstopsetonecarton",
+      "surface_words": [
+        "spot",
+        "spoons",
+        "snoop",
+        "stop"
+      ],
+      "cycles_inner_first": [
+        {
+          "x": "spoon",
+          "y": "snoop",
+          "x_type": "N.STEM->N.PL",
+          "y_type": "V.BASE",
+          "event_role": "artifact observation",
+          "residual": "s",
+          "left": "spoons",
+          "right": "spoons",
+          "holds": true,
+          "residual_nonempty": true
+        },
+        {
+          "x": "spot",
+          "y": "stop",
+          "x_type": "V.IMP",
+          "y_type": "V.IMP",
+          "event_role": "inspection command",
+          "residual": "s",
+          "left": "spots",
+          "right": "spots",
+          "holds": true,
+          "residual_nonempty": true
+        }
+      ],
+      "stack_pop_order": [
+        "snoop",
+        "stop"
+      ],
+      "stacked_equation": {
+        "left": "spotspoons",
+        "right": "spotspoons",
+        "holds": true
+      },
+      "register_trace": [
+        {
+          "cycle_index_inner_first": 1,
+          "boundary_phase": "plural_suffix_pending",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 1,
+          "pushed_y": "snoop",
+          "fresh_lemma_ids": [
+            "spoon",
+            "snoop"
+          ]
+        },
+        {
+          "cycle_index_inner_first": 2,
+          "boundary_phase": "imperative_or_modifier_prefix",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 2,
+          "pushed_y": "stop",
+          "fresh_lemma_ids": [
+            "spot",
+            "stop"
+          ]
+        }
+      ],
+      "freshness": {
+        "lemmas": [
+          "spoon",
+          "snoop",
+          "spot",
+          "stop"
+        ],
+        "all_lemmas_distinct": true,
+        "carrier_content_disjoint": true
+      },
+      "boundary_mask": {
+        "proper_palindromic_multiword_spans": [],
+        "passed": true
+      },
+      "independent_audit": {
+        "letters": 42,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+        "sha256_reverse": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+        "hashes_agree": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": true,
+      "proper_names": false,
+      "carrier_id": "inspection_carton",
+      "carrier_equation": {
+        "p_tape": "notracenote",
+        "q_tape": "setonecarton",
+        "left": "notracenotes",
+        "right": "notracenotes",
+        "holds": true
+      },
+      "reader_certified": false,
+      "syntax": {
+        "direct_status": "intact_interpretable",
+        "event_continuity": true,
+        "reading": "inspection imperative followed by two ordinary imperatives",
+        "obstruction": null
+      }
+    },
+    {
+      "depth": 3,
+      "rendered": "No trace. Note: Snap. Spot spoons. Snoop. Stop span. Set one carton.",
+      "normalized_tape": "notracenotesnapspotspoonssnoopstopspansetonecarton",
+      "surface_words": [
+        "snap",
+        "spot",
+        "spoons",
+        "snoop",
+        "stop",
+        "span"
+      ],
+      "cycles_inner_first": [
+        {
+          "x": "spoon",
+          "y": "snoop",
+          "x_type": "N.STEM->N.PL",
+          "y_type": "V.BASE",
+          "event_role": "artifact observation",
+          "residual": "s",
+          "left": "spoons",
+          "right": "spoons",
+          "holds": true,
+          "residual_nonempty": true
+        },
+        {
+          "x": "spot",
+          "y": "stop",
+          "x_type": "V.IMP",
+          "y_type": "V.IMP",
+          "event_role": "inspection command",
+          "residual": "s",
+          "left": "spots",
+          "right": "spots",
+          "holds": true,
+          "residual_nonempty": true
+        },
+        {
+          "x": "snap",
+          "y": "span",
+          "x_type": "V.IMP",
+          "y_type": "V.TR",
+          "event_role": "image/span return",
+          "residual": "s",
+          "left": "snaps",
+          "right": "snaps",
+          "holds": true,
+          "residual_nonempty": true
+        }
+      ],
+      "stack_pop_order": [
+        "snoop",
+        "stop",
+        "span"
+      ],
+      "stacked_equation": {
+        "left": "snapspotspoons",
+        "right": "snapspotspoons",
+        "holds": true
+      },
+      "register_trace": [
+        {
+          "cycle_index_inner_first": 1,
+          "boundary_phase": "plural_suffix_pending",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 1,
+          "pushed_y": "snoop",
+          "fresh_lemma_ids": [
+            "spoon",
+            "snoop"
+          ]
+        },
+        {
+          "cycle_index_inner_first": 2,
+          "boundary_phase": "imperative_or_modifier_prefix",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 2,
+          "pushed_y": "stop",
+          "fresh_lemma_ids": [
+            "spot",
+            "stop"
+          ]
+        },
+        {
+          "cycle_index_inner_first": 3,
+          "boundary_phase": "imperative_or_modifier_prefix",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 3,
+          "pushed_y": "span",
+          "fresh_lemma_ids": [
+            "snap",
+            "span"
+          ]
+        }
+      ],
+      "freshness": {
+        "lemmas": [
+          "spoon",
+          "snoop",
+          "spot",
+          "stop",
+          "snap",
+          "span"
+        ],
+        "all_lemmas_distinct": true,
+        "carrier_content_disjoint": true
+      },
+      "boundary_mask": {
+        "proper_palindromic_multiword_spans": [],
+        "passed": true
+      },
+      "independent_audit": {
+        "letters": 50,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "d76f6b9aa0506fced99e648cc281f43ce19ee1b6a9f607aa061e7df3bbbfe434",
+        "sha256_reverse": "d76f6b9aa0506fced99e648cc281f43ce19ee1b6a9f607aa061e7df3bbbfe434",
+        "hashes_agree": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": true,
+      "proper_names": false,
+      "carrier_id": "inspection_carton",
+      "carrier_equation": {
+        "p_tape": "notracenote",
+        "q_tape": "setonecarton",
+        "left": "notracenotes",
+        "right": "notracenotes",
+        "holds": true
+      },
+      "reader_certified": false,
+      "syntax": {
+        "direct_status": "syntax_register_obstruction",
+        "event_continuity": false,
+        "reading": "telegraphic imperatives only",
+        "obstruction": "the returned lemma 'span' is transitive in the exposed phase; the exact tape supplies neither a determiner nor an event-compatible object, so 'stop span' is only a technical shorthand"
+      }
+    },
+    {
+      "depth": 4,
+      "rendered": "No trace. Note: Steel snap. Spot spoons. Snoop. Stop. Span sleet. Set one carton.",
+      "normalized_tape": "notracenotesteelsnapspotspoonssnoopstopspansleetsetonecarton",
+      "surface_words": [
+        "steel",
+        "snap",
+        "spot",
+        "spoons",
+        "snoop",
+        "stop",
+        "span",
+        "sleet"
+      ],
+      "cycles_inner_first": [
+        {
+          "x": "spoon",
+          "y": "snoop",
+          "x_type": "N.STEM->N.PL",
+          "y_type": "V.BASE",
+          "event_role": "artifact observation",
+          "residual": "s",
+          "left": "spoons",
+          "right": "spoons",
+          "holds": true,
+          "residual_nonempty": true
+        },
+        {
+          "x": "spot",
+          "y": "stop",
+          "x_type": "V.IMP",
+          "y_type": "V.IMP",
+          "event_role": "inspection command",
+          "residual": "s",
+          "left": "spots",
+          "right": "spots",
+          "holds": true,
+          "residual_nonempty": true
+        },
+        {
+          "x": "snap",
+          "y": "span",
+          "x_type": "V.IMP",
+          "y_type": "V.TR",
+          "event_role": "image/span return",
+          "residual": "s",
+          "left": "snaps",
+          "right": "snaps",
+          "holds": true,
+          "residual_nonempty": true
+        },
+        {
+          "x": "steel",
+          "y": "sleet",
+          "x_type": "V.TR",
+          "y_type": "V.WEATHER",
+          "event_role": "material/weather return",
+          "residual": "s",
+          "left": "steels",
+          "right": "steels",
+          "holds": true,
+          "residual_nonempty": true
+        }
+      ],
+      "stack_pop_order": [
+        "snoop",
+        "stop",
+        "span",
+        "sleet"
+      ],
+      "stacked_equation": {
+        "left": "steelsnapspotspoons",
+        "right": "steelsnapspotspoons",
+        "holds": true
+      },
+      "register_trace": [
+        {
+          "cycle_index_inner_first": 1,
+          "boundary_phase": "plural_suffix_pending",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 1,
+          "pushed_y": "snoop",
+          "fresh_lemma_ids": [
+            "spoon",
+            "snoop"
+          ]
+        },
+        {
+          "cycle_index_inner_first": 2,
+          "boundary_phase": "imperative_or_modifier_prefix",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 2,
+          "pushed_y": "stop",
+          "fresh_lemma_ids": [
+            "spot",
+            "stop"
+          ]
+        },
+        {
+          "cycle_index_inner_first": 3,
+          "boundary_phase": "imperative_or_modifier_prefix",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 3,
+          "pushed_y": "span",
+          "fresh_lemma_ids": [
+            "snap",
+            "span"
+          ]
+        },
+        {
+          "cycle_index_inner_first": 4,
+          "boundary_phase": "imperative_or_modifier_prefix",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 4,
+          "pushed_y": "sleet",
+          "fresh_lemma_ids": [
+            "steel",
+            "sleet"
+          ]
+        }
+      ],
+      "freshness": {
+        "lemmas": [
+          "spoon",
+          "snoop",
+          "spot",
+          "stop",
+          "snap",
+          "span",
+          "steel",
+          "sleet"
+        ],
+        "all_lemmas_distinct": true,
+        "carrier_content_disjoint": true
+      },
+      "boundary_mask": {
+        "proper_palindromic_multiword_spans": [],
+        "passed": true
+      },
+      "independent_audit": {
+        "letters": 60,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "6828d811e8353ffff11a2d22416ca606bef7f779847e41241cbf05ad8f96a9db",
+        "sha256_reverse": "6828d811e8353ffff11a2d22416ca606bef7f779847e41241cbf05ad8f96a9db",
+        "hashes_agree": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": true,
+      "proper_names": false,
+      "carrier_id": "inspection_carton",
+      "carrier_equation": {
+        "p_tape": "notracenote",
+        "q_tape": "setonecarton",
+        "left": "notracenotes",
+        "right": "notracenotes",
+        "holds": true
+      },
+      "reader_certified": false,
+      "syntax": {
+        "direct_status": "syntax_register_obstruction",
+        "event_continuity": false,
+        "reading": "material and weather commands remain tokenizable",
+        "obstruction": "the next exact pair steel/sleet can fill verb slots, but it switches the inspection event to an unlicensed weather return and supplies no shared argument for the existing span obligation"
+      }
+    },
+    {
+      "depth": 5,
+      "rendered": "No trace. Note: Sap steel. Snap. Spot spoons. Snoop. Stop. Span sleet. Spa. Set one carton.",
+      "normalized_tape": "notracenotesapsteelsnapspotspoonssnoopstopspansleetspasetonecarton",
+      "surface_words": [
+        "sap",
+        "steel",
+        "snap",
+        "spot",
+        "spoons",
+        "snoop",
+        "stop",
+        "span",
+        "sleet",
+        "spa"
+      ],
+      "cycles_inner_first": [
+        {
+          "x": "spoon",
+          "y": "snoop",
+          "x_type": "N.STEM->N.PL",
+          "y_type": "V.BASE",
+          "event_role": "artifact observation",
+          "residual": "s",
+          "left": "spoons",
+          "right": "spoons",
+          "holds": true,
+          "residual_nonempty": true
+        },
+        {
+          "x": "spot",
+          "y": "stop",
+          "x_type": "V.IMP",
+          "y_type": "V.IMP",
+          "event_role": "inspection command",
+          "residual": "s",
+          "left": "spots",
+          "right": "spots",
+          "holds": true,
+          "residual_nonempty": true
+        },
+        {
+          "x": "snap",
+          "y": "span",
+          "x_type": "V.IMP",
+          "y_type": "V.TR",
+          "event_role": "image/span return",
+          "residual": "s",
+          "left": "snaps",
+          "right": "snaps",
+          "holds": true,
+          "residual_nonempty": true
+        },
+        {
+          "x": "steel",
+          "y": "sleet",
+          "x_type": "V.TR",
+          "y_type": "V.WEATHER",
+          "event_role": "material/weather return",
+          "residual": "s",
+          "left": "steels",
+          "right": "steels",
+          "holds": true,
+          "residual_nonempty": true
+        },
+        {
+          "x": "sap",
+          "y": "spa",
+          "x_type": "V.TR",
+          "y_type": "V.INTR",
+          "event_role": "material/leisure return",
+          "residual": "s",
+          "left": "saps",
+          "right": "saps",
+          "holds": true,
+          "residual_nonempty": true
+        }
+      ],
+      "stack_pop_order": [
+        "snoop",
+        "stop",
+        "span",
+        "sleet",
+        "spa"
+      ],
+      "stacked_equation": {
+        "left": "sapsteelsnapspotspoons",
+        "right": "sapsteelsnapspotspoons",
+        "holds": true
+      },
+      "register_trace": [
+        {
+          "cycle_index_inner_first": 1,
+          "boundary_phase": "plural_suffix_pending",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 1,
+          "pushed_y": "snoop",
+          "fresh_lemma_ids": [
+            "spoon",
+            "snoop"
+          ]
+        },
+        {
+          "cycle_index_inner_first": 2,
+          "boundary_phase": "imperative_or_modifier_prefix",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 2,
+          "pushed_y": "stop",
+          "fresh_lemma_ids": [
+            "spot",
+            "stop"
+          ]
+        },
+        {
+          "cycle_index_inner_first": 3,
+          "boundary_phase": "imperative_or_modifier_prefix",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 3,
+          "pushed_y": "span",
+          "fresh_lemma_ids": [
+            "snap",
+            "span"
+          ]
+        },
+        {
+          "cycle_index_inner_first": 4,
+          "boundary_phase": "imperative_or_modifier_prefix",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 4,
+          "pushed_y": "sleet",
+          "fresh_lemma_ids": [
+            "steel",
+            "sleet"
+          ]
+        },
+        {
+          "cycle_index_inner_first": 5,
+          "boundary_phase": "imperative_or_modifier_prefix",
+          "residual_before": "s",
+          "residual_after": "s",
+          "stack_depth_after_push": 5,
+          "pushed_y": "spa",
+          "fresh_lemma_ids": [
+            "sap",
+            "spa"
+          ]
+        }
+      ],
+      "freshness": {
+        "lemmas": [
+          "spoon",
+          "snoop",
+          "spot",
+          "stop",
+          "snap",
+          "span",
+          "steel",
+          "sleet",
+          "sap",
+          "spa"
+        ],
+        "all_lemmas_distinct": true,
+        "carrier_content_disjoint": true
+      },
+      "boundary_mask": {
+        "proper_palindromic_multiword_spans": [],
+        "passed": true
+      },
+      "independent_audit": {
+        "letters": 66,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "e04499bb1df83467247cb2de78aeb3c8b773e5a65ae60d3748f8e357c8ee5cca",
+        "sha256_reverse": "e04499bb1df83467247cb2de78aeb3c8b773e5a65ae60d3748f8e357c8ee5cca",
+        "hashes_agree": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": true,
+      "proper_names": false,
+      "carrier_id": "inspection_carton",
+      "carrier_equation": {
+        "p_tape": "notracenote",
+        "q_tape": "setonecarton",
+        "left": "notracenotes",
+        "right": "notracenotes",
+        "holds": true
+      },
+      "reader_certified": false,
+      "syntax": {
+        "direct_status": "syntax_register_obstruction",
+        "event_continuity": false,
+        "reading": "mechanically exact imperative chain",
+        "obstruction": "the next exact pair sap/spa preserves the character register, but the LIFO return exposes leisure-verb 'spa' after the material/weather chain; no available boundary phase gives it a continuous event role"
+      }
+    }
+  ],
+  "stats": {
+    "rendered_children": 5,
+    "exact_children": 5,
+    "mechanically_admitted_children": 5,
+    "intact_interpretable_depths": [
+      1,
+      2
+    ],
+    "syntax_obstruction_depths": [
+      3,
+      4,
+      5
+    ],
+    "longest_exact_letters": 66
+  },
+  "reader_gate": {
+    "status": "closed",
+    "reason": "exactness and direct syntactic interpretation are not blinded reader evidence; depths 3-5 additionally lose event continuity"
+  },
+  "obstruction": {
+    "first_depth": 3,
+    "equation_domain": "after spoon/snoop and spot/stop, the remaining common r=s pairs expose span, steel/sleet, spa, or swart in the fixed return phase",
+    "register_failure": "those returns require an object/determiner, change the event domain, or lack a productive finite-verb reading; punctuation cannot add the missing characters or semantic argument",
+    "next_productive_morphology_operator": "replace bare returned lemmas with typed verb+particle/object frames inside T(y), such as V+PRON or V+DET+N, then derive T(x) from the same live-residual equation before rendering"
+  },
+  "provenance": {
+    "catalogue_text": false,
+    "proper_names": false,
+    "finished_tape_reversal": false,
+    "posthoc_character_repair": false,
+    "repeated_content": false,
+    "closed_mirrored_units": false,
+    "generator_sha256": "bc3710dfc5f13f967034b86e15f4c09c08cfafa5167de0fddd0c2049fba923d4"
+  }
+}

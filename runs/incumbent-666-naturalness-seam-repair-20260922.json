@@ -1,0 +1,357 @@
+{
+  "experiment_id": "incumbent-666-naturalness-seam-repair-20260922",
+  "method": "one bounded naturalness-aware repair at reciprocal seam",
+  "active_frontier_parent": {
+    "artifact": "runs/incumbent-666-comparison-alternative-20260922.json",
+    "id": "comparison-alternative-nora-sees-666",
+    "letters": 666,
+    "sha256": "cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297"
+  },
+  "working_incumbent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "id": "outer-causal-scene-568-working-incumbent",
+    "letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "preserved_frontier": [
+    {
+      "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+      "id": "outer-causal-scene-568-working-incumbent",
+      "letters": 568,
+      "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+    },
+    {
+      "artifact": "runs/incumbent-550-central-event-bridge-20261002.json",
+      "id": "central-distinct-events-560",
+      "letters": 560,
+      "sha256": "b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc"
+    },
+    {
+      "artifact": "runs/incumbent-550-typed-center-product-20261002.json",
+      "id": "typed-center-25",
+      "letters": 558,
+      "sha256": "29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa"
+    },
+    {
+      "artifact": "runs/incumbent-498-event-frame-seam-repair-20261002.json",
+      "id": "depth39-longest-f1g1h1r",
+      "letters": 556,
+      "sha256": "28b303081c7eeae9b0f4c7e274d71e73551c64f5ad389b2d992b6183597f6d14"
+    }
+  ],
+  "rows": [
+    {
+      "id": "naturalness-seam-repair-liam-666",
+      "working_status": "naturalness_aware_seam_candidate",
+      "promotion_status": {
+        "promoted": false,
+        "status": "comparison_pending_full_text_review",
+        "reason": "Naturalness gates pass locally and globally; retain unpromoted pending full-text review."
+      },
+      "rendered": "Leon won. Wolf spots Nora. Nora sees Nadia. Nadia sees Ira. Sara saw God. Ari saw Dog. Mara stops rats. Nora spots a ram. Mara sees rats. Nora stops rats. Nora sees Aram. Mara sees Nadia. Nadia saw Noel live. Mara stops Nadia. Nora sees Aram. Sara saw Noel live. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Liam stops Aram. Aidan spots Ira. Ari sees God. Dog sees Ira. Ari stops Nadia. Mara spots mail. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Evil Leon was Aras. Mara sees Aron. Aidan spots Aram. Evil Leon was Aidan. Aidan sees Aram. Mara sees Aron; star spots Aron. Star sees Aram. Mara stops Aron. Star spots Aram. God was Ira. Dog was Aras. Ari sees Aidan. Aidan sees Aron. Aron stops flow now, Noel.",
+      "audit": {
+        "letters": 666,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "2dc6afd1545b52b24f2d53d04e6e2529929f52dd45b81c00495f5cf3b86b19ed",
+        "sha256_reverse": "2dc6afd1545b52b24f2d53d04e6e2529929f52dd45b81c00495f5cf3b86b19ed",
+        "sha_equal": true
+      },
+      "independent_audit": {
+        "normalized_letters": 666,
+        "two_pointer_exact": true,
+        "sha256_forward": "2dc6afd1545b52b24f2d53d04e6e2529929f52dd45b81c00495f5cf3b86b19ed",
+        "sha256_reverse": "2dc6afd1545b52b24f2d53d04e6e2529929f52dd45b81c00495f5cf3b86b19ed",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/incumbent-666-comparison-alternative-20260922.json",
+      "parent_id": "comparison-alternative-nora-sees-666",
+      "parent_sha256": "cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297",
+      "growth_over_parent": 0,
+      "new_event_content": [
+        "Liam stops Aram.",
+        "Mara spots mail."
+      ],
+      "operator": {
+        "name": "bounded_naturalness_aware_repair",
+        "cartesian_sweep": false,
+        "global_frozen_parent_checked": true,
+        "naturalness": {
+          "candidate_clauses": [
+            "Liam stops Aram.",
+            "Mara spots mail."
+          ],
+          "candidate_frames": [
+            {
+              "subject": "Liam",
+              "verb": "stops"
+            },
+            {
+              "subject": "Mara",
+              "verb": "spots"
+            }
+          ],
+          "global_clause_novelty": true,
+          "global_frame_novelty": true,
+          "candidate_frame_duplicates": [],
+          "neighbor_context": {
+            "left": {
+              "before": "Noel, was I stressed",
+              "after": "Aidan spots Ira"
+            },
+            "right": {
+              "before": "Ari stops Nadia",
+              "after": "Desserts I saw, Leon"
+            }
+          },
+          "neighbor_duplicate_checks": {
+            "left_before": true,
+            "left_after": true,
+            "right_before": true,
+            "right_after": true
+          },
+          "complete_natural_clauses": true,
+          "no_compound_name_hack": true,
+          "no_ambiguous_adverb_or_argument_structure": true,
+          "no_generic_filler": true,
+          "cartesian_sweep": false
+        }
+      },
+      "live_seam": {
+        "normalized_window_left": [
+          297,
+          310
+        ],
+        "normalized_window_right": [
+          356,
+          369
+        ],
+        "raw_window_left": [
+          406,
+          422
+        ],
+        "raw_window_right": [
+          485,
+          501
+        ],
+        "old_left": "Nadia sees Mara.",
+        "old_right": "Aram sees Aidan.",
+        "new_left": "Liam stops Aram.",
+        "new_right": "Mara spots mail.",
+        "left_emission": "liamstopsaram",
+        "right_obligation": "maraspotsmail",
+        "left_trace": [
+          {
+            "cursor": 0,
+            "owner": "naturalness_left",
+            "emitted": "l",
+            "expected": "l",
+            "residual_after": "iamstopsaram"
+          },
+          {
+            "cursor": 1,
+            "owner": "naturalness_left",
+            "emitted": "i",
+            "expected": "i",
+            "residual_after": "amstopsaram"
+          },
+          {
+            "cursor": 2,
+            "owner": "naturalness_left",
+            "emitted": "a",
+            "expected": "a",
+            "residual_after": "mstopsaram"
+          },
+          {
+            "cursor": 3,
+            "owner": "naturalness_left",
+            "emitted": "m",
+            "expected": "m",
+            "residual_after": "stopsaram"
+          },
+          {
+            "cursor": 4,
+            "owner": "naturalness_left",
+            "emitted": "s",
+            "expected": "s",
+            "residual_after": "topsaram"
+          },
+          {
+            "cursor": 5,
+            "owner": "naturalness_left",
+            "emitted": "t",
+            "expected": "t",
+            "residual_after": "opsaram"
+          },
+          {
+            "cursor": 6,
+            "owner": "naturalness_left",
+            "emitted": "o",
+            "expected": "o",
+            "residual_after": "psaram"
+          },
+          {
+            "cursor": 7,
+            "owner": "naturalness_left",
+            "emitted": "p",
+            "expected": "p",
+            "residual_after": "saram"
+          },
+          {
+            "cursor": 8,
+            "owner": "naturalness_left",
+            "emitted": "s",
+            "expected": "s",
+            "residual_after": "aram"
+          },
+          {
+            "cursor": 9,
+            "owner": "naturalness_left",
+            "emitted": "a",
+            "expected": "a",
+            "residual_after": "ram"
+          },
+          {
+            "cursor": 10,
+            "owner": "naturalness_left",
+            "emitted": "r",
+            "expected": "r",
+            "residual_after": "am"
+          },
+          {
+            "cursor": 11,
+            "owner": "naturalness_left",
+            "emitted": "a",
+            "expected": "a",
+            "residual_after": "m"
+          },
+          {
+            "cursor": 12,
+            "owner": "naturalness_left",
+            "emitted": "m",
+            "expected": "m",
+            "residual_after": ""
+          }
+        ],
+        "right_trace": [
+          {
+            "cursor": 0,
+            "owner": "naturalness_right",
+            "emitted": "m",
+            "expected": "m",
+            "residual_after": "araspotsmail"
+          },
+          {
+            "cursor": 1,
+            "owner": "naturalness_right",
+            "emitted": "a",
+            "expected": "a",
+            "residual_after": "raspotsmail"
+          },
+          {
+            "cursor": 2,
+            "owner": "naturalness_right",
+            "emitted": "r",
+            "expected": "r",
+            "residual_after": "aspotsmail"
+          },
+          {
+            "cursor": 3,
+            "owner": "naturalness_right",
+            "emitted": "a",
+            "expected": "a",
+            "residual_after": "spotsmail"
+          },
+          {
+            "cursor": 4,
+            "owner": "naturalness_right",
+            "emitted": "s",
+            "expected": "s",
+            "residual_after": "potsmail"
+          },
+          {
+            "cursor": 5,
+            "owner": "naturalness_right",
+            "emitted": "p",
+            "expected": "p",
+            "residual_after": "otsmail"
+          },
+          {
+            "cursor": 6,
+            "owner": "naturalness_right",
+            "emitted": "o",
+            "expected": "o",
+            "residual_after": "tsmail"
+          },
+          {
+            "cursor": 7,
+            "owner": "naturalness_right",
+            "emitted": "t",
+            "expected": "t",
+            "residual_after": "smail"
+          },
+          {
+            "cursor": 8,
+            "owner": "naturalness_right",
+            "emitted": "s",
+            "expected": "s",
+            "residual_after": "mail"
+          },
+          {
+            "cursor": 9,
+            "owner": "naturalness_right",
+            "emitted": "m",
+            "expected": "m",
+            "residual_after": "ail"
+          },
+          {
+            "cursor": 10,
+            "owner": "naturalness_right",
+            "emitted": "a",
+            "expected": "a",
+            "residual_after": "il"
+          },
+          {
+            "cursor": 11,
+            "owner": "naturalness_right",
+            "emitted": "i",
+            "expected": "i",
+            "residual_after": "l"
+          },
+          {
+            "cursor": 12,
+            "owner": "naturalness_right",
+            "emitted": "l",
+            "expected": "l",
+            "residual_after": ""
+          }
+        ],
+        "final_residual": "",
+        "residual_ownership": {
+          "left": "naturalness_left",
+          "right": "naturalness_right"
+        }
+      },
+      "semantic_roles": {
+        "complete_natural_clauses": true,
+        "varied_relations": [
+          "stops",
+          "spots"
+        ],
+        "repeated_subject_verb_frames": [],
+        "repeated_neighboring_clauses": false
+      },
+      "grammar_debt": {
+        "inherited_proper_palindromic_spans": true,
+        "remaining_full_text_repetition": true,
+        "human_reader_validation": false,
+        "effect": "retain 568 incumbent and promoted 666 parent until review"
+      },
+      "provenance": "bounded naturalness-aware reciprocal seam repair with global novelty, neighbor gates, and explicit residual ownership"
+    }
+  ],
+  "next_operator": "review naturalness-aware seam candidate without promoting over 568 incumbent"
+}

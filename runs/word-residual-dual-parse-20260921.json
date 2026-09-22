@@ -2,18 +2,74 @@
   "experiment_id": "word-residual-dual-parse-20260921",
   "method": "bounded online word-residual intersection of independent POS/role plans",
   "stats": {
-    "states": 3,
-    "transitions": 2,
-    "rendered": 0,
+    "states": 11,
+    "transitions": 11,
+    "rendered": 1,
     "exact_gt38": 0,
-    "max_letters": 0
+    "max_letters": 38
   },
   "exact_candidates": [],
-  "controls": [],
+  "controls": [
+    {
+      "left": "an aide rips nine memos",
+      "right": "some men inspire Diana",
+      "rendered": "an aide rips nine memos some men inspire Diana",
+      "left_roles": [
+        "A:determiner",
+        "A:agent",
+        "B:verb",
+        "B:quantity",
+        "B:object"
+      ],
+      "right_roles": [
+        "B-prime:response",
+        "B-prime:agent",
+        "B-prime:verb",
+        "A-prime:patient"
+      ],
+      "residual": "",
+      "exact_half_equation": true,
+      "audit": {
+        "letters": 38,
+        "pointer_exact": true,
+        "mismatches": [],
+        "normalized_tape": "anaideripsninememossomemeninspirediana",
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "provenance": {
+        "word_residual_state": true,
+        "joint_role_tracking": true,
+        "finished_tape_reversal": false,
+        "completed_prose_enumeration": false,
+        "reversible_units": false,
+        "known_lane_duplicate": false
+      }
+    }
+  ],
   "novelty_preflight": {
-    "status": "passed",
+    "status": "recovery_control_only",
     "signature": "word-residual-dual-parse-20260921",
-    "distinct_from": "dual_parse character lattice: word choices advance online with typed unmatched residual"
+    "reason": "the fixed lexical inventory verifies word-residual orientation; productive alternatives belong in a separate search"
   },
   "provenance": {
     "audits": [
@@ -29,5 +85,5 @@
       "catalogue text"
     ]
   },
-  "status": "no exact clean >38 closure; online residual controls retained"
+  "status": "38-letter recovery control only; no exact clean >38 closure"
 }

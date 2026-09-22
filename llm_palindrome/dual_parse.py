@@ -16,8 +16,7 @@ from __future__ import annotations
 from collections import defaultdict, deque
 from dataclasses import dataclass
 import re
-from pathlib import Path
-import json
+from collections.abc import Callable
 
 
 def letter_tape(text: str) -> str:
@@ -58,6 +57,7 @@ def word_residual_search(
     left_slots: tuple[tuple[str, tuple[str, ...]], ...],
     right_slots: tuple[tuple[str, tuple[str, ...]], ...],
     *, max_states: int = 50_000, max_results: int = 100,
+    allow_choice: Callable[[str, str, str | None, str], bool] | None = None,
 ) -> dict:
     """Search two POS/role plans while carrying the live unmatched tape.
 
@@ -66,50 +66,76 @@ def word_residual_search(
     only when their side is needed; no completed sentence or reversed word is
     materialized as a search primitive.
     """
-    queue = deque([(0, 0, (), (), "", (), ())])
-    seen = set(); results = []; transitions = 0
+    # ``li`` advances through the left parse in reading order. ``ri`` moves
+    # backwards through the right parse because the paragraph's final word is
+    # the first surface exposed by the palindrome equation.
+    queue = deque([(0, len(right_slots) - 1, (), (), "", "", (), ())])
+    seen = set(); results = []; transitions = 0; dead_frontiers = []
     while queue and len(seen) < max_states and len(results) < max_results:
-        li, ri, lw, rw, residual, lroles, rroles = queue.popleft()
-        key = (li, ri, lw, rw, residual, lroles, rroles)
+        li, ri, lw, rw_reverse, owner, residual, lroles, rroles_reverse = queue.popleft()
+        key = (li, ri, lw, rw_reverse, owner, residual, lroles, rroles_reverse)
         if key in seen: continue
         seen.add(key)
-        if li == len(left_slots) and ri == len(right_slots) and not residual:
-            left, right = " ".join(lw), " ".join(reversed(rw))
+        if li == len(left_slots) and ri < 0 and not residual:
+            left, right = " ".join(lw), " ".join(reversed(rw_reverse))
             results.append({"left": left, "right": right,
                             "rendered": (left + " " + right).strip(),
-                            "left_roles": list(lroles), "right_roles": list(reversed(rroles)),
+                            "left_roles": list(lroles), "right_roles": list(reversed(rroles_reverse)),
                             "residual": "", "exact_half_equation": True})
             continue
-        # If a residual exists, only the opposite side may advance. Otherwise
-        # branch on either side, which is the productive word-boundary choice.
-        sides = ("right",) if residual.startswith("L:") else (("left",) if residual.startswith("R:") else ("left", "right"))
+        # If one side owns unmatched characters, only the other may advance.
+        # With no debt either outer edge may open the equation.
+        sides = ("right",) if owner == "left" else (("left",) if owner == "right" else ("left", "right"))
+        before_transitions = transitions
         for side in sides:
             slots, index = (left_slots, li) if side == "left" else (right_slots, ri)
-            if index >= len(slots): continue
+            if index < 0 or index >= len(slots): continue
             role, alternatives = slots[index]
             for word in alternatives:
+                neighbor = (lw[-1] if side == "left" and lw else
+                            rw_reverse[-1] if side == "right" and rw_reverse else None)
+                if allow_choice is not None and not allow_choice(side, word, neighbor, role):
+                    continue
                 tape = letter_tape(word)
                 if not tape: continue
-                other = residual[2:] if residual else ""
-                if other:
-                    # The right tape is consumed backwards, so compare it to
-                    # the reverse of the newly exposed left tape.
-                    exposed = tape if side == "right" else tape[::-1]
-                    common = min(len(other), len(exposed))
-                    if other[:common] != exposed[:common]: continue
-                    remain = other[common:] or exposed[common:]
-                    owner = "L:" if len(other) > len(exposed) else ("R:" if len(exposed) > len(other) else "")
-                    next_residual = owner + remain if remain else ""
+                # Both streams are compared in the left-to-right orientation:
+                # the right word is exposed from its last character first.
+                exposed = tape if side == "left" else tape[::-1]
+                if residual:
+                    common = min(len(residual), len(exposed))
+                    if residual[:common] != exposed[:common]: continue
+                    if len(residual) > len(exposed):
+                        next_owner, next_residual = owner, residual[common:]
+                    elif len(exposed) > len(residual):
+                        next_owner = side
+                        next_residual = exposed[common:]
+                    else:
+                        next_owner, next_residual = "", ""
                 else:
-                    next_residual = ("L:" if side == "left" else "R:") + tape
-                queue.append((li + (side == "left"), ri + (side == "right"),
+                    next_owner, next_residual = side, exposed
+                queue.append((li + (side == "left"), ri - (side == "right"),
                               lw + ((word,) if side == "left" else ()),
-                              rw + ((word,) if side == "right" else ()), next_residual,
+                              rw_reverse + ((word,) if side == "right" else ()),
+                              next_owner, next_residual,
                               lroles + ((role,) if side == "left" else ()),
-                              rroles + ((role,) if side == "right" else ())))
+                              rroles_reverse + ((role,) if side == "right" else ())))
                 transitions += 1
+        if transitions == before_transitions:
+            left_letters = sum(len(letter_tape(word)) for word in lw)
+            right_letters = sum(len(letter_tape(word)) for word in rw_reverse)
+            dead_frontiers.append({
+                "matched_letters": min(left_letters, right_letters),
+                "left_words": list(lw),
+                "right_words_reverse": list(rw_reverse),
+                "owner": owner,
+                "residual": residual,
+                "next_left_role": left_slots[li][0] if li < len(left_slots) else None,
+                "next_right_role": right_slots[ri][0] if ri >= 0 else None,
+            })
+            dead_frontiers.sort(key=lambda row: (-row["matched_letters"], len(row["residual"])))
+            del dead_frontiers[32:]
     return {"results": results, "states": len(seen), "transitions": transitions,
-            "cap_reached": bool(queue)}
+            "cap_reached": bool(queue), "dead_frontiers": dead_frontiers}
 
 
 @dataclass(frozen=True)
@@ -129,8 +155,7 @@ def productive_lattice(slots: list[tuple[str, list[tuple[str, Morphology]]]]) ->
     lattice.slot_features: list[str] = []
     for role, alternatives in slots:
         lattice.slot_features.append(role)
-        lattice.slot(role, [surface for surface, _ in alternatives])
-        ids = [i for i, c in lattice.choices.items() if c.role == role]
+        ids = lattice.slot(role, [surface for surface, _ in alternatives])
         for choice_id, (_, features) in zip(ids, alternatives):
             lattice.morphology[choice_id] = features
     return lattice
@@ -170,16 +195,18 @@ class SurfaceLattice:
         self._next_state += 1
         return state
 
-    def slot(self, role: str, alternatives: tuple[str, ...] | list[str]) -> None:
+    def slot(self, role: str, alternatives: tuple[str, ...] | list[str]) -> tuple[int, ...]:
         """Append one required role slot to the lattice."""
         if not alternatives:
             raise ValueError(f"slot {role!r} has no alternatives")
         before, after = self.finish, self._state()
+        created: list[int] = []
         for surface in alternatives:
             tape = letter_tape(surface)
             if not tape:
                 raise ValueError(f"slot {role!r} contains an empty letter tape")
             choice_id = len(self.choices)
+            created.append(choice_id)
             self.choices[choice_id] = Choice(choice_id, role, surface, tape)
             current = before
             for offset, char in enumerate(tape):
@@ -191,6 +218,7 @@ class SurfaceLattice:
                 self.incoming[following].append(edge_id)
                 current = following
         self.finish = after
+        return tuple(created)
 
 
 def _append_choice(path: tuple[int, ...], edge: Edge, *, backward: bool) -> tuple[int, ...]:

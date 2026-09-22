@@ -13,6 +13,7 @@ import re
 from pathlib import Path
 
 from llm_palindrome.dual_parse import SurfaceLattice, intersect_surfaces, letter_tape
+from llm_palindrome.admission import mechanical_admission_checks
 
 ROOT = Path(__file__).resolve().parent
 CORPUS = ROOT / "data" / "authored_sentences.txt"
@@ -52,16 +53,27 @@ def search(*, max_states: int = 120_000, max_results: int = 100) -> dict:
         tape = letter_tape(row["rendered"])
         row["audit"] = {"letters": len(tape), "exact": tape == tape[::-1],
                         "sha256": hashlib.sha256(tape.encode()).hexdigest()}
+        row["mechanical_admission"] = mechanical_admission_checks(
+            row["rendered"], min_letters=39, max_letters=500
+        )
+        row["mechanically_admitted"] = all(row["mechanical_admission"].values())
     result["experiment_id"] = ID
     result["method"] = "corpus phrase lattice; character-state intersection before complete rendering"
     result["stats"] = {"corpus_rows": len(CORPUS.read_text().splitlines()),
                         "rendered": len(result["results"]),
-                        "exact_gt38": sum(r["audit"]["exact"] and r["audit"]["letters"] > 38 for r in result["results"])}
-    result["novelty_preflight"] = {"status": "passed", "catalogue_import": False,
-                                   "distinct_from": "Brown/tag and prior phrase-pair lanes; local authored rows are indexed as forward choices"}
+                        "exact_gt38": sum(r["audit"]["exact"] and r["audit"]["letters"] > 38 for r in result["results"]),
+                        "mechanically_admitted_gt38": sum(r["mechanically_admitted"] for r in result["results"])}
+    result["novelty_preflight"] = {
+        "status": "rejected_as_complete_sentence_index",
+        "catalogue_import": False,
+        "reason": "each lattice alternative is already a complete authored sentence and the roles are only A versus B-prime; this is a reverse-index diagnostic, not productive paragraph ABBA generation",
+    }
+    result["reader_packet"] = []
+    result["status"] = "closed as non-progress: zero closure and complete-sentence alternatives"
     return result
 
 
 if __name__ == "__main__":
-    OUT.write_text(json.dumps(search(), indent=2) + "\n")
-    print(json.dumps(search()["stats"]))
+    payload = search()
+    OUT.write_text(json.dumps(payload, indent=2) + "\n")
+    print(json.dumps(payload["stats"]))

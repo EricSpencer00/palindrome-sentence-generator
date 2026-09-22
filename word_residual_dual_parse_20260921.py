@@ -9,8 +9,8 @@ ID = "word-residual-dual-parse-20260921"
 LEFT = (("A:determiner", ("an",)), ("A:agent", ("aide",)),
         ("B:verb", ("rips",)), ("B:quantity", ("nine",)),
         ("B:object", ("memos",)))
-RIGHT = (("A-prime:patient", ("Diana",)), ("B-prime:verb", ("inspire",)),
-         ("B-prime:agent", ("men",)), ("B-prime:response", ("some",)))
+RIGHT = (("B-prime:response", ("some",)), ("B-prime:agent", ("men",)),
+         ("B-prime:verb", ("inspire",)), ("A-prime:patient", ("Diana",)))
 
 def audit(text: str) -> dict:
     tape = letter_tape(text)
@@ -41,12 +41,12 @@ def run() -> dict:
                       "rendered": len(rows), "exact_gt38": len(exact),
                       "max_letters": max((r["audit"]["letters"] for r in rows), default=0)},
             "exact_candidates": exact, "controls": rows,
-            "novelty_preflight": {"status": "passed", "signature": ID,
-                                  "distinct_from": "dual_parse character lattice: word choices advance online with typed unmatched residual"},
+            "novelty_preflight": {"status": "recovery_control_only", "signature": ID,
+                                  "reason": "the fixed lexical inventory verifies word-residual orientation; productive alternatives belong in a separate search"},
             "provenance": {"audits": ["independent two-pointer comparison", "forward/reverse SHA-256"],
                            "central_mechanical_admission": True,
                            "reader_gate": "exact >38 only", "hard_exclusions": ["nested palindromes", "repeated units", "word-order symmetry", "catalogue text"]},
-            "status": "fresh exact >38 requires reading" if exact else "no exact clean >38 closure; online residual controls retained"}
+            "status": "fresh exact >38 requires reading" if exact else "38-letter recovery control only; no exact clean >38 closure"}
 
 if __name__ == "__main__":
     out = Path(__file__).resolve().parent / "runs" / f"{ID}.json"

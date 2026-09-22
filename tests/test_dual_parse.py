@@ -1,5 +1,12 @@
 from llm_palindrome.admission import mechanical_admission_checks
-from llm_palindrome.dual_parse import SurfaceLattice, intersect_surfaces, letter_tape
+from llm_palindrome.dual_parse import (
+    Morphology,
+    SurfaceLattice,
+    intersect_surfaces,
+    letter_tape,
+    productive_lattice,
+    word_residual_search,
+)
 
 
 SEED = "An aide rips nine memos; some men inspire Diana."
@@ -41,3 +48,50 @@ def test_dual_parse_prunes_incompatible_english_surfaces_before_rendering():
     assert search["transitions"] == 0
     assert search["dead_frontiers"][0]["left_next"] == ["t"]
     assert search["dead_frontiers"][0]["right_next"] == ["k"]
+
+
+def test_word_residual_search_recovers_seed_in_reading_order():
+    left = (
+        ("A:determiner", ("an",)),
+        ("A:agent", ("aide",)),
+        ("B:verb", ("rips",)),
+        ("B:quantity", ("nine",)),
+        ("B:object", ("memos",)),
+    )
+    right = (
+        ("B-prime:response", ("some",)),
+        ("B-prime:agent", ("men",)),
+        ("B-prime:verb", ("inspire",)),
+        ("A-prime:patient", ("Diana",)),
+    )
+    search = word_residual_search(left, right)
+    assert [row["rendered"] for row in search["results"]] == [
+        "an aide rips nine memos some men inspire Diana"
+    ]
+    assert search["results"][0]["exact_half_equation"] is True
+
+
+def test_word_residual_search_reports_the_deepest_failed_obligation():
+    search = word_residual_search(
+        (("left-determiner", ("an",)), ("left-agent", ("elder",))),
+        (("right-event", ("returns",)), ("right-name", ("Lena",))),
+    )
+    assert search["results"] == []
+    assert search["dead_frontiers"]
+    deepest = search["dead_frontiers"][0]
+    assert deepest["matched_letters"] >= 2
+    assert deepest["owner"] in {"left", "right"}
+    assert deepest["residual"]
+
+
+def test_productive_lattice_attaches_features_to_repeated_role_slots():
+    first = Morphology(noun_number="singular")
+    second = Morphology(noun_number="plural")
+    lattice = productive_lattice([
+        ("noun", [("pilot", first)]),
+        ("noun", [("sailors", second)]),
+    ])
+    assert [lattice.morphology[index] for index in sorted(lattice.morphology)] == [
+        first,
+        second,
+    ]

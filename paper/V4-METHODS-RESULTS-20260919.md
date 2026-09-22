@@ -156,6 +156,30 @@ than mechanical: the reader-plausible pair bank is small. The next generator
 must mine multiword object/predicate equations with grammar tags, admitting a
 pair only when it improves the scene rather than merely lengthening the list.
 
+The one-letter narrator is not required. A joint entity/object/state variant
+binds the reversible names `Nora/Aron` before lexical realization and produces
+a longer two-character tableau:
+
+> **Nora saw lager. Nora saw desserts.**
+>
+> **Nora saw trams. Nora saw guns. Nora saw war.**
+>
+> **Raw was Aron. Snug was Aron. Smart was Aron.**
+>
+> **Stressed was Aron. Regal was Aron.**
+
+This surface has 120 normalized letters and matching forward/reverse SHA-256
+`bffca164c7ff03e9b3d5e929a5afc9d25ee8aadb034ecdc9be12e1e418d8646e`.
+The two-pointer walk, project validator, paragraph-pair checks, entity-name
+equation, and five object/state equations all pass. All ten clauses are
+distinct and no clause or paragraph is self-palindromic. The entity binding
+improves the construction method and length, but it does not by itself prove
+coherence: the causal relation between Nora's observations and Aron's states
+is implicit, and repeated syntax remains list-like. We therefore submit the
+120-letter row to blinded comparison rather than declaring it readable.
+Artifact: `runs/two-character-paragraph-abba-20261002.json`; generator:
+`experiments/two_character_paragraph_abba_20261002.py`.
+
 ## Cross-role clause CSP
 
 As a new constructive lane, we paired complete contemporary clauses while

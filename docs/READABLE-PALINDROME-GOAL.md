@@ -9102,6 +9102,21 @@ grammar variant.
   is still small. Artifact: `runs/hierarchical-paragraph-abba-20261002.json`;
   generator: `experiments/hierarchical_paragraph_abba_20261002.py`.
 
+- **Two-character paragraph binding (2026-10-02):** the typed state now
+  selects a reversible entity pair as well as object/state lexemes. Binding
+  observer `Nora` to state holder `Aron` yields a 120-letter exact tableau:
+  “Nora saw lager. Nora saw desserts. / Nora saw trams. Nora saw guns. Nora
+  saw war. / Raw was Aron. Snug was Aron. Smart was Aron. / Stressed was Aron.
+  Regal was Aron.” The independent two-pointer walk, project validator,
+  forward/reverse SHA-256, two paragraph-pair checks, one entity-name equation,
+  and five object/state equations agree. Its ten clauses are distinct, with no
+  self-palindromic sentence or paragraph. This removes reliance on the
+  single-letter narrator and gives a longer scene, but repeated syntax and the
+  implicit Nora/Aron causal link remain reader-facing risks; blinded ratings
+  are prepared and pending. Artifact:
+  `runs/two-character-paragraph-abba-20261002.json`; generator:
+  `experiments/two_character_paragraph_abba_20261002.py`.
+
 ## Current orchestration routing (2026-10-02)
 
 GPT-5.6 Sol owns architecture and coordinated direction for this goal.

@@ -105,10 +105,14 @@ During outside-in matching, `reviled` repays `deliver`, the final `s` of
 **560 letters**, exceeding the rough 556-letter length control, with independent
 forward/reverse SHA-256
 `b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc`.
-Its remaining primary defect is no longer the midpoint; it is discourse-level
-repetition in the outer delivery, mapping, and rat events. The next operator
-therefore replaces one complete outer event sequence with a causally linked
-scene transition instead of appending more text.
+A strict structural audit prevents promotion: stripping the distinct Ari/Ira
+endpoints exposes the proper palindromic four-token span “delivers maps /
+spam's reviled” at normalized offsets `[268,292)`. The 560 row is therefore a
+permissive working-track child, not a shortcut-clean result and not a reader
+candidate. This is a positive construction trace and a negative admission
+decision, not the paper's endpoint. The next operator widens the editable
+window past those aligned endpoint cuts and rejects every complementary
+internal token-boundary cut.
 
 This midpoint construction also has a programmatic counterpart. A typed
 product intersects two finite-clause grammars while carrying number agreement,
@@ -128,8 +132,8 @@ letters and independent SHA-256
 `29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa`.
 This ablation demonstrates that the finite-event seam can be searched in a
 small exact state space rather than repaired by RLAIF after generation. The
-authored 560 row remains the content incumbent because its central discourse
-is clearer and longer.
+authored 560 row remains the longer surface control, but neither central row is
+promoted until the proper-span audit passes.
 
 Reproducible evidence is in
 `experiments/incumbent_498_live_seam_growth_20261002.py` and

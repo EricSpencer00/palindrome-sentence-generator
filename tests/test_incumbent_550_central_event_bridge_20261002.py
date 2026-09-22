@@ -24,6 +24,9 @@ def test_central_bridge_has_distinct_events_and_staggered_boundaries() -> None:
     assert structure["names_distinct"]
     assert not structure["self_palindromic_word_used"]
     assert not structure["catalogue_text_used"]
+    assert structure["proper_palindromic_multiword_span_used"]
+    assert not structure["shortcut_clean"]
+    assert structure["working_track_only"]
     assert not structure["word_boundaries_reflect_one_to_one"]
     assert row["live_state"]["residual"] == "s"
     assert row["live_state"]["residual_after_shell"] == ""

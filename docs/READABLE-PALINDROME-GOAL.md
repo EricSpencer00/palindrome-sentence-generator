@@ -75,10 +75,12 @@ is not a word-order reversal: `delivers` consumes reversed `reviled` plus the
 final `s` of `spam's`, after which `maps` consumes `spam`. The independently
 exact child is **560 letters**, SHA-256
 `b5f98bfb0b44b31d8cbf78727672a74b588980e1fc8f1ff522a2c4ad1d800ccc`.
-It is both longer and structurally cleaner than the 556 control. The active
-reader-facing defect is now discourse-level repetition in the outer delivery,
-mapping, and rat events; the next operator replaces one complete outer event
-sequence with a causally linked scene transition rather than adding length.
+It is longer than the 556 control and remains useful on the permissive working
+track. A strict audit, however, finds the proper palindromic four-token span
+“delivers maps / spam's reviled” at normalized offsets `[268,292)`. The row is
+therefore **not shortcut-clean and not promotable to readers**. The next
+operator widens the editable center past the aligned Ari/Ira endpoint cuts and
+requires no complementary internal token-boundary cuts.
 
 An executable typed-product ablation shows that this central improvement is
 searchable rather than dependent on per-candidate AI repair. Two finite-clause
@@ -90,7 +92,7 @@ Nadia, Noel.” inside a 558-letter exact child (SHA-256
 `29470b5ab408c402e8796530123357fea6a74aa4bdf14f7f1b2a601dbecc94fa`).
 Its `a|rat` / `Tara` seam leaves residual `rat` before the noun closes it.
 This is method evidence and a diverse frontier alternative; the clearer,
-longer 560 row remains the content incumbent.
+longer 560 row remains a permissive working child, not a final incumbent.
 
 Evidence:
 `experiments/incumbent_498_live_seam_growth_20261002.py` and

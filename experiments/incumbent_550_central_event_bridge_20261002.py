@@ -80,6 +80,7 @@ def build_payload() -> dict[str, object]:
             "children_over_556_control": 1,
             "longest_letters": 560,
             "central_catalogue_spans_removed": 1,
+            "shortcut_clean_children": 0,
         },
         "rows": [
             {
@@ -120,6 +121,16 @@ def build_payload() -> dict[str, object]:
                     "names_distinct": True,
                     "self_palindromic_word_used": False,
                     "catalogue_text_used": False,
+                    "proper_palindromic_multiword_span_used": True,
+                    "proper_span": {
+                        "text": "delivers maps. Spam's reviled",
+                        "normalized": "deliversmapsspamsreviled",
+                        "candidate_normalized_offsets": [268, 292],
+                        "candidate_raw_offsets": [367, 396],
+                        "sha256": "16031431e046457f2c74a2aeb89c6aadff2e4fda8104cc930bb0c6593d225adf",
+                    },
+                    "shortcut_clean": False,
+                    "working_track_only": True,
                     "word_boundaries_reflect_one_to_one": False,
                     "left_boundary": "deliver|s maps",
                     "right_boundary": "spam|s reviled",
@@ -129,15 +140,14 @@ def build_payload() -> dict[str, object]:
                     "human_certified": False,
                 },
                 "worst_remaining_seam": {
-                    "text": "the repeated outer map/rat delivery sequence",
+                    "text": "the entire central Leon ... Noel window",
                     "diagnosis": (
-                        "locally finite but discourse-level repetition still "
-                        "prevents a reader-worthy paragraph"
+                        "the local bridge improves surface syntax but leaves a "
+                        "proper palindromic multiword subspan at aligned endpoint cuts"
                     ),
                     "next_operator": (
-                        "replace one complete outer event sequence with a "
-                        "single causally linked scene transition while keeping "
-                        "the existing live residual"
+                        "widen past the Ari/Ira endpoint cuts and require no "
+                        "complementary internal token-boundary cuts"
                     ),
                 },
             }

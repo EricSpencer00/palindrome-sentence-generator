@@ -1,7 +1,8 @@
-"""Record a bounded comparison alternative from the causal 666 frontier.
+"""Promote a bounded 666 readability frontier from the causal parent.
 
-This deliberately remains a comparison/frontier alternative pending full-text
-readability review because it removes a good causal clause from the parent.
+The result is the active 666 readability frontier, not the working incumbent:
+the 568 child remains incumbent, and the causal 666 parent remains retained as
+comparison evidence because this edit removes a good causal clause.
 """
 from __future__ import annotations
 
@@ -150,11 +151,25 @@ def build_payload() -> dict[str, object]:
 
     row = {
         "id": "comparison-alternative-nora-sees-666",
-        "working_status": "comparison_frontier_alternative",
+        "working_status": "active_666_readability_frontier",
         "promotion_status": {
-            "promoted": False,
-            "status": "pending_full_text_readability_review",
-            "reason": "The alternative removes a good causal clause from the current 666 parent.",
+            "promoted": True,
+            "status": "promoted_active_readability_frontier",
+            "working_incumbent_unchanged": True,
+            "rationale": (
+                "The complete finite-clause surface removes the targeted right-cluster "
+                "fragment while preserving exact 666 length and empty residual ownership."
+            ),
+            "tradeoff": (
+                "This edit removes a good causal clause from the parent, so the causal "
+                "666 artifact remains retained as comparison evidence; it does not "
+                "replace the 568 working incumbent."
+            ),
+            "comparison_retained": {
+                "artifact": str(PARENT.relative_to(ROOT)),
+                "id": PARENT_ID,
+                "sha256": PARENT_SHA256,
+            },
         },
         "rendered": rendered,
         "audit": project_audit,
@@ -205,17 +220,32 @@ def build_payload() -> dict[str, object]:
             "remaining_mara_stops_rats_scaffolding": 2,
             "rough_syntax_elsewhere": True,
             "human_reader_validation": False,
-            "effect": "retain as comparison alternative; do not demote current 666 or 568",
+            "effect": "active readability frontier; do not demote 568; retain causal 666 comparison",
         },
         "provenance": (
             "reviewer-derived 44-letter mirrored replacement loaded from the exact "
-            "causal 666 child; comparison status is retained pending full-text review"
+            "causal 666 child; promoted for readability while retaining the causal "
+            "parent as comparison evidence"
         ),
     }
 
     return {
         "experiment_id": "incumbent-666-comparison-alternative-20260922",
         "method": "bounded 44-letter mirrored comparison alternative with live residual ownership",
+        "active_readability_frontier": {
+            "artifact": str(OUT.relative_to(ROOT)),
+            "id": "comparison-alternative-nora-sees-666",
+            "letters": 666,
+            "sha256": CHILD_SHA256,
+            "promoted": True,
+            "working_incumbent_unchanged": True,
+        },
+        "comparison_retained": {
+            "artifact": str(PARENT.relative_to(ROOT)),
+            "id": PARENT_ID,
+            "letters": 666,
+            "sha256": PARENT_SHA256,
+        },
         "working_incumbent": {
             "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
             "id": "outer-causal-scene-568-working-incumbent",
@@ -234,8 +264,8 @@ def build_payload() -> dict[str, object]:
         "preserved_frontier": list(FRONTIER),
         "rows": [row],
         "next_operator": (
-            "perform full-text readability review of this comparison alternative; "
-            "do not promote over the causal 666 parent without that review"
+            "repair the next actual stop/spot seam at normalized [64,127)/[539,602), "
+            "raw [86,170)/[739,822); retain 568 as working incumbent"
         ),
     }
 

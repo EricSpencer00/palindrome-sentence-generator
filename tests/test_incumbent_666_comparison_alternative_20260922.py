@@ -11,7 +11,7 @@ from experiments.incumbent_666_comparison_alternative_20260922 import (
 )
 
 
-def test_comparison_alternative_is_exact_but_not_promoted():
+def test_promoted_frontier_is_exact_and_retains_causal_comparison():
     payload = json.loads(OUT.read_text())
     row = next(
         row
@@ -21,8 +21,16 @@ def test_comparison_alternative_is_exact_but_not_promoted():
     result = independent_audit(row["rendered"])
 
     assert row["parent_sha256"] == PARENT_SHA256
-    assert row["promotion_status"]["promoted"] is False
-    assert row["promotion_status"]["status"] == "pending_full_text_readability_review"
+    assert row["promotion_status"]["promoted"] is True
+    assert row["promotion_status"]["status"] == "promoted_active_readability_frontier"
+    assert row["promotion_status"]["working_incumbent_unchanged"] is True
+    assert row["promotion_status"]["comparison_retained"] == {
+        "artifact": "runs/incumbent-666-causal-window-repair-20260922.json",
+        "id": "causal-window-repair-nadia-saw-666",
+        "sha256": PARENT_SHA256,
+    }
+    assert payload["active_readability_frontier"]["promoted"] is True
+    assert payload["comparison_retained"]["sha256"] == PARENT_SHA256
     assert result["normalized_letters"] == 666
     assert result["two_pointer_exact"]
     assert result["sha256_forward"] == CHILD_SHA256
@@ -56,4 +64,3 @@ def test_comparison_alternative_removes_targeted_cluster_with_finite_clauses():
         assert clause in rendered
     assert row["readability_delta"]["complete_finite_clauses"]
     assert not row["readability_delta"]["predicate_less_fragment"]
-

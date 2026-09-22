@@ -19,7 +19,8 @@ def test_loaded_parent_frontier_and_comparison_are_preserved() -> None:
     }
     assert [entry["letters"] for entry in payload["preserved_frontier"]] == [568, 560, 558, 556]
     assert payload["comparison_evidence"]["letters"] == 666
-    assert payload["comparison_evidence"]["sha256"] == "3951b9449ed3ab28f55d9798e344dfaf3123035f5f07c9dffdf0047bed0e1d79"
+    assert payload["comparison_evidence"]["sha256"] == "bab693719482af36c7e223a687f94552ad3efda6825d481014134a7d7ae7148d"
+    assert payload["comparison_evidence"]["source_commit"] == "9cb68296"
 
 
 def test_partial_word_obligation_closes_online_in_bounded_run() -> None:

@@ -199,7 +199,7 @@ def build_payload() -> dict[str, object]:
         validate_frontier_entry(entry)
 
     # Keep the 666 comparison as evidence only; it is never loaded as the parent.
-    comparison = {"artifact": "runs/incumbent-666-central-mini-scene-comparison-20260922.json", "id": "central-mini-scene-comparison-leon-noel-666", "letters": 666, "sha256": "3951b9449ed3ab28f55d9798e344dfaf3123035f5f07c9dffdf0047bed0e1d79"}
+    comparison = {"artifact": "runs/incumbent-666-linked-scene-lattice-20260922.json", "id": "bidirectional-typed-trie-alternative-666", "letters": 666, "sha256": "bab693719482af36c7e223a687f94552ad3efda6825d481014134a7d7ae7148d", "source_commit": "9cb68296"}
     validate_frontier_entry(comparison)
 
     left_raw = raw_boundary_after_letters(base, SEAM_LETTERS)

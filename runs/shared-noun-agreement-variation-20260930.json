@@ -1,0 +1,69 @@
+{
+  "experiment": "shared_noun_agreement_variation_20260930",
+  "method": "online shared-patient intersection with determiner, tense/aspect, and subject-number grammar state",
+  "status": "completed_no_exact_closure",
+  "states": 11460,
+  "character_prunes": 65988,
+  "state_limit": 250000,
+  "exact_candidates": [],
+  "exact_candidate_count": 0,
+  "rendered_diagnostics": [],
+  "residual_frontier": {
+    "states_explored": 11460,
+    "character_prunes": 65988,
+    "exact_closures": 0,
+    "interpretation": "No grammar-preserving closure; mixed token endpoints are withheld from prose results."
+  },
+  "controls": [
+    {
+      "kind": "intact",
+      "rendered": "The sailor guards the lantern; the lantern was guarded by the sailor.",
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "left": "t",
+          "right": "r"
+        },
+        "sha256_forward": "0a246283f360f47c7a42832831f701b39571caf5859941835fac502226ad2ada",
+        "sha256_reverse": "ae5033453c69dcd09027f81bb6731ff7abf7873ca3c5385724bb1ab558011297",
+        "sha_equal": false
+      },
+      "reader_eligible": false
+    },
+    {
+      "kind": "shuffled",
+      "rendered": "The lantern guards the sailor; the sailor was guarded by the lantern.",
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "left": "t",
+          "right": "n"
+        },
+        "sha256_forward": "55c99a90cfd8093cffbd998886d285673dabfeeabd0bf1e52fda4e5d68052e44",
+        "sha256_reverse": "77c5e0e184725cf09b39f6d2390abb586a44326e423f74bdb47edde22be2213a",
+        "sha_equal": false
+      },
+      "reader_eligible": false
+    }
+  ],
+  "reader_facing_candidates": [],
+  "reader_eligible": false,
+  "independent_validation": [
+    "literal outside-in two-pointer",
+    "forward/reverse SHA-256",
+    "independent pointer_exact"
+  ],
+  "novelty_preflight": {
+    "passed": true,
+    "new_dimension": "determiner, tense/aspect, subject-number agreement over one shared patient",
+    "posthoc_repair": false,
+    "overlaps_checked": [
+      "shared-noun-active-passive-20260930"
+    ]
+  },
+  "next_construction": "If empty, vary clause polarity and argument order while retaining agreement state and the live seam gate."
+}

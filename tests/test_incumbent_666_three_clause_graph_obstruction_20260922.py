@@ -46,9 +46,9 @@ def test_widened_graph_closes_characters_but_is_rejected_by_full_parent_frame_ga
     assert graph["normalized_windows"] == {"left": [156, 197], "right": [469, 510]}
     assert graph["raw_windows"] == {"left": [209, 263], "right": [644, 698]}
     assert normalize(GRAPH_LEFT) == normalize(GRAPH_RIGHT)[::-1]
-    assert len(normalize(GRAPH_LEFT)) == len(normalize(GRAPH_RIGHT)) == 41
-    assert graph["clause_boundary_cursors"] == {"left": [13, 26, 41], "right": [15, 28, 41]}
-    assert graph["paired_cursors_after"] == [41, 41]
+    assert len(normalize(GRAPH_LEFT)) == len(normalize(GRAPH_RIGHT)) == 57
+    assert graph["clause_boundary_cursors"] == {"left": [14, 29, 43, 57], "right": [14, 28, 43, 57]}
+    assert graph["paired_cursors_after"] == [57, 57]
     assert graph["residuals"] == {"left": "", "right": ""}
     assert graph["left_stream"]["exact"] is True
     assert graph["right_stream"]["exact"] is True
@@ -61,8 +61,10 @@ def test_widened_graph_closes_characters_but_is_rejected_by_full_parent_frame_ga
     assert graph["admission"]["accepted"] is False
     assert graph["admission"]["exact_character_closure"] is True
     assert graph["admission"]["exact_child_saved"] is False
-    assert graph["admission"]["obstruction"]["cursor"] == 41
+    assert graph["admission"]["obstruction"]["cursor"] == 57
     assert graph["admission"]["obstruction"]["residual"] == ""
-    assert child_audit["normalized_letters"] == 666
+    assert graph["replaced_reused_frames"] == {"noel|stops": True, "evil leon|was": True}
+    assert child_audit["normalized_letters"] == 698
     assert child_audit["two_pointer_exact"] is True
     assert row["growth_over_parent"] == 0
+    assert graph["candidate_growth_over_parent"] == 32

@@ -1,4 +1,4 @@
-"""Persist a 27-letter obstruction, then run one bounded 41-letter graph."""
+"""Persist a 27-letter obstruction, then run one bounded 57-letter graph."""
 from __future__ import annotations
 
 import json
@@ -35,8 +35,8 @@ PRIMARY_LEFT_TEXT = "Nora sees Aram. Sara saw Noel live."
 PRIMARY_RIGHT_TEXT = "Evil Leon was Aras. Mara sees Aron."
 ATOM_LEFT = "Aidan saw Aram."
 ATOM_RIGHT = "Mara was Nadia."
-GRAPH_LEFT = "Noel stops Sara. Sara stops Aram. Aram saw Noel live."
-GRAPH_RIGHT = "Evil Leon was Mara. Mara spots Aras. Aras spots Leon."
+GRAPH_LEFT = "Noel spots Aidan. Aidan stops Nadia. Nadia sees Aidan. Aidan spots Noel."
+GRAPH_RIGHT = "Leon stops Nadia. Nadia sees Aidan. Aidan spots Nadia. Nadia stops Leon."
 MAX_PAIRED_EXPANSIONS = 8
 
 
@@ -74,7 +74,7 @@ def build_payload() -> dict[str, object]:
         validate_frontier_entry(entry)
 
     # First persist the exact 27-letter seam equation and its authored split
-    # possibilities before widening to the recorded 41-letter shells.
+    # possibilities before widening to the recorded 41-letter parent shells.
     primary_left = parent_tape[PRIMARY_LEFT[0] : PRIMARY_LEFT[1]]
     primary_right = parent_tape[PRIMARY_RIGHT[0] : PRIMARY_RIGHT[1]]
     assert primary_left == normalize(PRIMARY_LEFT_TEXT)
@@ -128,7 +128,7 @@ def build_payload() -> dict[str, object]:
     assert wide_left == wide_right[::-1]
     graph_left = normalize(GRAPH_LEFT)
     graph_right = normalize(GRAPH_RIGHT)
-    assert len(graph_left) == len(graph_right) == 41
+    assert len(graph_left) == len(graph_right) == 57
     assert graph_left == graph_right[::-1]
     left_stream = compare_stream(GRAPH_LEFT, graph_right[::-1], "wide-left")
     right_stream = compare_stream(GRAPH_RIGHT, graph_left[::-1], "wide-right")
@@ -156,7 +156,7 @@ def build_payload() -> dict[str, object]:
     candidate_rendered = parent_rendered[: WIDE_RAW_LEFT[0]] + GRAPH_LEFT + parent_rendered[WIDE_RAW_LEFT[1] : WIDE_RAW_RIGHT[0]] + GRAPH_RIGHT + parent_rendered[WIDE_RAW_RIGHT[1] :]
     candidate_audit = audit(candidate_rendered)
     candidate_independent = independent_audit(candidate_rendered)
-    assert candidate_independent["normalized_letters"] == 666
+    assert candidate_independent["normalized_letters"] == 698
     assert candidate_independent["two_pointer_exact"]
     admission = {
         "accepted": bool(graph_gates["global_clause_novelty"] and graph_gates["global_frame_novelty"]),
@@ -164,7 +164,7 @@ def build_payload() -> dict[str, object]:
         "exact_character_closure": True,
         "exact_child_saved": False,
         "obstruction": {
-            "cursor": 41,
+            "cursor": 57,
             "expected": None,
             "emitted": None,
             "residual": "",
@@ -192,8 +192,8 @@ def build_payload() -> dict[str, object]:
             "old_right": parent_rendered[WIDE_RAW_RIGHT[0] : WIDE_RAW_RIGHT[1]],
             "new_left": GRAPH_LEFT,
             "new_right": GRAPH_RIGHT,
-            "clause_boundary_cursors": {"left": [13, 26, 41], "right": [15, 28, 41]},
-            "paired_cursors_after": [41, 41],
+            "clause_boundary_cursors": {"left": [14, 29, 43, 57], "right": [14, 28, 43, 57]},
+            "paired_cursors_after": [57, 57],
             "residuals": {"left": left_stream["residual"], "right": right_stream["residual"]},
             "left_stream": left_stream,
             "right_stream": right_stream,
@@ -201,9 +201,11 @@ def build_payload() -> dict[str, object]:
             "neighboring_entity_pre_state": {"left": "Noel", "right": "Leon"},
             "candidate_frames": sorted(candidate_frames),
             "parent_frames": sorted(parent_frames),
+            "replaced_reused_frames": {"noel|stops": True, "evil leon|was": True},
             "gates": graph_gates,
             "candidate_audit": candidate_audit,
             "candidate_independent_audit": candidate_independent,
+            "candidate_growth_over_parent": 32,
             "admission": admission,
             "exact_child_saved": False,
         },

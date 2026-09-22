@@ -110,6 +110,29 @@ intermediate empty residual, which would merely wrap or concatenate a closed
 palindrome.  Evidence:
 `runs/seed-open-residual-discourse-join-20260922.json`.
 
+The first residual-preserving production gives a sharper positive diagnostic.
+After `nine` is matched against outside-in `men`, the right grammar owns live
+residual `m`.  Opposing prenominal phrases `X` and `Y` may be inserted before
+`memos` and `men` exactly when `X + m = m + reverse(Y)`.  The one-word fixed
+point `X = Y = mere` therefore yields:
+
+> **An aide rips nine mere memos; some mere men inspire Diana.**
+
+The 46-letter surface is exact under an independent pointer walk and equal
+forward/reverse SHA-256
+`6b2465294cf03a1f8faae8991f27cff4c0bb38f3040a6de57cf1b97c68ea05b5`.
+It is not word-order symmetry and contains no proper palindromic multiword
+span.  We nevertheless reject it because the content word `mere` is repeated;
+it is a construction clue, not a candidate.  An exact intersection of 3,525
+Brown-attested adjectives found three cycle equations, all surface-fixed
+repetitions.  A distinct follow-up over 22,620 attested one-to-three-word
+prenominal adjective/noun compounds found nine equations, again all fixed
+repetitions and zero distinct-word rows.  The next paragraph production must
+therefore cross grammatical roles, for example modifier to relative clause,
+rather than widening the same prenominal family.  Evidence:
+`runs/seed-residual-adjective-cycle-20260922.json` and
+`runs/seed-residual-modifier-phrase-cycle-20260922.json`.
+
 ### API-inspired open-residual cycle
 
 The deployed v3 API clarifies why length and prose quality separated. Its

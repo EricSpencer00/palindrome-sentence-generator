@@ -1,0 +1,118 @@
+{
+  "experiment_id": "incumbent-550-asymmetric-smaps-repair-20261002",
+  "method": "reopen an asymmetrically owned center window and require the residual-plus-window equation to close while the window itself is non-palindromic",
+  "parent": {
+    "artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+    "letters": 550,
+    "sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+    "source_498_artifact": "runs/overhang-growth-from-240-20261001.json",
+    "source_498_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032"
+  },
+  "stats": {
+    "independently_exact_children": 1,
+    "longest_letters": 531,
+    "parent_proper_span_count": 67,
+    "child_proper_span_count": 63,
+    "proper_spans_removed": 4,
+    "proper_spans_created_at_replacement_boundaries": 0,
+    "globally_shortcut_clean_children": 0
+  },
+  "rows": [
+    {
+      "id": "asymmetric-smaps-531",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Pansy snaps. Pam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 531,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "69a586613709e0867c702b2c20401e5c7226165d5218d65a49eaaf69d9ae6002",
+        "sha256_reverse": "69a586613709e0867c702b2c20401e5c7226165d5218d65a49eaaf69d9ae6002",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/incumbent-544-cross-boundary-seam-repair-20261002.json",
+      "parent_sha256": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+      "replacement": {
+        "old_window": "Leon, I saw diaper. Repaid was I, Noel; spam's",
+        "old_raw_offsets": [
+          357,
+          403
+        ],
+        "old_normalized_offsets": [
+          261,
+          294
+        ],
+        "new_window": "Pansy snaps. Pam's",
+        "new_raw_offsets": [
+          357,
+          375
+        ],
+        "new_normalized_offsets": [
+          261,
+          275
+        ],
+        "new_window_tape": "pansysnapspams",
+        "new_window_sha256": "d27bc2a511f089921a571aa69250fff542a4f3b4274ca1ad86dafdc6b5d81308",
+        "new_window_is_palindromic": false,
+        "new_event_content": [
+          "Pansy snaps",
+          "Pam is reviled"
+        ]
+      },
+      "live_state": {
+        "owner": "L",
+        "residual_before_window": "smaps",
+        "closure_tape": "smapspansysnapspams",
+        "closure_exact": true,
+        "residual_after_window": ""
+      },
+      "boundary_audit": {
+        "replacement_token_boundaries": [
+          68,
+          69,
+          70,
+          71
+        ],
+        "proper_spans_anchored_at_replacement_boundaries": [],
+        "parent_proper_span_count": 67,
+        "child_proper_span_count": 63,
+        "old_window_spans_removed": 4,
+        "new_window_spans_created": 0,
+        "surviving_spans_have_frozen_endpoints": true,
+        "globally_shortcut_clean": false
+      },
+      "fixed_window_obstruction": {
+        "statement": "with the frozen prefix ending in deliver|s maps and the frozen suffix beginning reviled, every exact solution of smaps + window creates an enclosing proper palindromic span",
+        "frozen_left_tokens": [
+          "delivers",
+          "maps"
+        ],
+        "frozen_right_token": "reviled",
+        "proof_equation": "reverse(reviled)=deliver; exactness makes smaps+window palindromic, so delivers maps + window + reviled is palindromic",
+        "strict_accepts_at_fixed_window": 0,
+        "next_editable_window": {
+          "raw_offsets": [
+            357,
+            768
+          ],
+          "normalized_offsets": [
+            261,
+            550
+          ],
+          "description": "one-sided replacement through EOF removes the frozen right endpoint that forces the enclosing span",
+          "minimum_new_window_letters_for_531_total": 270
+        }
+      },
+      "provenance": {
+        "outer_wrapper_added": false,
+        "fixed_finished_tape_reversal": false,
+        "posthoc_character_repair": false,
+        "human_certified": false,
+        "working_track_only": true
+      },
+      "next_operator": "move to the recorded one-sided through-EOF window so the frozen reviled endpoint no longer forces an enclosing span"
+    }
+  ]
+}

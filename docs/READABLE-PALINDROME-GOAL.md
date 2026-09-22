@@ -6,42 +6,32 @@ The working incumbent is the independently verified **568-letter** causal
 scene in `runs/incumbent-560-outer-causal-scene-20261002.json`, row
 `outer-causal-scene-568-working-incumbent`, normalized SHA-256
 `6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`.
-The exact 560, 558, and 556 children remain the diverse repair frontier.
-Proper spans, repeated scaffolding, rough syntax, and absent reader validation
-are repair debt and do not demote the 568 result.
+The exact 560, 558, and 556 children remain preserved frontier entries with
+independently verified hashes. Proper spans, repeated scaffolding, rough syntax,
+and absent reader validation are repair debt and do not demote the 568 result.
 
-The current construction loads that exact artifact and reopens its actual
-`w|on ... no|w` partial-word seam at normalized cursors 5 and 563. The retained
-558-letter middle is exact. A left-authored finite event owns the new residual;
-the opposing event consumes its exact reverse while completing `won` and
-`now`. Three new-content children close independently at 594, 596, and 596
-letters. Every row has an empty final residual, zero backtracks, and zero
-committed character contradictions.
+The latest candidate loads that exact artifact and edits the actual internal
+`Mara stops|spots Aram` seam at normalized cursor 73. Its residual-owned shell
+is `rats. Nora spots a ram.` ↔ `Mara stops Aron. Star`; the retained 422-letter
+center remains exact, with an empty final residual, zero backtracks, and zero
+committed character contradictions. The independently exact new-content child
+is **602 letters** in
+`runs/incumbent-568-internal-seam-growth-20260922.json`, row
+`internal-mara-stops-602`, SHA-256
+`69696036f9bb9392ae9473884f011cfb767b4700d6407f5a07f3fba595953c89`.
+It remains a growth-frontier child, not a replacement for the 568 incumbent.
 
-The first frontier repair acts inside the Nadia 596 child. It replaces one
-inherited “Mara stops rats. A tub? He maps Aron” shell and its exact opposing
-surface with four finite spotting/stopping events. The resulting 594-letter
-child is independently exact, SHA-256
-`06fcb154a3e1863d0caf0947a111716835def706d0aa87b8e7048893374bb923`.
-The three targeted repeated phrases each fall from two occurrences to one.
-
-The new 594--596 rows are growth-and-repair frontier children, not replacements
-for the 568 incumbent. The next operator repairs a different inherited shell
-in one unrepaired 596 sibling, preserving 568/560/558/556 and changing seams
-only on a committed normalized-character contradiction.
+The next action repairs the clearest inherited debt inside the 602 child, or
+changes the actual seam only on a committed normalized-character contradiction.
 
 Fresh POS search, productive-affix search, morphology cycles, short witnesses,
 and reader-study operators are stopped. They are not active alternatives.
+The model policy is **gpt-5.6-luna at high reasoning only**: no Sol, Astra,
+Terra, or other model.
 
 Evidence:
-`experiments/incumbent_560_outer_causal_scene_20261002.py`,
-`runs/incumbent-560-outer-causal-scene-20261002.json`,
-`experiments/incumbent_568_won_now_seam_growth_20261002.py`, and
-`runs/incumbent-568-won-now-seam-growth-20261002.json`, followed by
-`experiments/incumbent_596_repeated_shell_repair_20261002.py` and
-`runs/incumbent-596-repeated-shell-repair-20261002.json`.
-
-Sol owns this track. No Astra or non-Sol agent is used.
+`experiments/incumbent_568_internal_seam_growth_20260922.py` and
+`runs/incumbent-568-internal-seam-growth-20260922.json`.
 
 ## Historical 498-to-568 construction ledger (superseded by the override above)
 

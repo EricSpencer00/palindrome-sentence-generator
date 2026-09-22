@@ -25,12 +25,12 @@ def audit(s: str) -> dict:
 
 def residual(left: str, right: str) -> dict:
     """Consume unequal spans live, preserving ownership at every character."""
-    a, b = tape(left), tape(right); i = j = 0; ledger = []
+    a, b = tape(left), tape(right)[::-1]; i = j = 0; ledger = []
     while i < len(a) and j < len(b):
         ledger.append({"left_owner": a[i], "right_owner": b[j], "action": "cancel" if a[i] == b[j] else "mismatch"})
-        if a[i] != b[j]: return {"closed": False, "residual": {"left": a[i:], "right": b[j:]}, "trace": ledger}
+        if a[i] != b[j]: return {"closed": False, "residual": {"left": a[i:], "right_reversed": b[j:]}, "first_mismatch": {"offset": i, "left": a[i], "right_reversed": b[j:]}, "trace": ledger}
         i += 1; j += 1
-    return {"closed": i == len(a) and j == len(b), "residual": {"left": a[i:], "right": b[j:]}, "trace": ledger}
+    return {"closed": i == len(a) and j == len(b), "residual": {"left": a[i:], "right_reversed": b[j:]}, "first_mismatch": None, "trace": ledger}
 
 def main() -> None:
     src = json.loads(SOURCE.read_text())

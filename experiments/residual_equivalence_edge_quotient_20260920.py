@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "experiments"))
-from semantic_frame_hyperedges_20260920 import FRAMES
+from experiments.semantic_frame_hyperedges_20260920 import FRAMES
 OUT = ROOT / "runs/residual-equivalence-edge-quotient-20260920.json"
 
 def letters(s): return re.sub(r"[^a-z]", "", s.casefold())

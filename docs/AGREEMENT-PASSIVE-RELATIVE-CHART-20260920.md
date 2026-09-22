@@ -50,7 +50,7 @@ The complete controls were independently parseable:
 None is an exact palindrome, so none is a reader candidate. Evidence is in
 `runs/agreement-passive-relative-chart-20260920-remote.json`; the implementation
 and lightweight control tests are in
-`agreement_passive_relative_chart_20260920.py` and
+`experiments/agreement_passive_relative_chart_20260920.py` and
 `tests/test_agreement_passive_relative_chart_20260920.py`.
 
 ## Next construction

@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib,json,re,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; sys.path.insert(0,str(ROOT/'experiments'))
-from residual_equivalence_edge_quotient_20260920 import FRAMES, FRESH, paths_from_frame, Edge, letters, audit, consume
+from experiments.residual_equivalence_edge_quotient_20260920 import FRAMES, FRESH, paths_from_frame, Edge, letters, audit, consume
 OUT=ROOT/'runs/residual-language-center-automaton-20260920.json'
 CENTERS=(
  (Edge('center','while','theme','center'),Edge('center','the bells ring','center','done')),

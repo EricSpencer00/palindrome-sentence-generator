@@ -1,4 +1,4 @@
-from manual_bilateral_author_20260920 import audit, run
+from experiments.manual_bilateral_author_20260920 import audit, run
 
 
 def test_manual_bilateral_lane_keeps_both_sides_forward_and_audited():

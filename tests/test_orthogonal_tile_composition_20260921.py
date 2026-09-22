@@ -1,4 +1,4 @@
-import orthogonal_tile_composition_20260921 as experiment
+import experiments.orthogonal_tile_composition_20260921 as experiment
 
 
 def test_tile_composition_records_boundary_failure_without_shortcuts():

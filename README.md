@@ -1,32 +1,62 @@
 # Palindrome Sentence Generator
 
-## Current status: exact 568-letter working incumbent with 594--596 growth frontier
+[Results](RESULTS.md) · [Full results ledger](docs/RESULTS-LEDGER.md) · [Design](DESIGN.md) · [Product](PRODUCT.md)
 
-The active lineage runs through the independently exact 568-letter causal-scene
-row in `runs/incumbent-560-outer-causal-scene-20261002.json` (normalized
-SHA-256
-`6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`).
-That row remains the working incumbent. The exact 560, 558, and 556 children
-are preserved as the diverse repair frontier. Proper palindromic spans,
-repeated scaffolding, rough syntax, and absent reader validation are repair
-debt; they do not demote or hide the long exact result.
+## Current status: exact 666-letter readability frontier, 568-letter working incumbent
 
-The current construction reopens the incumbent's actual `w|on ... no|w`
-partial-word seam at normalized cursors 5 and 563. Live residual ownership
-produces three independently exact new-content children at 594, 596, and 596
-letters, all with empty residuals and zero backtracks. The 568 row remains the
-incumbent while these children form the active growth-and-repair frontier.
-Rendered text, hashes, provenance, and seam state are in
-`runs/incumbent-568-won-now-seam-growth-20261002.json`.
+The latest promoted readability frontier is an independently exact **666-letter**
+palindrome. It improves a connected central scene while keeping the rough seams
+and repeated vocabulary visible. The separate **568-letter** causal-scene row
+remains the working incumbent because it has the clearest construction lineage.
 
-Fresh POS searches, productive-affix and morphology cycles, short witnesses,
-and reader-study packets are frozen. Construction stays on the 568 lineage.
-Legacy service descriptions below are historical development material.
+The frontier is a result, not a claim that 666 letters of polished prose now
+exist. Exactness is mechanical; readability, repetition, and discourse are
+separate debts. The short version is on [`RESULTS.md`](RESULTS.md), and the
+complete committed artifact index is in
+[`docs/RESULTS-LEDGER.md`](docs/RESULTS-LEDGER.md).
+
+The active frontier is [`central-mini-scene-comparison-leon-noel-666`](runs/incumbent-666-central-mini-scene-comparison-20260922.json), with normalized SHA-256
+`3951b9449ed3ab28f55d9798e344dfaf3123035f5f07c9dffdf0047bed0e1d79`.
+
+The 560, 558, and 556 children remain preserved as a diverse repair frontier.
+The 594--596 children remain available for seam repair. Fresh POS searches,
+productive-affix cycles, short witnesses, and reader-study packets are frozen.
+Construction stays on the long exact lineage.
 
 The active acceptance standard is documented in
 [`docs/READABLE-PALINDROME-GOAL.md`](docs/READABLE-PALINDROME-GOAL.md): an
 independently constructed exact palindrome must clear the shared mechanical
 gate and then pass a blinded study with intact-prose and shuffled controls.
+
+## Recent generations
+
+These are the generations I actually want a reader to see before opening the
+experiment directory. The lengths are normalized letters; punctuation and
+casing are presentation choices.
+
+| Length | Generation | What it shows |
+|---:|---|---|
+| 44 | `Now, an aide rips nine memos; some men inspire. Diana won.` | the first readable-ish seed reconstruction, with discourse debt |
+| 106 | Diana reverse-word insertion | exact growth, but a useful word-salad control |
+| 240 | paired seam growth | the first substantial exact center with visible formulaic debt |
+| 568 | causal-scene outer shell | the working incumbent and its repair lineage |
+| 650 | event-shell substitution | a long exact candidate with a closed live equation |
+| 666 | connected central mini-scene | the current promoted readability frontier |
+
+<details>
+<summary>Show the 650-letter generation</summary>
+
+```text
+A ram saw Nadia. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora spots a rat. Nadia spots a ram. Mara spots rats. Leon maps Nora. Draw no maps. Aidan spots a rat. Nora spots a ram. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Mara stops Aron. Tara stops Nadia. Spam onward. Aron, spam Noel. Star stops Aram. Mara stops Aidan. Tara stops Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel. Aidan was Mara.
+```
+
+[`runs/incumbent-608-repeated-shell-repair-20261002.json`](runs/incumbent-608-repeated-shell-repair-20261002.json) · exact after independent normalized reversal
+
+</details>
+
+The [results page](RESULTS.md) includes the current 666-letter generation,
+the 650-letter generation above, hashes, status notes, and the full historical
+length progression.
 
 ## Historical workbench — quarantined; do not run or cite the commands below
 
@@ -227,8 +257,11 @@ server/
   v2.py            v2 endpoints, incl. GET /api/v2/paragraph
   v3.py            v3 endpoints, incl. GET /api/v3/composition
 training/          corpus, judge, inventory and lexicon builders
-experiments/       measurements quoted in this README and docs/training.md
-tests/             pytest suite
+experiments/       dated construction searches, controls, and measurements
+tests/             pytest suite, kept separate from experiment modules
+RESULTS.md         curated generations and the current readability frontier
+docs/RESULTS-LEDGER.md
+                   full method-by-method artifact index
 web/               the page at palindrome.ericspencer.us
 ```
 

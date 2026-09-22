@@ -1,4 +1,4 @@
-import endpoint_conditioned_was_np_seam_20260921 as experiment
+import experiments.endpoint_conditioned_was_np_seam_20260921 as experiment
 
 
 def test_endpoint_conditioned_seam_counts_only_successful_matches():

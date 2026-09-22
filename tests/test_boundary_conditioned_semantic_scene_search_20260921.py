@@ -1,4 +1,4 @@
-from boundary_conditioned_semantic_scene_search_20260921 import run
+from experiments.boundary_conditioned_semantic_scene_search_20260921 import run
 
 
 def test_terminal_index_selects_compatible_outer_pair_and_grows_inward():

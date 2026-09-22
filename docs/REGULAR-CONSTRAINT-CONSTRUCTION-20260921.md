@@ -28,13 +28,13 @@ remaining grammar cannot pay the resulting character debt.
 Several historical registry entries do not establish that a stronger solver
 was tried:
 
-* `finite_semantic_palindrome_csp_20260916.py` takes only two complete Cartesian
+* `experiments/finite_semantic_palindrome_csp_20260916.py` takes only two complete Cartesian
   product realizations and audits their rendered strings. It has no solver.
-* `event_graph_character_sat_20260916.py` renders complete clause pairs before
+* `experiments/event_graph_character_sat_20260916.py` renders complete clause pairs before
   calculating equality rows. It has no SAT backend or domain propagation.
-* `full_positional_slot_interval_csp_20260917.py` audits two complete slot
+* `experiments/full_positional_slot_interval_csp_20260917.py` audits two complete slot
   assignments. Interval domains are listed as future work.
-* `position_domain_arc_consistency_csp_20260920.py` gives every position the
+* `experiments/position_domain_arc_consistency_csp_20260920.py` gives every position the
   same static alphabet from its adjective/subject vocabulary. It does not
   compute position-specific grammar supports or iterate to a fixed point.
 

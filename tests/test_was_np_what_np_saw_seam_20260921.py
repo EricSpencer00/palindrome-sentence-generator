@@ -1,4 +1,4 @@
-import was_np_what_np_saw_seam_20260921 as experiment
+import experiments.was_np_what_np_saw_seam_20260921 as experiment
 
 
 def test_was_what_saw_seam_reports_no_false_closure():

@@ -1,4 +1,4 @@
-import typed_edge_tile_composition_20260921 as experiment
+import experiments.typed_edge_tile_composition_20260921 as experiment
 
 
 def test_typed_edge_composition_filters_before_rendering():

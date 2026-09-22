@@ -12,7 +12,7 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-from forward_lexicalized_grammar_20260920 import independent_audit, letters
+from experiments.forward_lexicalized_grammar_20260920 import independent_audit, letters
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "runs/phrase-path-graph-join-20260920.json"

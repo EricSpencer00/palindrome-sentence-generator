@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "experiments"))
-from residual_equivalence_edge_quotient_20260920 import (  # noqa: E402
+from experiments.residual_equivalence_edge_quotient_20260920 import (  # noqa: E402
     FRESH,
     FRAMES,
     Edge,

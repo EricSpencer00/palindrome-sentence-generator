@@ -1,4 +1,4 @@
-from wordpath_ngram_csp_20260920 import load_wordpath_lattice, wordpath_csp
+from experiments.wordpath_ngram_csp_20260920 import load_wordpath_lattice, wordpath_csp
 
 
 def test_wordpath_lattice_loads_observed_edges():

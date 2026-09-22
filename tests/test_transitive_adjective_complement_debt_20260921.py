@@ -1,4 +1,4 @@
-import transitive_adjective_complement_debt_20260921 as experiment
+import experiments.transitive_adjective_complement_debt_20260921 as experiment
 
 
 def test_transitive_control_does_not_claim_a_missing_right_arm():

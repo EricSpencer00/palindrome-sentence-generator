@@ -1,4 +1,4 @@
-from corpus_phrase_pair_dp_20260920 import audit, run, letters, outer_score
+from experiments.corpus_phrase_pair_dp_20260920 import audit, run, letters, outer_score
 
 def test_dp_generates_two_forward_prose_sides_and_audits():
     result = run()

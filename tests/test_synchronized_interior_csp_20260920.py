@@ -1,4 +1,4 @@
-from synchronized_interior_csp_20260920 import a, run
+from experiments.synchronized_interior_csp_20260920 import a, run
 
 
 def test_synchronized_csp_does_not_overclaim_character_matching():

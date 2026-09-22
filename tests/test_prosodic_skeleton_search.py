@@ -1,4 +1,4 @@
-from prosodic_skeleton_search_20260920 import audit, run
+from experiments.prosodic_skeleton_search_20260920 import audit, run
 
 def test_audit_is_independent_exact_gate():
     assert audit("A man, a plan, a canal: Panama!")["exact"]

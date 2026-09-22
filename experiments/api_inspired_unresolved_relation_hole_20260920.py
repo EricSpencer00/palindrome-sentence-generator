@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-from api_inspired_semantic_atom_transducer_20260920 import (
+from experiments.api_inspired_semantic_atom_transducer_20260920 import (
     SCENES,
     Atom,
     audit,

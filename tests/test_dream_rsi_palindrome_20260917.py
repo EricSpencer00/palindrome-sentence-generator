@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "experiments"))
-import dream_rsi_palindrome_20260917 as dream  # noqa: E402
+import experiments.dream_rsi_palindrome_20260917 as dream  # noqa: E402
 
 
 def test_independent_audit_uses_a_letter_tape_and_two_pointer_mismatches():

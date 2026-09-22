@@ -1,4 +1,4 @@
-from bidirectional_scene_lattice_20260921 import audit, run
+from experiments.bidirectional_scene_lattice_20260921 import audit, run
 
 def test_audit_is_independent_and_exact():
     row = audit("A man, a plan, a canal: Panama!")

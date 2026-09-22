@@ -1,4 +1,4 @@
-from shared_scene_synchronous_transducer_20260921 import run
+from experiments.shared_scene_synchronous_transducer_20260921 import run
 
 
 def test_shared_scene_transducer_has_novel_controls_and_no_false_exact_rows():

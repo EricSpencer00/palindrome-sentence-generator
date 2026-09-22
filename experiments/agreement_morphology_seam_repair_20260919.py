@@ -9,7 +9,7 @@ import hashlib, itertools, json, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parents[1]))
 from llm_palindrome.admission import mechanical_admission_checks, normalize_letters
-from agreement_morphology_boundary_transducer_20260919 import (SUBJECTS, VERBS, OBJECTS, ADJUNCTS, CLITICS, clause, audit)
+from experiments.agreement_morphology_boundary_transducer_20260919 import (SUBJECTS, VERBS, OBJECTS, ADJUNCTS, CLITICS, clause, audit)
 
 ROOT=Path(__file__).resolve().parents[1]
 ID="agreement-morphology-seam-repair-20260919"

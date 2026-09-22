@@ -1,4 +1,4 @@
-from heldout_endpoint_function_frames_20260920 import run,endpoint_gate,letters
+from experiments.heldout_endpoint_function_frames_20260920 import run,endpoint_gate,letters
 def test_endpoint_gate_is_enforced_before_rendering():
  x=run(); assert x['stats']['rendered_candidates']>0
  assert all(endpoint_gate(r['left_frame'][0]+' '+r['left_frame'][1]+' '+r['left_frame'][2],r['right_frame'][0]+' '+r['right_frame'][1]+' '+r['right_frame'][2]) for r in x['rendered_candidates'])

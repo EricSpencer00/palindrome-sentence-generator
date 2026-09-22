@@ -1,4 +1,4 @@
-import are_plural_np_adjective_era_20260921 as experiment
+import experiments.are_plural_np_adjective_era_20260921 as experiment
 
 
 def test_plural_era_shell_keeps_agreement_and_exact_gates():

@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-import paragraph_aabc_transducer_20260921 as m
+import experiments.paragraph_aabc_transducer_20260921 as m
 
 def test_a_first_transducer_and_controls():
  d=m.run(); assert d['stats']['candidates']==12; r=d['actual_paragraph_candidates'][0]

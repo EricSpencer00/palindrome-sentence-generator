@@ -1,4 +1,4 @@
-from scope_conditioned_event_frames_20260920 import run,audit,realize,FRAMES
+from experiments.scope_conditioned_event_frames_20260920 import run,audit,realize,FRAMES
 def test_typed_frames_render_complete_prose_and_audit():
  x=run(); assert x['stats']['rendered_candidates']>0; assert x['stats']['max_letters']>38
  assert all(r['complete_prose'] and len(r['audit']['sha256_forward'])==64 for r in x['rendered_candidates'])

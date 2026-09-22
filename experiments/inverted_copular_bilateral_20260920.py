@@ -2,8 +2,8 @@
 import json,sys,hashlib,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; sys.path.insert(0,str(ROOT))
-from bilateral_grammar_csp_20260920 import bilateral_grammar_csp
-from forward_lexicalized_grammar_20260920 import Word, letters
+from experiments.bilateral_grammar_csp_20260920 import bilateral_grammar_csp
+from experiments.forward_lexicalized_grammar_20260920 import Word, letters
 # Unlike prior transitive SVO lanes, this grammar permits nominal predicates and
 # adjective complements, giving ordinary descriptive/proverbial English paths.
 G={"S":(("CLAUSE","CLAUSE"),),"CLAUSE":(("NP","COP","ADJ","NP"),),

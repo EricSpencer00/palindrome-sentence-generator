@@ -1,4 +1,4 @@
-import are_demonstrative_np_adjective_era_20260921 as experiment
+import experiments.are_demonstrative_np_adjective_era_20260921 as experiment
 
 
 def test_demonstrative_era_shell_uses_agreeing_plural_nps():

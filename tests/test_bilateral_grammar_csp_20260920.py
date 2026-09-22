@@ -1,7 +1,7 @@
 from itertools import product
 import pytest
-from bilateral_grammar_csp_20260920 import bilateral_grammar_csp, _consume, palindromic_residual
-from forward_lexicalized_grammar_20260920 import ATOMIC, Word, letters
+from experiments.bilateral_grammar_csp_20260920 import bilateral_grammar_csp, _consume, palindromic_residual
+from experiments.forward_lexicalized_grammar_20260920 import ATOMIC, Word, letters
 
 
 ANCHOR_LEXICON = tuple(

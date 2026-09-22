@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-import paragraph_abca_reset_20260921 as m
+import experiments.paragraph_abca_reset_20260921 as m
 
 def test_fresh_abca_topology():
  d=m.run(); assert d['stats']['candidates']==2; r=d['actual_paragraph_candidates'][0]

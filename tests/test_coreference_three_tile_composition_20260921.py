@@ -1,4 +1,4 @@
-import coreference_three_tile_composition_20260921 as experiment
+import experiments.coreference_three_tile_composition_20260921 as experiment
 
 
 def test_coreference_control_keeps_lexical_units_distinct():

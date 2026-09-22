@@ -9,7 +9,7 @@ import hashlib, json, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parents[1]))
 from llm_palindrome.admission import normalize_letters
-from agreement_morphology_seam_repair_20260919 import families, audit
+from experiments.agreement_morphology_seam_repair_20260919 import families, audit
 
 ROOT=Path(__file__).resolve().parents[1]
 ID="agreement-morphology-residual-beam-20260919"

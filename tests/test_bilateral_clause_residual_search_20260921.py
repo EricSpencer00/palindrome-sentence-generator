@@ -1,4 +1,4 @@
-from bilateral_clause_residual_search_20260921 import audit, residual, run
+from experiments.bilateral_clause_residual_search_20260921 import audit, residual, run
 
 def test_pointer_sha_audit_and_residual_solver():
     x = audit("A man, a plan, a canal: Panama!")

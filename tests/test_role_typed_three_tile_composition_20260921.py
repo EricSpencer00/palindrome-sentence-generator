@@ -1,4 +1,4 @@
-import role_typed_three_tile_composition_20260921 as experiment
+import experiments.role_typed_three_tile_composition_20260921 as experiment
 
 
 def test_role_typed_three_tile_composition_is_a_nonexact_control_lane():

@@ -1,4 +1,4 @@
-from forward_lexicalized_grammar_20260920 import *
+from experiments.forward_lexicalized_grammar_20260920 import *
 
 def test_solver_matches_bruteforce_and_audits_independently():
     result = solve()

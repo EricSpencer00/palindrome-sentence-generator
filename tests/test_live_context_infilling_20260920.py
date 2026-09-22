@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "experiments"))
-from live_context_infilling_20260920 import State, beam_key, consume, initialize  # noqa: E402
+from experiments.live_context_infilling_20260920 import State, beam_key, consume, initialize  # noqa: E402
 
 
 def test_initial_exposure_keeps_full_final_word_residual():

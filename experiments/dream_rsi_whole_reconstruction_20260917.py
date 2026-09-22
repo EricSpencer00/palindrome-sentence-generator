@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import argparse, hashlib, json, re, time
 from pathlib import Path
-from two_region_sentence_revision_20260917 import request_revision, audit, MIN_LETTERS, MAX_LETTERS
+from experiments.two_region_sentence_revision_20260917 import request_revision, audit, MIN_LETTERS, MAX_LETTERS
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "runs" / "dream-rsi-whole-reconstruction-20260917.json"

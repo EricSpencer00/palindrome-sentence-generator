@@ -1,4 +1,4 @@
-from residual_indexed_phrase_trie_20260920 import ReversePhraseTrie, audit, run, letters
+from experiments.residual_indexed_phrase_trie_20260920 import ReversePhraseTrie, audit, run, letters
 
 def test_reverse_trie_indexes_terminal_and_respects_residual_prefix():
     t = ReversePhraseTrie(); t.add("returns with a map", "map")

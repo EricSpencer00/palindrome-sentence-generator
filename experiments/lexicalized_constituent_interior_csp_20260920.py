@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from bilateral_grammar_csp_20260920 import _consume, palindromic_residual
+from experiments.bilateral_grammar_csp_20260920 import _consume, palindromic_residual
 OUT = ROOT / "runs" / "lexicalized-constituent-interior-csp-20260920.json"
 ID = "lexicalized-constituent-interior-csp-20260920"
 SIGNATURE = "lexicalized-constituent-interior|feature-carrying-synchronous-stack|live-boundary-state"

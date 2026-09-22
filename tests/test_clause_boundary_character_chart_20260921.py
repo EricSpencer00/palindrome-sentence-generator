@@ -1,4 +1,4 @@
-from clause_boundary_character_chart_20260921 import run
+from experiments.clause_boundary_character_chart_20260921 import run
 
 
 def test_clause_boundary_chart_contract():

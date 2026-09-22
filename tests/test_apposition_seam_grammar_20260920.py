@@ -1,4 +1,4 @@
-from apposition_seam_grammar_20260920 import audit, run
+from experiments.apposition_seam_grammar_20260920 import audit, run
 
 
 def test_apposition_lane_is_bounded_and_keeps_exact_gate_closed():

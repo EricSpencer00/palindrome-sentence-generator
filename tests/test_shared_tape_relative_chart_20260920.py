@@ -1,5 +1,5 @@
-from shared_tape_relative_chart_20260920 import BINARY, LEXICON, UNARY
-from shared_tape_support_chart_20260920 import chart, normalize
+from experiments.shared_tape_relative_chart_20260920 import BINARY, LEXICON, UNARY
+from experiments.shared_tape_support_chart_20260920 import chart, normalize
 
 
 def test_object_relative_control_is_a_complete_parse():

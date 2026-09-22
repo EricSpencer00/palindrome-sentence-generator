@@ -5,7 +5,7 @@ import hashlib, json
 from pathlib import Path
 from dataclasses import asdict
 
-from center_residual_boundary_discharge_20260920 import (
+from experiments.center_residual_boundary_discharge_20260920 import (
     ADJUNCTS, audit, bank, depth_one, depth_two, letters, render,
 )
 

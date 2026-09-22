@@ -1,4 +1,4 @@
-import agentive_boundary_was_np_seam_20260921 as experiment
+import experiments.agentive_boundary_was_np_seam_20260921 as experiment
 
 
 def test_agentive_object_by_boundary_is_grammatical_and_exact_gated():

@@ -1,4 +1,4 @@
-from live_boundary_shift_grammar_20260920 import run
+from experiments.live_boundary_shift_grammar_20260920 import run
 def test_live_frontier_is_precise_zero():
  x=run(); assert x['stats']['transitions']==9
  assert x['stats']['boundary_closed']==0

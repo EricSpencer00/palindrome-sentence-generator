@@ -1,4 +1,4 @@
-import copular_question_seam_20260921 as experiment
+import experiments.copular_question_seam_20260921 as experiment
 
 
 def test_copular_terminal_pairs_do_not_certify_fragments():

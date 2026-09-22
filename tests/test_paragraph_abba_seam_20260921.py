@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-import paragraph_abba_seam_20260921 as m
+import experiments.paragraph_abba_seam_20260921 as m
 
 def test_abba_units_are_intact_and_semantically_paired():
  d=m.run(); r=d['actual_paragraph_candidates'][0]

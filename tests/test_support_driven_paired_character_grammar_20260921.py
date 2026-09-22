@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-import support_driven_paired_character_grammar_20260921 as m
+import experiments.support_driven_paired_character_grammar_20260921 as m
 
 
 def test_trace_matches_rendered_normalized_tape():

@@ -9,7 +9,7 @@ did not use it: `enumerate_palindromes` re-walks shared subtrees on every
 branch, which is why 2M draws at 32-36 letters across two Polaris jobs
 rediscovered one core and found nothing else.
 
-`graph_search.py` builds the reachable (overhang, owner) graph once — every
+`experiments/graph_search.py` builds the reachable (overhang, owner) graph once — every
 overhang is a suffix of a word's letters or reversed letters, so the 6,000-word
 graph is 22k states and 43k edges and builds in 0.1 seconds — then counts
 closures exactly by dynamic programming over (state, letters, units), and

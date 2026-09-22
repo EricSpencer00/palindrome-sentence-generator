@@ -62,6 +62,6 @@ another noun or name, while retaining an explicit argument dependency. It should
 be accompanied by positive grammatical and negative missing-argument tests,
 then subjected to the same root-support analysis.
 
-Files: `shared_tape_support_chart_20260920.py`,
+Files: `experiments/shared_tape_support_chart_20260920.py`,
 `tests/test_shared_tape_support_chart_20260920.py`, and
 `runs/shared-tape-support-chart-20260920.json`.

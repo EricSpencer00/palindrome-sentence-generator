@@ -15,8 +15,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from bilateral_grammar_csp_20260920 import _consume
-from forward_lexicalized_grammar_20260920 import Word, independent_audit, letters
+from experiments.bilateral_grammar_csp_20260920 import _consume
+from experiments.forward_lexicalized_grammar_20260920 import Word, independent_audit, letters
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "runs/cfg-hypergraph-obligation-20260920.json"

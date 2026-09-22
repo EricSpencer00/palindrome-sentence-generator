@@ -19,6 +19,6 @@ mechanically admitted rows. The concrete held-out repair is to expand only
 lexical alternatives keyed by the first reverse-edge mismatches in these full
 probes, preserving the same grammar and exact join.
 
-Artifact: [`reverse_transition_svo_beam_20260916.py`](../experiments/reverse_transition_svo_beam_20260916.py)
+Artifact: [`experiments/reverse_transition_svo_beam_20260916.py`](../experiments/reverse_transition_svo_beam_20260916.py)
 
 Evidence: [`reverse-transition-svo-beam-20260916.json`](../runs/reverse-transition-svo-beam-20260916.json)

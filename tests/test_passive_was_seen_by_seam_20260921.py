@@ -1,4 +1,4 @@
-import passive_was_seen_by_seam_20260921 as experiment
+import experiments.passive_was_seen_by_seam_20260921 as experiment
 
 
 def test_passive_shell_negative_result_is_explicit():

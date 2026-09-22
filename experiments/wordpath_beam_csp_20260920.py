@@ -14,8 +14,8 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
-from bilateral_grammar_csp_20260920 import _consume
-from forward_lexicalized_grammar_20260920 import independent_audit, letters
+from experiments.bilateral_grammar_csp_20260920 import _consume
+from experiments.forward_lexicalized_grammar_20260920 import independent_audit, letters
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "runs/wordpath-beam-csp-20260920.json"

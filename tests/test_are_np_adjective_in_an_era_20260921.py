@@ -1,4 +1,4 @@
-import are_np_adjective_in_an_era_20260921 as experiment
+import experiments.are_np_adjective_in_an_era_20260921 as experiment
 
 
 def test_grammatical_era_shell_is_exact_gated():

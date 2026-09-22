@@ -1,4 +1,4 @@
-from typed_reversible_scene_grammar_20260921 import pointer_audit, run
+from experiments.typed_reversible_scene_grammar_20260921 import pointer_audit, run
 
 def test_independent_pointer_and_sha_validation():
     audit = pointer_audit("Never odd or even")

@@ -1,4 +1,4 @@
-import constructive_qa_character_debt_20260921 as experiment
+import experiments.constructive_qa_character_debt_20260921 as experiment
 
 
 def test_constructive_qa_debt_is_online_and_has_no_false_exact_candidate():

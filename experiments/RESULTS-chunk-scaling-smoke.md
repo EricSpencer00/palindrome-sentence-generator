@@ -62,7 +62,7 @@ inventory or a full dual-head training run.
 
 ## Benchmarking change
 
-`chunk_scaling.py` now accepts `--seeds` and records the seed in every row.
+`experiments/chunk_scaling.py` now accepts `--seeds` and records the seed in every row.
 The earlier version could only report a single shuffled walk, which made the
 apparently promising 22--26 chunk result impossible to distinguish from luck.
 

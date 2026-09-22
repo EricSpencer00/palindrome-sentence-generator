@@ -16,6 +16,6 @@ held-out number/tree lexical repair produced 8 more. No candidate closed the
 mirror equation. The repair changes a held-out tree agreement/lexical index at
 the first mismatch; it never resegments or reverse-emits a tape.
 
-Artifact: [`parse_tree_exact_cover_20260916.py`](../experiments/parse_tree_exact_cover_20260916.py)
+Artifact: [`experiments/parse_tree_exact_cover_20260916.py`](../experiments/parse_tree_exact_cover_20260916.py)
 
 Evidence: [`parse-tree-exact-cover-20260916.json`](../runs/parse-tree-exact-cover-20260916.json)

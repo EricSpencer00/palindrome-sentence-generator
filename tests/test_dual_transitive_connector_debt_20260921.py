@@ -1,4 +1,4 @@
-import dual_transitive_connector_debt_20260921 as experiment
+import experiments.dual_transitive_connector_debt_20260921 as experiment
 
 
 def test_dual_transitive_arms_have_real_connector_and_exact_gate():

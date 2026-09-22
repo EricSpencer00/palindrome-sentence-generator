@@ -4,15 +4,15 @@ Source review found that algorithm names in the experiment registry overstate
 the implementations. These results cannot establish that online grammatical
 palindrome intersection has been exhausted.
 
-* `shared_tape_finite_automata_role_ledger_20260921.py` builds complete clauses,
+* `experiments/shared_tape_finite_automata_role_ledger_20260921.py` builds complete clauses,
   enumerates their Cartesian product, and calls `audit(text)`. No transition
   propagates a character obligation. Its method and novelty metadata have been
   corrected, preserving the historical results.
-* `lexicalized_macro_grammar_20260921.py` compares the last character of each
+* `experiments/lexicalized_macro_grammar_20260921.py` compares the last character of each
   clause. That is not the outer endpoint equation for their concatenation.
-* `semantic_slot_lattice_smt.py` contains nested loops over complete strings;
+* `experiments/semantic_slot_lattice_smt.py` contains nested loops over complete strings;
   it does not invoke SMT or propagate partial character equations.
-* `cfg_earley_character_intersection_20260916.py` scans a fixed authored text.
+* `experiments/cfg_earley_character_intersection_20260916.py` scans a fixed authored text.
   Its initial chart item never predicts a lexical production; the scan cannot
   substantiate a working Earley generator.
 

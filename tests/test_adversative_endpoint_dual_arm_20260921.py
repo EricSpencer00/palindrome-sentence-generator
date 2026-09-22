@@ -1,4 +1,4 @@
-import adversative_endpoint_dual_arm_20260921 as experiment
+import experiments.adversative_endpoint_dual_arm_20260921 as experiment
 
 
 def test_adversative_controls_are_full_tape_and_content_disjoint():

@@ -1,4 +1,4 @@
-from width3_interior_boundary_csp_20260920 import audit, run
+from experiments.width3_interior_boundary_csp_20260920 import audit, run
 
 
 def test_interior_boundary_equation_prunes_real_slots():

@@ -1,4 +1,4 @@
-import animate_frontier_was_np_seam_20260921 as experiment
+import experiments.animate_frontier_was_np_seam_20260921 as experiment
 
 
 def test_animate_frontier_does_not_claim_unobserved_extension():

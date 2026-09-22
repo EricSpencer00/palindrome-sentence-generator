@@ -1,4 +1,4 @@
-from novel_wordgraph_clause_intersection_20260920 import audit, intersect, run
+from experiments.novel_wordgraph_clause_intersection_20260920 import audit, intersect, run
 
 
 def test_wordgraph_run_uses_full_rendered_tape_for_admission():

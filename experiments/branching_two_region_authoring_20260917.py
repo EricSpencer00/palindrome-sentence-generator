@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "experiments"))
-import two_region_sentence_revision_20260917 as two_region  # noqa: E402
+import experiments.two_region_sentence_revision_20260917 as two_region  # noqa: E402
 
 EXPERIMENT_ID = "dream-rsi-branching-two-region-20260917"
 OUT = ROOT / "runs" / f"{EXPERIMENT_ID}.json"

@@ -1,4 +1,4 @@
-from two_sided_unmatched_buffer_dp_20260920 import consume
+from experiments.two_sided_unmatched_buffer_dp_20260920 import consume
 def test_equal_synthetic_fixture_passes():
  assert consume('ab','ab') == ('','')
  assert consume('ab','ba') is None

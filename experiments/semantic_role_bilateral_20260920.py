@@ -14,8 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from bilateral_grammar_csp_20260920 import bilateral_grammar_csp
-from forward_lexicalized_grammar_20260920 import Word
+from experiments.bilateral_grammar_csp_20260920 import bilateral_grammar_csp
+from experiments.forward_lexicalized_grammar_20260920 import Word
 
 OUT = ROOT / "runs/semantic-role-bilateral-20260920.json"
 

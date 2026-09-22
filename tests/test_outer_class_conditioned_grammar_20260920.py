@@ -1,4 +1,4 @@
-from outer_class_conditioned_grammar_20260920 import audit, run
+from experiments.outer_class_conditioned_grammar_20260920 import audit, run
 
 def test_outer_class_lane_is_forward_and_audited():
     r=run()

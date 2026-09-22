@@ -18,7 +18,7 @@ failure was concentrated at the first terminal lexical boundary, where the
 single final place token could not satisfy a long enough reverse suffix.
 
 The executable artifact is
-[`semantic_relation_alignment_20260916.py`](../experiments/semantic_relation_alignment_20260916.py),
+[`experiments/semantic_relation_alignment_20260916.py`](../experiments/semantic_relation_alignment_20260916.py),
 and the frozen run record is
 [`semantic-relation-alignment-20260916.json`](../runs/semantic-relation-alignment-20260916.json).
 The proposed same-family repair is to use terminal-compatible phrase spans,
@@ -29,7 +29,7 @@ family.
 ## Terminal-span repair
 
 The bounded successor
-[`semantic_relation_alignment_terminal_repair_20260916.py`](../experiments/semantic_relation_alignment_terminal_repair_20260916.py)
+[`experiments/semantic_relation_alignment_terminal_repair_20260916.py`](../experiments/semantic_relation_alignment_terminal_repair_20260916.py)
 was then run as a same-family repair. It tried 12 terminal phrase spans per
 frame and admitted at most one unmatched character as a centre, with the full
 tape reversal recheck still mandatory. Against the current 95-entry registry,

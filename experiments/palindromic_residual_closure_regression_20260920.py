@@ -11,7 +11,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from bilateral_grammar_csp_20260920 import _consume, palindromic_residual
+from experiments.bilateral_grammar_csp_20260920 import _consume, palindromic_residual
 from experiments.semantic_role_bilateral_20260920 import run as semantic_run
 from experiments.lexicalized_constituent_interior_csp_20260920 import run as constituent_run
 

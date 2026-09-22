@@ -1,4 +1,4 @@
-import was_np_locative_saw_seam_20260921 as experiment
+import experiments.was_np_locative_saw_seam_20260921 as experiment
 
 
 def test_locative_np2_seam_reports_reader_controls_without_false_closure():

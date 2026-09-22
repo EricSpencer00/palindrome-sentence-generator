@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "experiments"))
 
-from validate_ten_luna_lane_contract_20260916 import main
+from experiments.validate_ten_luna_lane_contract_20260916 import main
 
 
 def test_all_ten_orthogonal_lanes_have_independent_replay_and_repairs():

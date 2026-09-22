@@ -1,4 +1,4 @@
-import scene_lattice_live_equation_20260921 as experiment
+import experiments.scene_lattice_live_equation_20260921 as experiment
 
 
 def test_scene_lattice_records_outer_residual_without_certifying_readability():

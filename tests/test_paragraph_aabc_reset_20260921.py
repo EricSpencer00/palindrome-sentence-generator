@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-import paragraph_aabc_reset_20260921 as m
+import experiments.paragraph_aabc_reset_20260921 as m
 
 def test_fresh_aabc():
  d=m.run(); r=d['actual_paragraph_candidates'][0]

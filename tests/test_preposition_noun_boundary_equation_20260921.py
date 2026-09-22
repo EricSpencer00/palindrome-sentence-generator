@@ -1,4 +1,4 @@
-from preposition_noun_boundary_equation_20260921 import audit, banks, consume, run
+from experiments.preposition_noun_boundary_equation_20260921 import audit, banks, consume, run
 
 def test_finite_boundary_equation_contract():
     assert len(banks()) == 6

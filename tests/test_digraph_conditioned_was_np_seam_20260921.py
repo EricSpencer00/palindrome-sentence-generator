@@ -1,4 +1,4 @@
-import digraph_conditioned_was_np_seam_20260921 as experiment
+import experiments.digraph_conditioned_was_np_seam_20260921 as experiment
 
 
 def test_digraph_conditioned_seam_retains_natural_controls():

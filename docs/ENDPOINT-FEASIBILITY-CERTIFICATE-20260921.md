@@ -18,7 +18,7 @@ Forward SHA-256: d08eb7ed620ecb67eeaf15044b237a20d023edf86c253bfcccc53aa720c6b5f
 Reverse SHA-256: ad99dcbf54a5c983a92130374d2fbdfcd837e1a5f7a9704bfc9e04ad2a8f12c5.
 It is deliberately excluded from `reader_candidates`.
 
-The original `typed_boundary_valency_20260921.py` additionally calls its
+The original `experiments/typed_boundary_valency_20260921.py` additionally calls its
 admission function with [tail, complement], although the right-hand surface
 is [complement, tail], and only compares endpoint characters. That predicate
 is neither full residual matching nor an accurate exterior test of its

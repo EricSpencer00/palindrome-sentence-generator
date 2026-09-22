@@ -1,4 +1,4 @@
-from endpoint_conditioned_clause_author_20260920 import audit, run
+from experiments.endpoint_conditioned_clause_author_20260920 import audit, run
 
 
 def test_endpoint_condition_is_only_a_pruning_equation():

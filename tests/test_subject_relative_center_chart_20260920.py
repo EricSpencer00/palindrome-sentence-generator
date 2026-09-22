@@ -1,5 +1,5 @@
-from subject_relative_center_chart_20260920 import BINARY, LEXICON, UNARY
-from shared_tape_support_chart_20260920 import chart, normalize
+from experiments.subject_relative_center_chart_20260920 import BINARY, LEXICON, UNARY
+from experiments.shared_tape_support_chart_20260920 import chart, normalize
 
 
 def test_subject_relative_active_control_parses():

@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib,json
 from pathlib import Path
 from dataclasses import asdict
-from center_residual_boundary_discharge_20260920 import ADJUNCTS,audit,bank,depth_one,depth_two,letters,render
+from experiments.center_residual_boundary_discharge_20260920 import ADJUNCTS,audit,bank,depth_one,depth_two,letters,render
 
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/"runs/relation-aware-center-obligations-20260920.json"; ID="relation-aware-center-obligations-20260920"
 REL_COMPAT={"epsilon":{"epsilon"},"temporal-adjunct":{"temporal-adjunct"},"locative-adjunct":{"locative-adjunct"}}

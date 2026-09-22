@@ -1,4 +1,4 @@
-from width2_bilateral_csp_20260920 import audit, run
+from experiments.width2_bilateral_csp_20260920 import audit, run
 
 
 def test_width2_equation_prunes_after_width1():

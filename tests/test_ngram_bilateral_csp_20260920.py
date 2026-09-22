@@ -1,5 +1,5 @@
-from ngram_bilateral_csp_20260920 import load_observed_edges, ngram_bilateral_csp
-from forward_lexicalized_grammar_20260920 import ATOMIC
+from experiments.ngram_bilateral_csp_20260920 import load_observed_edges, ngram_bilateral_csp
+from experiments.forward_lexicalized_grammar_20260920 import ATOMIC
 
 
 def test_observed_lattice_contains_real_edges():

@@ -13,7 +13,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from typed_boundary_valency_20260921 import SUBJECTS, VERBS, OBJECTS, LOCATIVES, TAILS, norm
+from experiments.typed_boundary_valency_20260921 import SUBJECTS, VERBS, OBJECTS, LOCATIVES, TAILS, norm
 
 
 def audit(text):

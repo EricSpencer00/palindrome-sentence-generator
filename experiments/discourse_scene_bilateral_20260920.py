@@ -9,8 +9,8 @@ import json, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from bilateral_grammar_csp_20260920 import bilateral_grammar_csp
-from forward_lexicalized_grammar_20260920 import Word, letters
+from experiments.bilateral_grammar_csp_20260920 import bilateral_grammar_csp
+from experiments.forward_lexicalized_grammar_20260920 import Word, letters
 
 OUT = ROOT / "runs/discourse-scene-bilateral-20260920.json"
 LEXICON = {

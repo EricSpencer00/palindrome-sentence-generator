@@ -1,4 +1,4 @@
-from width3_fresh_endpoint_20260920 import audit, run
+from experiments.width3_fresh_endpoint_20260920 import audit, run
 
 
 def test_width3_equation_is_incremental_and_prunes():

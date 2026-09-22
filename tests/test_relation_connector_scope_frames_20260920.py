@@ -1,4 +1,4 @@
-from relation_connector_scope_frames_20260920 import run,audit,obligation
+from experiments.relation_connector_scope_frames_20260920 import run,audit,obligation
 def test_relations_render_natural_complete_candidates():
  x=run(); assert x['stats']['relations']==3 and x['stats']['rendered_candidates']>0
  assert all(r['complete_prose'] and r['relation'] in ('contrast','cause','sequence') for r in x['rendered_candidates'])

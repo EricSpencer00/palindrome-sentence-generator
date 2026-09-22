@@ -34,7 +34,7 @@ complete parses at 31, 33, and 34 letters:
 
 None is palindromic, so the reader gate remains closed. Raw evidence is in
 `runs/subject-relative-center-chart-20260920-remote.json`, with implementation
-and control tests in `subject_relative_center_chart_20260920.py` and
+and control tests in `experiments/subject_relative_center_chart_20260920.py` and
 `tests/test_subject_relative_center_chart_20260920.py`.
 
 ## Next construction

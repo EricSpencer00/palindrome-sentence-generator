@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-import paragraph_abcb_reset_20260921 as m
+import experiments.paragraph_abcb_reset_20260921 as m
 
 def test_fresh_abcb():
  d=m.run(); assert d['stats']['candidates']==3; r=d['actual_paragraph_candidates'][0]

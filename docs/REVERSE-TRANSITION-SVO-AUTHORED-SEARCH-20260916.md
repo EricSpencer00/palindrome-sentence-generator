@@ -9,6 +9,6 @@ The search is independently lexicalized and uses only character equality at
 the two active boundaries. Evidence records the full state audit, rendered
 complete probes, and exact/admission counts.
 
-Artifact: [`reverse_transition_svo_authored_search_20260916.py`](../experiments/reverse_transition_svo_authored_search_20260916.py)
+Artifact: [`experiments/reverse_transition_svo_authored_search_20260916.py`](../experiments/reverse_transition_svo_authored_search_20260916.py)
 
 Evidence: [`reverse-transition-svo-authored-search-20260916.json`](../runs/reverse-transition-svo-authored-search-20260916.json)

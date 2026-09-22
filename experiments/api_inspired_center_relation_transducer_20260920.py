@@ -15,7 +15,7 @@ from dataclasses import dataclass
 from itertools import product
 from pathlib import Path
 
-from api_inspired_semantic_atom_transducer_20260920 import (
+from experiments.api_inspired_semantic_atom_transducer_20260920 import (
     SCENES,
     Atom,
     audit,

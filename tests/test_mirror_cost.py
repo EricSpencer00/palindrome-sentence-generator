@@ -18,7 +18,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments"))
 
-from mirror_cost import (ALPHABET, Scorer, coverage, load_vocab, segment,
+from experiments.mirror_cost import (ALPHABET, Scorer, coverage, load_vocab, segment,
                          sentences, spans)
 
 STRATEGIES = ["unigram", "fewest", "greedy"]

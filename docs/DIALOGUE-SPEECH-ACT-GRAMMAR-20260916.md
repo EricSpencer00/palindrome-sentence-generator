@@ -11,4 +11,4 @@ independent normalized two-pointer audit found no exact closure. Raw and
 normalized SHA-256 digests, slot trace, novelty preflight, and repair direction
 are recorded in [`dialogue-speech-act-grammar-20260916-qaser.json`](../runs/dialogue-speech-act-grammar-20260916-qaser.json).
 
-Generator: [`dialogue_speech_act_grammar_20260916.py`](../experiments/dialogue_speech_act_grammar_20260916.py)
+Generator: [`experiments/dialogue_speech_act_grammar_20260916.py`](../experiments/dialogue_speech_act_grammar_20260916.py)

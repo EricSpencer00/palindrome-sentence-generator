@@ -2,7 +2,7 @@
 from pathlib import Path
 import hashlib
 import json
-from online_regular_language_palindrome_20260921 import intersect, independent_audit
+from experiments.online_regular_language_palindrome_20260921 import intersect, independent_audit
 
 ROOT = Path(__file__).resolve().parents[1]
 

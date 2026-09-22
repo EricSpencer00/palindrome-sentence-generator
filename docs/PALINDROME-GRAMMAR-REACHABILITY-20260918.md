@@ -8,7 +8,7 @@ the finite pair graph, with no length bound or beam. A productive-cycle test
 decides whether the grammar admits arbitrarily long exact tapes. It does not
 certify novelty, avoidance of repetition, or human readability.
 
-Unlike the existing `typed_grammar_character_nfa_20260917.py` prototype, lexical
+Unlike the existing `experiments/typed_grammar_character_nfa_20260917.py` prototype, lexical
 path identity is retained between characters. That older prototype selects a
 fresh lexical alternative at each offset; this implementation has a regression
 test against inventing `aba` from the inventory `abc`, `xba`.

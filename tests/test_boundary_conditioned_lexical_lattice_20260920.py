@@ -1,4 +1,4 @@
-from boundary_conditioned_lexical_lattice_20260920 import audit, run
+from experiments.boundary_conditioned_lexical_lattice_20260920 import audit, run
 
 
 def test_boundary_lattice_records_complete_prose_and_independent_audits():

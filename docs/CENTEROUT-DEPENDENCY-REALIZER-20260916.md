@@ -23,6 +23,6 @@ states, made 75 lexical assignments, and matched 11 seam characters in total
 before dead ends. There were zero exact closures, mechanically admitted rows,
 or reader-eligible outputs.
 
-Artifact: [`centerout_dependency_realizer_20260916.py`](../experiments/centerout_dependency_realizer_20260916.py)
+Artifact: [`experiments/centerout_dependency_realizer_20260916.py`](../experiments/centerout_dependency_realizer_20260916.py)
 
 Evidence: [`centerout-dependency-realizer-20260916.json`](../runs/centerout-dependency-realizer-20260916.json)

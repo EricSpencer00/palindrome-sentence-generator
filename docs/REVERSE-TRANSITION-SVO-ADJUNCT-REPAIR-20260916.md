@@ -11,6 +11,6 @@ The repair retained complete grammatical clauses and rendered three probes of
 at least 39 letters, but produced zero exact closures and zero mechanically
 admitted candidates. The base evidence remains unchanged.
 
-Artifact: [`reverse_transition_svo_adjunct_repair_20260916.py`](../experiments/reverse_transition_svo_adjunct_repair_20260916.py)
+Artifact: [`experiments/reverse_transition_svo_adjunct_repair_20260916.py`](../experiments/reverse_transition_svo_adjunct_repair_20260916.py)
 
 Evidence: [`reverse-transition-svo-beam-adjunct-repair-20260916.json`](../runs/reverse-transition-svo-beam-adjunct-repair-20260916.json)

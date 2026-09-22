@@ -7,7 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from open_carrier_brown_probe_20260922 import ORDINARY_TWO, corpus_chunks
+from experiments.open_carrier_brown_probe_20260922 import ORDINARY_TWO, corpus_chunks
 
 
 def main() -> None:

@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "experiments"))
 sys.path.insert(0, str(ROOT))
 
-from luna_broad_grammar_probe_20260915 import Plan, lexical_table, pools, search_pair
+from experiments.luna_broad_grammar_probe_20260915 import Plan, lexical_table, pools, search_pair
 from llm_palindrome.admission import mechanical_admission_checks, normalize_letters
 
 SHAPES = tuple(permutations(("VERB", "NOUN", "ADJ")))

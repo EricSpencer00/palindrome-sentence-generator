@@ -1,4 +1,4 @@
-from cross_word_boundary_grammar_dp_20260920 import run,boundary_step
+from experiments.cross_word_boundary_grammar_dp_20260920 import run,boundary_step
 def test_cross_word_transitions_carry_residual():
  x=run(); assert x['stats']['transition_states']>0; assert all(r['cross_word_trace'] for r in x['rendered_candidates'])
 def test_complete_prose_and_audit():

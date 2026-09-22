@@ -17,7 +17,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from palindromic_language_reachability_20260919 import (
+from experiments.palindromic_language_reachability_20260919 import (
     Language, audit, compile_templates, solve_packed, letters,
 )
 from llm_palindrome.admission import mechanical_admission_checks

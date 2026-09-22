@@ -1,4 +1,4 @@
-from shared_tape_support_chart_20260920 import chart, propagate, search, normalize, LEXICON, BINARY, UNARY
+from experiments.shared_tape_support_chart_20260920 import chart, propagate, search, normalize, LEXICON, BINARY, UNARY
 
 def test_seed_recovery_is_separate_calibration():
     from shared_tape_support_chart_20260920 import calibration_grammar

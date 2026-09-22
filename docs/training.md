@@ -226,7 +226,7 @@ Two consequences, and the second is the larger one:
 - **The half-asymmetry gap is measured in per-letter units too.** The prepended
   half is the one that leans on short filler words, which is exactly the
   condition that manufactures a per-letter gap. Some part of the +0.368 may be
-  word length rather than readability, and `backward_study.py` reports the gap
+  word length rather than readability, and `experiments/backward_study.py` reports the gap
   both ways so the question is settled rather than assumed.
 
 This is what the verifiable half of the reward is for. Length is capped there

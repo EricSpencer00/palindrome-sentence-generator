@@ -1,5 +1,5 @@
-from agreement_passive_relative_chart_20260920 import BINARY, LEXICON, UNARY
-from shared_tape_support_chart_20260920 import chart, normalize
+from experiments.agreement_passive_relative_chart_20260920 import BINARY, LEXICON, UNARY
+from experiments.shared_tape_support_chart_20260920 import chart, normalize
 
 
 def test_agreement_active_relative_control_parses():

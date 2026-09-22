@@ -1,0 +1,1252 @@
+{
+  "experiment_id": "possessive-clitic-return-stack-20260922",
+  "method": "typed exact-character product over r='s' with genitive/clitic attachment and live LIFO/mask state",
+  "residual": "s",
+  "equations": {
+    "carrier": "T(x0)s = reverse(T(y0))",
+    "cycle": "T(xi)s = s reverse(T(yi))"
+  },
+  "stats": {
+    "paths": 120,
+    "possessive_paths": 80,
+    "contraction_paths": 40,
+    "exact_structural_paths": 120,
+    "exact_structural_paths_over_44": 29,
+    "max_structural_letters": 60,
+    "proper_span_rejections": 0,
+    "contraction_expansion_rejections": 40,
+    "survivors": 0,
+    "complete_semantically_connected_survivors": 0
+  },
+  "survivors": [],
+  "rejection_certificates": [
+    {
+      "path": {
+        "carrier": "inventory",
+        "outer_cycles": [
+          "weather-material",
+          "event-duration",
+          "transitive-indefinite"
+        ],
+        "attachment": "singular-snoop-spoon"
+      },
+      "typed_attachment": {
+        "attachment_id": "singular-snoop-spoon",
+        "pair": {
+          "pair_id": "snoop-spoon",
+          "left": [
+            "snoop"
+          ],
+          "right": [
+            "spoon"
+          ],
+          "kind": "cycle",
+          "left_roles": [
+            "owner"
+          ],
+          "right_roles": [
+            "possessed_head"
+          ]
+        },
+        "construction": "singular_possessive",
+        "owner_number": "singular",
+        "attachment_head": "spoon",
+        "head_number": "singular",
+        "agreement": "genitive owner and singular possessed head",
+        "valency": "genitive NP -> owner + head noun",
+        "semantic_roles": [
+          "owner=snoop",
+          "possessed=spoon"
+        ],
+        "semantic_relation": "ordinary ownership",
+        "expansion": null
+      },
+      "equations": {
+        "carrier": true,
+        "outers": [
+          true,
+          true,
+          true
+        ],
+        "attachment": true
+      },
+      "agreement": "genitive owner and singular possessed head",
+      "valency": "genitive NP -> owner + head noun",
+      "semantic_roles": [
+        "owner=snoop",
+        "possessed=spoon"
+      ],
+      "semantic_relation": "ordinary ownership",
+      "lemma_freshness": {
+        "lemmas": [
+          "trace",
+          "note",
+          "sleet",
+          "snap",
+          "saw",
+          "snoop",
+          "spoon",
+          "saw",
+          "span",
+          "steel",
+          "set",
+          "carton"
+        ],
+        "all_distinct": false
+      },
+      "complementary_boundary_mask": {
+        "left": [
+          2,
+          7,
+          11,
+          16,
+          20,
+          23,
+          24,
+          30
+        ],
+        "right_from_outer_edge": [
+          6,
+          9,
+          12,
+          17,
+          21,
+          22,
+          25,
+          30
+        ],
+        "shared": [
+          30
+        ],
+        "allowed_terminal": [
+          30
+        ],
+        "forbidden_internal": [],
+        "passes": true
+      },
+      "proper_span_mask": {
+        "passes": true,
+        "exact_proper_spans": [],
+        "reason": null
+      },
+      "local_attachment_audit": {
+        "surface_words": [
+          "snoop's",
+          "spoon"
+        ],
+        "normalized_span": "snoopsspoon",
+        "two_pointer_exact": false,
+        "passes": true
+      },
+      "contraction_expansion_gate": {
+        "applies": false,
+        "passes": true,
+        "surface_tape": "snoopsspoon"
+      },
+      "grammar_semantic_gate": {
+        "finite_valency_interface": true,
+        "animate_outer_subject": false,
+        "count_theme_after_returned_determiner": false,
+        "attachment_roles_unified": true,
+        "complete_sentence": false,
+        "semantic_connectedness": false,
+        "failure": "no single exact carrier supplies both an animate subject and a count theme across the returned transitive frame"
+      },
+      "return_state": {
+        "discipline": "strict_lifo",
+        "stack_before_attachment_gate": [
+          [
+            "set",
+            "one",
+            "carton"
+          ],
+          [
+            "steel"
+          ],
+          [
+            "span"
+          ],
+          [
+            "saw",
+            "a"
+          ],
+          [
+            "spoon"
+          ]
+        ],
+        "pop_permitted": false,
+        "trace": [
+          {
+            "operation": "push_carrier",
+            "pair": "inventory",
+            "depth": 1
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "weather-material",
+            "depth": 2
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "event-duration",
+            "depth": 3
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "transitive-indefinite",
+            "depth": 4
+          },
+          {
+            "operation": "push_attachment_return",
+            "pair": "snoop-spoon",
+            "depth": 5,
+            "residual": "s"
+          }
+        ]
+      },
+      "whole_tape_audit": {
+        "letters": 60,
+        "normalized_tape": "notracenotesleetsnapsawasnoopsspoonsawaspansteelsetonecarton",
+        "two_pointer_exact": true,
+        "comparisons": 30,
+        "sha256_forward": "26095b9706fb9d4943402e0ab6638319a63b11ccef6a808f4cad8b2852a091b7",
+        "sha256_reverse": "26095b9706fb9d4943402e0ab6638319a63b11ccef6a808f4cad8b2852a091b7"
+      },
+      "reject_reasons": [
+        "lemma_freshness",
+        "incomplete_valency_or_semantic_roles"
+      ],
+      "survives": false
+    },
+    {
+      "path": {
+        "carrier": "inventory",
+        "outer_cycles": [
+          "weather-material",
+          "event-duration",
+          "transitive-indefinite"
+        ],
+        "attachment": "singular-spoon-snoop"
+      },
+      "typed_attachment": {
+        "attachment_id": "singular-spoon-snoop",
+        "pair": {
+          "pair_id": "spoon-snoop",
+          "left": [
+            "spoon"
+          ],
+          "right": [
+            "snoop"
+          ],
+          "kind": "cycle",
+          "left_roles": [
+            "owner"
+          ],
+          "right_roles": [
+            "possessed_head"
+          ]
+        },
+        "construction": "singular_possessive",
+        "owner_number": "singular",
+        "attachment_head": "snoop",
+        "head_number": "singular",
+        "agreement": "genitive owner and singular possessed head",
+        "valency": "genitive NP -> owner + animate head noun",
+        "semantic_roles": [
+          "owner=spoon",
+          "possessed=snoop"
+        ],
+        "semantic_relation": "ordinary ownership",
+        "expansion": null
+      },
+      "equations": {
+        "carrier": true,
+        "outers": [
+          true,
+          true,
+          true
+        ],
+        "attachment": true
+      },
+      "agreement": "genitive owner and singular possessed head",
+      "valency": "genitive NP -> owner + animate head noun",
+      "semantic_roles": [
+        "owner=spoon",
+        "possessed=snoop"
+      ],
+      "semantic_relation": "ordinary ownership",
+      "lemma_freshness": {
+        "lemmas": [
+          "trace",
+          "note",
+          "sleet",
+          "snap",
+          "saw",
+          "spoon",
+          "snoop",
+          "saw",
+          "span",
+          "steel",
+          "set",
+          "carton"
+        ],
+        "all_distinct": false
+      },
+      "complementary_boundary_mask": {
+        "left": [
+          2,
+          7,
+          11,
+          16,
+          20,
+          23,
+          24,
+          30
+        ],
+        "right_from_outer_edge": [
+          6,
+          9,
+          12,
+          17,
+          21,
+          22,
+          25,
+          30
+        ],
+        "shared": [
+          30
+        ],
+        "allowed_terminal": [
+          30
+        ],
+        "forbidden_internal": [],
+        "passes": true
+      },
+      "proper_span_mask": {
+        "passes": true,
+        "exact_proper_spans": [],
+        "reason": null
+      },
+      "local_attachment_audit": {
+        "surface_words": [
+          "spoon's",
+          "snoop"
+        ],
+        "normalized_span": "spoonssnoop",
+        "two_pointer_exact": false,
+        "passes": true
+      },
+      "contraction_expansion_gate": {
+        "applies": false,
+        "passes": true,
+        "surface_tape": "spoonssnoop"
+      },
+      "grammar_semantic_gate": {
+        "finite_valency_interface": true,
+        "animate_outer_subject": false,
+        "count_theme_after_returned_determiner": false,
+        "attachment_roles_unified": true,
+        "complete_sentence": false,
+        "semantic_connectedness": false,
+        "failure": "no single exact carrier supplies both an animate subject and a count theme across the returned transitive frame"
+      },
+      "return_state": {
+        "discipline": "strict_lifo",
+        "stack_before_attachment_gate": [
+          [
+            "set",
+            "one",
+            "carton"
+          ],
+          [
+            "steel"
+          ],
+          [
+            "span"
+          ],
+          [
+            "saw",
+            "a"
+          ],
+          [
+            "snoop"
+          ]
+        ],
+        "pop_permitted": false,
+        "trace": [
+          {
+            "operation": "push_carrier",
+            "pair": "inventory",
+            "depth": 1
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "weather-material",
+            "depth": 2
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "event-duration",
+            "depth": 3
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "transitive-indefinite",
+            "depth": 4
+          },
+          {
+            "operation": "push_attachment_return",
+            "pair": "spoon-snoop",
+            "depth": 5,
+            "residual": "s"
+          }
+        ]
+      },
+      "whole_tape_audit": {
+        "letters": 60,
+        "normalized_tape": "notracenotesleetsnapsawaspoonssnoopsawaspansteelsetonecarton",
+        "two_pointer_exact": true,
+        "comparisons": 30,
+        "sha256_forward": "edadad1861ce2317d4b0bdf1a26a41cd0befebda16d947451b854a2f1b6ec92e",
+        "sha256_reverse": "edadad1861ce2317d4b0bdf1a26a41cd0befebda16d947451b854a2f1b6ec92e"
+      },
+      "reject_reasons": [
+        "lemma_freshness",
+        "incomplete_valency_or_semantic_roles"
+      ],
+      "survives": false
+    },
+    {
+      "path": {
+        "carrier": "inventory",
+        "outer_cycles": [
+          "weather-material",
+          "event-duration",
+          "transitive-indefinite"
+        ],
+        "attachment": "singular-stop-spot"
+      },
+      "typed_attachment": {
+        "attachment_id": "singular-stop-spot",
+        "pair": {
+          "pair_id": "stop-spot",
+          "left": [
+            "stop"
+          ],
+          "right": [
+            "spot"
+          ],
+          "kind": "cycle",
+          "left_roles": [
+            "owner_location"
+          ],
+          "right_roles": [
+            "possessed_head"
+          ]
+        },
+        "construction": "singular_possessive",
+        "owner_number": "singular",
+        "attachment_head": "spot",
+        "head_number": "singular",
+        "agreement": "genitive owner and singular associated head",
+        "valency": "genitive NP -> owner + head noun",
+        "semantic_roles": [
+          "owner=stop",
+          "associated_place=spot"
+        ],
+        "semantic_relation": "associated location",
+        "expansion": null
+      },
+      "equations": {
+        "carrier": true,
+        "outers": [
+          true,
+          true,
+          true
+        ],
+        "attachment": true
+      },
+      "agreement": "genitive owner and singular associated head",
+      "valency": "genitive NP -> owner + head noun",
+      "semantic_roles": [
+        "owner=stop",
+        "associated_place=spot"
+      ],
+      "semantic_relation": "associated location",
+      "lemma_freshness": {
+        "lemmas": [
+          "trace",
+          "note",
+          "sleet",
+          "snap",
+          "saw",
+          "stop",
+          "spot",
+          "saw",
+          "span",
+          "steel",
+          "set",
+          "carton"
+        ],
+        "all_distinct": false
+      },
+      "complementary_boundary_mask": {
+        "left": [
+          2,
+          7,
+          11,
+          16,
+          20,
+          23,
+          24,
+          29
+        ],
+        "right_from_outer_edge": [
+          6,
+          9,
+          12,
+          17,
+          21,
+          22,
+          25,
+          29
+        ],
+        "shared": [
+          29
+        ],
+        "allowed_terminal": [
+          29
+        ],
+        "forbidden_internal": [],
+        "passes": true
+      },
+      "proper_span_mask": {
+        "passes": true,
+        "exact_proper_spans": [],
+        "reason": null
+      },
+      "local_attachment_audit": {
+        "surface_words": [
+          "stop's",
+          "spot"
+        ],
+        "normalized_span": "stopsspot",
+        "two_pointer_exact": false,
+        "passes": true
+      },
+      "contraction_expansion_gate": {
+        "applies": false,
+        "passes": true,
+        "surface_tape": "stopsspot"
+      },
+      "grammar_semantic_gate": {
+        "finite_valency_interface": true,
+        "animate_outer_subject": false,
+        "count_theme_after_returned_determiner": false,
+        "attachment_roles_unified": true,
+        "complete_sentence": false,
+        "semantic_connectedness": false,
+        "failure": "no single exact carrier supplies both an animate subject and a count theme across the returned transitive frame"
+      },
+      "return_state": {
+        "discipline": "strict_lifo",
+        "stack_before_attachment_gate": [
+          [
+            "set",
+            "one",
+            "carton"
+          ],
+          [
+            "steel"
+          ],
+          [
+            "span"
+          ],
+          [
+            "saw",
+            "a"
+          ],
+          [
+            "spot"
+          ]
+        ],
+        "pop_permitted": false,
+        "trace": [
+          {
+            "operation": "push_carrier",
+            "pair": "inventory",
+            "depth": 1
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "weather-material",
+            "depth": 2
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "event-duration",
+            "depth": 3
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "transitive-indefinite",
+            "depth": 4
+          },
+          {
+            "operation": "push_attachment_return",
+            "pair": "stop-spot",
+            "depth": 5,
+            "residual": "s"
+          }
+        ]
+      },
+      "whole_tape_audit": {
+        "letters": 58,
+        "normalized_tape": "notracenotesleetsnapsawastopsspotsawaspansteelsetonecarton",
+        "two_pointer_exact": true,
+        "comparisons": 29,
+        "sha256_forward": "b0db74e89ba512f5474ecf8af26ce116ce347eb943f6075bbc7603c90625ee53",
+        "sha256_reverse": "b0db74e89ba512f5474ecf8af26ce116ce347eb943f6075bbc7603c90625ee53"
+      },
+      "reject_reasons": [
+        "lemma_freshness",
+        "incomplete_valency_or_semantic_roles"
+      ],
+      "survives": false
+    },
+    {
+      "path": {
+        "carrier": "inventory",
+        "outer_cycles": [
+          "weather-material",
+          "event-duration",
+          "transitive-indefinite"
+        ],
+        "attachment": "plural-snoops-spoon"
+      },
+      "typed_attachment": {
+        "attachment_id": "plural-snoops-spoon",
+        "pair": {
+          "pair_id": "snoops-spoon",
+          "left": [
+            "snoop"
+          ],
+          "right": [
+            "spoon"
+          ],
+          "kind": "cycle",
+          "left_roles": [
+            "owners"
+          ],
+          "right_roles": [
+            "possessed_head"
+          ]
+        },
+        "construction": "plural_possessive",
+        "owner_number": "plural",
+        "attachment_head": "spoon",
+        "head_number": "singular",
+        "agreement": "plural owner bears s; apostrophe is zero-letter genitive",
+        "valency": "genitive NP -> plural owners + head noun",
+        "semantic_roles": [
+          "owners=snoops",
+          "possessed=spoon"
+        ],
+        "semantic_relation": "shared ownership",
+        "expansion": null
+      },
+      "equations": {
+        "carrier": true,
+        "outers": [
+          true,
+          true,
+          true
+        ],
+        "attachment": true
+      },
+      "agreement": "plural owner bears s; apostrophe is zero-letter genitive",
+      "valency": "genitive NP -> plural owners + head noun",
+      "semantic_roles": [
+        "owners=snoops",
+        "possessed=spoon"
+      ],
+      "semantic_relation": "shared ownership",
+      "lemma_freshness": {
+        "lemmas": [
+          "trace",
+          "note",
+          "sleet",
+          "snap",
+          "saw",
+          "snoops",
+          "spoon",
+          "saw",
+          "span",
+          "steel",
+          "set",
+          "carton"
+        ],
+        "all_distinct": false
+      },
+      "complementary_boundary_mask": {
+        "left": [
+          2,
+          7,
+          11,
+          16,
+          20,
+          23,
+          24,
+          30
+        ],
+        "right_from_outer_edge": [
+          6,
+          9,
+          12,
+          17,
+          21,
+          22,
+          25,
+          30
+        ],
+        "shared": [
+          30
+        ],
+        "allowed_terminal": [
+          30
+        ],
+        "forbidden_internal": [],
+        "passes": true
+      },
+      "proper_span_mask": {
+        "passes": true,
+        "exact_proper_spans": [],
+        "reason": null
+      },
+      "local_attachment_audit": {
+        "surface_words": [
+          "snoops'",
+          "spoon"
+        ],
+        "normalized_span": "snoopsspoon",
+        "two_pointer_exact": false,
+        "passes": true
+      },
+      "contraction_expansion_gate": {
+        "applies": false,
+        "passes": true,
+        "surface_tape": "snoopsspoon"
+      },
+      "grammar_semantic_gate": {
+        "finite_valency_interface": true,
+        "animate_outer_subject": false,
+        "count_theme_after_returned_determiner": false,
+        "attachment_roles_unified": true,
+        "complete_sentence": false,
+        "semantic_connectedness": false,
+        "failure": "no single exact carrier supplies both an animate subject and a count theme across the returned transitive frame"
+      },
+      "return_state": {
+        "discipline": "strict_lifo",
+        "stack_before_attachment_gate": [
+          [
+            "set",
+            "one",
+            "carton"
+          ],
+          [
+            "steel"
+          ],
+          [
+            "span"
+          ],
+          [
+            "saw",
+            "a"
+          ],
+          [
+            "spoon"
+          ]
+        ],
+        "pop_permitted": false,
+        "trace": [
+          {
+            "operation": "push_carrier",
+            "pair": "inventory",
+            "depth": 1
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "weather-material",
+            "depth": 2
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "event-duration",
+            "depth": 3
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "transitive-indefinite",
+            "depth": 4
+          },
+          {
+            "operation": "push_attachment_return",
+            "pair": "snoops-spoon",
+            "depth": 5,
+            "residual": "s"
+          }
+        ]
+      },
+      "whole_tape_audit": {
+        "letters": 60,
+        "normalized_tape": "notracenotesleetsnapsawasnoopsspoonsawaspansteelsetonecarton",
+        "two_pointer_exact": true,
+        "comparisons": 30,
+        "sha256_forward": "26095b9706fb9d4943402e0ab6638319a63b11ccef6a808f4cad8b2852a091b7",
+        "sha256_reverse": "26095b9706fb9d4943402e0ab6638319a63b11ccef6a808f4cad8b2852a091b7"
+      },
+      "reject_reasons": [
+        "lemma_freshness",
+        "incomplete_valency_or_semantic_roles"
+      ],
+      "survives": false
+    },
+    {
+      "path": {
+        "carrier": "inventory",
+        "outer_cycles": [
+          "weather-material",
+          "event-duration",
+          "transitive-indefinite"
+        ],
+        "attachment": "contracted-is-state-set-at"
+      },
+      "typed_attachment": {
+        "attachment_id": "contracted-is-state-set-at",
+        "pair": {
+          "pair_id": "state-set-at",
+          "left": [
+            "state"
+          ],
+          "right": [
+            "set",
+            "at"
+          ],
+          "kind": "cycle",
+          "left_roles": [
+            "subject"
+          ],
+          "right_roles": [
+            "predicate",
+            "complement_marker"
+          ]
+        },
+        "construction": "contraction_is",
+        "owner_number": "singular",
+        "attachment_head": "set at",
+        "head_number": "not_applicable",
+        "agreement": "third-person singular subject with copular predicate",
+        "valency": "BE -> subject + predicative complement",
+        "semantic_roles": [
+          "theme=state",
+          "predicate=set_at"
+        ],
+        "semantic_relation": "copular state",
+        "expansion": [
+          "is"
+        ]
+      },
+      "equations": {
+        "carrier": true,
+        "outers": [
+          true,
+          true,
+          true
+        ],
+        "attachment": true
+      },
+      "agreement": "third-person singular subject with copular predicate",
+      "valency": "BE -> subject + predicative complement",
+      "semantic_roles": [
+        "theme=state",
+        "predicate=set_at"
+      ],
+      "semantic_relation": "copular state",
+      "lemma_freshness": {
+        "lemmas": [
+          "trace",
+          "note",
+          "sleet",
+          "snap",
+          "saw",
+          "state",
+          "set",
+          "saw",
+          "span",
+          "steel",
+          "set",
+          "carton"
+        ],
+        "all_distinct": false
+      },
+      "complementary_boundary_mask": {
+        "left": [
+          2,
+          7,
+          11,
+          16,
+          20,
+          23,
+          24,
+          30
+        ],
+        "right_from_outer_edge": [
+          6,
+          9,
+          12,
+          17,
+          21,
+          22,
+          25,
+          27,
+          30
+        ],
+        "shared": [
+          30
+        ],
+        "allowed_terminal": [
+          30
+        ],
+        "forbidden_internal": [],
+        "passes": true
+      },
+      "proper_span_mask": {
+        "passes": true,
+        "exact_proper_spans": [],
+        "reason": null
+      },
+      "local_attachment_audit": {
+        "surface_words": [
+          "state's",
+          "set",
+          "at"
+        ],
+        "normalized_span": "statessetat",
+        "two_pointer_exact": false,
+        "passes": true
+      },
+      "contraction_expansion_gate": {
+        "applies": true,
+        "passes": false,
+        "surface_tape": "statessetat",
+        "expanded_tape": "stateissetat",
+        "expansion": "is",
+        "reason": "apostrophe expansion changes letters, so the contraction cannot discharge residual r='s'"
+      },
+      "grammar_semantic_gate": {
+        "finite_valency_interface": true,
+        "animate_outer_subject": false,
+        "count_theme_after_returned_determiner": false,
+        "attachment_roles_unified": true,
+        "complete_sentence": false,
+        "semantic_connectedness": false,
+        "failure": "no single exact carrier supplies both an animate subject and a count theme across the returned transitive frame"
+      },
+      "return_state": {
+        "discipline": "strict_lifo",
+        "stack_before_attachment_gate": [
+          [
+            "set",
+            "one",
+            "carton"
+          ],
+          [
+            "steel"
+          ],
+          [
+            "span"
+          ],
+          [
+            "saw",
+            "a"
+          ],
+          [
+            "set",
+            "at"
+          ]
+        ],
+        "pop_permitted": false,
+        "trace": [
+          {
+            "operation": "push_carrier",
+            "pair": "inventory",
+            "depth": 1
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "weather-material",
+            "depth": 2
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "event-duration",
+            "depth": 3
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "transitive-indefinite",
+            "depth": 4
+          },
+          {
+            "operation": "push_attachment_return",
+            "pair": "state-set-at",
+            "depth": 5,
+            "residual": "s"
+          }
+        ]
+      },
+      "whole_tape_audit": {
+        "letters": 60,
+        "normalized_tape": "notracenotesleetsnapsawastatessetatsawaspansteelsetonecarton",
+        "two_pointer_exact": true,
+        "comparisons": 30,
+        "sha256_forward": "fdb4b8ad615d46d8a128ef26377649ae1fc8e2c1403e81fa75fcaea65d7555c3",
+        "sha256_reverse": "fdb4b8ad615d46d8a128ef26377649ae1fc8e2c1403e81fa75fcaea65d7555c3"
+      },
+      "reject_reasons": [
+        "lemma_freshness",
+        "contraction_expansion_changes_letters",
+        "incomplete_valency_or_semantic_roles"
+      ],
+      "survives": false
+    },
+    {
+      "path": {
+        "carrier": "inventory",
+        "outer_cycles": [
+          "weather-material",
+          "event-duration",
+          "transitive-indefinite"
+        ],
+        "attachment": "contracted-has-snoop-spoon"
+      },
+      "typed_attachment": {
+        "attachment_id": "contracted-has-snoop-spoon",
+        "pair": {
+          "pair_id": "snoop-spoon-has",
+          "left": [
+            "snoop"
+          ],
+          "right": [
+            "spoon"
+          ],
+          "kind": "cycle",
+          "left_roles": [
+            "subject"
+          ],
+          "right_roles": [
+            "theme"
+          ]
+        },
+        "construction": "contraction_has",
+        "owner_number": "singular",
+        "attachment_head": "spoon",
+        "head_number": "singular",
+        "agreement": "third-person singular subject with HAVE complement",
+        "valency": "HAVE -> subject + theme NP",
+        "semantic_roles": [
+          "possessor=snoop",
+          "theme=spoon"
+        ],
+        "semantic_relation": "possession",
+        "expansion": [
+          "has"
+        ]
+      },
+      "equations": {
+        "carrier": true,
+        "outers": [
+          true,
+          true,
+          true
+        ],
+        "attachment": true
+      },
+      "agreement": "third-person singular subject with HAVE complement",
+      "valency": "HAVE -> subject + theme NP",
+      "semantic_roles": [
+        "possessor=snoop",
+        "theme=spoon"
+      ],
+      "semantic_relation": "possession",
+      "lemma_freshness": {
+        "lemmas": [
+          "trace",
+          "note",
+          "sleet",
+          "snap",
+          "saw",
+          "snoop",
+          "spoon",
+          "saw",
+          "span",
+          "steel",
+          "set",
+          "carton"
+        ],
+        "all_distinct": false
+      },
+      "complementary_boundary_mask": {
+        "left": [
+          2,
+          7,
+          11,
+          16,
+          20,
+          23,
+          24,
+          30
+        ],
+        "right_from_outer_edge": [
+          6,
+          9,
+          12,
+          17,
+          21,
+          22,
+          25,
+          30
+        ],
+        "shared": [
+          30
+        ],
+        "allowed_terminal": [
+          30
+        ],
+        "forbidden_internal": [],
+        "passes": true
+      },
+      "proper_span_mask": {
+        "passes": true,
+        "exact_proper_spans": [],
+        "reason": null
+      },
+      "local_attachment_audit": {
+        "surface_words": [
+          "snoop's",
+          "spoon"
+        ],
+        "normalized_span": "snoopsspoon",
+        "two_pointer_exact": false,
+        "passes": true
+      },
+      "contraction_expansion_gate": {
+        "applies": true,
+        "passes": false,
+        "surface_tape": "snoopsspoon",
+        "expanded_tape": "snoophasspoon",
+        "expansion": "has",
+        "reason": "apostrophe expansion changes letters, so the contraction cannot discharge residual r='s'"
+      },
+      "grammar_semantic_gate": {
+        "finite_valency_interface": true,
+        "animate_outer_subject": false,
+        "count_theme_after_returned_determiner": false,
+        "attachment_roles_unified": true,
+        "complete_sentence": false,
+        "semantic_connectedness": false,
+        "failure": "no single exact carrier supplies both an animate subject and a count theme across the returned transitive frame"
+      },
+      "return_state": {
+        "discipline": "strict_lifo",
+        "stack_before_attachment_gate": [
+          [
+            "set",
+            "one",
+            "carton"
+          ],
+          [
+            "steel"
+          ],
+          [
+            "span"
+          ],
+          [
+            "saw",
+            "a"
+          ],
+          [
+            "spoon"
+          ]
+        ],
+        "pop_permitted": false,
+        "trace": [
+          {
+            "operation": "push_carrier",
+            "pair": "inventory",
+            "depth": 1
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "weather-material",
+            "depth": 2
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "event-duration",
+            "depth": 3
+          },
+          {
+            "operation": "push_cycle",
+            "pair": "transitive-indefinite",
+            "depth": 4
+          },
+          {
+            "operation": "push_attachment_return",
+            "pair": "snoop-spoon-has",
+            "depth": 5,
+            "residual": "s"
+          }
+        ]
+      },
+      "whole_tape_audit": {
+        "letters": 60,
+        "normalized_tape": "notracenotesleetsnapsawasnoopsspoonsawaspansteelsetonecarton",
+        "two_pointer_exact": true,
+        "comparisons": 30,
+        "sha256_forward": "26095b9706fb9d4943402e0ab6638319a63b11ccef6a808f4cad8b2852a091b7",
+        "sha256_reverse": "26095b9706fb9d4943402e0ab6638319a63b11ccef6a808f4cad8b2852a091b7"
+      },
+      "reject_reasons": [
+        "lemma_freshness",
+        "contraction_expansion_changes_letters",
+        "incomplete_valency_or_semantic_roles"
+      ],
+      "survives": false
+    }
+  ],
+  "obstruction": {
+    "attachment": "The r='s' cycle does form genitives without a local palindrome shortcut, but a complete transitive interface requires the symmetric saw-a cycle. That cycle repeats a content lemma and is rejected by the live freshness gate; all asymmetric returns fail finite valency after the possessed head.",
+    "contraction": "Expanding 's to is or has adds letters (i or ha), so its honest expansion no longer equals the surface tape that discharged residual s.",
+    "first_blocking_state": "after genitive attachment, before LIFO return: either the return lacks a finite predicate or the only finite cycle repeats saw"
+  },
+  "next_operator": {
+    "name": "asynchronous cross-clause genitive dependency product",
+    "difference": "Do not close s against the possessive head in a local return cycle. Match s against a character outside the genitive NP while a two-gap dependency state carries owner-to-head attachment across a nonpalindromic intervening constituent.",
+    "required_gate": "The genitive NP and every proper constituent must remain nonpalindromic while only the complete sentence closes."
+  },
+  "provenance": {
+    "host": "hst-bench",
+    "proper_names_allowed": false,
+    "fragments_admitted": false,
+    "catalogue_text_imported": false,
+    "completed_palindromic_units_in_inventory": false,
+    "post_hoc_repair": false,
+    "right_returns_lifo": true,
+    "rendered_survivors_independently_audited": 0,
+    "source_sha256": "c6f09c2751a04f90fca72098481eacb297b766ae66586703973ba3b5eba0ec4f"
+  },
+  "status": "completed_zero_survivors_exact_attachment_obstruction",
+  "result_sha256": "328d60f306e7b1f79fd94acb5a05aae67651a608e4af441e7c6c6411234864c3"
+}

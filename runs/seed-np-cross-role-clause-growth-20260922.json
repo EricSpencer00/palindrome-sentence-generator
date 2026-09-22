@@ -1,0 +1,435 @@
+{
+  "experiment_id": "seed-np-cross-role-clause-growth-20260922",
+  "method": "bounded connected SVO event growth with dual-cursor residual ownership",
+  "frontiers": {
+    "54_seed_np_child_control": {
+      "rendered": "An aide rips nine memo-hero memos. Some more home men inspire Diana.",
+      "letters": 54,
+      "sha256": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268",
+      "role": "independent exact parent control; retained separately"
+    },
+    "568_control": {
+      "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+      "id": "outer-causal-scene-568-working-incumbent",
+      "letters": 568,
+      "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+      "role": "separate long-form control; not a promotion target"
+    },
+    "666_frontier": {
+      "artifact": "runs/incumbent-666-comparison-alternative-20260922.json",
+      "id": "comparison-alternative-nora-sees-666",
+      "letters": 666,
+      "sha256": "cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297",
+      "role": "separate frontier; not a promotion target"
+    }
+  },
+  "selected_seam": {
+    "description": "after the first complete clause, before Some",
+    "normalized_cut": 27,
+    "residual_source": "m",
+    "source_exposure": {
+      "left": "memoherom",
+      "right": "memoherom",
+      "left_semantic_role": "object NP under rips",
+      "right_semantic_role": "subject NP under inspire"
+    },
+    "semantic_potential": "document handling leads to linked witness/aide events before Diana's later inspiration event"
+  },
+  "stats": {
+    "bounded_operators": 3,
+    "independently_exact_children": 3,
+    "children_longer_than_54": 3,
+    "longest_letters": 82,
+    "reader_study_candidates": 0
+  },
+  "rows": [
+    {
+      "id": "spot-stop",
+      "rendered": "An aide rips nine memo-hero memos. Mara spots Diana. An aid stops Aram. Some more home men inspire Diana.",
+      "length": 82,
+      "parent_control": {
+        "rendered": "An aide rips nine memo-hero memos. Some more home men inspire Diana.",
+        "letters": 54,
+        "sha256": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268"
+      },
+      "seam": {
+        "normalized_cut": 27,
+        "raw_parent_cut": 34,
+        "raw_child_cut": 34,
+        "left_anchor_role": "completed document-ripping SVO clause",
+        "right_anchor_role": "document-inspiring SVO clause",
+        "left_event": "Mara spots Diana.",
+        "right_event": "An aid stops Aram.",
+        "left_event_tape": "maraspotsdiana",
+        "right_event_tape_physical": "anaidstopsaram",
+        "live_equation": "left_event_tape = reverse(right_event_tape_physical)",
+        "inherited_source_seam": {
+          "residual": "m",
+          "left_exposure": "memoherom",
+          "right_exposure": "memoherom",
+          "left_role": "nine memo-hero memos: object of rips",
+          "right_role": "some more home men: subject of inspire",
+          "source_equation": "memohero + m = m + reverse(morehome)",
+          "nonempty_before_clause_growth": true
+        },
+        "residual_owner_at_close": null,
+        "final_residual": "",
+        "cursor_trace": [
+          {
+            "left_cursor": 1,
+            "right_cursor": 1,
+            "matched": "mara",
+            "residual_before": "",
+            "residual_after": "",
+            "residual_owner": null
+          },
+          {
+            "left_cursor": 2,
+            "right_cursor": 2,
+            "matched": "spots",
+            "residual_before": "",
+            "residual_after": "",
+            "residual_owner": null
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 3,
+            "matched": "dia",
+            "residual_before": "",
+            "residual_after": "na",
+            "residual_owner": "left_event"
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 4,
+            "matched": "na",
+            "residual_before": "na",
+            "residual_after": "",
+            "residual_owner": null
+          }
+        ],
+        "committed_character_contradictions": 0,
+        "backtracks": 0
+      },
+      "semantic_roles": {
+        "left": {
+          "subject": "Mara",
+          "verb": "spots",
+          "object": "Diana"
+        },
+        "right": {
+          "subject": "An aid",
+          "verb": "stops",
+          "object": "Aram"
+        },
+        "scene_links": [
+          "Diana is the object of the new left event and remains the seed's later object.",
+          "An aid is an agentive counterpart to the seed's aide."
+        ],
+        "complete_svo_clauses": true,
+        "connected_event_set": true
+      },
+      "independent_exact_audit": {
+        "normalized": "anaideripsninememoheromemosmaraspotsdianaanaidstopsaramsomemorehomemeninspirediana",
+        "letters": 82,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "b54d261662a8ef3baec37176fb442e6c983e45e8db08517ffcea04a3647477c5",
+        "sha256_reverse": "b54d261662a8ef3baec37176fb442e6c983e45e8db08517ffcea04a3647477c5",
+        "hashes_agree": true
+      },
+      "novelty_shortcut_gates": {
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "whole_sentence_sweep": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "proper_palindrome_span_absent": false,
+        "derived_from_54_control": true
+      },
+      "provenance": {
+        "method": "bounded cross-role event-pair operator at seed clause seam",
+        "source_experiment": "experiments/seed_np_cross_role_intersection_20260922.py",
+        "source_live_residual": "m",
+        "source_roles": {
+          "left": "productive noun-compound modifier before object memos",
+          "right": "Brown-attested modifier phrase before subject men"
+        },
+        "reader_packet_used_as_evidence": false,
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "per_candidate_rlaif": false
+      },
+      "reader_status": "not_run; exact frontier only, not human-readable promotion",
+      "promotion_status": "not_promoted_over_54_control"
+    },
+    {
+      "id": "see-see",
+      "rendered": "An aide rips nine memo-hero memos. Mara sees Diana. An aid sees Aram. Some more home men inspire Diana.",
+      "length": 80,
+      "parent_control": {
+        "rendered": "An aide rips nine memo-hero memos. Some more home men inspire Diana.",
+        "letters": 54,
+        "sha256": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268"
+      },
+      "seam": {
+        "normalized_cut": 27,
+        "raw_parent_cut": 34,
+        "raw_child_cut": 34,
+        "left_anchor_role": "completed document-ripping SVO clause",
+        "right_anchor_role": "document-inspiring SVO clause",
+        "left_event": "Mara sees Diana.",
+        "right_event": "An aid sees Aram.",
+        "left_event_tape": "maraseesdiana",
+        "right_event_tape_physical": "anaidseesaram",
+        "live_equation": "left_event_tape = reverse(right_event_tape_physical)",
+        "inherited_source_seam": {
+          "residual": "m",
+          "left_exposure": "memoherom",
+          "right_exposure": "memoherom",
+          "left_role": "nine memo-hero memos: object of rips",
+          "right_role": "some more home men: subject of inspire",
+          "source_equation": "memohero + m = m + reverse(morehome)",
+          "nonempty_before_clause_growth": true
+        },
+        "residual_owner_at_close": null,
+        "final_residual": "",
+        "cursor_trace": [
+          {
+            "left_cursor": 1,
+            "right_cursor": 1,
+            "matched": "mara",
+            "residual_before": "",
+            "residual_after": "",
+            "residual_owner": null
+          },
+          {
+            "left_cursor": 2,
+            "right_cursor": 2,
+            "matched": "sees",
+            "residual_before": "",
+            "residual_after": "",
+            "residual_owner": null
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 3,
+            "matched": "dia",
+            "residual_before": "",
+            "residual_after": "na",
+            "residual_owner": "left_event"
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 4,
+            "matched": "na",
+            "residual_before": "na",
+            "residual_after": "",
+            "residual_owner": null
+          }
+        ],
+        "committed_character_contradictions": 0,
+        "backtracks": 0
+      },
+      "semantic_roles": {
+        "left": {
+          "subject": "Mara",
+          "verb": "sees",
+          "object": "Diana"
+        },
+        "right": {
+          "subject": "An aid",
+          "verb": "sees",
+          "object": "Aram"
+        },
+        "scene_links": [
+          "Diana is the object of the new left event and remains the seed's later object.",
+          "An aid is an agentive counterpart to the seed's aide."
+        ],
+        "complete_svo_clauses": true,
+        "connected_event_set": true
+      },
+      "independent_exact_audit": {
+        "normalized": "anaideripsninememoheromemosmaraseesdianaanaidseesaramsomemorehomemeninspirediana",
+        "letters": 80,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "f15ccc62f7f03f5b6a8419e71662d6355b6cccf92f914339d0d9c7a430904f28",
+        "sha256_reverse": "f15ccc62f7f03f5b6a8419e71662d6355b6cccf92f914339d0d9c7a430904f28",
+        "hashes_agree": true
+      },
+      "novelty_shortcut_gates": {
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "whole_sentence_sweep": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "proper_palindrome_span_absent": false,
+        "derived_from_54_control": true
+      },
+      "provenance": {
+        "method": "bounded cross-role event-pair operator at seed clause seam",
+        "source_experiment": "experiments/seed_np_cross_role_intersection_20260922.py",
+        "source_live_residual": "m",
+        "source_roles": {
+          "left": "productive noun-compound modifier before object memos",
+          "right": "Brown-attested modifier phrase before subject men"
+        },
+        "reader_packet_used_as_evidence": false,
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "per_candidate_rlaif": false
+      },
+      "reader_status": "not_run; exact frontier only, not human-readable promotion",
+      "promotion_status": "not_promoted_over_54_control"
+    },
+    {
+      "id": "nora-spot-stop",
+      "rendered": "An aide rips nine memo-hero memos. Nora spots Diana. An aid stops Aron. Some more home men inspire Diana.",
+      "length": 82,
+      "parent_control": {
+        "rendered": "An aide rips nine memo-hero memos. Some more home men inspire Diana.",
+        "letters": 54,
+        "sha256": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268"
+      },
+      "seam": {
+        "normalized_cut": 27,
+        "raw_parent_cut": 34,
+        "raw_child_cut": 34,
+        "left_anchor_role": "completed document-ripping SVO clause",
+        "right_anchor_role": "document-inspiring SVO clause",
+        "left_event": "Nora spots Diana.",
+        "right_event": "An aid stops Aron.",
+        "left_event_tape": "noraspotsdiana",
+        "right_event_tape_physical": "anaidstopsaron",
+        "live_equation": "left_event_tape = reverse(right_event_tape_physical)",
+        "inherited_source_seam": {
+          "residual": "m",
+          "left_exposure": "memoherom",
+          "right_exposure": "memoherom",
+          "left_role": "nine memo-hero memos: object of rips",
+          "right_role": "some more home men: subject of inspire",
+          "source_equation": "memohero + m = m + reverse(morehome)",
+          "nonempty_before_clause_growth": true
+        },
+        "residual_owner_at_close": null,
+        "final_residual": "",
+        "cursor_trace": [
+          {
+            "left_cursor": 1,
+            "right_cursor": 1,
+            "matched": "nora",
+            "residual_before": "",
+            "residual_after": "",
+            "residual_owner": null
+          },
+          {
+            "left_cursor": 2,
+            "right_cursor": 2,
+            "matched": "spots",
+            "residual_before": "",
+            "residual_after": "",
+            "residual_owner": null
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 3,
+            "matched": "dia",
+            "residual_before": "",
+            "residual_after": "na",
+            "residual_owner": "left_event"
+          },
+          {
+            "left_cursor": 3,
+            "right_cursor": 4,
+            "matched": "na",
+            "residual_before": "na",
+            "residual_after": "",
+            "residual_owner": null
+          }
+        ],
+        "committed_character_contradictions": 0,
+        "backtracks": 0
+      },
+      "semantic_roles": {
+        "left": {
+          "subject": "Nora",
+          "verb": "spots",
+          "object": "Diana"
+        },
+        "right": {
+          "subject": "An aid",
+          "verb": "stops",
+          "object": "Aron"
+        },
+        "scene_links": [
+          "Diana is the object of the new left event and remains the seed's later object.",
+          "An aid is an agentive counterpart to the seed's aide."
+        ],
+        "complete_svo_clauses": true,
+        "connected_event_set": true
+      },
+      "independent_exact_audit": {
+        "normalized": "anaideripsninememoheromemosnoraspotsdianaanaidstopsaronsomemorehomemeninspirediana",
+        "letters": 82,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "13fafbbed28ede837867197728674d611ad8ff1b8cc73578dec75f1c9caccdf5",
+        "sha256_reverse": "13fafbbed28ede837867197728674d611ad8ff1b8cc73578dec75f1c9caccdf5",
+        "hashes_agree": true
+      },
+      "novelty_shortcut_gates": {
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "whole_sentence_sweep": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "repeated_units": false,
+        "proper_palindrome_span_absent": false,
+        "derived_from_54_control": true
+      },
+      "provenance": {
+        "method": "bounded cross-role event-pair operator at seed clause seam",
+        "source_experiment": "experiments/seed_np_cross_role_intersection_20260922.py",
+        "source_live_residual": "m",
+        "source_roles": {
+          "left": "productive noun-compound modifier before object memos",
+          "right": "Brown-attested modifier phrase before subject men"
+        },
+        "reader_packet_used_as_evidence": false,
+        "finished_tape_reversal": false,
+        "post_hoc_character_repair": false,
+        "catalogue_text": false,
+        "per_candidate_rlaif": false
+      },
+      "reader_status": "not_run; exact frontier only, not human-readable promotion",
+      "promotion_status": "not_promoted_over_54_control"
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "An aide rips nine memo-hero memos. Some more home men inspire Diana.",
+      "audit": {
+        "normalized": "anaideripsninememoheromemossomemorehomemeninspirediana",
+        "letters": 54,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268",
+        "sha256_reverse": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268",
+        "hashes_agree": true
+      }
+    }
+  ],
+  "status": "exact children found; retain as non-promoted frontier pending human reading",
+  "programmatic_metrics_are_diagnostic": true,
+  "next_operator": "If this seam is changed, persist its cursor/residual obstruction before changing the event operator.",
+  "provenance": {
+    "generator_sha256": "4b67d78f32539eca0cd93e31f4d69f2906d216e05168fa303b4db295ecf9a19a",
+    "reader_packet": "runs/seed-np-cross-role-reader-study-20260922 (not used as evidence)",
+    "novelty_signature": "seed-np-cross-role|27-letter-clause-seam|bounded-svo-events|dual-cursor-residual"
+  }
+}

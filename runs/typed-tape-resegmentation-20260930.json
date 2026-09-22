@@ -1,0 +1,80 @@
+{
+  "method": "typed outside-in grammar intersection on fixed 214-letter tape",
+  "candidate": "Nora, I saw evil. Noel, I saw war. Mara, I saw God. Sara, I saw live. Nora, I saw desserts. Noel, I saw stressed. Nora, I saw deliver. Noel, I saw diaper. Repaid was I, Leon. Reviled was I, Aron. Desserts was I, Leon. Stressed was I, Aron. Evil was I, Aras. Dog was I, Aram. Raw was I, Leon. Live was I, Aron.",
+  "letters": 214,
+  "normalized": "noraisawevilnoelisawwarmaraisawgodsaraisawlivenoraisawdessertsnoelisawstressednoraisawdelivernoelisawdiaperrepaidwasileonreviledwasiarondessertswasileonstressedwasiaronevilwasiarasdogwasiaramrawwasileonlivewasiaron",
+  "exact_two_pointer": true,
+  "validator": true,
+  "sha256": "e53ee30535d4c28c7690ccf7cd041698cc12aaf7e8b5d3aa8824df5298a22ac8",
+  "independent_forward_reverse_sha256": "e53ee30535d4c28c7690ccf7cd041698cc12aaf7e8b5d3aa8824df5298a22ac8",
+  "typed_path": [
+    {
+      "left": "Nora, I saw evil.",
+      "left_role": "V-PERCEPTION",
+      "right": "Live was I, Aron.",
+      "right_role": "COPULAR-RETURN",
+      "online_match": true
+    },
+    {
+      "left": "Noel, I saw war.",
+      "left_role": "V-PERCEPTION",
+      "right": "Raw was I, Leon.",
+      "right_role": "COPULAR-RETURN",
+      "online_match": true
+    },
+    {
+      "left": "Mara, I saw God.",
+      "left_role": "V-PERCEPTION",
+      "right": "Dog was I, Aram.",
+      "right_role": "COPULAR-RETURN",
+      "online_match": true
+    },
+    {
+      "left": "Sara, I saw live.",
+      "left_role": "V-PERCEPTION",
+      "right": "Evil was I, Aras.",
+      "right_role": "COPULAR-RETURN",
+      "online_match": true
+    },
+    {
+      "left": "Nora, I saw desserts.",
+      "left_role": "V-PERCEPTION",
+      "right": "Stressed was I, Aron.",
+      "right_role": "COPULAR-RETURN",
+      "online_match": true
+    },
+    {
+      "left": "Noel, I saw stressed.",
+      "left_role": "V-PERCEPTION",
+      "right": "Desserts was I, Leon.",
+      "right_role": "COPULAR-RETURN",
+      "online_match": true
+    },
+    {
+      "left": "Nora, I saw deliver.",
+      "left_role": "V-PERCEPTION",
+      "right": "Reviled was I, Aron.",
+      "right_role": "COPULAR-RETURN",
+      "online_match": true
+    },
+    {
+      "left": "Noel, I saw diaper.",
+      "left_role": "V-PERCEPTION",
+      "right": "Repaid was I, Leon.",
+      "right_role": "COPULAR-RETURN",
+      "online_match": true
+    }
+  ],
+  "residual_letters": 0,
+  "residual": "",
+  "provenance": {
+    "input_constraint": "runs/typed-phrase-graph-growth-20260929.json",
+    "units_authored_before_intersection": true,
+    "punctuation_invented": false,
+    "catalogue_text": false,
+    "semordnilap_only": false,
+    "novel_candidate": false
+  },
+  "reader_gate": "not admitted: formulaic I-saw/copular-return syntax; no blinded ratings",
+  "next_repair": "replace one COPULAR-RETURN unit with an independently authored transitive clause whose boundary tape survives the typed intersection"
+}

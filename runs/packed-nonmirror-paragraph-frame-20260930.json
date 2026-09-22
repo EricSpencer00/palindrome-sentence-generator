@@ -1,0 +1,103 @@
+{
+  "experiment_id": "packed-nonmirror-paragraph-frame-20260930",
+  "topology": "setting -> agent -> action -> consequence -> reflection (non-mirrored, non-ABBA semantic roles)",
+  "method": "live equal-character NFA state-pair intersection before rendering",
+  "search": {
+    "states": 1,
+    "transitions": 0,
+    "cap_reached": false,
+    "dead_frontiers": [
+      {
+        "matched_pairs": 0,
+        "left_state": 0,
+        "right_state": 187,
+        "left_next": [
+          "a",
+          "b",
+          "i"
+        ],
+        "right_next": [
+          "l",
+          "n",
+          "s"
+        ],
+        "left_partial": "",
+        "right_partial": ""
+      }
+    ],
+    "grammar_states": 250,
+    "grammar_character_edges": 267,
+    "candidate_count": 0
+  },
+  "candidates": [],
+  "controls": [
+    {
+      "rendered": "At dawn, a clerk sorts old notes; the room grows calm, and she waits.",
+      "audit": {
+        "letters": 52,
+        "exact": false,
+        "first_mismatch": [
+          [
+            0,
+            "a",
+            "s"
+          ]
+        ],
+        "normalized": "atdawnaclerksortsoldnotestheroomgrowscalmandshewaits",
+        "sha256": "4f2c4ffed25878ed6da47058f535a286561660796f3d04f530f62b822f5aa3e3",
+        "reverse_sha256": "9ed72976b8e5d2cf65d27133643bebc66a4cc626ea1a354f1bd3a31ecaa560fe"
+      },
+      "kind": "intact_ordinary_prose"
+    },
+    {
+      "rendered": "The nurse reads the memos; the work is done, and he listens.",
+      "audit": {
+        "letters": 46,
+        "exact": false,
+        "first_mismatch": [
+          [
+            0,
+            "t",
+            "s"
+          ]
+        ],
+        "normalized": "thenursereadsthememostheworkisdoneandhelistens",
+        "sha256": "efc0ed99f34fb435fcb8cfb4ab048e95a9a9eb48085109c92ad37fcd429c8522",
+        "reverse_sha256": "2ca43d61a432c161fca0cdff6fab16263b1642d4c09c5dca4737c39ec29464b6"
+      },
+      "kind": "intact_ordinary_prose"
+    }
+  ],
+  "positive_control": {
+    "rendered": "An aide rips nine memos; some men inspire Diana.",
+    "audit": {
+      "letters": 38,
+      "exact": true,
+      "first_mismatch": [],
+      "normalized": "anaideripsninememossomemeninspirediana",
+      "sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "reverse_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+    },
+    "independent_validator_exact": true,
+    "kind": "historical_recovery_control"
+  },
+  "provenance": {
+    "complete_sentence_enumeration": false,
+    "reverse_phrase_catalogue": false,
+    "semordnilap_bank": false,
+    "per_candidate_rlaif": false,
+    "generator_sha256": "7078269b5c4655a8e79bdb7e55b3e72f3ebc4da8b4e6581a49a927c45e514787"
+  },
+  "novelty_preflight": {
+    "novel_algorithm_claim": false,
+    "representation_change": "semantic paragraph roles are linear and non-mirrored; character symmetry is imposed only by paired state traversal"
+  },
+  "reader_test": {
+    "status": "not_collected",
+    "protocol": "Any novel exact output must be shown in randomized blinded order with intact and shuffled controls; no metric certifies readability."
+  },
+  "next_repair": {
+    "operator": "Keep the same semantic frame and widen only the consequence/reflection seam with agreement-carrying alternatives.",
+    "reason": "The first surviving frontier identifies the character and semantic boundary that needs a concrete construction change."
+  }
+}

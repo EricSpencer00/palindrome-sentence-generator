@@ -52,4 +52,3 @@ def test_causal_windows_remove_targeted_fragments_and_keep_complete_clauses():
         assert clause in rendered
     assert row["readability_delta"]["complete_finite_clauses"]
     assert not row["readability_delta"]["predicate_less_fragment"]
-

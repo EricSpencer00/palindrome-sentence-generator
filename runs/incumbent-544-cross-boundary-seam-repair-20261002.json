@@ -1,0 +1,80 @@
+{
+  "experiment_id": "incumbent-544-cross-boundary-seam-repair-20261002",
+  "method": "replace the predeclared worst interior seam with three finite events per side whose word boundaries shift under reflection",
+  "parent": {
+    "artifact": "runs/incumbent-534-inner-event-repair-20261002.json",
+    "letters": 544,
+    "sha256": "2ea2411e5fea4d27d3db24ba0e471cc6a52a4a2196b52fb6a82b5cc6033b0655"
+  },
+  "stats": {
+    "authored_paths": 1,
+    "independently_exact_children": 1,
+    "children_over_530": 1,
+    "longest_letters": 550,
+    "interior_seams_repaired": 1
+  },
+  "rows": [
+    {
+      "id": "cross-boundary-finite-events-550",
+      "rendered": "Nadia delivers maps. Nora stops rats. A tub? He maps Leon. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon, I saw diaper. Repaid was I, Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Noel, spam. Eh, but a star spots Aron. Spam's reviled, Aidan.",
+      "audit": {
+        "letters": 550,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+        "sha256_reverse": "3040f0c4ac28002aa0edd7ce2fd920751b10e4a4f5430d82de3e46d09b3e7673",
+        "sha_equal": true
+      },
+      "parent_artifact": "runs/incumbent-534-inner-event-repair-20261002.json",
+      "parent_sha256": "2ea2411e5fea4d27d3db24ba0e471cc6a52a4a2196b52fb6a82b5cc6033b0655",
+      "growth_over_parent": 6,
+      "source_498_artifact": "runs/overhang-growth-from-240-20261001.json",
+      "source_498_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "replacement": {
+        "old_left": "Noel, did I draw Mara? Was I God?",
+        "old_right": "Dog I saw, Aram. Ward I did, Leon.",
+        "old_letters_per_side": 23,
+        "new_left": "Noel, I sit. Pat notes. Mara saw God.",
+        "new_right": "Dog was Aram. Seton, tap. 'Tis I, Leon.",
+        "new_letters_per_side": 26,
+        "reverse_exact": true,
+        "new_finite_events": [
+          "Noel sits",
+          "Pat takes notes",
+          "Mara sees God",
+          "Dog is played by Aram",
+          "Seton is told to tap",
+          "Leon identifies himself"
+        ]
+      },
+      "live_state": {
+        "outer_owner": "R",
+        "outer_residual_before_center": "won",
+        "inner_owner_after_notes_vs_on": "R",
+        "inner_residual": "tes",
+        "inner_closure": "Set",
+        "right_boundary_consumption": "Leon|won",
+        "residual_after_shell": ""
+      },
+      "structural_audit": {
+        "left_sentence_count": 3,
+        "right_sentence_count": 3,
+        "word_boundaries_reflect_one_to_one": false,
+        "left_boundary": "Pat|notes",
+        "right_boundary": "Seton|tap",
+        "outer_wrapper_added": false,
+        "fixed_finished_tape_reversal": false,
+        "posthoc_character_repair": false,
+        "human_certified": false
+      },
+      "worst_remaining_seam": {
+        "text": "I saw diaper. / Repaid was I",
+        "diagnosis": "the central event is exact but semantically unmotivated and inverted",
+        "next_operator": "replace the central span with an original finite event while keeping a nonempty residual across its sentence boundary"
+      }
+    }
+  ]
+}

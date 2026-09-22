@@ -53,7 +53,7 @@ def run(max_states: int = 30000) -> dict:
     rendered = []
     for row in result["results"]:
         text = row["rendered"] + "."
-        checks = mechanical_admission_checks(text, min_letters=20, max_letters=100)
+        checks = mechanical_admission_checks(text, min_letters=39, max_letters=100)
         rendered.append({**row, "rendered": text, "audit": audit(text),
                          "admission": checks,
                          "mechanically_admitted": all(checks.values())})
@@ -66,12 +66,14 @@ def run(max_states: int = 30000) -> dict:
       "endpoint_classes": {"opening_np": openings, "opening_verb": verbs,
                            "final_noun": nouns, "final_verb": finals},
       "candidates": rendered, "exact_candidates": exact,
-      "novelty_preflight": {"status": "passed", "registry_inspected": True,
+      "novelty_preflight": {"status": "not_recorded", "registry_inspected": False,
         "signature": "orthogonal-endpoint-class|typed-verb-noun|residual-cross-boundary",
         "excluded": ["an/na fixed anchors", "endpoint banks", "catalogue palindromes"]},
       "provenance": {"local_lexicon": True, "completed_sentence_enumeration": False,
         "finished_tape_reversal": False, "central_admission": True,
-        "intermediate_closure_rejected": True}}
+        "intermediate_closure_rejected": True},
+      "status": "bounded_zero_output_endpoint_probe",
+      "reader_candidates": []}
 
 if __name__ == "__main__":
     OUT.parent.mkdir(exist_ok=True)

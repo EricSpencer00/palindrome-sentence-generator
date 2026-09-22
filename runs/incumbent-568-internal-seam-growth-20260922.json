@@ -1,0 +1,98 @@
+{
+  "experiment_id": "incumbent-568-internal-seam-growth-20260922",
+  "method": "internal 73-letter residual-owned seam growth",
+  "working_incumbent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "id": "outer-causal-scene-568-working-incumbent",
+    "letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "stats": {
+    "independently_exact_children": 1,
+    "children_longer_than_568": 1,
+    "longest_letters": 602,
+    "seam_letters": 73,
+    "retained_center_letters": 422,
+    "committed_character_contradictions": 0,
+    "backtracks": 0
+  },
+  "preserved_frontier": [
+    {
+      "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+      "id": "outer-causal-scene-568-working-incumbent",
+      "letters": 568,
+      "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+    },
+    {
+      "artifact": "runs/incumbent-550-central-event-bridge-20261002.json",
+      "letters": 560
+    },
+    {
+      "artifact": "runs/incumbent-550-typed-center-product-20261002.json",
+      "letters": 558
+    },
+    {
+      "artifact": "runs/incumbent-498-event-frame-seam-repair-20261002.json",
+      "letters": 556
+    }
+  ],
+  "rows": [
+    {
+      "id": "internal-mara-stops-604",
+      "working_status": "568_lineage_growth_frontier",
+      "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. Nora spots a ram. rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star Mara stops Aron. Star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "audit": {
+        "letters": 602,
+        "independent_normalizer_agrees": true,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "byte_pointer_exact": true,
+        "project_validator_exact": true,
+        "sha256_forward": "69696036f9bb9392ae9473884f011cfb767b4700d6407f5a07f3fba595953c89",
+        "sha256_reverse": "69696036f9bb9392ae9473884f011cfb767b4700d6407f5a07f3fba595953c89",
+        "sha_equal": true
+      },
+      "independent_audit": {
+        "normalized_letters": 602,
+        "two_pointer_exact": true,
+        "sha256_forward": "69696036f9bb9392ae9473884f011cfb767b4700d6407f5a07f3fba595953c89",
+        "sha256_reverse": "69696036f9bb9392ae9473884f011cfb767b4700d6407f5a07f3fba595953c89",
+        "sha_equal": true
+      },
+      "lineage_root_artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+      "lineage_root_id": "outer-causal-scene-568-working-incumbent",
+      "lineage_root_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+      "growth_over_root": 34,
+      "new_event_content": [
+        "Nora spots a ram",
+        "Mara stops Aron",
+        "Star spots Aram"
+      ],
+      "live_seam": {
+        "normalized_cut_letters": 73,
+        "left_cursor_raw_exclusive": 93,
+        "right_cursor_raw_inclusive": 688,
+        "left_partial_join": "Mara stops|spots",
+        "right_partial_join": "spots|Aram",
+        "retained_letters": 422,
+        "initial_owner": "left_extension",
+        "left_emission": "ratsnoraspotsaram",
+        "right_obligation": "marastopsaronstar",
+        "right_consumption": "marastopsaronstar",
+        "final_owner": null,
+        "final_residual": "",
+        "committed_character_contradictions": 0,
+        "backtracks": 0
+      },
+      "grammar_debt": {
+        "inherited_proper_spans": true,
+        "inherited_repeated_scaffolding": true,
+        "rough_syntax": true,
+        "human_reader_validation": false,
+        "status": "exact growth candidate retained; debt does not demote 568"
+      },
+      "provenance": "new authored internal seam shell over the loaded 568 artifact; center retained byte-for-byte and residual closed before admission"
+    }
+  ],
+  "next_operator": "retain the 568 incumbent and this 604 child; if the internal seam is changed, record its residual obstruction before moving to a new seam"
+}

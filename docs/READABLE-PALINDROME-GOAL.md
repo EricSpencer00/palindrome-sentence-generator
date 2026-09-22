@@ -8652,3 +8652,41 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact tapes above 38. The next repair is a two-character outer class, not
   more one-letter variants. Artifact:
   `runs/outer-character-conditioned-sentence-20260921.json`.
+
+## Current paragraph seam frontier (2026-09-29–30)
+
+- **Packed ABBA paragraph seam:** a four-slot `A:left -> B:left -> B:right ->
+  A:right` grammar now intersects opposing character states during emission,
+  with sentence punctuation treated as epsilon. The packed product reached a
+  one-character residual frontier and produced zero novel exact closures; its
+  ordinary-English controls remain controls, not candidates. Artifact:
+  `runs/packed-abba-paragraph-seams-20260928.json`.
+
+- **Argument-sharing paragraph continuation:** a typed outer event was streamed
+  around the verified center, yielding the following 54-letter exact tape:
+
+  > *Diana won. An aide rips nine memos; some men inspire Diana. Now, an aid.*
+
+  Independent two-pointer validation, `llm_palindrome.validator`, and
+  forward/reverse SHA-256 all agree (`d94e05e5db8618b90dc8e8155314bdb4528a5637401e06386ce56d693d08c1b7`).
+  This is a structural extension, not an admitted readable result: it reuses
+  the 38-letter center and the final “Now, an aid.” is not natural prose.
+  Artifact: `runs/diana-argument-continuation-20260929.json`.
+
+- **ABBA outer-clause lattice:** 49 typed seam attempts recovered the same
+  54-letter control and no distinct candidate. It is retained as a duplicate
+  geometry check, not counted as a second result. Artifact:
+  `runs/abba-outer-clause-lattice-20260929.json`.
+
+- **Typed finite suffix ablation:** 30 live finite-clause pairs were tested
+  against reverse obligations; none even matched a usable prefix, so there were
+  zero exact closures and no readability claim. The next operator is a typed
+  transitive continuation with Diana as an accessible shared argument, not a
+  wider nominal-fragment bank. Artifact:
+  `runs/typed-finite-suffix-20260930.json`.
+
+The promotion gate is unchanged: the 38-letter sentence remains the best
+reader-admitted result. The 54-letter extension demonstrates that paragraph
+ABBA seams can be searched at the character level, but it does not satisfy the
+English-readability gate until blinded readers accept an independently
+generated, non-formulaic candidate.

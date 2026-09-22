@@ -1,0 +1,119 @@
+{
+  "experiment": "paragraph_phrase_graph_composition_20260929",
+  "method": "outside-in typed event-edge composition over editable phrase graph",
+  "rendered_candidates": [
+    {
+      "text": "Aron saw evil. Nora, I saw evil. Noel, I saw war. Mara, I saw God. Sara, I saw live. Nora, I saw desserts. Noel, I saw stressed. Desserts was I, Leon. Stressed was I, Aron. Evil was I, Aras. Dog was I, Aram. Raw was I, Leon. Live was I, Aron. Live was Nora.",
+      "audit": {
+        "letters": 178,
+        "two_pointer_exact": true,
+        "validator": true,
+        "sha256_forward": "f5ae4a05fb3f904d2ba56baba9f0471eb53964df82a13d8fa7fc191d0fb39993",
+        "sha256_reverse": "f5ae4a05fb3f904d2ba56baba9f0471eb53964df82a13d8fa7fc191d0fb39993",
+        "sha_equal": true
+      },
+      "provenance": {
+        "construction": "typed event edge + editable 156-letter phrase-graph interior",
+        "new_left_event": "Aron saw evil.",
+        "new_right_discourse_edge": "Live was Nora.",
+        "streamed_against_opposing_obligations": true,
+        "finished_tape_reversal": false,
+        "complete_sentence_sweep": false,
+        "rlaif_per_candidate": false,
+        "catalogue_text": false
+      },
+      "novelty_preflight": {
+        "new_outer_edge": true,
+        "center_reused_as_editable_graph": true,
+        "posthoc_punctuation_only": false,
+        "repeated_self_palindromic_unit": false
+      },
+      "reader_gate": "closed: no blinded human ratings yet",
+      "seam_debt": "right edge is a compressed poetic copular continuation; reader repair required",
+      "online_edge": {
+        "left_tape": "aronsawevil",
+        "center_tape": "noraisawevilnoelisawwarmaraisawgodsaraisawlivenoraisawdessertsnoelisawstresseddessertswasileonstressedwasiaronevilwasiarasdogwasiaramrawwasileonlivewasiaron",
+        "right_tape": "livewasnora",
+        "right_obligation": "livewasnora",
+        "online_trace": [
+          {
+            "required_right_prefix": "l",
+            "observed_right_prefix": "l",
+            "matched": true
+          },
+          {
+            "required_right_prefix": "li",
+            "observed_right_prefix": "li",
+            "matched": true
+          },
+          {
+            "required_right_prefix": "liv",
+            "observed_right_prefix": "liv",
+            "matched": true
+          },
+          {
+            "required_right_prefix": "live",
+            "observed_right_prefix": "live",
+            "matched": true
+          },
+          {
+            "required_right_prefix": "livew",
+            "observed_right_prefix": "livew",
+            "matched": true
+          },
+          {
+            "required_right_prefix": "livewa",
+            "observed_right_prefix": "livewa",
+            "matched": true
+          },
+          {
+            "required_right_prefix": "livewas",
+            "observed_right_prefix": "livewas",
+            "matched": true
+          },
+          {
+            "required_right_prefix": "livewasn",
+            "observed_right_prefix": "livewasn",
+            "matched": true
+          },
+          {
+            "required_right_prefix": "livewasno",
+            "observed_right_prefix": "livewasno",
+            "matched": true
+          },
+          {
+            "required_right_prefix": "livewasnor",
+            "observed_right_prefix": "livewasnor",
+            "matched": true
+          },
+          {
+            "required_right_prefix": "livewasnora",
+            "observed_right_prefix": "livewasnora",
+            "matched": true
+          }
+        ],
+        "full_tape": "aronsawevilnoraisawevilnoelisawwarmaraisawgodsaraisawlivenoraisawdessertsnoelisawstresseddessertswasileonstressedwasiaronevilwasiarasdogwasiaramrawwasileonlivewasiaronlivewasnora"
+      }
+    }
+  ],
+  "controls": [
+    {
+      "kind": "intact",
+      "text": "Nora, I saw evil. Noel, I saw war. Mara, I saw God. Sara, I saw live. Nora, I saw desserts. Noel, I saw stressed. Desserts was I, Leon. Stressed was I, Aron. Evil was I, Aras. Dog was I, Aram. Raw was I, Leon. Live was I, Aron."
+    },
+    {
+      "kind": "shuffled",
+      "text": "Nora war saw; I memos desserts."
+    }
+  ],
+  "stats": {
+    "candidates": 1,
+    "exact": 1,
+    "longest_letters": 178
+  },
+  "reader_package": {
+    "order_seed": 20260929,
+    "blinded": true,
+    "ratings_collected": false
+  }
+}

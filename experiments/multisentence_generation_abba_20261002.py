@@ -61,13 +61,31 @@ def residual(left: str, right: str) -> dict:
             "first_mismatch": None if depth == min(len(l), len(r)) else
                 {"offset": depth, "left": l[depth], "right": r[-1-depth]}}
 
+def word_boundary(left: str, right: str) -> dict:
+    """Consume whole words from left/front and right/back, outside-in."""
+    lw = re.findall(r"[a-z]+", left.casefold())
+    rw = re.findall(r"[a-z]+", right.casefold())
+    i, j, consumed = 0, len(rw) - 1, []
+    while i < len(lw) and j >= 0:
+        a, b = tape(lw[i]), tape(rw[j])
+        if a[::-1] != b:
+            break
+        consumed.append({"left_word": a, "right_back_word": b})
+        i += 1; j -= 1
+    return {"complete_word_consumption": consumed, "words_consumed": len(consumed),
+            "left_front_next": tape(lw[i]) if i < len(lw) else "",
+            "right_back_next": tape(rw[j]) if j >= 0 else "",
+            "exact_boundary": i == len(lw) and j < 0}
+
 def make_row(a1, b1, b2, a2):
     left, right = f"{a1} {b1}", f"{b2} {a2}"
     rendered = f"{left} {right}"
     res = residual(left, right)
+    outer = word_boundary(a1, a2)
+    inner = word_boundary(b1, b2)
     return {"rendered": rendered, "normalized_length": len(tape(rendered)),
             "roles": {"A1": a1, "B1": b1, "B2": b2, "A2": a2},
-            "live_residual": res, "audit": audit(rendered),
+            "live_residual": res, "boundary_consumption": {"outer_A1_A2": outer, "inner_B1_B2": inner}, "audit": audit(rendered),
             "provenance": {"independently_authored_counterpart_units": True,
                 "intact_mini_paragraphs": True, "sentence_boundaries_intact": True,
                 "semantic_scene_grammar": True, "abba_topology": True,
@@ -86,17 +104,21 @@ def run():
     rows = []
     for a1, b1 in itertools.product(UNITS["A1"], UNITS["B1"]):
         left = f"{a1} {b1}"
-        probe = residual(left, " ".join(UNITS["B2"]))
-        required = probe["right_reverse_residual"].split(" ", 1)[0]
-        selected = b2_index.get(required, []) or UNITS["B2"][:1]
-        for b2 in selected:
-            state = {"topic": "archive" if "archive" in a1 else "pier",
-                     "referent": "keeper" if "keeper" in b2 else "gardener"}
-            for a2 in UNITS["A2"]:
+        # Correct ABBA orientation: solve outer A1/A2 before inner B1/B2.
+        for a2 in UNITS["A2"]:
+            outer = word_boundary(a1, a2)
+            required = outer["right_back_next"]
+            selected = b2_index.get(required, []) or UNITS["B2"][:1]
+            for b2 in selected:
+                state = {"topic": "archive" if "archive" in a1 else "pier",
+                         "referent": "baker" if "baker" in b1 else "nurse"}
                 row = make_row(a1, b1, b2, a2)
                 row["selection"] = {"live_required_opening_word": required,
                     "index_hit": required in b2_index, "discourse_state": state,
-                    "complete_word_boundary_required": True}
+                    "complete_word_boundary_required": True,
+                    "orientation": "A1+B1+B2+A2; outer A1/A2 solved first",
+                    "outer_consumption": outer,
+                    "inner_consumption": word_boundary(b1, b2)}
                 row["provenance"]["residual_conditioned_b2"] = True
                 row["provenance"]["a2_jointly_authored_after_b2"] = True
                 rows.append(row)

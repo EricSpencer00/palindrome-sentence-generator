@@ -1,0 +1,500 @@
+{
+  "experiment_id": "open-carrier-semantic-search-20260922",
+  "decision": "no carrier improves on the 42-letter incumbent",
+  "acceptance_gate": "more than 42 letters; exact; current mechanical gate and proper-span mask pass; fresh common words; both carrier phrases and the k=2 center form one readable discourse without proper names, repeats, mirrored finished phrases, catalogue text, or repair",
+  "remote_search": {
+    "host": "hst-bench",
+    "attested_span_stats": {
+      "chunks": 140252,
+      "word_types": 44034,
+      "accepted_span_occurrences": 2749308,
+      "distinct_tapes": 2343724,
+      "matches": 0,
+      "same_role_matches": 0
+    },
+    "typed_template_stats": {
+      "vocabulary": 9504,
+      "q_templates": 11,
+      "q_products_tested": 8344980,
+      "matches": 1,
+      "longer_than_42": 1
+    },
+    "productive_residual_stats": {
+      "word_types": 21398,
+      "productive_residuals": 7,
+      "max_disjoint_pairs": 3
+    },
+    "raw_artifacts": [
+      "artifacts/open-carrier-semantic-search-20260922/brown-span-probe.json",
+      "artifacts/open-carrier-semantic-search-20260922/template-probe.json",
+      "artifacts/open-carrier-semantic-search-20260922/cycle-probe.json"
+    ]
+  },
+  "baseline": {
+    "rendered": "No trace. Note: Spot spoons. Snoop. Stop. Set one carton.",
+    "p_words": [
+      "no",
+      "trace",
+      "note"
+    ],
+    "q_words": [
+      "set",
+      "one",
+      "carton"
+    ],
+    "carrier_equation": {
+      "reverse_q": "notracenotes",
+      "p_plus_residual": "notracenotes",
+      "holds": true,
+      "owner_at_center_entry": "right",
+      "residual_at_center_entry": "s",
+      "p_character_cursor": 11,
+      "reverse_q_character_cursor": 11,
+      "reverse_q_characters_total": 12
+    },
+    "live_owner_residual_cursor_trace": [
+      {
+        "chosen_side": "left",
+        "surface_word": "no",
+        "exposed": "no",
+        "owner_after": "left",
+        "residual_after": "no",
+        "left_word_cursor": 1,
+        "right_word_cursor": 9
+      },
+      {
+        "chosen_side": "right",
+        "surface_word": "carton",
+        "exposed": "notrac",
+        "owner_after": "right",
+        "residual_after": "trac",
+        "left_word_cursor": 1,
+        "right_word_cursor": 8
+      },
+      {
+        "chosen_side": "left",
+        "surface_word": "trace",
+        "exposed": "trace",
+        "owner_after": "left",
+        "residual_after": "e",
+        "left_word_cursor": 2,
+        "right_word_cursor": 8
+      },
+      {
+        "chosen_side": "right",
+        "surface_word": "one",
+        "exposed": "eno",
+        "owner_after": "right",
+        "residual_after": "no",
+        "left_word_cursor": 2,
+        "right_word_cursor": 7
+      },
+      {
+        "chosen_side": "left",
+        "surface_word": "note",
+        "exposed": "note",
+        "owner_after": "left",
+        "residual_after": "te",
+        "left_word_cursor": 3,
+        "right_word_cursor": 7
+      },
+      {
+        "chosen_side": "right",
+        "surface_word": "set",
+        "exposed": "tes",
+        "owner_after": "right",
+        "residual_after": "s",
+        "left_word_cursor": 3,
+        "right_word_cursor": 6
+      },
+      {
+        "chosen_side": "left",
+        "surface_word": "spot",
+        "exposed": "spot",
+        "owner_after": "left",
+        "residual_after": "pot",
+        "left_word_cursor": 4,
+        "right_word_cursor": 6
+      },
+      {
+        "chosen_side": "right",
+        "surface_word": "stop",
+        "exposed": "pots",
+        "owner_after": "right",
+        "residual_after": "s",
+        "left_word_cursor": 4,
+        "right_word_cursor": 5
+      },
+      {
+        "chosen_side": "left",
+        "surface_word": "spoons",
+        "exposed": "spoons",
+        "owner_after": "left",
+        "residual_after": "poons",
+        "left_word_cursor": 5,
+        "right_word_cursor": 5
+      },
+      {
+        "chosen_side": "right",
+        "surface_word": "snoop",
+        "exposed": "poons",
+        "owner_after": "none",
+        "residual_after": "",
+        "left_word_cursor": 5,
+        "right_word_cursor": 4
+      }
+    ],
+    "independent_audit": {
+      "letters": 42,
+      "two_pointer_exact": true,
+      "first_mismatch": null,
+      "sha256_forward": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+      "sha256_reverse": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+      "hashes_agree": true
+    },
+    "mechanical_checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": true,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": true,
+    "boundary_mask": {
+      "proper_palindromic_multiword_spans": [],
+      "passed": true
+    },
+    "freshness": {
+      "carrier_content_disjoint_from_center": true,
+      "all_content_words_distinct": true,
+      "proper_names": false,
+      "repeated_units": false,
+      "mirrored_finished_phrases": false,
+      "posthoc_repair": false
+    },
+    "semantic_status": "incumbent_readable_control",
+    "semantic_obstruction": null
+  },
+  "exact_longer_candidates": [
+    {
+      "rendered": "Nine poll assert. Spot spoons. Snoop. Stop. Stress all open in.",
+      "p_words": [
+        "nine",
+        "poll",
+        "assert"
+      ],
+      "q_words": [
+        "stress",
+        "all",
+        "open",
+        "in"
+      ],
+      "carrier_equation": {
+        "reverse_q": "ninepollasserts",
+        "p_plus_residual": "ninepollasserts",
+        "holds": true,
+        "owner_at_center_entry": "right",
+        "residual_at_center_entry": "s",
+        "p_character_cursor": 14,
+        "reverse_q_character_cursor": 14,
+        "reverse_q_characters_total": 15
+      },
+      "live_owner_residual_cursor_trace": [
+        {
+          "chosen_side": "left",
+          "surface_word": "nine",
+          "exposed": "nine",
+          "owner_after": "left",
+          "residual_after": "nine",
+          "left_word_cursor": 1,
+          "right_word_cursor": 10
+        },
+        {
+          "chosen_side": "right",
+          "surface_word": "in",
+          "exposed": "ni",
+          "owner_after": "left",
+          "residual_after": "ne",
+          "left_word_cursor": 1,
+          "right_word_cursor": 9
+        },
+        {
+          "chosen_side": "right",
+          "surface_word": "open",
+          "exposed": "nepo",
+          "owner_after": "right",
+          "residual_after": "po",
+          "left_word_cursor": 1,
+          "right_word_cursor": 8
+        },
+        {
+          "chosen_side": "left",
+          "surface_word": "poll",
+          "exposed": "poll",
+          "owner_after": "left",
+          "residual_after": "ll",
+          "left_word_cursor": 2,
+          "right_word_cursor": 8
+        },
+        {
+          "chosen_side": "right",
+          "surface_word": "all",
+          "exposed": "lla",
+          "owner_after": "right",
+          "residual_after": "a",
+          "left_word_cursor": 2,
+          "right_word_cursor": 7
+        },
+        {
+          "chosen_side": "left",
+          "surface_word": "assert",
+          "exposed": "assert",
+          "owner_after": "left",
+          "residual_after": "ssert",
+          "left_word_cursor": 3,
+          "right_word_cursor": 7
+        },
+        {
+          "chosen_side": "right",
+          "surface_word": "stress",
+          "exposed": "sserts",
+          "owner_after": "right",
+          "residual_after": "s",
+          "left_word_cursor": 3,
+          "right_word_cursor": 6
+        },
+        {
+          "chosen_side": "left",
+          "surface_word": "spot",
+          "exposed": "spot",
+          "owner_after": "left",
+          "residual_after": "pot",
+          "left_word_cursor": 4,
+          "right_word_cursor": 6
+        },
+        {
+          "chosen_side": "right",
+          "surface_word": "stop",
+          "exposed": "pots",
+          "owner_after": "right",
+          "residual_after": "s",
+          "left_word_cursor": 4,
+          "right_word_cursor": 5
+        },
+        {
+          "chosen_side": "left",
+          "surface_word": "spoons",
+          "exposed": "spoons",
+          "owner_after": "left",
+          "residual_after": "poons",
+          "left_word_cursor": 5,
+          "right_word_cursor": 5
+        },
+        {
+          "chosen_side": "right",
+          "surface_word": "snoop",
+          "exposed": "poons",
+          "owner_after": "none",
+          "residual_after": "",
+          "left_word_cursor": 5,
+          "right_word_cursor": 4
+        }
+      ],
+      "independent_audit": {
+        "letters": 48,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "957ca3939496286d00fc2c2b038ddc565374baa3b7d74cce3945e358128c3235",
+        "sha256_reverse": "957ca3939496286d00fc2c2b038ddc565374baa3b7d74cce3945e358128c3235",
+        "hashes_agree": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": true,
+      "boundary_mask": {
+        "proper_palindromic_multiword_spans": [],
+        "passed": true
+      },
+      "freshness": {
+        "carrier_content_disjoint_from_center": true,
+        "all_content_words_distinct": true,
+        "proper_names": false,
+        "repeated_units": false,
+        "mirrored_finished_phrases": false,
+        "posthoc_repair": false
+      },
+      "semantic_status": "rejected_unreadable_pos_ambiguity",
+      "semantic_obstruction": "The tape-only POS intersection assigns D-N-V to 'nine poll assert' and V-D-A-N to 'stress all open in'. Surface agreement rejects the first ('nine poll' requires a plural noun), while the second ends in preposition 'in' misused as a noun and leaves 'stress' without an ordinary object. Neither side forms a readable discourse carrier."
+    }
+  ],
+  "accepted_improvements": [],
+  "obstruction": {
+    "attested_carriers": "No exact pair exists among 2,743,308 eligible Brown span occurrences and 2,343,724 distinct tapes in the bounded 2-9 word, 8-36 letter domain.",
+    "authored_typed_carriers": "The only exact >42 result in 8,344,980 products is mechanically clean but depends on incompatible POS ambiguities rather than a readable phrase pair.",
+    "semantic_segmentation": "The tape-only POS intersection assigns D-N-V to 'nine poll assert' and V-D-A-N to 'stress all open in'. Surface agreement rejects the first ('nine poll' requires a plural noun), while the second ends in preposition 'in' misused as a noun and leaves 'stress' without an ordinary object. Neither side forms a readable discourse carrier."
+  },
+  "diverse_residual_frontier": [
+    {
+      "residual": "s",
+      "pair_families": [
+        [
+          "spot",
+          "stop"
+        ],
+        [
+          "smu",
+          "sum"
+        ],
+        [
+          "snap",
+          "span"
+        ]
+      ],
+      "all_equations_hold": true,
+      "semantic_or_morphological_obstruction": "After excluding acronym-like 'smu', only spot/stop and snap/span survive; snap/span exposes the already recorded unsatisfied transitive return."
+    },
+    {
+      "residual": "ac",
+      "pair_families": [
+        [
+          "act",
+          "cat"
+        ],
+        [
+          "acts",
+          "cast"
+        ],
+        [
+          "acted",
+          "cadet"
+        ]
+      ],
+      "all_equations_hold": true,
+      "semantic_or_morphological_obstruction": "The live 'ac' suffix has no productive English boundary realization; act/acts/acted cannot absorb it without a fragment."
+    },
+    {
+      "residual": "ca",
+      "pair_families": [
+        [
+          "cat",
+          "act"
+        ],
+        [
+          "cast",
+          "acts"
+        ],
+        [
+          "cadet",
+          "acted"
+        ]
+      ],
+      "all_equations_hold": true,
+      "semantic_or_morphological_obstruction": "The live 'ca' suffix has no productive English boundary realization; cat/cast/cadet leave an unattached fragment."
+    },
+    {
+      "residual": "no",
+      "pair_families": [
+        [
+          "nose",
+          "ones"
+        ],
+        [
+          "notes",
+          "onset"
+        ]
+      ],
+      "all_equations_hold": true,
+      "semantic_or_morphological_obstruction": "The residual can be a word, but notes/nose/no/ones/onset is a noun stack with no coherent finite clause."
+    },
+    {
+      "residual": "on",
+      "pair_families": [
+        [
+          "ones",
+          "nose"
+        ],
+        [
+          "onset",
+          "notes"
+        ]
+      ],
+      "all_equations_hold": true,
+      "semantic_or_morphological_obstruction": "The inverse noun family likewise yields ones/onset/on/nose/notes without a licensed event structure."
+    },
+    {
+      "residual": "ow",
+      "pair_families": [
+        [
+          "own",
+          "won"
+        ],
+        [
+          "owe",
+          "woe"
+        ]
+      ],
+      "all_equations_hold": true,
+      "semantic_or_morphological_obstruction": "own/won and owe/woe leave the nonlexical boundary fragment 'ow'."
+    },
+    {
+      "residual": "wo",
+      "pair_families": [
+        [
+          "won",
+          "own"
+        ],
+        [
+          "woe",
+          "owe"
+        ]
+      ],
+      "all_equations_hold": true,
+      "semantic_or_morphological_obstruction": "won/own and woe/owe leave the nonlexical boundary fragment 'wo'."
+    }
+  ],
+  "reader_gate": {
+    "status": "closed",
+    "reason": "no candidate passes the pre-reader discourse-semantic gate"
+  },
+  "provenance": {
+    "catalogue_text": false,
+    "finished_tape_reversal": false,
+    "posthoc_repair": false,
+    "proper_names": false,
+    "remote_source_sha256": {
+      "brown": "b26c8b0c89bd1b42abe8c21110d5d5add9ca0e8456f0c78929904051dedebf34",
+      "templates": "8628543f113449f6ec9bf2e551867cb60ce11b4691a9d458d9dcc149be0f898b",
+      "cycles": "1ad929394d806080aeb126b115cc342012774ad0f441e01f96b11fc513481646"
+    },
+    "replay_source_sha256": "9bef25d49d811a584629e0ef593756ce3c37118043e1458e107d08192899bea7"
+  }
+}

@@ -29,6 +29,12 @@ CLAUSES = {
     ),
 }
 
+# One seam-indexed transition, added after the frozen-bank failure: Africa
+# reads inward as ``acirfa``, so an independent B2 clause beginning "A
+# cir..." can consume its first four characters.
+SEAM_B1 = ("The scholar mapped Africa.",)
+SEAM_B2 = ("A circle of lamps marked the quay.",)
+
 def letters(text: str) -> str:
     return re.sub(r"[^a-z]", "", text.casefold())
 
@@ -56,11 +62,18 @@ def consume(obligation: str, clauses: tuple[str, ...], limit: int = 64):
         for pos, path in states.items():
             for clause in clauses:
                 tape = letters(clause)
+                common = 0
+                while pos + common < len(obligation) and common < len(tape) \
+                        and obligation[pos + common] == tape[common]:
+                    common += 1
+                if common:
+                    trace.append({"slot": slot, "start": pos,
+                                  "end": pos + common, "surface": clause,
+                                  "role": ("B2", "A2")[slot],
+                                  "partial": common < len(tape)})
                 if obligation.startswith(tape, pos):
                     end = pos + len(tape)
                     nxt.setdefault(end, path + (clause,))
-                    trace.append({"slot": slot, "start": pos, "end": end,
-                                  "surface": clause, "role": ("B2", "A2")[slot]})
         states = nxt
     return [path for pos, path in states.items() if pos == len(obligation)][:limit], trace
 
@@ -90,6 +103,26 @@ def run() -> dict:
                              "catalogue_text": False, "repeated_units": False,
                              "self_palindromic_units": False, "posthoc_repair": False,
                          }})
+    seam_rows = []
+    for a, b in itertools.product(CLAUSES["A"], SEAM_B1):
+        left = f"{a} {b}"
+        obligation = letters(left)[::-1]
+        # The seam bank is deliberately narrow; A2 remains the frozen A bank.
+        _, trace = consume(obligation, SEAM_B2 + CLAUSES["A"])
+        deepest = max((x["end"] for x in trace), default=0)
+        residuals.append({"left_A": a, "left_B": b,
+                          "transition": "Africa -> A circle",
+                          "obligation_letters": len(obligation),
+                          "deepest_clause_support": deepest,
+                          "support_fraction": deepest / max(1, len(obligation)),
+                          "first_unmet_character": obligation[deepest:deepest+12],
+                          "next_repair": "author only the next B2 prefix for this residual; keep A2 frozen"})
+        seam_rows.append({"left": left, "b2_bank": SEAM_B2,
+                          "support_trace": trace, "audit": audit(left),
+                          "roles": ["A1", "B1", "B2", "A2"],
+                          "provenance": {"seam_indexed_transition": "Africa->A circle",
+                                         "complete_authored_clauses": True,
+                                         "finished_tape_reversal": False}})
     exact = [row for row in rows if row["audit"]["two_pointer_exact"] and row["audit"]["letters"] > 38]
     smoothest = max(residuals, key=lambda x: x["support_fraction"])
     return {
@@ -98,7 +131,8 @@ def run() -> dict:
         "stats": {"left_pairs": len(controls), "closed_derivations": len(rows),
                   "exact_gt38": len(exact), "max_support": smoothest["deepest_clause_support"],
                   "max_support_fraction": smoothest["support_fraction"]},
-        "exact_candidates": exact, "rendered_candidates": rows[:32], "controls": controls[:8],
+        "exact_candidates": exact, "rendered_candidates": rows[:32], "seam_candidates": seam_rows,
+        "controls": controls[:8],
         "residual_certificates": residuals,
         "novelty_preflight": {"status": "passed",
             "signature": "semantic-clause|ABBA|live-obligation|two-slot-DP",
@@ -107,7 +141,7 @@ def run() -> dict:
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                        "independent_audits": ["two-pointer scan", "forward/reverse SHA-256"],
                        "reader_gate": "closed pending exact closure and blinded reader test"},
-        "status": "exact closure found" if exact else "no exact closure; deepest semantic seam retained",
+        "status": "exact closure found" if exact else "no exact closure; seam-indexed transition retained",
         "next_construction": "replace only the highest-support unmet B2/A2 seam with a new authored clause; keep the other banks frozen",
     }
 

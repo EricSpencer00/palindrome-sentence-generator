@@ -9042,6 +9042,19 @@ grammar variant.
   not fall back to a bank; the primary cycle remains growth from the actual
   240-letter incumbent.
 
+- **Boundary-carrier paragraph probe (2026-10-02):** a bounded authored
+  construction used three distinct complete sentence pairs with ordinary
+  boundary carriers (`deer/reed`, `mail/Liam`, `war/raw`) and assembled them as
+  `A B C C' B' A'`. It produced exact, independently audited candidates at 64
+  and 66 letters, with two-pointer, project-validator, forward/reverse SHA,
+  and pair-seam audits agreeing; each has six distinct terminal-punctuated
+  units and no self-palindromic unit. The rendered candidates are retained in
+  `runs/paragraph-abba-boundary-carrier-20261002.json`, but their discourse
+  may still feel like an identity list; the reader gate is closed. This is a
+  paragraph topology/prose test, not a claim that length alone solved
+  readability. The next operator replaces identity-style right clauses with
+  discourse-linked answers while preserving the live carriers.
+
 ## Current orchestration routing (2026-10-02)
 
 GPT-5.6 Sol owns architecture and coordinated direction for this goal.

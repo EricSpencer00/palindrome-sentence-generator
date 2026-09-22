@@ -50,6 +50,28 @@ ABBA candidates, two intact prose controls, and reproducibly word-shuffled
 controls in randomized blinded order. Human ratings remain pending; no
 programmatic score is used as a readability certificate.
 
+### Boundary-carrier paragraph probe
+
+The next paragraph construction did not widen the old clause bank. It authored
+three complete sentence pairs whose ordinary boundary words carry the reverse
+obligation (`deer/reed`, `mail/Liam`, and `war/raw`), then assembled them as
+`A B C C' B' A'`. The resulting candidates are:
+
+| candidate | normalized letters | rendered surface | exact audits | status |
+|---|---:|---|---|---|
+| carrier-abba-64 | 64 | “Aron saw deer. Mara saw mail. Noel saw war. Raw was Leon. Liam was Aram. Reed was Nora.” | two-pointer, project validator, forward/reverse SHA, and pair seams agree | reader packet; not certified |
+| carrier-abba-66 | 66 | “Nora saw deer. Sara saw mail. Mara saw evil. Live was Aram. Liam was Aras. Reed was Aron.” | two-pointer, project validator, forward/reverse SHA, and pair seams agree | reader packet; not certified |
+
+All six units in each row are distinct, terminal-punctuated, and pass a
+surface-shape diagnostic (`subject–verb–complement`); neither row contains a
+self-palindromic unit or a finished-tape reversal. These diagnostics only
+filter the packet. The scenes may still read as a list of identity statements,
+so no readability claim is made before blinded ratings. The reproducible packet
+and provenance are in
+`runs/paragraph-abba-boundary-carrier-20261002.json`; its next repair is to
+replace the identity-style right clauses with discourse-linked answers while
+keeping the live boundary carriers.
+
 ## Cross-role clause CSP
 
 As a new constructive lane, we paired complete contemporary clauses while

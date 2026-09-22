@@ -10,24 +10,28 @@ The exact 560, 558, and 556 children remain preserved frontier entries with
 independently verified hashes. Proper spans, repeated scaffolding, rough syntax,
 and absent reader validation are repair debt and do not demote the 568 result.
 
-The latest repair loads the exact 602 child in
-`runs/incumbent-568-internal-seam-growth-20260922.json`, row
-`internal-mara-stops-602`, SHA-256
-`69696036f9bb9392ae9473884f011cfb767b4700d6407f5a07f3fba595953c89`.
-At symmetric normalized windows `[77,94)` and `[508,525)`, it replaces
-`Nora spots a ram. rats` ↔ `star Mara stops Aron` with the residual-owned
-equation `Nora spots a ram. Mara stops rats` ↔
-`star spots Aram. Mara stops Aron`. This removes the broken rendered fragments `Nora spots a ram. rats.`
-and `Eh, but a star Mara stops Aron. Star spots Aram.` while retaining exact
-reversal. The independently exact **620-letter** child is row
-`fragment-repair-mara-rats-620` in
-`runs/incumbent-602-fragment-seam-repair-20260922.json`, SHA-256
-`d20fc566d6a636e9826e432550be92e3ce5ace8a3cdaa2f6d291ad0709ffb90a`;
-focused tests pass (`2 passed`) and the independent Ruby audit agrees.
-It remains a repair-frontier child, not a replacement for the 568 incumbent.
+The current lineage is **644 → rejected 652 → repaired 666**. The 652 row
+`scaffold-repair-aidan-draws-652` in
+`runs/incumbent-644-scaffold-repair-20260922.json` is exact
+(SHA-256 `0b7f1950beac54b34a8ec66e5150f995abeda4d2d07bfd2f0eb454fed108f1e5`)
+but is explicitly rejected/non-promoted for fragment debt: the Aidan-draws
+seam leaves a dangling vocative/appositive and a lowercase sentence start.
+It remains exact evidence only and does not demote the 568 incumbent.
 
-The next action repairs the clearest remaining grammar debt in the 620 child,
-or uses the clean 594 cursor-204/364 fallback only on a committed contradiction.
+The completed same-window clause repair loads that 652 row and edits its
+normalized windows `[115,133)` and `[519,537)` with the residual-owned
+equation `Nora sees Aram. Mara sees Nadia.` ↔
+`Aidan sees Aram. Mara sees Aron;`. The independently exact **666-letter**
+child is row `clause-window-repair-nora-sees-666` in
+`runs/incumbent-652-clause-window-repair-20260922.json`, SHA-256
+`b6ccddf4d34f9d2705238f615336e633cb76bccdd010913d44799881df75584e`.
+Clean review confirms complete mirrored clauses, no dangling vocative or
+appositive, no predicate-less fragment, and sentence capitalization; the
+remaining repetition and rough syntax are recorded repair debt.
+
+The next action repairs the clearest remaining grammar debt in the 666 child;
+change this same window only on a committed contradiction, with the clean 594
+cursor-204/364 fallback available only then.
 
 Fresh POS search, productive-affix search, morphology cycles, short witnesses,
 and reader-study operators are stopped. They are not active alternatives.
@@ -35,8 +39,10 @@ The model policy is **gpt-5.6-luna at high reasoning only**: no Sol, Astra,
 Terra, or other model.
 
 Evidence:
-`experiments/incumbent_602_fragment_seam_repair_20260922.py` and
-`runs/incumbent-602-fragment-seam-repair-20260922.json`.
+`experiments/incumbent_644_scaffold_repair_20260922.py`,
+`runs/incumbent-644-scaffold-repair-20260922.json`,
+`experiments/incumbent_652_clause_window_repair_20260922.py`, and
+`runs/incumbent-652-clause-window-repair-20260922.json`.
 
 ## Historical 498-to-568 construction ledger (superseded by the override above)
 

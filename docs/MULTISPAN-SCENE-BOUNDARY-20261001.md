@@ -32,26 +32,31 @@ repeating the same two-clause sweep.
 
 The follow-up keeps the first two-clause scene choices intact, records the live
 residual at their deepest seam, and only then selects a separately authored
-third-clause pair. The third clauses are ordinary prose and are not reversals or
-catalogue entries. The final comparison still runs over normalized characters,
-so a seam may cross a word or sentence boundary.
+third-clause pair. The fresh pair is placed at the actual outer edges: the left
+third clause opens the tape and the right third clause closes it. Consequently,
+the live edge test compares the left clause's first character with the right
+clause's last character. The third clauses are ordinary prose and are not
+reversals or catalogue entries. The final comparison still runs over normalized
+characters, so a seam may cross a word or sentence boundary.
 
 The chart visited 1,680 distinct two-clause residual frontiers and 372
-three-clause bilateral states after conditioning each new clause on the live
-first-character obligation on both sides. It rejected 2,416 base choices with
+three-clause bilateral states after conditioning the actual outer edge
+obligation. It rejected 2,416 base choices with
 a repeated clause unit. No state closed exactly. The strongest rendered state
 was:
 
-> At dawn, Mira opened the garden gate. A patient fox watched the quiet road. A child carried the lantern home. The old map marked a path through the pines. The baker carried warm bread to the school. Lena set the blue button on the sill.
+> Near the hill, Mira waited for rain. A patient fox watched the quiet road. The baker carried warm bread to the school. Near the river, Lena found a blue button. By noon, the keeper had mended the lantern. The keeper checked the latch before rain.
 
-This is a 185-letter ordinary-prose control, not a palindrome: its independent
-two-pointer audit fails at `(0, a, l)`, the project validator is false, and its
+This is a 193-letter ordinary-prose control, not a palindrome: its independent
+two-pointer audit fails at `(1, e, i)`, the project validator is false, and its
 forward/reverse SHA-256 digests differ. The base residual was recorded before
 the third-clause choice (`required_next_left_char = n`,
 `required_next_right_char = s`), so the failure is attributable to the live
 obligation rather than a post-hoc reversal. No human readability claim is made;
 the reader gate remains closed.
 
-The next concrete operator is to condition the third-clause authoring grammar on
-the required residual prefix (rather than merely scoring after selection), then
-jointly solve the right third clause under the same character obligations.
+The prior experiment's first-character gate was invalid because appending to the
+right makes its closing character face the left opening. This revision fixes
+that orientation. The next concrete operator is to use the recorded residual
+after consuming the outer pair and author the next clause at the seam, while
+retaining this explicit opening/closing edge assertion.

@@ -82,30 +82,36 @@ def run() -> dict:
             residual_frontiers.append({"left_indices": li, "right_indices": ri,
                                        "left": left, "right": right,
                                        **base_residual})
-            # The third clause is selected only after this obligation is
-            # exposed.  It is then placed on both sides of the bilateral
-            # chart, with no assumption that its boundary is word-aligned.
+            # The third clauses are selected only after this obligation is
+            # exposed.  They are placed at the actual outer edges: the left
+            # clause opens the tape, while the right clause closes it.  Thus
+            # the right clause's *last* character faces the left opening under
+            # reverse comparison.  (Appending to both sides would gate the
+            # wrong edge.)
             for ti, third in enumerate(THIRD_CLAUSES):
                 if ti in li or ti in ri:
                     continue
-                # A live obligation is a construction constraint, not merely
-                # a post-hoc score: retain only third clauses whose first
-                # character can satisfy the exposed left residual.
-                if tape(third)[:1] != base_residual["required_next_left_char"]:
-                    continue
-                left3 = left + " " + third
                 for rti, third_right in enumerate(THIRD_CLAUSES):
                     if rti in li or rti in ri or rti == ti:
                         continue
-                    if tape(third_right)[:1] != base_residual["required_next_right_char"]:
-                        continue
+                    left3 = third + " " + left
                     right3 = right + " " + third_right
+                    # This is the live edge obligation actually consumed by
+                    # the full tape.  Keep it explicit in every admitted row.
+                    outer_edge_ok = bool(tape(left3) and tape(right3) and
+                                         tape(left3)[0] == tape(right3)[-1])
+                    if not outer_edge_ok:
+                        continue
                     score = matched_outer(left3, right3)
                     lt, rt = tape(left3), tape(right3)
                     rows.append({"left_indices": li + (ti,), "right_indices": ri + (rti,),
                                  "left": left3, "right": right3,
                                  "base_residual": base_residual,
                                  "third_clause": third, "third_right_clause": third_right,
+                                 "outer_edge_obligation": {
+                                     "left_open": tape(left3)[0],
+                                     "right_close": tape(right3)[-1],
+                                     "satisfied": outer_edge_ok},
                                  "matched_outer_letters": score,
                                  "crosses_word_boundary": score > 0 and score < len(lt) and score < len(rt),
                                  "combined_audit": audit(left3 + " " + right3)})

@@ -34,23 +34,25 @@ The diversified parent was independently exact at **666 letters**, row
 `6d96e68c2f9cffec70f2c688a89ed5ad2dcdf0a80097f1d711c28ec4fdad298a`.
 
 The promoted active **666-letter readability frontier** is row
-`comparison-alternative-nora-sees-666` in
-`runs/incumbent-666-comparison-alternative-20260922.json`, SHA-256
+`central-mini-scene-comparison-leon-noel-666` in
+`runs/incumbent-666-central-mini-scene-comparison-20260922.json`, SHA-256
+`3951b9449ed3ab28f55d9798e344dfaf3123035f5f07c9dffdf0047bed0e1d79`.
+Promotion is to the readability frontier only: the independently exact 568
+child remains the working incumbent, and the exact 560/558/556 children remain
+preserved frontier entries. The promoted child replaces the stressed/desserts
+shell with the connected Leon→Noel→Nadia→Aidan mini-scene while preserving the
+center, exact reversal, and empty residual. The promoted cafd parent remains
+retained as comparison evidence at SHA-256
 `cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297`.
-Promotion is to the readability frontier only: the 568 child remains the
-working incumbent. The causal 666 parent remains retained as comparison
-evidence at SHA-256
-`268012039a4f838fdd86b15f37e4bd6d554208f6dd7fd4ceb8fb01c26776b015`, because
-the promoted alternative removes a good causal clause while removing the
-targeted right-cluster fragment. Clean Luna review confirms exact reversal,
-empty residual, and complete finite replacement clauses.
+Clean Luna review confirms global clause/frame novelty and complete finite SVO
+clauses; inherited repetition and rough syntax remain repair debt.
 
 Remaining debt is inherited proper-palindromic spans, rough syntax, repeated
 star/spam and Mara-stops-rats scaffolding, residual delivers-maps repetition
-elsewhere, and absent reader validation. The next candidate repair is the
-actual stop/spot seam at normalized `[64,127)` ↔ `[539,602)`, raw
-`[86,170)` ↔ `[739,822)`; preserve residual ownership, the 568 incumbent, and
-the 560/558/556 frontier.
+elsewhere, and absent reader validation. The next bounded candidate repair is
+the center pair `Ari sees God. Dog sees Ira.` at normalized `[323,343)`, raw
+`[438,466)`; preserve residual ownership, the 568 incumbent, and the
+560/558/556 frontier.
 
 Fresh POS search, productive-affix search, morphology cycles, short witnesses,
 and reader-study operators are stopped. They are not active alternatives.

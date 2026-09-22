@@ -72,6 +72,22 @@ that benchmark (with the paper's promotion floor at 100 letters), followed by
 the blinded intact-prose versus shuffled-control study. No wrapper, catalogue
 relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
+### ABBA paragraph seam probe (2026-09-30)
+
+The four-unit paragraph hypothesis was tested directly rather than by
+reformatting the 240-letter typed phrase-graph parent. A1, B1, B2, and A2
+were independently authored intact sentences; the decoder consumed the
+reverse character obligation at the seams while keeping all four units
+distinct. It rendered 81 paragraph branches from 3×3×3×3 choices, with
+two-pointer and forward/reverse SHA audits on every branch. The strongest
+branch was 152 letters of ordinary prose, but its outer seam failed at the
+first character (`a` versus `e`); there were zero exact closures and no
+reader-admitted candidate. Thus ABBA topology by itself does not solve the
+problem or certify readability. The concrete successor is a held-out B2
+opening conditioned on the live outer residual, followed by joint A2
+selection, while preserving four non-repeated units
+(`runs/abba-authored-paragraph-seam-20260930.json`).
+
 ## Current frontier (2026-09-20 API audit and constructive reset)
 
 - **Live API audit.** The deployed `/api/v3/health` endpoint reports 499

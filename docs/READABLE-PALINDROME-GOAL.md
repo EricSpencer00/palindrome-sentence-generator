@@ -9013,3 +9013,37 @@ grammar variant.
   its outer filler windows with syntax-aware phrase spans while carrying the
   same residual ownership; no completed-clause bank replaces this growth
   track.
+
+- **Syntax-aware growth from the 498-letter child (2026-10-02):** carrying a
+  mirrored residual across two independently chosen phrase windows produced a
+  530-letter exact child (`runs/syntax-residual-growth-from-498-20261001.json`).
+  The independent pointer, project-validator, and forward/reverse SHA checks
+  agree, but the rendered tape is still vocabulary filler and is not reader
+  eligible. This is a length gain only; it does not move the readability gate.
+
+- **Paragraph ABBA reader packet (2026-10-02):** the strict `A B B' A'`
+  topology has two exact typed-grammar examples at 46 and 68 letters. Their
+  units are distinct and independently audited, but their inversion and
+  semordnilap vocabulary are formulaic. The packet
+  (`runs/paragraph-generation-abba-reader-20261002.json`) randomizes those
+  candidates with two intact and two shuffled prose controls; ratings have not
+  been collected, so neither example is a readability result.
+
+- **Discourse-linked multi-sentence generation lattice (2026-10-02):** an
+  initial 16-row two-sentence micro-scene product was replaced by an
+  orientation-correct outside-in lattice. It solves A1/A2 at the outer seam,
+  then B1/B2, carries topic/referent state, and admits only complete-word
+  residual consumption. The corrected run records eight frontier states,
+  zero rendered rows, zero exact closures, and required back words such as
+  `eht` for ordinary openings
+  (`runs/multisentence-generation-abba-20261002-revised.json`). The earlier
+  fallback implementation is preserved but not counted. The next paragraph
+  operator must author a seam-compatible counterpart from the residual itself,
+  not fall back to a bank; the primary cycle remains growth from the actual
+  240-letter incumbent.
+
+## Current orchestration routing (2026-10-02)
+
+GPT-5.6 Sol owns architecture and coordinated direction for this goal.
+GPT-5.6 Luna is used only for bounded implementation or monitoring lanes. No
+Astra worker is used for this cycle.

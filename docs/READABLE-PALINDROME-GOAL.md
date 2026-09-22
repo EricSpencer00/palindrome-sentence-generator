@@ -8764,3 +8764,26 @@ generated, non-formulaic candidate.
   The successor is one copular/anaphoric state noun under the same typed
   boundary. Artifact:
   `runs/packed-consequence-reflection-boundary-20260930.json`.
+
+- **Recursive character-CFG intersection, 2026-09-30:** opposing typed CFG
+  frontiers for NP/VP/PP/relative/coordination productions consumed matching
+  characters before complete sentences existed. The product reached 257 states
+  and 85 concrete mismatch frontiers, but no closure above the 38-letter
+  control. The residual is onset compatibility (`a`/`the` against noun endings
+  such as `t`, `r`, `n`, or `a`), so the next change must expose compatible
+  determiner/subject onsets rather than add more complete sentences. Artifact:
+  `runs/recursive-cfg-character-intersection-20260930.json`.
+
+- **Semantic scene-event lattice reset, 2026-09-30:** typed event masks,
+  participant requirements, anaphoric accessibility, and live character
+  intersection produced 13 semantic states and 12 transitions with zero exact
+  closures. The concrete successor is a transitive attachment at a shared
+  object seam, retaining event identity. Artifact:
+  `runs/scene-event-lattice-20260930.json`.
+
+- **Function-word/attachment CFG, 2026-09-30:** determiners, auxiliaries,
+  prepositions, relative markers, and attachment scope were made live grammar
+  state. The 89-state product died at its first `h`/`i` mismatch; no exact
+  candidate was rendered. This retires the current function-word envelope and
+  preserves its onset residual. Artifact:
+  `runs/function-attachment-cfg-20260930.json`.

@@ -1,0 +1,196 @@
+{
+  "experiment_id": "fresh-endpoint-terminal-clause-trie-20261002",
+  "method": "endpoint-conditioned typed terminal-clause trie",
+  "grammar": {
+    "left": [
+      "An eraser removes a mark. It leaves the paper clean.",
+      "An eraser erases a line. It leaves the page clear."
+    ],
+    "right": [
+      "A crew clears a gate. Then it prepares an arena.",
+      "A team trains nearby. Then it enters an arena."
+    ],
+    "audits": {
+      "eraser-removes-mark": {
+        "two_events": true,
+        "event_continuity": true,
+        "singular_agreement": true,
+        "valency_satisfied": true,
+        "common_lowercase_words": true,
+        "no_self_palindromic_content_word": true
+      },
+      "eraser-erases-line": {
+        "two_events": true,
+        "event_continuity": true,
+        "singular_agreement": true,
+        "valency_satisfied": true,
+        "common_lowercase_words": true,
+        "no_self_palindromic_content_word": true
+      },
+      "crew-prepares-arena": {
+        "two_events": true,
+        "event_continuity": true,
+        "singular_agreement": true,
+        "valency_satisfied": true,
+        "common_lowercase_words": true,
+        "no_self_palindromic_content_word": true
+      },
+      "team-enters-arena": {
+        "two_events": true,
+        "event_continuity": true,
+        "singular_agreement": true,
+        "valency_satisfied": true,
+        "common_lowercase_words": true,
+        "no_self_palindromic_content_word": true
+      }
+    }
+  },
+  "seed": {
+    "matched_prefix": "anera",
+    "matched_letters": 5,
+    "owner": "left",
+    "residual": "ser",
+    "left_boundaries": [
+      2,
+      8
+    ],
+    "right_exposed_boundaries": [
+      5
+    ],
+    "complementary_boundaries": [],
+    "next_left_predicates": [
+      "erases",
+      "removes"
+    ],
+    "next_right_required_tokens": [
+      "an"
+    ]
+  },
+  "stats": {
+    "left_discourse_paths": 2,
+    "right_discourse_paths": 2,
+    "accepted_token_transitions": 3,
+    "rejected_token_transitions": 1,
+    "predicate_unification_attempts": 0,
+    "exact_rendered_candidates": 0,
+    "cap_reached": false
+  },
+  "trace": [
+    {
+      "side": "left",
+      "word": "an",
+      "exposed": "an",
+      "accepted": true,
+      "before": {
+        "owner": "",
+        "residual": ""
+      },
+      "after": {
+        "owner": "left",
+        "residual": "an"
+      },
+      "left_boundaries": [
+        2
+      ],
+      "right_exposed_boundaries": []
+    },
+    {
+      "side": "right",
+      "word": "arena",
+      "exposed": "anera",
+      "accepted": true,
+      "before": {
+        "owner": "left",
+        "residual": "an"
+      },
+      "after": {
+        "owner": "right",
+        "residual": "era"
+      },
+      "left_boundaries": [
+        2
+      ],
+      "right_exposed_boundaries": [
+        5
+      ]
+    },
+    {
+      "side": "left",
+      "word": "eraser",
+      "exposed": "eraser",
+      "accepted": true,
+      "before": {
+        "owner": "right",
+        "residual": "era"
+      },
+      "after": {
+        "owner": "left",
+        "residual": "ser"
+      },
+      "left_boundaries": [
+        2,
+        8
+      ],
+      "right_exposed_boundaries": [
+        5
+      ]
+    },
+    {
+      "side": "right",
+      "word": "an",
+      "exposed": "na",
+      "accepted": false,
+      "matched_cursor": 5,
+      "before": {
+        "owner": "left",
+        "residual": "ser"
+      },
+      "first_conflict": [
+        "s",
+        "n"
+      ]
+    }
+  ],
+  "attempts_after_seed": [
+    {
+      "surface": "an",
+      "exposed": "na",
+      "accepted": false
+    }
+  ],
+  "exact_candidates": [],
+  "obstruction": {
+    "kind": "mandatory_determiner_precedes_adjacent_predicate_in_reverse_exposure",
+    "matched_cursor_zero_based": 5,
+    "left_owner_residual": "ser",
+    "right_next_surface_token": "an",
+    "right_next_exposed_characters": "na",
+    "first_conflict": {
+      "left": "s",
+      "right": "n"
+    },
+    "proof": "Every grammatical right path ends with the NP 'an arena'. After reverse(arena) consumes 'anera', left debt is 'ser'. The right grammar must next expose reverse(an)='na', so s != n at cursor 5. The predicate is a later trie edge and cannot be reordered."
+  },
+  "provenance": {
+    "remote_origin": {
+      "source_path": "/home/eric/pal-fresh-run/experiments/fresh_endpoint_terminal_clause_trie_20260922.py",
+      "source_sha256": "a6f44b33ed39316493d7bd8b8b47d8ca4daef1fc4ebe0a4dd078f486767fdf33",
+      "result_path": "/home/eric/pal-fresh-run/runs/fresh-endpoint-terminal-clause-trie-20260922.json",
+      "result_sha256": "8aad9a5d5b5485170a4eaba9c9597b20833a5d6ee9bc75e190df0b369807e535",
+      "log_sha256": "db9f647b289d791d0f03c3fdd82e0c3b189313167d9e5dab04c78d83101f9b1c",
+      "audit_sha256": "bc1dcd8a043e731169cf5ef541c94905b8fdfe4c49265f9e44b20d0dcbb0851f"
+    },
+    "repo_source_sha256": "b0cacabf777ee2c62b6c9b64186e396dc8cb17fcdad4f4622f709098260dc258",
+    "sol_only": true,
+    "host_of_original_run": "hst-bench",
+    "search_started_at_first_character": true,
+    "proper_names": false,
+    "catalogue_text": false,
+    "finished_tape_reversal": false,
+    "posthoc_repair": false,
+    "duplicate_sweep": false,
+    "complementary_boundary_mask_live": true,
+    "lane_closed": true
+  },
+  "disposition": "Stop this fixed-determiner lane at the exact s!=n obstruction; do not run another paragraph or determiner variant."
+}

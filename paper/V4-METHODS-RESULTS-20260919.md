@@ -15,7 +15,7 @@ reader ratings decide whether an exact output is readable.
 
 ## Anchor and frontier
 
-The strongest reader-plausible exact output remains:
+The frozen single-sentence reader anchor remains:
 
 > **An aide rips nine memos; some men inspire Diana.**
 
@@ -71,6 +71,38 @@ and provenance are in
 `runs/paragraph-abba-boundary-carrier-20261002.json`; its next repair is to
 replace the identity-style right clauses with discourse-linked answers while
 keeping the live boundary carriers.
+
+### First-person discourse ABBA
+
+The connectivity diagnostic rejected both boundary-carrier paragraphs because
+their identity clauses did not preserve a participant across every adjacent
+sentence. A smaller construction fixes that failure directly. It keeps one
+ordinary first-person narrator in every unit and selects typed
+observation/state pairs only when their complete normalized tapes are exact
+reverses:
+
+| observation | state | pair audit |
+|---|---|---|
+| “I saw desserts.” | “Stressed was I.” | exact reverse tapes; neither unit self-palindromic |
+| “I saw lager.” | “Regal was I.” | exact reverse tapes; neither unit self-palindromic |
+| “I saw war.” | “Raw was I.” | exact reverse tapes; neither unit self-palindromic |
+
+Outside-in assembly yields:
+
+> **I saw desserts. I saw lager. I saw war. Raw was I. Regal was I. Stressed was I.**
+
+The surface has 56 normalized letters. A local two-pointer walk, the project
+validator, equal forward/reverse SHA-256
+(`a8b0b21d5393128ea9e89af8af59774c10d2dc0fa2fb6333f13d532e3f0dbc50`),
+and three pair certificates all agree. Its six sentence units are distinct and
+none is self-palindromic. Every adjacent unit names the same first-person
+participant, giving the paragraph an observation-to-state arc. The repeated
+single-letter pronoun is disclosed as a lexical discourse carrier, not hidden
+as a generated unit; whether the inversion reads naturally is reserved for
+blinded readers. The randomized packet contains the candidate, a freshly
+authored intact first-person control, and a word-shuffled control. Artifact:
+`runs/first-person-discourse-abba-20261002.json`; generator:
+`experiments/first_person_discourse_abba_20261002.py`.
 
 ## Cross-role clause CSP
 

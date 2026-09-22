@@ -1,0 +1,406 @@
+{
+  "experiment_id": "first-person-discourse-abba-20261002",
+  "method": "typed observation/state ABBA with a shared first-person discourse participant",
+  "hypothesis": "A recurring participant can make independently exact sentence pairs read as one scene rather than an identity list.",
+  "stats": {
+    "typed_pairs": 3,
+    "exact_candidates": 1,
+    "candidate_letters": 56,
+    "controls": 2
+  },
+  "candidates": [
+    {
+      "id": "first-person-abba-56",
+      "kind": "exact_abba_candidate",
+      "rendered": "I saw desserts. I saw lager. I saw war. Raw was I. Regal was I. Stressed was I.",
+      "units": [
+        "I saw desserts.",
+        "I saw lager.",
+        "I saw war.",
+        "Raw was I.",
+        "Regal was I.",
+        "Stressed was I."
+      ],
+      "pair_inventory": [
+        {
+          "object": "desserts",
+          "state": "stressed",
+          "left": "I saw desserts.",
+          "right": "Stressed was I.",
+          "roles": [
+            "observation",
+            "resulting-state"
+          ],
+          "left_letters": 12,
+          "right_letters": 12,
+          "pair_exact": true,
+          "left_self_palindromic": false,
+          "right_self_palindromic": false
+        },
+        {
+          "object": "lager",
+          "state": "regal",
+          "left": "I saw lager.",
+          "right": "Regal was I.",
+          "roles": [
+            "observation",
+            "resulting-state"
+          ],
+          "left_letters": 9,
+          "right_letters": 9,
+          "pair_exact": true,
+          "left_self_palindromic": false,
+          "right_self_palindromic": false
+        },
+        {
+          "object": "war",
+          "state": "raw",
+          "left": "I saw war.",
+          "right": "Raw was I.",
+          "roles": [
+            "observation",
+            "resulting-state"
+          ],
+          "left_letters": 7,
+          "right_letters": 7,
+          "pair_exact": true,
+          "left_self_palindromic": false,
+          "right_self_palindromic": false
+        }
+      ],
+      "audit": {
+        "letters": 56,
+        "two_pointer_exact": true,
+        "first_mismatches": [],
+        "forward_sha256": "a8b0b21d5393128ea9e89af8af59774c10d2dc0fa2fb6333f13d532e3f0dbc50",
+        "reverse_sha256": "a8b0b21d5393128ea9e89af8af59774c10d2dc0fa2fb6333f13d532e3f0dbc50",
+        "sha_equal": true,
+        "project_validator": true
+      },
+      "unit_guard": {
+        "unit_count": 6,
+        "distinct_units": true,
+        "self_palindromic_units": [],
+        "repeated_units": false
+      },
+      "discourse_diagnostic": {
+        "participant": "first-person narrator",
+        "adjacent_links": [
+          {
+            "left_index": 0,
+            "right_index": 1,
+            "shared_participant": "I",
+            "connected": true
+          },
+          {
+            "left_index": 1,
+            "right_index": 2,
+            "shared_participant": "I",
+            "connected": true
+          },
+          {
+            "left_index": 2,
+            "right_index": 3,
+            "shared_participant": "I",
+            "connected": true
+          },
+          {
+            "left_index": 3,
+            "right_index": 4,
+            "shared_participant": "I",
+            "connected": true
+          },
+          {
+            "left_index": 4,
+            "right_index": 5,
+            "shared_participant": "I",
+            "connected": true
+          }
+        ],
+        "all_adjacent_units_connected": true,
+        "arc": "three observations followed by three narrator states",
+        "diagnostic_only": true
+      },
+      "shortcut_review": {
+        "repeated_sentence_or_phrase_unit": false,
+        "self_palindromic_sentence_or_phrase_unit": false,
+        "single_letter_carrier": "I",
+        "carrier_role": "ordinary recurring discourse participant",
+        "human_review_required": true
+      },
+      "provenance": {
+        "source": "three freshly authored typed observation/state pairs",
+        "finished_tape_reversal": false,
+        "catalogue_text": false,
+        "posthoc_repair": false,
+        "per_candidate_rlaif": false,
+        "reader_certified": false
+      },
+      "blind_id": "item-03"
+    }
+  ],
+  "items": [
+    {
+      "id": "intact-first-person",
+      "kind": "intact_control",
+      "rendered": "I saw the desserts beside the lager before the fighting began. After the battle, I felt shaken and raw.",
+      "audit": {
+        "letters": 82,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "i",
+            "right": "w"
+          },
+          {
+            "offset": 1,
+            "left": "s",
+            "right": "a"
+          },
+          {
+            "offset": 2,
+            "left": "a",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "w",
+            "right": "d"
+          },
+          {
+            "offset": 4,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "offset": 5,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "n"
+          },
+          {
+            "offset": 7,
+            "left": "d",
+            "right": "e"
+          }
+        ],
+        "forward_sha256": "1803d4c0d95dba90b31a8eea4f1f71ab1911b9afe88520c1b90ebdafbbc18fae",
+        "reverse_sha256": "0f38a4bccb1546cf470da195cb597f2dc892548fdad2a33e50cb9bd1f54b11d2",
+        "sha_equal": false,
+        "project_validator": false
+      },
+      "provenance": {
+        "source": "freshly authored first-person prose control"
+      },
+      "blind_id": "item-01"
+    },
+    {
+      "id": "shuffled-first-person",
+      "kind": "shuffled_control",
+      "rendered": "desserts felt I the lager fighting the I and battle, before began. saw raw. shaken the After beside the",
+      "audit": {
+        "letters": 82,
+        "two_pointer_exact": false,
+        "first_mismatches": [
+          {
+            "offset": 0,
+            "left": "d",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "offset": 2,
+            "left": "s",
+            "right": "t"
+          },
+          {
+            "offset": 3,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 4,
+            "left": "e",
+            "right": "d"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "i"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 7,
+            "left": "s",
+            "right": "e"
+          }
+        ],
+        "forward_sha256": "ea838b855786d5aec7106f2a0b0d05d3837f581d14576744f8ecc5b7ef15bf2a",
+        "reverse_sha256": "13d98cfc779741a16bd48db2b7bcdb089daba51cbce26a1479c750f0f03efdba",
+        "sha_equal": false,
+        "project_validator": false
+      },
+      "provenance": {
+        "source_control": "intact-first-person",
+        "shuffle_seed": 20261002
+      },
+      "blind_id": "item-02"
+    },
+    {
+      "id": "first-person-abba-56",
+      "kind": "exact_abba_candidate",
+      "rendered": "I saw desserts. I saw lager. I saw war. Raw was I. Regal was I. Stressed was I.",
+      "units": [
+        "I saw desserts.",
+        "I saw lager.",
+        "I saw war.",
+        "Raw was I.",
+        "Regal was I.",
+        "Stressed was I."
+      ],
+      "pair_inventory": [
+        {
+          "object": "desserts",
+          "state": "stressed",
+          "left": "I saw desserts.",
+          "right": "Stressed was I.",
+          "roles": [
+            "observation",
+            "resulting-state"
+          ],
+          "left_letters": 12,
+          "right_letters": 12,
+          "pair_exact": true,
+          "left_self_palindromic": false,
+          "right_self_palindromic": false
+        },
+        {
+          "object": "lager",
+          "state": "regal",
+          "left": "I saw lager.",
+          "right": "Regal was I.",
+          "roles": [
+            "observation",
+            "resulting-state"
+          ],
+          "left_letters": 9,
+          "right_letters": 9,
+          "pair_exact": true,
+          "left_self_palindromic": false,
+          "right_self_palindromic": false
+        },
+        {
+          "object": "war",
+          "state": "raw",
+          "left": "I saw war.",
+          "right": "Raw was I.",
+          "roles": [
+            "observation",
+            "resulting-state"
+          ],
+          "left_letters": 7,
+          "right_letters": 7,
+          "pair_exact": true,
+          "left_self_palindromic": false,
+          "right_self_palindromic": false
+        }
+      ],
+      "audit": {
+        "letters": 56,
+        "two_pointer_exact": true,
+        "first_mismatches": [],
+        "forward_sha256": "a8b0b21d5393128ea9e89af8af59774c10d2dc0fa2fb6333f13d532e3f0dbc50",
+        "reverse_sha256": "a8b0b21d5393128ea9e89af8af59774c10d2dc0fa2fb6333f13d532e3f0dbc50",
+        "sha_equal": true,
+        "project_validator": true
+      },
+      "unit_guard": {
+        "unit_count": 6,
+        "distinct_units": true,
+        "self_palindromic_units": [],
+        "repeated_units": false
+      },
+      "discourse_diagnostic": {
+        "participant": "first-person narrator",
+        "adjacent_links": [
+          {
+            "left_index": 0,
+            "right_index": 1,
+            "shared_participant": "I",
+            "connected": true
+          },
+          {
+            "left_index": 1,
+            "right_index": 2,
+            "shared_participant": "I",
+            "connected": true
+          },
+          {
+            "left_index": 2,
+            "right_index": 3,
+            "shared_participant": "I",
+            "connected": true
+          },
+          {
+            "left_index": 3,
+            "right_index": 4,
+            "shared_participant": "I",
+            "connected": true
+          },
+          {
+            "left_index": 4,
+            "right_index": 5,
+            "shared_participant": "I",
+            "connected": true
+          }
+        ],
+        "all_adjacent_units_connected": true,
+        "arc": "three observations followed by three narrator states",
+        "diagnostic_only": true
+      },
+      "shortcut_review": {
+        "repeated_sentence_or_phrase_unit": false,
+        "self_palindromic_sentence_or_phrase_unit": false,
+        "single_letter_carrier": "I",
+        "carrier_role": "ordinary recurring discourse participant",
+        "human_review_required": true
+      },
+      "provenance": {
+        "source": "three freshly authored typed observation/state pairs",
+        "finished_tape_reversal": false,
+        "catalogue_text": false,
+        "posthoc_repair": false,
+        "per_candidate_rlaif": false,
+        "reader_certified": false
+      },
+      "blind_id": "item-03"
+    }
+  ],
+  "reader_instructions": "Rate ordinary English readability and event coherence from 1\u20135. Do not infer exactness. The single-letter narrator carrier is disclosed to the study designer but not highlighted to raters.",
+  "reader_status": "prepared; blinded human ratings not yet collected",
+  "independent_audits": [
+    "local two-pointer walk",
+    "project validator",
+    "forward/reverse SHA-256",
+    "pair-level reverse-tape certificates"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "distinctive_change": "one discourse participant is preserved across every independently authored sentence pair",
+    "not_a_larger_bank_sweep": true
+  },
+  "next_repair": "Hold the 56-letter candidate fixed for blinded comparison against the 38-letter anchor; only add a fourth typed pair if readers accept the inversion and the new pair preserves the same scene."
+}

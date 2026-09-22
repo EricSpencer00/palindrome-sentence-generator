@@ -9055,6 +9055,19 @@ grammar variant.
   readability. The next operator replaces identity-style right clauses with
   discourse-linked answers while preserving the live carriers.
 
+- **First-person discourse ABBA (2026-10-02):** the deterministic connectivity
+  gate rejected both 64/66-letter boundary-carrier rows as disconnected. A
+  smaller typed construction then preserved one first-person narrator across
+  three independently exact observation/state pairs and produced the
+  56-letter candidate “I saw desserts. I saw lager. I saw war. Raw was I.
+  Regal was I. Stressed was I.” The two-pointer walk, project validator,
+  forward/reverse SHA, and pair certificates agree; all six sentence units are
+  distinct and non-self-palindromic. The repeated `I` is explicitly recorded
+  as the ordinary discourse participant, not a repeated generated unit. The
+  output is more connected than the identity-list paragraphs but remains a
+  reader candidate: literary inversion and scene coherence require blinded
+  human ratings. Artifact: `runs/first-person-discourse-abba-20261002.json`.
+
 ## Current orchestration routing (2026-10-02)
 
 GPT-5.6 Sol owns architecture and coordinated direction for this goal.

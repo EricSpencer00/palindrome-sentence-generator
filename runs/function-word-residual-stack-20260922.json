@@ -1,0 +1,149 @@
+{
+  "experiment_id": "function-word-residual-stack-20260922",
+  "decision": "No function-word residual candidate is promoted past the 44-letter readable baseline.",
+  "acceptance_gate": {
+    "exact": true,
+    "minimum_letters_exclusive": 44,
+    "residual_realized_once_as_function_word": true,
+    "complete_clause": true,
+    "agreement": true,
+    "valency": true,
+    "connected_event_links": true,
+    "fresh_content_lemmas": true,
+    "complementary_boundary_mask": true,
+    "proper_span_mask": true,
+    "no_self_or_symmetric_cycles": true,
+    "no_finished_palindromic_units": true,
+    "no_repeated_content": true,
+    "no_catalogue_text": true,
+    "no_fragments": true
+  },
+  "fixed_conditions": {
+    "residuals": ["on", "no", "in", "as"],
+    "equation": "T(x) r = r reverse(T(y))",
+    "stack": "strict LIFO",
+    "brown_phrase_width_words": [1, 5],
+    "maximum_phrase_letters": 24,
+    "minimum_word_frequency": 3,
+    "proper_names": false,
+    "lexical_widening_after_run": false,
+    "morphology_used": false
+  },
+  "raw_frontier": {
+    "path": "artifacts/function-word-residual-stack-20260922/phrase-frontier.json",
+    "sha256": "f790f06570292233f828f4af588b0adad266d1b54b49953d5eab71f543cd5c3e",
+    "inventory": {
+      "chunks": 56766,
+      "word_types": 47213,
+      "accepted_span_occurrences": 1964075,
+      "distinct_tapes": 1485264,
+      "brown_raw_sha256": "0f7e73534a6aa2cabd8a685b5da7108f32a6e31df9b83509e7d8cd99b75a7de4"
+    }
+  },
+  "per_residual_obstruction": [
+    {
+      "residual": "on",
+      "function_role": "preposition",
+      "frontier_supported_y_tapes": 18974,
+      "equation_tape_hits": 17,
+      "fresh_surface_cycles": 29,
+      "carrier_pairs": 63,
+      "grammar_phase": "single-clause PP attachment",
+      "token_cursor": 6,
+      "next_surface": "not set",
+      "expected": "clause end or licensed adjunct",
+      "obstruction": "The mechanically clean 30-letter stack reaches an ordinary on-PP but leaves 'not set' as an unlicensed fragment. The 48-letter continuation clears length and freshness but is rejected earlier by both complementary-boundary and proper-span masks."
+    },
+    {
+      "residual": "no",
+      "function_role": "determiner",
+      "frontier_supported_y_tapes": 19885,
+      "equation_tape_hits": 17,
+      "fresh_surface_cycles": 29,
+      "carrier_pairs": 32,
+      "grammar_phase": "determiner requires fresh nominal head inside a finite or imperative clause",
+      "token_cursor": 0,
+      "next_surface": "no-name/onset/ones families",
+      "expected": "independent subject-predicate spine",
+      "obstruction": "Every exact cycle is confined to the no-name/one-man, no-race/one-car, notes/onset, noise/ones-I, or function-fragment families; none supplies a fresh finite predicate around the single determiner debt."
+    },
+    {
+      "residual": "in",
+      "function_role": "preposition",
+      "frontier_supported_y_tapes": 1131,
+      "equation_tape_hits": 0,
+      "fresh_surface_cycles": 0,
+      "carrier_pairs": 0,
+      "grammar_phase": "cycle entry",
+      "character_cursor": 0,
+      "expected": "typed x phrase for a y tape beginning ni",
+      "obstruction": "No indexed x tape closes even one nonempty in-cycle, so agreement, valency, and event-link phases are unreachable."
+    },
+    {
+      "residual": "as",
+      "function_role": "conjunction or preposition",
+      "frontier_supported_y_tapes": 7505,
+      "equation_tape_hits": 6,
+      "fresh_surface_cycles": 9,
+      "carrier_pairs": 17,
+      "grammar_phase": "second clause or complement after as",
+      "token_cursor": 3,
+      "next_surface": "saw on/say at/sat on",
+      "expected": "fresh subject plus agreeing finite predicate, or licensed NP complement",
+      "obstruction": "The bounded exact families pair as-not/as-now/a-stay/as-at with sat-on/saw-on/say-at/sat-a; they expose VP fragments rather than two complete linked clauses and repeat content when stacked to useful length."
+    }
+  ],
+  "diagnostics": [
+    {
+      "id": "on_short_clean_but_fragment",
+      "rendered": "Test onset ones on nose notes not set.",
+      "letters": 30,
+      "sha256": "668ce2c814ba9a3285ba43da3e5911f5e862479b677ca9ff49872a7c9bbd4add",
+      "exact": true,
+      "residual_surface_count": 1,
+      "lifo_pop_order": [["nose"], ["notes"]],
+      "fresh_content": true,
+      "complementary_boundary_mask": true,
+      "proper_span_mask": true,
+      "failed_gates": ["minimum_letters_exclusive", "complete_clause", "connected_event_links"]
+    },
+    {
+      "id": "on_long_mask_failure",
+      "rendered": "Trap at one most onset ones on nose notes not some not a part.",
+      "letters": 48,
+      "sha256": "2a33e8ddb1a6dea334fad4ebbfaa358ffe3f38b4e0110f0f5846385306ff8888",
+      "exact": true,
+      "residual_surface_count": 1,
+      "stack_pushes_outer_to_inner": [
+        {"x": ["one", "most"], "y": ["not", "some"], "equation_holds": true},
+        {"x": ["onset"], "y": ["notes"], "equation_holds": true},
+        {"x": ["ones"], "y": ["nose"], "equation_holds": true}
+      ],
+      "lifo_pop_order": [["nose"], ["notes"], ["not", "some"]],
+      "fresh_content": true,
+      "complementary_boundary_mask": {
+        "passes": false,
+        "forbidden_internal_character_cursors": [4]
+      },
+      "proper_span_mask": {
+        "passes": false,
+        "forbidden_word_span": [1, 13]
+      },
+      "failed_gates": ["complementary_boundary_mask", "proper_span_mask", "complete_clause", "connected_event_links"]
+    }
+  ],
+  "accepted_candidates": [],
+  "reader_gate": {
+    "status": "closed",
+    "reason": "No exact item clears the structural and grammar gates before human reading."
+  },
+  "verdict": "Park this bounded function-word register; do not widen the residual or lexicon set.",
+  "provenance": {
+    "host": "hst-bench",
+    "python": "3.12.3",
+    "source_sha256": "3f4e3046e78bd18dd04b7291376b89c36f0aabf5106dac73d1d5b39f7473e973",
+    "finished_tape_reversal": false,
+    "posthoc_repair": false,
+    "catalogue_text": false
+  }
+}

@@ -8934,16 +8934,17 @@ grammar variant.
   copular seams keep it outside the readability gate. Artifact:
   `runs/typed-phrase-graph-noel-war-window-edit-20260930.json`.
 
-- **Full-word-span ABBA boundary (2026-10-01):** a new operator made the
-  final words of A1 and B1 variables in the same state as B2's opening word,
-  then required that opening to consume the complete live reverse-residual
-  word, including its final character. It enumerated 80,640 ordinary,
-  four-sentence scene combinations. Zero passed the full-word gate and zero
-  exact candidates above 38 letters; the deepest residual supported one
-  character. Every rejected probe retains rendered prose, roles, two-pointer
-  audit, project-validator result, forward/reverse SHA values, and the next
-  complete-word residual. This is a distinct constructive failure, not a
-  readability claim. Artifact: `runs/abba-full-word-span-20261001.json`;
-  generator: `experiments/abba_full_word_span_20261001.py`. Next: use the
-  held-out complete residual words as B2 openings while jointly varying B2's
-  final word and A2's inflection.
+- **Full-word-span ABBA boundary (2026-10-01):** a corrected operator made
+  the final words of A1 and B1 variables in the same state as B2's opening
+  word, recovered word spans from the assembled tape, and required the
+  opening to consume the complete live reverse-residual word, including its
+  final character. It reran exactly 80,640 four-sentence combinations:
+  5,760 passed the word-span gate, but none were exact above 38 letters. The
+  compatible rows necessarily expose semordnilap debt (for example, `live`
+  is paired with an `evil` terminal), so they are mechanical boundary
+  controls, not reader-worthy outputs. Every probe retains rendered prose,
+  roles, two-pointer/project-validator/SHA audits, and span metadata. Artifact:
+  `runs/abba-full-word-span-20261001.json`; generator:
+  `experiments/abba_full_word_span_20261001.py`. Next: replace the
+  semordnilap-compatible terminal bank with held-out ordinary inflectional
+  word spans while retaining this non-tautological gate.

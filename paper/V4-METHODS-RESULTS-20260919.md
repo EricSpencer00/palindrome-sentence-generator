@@ -135,6 +135,50 @@ small exact state space rather than repaired by RLAIF after generation. The
 authored 560 row remains the longer surface control, but neither central row is
 promoted until the proper-span audit passes.
 
+### Asymmetric center repair and obstruction
+
+The next repair widens the center asymmetrically rather than substituting
+another closed palindrome. At raw window `[357,403)` of the 550 parent, the
+frozen prefix has five unmatched letters, owner `L`, residual `smaps`. The
+authored non-palindromic window “Pansy snaps. Pam's” solves
+
+```text
+smaps + pansysnapspams = smapspansysnapspams
+```
+
+and yields a 531-letter exact child, SHA-256
+`69a586613709e0867c702b2c20401e5c7226165d5218d65a49eaaf69d9ae6002`.
+All four introduced token boundaries are staggered under reflection. An
+exhaustive token-boundary audit finds no proper palindrome anchored at any of
+them: the repair removes all four proper spans created by the old
+diaper/repaid window and creates none. The full candidate's count falls from
+67 to 63 proper spans.
+
+The remaining failure has an exact proof. Let `w` be any replacement in this
+window. The frozen tapes imply that whole-string exactness is equivalent to
+`smaps + w` being a palindrome. But the frozen left context ends with
+`deliver|s maps`, while the frozen right context begins with `reviled`, and
+`reverse(reviled) = deliver`. Therefore every exact `w` forces the proper
+token-aligned palindrome
+
+```text
+delivers maps + w + reviled.
+```
+
+A 16-derivation typed feature product confirms the theorem operationally: one
+window is exact, finite, non-palindromic, and locally span-clean, but zero rows
+pass the whole-candidate proper-span gate. The next representation change is
+thus the one-sided through-EOF window, raw `[357,768)`, normalized `[261,550)`,
+which removes the frozen right endpoint responsible for the theorem. Keeping
+the full output above 530 requires at least 270 generated letters. A separate
+outer causal replacement reaches 568 exact letters, but it inherits 65 proper
+spans and is retained only as a permissive length control, not a result claim.
+
+Evidence:
+`experiments/incumbent_550_asymmetric_smaps_repair_20261002.py`,
+`runs/incumbent-550-asymmetric-smaps-repair-20261002.json`, and
+`runs/incumbent-560-outer-causal-scene-20261002.json`.
+
 Reproducible evidence is in
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
 `runs/incumbent-498-live-seam-growth-20261002.json`, followed by

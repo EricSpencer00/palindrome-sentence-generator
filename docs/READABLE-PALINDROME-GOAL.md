@@ -94,6 +94,25 @@ Its `a|rat` / `Tara` seam leaves residual `rat` before the noun closes it.
 This is method evidence and a diverse frontier alternative; the clearer,
 longer 560 row remains a permissive working child, not a final incumbent.
 
+The widened asymmetric repair makes measurable shortcut progress. In the
+550 parent, the frozen sides leave owner `L`, residual `smaps`, around raw
+window `[357,403)`. The non-palindromic window “Pansy snaps. Pam's” solves
+`smaps + pansysnapspams`, producing a 531-letter exact child (SHA-256
+`69a586613709e0867c702b2c20401e5c7226165d5218d65a49eaaf69d9ae6002`).
+The parent has 67 proper multiword palindromic spans; this child has 63. It
+removes all four spans created by the old diaper/repaid window and creates
+zero at its new token boundaries.
+
+The fixed window cannot reach global admission. Because the frozen left side
+ends in `deliver|s maps` and the frozen right side begins with `reviled`, every
+exact solution of `smaps + window` forces an enclosing proper palindrome
+`delivers maps + window + reviled`. This is an inventory-independent
+obstruction, not another sparse-search claim. The next editable state is the
+one-sided through-EOF window, raw `[357,768)`, normalized `[261,550)`, with a
+minimum 270-letter replacement to keep the whole above 530. A separate outer
+causal scene reaches 568 exact letters but inherits 65 proper spans and is
+therefore preserved only as a permissive length control.
+
 Evidence:
 `experiments/incumbent_498_live_seam_growth_20261002.py` and
 `runs/incumbent-498-live-seam-growth-20261002.json`, followed by
@@ -108,7 +127,11 @@ Evidence:
 `experiments/incumbent_550_central_event_bridge_20261002.py` and
 `runs/incumbent-550-central-event-bridge-20261002.json`. The typed-product
 ablation is in `experiments/incumbent_550_typed_center_product_20261002.py`
-and `runs/incumbent-550-typed-center-product-20261002.json`.
+and `runs/incumbent-550-typed-center-product-20261002.json`. The asymmetric
+repair and obstruction are in
+`experiments/incumbent_550_asymmetric_smaps_repair_20261002.py` and
+`runs/incumbent-550-asymmetric-smaps-repair-20261002.json`; the rejected outer
+length control is in `runs/incumbent-560-outer-causal-scene-20261002.json`.
 
 Sol owns this pivot. No Astra or non-Sol agent is used. Human studies remain
 required before a readability claim, but they are not a prerequisite for

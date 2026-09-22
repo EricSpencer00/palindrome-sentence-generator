@@ -1,0 +1,295 @@
+{
+  "decision": {
+    "emit_blinded_variant_packet": false,
+    "preserve_new_rendering": false,
+    "reason": "No enumerated rendering is both nonfragmentary and ordinary English under the frozen-token policy."
+  },
+  "experiment_id": "fixed-tape-surface-lattice-20260922",
+  "ranking_policy": "diagnostic closeness to a complete parse only; never a readability score or certification",
+  "scope": "closed punctuation/capitalization audit of exactly two fixed tapes; no generation, lexical search, or resegmentation",
+  "surface_policy": {
+    "allowed": "punctuation between frozen tokens and sentence-initial capitalization",
+    "disallowed": [
+      "proper-name rescue",
+      "quotation or borrowed-text reading",
+      "fragment or ellipsis",
+      "punctuation that hides a forbidden span",
+      "implied lexical material",
+      "hyphenation that invents a compound lexeme"
+    ]
+  },
+  "targets": [
+    {
+      "current_rendering": "No trace. Note: Spot spoons; snoop; stop. Set one carton.",
+      "expected_sha256": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+      "frozen_word_tokens": [
+        "no",
+        "trace",
+        "note",
+        "spot",
+        "spoons",
+        "snoop",
+        "stop",
+        "set",
+        "one",
+        "carton"
+      ],
+      "global_parse_obstruction": "With the tokens frozen, a boundary after 'trace' strands 'No trace' as a minor sentence, heading, or elliptical question. Without that boundary, 'note' cannot be the finite predicate of singular 'No trace' (it would be 'notes'); later finite-verb assignments leave agreement or complement debris.",
+      "materially_clearer_nonfragmentary_variant": null,
+      "normalized_tape": "notracenotespotspoonssnoopstopsetonecarton",
+      "source_id": "target-42",
+      "variants": [
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 42,
+            "sha256_forward": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "sha256_reverse": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 1,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "The determiner phrase 'No trace' has no finite predicate. Treating it as a complete utterance is exactly the fragment reading excluded here.",
+          "ordinary_english_parse_attempt": "[NP no trace] (minor-sentence fragment); [imperative note: [imperative spot [NP spoons]]; [imperative snoop]; [imperative stop]]; [imperative set [NP one carton]].",
+          "parse_status": "fragmentary",
+          "reader_certified": false,
+          "rendering": "No trace. Note: Spot spoons; snoop; stop. Set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "42-current"
+        },
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 42,
+            "sha256_forward": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "sha256_reverse": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 2,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "A semicolon cannot coordinate the bare NP 'No trace' as a clause; supplying 'leave' or 'make' would add lexical material.",
+          "ordinary_english_parse_attempt": "[NP no trace] coordinated with four imperative VPs: note, spot spoons, snoop, stop, and set one carton.",
+          "parse_status": "fragmentary",
+          "reader_certified": false,
+          "rendering": "No trace; note: spot spoons; snoop; stop; set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "42-command-list"
+        },
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 42,
+            "sha256_forward": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "sha256_reverse": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 3,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "'No trace?' is an elliptical question (for example, 'Is there no trace?'), not a finite interrogative clause.",
+          "ordinary_english_parse_attempt": "[interrogative NP no trace]? followed by an imperative list.",
+          "parse_status": "ellipsis",
+          "reader_certified": false,
+          "rendering": "No trace? Note: spot spoons; snoop; stop; set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "42-question-opening"
+        },
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 42,
+            "sha256_forward": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "sha256_reverse": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 4,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "The colon turns 'No trace' into a heading, not a clause; 'spot spoons' also requires a coerced compound-object reading.",
+          "ordinary_english_parse_attempt": "[heading NP no trace]: [imperative note [NP spot spoons]]; [imperative snoop]; [imperative stop]; [imperative set [NP one carton]].",
+          "parse_status": "fragmentary",
+          "reader_certified": false,
+          "rendering": "No trace: note spot spoons; snoop; stop; set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "42-heading-opening"
+        },
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 42,
+            "sha256_forward": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "sha256_reverse": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 5,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "The singular head 'note' requires 'spots', not 'spot'; reading 'spot' as a noun leaves 'No trace note spot' as an NP fragment.",
+          "ordinary_english_parse_attempt": "Attempted [clause [NP no trace note] [VP spot]]; [clause spoons snoop]; then two imperatives.",
+          "parse_status": "agreement_failure",
+          "reader_certified": false,
+          "rendering": "No trace note spot. Spoons snoop; stop; set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "42-attached-opening"
+        },
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 42,
+            "sha256_forward": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "sha256_reverse": "1013004f658bdefeaaf7dea69c6d90a5d2c53381dbb5d7290ab7b25a8e5de1c3",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 6,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "The standalone answer particle depends on an unexpressed question, so this rendering still relies on ellipsis.",
+          "ordinary_english_parse_attempt": "[answer particle no], [imperative trace [NP note spot]]; [clause spoons snoop]; [imperative stop]; [imperative set [NP one carton]].",
+          "parse_status": "ellipsis",
+          "reader_certified": false,
+          "rendering": "No, trace note spot; spoons snoop; stop; set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "42-no-particle"
+        }
+      ]
+    },
+    {
+      "current_rendering": "No trace. Note sleet. Spoons snoop. Steel? Set one carton.",
+      "expected_sha256": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+      "frozen_word_tokens": [
+        "no",
+        "trace",
+        "note",
+        "sleet",
+        "spoons",
+        "snoop",
+        "steel",
+        "set",
+        "one",
+        "carton"
+      ],
+      "global_parse_obstruction": "The opening obstruction is the same as for the 42-letter tape. The later material adds a second invariant: separating 'steel' makes it a noun fragment/elliptical question, while attaching it after 'snoop' violates that verb's ordinary valency.",
+      "materially_clearer_nonfragmentary_variant": null,
+      "normalized_tape": "notracenotesleetspoonssnoopsteelsetonecarton",
+      "source_id": "target-44",
+      "variants": [
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 44,
+            "sha256_forward": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "sha256_reverse": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 1,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "Both 'No trace.' and 'Steel?' lack finite predicates; the latter expands only by silently supplying words such as 'Is it'.",
+          "ordinary_english_parse_attempt": "[NP no trace] (minor-sentence fragment); [imperative note [NP sleet]]; [clause [NP spoons] [VP snoop]]; [interrogative NP steel]?; [imperative set [NP one carton]].",
+          "parse_status": "fragmentary",
+          "reader_certified": false,
+          "rendering": "No trace. Note sleet. Spoons snoop. Steel? Set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "44-current"
+        },
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 44,
+            "sha256_forward": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "sha256_reverse": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 2,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "The first and fourth units are bare NPs, not clauses; semicolons do not supply predicates.",
+          "ordinary_english_parse_attempt": "[NP no trace]; [imperative note sleet]; [clause spoons snoop]; [NP steel]; [imperative set one carton].",
+          "parse_status": "fragmentary",
+          "reader_certified": false,
+          "rendering": "No trace; note sleet; spoons snoop; steel; set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "44-command-list"
+        },
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 44,
+            "sha256_forward": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "sha256_reverse": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 3,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "The opening remains a heading fragment, and ordinary 'snoop' does not license the direct object 'steel' without a preposition.",
+          "ordinary_english_parse_attempt": "[heading NP no trace]: [imperative note sleet]; attempted [clause spoons [VP snoop [NP steel]]]; [imperative set one carton].",
+          "parse_status": "valency_failure",
+          "reader_certified": false,
+          "rendering": "No trace: note sleet; spoons snoop steel; set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "44-object-attachment"
+        },
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 44,
+            "sha256_forward": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "sha256_reverse": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 4,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "The first unit is an elliptical question and 'Steel:' is a noun heading, not an argument of the following imperative.",
+          "ordinary_english_parse_attempt": "[interrogative NP no trace]?; [imperative note sleet]; [clause spoons snoop]; [heading NP steel]: [imperative set one carton].",
+          "parse_status": "ellipsis",
+          "reader_certified": false,
+          "rendering": "No trace? Note sleet; spoons snoop. Steel: set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "44-question-opening"
+        },
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 44,
+            "sha256_forward": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "sha256_reverse": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 5,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "Singular 'note' requires 'sleets'; independently, 'snoop' does not take bare 'steel' as a direct object.",
+          "ordinary_english_parse_attempt": "Attempted [clause [NP no trace note] [VP sleet]]; attempted [clause spoons [VP snoop steel]]; [imperative set one carton].",
+          "parse_status": "agreement_and_valency_failure",
+          "reader_certified": false,
+          "rendering": "No trace note sleet. Spoons snoop steel; set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "44-attached-opening"
+        },
+        {
+          "audit": {
+            "first_mismatch": null,
+            "letters": 44,
+            "sha256_forward": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "sha256_reverse": "96462b7bc06958668e9d13d13ebd0b63e4f682a51939c5bc34d7aa230d39b104",
+            "two_pointer_exact": true
+          },
+          "diagnostic_rank": 6,
+          "eligible_for_blinded_packet": false,
+          "exact_parse_obstruction": "The opening is fragmentary, 'sleet spoons' is not an ordinary subject, and capitalizing 'Steel' as a vocative creates the prohibited proper-name rescue.",
+          "ordinary_english_parse_attempt": "[NP no trace]; [imperative note [clause sleet spoons snoop]]; [vocative Steel], [imperative set one carton].",
+          "parse_status": "proper_name_and_fragment",
+          "reader_certified": false,
+          "rendering": "No trace; note sleet spoons snoop. Steel, set one carton.",
+          "same_frozen_word_tokens": true,
+          "same_normalized_tape": true,
+          "variant_id": "44-vocative-steel"
+        }
+      ]
+    }
+  ]
+}

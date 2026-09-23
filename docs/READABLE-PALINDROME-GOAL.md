@@ -19,6 +19,32 @@ carry live character ownership; do not resume that lexical slot sweep. Keep
 the paper and API gated, and do not claim human readability without blinded
 reader evidence.
 
+### Untouched outer-seam event resegmentation (2026-09-23)
+
+The next 568-lineage edit replaced normalized span `[0,20)` / `[548,568)`
+(`Leon won. Wolf spots Nora.` / `Aron stops flow now, Noel.`) and retained the
+528-letter middle verbatim. The first authored replacement was **“Iris spots
+a rat. Ari saw a ram.”** / **“Mara was Ira. Tara stops Siri.”** It gives a
+574-letter child, exact by an independent two-pointer scan, the project
+validator, and matching forward/reverse SHA-256 (`38e5e026…3125`). A same-seam
+repair changed the identity-style clauses to **“Iris spots a yak. Ari stops a
+hen.”** / **“Neha spots Ira. Kaya stops Siri.”** The repaired child is 578
+letters and has SHA-256
+`ced52c6e23a246bf83fbd1698698f6b5d7e41b5f56ce27dcd059123c436dead2`; both
+surfaces close through an explicit 25-character residual. Full renderings and
+per-character ledgers are in
+[`runs/incumbent-568-outer-event-resegmentation-20260923.json`](../runs/incumbent-568-outer-event-resegmentation-20260923.json).
+
+This is only a ten-letter construction gain. The repaired outer shell still
+contains paired reversible lexical chunks, and its four events do not yet form
+reader-worthy connected prose. Keep it as exact construction evidence, not as
+readable success. A longer 580 proposal was rejected because all six tokens
+paired one-for-one under reversal and it reused a prior `Nadia spots Nora`
+clause. The next action changes to the untried actual parent seam
+`[20,48)` / `[520,548)` and seeks a connected, non-tokenwise event topology;
+only a repaired candidate should enter randomized blinded ratings against
+intact and shuffled controls.
+
 ## Preserved 752-lineage status snapshot (2026-09-23)
 
 This snapshot records a longer comparison branch; the active edit target is

@@ -1,0 +1,1464 @@
+{
+  "experiment_id": "incumbent-672-discourse-linked-reverse-chain-20260922",
+  "method": "online typed left four-event chain with reverse-character residual/right chain grammar",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "id": "outer-causal-scene-568-working-incumbent",
+    "letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "seam": {
+    "normalized_cuts": [
+      48,
+      520
+    ],
+    "raw_boundaries": [
+      62,
+      722
+    ],
+    "fresh_complete_boundary": true
+  },
+  "novelty_snapshot": {
+    "artifact": "runs/incumbent-672-global-novelty-snapshot-20260922.json",
+    "snapshot_id": "incumbent-672-global-novelty-snapshot-20260922",
+    "snapshot_commit": "5c2576e2a98db331ab0f90540119cacecde2ef07",
+    "file_count": 2633,
+    "total_bytes": 692638944,
+    "manifest_sha256": "ee1d4ee8782c6f4a2ac51fa662a79e4ac70e2509cd52c62c212345c3bc319155",
+    "scope": "tracked runs/**/*.json; full JSON text, including rendered strings, rejected rows, and failed attempt_rendered fields",
+    "descendants_scanned_for_global_novelty": true,
+    "descendants_counted_as_568_parent_evidence": false
+  },
+  "config": {
+    "chain_length": 4,
+    "online_right_residual": true,
+    "complete_boundary_seam": true,
+    "reject_prior_edges": true,
+    "reject_repeated_clauses": true,
+    "reject_self_palindromic_clauses": true,
+    "max_attempt_records": 256
+  },
+  "stats": {
+    "independently_exact_children": 1,
+    "longest_letters": 672,
+    "states_examined": 9273,
+    "attempted_paths": 35,
+    "accepted_paths": 1
+  },
+  "rows": [
+    {
+      "id": "discourse-linked-reverse-chain-672",
+      "working_status": "exact_candidate_novel_connected_four_event_chain",
+      "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "audit": {
+        "normalized_letters": 672,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee",
+        "sha256_reverse": "ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee",
+        "sha_equal": true,
+        "project_validator_exact": true
+      },
+      "independent_audit": {
+        "normalized_letters": 672,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee",
+        "sha256_reverse": "ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee",
+        "sha_equal": true,
+        "project_validator_exact": true
+      },
+      "parent_artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+      "parent_id": "outer-causal-scene-568-working-incumbent",
+      "parent_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+      "growth_over_parent": 104,
+      "seam": {
+        "normalized_cuts": [
+          48,
+          520
+        ],
+        "raw_boundaries": [
+          62,
+          722
+        ],
+        "complete_sentence_boundaries": true,
+        "inserted_left_letters": 52,
+        "inserted_right_letters": 52
+      },
+      "source_composition": {
+        "parent_outside_seam_byte_for_byte": true,
+        "prefix_sha256": "dcca7ea4dacea688cf482510efd8cc3cc245b1247920d4b826be156e03d9bfa3",
+        "middle_sha256": "fd0535620fbdb1515bb9db88b228ae612b0403696218f6c539971048acdc3fc8",
+        "suffix_sha256": "bc2ce0f2795dcb878858340f2a0aa811f394bf2295353c2bcee65f1c630d7266",
+        "left_inserted_surface": "Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora.",
+        "right_inserted_surface": "Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron."
+      },
+      "left_chain": [
+        {
+          "surface": "Nora stops Leon.",
+          "frame": "nora|stops|leon",
+          "relation": "nora stops leon"
+        },
+        {
+          "surface": "Leon stops Nora.",
+          "frame": "leon|stops|nora",
+          "relation": "leon stops nora"
+        },
+        {
+          "surface": "Nora stops Noel.",
+          "frame": "nora|stops|noel",
+          "relation": "nora stops noel"
+        },
+        {
+          "surface": "Noel spots Nora.",
+          "frame": "noel|spots|nora",
+          "relation": "noel spots nora"
+        }
+      ],
+      "right_chain_rendered_order": [
+        {
+          "surface": "Aron stops Leon.",
+          "frame": "aron|stops|leon",
+          "relation": "aron stops leon"
+        },
+        {
+          "surface": "Leon spots Aron.",
+          "frame": "leon|spots|aron",
+          "relation": "leon spots aron"
+        },
+        {
+          "surface": "Aron spots Noel.",
+          "frame": "aron|spots|noel",
+          "relation": "aron spots noel"
+        },
+        {
+          "surface": "Noel spots Aron.",
+          "frame": "noel|spots|aron",
+          "relation": "noel spots aron"
+        }
+      ],
+      "online_search": {
+        "states_examined": 9273,
+        "attempt_count": 35,
+        "accepted_depth": 4,
+        "residual_traces": [
+          {
+            "depth": 0,
+            "left": "nora|stops|leon",
+            "right_discovered": "noel|spots|aron",
+            "residual": {
+              "left_tape": "norastopsleon",
+              "trace": [
+                {
+                  "offset": 0,
+                  "emitted": "n",
+                  "expected_choices": [
+                    "a",
+                    "l",
+                    "m",
+                    "n"
+                  ],
+                  "frontier_before": 300,
+                  "frontier_after": 90,
+                  "matched": true
+                },
+                {
+                  "offset": 1,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "a",
+                    "o"
+                  ],
+                  "frontier_before": 90,
+                  "frontier_after": 60,
+                  "matched": true
+                },
+                {
+                  "offset": 2,
+                  "emitted": "r",
+                  "expected_choices": [
+                    "e",
+                    "r"
+                  ],
+                  "frontier_before": 60,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 3,
+                  "emitted": "a",
+                  "expected_choices": [
+                    "a"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 4,
+                  "emitted": "s",
+                  "expected_choices": [
+                    "s"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 5,
+                  "emitted": "t",
+                  "expected_choices": [
+                    "e",
+                    "p",
+                    "t"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 6,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "o"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 7,
+                  "emitted": "p",
+                  "expected_choices": [
+                    "p"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 8,
+                  "emitted": "s",
+                  "expected_choices": [
+                    "s"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 9,
+                  "emitted": "l",
+                  "expected_choices": [
+                    "a",
+                    "l",
+                    "m",
+                    "n"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 1,
+                  "matched": true
+                },
+                {
+                  "offset": 10,
+                  "emitted": "e",
+                  "expected_choices": [
+                    "e"
+                  ],
+                  "frontier_before": 1,
+                  "frontier_after": 1,
+                  "matched": true
+                },
+                {
+                  "offset": 11,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "o"
+                  ],
+                  "frontier_before": 1,
+                  "frontier_after": 1,
+                  "matched": true
+                },
+                {
+                  "offset": 12,
+                  "emitted": "n",
+                  "expected_choices": [
+                    "n"
+                  ],
+                  "frontier_before": 1,
+                  "frontier_after": 1,
+                  "matched": true
+                }
+              ],
+              "terminal_count": 1,
+              "object_constraint": null
+            }
+          },
+          {
+            "depth": 1,
+            "left": "leon|stops|nora",
+            "right_discovered": "aron|spots|noel",
+            "residual": {
+              "left_tape": "leonstopsnora",
+              "trace": [
+                {
+                  "offset": 0,
+                  "emitted": "l",
+                  "expected_choices": [
+                    "l"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 1,
+                  "emitted": "e",
+                  "expected_choices": [
+                    "e"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 2,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "o"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 3,
+                  "emitted": "n",
+                  "expected_choices": [
+                    "n"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 4,
+                  "emitted": "s",
+                  "expected_choices": [
+                    "s"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 5,
+                  "emitted": "t",
+                  "expected_choices": [
+                    "e",
+                    "p",
+                    "t"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 6,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "o"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 7,
+                  "emitted": "p",
+                  "expected_choices": [
+                    "p"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 8,
+                  "emitted": "s",
+                  "expected_choices": [
+                    "s"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 9,
+                  "emitted": "n",
+                  "expected_choices": [
+                    "a",
+                    "l",
+                    "m",
+                    "n"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 3,
+                  "matched": true
+                },
+                {
+                  "offset": 10,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "a",
+                    "o"
+                  ],
+                  "frontier_before": 3,
+                  "frontier_after": 2,
+                  "matched": true
+                },
+                {
+                  "offset": 11,
+                  "emitted": "r",
+                  "expected_choices": [
+                    "e",
+                    "r"
+                  ],
+                  "frontier_before": 2,
+                  "frontier_after": 1,
+                  "matched": true
+                },
+                {
+                  "offset": 12,
+                  "emitted": "a",
+                  "expected_choices": [
+                    "a"
+                  ],
+                  "frontier_before": 1,
+                  "frontier_after": 1,
+                  "matched": true
+                }
+              ],
+              "terminal_count": 1,
+              "object_constraint": "Noel"
+            }
+          },
+          {
+            "depth": 2,
+            "left": "nora|stops|noel",
+            "right_discovered": "leon|spots|aron",
+            "residual": {
+              "left_tape": "norastopsnoel",
+              "trace": [
+                {
+                  "offset": 0,
+                  "emitted": "n",
+                  "expected_choices": [
+                    "n"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 1,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "o"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 2,
+                  "emitted": "r",
+                  "expected_choices": [
+                    "r"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 3,
+                  "emitted": "a",
+                  "expected_choices": [
+                    "a"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 4,
+                  "emitted": "s",
+                  "expected_choices": [
+                    "s"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 5,
+                  "emitted": "t",
+                  "expected_choices": [
+                    "e",
+                    "p",
+                    "t"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 6,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "o"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 7,
+                  "emitted": "p",
+                  "expected_choices": [
+                    "p"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 8,
+                  "emitted": "s",
+                  "expected_choices": [
+                    "s"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 9,
+                  "emitted": "n",
+                  "expected_choices": [
+                    "a",
+                    "l",
+                    "m",
+                    "n"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 3,
+                  "matched": true
+                },
+                {
+                  "offset": 10,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "a",
+                    "o"
+                  ],
+                  "frontier_before": 3,
+                  "frontier_after": 2,
+                  "matched": true
+                },
+                {
+                  "offset": 11,
+                  "emitted": "e",
+                  "expected_choices": [
+                    "e",
+                    "r"
+                  ],
+                  "frontier_before": 2,
+                  "frontier_after": 1,
+                  "matched": true
+                },
+                {
+                  "offset": 12,
+                  "emitted": "l",
+                  "expected_choices": [
+                    "l"
+                  ],
+                  "frontier_before": 1,
+                  "frontier_after": 1,
+                  "matched": true
+                }
+              ],
+              "terminal_count": 1,
+              "object_constraint": "Aron"
+            }
+          },
+          {
+            "depth": 3,
+            "left": "noel|spots|nora",
+            "right_discovered": "aron|stops|leon",
+            "residual": {
+              "left_tape": "noelspotsnora",
+              "trace": [
+                {
+                  "offset": 0,
+                  "emitted": "n",
+                  "expected_choices": [
+                    "n"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 1,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "o"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 2,
+                  "emitted": "e",
+                  "expected_choices": [
+                    "e"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 3,
+                  "emitted": "l",
+                  "expected_choices": [
+                    "l"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 4,
+                  "emitted": "s",
+                  "expected_choices": [
+                    "s"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 30,
+                  "matched": true
+                },
+                {
+                  "offset": 5,
+                  "emitted": "p",
+                  "expected_choices": [
+                    "e",
+                    "p",
+                    "t"
+                  ],
+                  "frontier_before": 30,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 6,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "o"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 7,
+                  "emitted": "t",
+                  "expected_choices": [
+                    "t"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 8,
+                  "emitted": "s",
+                  "expected_choices": [
+                    "s"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 10,
+                  "matched": true
+                },
+                {
+                  "offset": 9,
+                  "emitted": "n",
+                  "expected_choices": [
+                    "a",
+                    "l",
+                    "m",
+                    "n"
+                  ],
+                  "frontier_before": 10,
+                  "frontier_after": 3,
+                  "matched": true
+                },
+                {
+                  "offset": 10,
+                  "emitted": "o",
+                  "expected_choices": [
+                    "a",
+                    "o"
+                  ],
+                  "frontier_before": 3,
+                  "frontier_after": 2,
+                  "matched": true
+                },
+                {
+                  "offset": 11,
+                  "emitted": "r",
+                  "expected_choices": [
+                    "e",
+                    "r"
+                  ],
+                  "frontier_before": 2,
+                  "frontier_after": 1,
+                  "matched": true
+                },
+                {
+                  "offset": 12,
+                  "emitted": "a",
+                  "expected_choices": [
+                    "a"
+                  ],
+                  "frontier_before": 1,
+                  "frontier_after": 1,
+                  "matched": true
+                }
+              ],
+              "terminal_count": 1,
+              "object_constraint": "Leon"
+            }
+          }
+        ],
+        "attempts": [
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|stops|nora"
+            ],
+            "right_chain": [
+              "aron|spots|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|stops|leon"
+            ],
+            "right_chain": [
+              "noel|spots|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|stops|noel"
+            ],
+            "right_chain": [
+              "leon|spots|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|stops|mara"
+            ],
+            "right_chain": [
+              "aram|spots|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|stops|aram"
+            ],
+            "right_chain": [
+              "mara|spots|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|stops|nadia"
+            ],
+            "right_chain": [
+              "aidan|spots|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|stops|aidan"
+            ],
+            "right_chain": [
+              "nadia|spots|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_residual",
+            "depth": 3,
+            "left_state": "aron|stops|liam",
+            "left_tape": "aronstopsliam",
+            "object_constraint": "Nora",
+            "cursor": {
+              "left": 87,
+              "right_reverse": 480
+            },
+            "residual_trace": []
+          },
+          {
+            "status": "rejected_residual",
+            "depth": 3,
+            "left_state": "aron|stops|ira",
+            "left_tape": "aronstopsira",
+            "object_constraint": "Nora",
+            "cursor": {
+              "left": 87,
+              "right_reverse": 480
+            },
+            "residual_trace": []
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|spots|nora"
+            ],
+            "right_chain": [
+              "aron|stops|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "spots",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|spots|leon"
+            ],
+            "right_chain": [
+              "noel|stops|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "spots",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|spots|noel"
+            ],
+            "right_chain": [
+              "leon|stops|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": false,
+            "novel_relations": false,
+            "predicate_families": [
+              "spots",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|spots|mara"
+            ],
+            "right_chain": [
+              "aram|stops|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "spots",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|spots|aram"
+            ],
+            "right_chain": [
+              "mara|stops|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "spots",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|spots|nadia"
+            ],
+            "right_chain": [
+              "aidan|stops|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "spots",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|spots|aidan"
+            ],
+            "right_chain": [
+              "nadia|stops|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "spots",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_residual",
+            "depth": 3,
+            "left_state": "aron|spots|liam",
+            "left_tape": "aronspotsliam",
+            "object_constraint": "Nora",
+            "cursor": {
+              "left": 87,
+              "right_reverse": 480
+            },
+            "residual_trace": []
+          },
+          {
+            "status": "rejected_residual",
+            "depth": 3,
+            "left_state": "aron|spots|ira",
+            "left_tape": "aronspotsira",
+            "object_constraint": "Nora",
+            "cursor": {
+              "left": 87,
+              "right_reverse": 480
+            },
+            "residual_trace": []
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|sees|leon"
+            ],
+            "right_chain": [
+              "noel|sees|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "sees",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|sees|noel"
+            ],
+            "right_chain": [
+              "leon|sees|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "sees",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|sees|mara"
+            ],
+            "right_chain": [
+              "aram|sees|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "sees",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|sees|aram"
+            ],
+            "right_chain": [
+              "mara|sees|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "sees",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|sees|nadia"
+            ],
+            "right_chain": [
+              "aidan|sees|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "sees",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|aron",
+              "aron|sees|aidan"
+            ],
+            "right_chain": [
+              "nadia|sees|nora",
+              "nora|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "sees",
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_residual",
+            "depth": 3,
+            "left_state": "aron|sees|liam",
+            "left_tape": "aronseesliam",
+            "object_constraint": "Nora",
+            "cursor": {
+              "left": 87,
+              "right_reverse": 480
+            },
+            "residual_trace": []
+          },
+          {
+            "status": "rejected_residual",
+            "depth": 3,
+            "left_state": "aron|sees|ira",
+            "left_tape": "aronseesira",
+            "object_constraint": "Nora",
+            "cursor": {
+              "left": 87,
+              "right_reverse": 480
+            },
+            "residual_trace": []
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|noel",
+              "noel|stops|nora"
+            ],
+            "right_chain": [
+              "aron|spots|leon",
+              "leon|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": true,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|noel",
+              "noel|stops|leon"
+            ],
+            "right_chain": [
+              "noel|spots|leon",
+              "leon|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": true,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|noel",
+              "noel|stops|aron"
+            ],
+            "right_chain": [
+              "nora|spots|leon",
+              "leon|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": true,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|noel",
+              "noel|stops|mara"
+            ],
+            "right_chain": [
+              "aram|spots|leon",
+              "leon|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": true,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|noel",
+              "noel|stops|aram"
+            ],
+            "right_chain": [
+              "mara|spots|leon",
+              "leon|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|noel",
+              "noel|stops|nadia"
+            ],
+            "right_chain": [
+              "aidan|spots|leon",
+              "leon|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": true,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_chain_gate",
+            "left_chain": [
+              "nora|stops|leon",
+              "leon|stops|nora",
+              "nora|stops|noel",
+              "noel|stops|aidan"
+            ],
+            "right_chain": [
+              "nadia|spots|leon",
+              "leon|spots|aron",
+              "aron|spots|noel",
+              "noel|spots|aron"
+            ],
+            "unique_relations": true,
+            "novel_relations": false,
+            "predicate_families": [
+              "stops"
+            ],
+            "complete_clauses": true
+          },
+          {
+            "status": "rejected_residual",
+            "depth": 3,
+            "left_state": "noel|stops|liam",
+            "left_tape": "noelstopsliam",
+            "object_constraint": "Leon",
+            "cursor": {
+              "left": 87,
+              "right_reverse": 480
+            },
+            "residual_trace": []
+          },
+          {
+            "status": "rejected_residual",
+            "depth": 3,
+            "left_state": "noel|stops|ira",
+            "left_tape": "noelstopsira",
+            "object_constraint": "Leon",
+            "cursor": {
+              "left": 87,
+              "right_reverse": 480
+            },
+            "residual_trace": []
+          }
+        ],
+        "right_chain_discovered_tail_first": true,
+        "left_subject_follows_previous_object": true,
+        "right_subject_follows_previous_object": true
+      },
+      "novelty": {
+        "snapshot_id": "incumbent-672-global-novelty-snapshot-20260922",
+        "snapshot_commit": "5c2576e2a98db331ab0f90540119cacecde2ef07",
+        "manifest_sha256": "ee1d4ee8782c6f4a2ac51fa662a79e4ac70e2509cd52c62c212345c3bc319155",
+        "relations_checked": [
+          "nora stops leon",
+          "leon stops nora",
+          "nora stops noel",
+          "noel spots nora",
+          "aron stops leon",
+          "leon spots aron",
+          "aron spots noel",
+          "noel spots aron"
+        ],
+        "all_inserted_relations_absent": true,
+        "rejected_prior_edges": [],
+        "failed_attempts_scanned": true
+      },
+      "provenance": {
+        "generator": "typed left chain + online reverse-character residual/right chain grammar",
+        "candidate_discovered_online": true,
+        "preauthored_pair_catalogue": false,
+        "repeated_clauses": false,
+        "self_palindromic_clauses": false,
+        "punctuation_changes_letters": false,
+        "human_certified": false,
+        "reader_status": "pending human review; exactness and generator audits are not reader certification"
+      },
+      "global_gate": {
+        "rendered_full_tape_exact": true,
+        "new_relations_unique": true,
+        "connected_four_event_scene": true,
+        "human_certified": false,
+        "status": "exact novel candidate; pending human review"
+      }
+    }
+  ]
+}

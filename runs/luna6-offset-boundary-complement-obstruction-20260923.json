@@ -1,0 +1,62 @@
+{
+  "experiment_id": "luna6-offset-boundary-complement-obstruction-20260923",
+  "status": "complete_clause_pair_rejected_at_live_cursor",
+  "novelty_preflight": {
+    "exact_literal_absent_from_tracked_HEAD": true,
+    "literal": "An aide made a portrait; Nora heard that an aide became Diana.",
+    "claim_scope": "one specific Aide/Diana offset-boundary realization only; generic finite-complement search is already represented and not claimed novel"
+  },
+  "construction": {
+    "topology": "left subject `An aide` crosses the right suffix boundary `e Diana`; right clause is a finite hearing complement",
+    "left_clause": {
+      "surface": "An aide made a portrait",
+      "parse": "An aide (agent) made (past transitive verb) a portrait (theme)."
+    },
+    "right_clause": {
+      "surface": "Nora heard that an aide became Diana",
+      "parse": "Nora (matrix subject) heard (matrix verb) that [an aide (embedded subject) became (past copula) Diana (identity complement)]."
+    },
+    "semantic_relation": "Nora hears an identity claim about the aide; the same aide is the agent of the portrait-making event.",
+    "outer_alignment": {
+      "left_opening": "anaide",
+      "right_suffix": "eDiana",
+      "reverse_suffix": "anaide",
+      "matched_initial_letters": 6
+    },
+    "left_tape": "anaidemadeaportrait",
+    "right_tape": "noraheardthatanaidebecamediana",
+    "reverse_right_tape": "anaidemacebedianatahtdraeharon",
+    "full_local_tape": "anaidemadeaportraitnoraheardthatanaidebecamediana",
+    "letters": 49,
+    "outside_in": {
+      "exact": false,
+      "letters": 49,
+      "matched_outer_pairs": 8,
+      "first_mismatch": {
+        "offset_left": 8,
+        "offset_right": 40,
+        "left": "d",
+        "right": "c"
+      },
+      "left_residual": "deaportraitnoraheardthatanaidebecame",
+      "right_reverse_residual": "cebedianatahtdraeharontiartropaedame"
+    },
+    "forward_sha256": "1208f3184444851c30939be19613b5894a6f39b3226548bd97f7ac1af7233dc7",
+    "reverse_sha256": "12184345601ec1f5394396bb651f798182a8565663c23d083cae6452b2c58a28",
+    "exact": false,
+    "first_residual": {
+      "cursor": 8,
+      "left_next": "d",
+      "right_reverse_next": "c",
+      "left_residual": "deaportraitnoraheardthatanaidebecame",
+      "right_reverse_residual": "cebedianatahtdraeharontiartropaedame"
+    },
+    "wrapped_parent": false,
+    "reason": "After the useful `anaide` offset match and two more letters, `made` begins `da…` while the reversed remainder of `became` begins `ca…`; grammar cannot alter the live d/c obligation without changing this realization."
+  },
+  "next_axis": {
+    "name": "compound-boundary resegmentation",
+    "operator": "At one actual 568 seam, assign the residual across a freshly authored compound whose internal morpheme boundary is parsed as a word boundary on the reflected side; use complete event roles but no finite complement, insertion wrapper, or aligned reversed tokens.",
+    "preflight_required": "Check the exact compound signature against tracked history before choosing its one lexicalization."
+  }
+}

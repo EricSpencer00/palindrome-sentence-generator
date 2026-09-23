@@ -1,7 +1,7 @@
 {
   "experiment_id": "incumbent-568-linked-event-pair-growth-20260923",
-  "method": "replace one actual mirrored 15-letter clause window with two linked 25-letter event chains, solving the whole 50-letter equation before insertion",
-  "working_status": "exact_588_letter_candidate_readability_unverified",
+  "method": "audit of a mirrored clause-window rewrite that closes through word-by-word reverse pairs",
+  "working_status": "audit_only_exact_rejected_wordwise_reverse_shortcut",
   "parent": {
     "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
     "id": "outer-causal-scene-568-working-incumbent",
@@ -41,7 +41,49 @@
     ],
     "grammar_note": "Each sentence is a finite transitive SVO clause; Mara and Aram respectively carry object-to-subject continuity across their two-clause local chains.",
     "new_letters_per_side": 25,
-    "growth_over_parent": 20
+    "growth_over_parent": 20,
+    "no_shortcut_gate": {
+      "admitted": false,
+      "reason": "Every left token is paired in reverse order with a right token whose letters are exactly reversed; 'sees' maps to itself and is self-palindromic.",
+      "token_reverse_pairs": [
+        {
+          "left": "aidan",
+          "right": "nadia",
+          "exact_reverse": true,
+          "self_palindromic_left": false
+        },
+        {
+          "left": "stops",
+          "right": "spots",
+          "exact_reverse": true,
+          "self_palindromic_left": false
+        },
+        {
+          "left": "mara",
+          "right": "aram",
+          "exact_reverse": true,
+          "self_palindromic_left": false
+        },
+        {
+          "left": "mara",
+          "right": "aram",
+          "exact_reverse": true,
+          "self_palindromic_left": false
+        },
+        {
+          "left": "sees",
+          "right": "sees",
+          "exact_reverse": true,
+          "self_palindromic_left": true
+        },
+        {
+          "left": "ira",
+          "right": "ari",
+          "exact_reverse": true,
+          "self_palindromic_left": false
+        }
+      ]
+    }
   },
   "novelty_preflight": {
     "status": "distinct_seam_and_event_pair_no_exact_archive_hits",
@@ -82,8 +124,19 @@
     },
     "readability": {
       "human_certified": false,
-      "claim": "The inserted four clauses are grammatical event frames; the inherited full passage remains rough and is not claimed reader-worthy."
+      "claim": "Not admitted as a shortcut-free candidate. The inherited passage remains rough; no reader study was run."
     }
   },
-  "next_action": "Inspect the child for its worst repeated inherited shell; attempt one seam-local event replacement on this 588-letter lineage and preserve the 588 child regardless of the repair outcome."
+  "post_generation_followup_audit": {
+    "candidate_length": 604,
+    "candidate_sha256": "93b1728473422af77283d68d8277d3d4fe394cdef0e08245e6939bec4226edd6",
+    "exact": true,
+    "decision": "do_not_promote_or_count_as_a_new_method",
+    "reason": "The [64,91]/[497,524] shell in this 588 child maps to the already explored 568 [64,91]/[477,504] geometry and repeats the 568 event-lattice/596 shell-repair operator; its six-clause blocks are also tokenwise reverse pairs.",
+    "prior_artifacts": [
+      "experiments/incumbent_568_repeated_shell_event_lattice_20261002.py",
+      "experiments/incumbent_596_repeated_shell_repair_20261002.py"
+    ]
+  },
+  "next_action": "Switch to an asymmetric character-level construction whose left/right word segmentations do not pair tokens by reversal; retain this 588 exact tape only as a rejected shortcut audit."
 }

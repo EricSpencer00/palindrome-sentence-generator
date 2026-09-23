@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Replace one verified 568-letter seam with a linked four-event passage.
+"""Audit an exact 568-letter seam rewrite rejected by the no-shortcut gate.
 
 The paired left/right passage is authored before insertion and checked as one
-character equation. The parent tape outside that exact mirrored window is
-preserved byte-for-byte. This is an exact working-track construction, not a
-claim that the inherited 588-letter passage is reader-certified.
+character equation. It is retained as audit evidence only: every left token
+maps to the character-reversal of one right token, including the self-
+palindromic token ``sees``. The exact 588-letter tape is not an admissible
+shortcut-free candidate.
 """
 
 from __future__ import annotations
@@ -106,6 +107,14 @@ def main() -> None:
     assert right_tape == "ariseesaramaramspotsnadia"
     assert len(left_tape) == len(right_tape) == 25
     assert left_tape == right_tape[::-1]
+    left_words = re.findall(r"[a-z]+", LEFT_NEW.lower())
+    right_words = re.findall(r"[a-z]+", RIGHT_NEW.lower())
+    token_reverse_pairs = [
+        {"left": left, "right": right, "exact_reverse": left[::-1] == right, "self_palindromic_left": left == left[::-1]}
+        for left, right in zip(left_words, reversed(right_words), strict=True)
+    ]
+    assert all(pair["exact_reverse"] for pair in token_reverse_pairs)
+    assert any(pair["self_palindromic_left"] for pair in token_reverse_pairs)
 
     rendered = parent_text.replace(LEFT_OLD, LEFT_NEW, 1).replace(RIGHT_OLD, RIGHT_NEW, 1)
     child_tape = regex_tape(rendered)
@@ -140,8 +149,8 @@ def main() -> None:
 
     artifact = {
         "experiment_id": "incumbent-568-linked-event-pair-growth-20260923",
-        "method": "replace one actual mirrored 15-letter clause window with two linked 25-letter event chains, solving the whole 50-letter equation before insertion",
-        "working_status": "exact_588_letter_candidate_readability_unverified",
+        "method": "audit of a mirrored clause-window rewrite that closes through word-by-word reverse pairs",
+        "working_status": "audit_only_exact_rejected_wordwise_reverse_shortcut",
         "parent": {
             "artifact": PARENT_REL,
             "id": parent_record["working_length_incumbent"]["id"],
@@ -173,6 +182,11 @@ def main() -> None:
             "grammar_note": "Each sentence is a finite transitive SVO clause; Mara and Aram respectively carry object-to-subject continuity across their two-clause local chains.",
             "new_letters_per_side": 25,
             "growth_over_parent": 20,
+            "no_shortcut_gate": {
+                "admitted": False,
+                "reason": "Every left token is paired in reverse order with a right token whose letters are exactly reversed; 'sees' maps to itself and is self-palindromic.",
+                "token_reverse_pairs": token_reverse_pairs,
+            },
         },
         "novelty_preflight": {
             "status": "distinct_seam_and_event_pair_no_exact_archive_hits",
@@ -202,10 +216,21 @@ def main() -> None:
             },
             "readability": {
                 "human_certified": False,
-                "claim": "The inserted four clauses are grammatical event frames; the inherited full passage remains rough and is not claimed reader-worthy.",
+                "claim": "Not admitted as a shortcut-free candidate. The inherited passage remains rough; no reader study was run.",
             },
         },
-        "next_action": "Inspect the child for its worst repeated inherited shell; attempt one seam-local event replacement on this 588-letter lineage and preserve the 588 child regardless of the repair outcome.",
+        "post_generation_followup_audit": {
+            "candidate_length": 604,
+            "candidate_sha256": "93b1728473422af77283d68d8277d3d4fe394cdef0e08245e6939bec4226edd6",
+            "exact": True,
+            "decision": "do_not_promote_or_count_as_a_new_method",
+            "reason": "The [64,91]/[497,524] shell in this 588 child maps to the already explored 568 [64,91]/[477,504] geometry and repeats the 568 event-lattice/596 shell-repair operator; its six-clause blocks are also tokenwise reverse pairs.",
+            "prior_artifacts": [
+                "experiments/incumbent_568_repeated_shell_event_lattice_20261002.py",
+                "experiments/incumbent_596_repeated_shell_repair_20261002.py",
+            ],
+        },
+        "next_action": "Switch to an asymmetric character-level construction whose left/right word segmentations do not pair tokens by reversal; retain this 588 exact tape only as a rejected shortcut audit.",
     }
     output_path = ROOT / OUTPUT_REL
     output_path.write_text(json.dumps(artifact, indent=2, ensure_ascii=False) + "\n")

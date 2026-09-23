@@ -1,0 +1,89 @@
+{
+  "experiment_id": "incumbent-568-linked-event-pair-growth-20260923",
+  "method": "replace one actual mirrored 15-letter clause window with two linked 25-letter event chains, solving the whole 50-letter equation before insertion",
+  "working_status": "exact_588_letter_candidate_readability_unverified",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "id": "outer-causal-scene-568-working-incumbent",
+    "normalized_letter_length": 568,
+    "normalized_letter_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "seam": {
+    "normalized_parent_offsets": [
+      [
+        148,
+        163
+      ],
+      [
+        405,
+        420
+      ]
+    ],
+    "old_left": "Now, Noel, did I live?",
+    "old_right": "Evil I did, Leon won.",
+    "old_left_tape": "nownoeldidilive",
+    "old_right_tape": "evilididleonwon",
+    "old_equation_exact": true,
+    "outside_replaced_windows_preserved": true
+  },
+  "construction": {
+    "left_rendered": "Aidan stops Mara. Mara sees Ira.",
+    "left_tape": "aidanstopsmaramaraseesira",
+    "right_rendered": "Ari sees Aram. Aram spots Nadia.",
+    "right_tape": "ariseesaramaramspotsnadia",
+    "equation": "aidanstopsmaramaraseesira = reverse(ariseesaramaramspotsnadia)",
+    "equation_exact": true,
+    "event_chain": [
+      "Aidan stops Mara",
+      "Mara sees Ira",
+      "Ari sees Aram",
+      "Aram spots Nadia"
+    ],
+    "grammar_note": "Each sentence is a finite transitive SVO clause; Mara and Aram respectively carry object-to-subject continuity across their two-clause local chains.",
+    "new_letters_per_side": 25,
+    "growth_over_parent": 20
+  },
+  "novelty_preflight": {
+    "status": "distinct_seam_and_event_pair_no_exact_archive_hits",
+    "checked_phrases": [
+      "Aidan stops Mara. Mara sees Ira.",
+      "Ari sees Aram. Aram spots Nadia.",
+      "aidanstopsmaramaraseesira",
+      "ariseesaramaramspotsnadia"
+    ],
+    "scope": "retrospective exact-string and relation-phrase checks over repository runs, experiment scripts, docs, and data; not preregistered",
+    "known_adjacent_construction": "incumbent-672-discourse-linked-reverse-chain-20260922 uses complete-boundary seam [48,520], not these offsets"
+  },
+  "candidate": {
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Aidan stops Mara. Mara sees Ira. Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Ari sees Aram. Aram spots Nadia. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+    "normalized_letter_length": 588,
+    "normalized_letter_sha256": "957f2db34fde364866217a45c4bcc87c412a510b264490cc1a701c60c07651c0",
+    "rendered_surface_length": 807,
+    "audit": {
+      "project_validator_exact": true,
+      "project_normalizer_agrees": true,
+      "ascii_byte_normalizer_agrees": true,
+      "direct_mirrored_byte_walk_exact": true,
+      "first_mismatch_offset": null,
+      "node_independent_audit": {
+        "letters": 588,
+        "mismatch": null,
+        "forward": "957f2db34fde364866217a45c4bcc87c412a510b264490cc1a701c60c07651c0",
+        "reverse": "957f2db34fde364866217a45c4bcc87c412a510b264490cc1a701c60c07651c0",
+        "exact": true
+      },
+      "sha256_forward": "957f2db34fde364866217a45c4bcc87c412a510b264490cc1a701c60c07651c0",
+      "sha256_reverse": "957f2db34fde364866217a45c4bcc87c412a510b264490cc1a701c60c07651c0"
+    },
+    "provenance": {
+      "parent_artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+      "parent_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+      "transformation": "replace the unique normalized windows [148,163] and [405,420]; preserve every outside-parent letter and all surface outside the two unique source phrases"
+    },
+    "readability": {
+      "human_certified": false,
+      "claim": "The inserted four clauses are grammatical event frames; the inherited full passage remains rough and is not claimed reader-worthy."
+    }
+  },
+  "next_action": "Inspect the child for its worst repeated inherited shell; attempt one seam-local event replacement on this 588-letter lineage and preserve the 588 child regardless of the repair outcome."
+}

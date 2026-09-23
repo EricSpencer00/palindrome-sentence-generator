@@ -1,0 +1,1256 @@
+{
+  "experiment_id": "repair-686-mixed-predicate-shell-cycle-20260923",
+  "status": "exact_mixed_predicate_shell_repair_child",
+  "execution": {
+    "host": "hst-bench",
+    "python_version": "3.12.3",
+    "stochasticity": "none; deterministic mixed-predicate grammar chart"
+  },
+  "source_commit": "53a7ba0cabd5a69420b21f349731a36bc1b47fa6",
+  "method": "variable-length connected event-cycle replacement; a finite predicate reversal map and entity-role grammar resegment the opposing tape while character residual ownership stays live",
+  "parent": {
+    "artifact": "repair-640-mirrored-shell-cycle-20260923.json",
+    "id": "568-lineage-shell-cycle-repair-686",
+    "letters": 686,
+    "normalized_tape_sha256": "cb47534ec3f66a5a3624e7573e15cde7c1cdc53c7ff9cebdc788412b940f982c",
+    "568_ancestor_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "artifact_sha256": "4e9174e68397d9519cfa90cdb12dcbaa87a2a93bf4fa0d9a9f9e7ef0cab73f49"
+  },
+  "seam": {
+    "parent_normalized_supports": [
+      [
+        167,
+        194
+      ],
+      [
+        492,
+        519
+      ]
+    ],
+    "parent_raw_supports": [
+      [
+        218,
+        256
+      ],
+      [
+        676,
+        715
+      ]
+    ],
+    "old_left_tape": "marastopsratsatubhemapsnora",
+    "old_right_tape": "aronspamehbutastarspotsaram",
+    "new_letters_per_support": [
+      52,
+      52
+    ],
+    "growth_per_support": 25,
+    "outside_supports_retained_byte_for_byte": true
+  },
+  "grammar_state": {
+    "left_event_cycle": [
+      {
+        "id": "mixed-cycle-1",
+        "subject": "Nora",
+        "predicate": "sees",
+        "object": "Sara"
+      },
+      {
+        "id": "mixed-cycle-2",
+        "subject": "Sara",
+        "predicate": "stops",
+        "object": "Aidan"
+      },
+      {
+        "id": "mixed-cycle-3",
+        "subject": "Aidan",
+        "predicate": "stops",
+        "object": "Noel"
+      },
+      {
+        "id": "mixed-cycle-4",
+        "subject": "Noel",
+        "predicate": "sees",
+        "object": "Nora"
+      }
+    ],
+    "right_cycle_resegmented_from_residual": [
+      {
+        "subject": "Aron",
+        "predicate": "sees",
+        "object": "Leon"
+      },
+      {
+        "subject": "Leon",
+        "predicate": "spots",
+        "object": "Nadia"
+      },
+      {
+        "subject": "Nadia",
+        "predicate": "spots",
+        "object": "Aras"
+      },
+      {
+        "subject": "Aras",
+        "predicate": "sees",
+        "object": "Aron"
+      }
+    ],
+    "predicate_reversal_map": {
+      "sees": "sees",
+      "stops": "spots",
+      "spots": "stops",
+      "saw": "was",
+      "was": "saw"
+    },
+    "right_parse_count_before_cycle_constraint": 1,
+    "right_parse_count_after_cycle_constraint": 1,
+    "left_cycle_closes": true,
+    "right_cycle_closes": true
+  },
+  "live_residual": {
+    "left_emitted_tape": "noraseessarasarastopsaidanaidanstopsnoelnoelseesnora",
+    "right_reverse_obligation": "aronseesleonleonspotsnadianadiaspotsarasarasseesaron",
+    "initial_residual_letters": 52,
+    "steps": [
+      {
+        "step": 1,
+        "left_cursor_child": 167,
+        "right_reverse_cursor_child": 568,
+        "character": "n",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "subject",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "object",
+          "word": "Aron"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 51,
+        "residual_sha256": "c7ab2b7fda0365d4d7036c46454eae43cee3f4a5645dd1886d8ad8a3a85a6f68"
+      },
+      {
+        "step": 2,
+        "left_cursor_child": 168,
+        "right_reverse_cursor_child": 567,
+        "character": "o",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "subject",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "object",
+          "word": "Aron"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 50,
+        "residual_sha256": "45adcc76c31b4059e68952a33800c84be7bd2588a3e0739937011f6e01ffca6e"
+      },
+      {
+        "step": 3,
+        "left_cursor_child": 169,
+        "right_reverse_cursor_child": 566,
+        "character": "r",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "subject",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "object",
+          "word": "Aron"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 49,
+        "residual_sha256": "4a70642a1ddacec36d7273012e994ec917687762399f813108161ee504567cca"
+      },
+      {
+        "step": 4,
+        "left_cursor_child": 170,
+        "right_reverse_cursor_child": 565,
+        "character": "a",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "subject",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "object",
+          "word": "Aron"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 48,
+        "residual_sha256": "328b3842a28fbe6c73e2d9851cc1c1287f871b34b29a188afdf8b584878299bf"
+      },
+      {
+        "step": 5,
+        "left_cursor_child": 171,
+        "right_reverse_cursor_child": 564,
+        "character": "s",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 47,
+        "residual_sha256": "6d4e81e5528a9ed60bd472b46c16703af32738b8e2463a6b9be45e28e716c202"
+      },
+      {
+        "step": 6,
+        "left_cursor_child": 172,
+        "right_reverse_cursor_child": 563,
+        "character": "e",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 46,
+        "residual_sha256": "4872ce50f6a04768984b9d0878a3dabb254704459f4d6263eae388b8c37557b3"
+      },
+      {
+        "step": 7,
+        "left_cursor_child": 173,
+        "right_reverse_cursor_child": 562,
+        "character": "e",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 45,
+        "residual_sha256": "921c8573c570c85516510f014ee85811bbcd366b2ba1d7b7084b4adfde2be568"
+      },
+      {
+        "step": 8,
+        "left_cursor_child": 174,
+        "right_reverse_cursor_child": 561,
+        "character": "s",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 44,
+        "residual_sha256": "3ed0a7d591e53e5d73ddac0a38e837a6c7fc2c9800484dc84c33dccf50f7ed9c"
+      },
+      {
+        "step": 9,
+        "left_cursor_child": 175,
+        "right_reverse_cursor_child": 560,
+        "character": "s",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "object",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "subject",
+          "word": "Aras"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 43,
+        "residual_sha256": "28d0e77971c2469cc572ebb4509a3031c81348da64ad5a5d576ead39221cc7ca"
+      },
+      {
+        "step": 10,
+        "left_cursor_child": 176,
+        "right_reverse_cursor_child": 559,
+        "character": "a",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "object",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "subject",
+          "word": "Aras"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 42,
+        "residual_sha256": "7e0616b1f004c5edefcd304bfcc8a0dc8c11d93d0781cdada3b17fbb972ab133"
+      },
+      {
+        "step": 11,
+        "left_cursor_child": 177,
+        "right_reverse_cursor_child": 558,
+        "character": "r",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "object",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "subject",
+          "word": "Aras"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 41,
+        "residual_sha256": "86a9d479849341e8c124bbeae48cfbe95a6f38e6c7aa8560834a1469025be319"
+      },
+      {
+        "step": 12,
+        "left_cursor_child": 178,
+        "right_reverse_cursor_child": 557,
+        "character": "a",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "mixed-cycle-1",
+          "role": "object",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 3,
+          "event_id": "cycle-4",
+          "role": "subject",
+          "word": "Aras"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 40,
+        "residual_sha256": "29b03cf3e4d757ed16525f78b6e14862b503c3f4e47ce85ae21455bb7593e38f"
+      },
+      {
+        "step": 13,
+        "left_cursor_child": 179,
+        "right_reverse_cursor_child": 556,
+        "character": "s",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "subject",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "object",
+          "word": "Aras"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 39,
+        "residual_sha256": "63240d962e43dd7be7444db1323e526c55a2ded3e398fadcb2f63230063ebe99"
+      },
+      {
+        "step": 14,
+        "left_cursor_child": 180,
+        "right_reverse_cursor_child": 555,
+        "character": "a",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "subject",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "object",
+          "word": "Aras"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 38,
+        "residual_sha256": "f75b4b47462141bbe473caef09c40afea1e41ff09c9286dd1c1497b0ccda4877"
+      },
+      {
+        "step": 15,
+        "left_cursor_child": 181,
+        "right_reverse_cursor_child": 554,
+        "character": "r",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "subject",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "object",
+          "word": "Aras"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 37,
+        "residual_sha256": "8f2f54284090162f69818e71d40e77d8799fbabddd6a6c173c4f18ba1bd7a8d1"
+      },
+      {
+        "step": 16,
+        "left_cursor_child": 182,
+        "right_reverse_cursor_child": 553,
+        "character": "a",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "subject",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "object",
+          "word": "Aras"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 36,
+        "residual_sha256": "a8cdde21d80d2ff5b1baf60ba404d9d1b79c260ea9e2d6324e28ea359b06a611"
+      },
+      {
+        "step": 17,
+        "left_cursor_child": 183,
+        "right_reverse_cursor_child": 552,
+        "character": "s",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 35,
+        "residual_sha256": "fc0b30d9b43b594ce711977f5f8315770cc31fab9f0725bc027747a8c36b2af4"
+      },
+      {
+        "step": 18,
+        "left_cursor_child": 184,
+        "right_reverse_cursor_child": 551,
+        "character": "t",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 34,
+        "residual_sha256": "0f48347cc7e0331883bc72e40badb1408a3e801ff1c1cfcd1d0fc77980f516ac"
+      },
+      {
+        "step": 19,
+        "left_cursor_child": 185,
+        "right_reverse_cursor_child": 550,
+        "character": "o",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 33,
+        "residual_sha256": "430fb7228a92309b9ae992afd44236d5a0dedd16faca937de933ebe99f2e1f7b"
+      },
+      {
+        "step": 20,
+        "left_cursor_child": 186,
+        "right_reverse_cursor_child": 549,
+        "character": "p",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 32,
+        "residual_sha256": "eb53c6061ba073fb2e363a8f2398475d0215e8e192f0f5fe5f45a6e8e8e8dea3"
+      },
+      {
+        "step": 21,
+        "left_cursor_child": 187,
+        "right_reverse_cursor_child": 548,
+        "character": "s",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 31,
+        "residual_sha256": "07263359dd6150025d27d70d8843a2eb8b5201bbf28885d193323f7b36fd0c5f"
+      },
+      {
+        "step": 22,
+        "left_cursor_child": 188,
+        "right_reverse_cursor_child": 547,
+        "character": "a",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "object",
+          "word": "Aidan"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "subject",
+          "word": "Nadia"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 30,
+        "residual_sha256": "3ce443500ee12bf2ab9ec981029d3bf2d0eb26cb9a002d5cf6868f048525bedf"
+      },
+      {
+        "step": 23,
+        "left_cursor_child": 189,
+        "right_reverse_cursor_child": 546,
+        "character": "i",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "object",
+          "word": "Aidan"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "subject",
+          "word": "Nadia"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 29,
+        "residual_sha256": "d50d474220a28b94992d0d54ccfb244784c7787e60473aac269520e1b59dda71"
+      },
+      {
+        "step": 24,
+        "left_cursor_child": 190,
+        "right_reverse_cursor_child": 545,
+        "character": "d",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "object",
+          "word": "Aidan"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "subject",
+          "word": "Nadia"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 28,
+        "residual_sha256": "b499113a09fe9c95f6971802696ad8ba2feca291faa00a1a97e50d7ed7cbee35"
+      },
+      {
+        "step": 25,
+        "left_cursor_child": 191,
+        "right_reverse_cursor_child": 544,
+        "character": "a",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "object",
+          "word": "Aidan"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "subject",
+          "word": "Nadia"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 27,
+        "residual_sha256": "0adbe89ef05d3ebe99a9d567f15968c1ef9cdc48df2f37c2396f0449b16cabc6"
+      },
+      {
+        "step": 26,
+        "left_cursor_child": 192,
+        "right_reverse_cursor_child": 543,
+        "character": "n",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "mixed-cycle-2",
+          "role": "object",
+          "word": "Aidan"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "cycle-3",
+          "role": "subject",
+          "word": "Nadia"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 26,
+        "residual_sha256": "d711f50701c1c83fee76133c0f3dd340af8fafef1743d30db808077bcbb5210c"
+      },
+      {
+        "step": 27,
+        "left_cursor_child": 193,
+        "right_reverse_cursor_child": 542,
+        "character": "a",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "subject",
+          "word": "Aidan"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "object",
+          "word": "Nadia"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 25,
+        "residual_sha256": "0ade67ca5553625c6aa8f392f74de781cca40c9ad1bcb8e08440e47f78e90734"
+      },
+      {
+        "step": 28,
+        "left_cursor_child": 194,
+        "right_reverse_cursor_child": 541,
+        "character": "i",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "subject",
+          "word": "Aidan"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "object",
+          "word": "Nadia"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 24,
+        "residual_sha256": "94f5ad632afa06c823bf4b1a1f6528729f03771b61a1b530c6fcc6b23b1e439b"
+      },
+      {
+        "step": 29,
+        "left_cursor_child": 195,
+        "right_reverse_cursor_child": 540,
+        "character": "d",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "subject",
+          "word": "Aidan"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "object",
+          "word": "Nadia"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 23,
+        "residual_sha256": "69eebcf07a6439be74772307d5aa9d70100f70852e8253ed4976c2dbc5d80541"
+      },
+      {
+        "step": 30,
+        "left_cursor_child": 196,
+        "right_reverse_cursor_child": 539,
+        "character": "a",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "subject",
+          "word": "Aidan"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "object",
+          "word": "Nadia"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 22,
+        "residual_sha256": "d439156a04f8e2c6b0113767d2e6c1d18d549bce87cb7b03237f9a7b89bf109d"
+      },
+      {
+        "step": 31,
+        "left_cursor_child": 197,
+        "right_reverse_cursor_child": 538,
+        "character": "n",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "subject",
+          "word": "Aidan"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "object",
+          "word": "Nadia"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 21,
+        "residual_sha256": "b7605209a5f43552033de5564682ca8bae7aef39f8aa3142bab35c21d4384e12"
+      },
+      {
+        "step": 32,
+        "left_cursor_child": 198,
+        "right_reverse_cursor_child": 537,
+        "character": "s",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 20,
+        "residual_sha256": "96dbef9d0ee178f6387cf4af2afc8a19a963ca6bafc230155f09d72a69f2730f"
+      },
+      {
+        "step": 33,
+        "left_cursor_child": 199,
+        "right_reverse_cursor_child": 536,
+        "character": "t",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 19,
+        "residual_sha256": "3d68c6421b4ad0b3b50f9344ba46659f7e646f31f4efe06529307a902b443864"
+      },
+      {
+        "step": 34,
+        "left_cursor_child": 200,
+        "right_reverse_cursor_child": 535,
+        "character": "o",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 18,
+        "residual_sha256": "64e57537fda5d20d8e84d7da7af9025f12a4b5af373b945555f2fb15149cae10"
+      },
+      {
+        "step": 35,
+        "left_cursor_child": 201,
+        "right_reverse_cursor_child": 534,
+        "character": "p",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 17,
+        "residual_sha256": "25166c34d9dfc712d35fee15e43d5cdf279228b83146d7a044fbb23320a393be"
+      },
+      {
+        "step": 36,
+        "left_cursor_child": 202,
+        "right_reverse_cursor_child": 533,
+        "character": "s",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 16,
+        "residual_sha256": "58c2494526c6e1b4b6ec8ca4158973779ebffae922dd46eafc2dc63eb2c3a636"
+      },
+      {
+        "step": 37,
+        "left_cursor_child": 203,
+        "right_reverse_cursor_child": 532,
+        "character": "n",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "object",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "subject",
+          "word": "Leon"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 15,
+        "residual_sha256": "a4237e3ef50d52f324b2d1849f5add8bfca2257ec2eb2ef79e8798f22e1d7429"
+      },
+      {
+        "step": 38,
+        "left_cursor_child": 204,
+        "right_reverse_cursor_child": 531,
+        "character": "o",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "object",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "subject",
+          "word": "Leon"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 14,
+        "residual_sha256": "0e7fff65995c90401c2ba492b036e61fb96a7cba0fab3d1965118a2fe78220ea"
+      },
+      {
+        "step": 39,
+        "left_cursor_child": 205,
+        "right_reverse_cursor_child": 530,
+        "character": "e",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "object",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "subject",
+          "word": "Leon"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 13,
+        "residual_sha256": "130f8b8ef6cb66009f1337959d0c65203d05ac21645c757079e91f082d85db1e"
+      },
+      {
+        "step": 40,
+        "left_cursor_child": 206,
+        "right_reverse_cursor_child": 529,
+        "character": "l",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "mixed-cycle-3",
+          "role": "object",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "subject",
+          "word": "Leon"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 12,
+        "residual_sha256": "1eaccdef059a25962260b41b50ef166795cdf8c6f211487ed6dbdd1cb38f6ef3"
+      },
+      {
+        "step": 41,
+        "left_cursor_child": 207,
+        "right_reverse_cursor_child": 528,
+        "character": "n",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "object",
+          "word": "Leon"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 11,
+        "residual_sha256": "4048f4c932d83b3a25e88a3b52252cb35689b7ed75135ca843ef7d6b60f8330f"
+      },
+      {
+        "step": 42,
+        "left_cursor_child": 208,
+        "right_reverse_cursor_child": 527,
+        "character": "o",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "object",
+          "word": "Leon"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 10,
+        "residual_sha256": "819d92d32e5a55aab06649a80c01e0eefe3f3a2db946d66f66d70440401c3c2d"
+      },
+      {
+        "step": 43,
+        "left_cursor_child": 209,
+        "right_reverse_cursor_child": 526,
+        "character": "e",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "object",
+          "word": "Leon"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 9,
+        "residual_sha256": "7ed1bbcb7fbace7155a50d27841380dc01726294b6d7a19ac1540e137c624a8d"
+      },
+      {
+        "step": 44,
+        "left_cursor_child": 210,
+        "right_reverse_cursor_child": 525,
+        "character": "l",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "object",
+          "word": "Leon"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 8,
+        "residual_sha256": "aa322db9ff37c3ede0a6f54a81a17804f2815ef402efccbe1b0957133a4224f8"
+      },
+      {
+        "step": 45,
+        "left_cursor_child": 211,
+        "right_reverse_cursor_child": 524,
+        "character": "s",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 7,
+        "residual_sha256": "c9ad9f5e6c3d6518d96b2b98779a92ea8c22d4978fad94460d743d3c4ad24a67"
+      },
+      {
+        "step": 46,
+        "left_cursor_child": 212,
+        "right_reverse_cursor_child": 523,
+        "character": "e",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 6,
+        "residual_sha256": "2de891561c26096c3f04cb57b8363fbcaffeb0212cd1c3953af5b697abcc0e76"
+      },
+      {
+        "step": 47,
+        "left_cursor_child": 213,
+        "right_reverse_cursor_child": 522,
+        "character": "e",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 5,
+        "residual_sha256": "1437c0a88175ad06a8652c9387bb7bb43bc9658ff6a7c524cb4ff80ab0ab5b56"
+      },
+      {
+        "step": 48,
+        "left_cursor_child": 214,
+        "right_reverse_cursor_child": 521,
+        "character": "s",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 4,
+        "residual_sha256": "b21ec07effd3fe307782e2a1782ae771e601b303cef1548723a76c539f98f383"
+      },
+      {
+        "step": 49,
+        "left_cursor_child": 215,
+        "right_reverse_cursor_child": 520,
+        "character": "n",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "object",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "subject",
+          "word": "Aron"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 3,
+        "residual_sha256": "1ec63275753fb19a54e664a8d11e7e1529bcd074375e8e06cee38af6e3a5bb9a"
+      },
+      {
+        "step": 50,
+        "left_cursor_child": 216,
+        "right_reverse_cursor_child": 519,
+        "character": "o",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "object",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "subject",
+          "word": "Aron"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 2,
+        "residual_sha256": "37e7702e5ce449c1225fa1b3b3ed8e2dff35d24464d9264a4c2bebf3e0deee05"
+      },
+      {
+        "step": 51,
+        "left_cursor_child": 217,
+        "right_reverse_cursor_child": 518,
+        "character": "r",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "object",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "subject",
+          "word": "Aron"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 1,
+        "residual_sha256": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb"
+      },
+      {
+        "step": 52,
+        "left_cursor_child": 218,
+        "right_reverse_cursor_child": 517,
+        "character": "a",
+        "left_owner": {
+          "event_index": 3,
+          "event_id": "mixed-cycle-4",
+          "role": "object",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "subject",
+          "word": "Aron"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 0,
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "final_residual": "",
+    "committed_character_contradictions": 0
+  },
+  "candidate": {
+    "id": "568-lineage-mixed-predicate-shell-cycle-736",
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+    "letters": 736,
+    "normalized_tape_sha256": "608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2",
+    "growth_over_parent": 50,
+    "new_event_content": [
+      "Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora.",
+      "Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron."
+    ]
+  },
+  "independent_audit": {
+    "normalized_letters": 736,
+    "two_pointer_exact": true,
+    "first_mismatch": null,
+    "sha256_forward": "608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2",
+    "sha256_reverse": "608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2",
+    "hashes_equal": true,
+    "normalized_tape": "leonwonwolfspotsnoranadiastopssotararewardsnadianoradeliversmapsnoelseesmaramaraseessarasaraseesnoraleonseessarasaraseesaidanaidanseesnoranoraseesleonaidandeliversmapsnoraseessarasarastopsaidanaidanstopsnoelnoelseesnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdessertsnoelwasistressednadiadeliversmapsleonarideliversmapsspamsrevilediranoelspamsreviledaidandessertsisawleonstressedwasiaronevilididarasdogwasaramsetontaptisileonevilleonwasaronevilididleonwonliveonreviledaronseesleonleonspotsnadianadiaspotsarasarasseesaronspamsrevilednadianoelseesaronaronseesnadianadiaseesarasarasseesnoelaronseesarasarasseesaramaramseesleonspamsreviledaronaidansdraweraratosspotsaidanaronstopsflownownoel"
+  },
+  "provenance": {
+    "event_chain_authored_for_this_run": true,
+    "catalogue_or_corpus_text_used": false,
+    "exact_phrase_preflight": {
+      "scope": "runs/, experiments/, and docs/ at source commit 53a7ba0cabd5a69420b21f349731a36bc1b47fa6",
+      "exact_clause_hits": [],
+      "phrases_checked": [
+        "Nora sees Sara",
+        "Sara stops Aidan",
+        "Aidan stops Noel",
+        "Noel sees Nora",
+        "Aron sees Leon",
+        "Leon spots Nadia",
+        "Nadia spots Aras",
+        "Aras sees Aron"
+      ]
+    },
+    "generator_sha256": "8495a31a14c8ba0ededdce563fbe0c34dbac8e0dd6a853b5ce7610691ff0b202"
+  },
+  "repair_debt": {
+    "inherited_rough_discourse_outside_shell_retained": true,
+    "predicate_repetition_within_cycle": true,
+    "human_readability": "not assessed; exactness, complete clauses, and cycle closure do not certify readability"
+  },
+  "next_repair": "Review the whole rendered text as an unratified candidate; keep the 568, 640, 686, and 736 artifacts separate, and select the next seam only from an actual reader or syntax defect rather than extending another same-shape cycle."
+}

@@ -2,17 +2,16 @@
 
 ## Current goal state (2026-09-23)
 
-The end goal is still unmet. The current **686-letter exact child** is
-`568-lineage-shell-cycle-repair-686` in
-`runs/repair-640-mirrored-shell-cycle-20260923.json`, normalized SHA-256
-`cb47534ec3f66a5a3624e7573e15cde7c1cdc53c7ff9cebdc788412b940f982c`. Its
-lineage is 568 → 640 → 686. It replaces one inherited question/fragment shell
-with two connected event cycles while the role grammar and character
-cursors advance together. Two-pointer, forward/reverse SHA-256, and
-project-validator checks agree, and a deterministic replay on `hst-bench`
-reproduced the artifact byte-for-byte. The 640 and 568 parents remain intact
-as frontier/rollback evidence. The child retains other repeated scaffolding
-and rough discourse; exactness and length are not readability evidence.
+The end goal is still unmet. The current **736-letter exact child** is
+`568-lineage-mixed-predicate-shell-cycle-736` in
+`runs/repair-686-mixed-predicate-shell-cycle-20260923.json`, normalized SHA-256
+`608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2`. Its
+lineage is 568 → 640 → 686 → 736. It removes a second inherited fragment shell
+with a connected mixed-predicate event cycle. Two-pointer, forward/reverse
+SHA-256, and project-validator checks agree, and deterministic replay on
+`hst-bench` reproduced the artifact byte-for-byte. The 568, 640, and 686
+parents remain intact. The full candidate still has rough discourse and
+repetition; exactness and length are not readability evidence.
 
 The **640-letter exact parent** is preserved in
 `runs/incumbent-568-live-event-chain-insertion-20260923.json`, normalized
@@ -33,8 +32,9 @@ The separate **672-letter** `discourse-linked-reverse-chain-672` in
 comparison below the current length frontier (SHA-256
 `ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee`). Its
 four-beat relation chains are repetitive and schematic, so length alone does
-not promote it over the 686 repair frontier. Preserve the independently exact
-568 parent and the 560/558/556, 586, 620, 626, 666, and 672 comparison rows;
+not promote it over the 736 repair frontier. Preserve the independently exact
+568 parent and the 560/558/556, 586, 620, 626, 640, 666, 672, 686, and 736
+comparison rows;
 do not mislabel any as readable or reader-ready.
 
 No blinded reader study has run. The 38-letter seed remains the only compact
@@ -44,14 +44,14 @@ paper must report this honestly, foreground only a genuinely working
 construction method and readable examples, and keep the API fail-closed until
 the stated human and exactness gates pass.
 
-Local-minimum reset: the prior 626-seam bank and mirrored-deletion probe did
-not repair readability. The direct 568 branch has now produced exact 640- and
-686-letter children, but the current outputs still do not meet the human
-readability goal. Next, replace the remaining repeated shell on the 686 child
-at `[167,194)` / `[492,519)` using a mixed-predicate event relation rather than
-another all-`sees` chain. Keep the 568, 640, and 686 texts intact as
-frontier/rollback evidence; if the bounded relation chart reaches a character
-contradiction, persist that cursor and change the seam immediately.
+Local-minimum reset: the 568 branch has now produced exact 640-, 686-, and
+736-letter children, but repeating event cycles is not making the full prose
+readable. Stop that family. Next, replace the central 15-letter support
+`[353,368)` and its adjacent reflection `[368,383)` on the 736 text, where
+“Ari delivers maps” faces “Spam's reviled, Ira,” with a fresh, complete
+subject–verb–object pair found by live character/grammar intersection. Preserve
+the 568, 640, 686, and 736 candidates; if the residual contradicts, record the
+exact cursors and change the seam rather than widening this clause bank.
 
 The current model constraint is Luna-only; no Astra escalation is warranted
 from this evidence. Readability claims remain reserved for blinded human
@@ -87,6 +87,21 @@ The exact child is 686 letters, +46 over its 640 parent, SHA-256
 event cycle replaces a fragment/question shell, but repeats “sees” and has not
 been human-rated. This is a working construction and shell-repair result, not
 readability evidence.
+
+## 736-letter mixed-predicate shell repair (2026-09-23)
+
+The 686 child retained a second mirrored 27-letter fragment shell at
+`[167,194)` / `[492,519)`. A mixed-predicate chart replaced each with 52
+letters, using the connected left cycle “Nora sees Sara. Sara stops Aidan.
+Aidan stops Noel. Noel sees Nora.” and resegmenting the opposing tape as
+“Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron.” The
+52-character residual closed with no contradiction. The new child is 736
+letters (+50), SHA-256
+`608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2`. The
+mixed cycle is a distinct operator from the preceding all-`sees` replacement,
+but it remains repetitive and does not establish paragraph-level readability.
+The committed run records its full rendering, exact audits, role owners, and
+per-character cursor trace.
 
 ## 586-letter continuation (2026-09-23)
 

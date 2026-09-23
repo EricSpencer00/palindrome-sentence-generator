@@ -1,0 +1,176 @@
+{
+  "experiment_id": "incumbent-568-now-won-event-growth-20260923",
+  "method": "At the aligned clause seam, add a present-time adjunct 'Now' to the Nora-delivers-maps frame and pair its exact reverse 'won' with the independent Aron event in the mirrored clause. Track the two insertion cursors and the subject/tense/valency owner for each emitted word.",
+  "working_status": "audit_only_novelty_collision_not_promoted",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "normalized_letter_length": 568,
+    "normalized_letter_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "prior_bounded_attempt": {
+    "status": "no_candidate_semantic_attachment_obstruction",
+    "parent_letter_cursors": {
+      "left": 169,
+      "right": 399
+    },
+    "parent_local_tape": {
+      "left_token": "saw",
+      "left_cut": "sa|w",
+      "left_residual": "w",
+      "right_token": "was",
+      "right_cut": "w|as",
+      "right_residual": "as"
+    },
+    "bounded_completion_reported_by": "Luna agent fresh_composition",
+    "reported_local_equation": {
+      "left": "Mara saw that Leon sa",
+      "right": "As Noel, that was Aram.",
+      "normalized_left": "marasawthatleonsa",
+      "reverse_of_normalized_left": "asnoeltahtwasaram",
+      "normalized_right": "asnoelthatwasaram",
+      "equation_exact": false,
+      "first_character_mismatches": [
+        {
+          "offset": 7,
+          "expected": "a",
+          "observed": "h"
+        },
+        {
+          "offset": 8,
+          "expected": "h",
+          "observed": "a"
+        }
+      ]
+    },
+    "obstruction": "The probe report's claimed equation was not exact: the reverse requires 'taht' where the proposed English clause has 'that' (two swapped characters). It also did not close a complete clause pair: Leon was simultaneously assigned an embedded-subject and inherited-continuation role, and the right-side 'As Noel, that was Aram' had no licensed predicate attachment. No full child was emitted.",
+    "next_action": "switch to a different 568 seam and an event-frame operator"
+  },
+  "distinct_seam_attempt": {
+    "status": "bounded_lexical_infix_no_nonempty_pair",
+    "parent_letter_cursors": {
+      "left": 37,
+      "right": 531
+    },
+    "open_tokens": {
+      "left": {
+        "surface": "rewards",
+        "cut": "r|ewards",
+        "residual_after_cut": "ewards",
+        "suffix_owner": "third-person-singular verb inflection"
+      },
+      "mirrored_right": {
+        "surface": "drawer",
+        "cut": "drawe|r",
+        "residual_after_cut": "r",
+        "adjacent_matching_s_owner": "Aidan's possessive"
+      }
+    },
+    "bounded_operator": "insert a nonempty infix X after left 'r' and reverse(X) after mirrored 'drawe', requiring both resulting strings to be intact English words",
+    "lexicon": {
+      "host": "hst-bench",
+      "path": "/home/eric/words_alpha.txt",
+      "sha256": "3ed0c94610d8bcf7c11bbb49c56aa49c7234d32b66824df91f554169e572da48",
+      "word_count": 370105,
+      "left_forms_with_nonempty_infix": [
+        "rerewards",
+        "romewards"
+      ],
+      "paired_nonempty_infixes": [],
+      "empty_infix_control": [
+        "rewards",
+        "drawer"
+      ]
+    },
+    "cursor_obstruction": "The only lexical closure found was the incumbent's unchanged rewards/drawer pair. For the two nonempty left forms, the mirrored drawe+reverse(X)+r form was absent; the boundary's s is already split across verb inflection and possessive ownership.",
+    "pivot": "abandon this word-infix operator at [37,531]; seek a different event/grammar seam rather than enlarging this lexical family"
+  },
+  "construction": {
+    "source_cursors": {
+      "left_before_phrase": 48,
+      "right_after_mirror": 520
+    },
+    "left_phrase_before": "Nora delivers maps",
+    "right_mirror_before": "Spam's reviled, Aron",
+    "left_emission": {
+      "surface": "Now",
+      "letters": "now",
+      "owner": "temporal adjunct of singular-subject present-tense Nora delivers maps"
+    },
+    "right_emission": {
+      "surface": "won",
+      "letters": "won",
+      "owner": "past-tense intransitive predicate of singular subject Aron"
+    },
+    "paired_residual": {
+      "before": [
+        "now",
+        "won"
+      ],
+      "character_pairs": [
+        [
+          "n",
+          "n"
+        ],
+        [
+          "o",
+          "o"
+        ],
+        [
+          "w",
+          "w"
+        ]
+      ],
+      "closure": "now == reverse(won)",
+      "unresolved_lexical_residuals": []
+    },
+    "surface_replacements": [
+      {
+        "before": "Nora delivers maps.",
+        "after": "Now, Nora delivers maps."
+      },
+      {
+        "before": "Spam's reviled, Aron. Aidan's drawer",
+        "after": "Spam's reviled; Aron won. Aidan's drawer"
+      }
+    ],
+    "novelty_preflight": {
+      "exact_surface_pair_found_in_prior_runs": false,
+      "searches": [
+        "Now, Nora delivers maps",
+        "Aron won",
+        "spamsreviledaronwon"
+      ],
+      "scope_note": "The exact inserted surface pair was absent, but the post-generation ledger audit found that this complete-sentence seam had already been used; this child is retained only as a replay audit."
+    }
+  },
+  "post_generation_novelty_audit": {
+    "collision": true,
+    "prior_experiment_id": "incumbent-672-discourse-linked-reverse-chain-20260922",
+    "prior_run_artifact": "runs/incumbent-672-discourse-linked-reverse-chain-20260922.json",
+    "prior_same_seam": [
+      48,
+      520
+    ],
+    "prior_child_length": 672,
+    "decision": "do not promote the 574-letter child or describe the seam as new; preserve this as an audit replay and pivot"
+  },
+  "candidate": {
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Now, Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled; Aron won. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+    "normalized_letter_length": 574,
+    "normalized_letter_sha256": "44cd5ae65cdeffbcb852440771069016a271c7297835e4995d1aff345192a1e7",
+    "growth_over_parent_letters": 6,
+    "independent_exact_checks": {
+      "regex_normalize_and_reverse": true,
+      "direct_mirrored_character_walk": true,
+      "mismatch_count": 0,
+      "source_plus_two_owned_insertions": true
+    },
+    "shortcut_and_readability_status": {
+      "borrowed_catalogue_text": false,
+      "word_order_only_symmetry": false,
+      "repeated_or_self_palindromic_units": "inherited parent repetition remains repair debt",
+      "human_readability_certified": false,
+      "known_local_readability": "The added clauses are grammatical in isolation; the full inherited text remains rough and is not reader-certified."
+    }
+  }
+}

@@ -2,16 +2,17 @@
 
 ## Current goal state (2026-09-23)
 
-The end goal is still unmet. The current **736-letter exact child** is
-`568-lineage-mixed-predicate-shell-cycle-736` in
-`runs/repair-686-mixed-predicate-shell-cycle-20260923.json`, normalized SHA-256
-`608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2`. Its
-lineage is 568 → 640 → 686 → 736. It removes a second inherited fragment shell
-with a connected mixed-predicate event cycle. Two-pointer, forward/reverse
-SHA-256, and project-validator checks agree, and deterministic replay on
-`hst-bench` reproduced the artifact byte-for-byte. The 568, 640, and 686
-parents remain intact. The full candidate still has rough discourse and
-repetition; exactness and length are not readability evidence.
+The end goal is still unmet. The current **752-letter exact child** is
+`568-lineage-central-event-path-752` in
+`runs/repair-736-center-lexical-event-path-20260923.json`, normalized SHA-256
+`109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c`. Its
+lineage is 568 → 640 → 686 → 736 → 752. At the 736 center, it replaces the
+malformed “Ari delivers maps” / “Spam's reviled, Ira” pair with a connected
+two-event path and a distinct reverse-tape resegmentation. Two-pointer,
+forward/reverse SHA-256, project-validator, and deterministic replay checks
+agree. The 568, 640, 686, and 736 parents remain intact. The full candidate
+still has rough discourse and repetition; exactness, local clause repair, and
+length are not readability evidence.
 
 The **640-letter exact parent** is preserved in
 `runs/incumbent-568-live-event-chain-insertion-20260923.json`, normalized
@@ -33,8 +34,8 @@ comparison below the current length frontier (SHA-256
 `ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee`). Its
 four-beat relation chains are repetitive and schematic, so length alone does
 not promote it over the 736 repair frontier. Preserve the independently exact
-568 parent and the 560/558/556, 586, 620, 626, 640, 666, 672, 686, and 736
-comparison rows;
+568 parent and the 560/558/556, 586, 620, 626, 640, 666, 672, 686, 736, and
+752 comparison rows;
 do not mislabel any as readable or reader-ready.
 
 No blinded reader study has run. The 38-letter seed remains the only compact
@@ -44,14 +45,16 @@ paper must report this honestly, foreground only a genuinely working
 construction method and readable examples, and keep the API fail-closed until
 the stated human and exactness gates pass.
 
-Local-minimum reset: the 568 branch has now produced exact 640-, 686-, and
-736-letter children, but repeating event cycles is not making the full prose
-readable. Stop that family. Next, replace the central 15-letter support
-`[353,368)` and its adjacent reflection `[368,383)` on the 736 text, where
-“Ari delivers maps” faces “Spam's reviled, Ira,” with a fresh, complete
-subject–verb–object pair found by live character/grammar intersection. Preserve
-the 568, 640, 686, and 736 candidates; if the residual contradicts, record the
-exact cursors and change the seam rather than widening this clause bank.
+Local-minimum reset: event-cycle shell expansion reached 736 but remained
+repetitive. A distinct center-path repair then produced the exact 752 child,
+replacing the center seam with four complete event clauses. This is a local
+construction advance, not a readable result. Preserve the 568, 640, 686, 736,
+and 752 candidates. Do not resume event-cycle stuffing or return to short-seed,
+paper, reader-gate, or morphology work. The next useful experiment must change
+construction family and address another concrete rough seam in the 752 tape;
+carry a causal or discourse relation through a live residual instead of adding
+another list of equal-shaped SVO events. If that seam fails, preserve its exact
+cursor/residual obstruction and switch the editable seam or grammar mechanism.
 
 The current model constraint is Luna-only; no Astra escalation is warranted
 from this evidence. Readability claims remain reserved for blinded human
@@ -102,6 +105,24 @@ mixed cycle is a distinct operator from the preceding all-`sees` replacement,
 but it remains repetitive and does not establish paragraph-level readability.
 The committed run records its full rendering, exact audits, role owners, and
 per-character cursor trace.
+
+## 752-letter central event-path repair (2026-09-23)
+
+The 736 child had a visibly malformed central pair at normalized supports
+`[353,368)` / `[368,383)`: “Ari delivers maps” faced “Spam's reviled, Ira.” A
+two-event open path replaced those supports. The left side is “Ari sees Leon.
+Leon stops Ira.” A bounded chart resegmented its reversed character obligation
+as “Ari spots Noel. Noel sees Ira,” carrying subject/object continuity and the
+`stops`/`spots` predicate relation across a 23-letter residual. It added 16
+letters, producing the exact 752 child with normalized SHA-256
+`109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c`. Local
+project validation independently confirms 752 letters and exact reversal;
+the artifact also records matching forward/reverse hashes, zero contradictions,
+and deterministic replay on `hst-bench`. This repairs one central seam but
+retains rough discourse and other malformed inherited seams. No human rating
+was run, and the whole rendering is not being claimed readable. The next step
+must change method family and repair a different measured seam without
+repeating event-cycle expansion.
 
 ## 586-letter continuation (2026-09-23)
 

@@ -1,0 +1,619 @@
+{
+  "experiment_id": "repair-736-center-lexical-event-path-20260923",
+  "status": "exact_center_event_path_repair_child",
+  "execution": {
+    "host": "hst-bench",
+    "python_version": "3.12.3",
+    "stochasticity": "none; deterministic role-chart traversal"
+  },
+  "source_commit": "6bfdeac764a49e88aa74985fffb120666b0fac44",
+  "method": "a two-event open path is resegmented against the live central reverse obligation, with subject/object continuity and the stops/spots predicate relation carried by the chart",
+  "parent": {
+    "artifact": "repair-686-mixed-predicate-shell-cycle-20260923.json",
+    "id": "568-lineage-mixed-predicate-shell-cycle-736",
+    "letters": 736,
+    "normalized_tape_sha256": "608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2",
+    "568_ancestor_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "artifact_sha256": "77c38810fea972550a396ced140dd534f4004ac327fd2a7bdcec96ecbf2b9317"
+  },
+  "seam": {
+    "parent_normalized_supports": [
+      [
+        353,
+        368
+      ],
+      [
+        368,
+        383
+      ]
+    ],
+    "parent_raw_supports": [
+      [
+        473,
+        492
+      ],
+      [
+        492,
+        513
+      ]
+    ],
+    "old_left_tape": "arideliversmaps",
+    "old_right_tape": "spamsreviledira",
+    "new_letters_per_support": [
+      23,
+      23
+    ],
+    "growth_per_support": 8,
+    "outside_supports_retained_byte_for_byte": true
+  },
+  "grammar_state": {
+    "left_open_event_path": [
+      {
+        "id": "center-path-1",
+        "subject": "Ari",
+        "predicate": "sees",
+        "object": "Leon"
+      },
+      {
+        "id": "center-path-2",
+        "subject": "Leon",
+        "predicate": "stops",
+        "object": "Ira"
+      }
+    ],
+    "right_path_resegmented_from_residual": [
+      {
+        "subject": "Ari",
+        "predicate": "spots",
+        "object": "Noel"
+      },
+      {
+        "subject": "Noel",
+        "predicate": "sees",
+        "object": "Ira"
+      }
+    ],
+    "predicate_reversal_map": {
+      "sees": "sees",
+      "stops": "spots",
+      "spots": "stops"
+    },
+    "right_parse_count_before_path_constraint": 1,
+    "right_parse_count_after_path_constraint": 1,
+    "left_path_connected": true,
+    "right_path_connected": true
+  },
+  "live_residual": {
+    "left_emitted_tape": "ariseesleonleonstopsira",
+    "right_reverse_obligation": "arispotsnoelnoelseesira",
+    "initial_residual_letters": 23,
+    "steps": [
+      {
+        "step": 1,
+        "left_cursor_child": 353,
+        "right_reverse_cursor_child": 398,
+        "character": "a",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "center-path-1",
+          "role": "subject",
+          "word": "Ari"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "object",
+          "word": "Ira"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 22,
+        "residual_sha256": "72359cd8eb86872d902ec826dd12fecf0e47a6d82d8621c663765ec839bc9007"
+      },
+      {
+        "step": 2,
+        "left_cursor_child": 354,
+        "right_reverse_cursor_child": 397,
+        "character": "r",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "center-path-1",
+          "role": "subject",
+          "word": "Ari"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "object",
+          "word": "Ira"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 21,
+        "residual_sha256": "b68c9d39d1074f090ab02de6b145b4e23832ef13616b9b43cb61319cbd7caf8c"
+      },
+      {
+        "step": 3,
+        "left_cursor_child": 355,
+        "right_reverse_cursor_child": 396,
+        "character": "i",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "center-path-1",
+          "role": "subject",
+          "word": "Ari"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "object",
+          "word": "Ira"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 20,
+        "residual_sha256": "e72eef84b32eee19d75dd7ff8b6303d50a100ec488930cc89d02eda542d66e64"
+      },
+      {
+        "step": 4,
+        "left_cursor_child": 356,
+        "right_reverse_cursor_child": 395,
+        "character": "s",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "center-path-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 19,
+        "residual_sha256": "1044111452427b95bea3e26f1823e766a960beaf05ee56e68c31f17be0f9cb31"
+      },
+      {
+        "step": 5,
+        "left_cursor_child": 357,
+        "right_reverse_cursor_child": 394,
+        "character": "e",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "center-path-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 18,
+        "residual_sha256": "29705844d1d747917dcdcb2633a95c86675e3858a6e07f65852fe3b729fe84a1"
+      },
+      {
+        "step": 6,
+        "left_cursor_child": 358,
+        "right_reverse_cursor_child": 393,
+        "character": "e",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "center-path-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 17,
+        "residual_sha256": "db6b78cb96af11c0b97a1fbcca900d791d00574a8fe4d4a0d08a8351feaa0e0d"
+      },
+      {
+        "step": 7,
+        "left_cursor_child": 359,
+        "right_reverse_cursor_child": 392,
+        "character": "s",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "center-path-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 16,
+        "residual_sha256": "74871cd130a70ba2d3ce6e769fa9ef3eac1c88099afcfd76f2d35a261dc285f1"
+      },
+      {
+        "step": 8,
+        "left_cursor_child": 360,
+        "right_reverse_cursor_child": 391,
+        "character": "l",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "center-path-1",
+          "role": "object",
+          "word": "Leon"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 15,
+        "residual_sha256": "3f0bea1d9998caaea3e7206104e267c70f72edd009dd79d9faf08a1465a1307e"
+      },
+      {
+        "step": 9,
+        "left_cursor_child": 361,
+        "right_reverse_cursor_child": 390,
+        "character": "e",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "center-path-1",
+          "role": "object",
+          "word": "Leon"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 14,
+        "residual_sha256": "bd164f6d6077f50ea372cd7050b0545dd8381f1f8a0645beea500a2fe053f9ce"
+      },
+      {
+        "step": 10,
+        "left_cursor_child": 362,
+        "right_reverse_cursor_child": 389,
+        "character": "o",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "center-path-1",
+          "role": "object",
+          "word": "Leon"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 13,
+        "residual_sha256": "b9eb8162518e902f30fe20d71a735fc79167dc7f5a3a7c6aae77467ef7212427"
+      },
+      {
+        "step": 11,
+        "left_cursor_child": 363,
+        "right_reverse_cursor_child": 388,
+        "character": "n",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "center-path-1",
+          "role": "object",
+          "word": "Leon"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "cycle-2",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "predicate_relation": "sees",
+        "remaining_residual_letters": 12,
+        "residual_sha256": "a35d101c7a25932577a6116ab6c9b27b232a4e09fde22a7dbb12ba57f48df08b"
+      },
+      {
+        "step": 12,
+        "left_cursor_child": 364,
+        "right_reverse_cursor_child": 387,
+        "character": "l",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "subject",
+          "word": "Leon"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "object",
+          "word": "Noel"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 11,
+        "residual_sha256": "07f650aa218d2fa05d7dccd14d50177d90b3ffcfaf3889ca28c88d1b1afd13f8"
+      },
+      {
+        "step": 13,
+        "left_cursor_child": 365,
+        "right_reverse_cursor_child": 386,
+        "character": "e",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "subject",
+          "word": "Leon"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "object",
+          "word": "Noel"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 10,
+        "residual_sha256": "a2105d416b1f64b259d2c382156d78b6c98b856969ae4adaa1075981ea6db15b"
+      },
+      {
+        "step": 14,
+        "left_cursor_child": 366,
+        "right_reverse_cursor_child": 385,
+        "character": "o",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "subject",
+          "word": "Leon"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "object",
+          "word": "Noel"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 9,
+        "residual_sha256": "bfeb6063e34a7a7a70c88d66e1d29f0c3e9a4e97d07792a0aeb9ed4ee37f701b"
+      },
+      {
+        "step": 15,
+        "left_cursor_child": 367,
+        "right_reverse_cursor_child": 384,
+        "character": "n",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "subject",
+          "word": "Leon"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "object",
+          "word": "Noel"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 8,
+        "residual_sha256": "b8b8d6fdf8458d344c3e935e934c905197c31736ce3d270547a420d8f99baa9f"
+      },
+      {
+        "step": 16,
+        "left_cursor_child": 368,
+        "right_reverse_cursor_child": 383,
+        "character": "s",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 7,
+        "residual_sha256": "ef7e50588bda5898e7301d6670de538768efefc633d166bdf2ffa7b733c720ff"
+      },
+      {
+        "step": 17,
+        "left_cursor_child": 369,
+        "right_reverse_cursor_child": 382,
+        "character": "t",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 6,
+        "residual_sha256": "d8e8ad9705d1f23de394f41d905afd5b84650b6e3fd78a697dddf2d51b2a8697"
+      },
+      {
+        "step": 18,
+        "left_cursor_child": 370,
+        "right_reverse_cursor_child": 381,
+        "character": "o",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 5,
+        "residual_sha256": "3f05d01f6c31274d9f2fe5cc8e7ec9dc69996a16ac0876cb20eaa55dc72c48d8"
+      },
+      {
+        "step": 19,
+        "left_cursor_child": 371,
+        "right_reverse_cursor_child": 380,
+        "character": "p",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 4,
+        "residual_sha256": "1fc383e69f933df51411a7ca22167bfe6eb2471d0cae737622830eb87f8a1ba3"
+      },
+      {
+        "step": 20,
+        "left_cursor_child": 372,
+        "right_reverse_cursor_child": 379,
+        "character": "s",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "predicate",
+          "word": "stops"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "predicate",
+          "word": "spots"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 3,
+        "residual_sha256": "3a96b8af1e808ba3f617ab51f828ed7de2567c7e10c11878f74e79a66cb314d2"
+      },
+      {
+        "step": 21,
+        "left_cursor_child": 373,
+        "right_reverse_cursor_child": 378,
+        "character": "i",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "object",
+          "word": "Ira"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "subject",
+          "word": "Ari"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 2,
+        "residual_sha256": "37e7702e5ce449c1225fa1b3b3ed8e2dff35d24464d9264a4c2bebf3e0deee05"
+      },
+      {
+        "step": 22,
+        "left_cursor_child": 374,
+        "right_reverse_cursor_child": 377,
+        "character": "r",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "object",
+          "word": "Ira"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "subject",
+          "word": "Ari"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 1,
+        "residual_sha256": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb"
+      },
+      {
+        "step": 23,
+        "left_cursor_child": 375,
+        "right_reverse_cursor_child": 376,
+        "character": "a",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "center-path-2",
+          "role": "object",
+          "word": "Ira"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "cycle-1",
+          "role": "subject",
+          "word": "Ari"
+        },
+        "predicate_relation": "spots",
+        "remaining_residual_letters": 0,
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "final_residual": "",
+    "committed_character_contradictions": 0
+  },
+  "candidate": {
+    "id": "568-lineage-central-event-path-752",
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+    "letters": 752,
+    "normalized_tape_sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c",
+    "growth_over_parent": 16,
+    "new_event_content": [
+      "Ari sees Leon. Leon stops Ira.",
+      "Ari spots Noel. Noel sees Ira."
+    ]
+  },
+  "independent_audit": {
+    "normalized_letters": 752,
+    "two_pointer_exact": true,
+    "first_mismatch": null,
+    "sha256_forward": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c",
+    "sha256_reverse": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c",
+    "hashes_equal": true,
+    "normalized_tape": "leonwonwolfspotsnoranadiastopssotararewardsnadianoradeliversmapsnoelseesmaramaraseessarasaraseesnoraleonseessarasaraseesaidanaidanseesnoranoraseesleonaidandeliversmapsnoraseessarasarastopsaidanaidanstopsnoelnoelseesnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdessertsnoelwasistressednadiadeliversmapsleonariseesleonleonstopsiraarispotsnoelnoelseesiranoelspamsreviledaidandessertsisawleonstressedwasiaronevilididarasdogwasaramsetontaptisileonevilleonwasaronevilididleonwonliveonreviledaronseesleonleonspotsnadianadiaspotsarasarasseesaronspamsrevilednadianoelseesaronaronseesnadianadiaseesarasarasseesnoelaronseesarasarasseesaramaramseesleonspamsreviledaronaidansdraweraratosspotsaidanaronstopsflownownoel"
+  },
+  "provenance": {
+    "event_path_authored_for_this_run": true,
+    "catalogue_or_corpus_text_used": false,
+    "exact_phrase_preflight": {
+      "scope": "runs/, experiments/, and docs/ at source commit 6bfdeac764a49e88aa74985fffb120666b0fac44",
+      "exact_clause_hits": [],
+      "phrases_checked": [
+        "Ari sees Leon",
+        "Leon stops Ira",
+        "Ari spots Noel",
+        "Noel sees Ira"
+      ]
+    },
+    "generator_sha256": "ab04d88d55fa23682e53c13789ab6931c6ac52fabb57dbf236323e900e5aeab7"
+  },
+  "repair_debt": {
+    "inherited_rough_prose_and_repetition_retained": true,
+    "central_reversed_event_pair_is_a_proper_palindromic_span": true,
+    "human_readability": "not assessed; this local grammar improvement is not a readability certification"
+  },
+  "next_repair": "Stop expanding local event chains. The next construction must replace a different measured clause seam with a fresh connected event pair whose prose is evaluated in context; preserve the 568, 640, 686, 736, and 752 texts separately."
+}

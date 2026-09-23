@@ -34,9 +34,15 @@ def _compatible(a: WordPair, b: WordPair) -> bool:
             not (set(b.pos) & {"proper", "initialism"}))
 
 def extendable(left: str, right: str) -> bool:
-    """Necessary condition for closure after appending a pair."""
+    """Return whether the exposed tapes have a compatible overlap.
+
+    ``right`` is stored in reading order, so its exposed outer characters are
+    encountered as ``right[::-1]`` when checking a palindrome from the edges
+    inward.  Characters in the shared prefix are already fixed and must agree;
+    any unmatched suffix is still live center debt that later edges may fill.
+    """
     n = min(len(left), len(right))
-    return left[n:] == right[n:][::-1] or right[n:] == left[n:][::-1] or n == 0
+    return left[:n] == right[::-1][:n]
 
 def search(pairs: list[WordPair], max_depth: int = 8) -> dict:
     """Enumerate distinct pair paths, retaining longest prose and closures."""

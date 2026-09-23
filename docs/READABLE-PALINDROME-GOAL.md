@@ -60,6 +60,20 @@ The current model constraint is Luna-only; no Astra escalation is warranted
 from this evidence. Readability claims remain reserved for blinded human
 ratings, not programmatic scores.
 
+### Word-pair overlap correctness audit (2026-09-23)
+
+A correctness audit found that `llm_palindrome.wordpair_graph.extendable`
+compared the unconsumed suffixes instead of the already-fixed outer prefixes
+(`left[:n]` against `right[::-1][:n]`). Consequently, equal-length conflicting
+tapes passed the old predicate, while some compatible unequal-length tapes
+were pruned. An exhaustive binary-string continuation oracle now covers this
+invariant. On the archived five-pair inventory, the old predicate visited 17
+states and retained a 164-letter path; the corrected predicate visits 5 and
+retains only a one-pair path, with no closure. Treat the 164-letter row as
+invalid search-frontier evidence, not as a candidate result. This correction
+does not change the end goal or count as a readability advance; it prevents
+future search from reporting impossible partial states as progress.
+
 ## 568-lineage live event-chain continuation (2026-09-23)
 
 The bounded construction loaded

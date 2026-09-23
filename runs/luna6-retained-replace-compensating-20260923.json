@@ -1,0 +1,124 @@
+{
+  "experiment_id": "luna6-retained-replace-compensating-20260923",
+  "status": "rejected_exactness_residual_obstruction",
+  "method": "replace one complete retained sentence with a fresh scene sentence, then delete one distinct complete sentence; carry the reflection map through both edits",
+  "novelty_preflight": {
+    "parent": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "parent_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "prior_nonmirror_insertion_diagnostic": "runs/luna6-nonmirror-shift-seam-20260923.json",
+    "distinct_from": [
+      "reflected-cut identity insertion",
+      "single replacement-only seam edits",
+      "event-cycle growth",
+      "16/543, 64/504, and 178/390 insertion geometries"
+    ],
+    "preflight_result": "No exact geometry was reused: this run replaces the sentence at normalized [194,204) and deletes a different complete sentence at [265,269); the second cut is shifted to [280,284) after the replacement expansion."
+  },
+  "provenance": {
+    "parent_artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "parent_letters": 568,
+    "parent_normalized_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "parent_outside_in": {
+      "letters": 568,
+      "exact": true,
+      "first_mismatch": null
+    },
+    "parent_project_validator": {
+      "exact": true
+    },
+    "replacement_source": "Mara saw God.",
+    "replacement_source_normalized_span": [
+      194,
+      204
+    ],
+    "replacement_text": "Mara carried silver keys home.",
+    "replacement_normalized_letters": 25,
+    "deletion_source": "Leon.",
+    "deletion_parent_normalized_span": [
+      265,
+      269
+    ],
+    "deletion_postreplacement_normalized_span": [
+      280,
+      284
+    ],
+    "net_growth": 11
+  },
+  "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara carried silver keys home. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+  "candidate": {
+    "letters": 579,
+    "normalized_sha256": "03629585771024f3b04dccbac88fc99d5b164a89f86d0a4c937f45a254c235f9",
+    "outside_in": {
+      "letters": 579,
+      "exact": false,
+      "first_mismatch": {
+        "offset": 198,
+        "left": "c",
+        "right": "s",
+        "right_offset": 380
+      }
+    },
+    "project_validator": {
+      "exact": false
+    },
+    "exact": false
+  },
+  "seam_ledger": {
+    "parent": {
+      "letters": 568,
+      "state": "exact; no live residual"
+    },
+    "after_replacement_before_deletion": {
+      "letters": 583,
+      "first_mismatch": {
+        "offset": 198,
+        "left": "c",
+        "right": "s",
+        "right_offset": 384
+      }
+    },
+    "after_compensating_deletion": {
+      "letters": 579,
+      "first_mismatch": {
+        "offset": 198,
+        "left": "c",
+        "right": "s",
+        "right_offset": 380
+      },
+      "residual_at_replacement": {
+        "normalized_span": [
+          194,
+          219
+        ],
+        "forced_by_unchanged_opposite_material": "marasawgodsaradidilivenor",
+        "proposed": "maracarriedsilverkeyshome",
+        "first_local_conflict": {
+          "candidate_offset": 198,
+          "proposed": "c",
+          "required": "s",
+          "opposite_offset": 380
+        },
+        "fully_forced": true
+      }
+    }
+  },
+  "boundary_audit": {
+    "new_clause_tokens": [
+      "mara",
+      "carried",
+      "silver",
+      "keys",
+      "home"
+    ],
+    "whole_token_reversal_pairs_within_new_clause": [],
+    "self_palindromic_tokens": [],
+    "repeated_tokens": [],
+    "shortcut_free_new_clause": true,
+    "note": "The trial fails exactness before any readability claim; inherited parent text remains unchanged outside these two edits."
+  },
+  "readability": {
+    "status": "not_reader_evaluated",
+    "reason": "The exactness equation fails at the first new-scene seam; this is not eligible for a reader study."
+  },
+  "next_operator": "Move the compensating deletion into the reflection footprint of the replaced sentence so that at least one new clause-internal span is variable-to-variable rather than fully forced by retained text; preflight that distinct geometry first, then author the clause under the resulting live residual. Do not swap words in this rejected sentence or reuse [194,204)/[265,269)."
+}

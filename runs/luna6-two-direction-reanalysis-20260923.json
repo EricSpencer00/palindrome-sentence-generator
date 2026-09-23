@@ -1,0 +1,118 @@
+{
+  "experiment_id": "luna6-two-direction-reanalysis-20260923",
+  "status": "bounded_attachment_topology_obstruction",
+  "method": "single syntactic-attachment topology pivot after duplicate-preflight of direct tape resegmentation",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "rendered_candidate": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Nadia checks the ledgers after the rain. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. The courier protects the maps from rain. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+  "letters": 634,
+  "growth_over_parent": 66,
+  "provenance": {
+    "left_event": "Nadia checks the ledgers after the rain",
+    "right_event": "the courier protects the maps from rain",
+    "attachment_topology": {
+      "left": "temporal PP after the rain attaches to checks the ledgers",
+      "right": "source PP from rain attaches to protects the maps"
+    },
+    "borrowed_text": false,
+    "finished_tape_reversal": false,
+    "posthoc_character_repair": false,
+    "search_kind": "one fixed authored pair; no lexical sweep"
+  },
+  "novelty_preflight": {
+    "operator": "direct bidirectional lexical reanalysis / tape resegmentation",
+    "operator_status": "retired-as-duplicate: tracked work already includes multiple partial-word lexicalizers, character resegmentations, and phrasewise equation audits",
+    "selected_attachment_geometry": "[108,108) / [460,460)",
+    "geometry_literal_hits": [],
+    "authored_phrase_preflight": {
+      "revision": "e1103bd32b5f0a32e0927470744574a8a3573aa7",
+      "scope": "tracked runs/, experiments/, docs/, data/",
+      "phrases": [
+        "Nadia checks the ledgers after the rain.",
+        "The courier protects the maps from rain."
+      ],
+      "literal_hits": [],
+      "status": "clean"
+    },
+    "pivot": "one attachment-topology pair, distinct from changing POS banks or morphology"
+  },
+  "live_residual": {
+    "left_letters": 33,
+    "right_letters": 33,
+    "left_surface": "Nadia checks the ledgers after the rain.",
+    "right_surface": "The courier protects the maps from rain.",
+    "left_tape": "nadiacheckstheledgersaftertherain",
+    "right_tape_read_from_outer_cursor": "niarmorfspamehtstcetorpreiruoceht",
+    "matched_prefix": "n",
+    "cursor": 1,
+    "left_emits": "a",
+    "right_requires": "i",
+    "remaining_left_letters": 32,
+    "remaining_right_letters": 32,
+    "closed": false
+  },
+  "boundary_audit": {
+    "left_internal_boundaries": [
+      5,
+      11,
+      14,
+      21,
+      26,
+      29
+    ],
+    "reflected_right_internal_boundaries": [
+      4,
+      8,
+      12,
+      15,
+      23,
+      30
+    ],
+    "whole_token_sequence_mirror": false,
+    "interpretation": "This is a failed equation diagnostic, so no non-tokenwise closure is claimed."
+  },
+  "exact_audit": {
+    "independent_outside_in_exact": false,
+    "outside_in": {
+      "exact": false,
+      "comparisons": 110,
+      "first_mismatch": {
+        "left_cursor": 109,
+        "right_cursor": 524,
+        "left_char": "a",
+        "right_char": "i"
+      }
+    },
+    "project_validator_exact": false,
+    "sha256_forward": "bf729dba6bf85e8b68ebe69cd77519e0bc4e23ed5da9cd4c80378aed0973e9be",
+    "sha256_reverse": "375cbad947c9c5bab0ff0e1dcbd3a06a56a39df5f7aba5182ff1ab5bfddf1694",
+    "hashes_equal": false,
+    "normalized_sha256": "bf729dba6bf85e8b68ebe69cd77519e0bc4e23ed5da9cd4c80378aed0973e9be"
+  },
+  "readability": {
+    "human_evidence": false,
+    "reader_eligible": false,
+    "reason": "not exact; no reader test"
+  },
+  "failure_and_next_repair": {
+    "obstruction": {
+      "left_letters": 33,
+      "right_letters": 33,
+      "left_surface": "Nadia checks the ledgers after the rain.",
+      "right_surface": "The courier protects the maps from rain.",
+      "left_tape": "nadiacheckstheledgersaftertherain",
+      "right_tape_read_from_outer_cursor": "niarmorfspamehtstcetorpreiruoceht",
+      "matched_prefix": "n",
+      "cursor": 1,
+      "left_emits": "a",
+      "right_requires": "i",
+      "remaining_left_letters": 32,
+      "remaining_right_letters": 32,
+      "closed": false
+    },
+    "next_repair": "Keep the two event roles and attachment heads fixed; jointly replace only the first mismatching lexical heads under the live residual, then rerun both retained-flank syntax checks and exact audits. Do not reopen a generic seam/word sweep."
+  }
+}

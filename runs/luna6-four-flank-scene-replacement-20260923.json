@@ -1,0 +1,161 @@
+{
+  "experiment_id": "luna6-four-flank-scene-replacement-20260923",
+  "status": "rejected_live_residual",
+  "method": "single reflected scene replacement with pretyped four-flank syntactic joins and a live equal-width residual",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "normalized_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "novelty_preflight": {
+    "revision": "e1103bd32b5f0a32e0927470744574a8a3573aa7",
+    "exact_geometry_hits": [],
+    "exact_geometry_status": "clear",
+    "authored_phrase_hits": [],
+    "authored_phrase_status": "clear",
+    "logged_2026_09_23_geometries_excluded": [
+      "[7,232)+cut561",
+      "[91,232)+cut477",
+      "[135,232)+cut433",
+      "[204,232)+cut433",
+      "[204,232)+delete[336,352)",
+      "replace[194,204)+delete[265,269)",
+      "insert at reflected sentence cuts [108,460)"
+    ],
+    "operator_state_new_beyond_coordinates": "typed four-flank scene realization: answer slot after A tub?; complete left clause before Now, Noel; new right clause after Leon won; right surface ends with Eh, to join the retained but-clause. All four joins are fixed before lexicalization and carried with one equal-width live character obligation.",
+    "known_operator_collisions": [
+      "Generic reflected-span replacement has historical precedents; this experiment claims novelty only for the bounded four-flank attachment state plus exact [125,148)/[420,443) footprint."
+    ]
+  },
+  "edit": {
+    "left_parent_span": [
+      125,
+      148
+    ],
+    "right_parent_span": [
+      420,
+      443
+    ],
+    "left_parent_text": "He maps Nora. Deliver no evil. ",
+    "right_parent_text": "Live on, reviled. Aron, spam. Eh, ",
+    "left_new_text": "Heavens, Maya found a map, and Ruth took one to Ken before dawn.",
+    "right_new_text": "Ken sent Ruth to find Maya; she carried the map home at dawn. Eh,",
+    "left_output_span": [
+      125,
+      174
+    ],
+    "right_output_span": [
+      446,
+      495
+    ]
+  },
+  "four_flank_state": {
+    "left_before": "A tub? ",
+    "left_after": "Now, Noel, did I live?",
+    "right_before": "Leon won. ",
+    "right_after": ", but a star spots Aram.",
+    "join_requirements": [
+      "answer-like complete left opening",
+      "left insertion ends before a new Now clause",
+      "right insertion follows a finite Leon clause",
+      "right insertion ends in Eh to form Eh, but..."
+    ]
+  },
+  "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? Heavens, Maya found a map, and Ruth took one to Ken before dawn. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Ken sent Ruth to find Maya; she carried the map home at dawn. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+  "letters": 620,
+  "growth_over_parent": 52,
+  "live_residual": {
+    "left_surface": "Heavens, Maya found a map, and Ruth took one to Ken before dawn.",
+    "right_surface": "Ken sent Ruth to find Maya; she carried the map home at dawn. Eh,",
+    "left_letters": 49,
+    "right_letters": 49,
+    "left_tape": "heavensmayafoundamapandruthtookonetokenbeforedawn",
+    "right_reverse_obligation": "henwadtaemohpamehtdeirracehsayamdnifothturtnesnek",
+    "matched_prefix": "he",
+    "first_mismatch_cursor": 2,
+    "left_emits": "a",
+    "right_requires": "n",
+    "left_remaining": 47,
+    "right_remaining": 47,
+    "closed": false
+  },
+  "exact_audit": {
+    "independent_outside_in": {
+      "exact": false,
+      "comparisons": 128,
+      "first_mismatch": {
+        "left_offset": 127,
+        "left": "a",
+        "right_offset": 492,
+        "right": "n"
+      }
+    },
+    "project_validator_exact": false,
+    "sha256_forward": "ba2f5dd2c96e34281d369a78cd10ffe626da7c2bd7e9de92e2774504e6d3bfe5",
+    "sha256_reverse": "368d6b5833bef4706c5dd002c2332ae4ee155d1e1e28c51de0bee17163930aa1",
+    "hashes_equal": false,
+    "normalized_sha256": "ba2f5dd2c96e34281d369a78cd10ffe626da7c2bd7e9de92e2774504e6d3bfe5"
+  },
+  "shortcut_boundary_audit": {
+    "left_tokens": [
+      "heavens",
+      "maya",
+      "found",
+      "a",
+      "map",
+      "and",
+      "ruth",
+      "took",
+      "one",
+      "to",
+      "ken",
+      "before",
+      "dawn"
+    ],
+    "right_tokens": [
+      "ken",
+      "sent",
+      "ruth",
+      "to",
+      "find",
+      "maya",
+      "she",
+      "carried",
+      "the",
+      "map",
+      "home",
+      "at",
+      "dawn",
+      "eh"
+    ],
+    "whole_token_sequence_mirror": false,
+    "cross_surface_reverse_token_pairs": [],
+    "self_palindromic_multi_letter_tokens": [],
+    "repeated_tokens_left": [],
+    "repeated_tokens_right": [],
+    "note": "A non-exact diagnostic cannot be admitted even when these simple shortcut checks are clean."
+  },
+  "readability": {
+    "human_evidence": false,
+    "reader_eligible": false,
+    "reason": "The full tape fails exact validation."
+  },
+  "failure_and_one_pivot": {
+    "obstruction": {
+      "left_surface": "Heavens, Maya found a map, and Ruth took one to Ken before dawn.",
+      "right_surface": "Ken sent Ruth to find Maya; she carried the map home at dawn. Eh,",
+      "left_letters": 49,
+      "right_letters": 49,
+      "left_tape": "heavensmayafoundamapandruthtookonetokenbeforedawn",
+      "right_reverse_obligation": "henwadtaemohpamehtdeirracehsayamdnifothturtnesnek",
+      "matched_prefix": "he",
+      "first_mismatch_cursor": 2,
+      "left_emits": "a",
+      "right_requires": "n",
+      "left_remaining": 47,
+      "right_remaining": 47,
+      "closed": false
+    },
+    "next_operator": "Change the boundary attachment topology once: move the right retained comma/but clause into the authored right event and shift the reflected right boundary to the end of `Aram.`; this removes the forced `Eh` terminal and gives the outer right lexical owner a variable final word. Preflight the new reflected cuts before any further lexicalization."
+  }
+}

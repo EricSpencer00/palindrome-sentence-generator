@@ -1,0 +1,88 @@
+{
+  "experiment_id": "luna6-three-boundary-residual-pivot-20260923",
+  "status": "no_admissible_70_letter_scene_pair; exact local shortcut rejected; changed seam selected",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256_normalized": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "independent_outside_in_exact": true,
+    "project_validator_exact": true
+  },
+  "preflight": {
+    "current_geometry": {
+      "replace_parent_span": [
+        135,
+        232
+      ],
+      "opposing_insert_parent_cut": 433
+    },
+    "registry_history": "No completed run uses this exact signature. It was previously recorded only as a next operator and appears in an unexecuted draft; this one bounded lexicalization pass found no admissible 70-letter pair.",
+    "changed_geometry": {
+      "replacement_parent_span": [
+        91,
+        232
+      ],
+      "replacement_parent_letters": 141,
+      "opposing_insert_parent_cut": 477,
+      "reflected_start": 91,
+      "parent_removed_tape": "aidandeliversmapsmarastopsratsatubhemapsnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdesserts",
+      "rendered_flank_context": {
+        "left": " so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron",
+        "right": "noelwasistressednadiadeliversmap"
+      },
+      "boundary_note": "Normalized offset 91 begins `Aidan delivers maps`; offset 232 is the sentence boundary after `desserts`."
+    },
+    "changed_geometry_signature_found": false
+  },
+  "bounded_local_attempt": {
+    "left_rendered_probe": "Nora, as I said",
+    "right_rendered_suffix": "Dias is Aaron",
+    "left_normalized": "noraasisaid",
+    "right_normalized": "diasisaaron",
+    "required_left_from_right": "noraasisaid",
+    "letters_matched": 11,
+    "target_letters": 70,
+    "full_70_letter_equation_closed": false,
+    "residual": {
+      "closed_prefix": "noraasisaid",
+      "remaining_positions": [
+        11,
+        70
+      ],
+      "remaining_count": 59,
+      "obstruction": "This authored continuation reaches only 13 characters and closes only by the forbidden said/Dias whole-token reversal. No coherent admissible 70-letter pair was supplied, so no full candidate was rendered."
+    },
+    "boundary_audit": {
+      "left_tokens": [
+        "Nora",
+        "as",
+        "I",
+        "said"
+      ],
+      "right_tokens": [
+        "Dias",
+        "is",
+        "Aaron"
+      ],
+      "whole_token_reversal_pairs": [
+        [
+          "said",
+          "Dias"
+        ]
+      ],
+      "self_palindromic_tokens": [
+        "I"
+      ],
+      "admissible": false,
+      "reason": "The exact local closure uses the whole-token reversal said/Dias and the standalone self-palindromic token I; both are excluded."
+    }
+  },
+  "candidate": null,
+  "next_operator": "Preflight and author once on sentence-bounded [91,232) with a new event inserted at cut 477; carry the resulting 70-character equation while composing, and reject any closure that uses tokenwise reversal.",
+  "reader_status": "not_applicable_no_candidate; no readability claim",
+  "provenance": {
+    "lexical_source": "one fresh hand-authored diagnostic phrase pair; not copied into a candidate",
+    "whole_tape_rendered": false,
+    "script_sha256": "d64211c346f6962db7540b8cb3b98b15dcacce698413ebb31b25d8fc34590b02"
+  }
+}

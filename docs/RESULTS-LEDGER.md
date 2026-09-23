@@ -4392,3 +4392,23 @@ Every committed artifact is listed below. Exact length is populated only when th
 ## Unreadable JSON files
 
 - `runs/grammar-relation-agreement-pair-repair-20260917.json` — `JSONDecodeError`
+
+## Luna 6 continuation addendum — 2026-09-23
+
+These experiments all load the pinned 568-letter parent in `runs/incumbent-560-outer-causal-scene-20261002.json` (normalized SHA-256 `6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`). The 568 parent remains the working incumbent; none of the diagnostics below is a reader-validated result.
+
+| Experiment | Rendered result | Independent outcome | Decision |
+|---|---:|---|---|
+| Two-direction attachment pair | 634 letters | First mismatch 109 (`a/i`); exact validators reject. | Retire this pair. |
+| Retained replacement + compensation | 579 letters | First mismatch 198 (`c/s`). | Move compensation into the replaced span's reflection footprint. |
+| Reflected-footprint replacement + deletion | 646 letters | First mismatch 204 (`a/s`). | Add a separately authored opposite owner. |
+| Dual-variable scene | 732 letters | Offset 204 closes (`a/a`), but the first mismatch is earlier at 135 (`d/a`). | Move the editable owner outward; retire this cut pair. |
+| Sentence-shell causal scene | 760 letters | First mismatch 7 (`a/s`); project validator and forward/reverse hashes reject. | Preserve as an inexact diagnostic, not a candidate. |
+| Algebraic reflected seam | 578 letters (+10) | Exact by outside-in scan, project validator, and matching SHA-256 `e6cebd883cfe915f312e3323037211c0ebd31eed58719a209df58b484db33f9f`. | Reject as unreadable: the actual seams render `An aid Wolf...` and `...flow Diana now, Noel`. No event or reader evidence. |
+| Four-flank linked scene | 620 letters (+52) | Matches `he`, then mismatches at cursor 2 (`a/n`); full-tape first mismatch 127. | Change the actual owner window to `[91,148)/[420,477)` after preflight. |
+| Sentence-bounded owner pivot | 584 letters (+16) | Matches `a`, then mismatches at cursor 1 (`t/y`); full-tape first mismatch 92. Both validators reject. | Preserve the cursor and change owner map/operator; no phrase swap. |
+| Full-sentence wrapper | 674 letters (+106) | Exact by both validators; normalized SHA-256 `3e1f025aa124a459176ea2859942f577931310a0420110f2d16ddaeadb838e5d`. | Reject as unreadable: reverse(Y) is forced as an unsegmented prefix `nwaderofebegallivehtotregdelssentiwehtdeirracreiruoca`. |
+
+Two other lanes were retired before candidate emission: a three-owner map on `[20,48)/[520,548)` collides with the incumbent's already-used causal event map, and the proposed 70-letter scene pair on `[135,232)/cut 433` had no admissible lexicalization after rejecting a whole-token-reversal lead. These are tracked as preflight/obstruction evidence, not as candidate results.
+
+The exact 578-letter tape is retained only as a construction diagnostic in [`luna6-algebraic-reflected-seam-diana`](../runs/luna6-algebraic-reflected-seam-diana-20260923.json); it is not being presented as readable English. Its equation `X = reverse(Y) + L` establishes a simple exact extension around the retained 104-letter center, but the selected `Y = Diana` does not lexicalize into intact prose. The next active seam attempt frees both outer rails and must use an original complete-sentence pair; a separate linked-scene lane is testing the preflighted four-flank replacement. No reader study has been run.

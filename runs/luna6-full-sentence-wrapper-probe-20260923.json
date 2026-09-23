@@ -1,0 +1,104 @@
+{
+  "experiment_id": "luna6-full-sentence-wrapper-probe-20260923",
+  "status": "exact_but_rejected_unreadable_reversal_seam",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "normalized_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel."
+  },
+  "operator": {
+    "geometry": {
+      "replace_parent_span": [
+        0,
+        232
+      ],
+      "insert_at_parent_cut": 568
+    },
+    "identity": "X=reverse(Y)+P[0:232]; rendered tape=reverse(Y)+P+Y",
+    "Y_surface": "A courier carried the witness ledger to the village before dawn.",
+    "Y_letters": 53,
+    "X_letters": 285,
+    "predicted_letters": 674,
+    "actual_letters": 674,
+    "growth": 106,
+    "live_residual": "At each outer-in step, the added prefix reverse(Y) is paired with added suffix Y; the unchanged parent is centered and independently exact."
+  },
+  "candidate": {
+    "rendered": "nwaderofebegallivehtotregdelssentiwehtdeirracreiruocaLeon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel. A courier carried the witness ledger to the village before dawn.",
+    "normalized_sha256": "3e1f025aa124a459176ea2859942f577931310a0420110f2d16ddaeadb838e5d",
+    "reverse_sha256": "3e1f025aa124a459176ea2859942f577931310a0420110f2d16ddaeadb838e5d",
+    "independent_outside_in": {
+      "letters": 674,
+      "exact": true,
+      "first_mismatch": null
+    },
+    "project_validator_exact": true,
+    "mechanically_exact": true
+  },
+  "readability_audit": {
+    "right_new_clause": "A courier carried the witness ledger to the village before dawn.",
+    "right_clause_sentence_parse": "complete, grammatical sentence; narrative link to Noel is not explicit",
+    "required_left_surface": "nwaderofebegallivehtotregdelssentiwehtdeirracreiruoca",
+    "left_after_spaces_cannot_change": [
+      "Leon won. Wolf spots Nora."
+    ],
+    "left_prefix_parse": "no coherent sentence parse identified; contiguous reversal is not readable English",
+    "reverse_surface_tokens_if_naively_split": [
+      "nwaderofebegallivehtotregdelssentiwehtdeirracreiruoca"
+    ],
+    "right_surface_tokens": [
+      "a",
+      "courier",
+      "carried",
+      "the",
+      "witness",
+      "ledger",
+      "to",
+      "the",
+      "village",
+      "before",
+      "dawn"
+    ],
+    "whole_token_reversal_shortcut_check": "not admitted: any spacing that creates tokenwise reversals is forbidden; no left parse was found",
+    "repeated_new_units": [],
+    "reader_evidence": false,
+    "status": "not a reader-worthy candidate; exactness does not certify readability"
+  },
+  "lexical_obstruction": {
+    "exact_tape_obligation": "nwaderofebegallivehtotregdelssentiwehtdeirracreiruoca",
+    "surface_before_parent": "nwaderofebegallivehtotregdelssentiwehtdeirracreiruoca",
+    "reason": "This one complete right sentence has no coherent full-sentence parse under its forced character reversal. Keeping it contiguous makes the failure visible; adding token boundaries cannot repair the letters and risks a forbidden word-mirror shortcut.",
+    "next_operator": {
+      "geometry": {
+        "replace_centered_palindromic_span": [
+          232,
+          336
+        ],
+        "preserve_outer_reflection_shells": [
+          [
+            0,
+            232
+          ],
+          [
+            336,
+            568
+          ]
+        ]
+      },
+      "identity": "replace M=P[232:336] by reverse(Z)+M+Z, retaining L=P[0:232] and reverse(L); new tape L+reverse(Z)+M+Z+reverse(L)",
+      "change": "Move the authored event to the centered 104-letter span instead of wrapping the whole parent. This gives the new clause the parent’s interior discourse context at both boundaries and is not the [0,232)/end-568 wrapper topology.",
+      "preflight": {
+        "exact_coordinate_signature": "no hit for [232,336] in tracked runs/experiments/docs/data",
+        "operator_collision": "docs/EXPERIMENT-NOVELTY-REGISTRY.md records reversible-semantic-wrappers: fresh semantic centers surrounded by character-pair wrapper primitives. This is the same construction family, so the central wrap is retired despite the new coordinates.",
+        "decision": "do not run a lexical realization under this duplicate operator"
+      },
+      "next_distinct_action": "Return to the goal owner for a materially different construction family; do not rename another character-pair wrapper or seam coordinate as novelty."
+    }
+  },
+  "provenance": {
+    "Y": "A courier carried the witness ledger to the village before dawn.",
+    "source": "newly authored single sentence for this seam test; not imported from a catalogue",
+    "candidate_text_saved": true
+  }
+}

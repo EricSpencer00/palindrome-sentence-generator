@@ -1,0 +1,75 @@
+{
+  "experiment_id": "luna6-sentence-seam477-linked-scene-20260923",
+  "status": "rejected_local_equation_mismatch_before_rendering",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256_normalized": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "independent_outside_in_exact": true,
+    "project_validator_exact": true
+  },
+  "novelty_preflight": {
+    "geometry": {
+      "replacement_parent_span": [
+        91,
+        232
+      ],
+      "opposing_insert_parent_cut": 477
+    },
+    "completed_registry_or_history_collision": false,
+    "basis": "Exact signature absent from registry/history search; spans sentence-bounded source context, unlike prior partial phrase seams."
+  },
+  "authored_linked_events": {
+    "left": "Nora, a courier, hid the witness ledger under a flooded station and sent a sealed message to the captain before dawn.",
+    "right": "The keeper traced a charred note to the harbor, found its source, and recognized Aaron."
+  },
+  "live_equation": {
+    "left_letters": 94,
+    "right_letters": 70,
+    "required_left_prefix": "noraadezingocerdnaecruosstidnuofrobrahehtotetonderrahcadecartrepeekeht",
+    "left_prefix_tested": "noraacourierhidthewitnessledgerunderafloodedstationandsentasealedmessa",
+    "matched_letters": 5,
+    "target_letters": 70,
+    "first_mismatch": {
+      "cursor": 5,
+      "left": "c",
+      "required": "d"
+    },
+    "equation_closed": false
+  },
+  "shortcut_and_reuse_audit": {
+    "whole_token_reversal_pairs": [],
+    "self_palindromic_words": [],
+    "cross_event_repeated_bigrams": [
+      [
+        "to",
+        "the"
+      ]
+    ],
+    "shared_content_tokens": [
+      "a",
+      "and",
+      "the",
+      "to"
+    ],
+    "candidate_admissible": false,
+    "notes": "No phrase reused from the rejected 732 events. The local equation fails before any exact-child admission; no full tape was assembled."
+  },
+  "candidate": null,
+  "hypothetical_length_if_equation_closed": 591,
+  "next_operator": {
+    "replacement_parent_span": [
+      7,
+      232
+    ],
+    "opposing_insert_parent_cut": 561,
+    "rationale": "Move the left seam to the sentence boundary before `Wolf spots Nora` and the reflected cut to the sentence-tail boundary before `now`; give the wider 225-letter scene shell one bounded live-equation realization.",
+    "preflight_exact_signature_found": false
+  },
+  "reader_status": "not_applicable_no_candidate",
+  "provenance": {
+    "source": "freshly authored linked event pair for this bounded local test",
+    "whole_candidate_rendered": false,
+    "script_sha256": "06049d053f747772cf292165b8db8ac715886be4e03f42b3f62e63706e71e3bd"
+  }
+}

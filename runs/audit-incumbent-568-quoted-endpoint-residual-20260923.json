@@ -1,0 +1,126 @@
+{
+  "experiment_id": "audit-incumbent-568-quoted-endpoint-residual-20260923",
+  "working_status": "rejected_endpoint_factorization_shortcut; no child emitted",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256_normalized": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "operator": {
+    "name": "right-endpoint lexicalizer with live reversed-tape residual",
+    "provenance": "bounded Luna endpoint attempt; reconstructed and boundary-audited independently",
+    "normalized_spans": [
+      [
+        7,
+        148
+      ],
+      [
+        420,
+        561
+      ]
+    ],
+    "raw_spans": [
+      [
+        10,
+        195
+      ],
+      [
+        580,
+        775
+      ]
+    ],
+    "retained_left_prefix": "Leon won. ",
+    "retained_right_suffix": " now, Noel.",
+    "source_span_letters_each": 141
+  },
+  "endpoint_probe": {
+    "right_phrase": "A liar draws a ward",
+    "right_tape": "aliardrawsaward",
+    "required_left_tape": "drawaswardraila",
+    "left_prefix_phrase": "Draw a",
+    "matched_letters": 5,
+    "residual_after_prefix": "swardraila",
+    "continuation_parse": "Draw a sward, rail a…",
+    "left_words": [
+      "draw",
+      "a",
+      "sward",
+      "rail",
+      "a"
+    ],
+    "right_words": [
+      "a",
+      "liar",
+      "draws",
+      "a",
+      "ward"
+    ],
+    "right_word_boundaries": [
+      1,
+      5,
+      10,
+      11
+    ],
+    "reflected_right_word_boundaries": [
+      4,
+      5,
+      10,
+      14
+    ],
+    "left_word_boundaries": [
+      4,
+      5,
+      10,
+      14
+    ],
+    "boundary_alignment_fraction": 1.0,
+    "wordwise_reversal_pairs": [
+      {
+        "left": "draw",
+        "right": "ward",
+        "exact_reverse": true
+      },
+      {
+        "left": "a",
+        "right": "a",
+        "exact_reverse": true
+      },
+      {
+        "left": "sward",
+        "right": "draws",
+        "exact_reverse": true
+      },
+      {
+        "left": "rail",
+        "right": "liar",
+        "exact_reverse": true
+      },
+      {
+        "left": "a",
+        "right": "a",
+        "exact_reverse": true
+      }
+    ],
+    "novelty_preflight": {
+      "revision": "be9191c4",
+      "phrase": "A liar draws a ward",
+      "scope": "tracked repository paths at the preflight revision",
+      "hits": [],
+      "status": "no_literal_hits"
+    }
+  },
+  "candidate": {
+    "emitted": false,
+    "rendered": null,
+    "letters": null,
+    "normalized_sha256": null,
+    "exact_audit": null
+  },
+  "admission": {
+    "admitted": false,
+    "reason": "The live residual after `Draw a` forces `sward rail a`; every token aligns to an exact reversed right token (`draws/a/sward/rail/a` versus `a/liar/draws/a/ward`), including the forbidden liar/rail pair and self-palindromic `a`. The bounded lane emitted no equal-length insertion longer than the 141-letter removed span, so no child exists to validate.",
+    "human_readability_certified": false,
+    "reader_evidence": false
+  },
+  "next_construction": "Retire this endpoint. Select a disjoint unused 568 seam and construct a boundary-crossing pair whose live residual entails different token boundaries; preflight equal insertion length and positive growth before expanding the scene."
+}

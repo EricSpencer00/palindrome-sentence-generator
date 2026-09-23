@@ -169,6 +169,23 @@ not a candidate or a readability claim. The next attempt changes seam and
 makes equal length plus strict growth constraints hard gates before surface
 expansion, with the reverse-tape cursor kept live.
 
+### Quoted endpoint residual on a new partial seam (2026-09-23)
+
+The next bounded endpoint probe used normalized `[7,148)` / `[420,561)` on
+the same independently verified 568-letter parent, retaining `Leon won.` on
+the left and `now, Noel.` on the right. The right endpoint proposal was “A
+liar draws a ward”; its reverse tape begins `drawaswardraila`. A left prefix
+“Draw a” matches five letters and leaves `swardraila`, whose continuation
+“sward, rail a…” exposes the problem: right word boundaries reflect exactly
+onto left boundaries, and every token is an exact reversed token, including
+`liar/rail` and self-palindromic `a`. The bounded lane emitted no equal-length
+insertion longer than the removed 141-letter spans, so it produced no child.
+The independently reconstructed residual and boundary audit are in
+[`runs/audit-incumbent-568-quoted-endpoint-residual-20260923.json`](../runs/audit-incumbent-568-quoted-endpoint-residual-20260923.json);
+this is obstruction evidence, not a candidate or readability result. The next
+distinct seam is `[204,220)` / `[348,364)`, with a 24-letter-per-side target
+and a boundary-conditioned dependency-slot construction.
+
 ### Untouched outer-seam event resegmentation (2026-09-23)
 
 The next 568-lineage edit replaced normalized span `[0,20)` / `[548,568)`

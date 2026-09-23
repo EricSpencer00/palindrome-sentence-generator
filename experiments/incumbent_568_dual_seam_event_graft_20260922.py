@@ -33,6 +33,21 @@ PARENT_ID = "outer-causal-scene-568-working-incumbent"
 PARENT_SHA256 = "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
 LEFT_CUT = 108
 RIGHT_CUT = 460
+NOVELTY_SNAPSHOT_COMMIT = "b0d5044dde6f4046750193dad63b3fbc7e063819"
+NOVELTY_SCAN_ARTIFACTS = [
+    "runs/incumbent-568-clause-lattice-recomputed-seam-20261002.json",
+    "runs/incumbent-568-internal-seam-growth-20260922.json",
+    "runs/incumbent-568-live-partial-seam-growth-20261002.json",
+    "runs/incumbent-568-obligation-indexed-intersection-20261002.json",
+    "runs/incumbent-568-partial-varied-intersection-20261002.json",
+    "runs/incumbent-568-remaining-shell-global-gate-20261002.json",
+    "runs/incumbent-568-repeated-shell-event-lattice-20261002.json",
+    "runs/incumbent-568-repeated-shell-intersection-20261002.json",
+    "runs/incumbent-568-sentence-boundary-clause-intersection-20261002.json",
+    "runs/incumbent-568-token-boundary-intersection-20261002.json",
+    "runs/incumbent-568-won-now-seam-growth-20261002.json",
+    "runs/incumbent-608-repeated-shell-repair-20261002.json",
+]
 
 FRONTIER = [
     {"artifact": str(PARENT.relative_to(ROOT)), "id": PARENT_ID, "letters": 568, "sha256": PARENT_SHA256},
@@ -80,22 +95,16 @@ def validate_frontier(entry: dict[str, object]) -> None:
 
 
 def novelty_preflight(candidate: dict[str, object]) -> dict[str, object]:
-    """Scan the local 568/608 lineage and report overlap instead of claiming novelty."""
-    paths = sorted(set(
-        list((ROOT / "runs").glob("incumbent-568-*.json"))
-        + list((ROOT / "runs").glob("incumbent-608-*.json"))
-    ))
+    """Reproduce the pre-candidate lineage scan frozen at the recorded commit."""
+    paths = [ROOT / relative for relative in NOVELTY_SCAN_ARTIFACTS]
     target_events = candidate["left_events"] + candidate["right_events"]
     normalized_events = {event: normalize(str(event)) for event in target_events}
     records = []
     event_hits: dict[str, list[dict[str, str]]] = {event: [] for event in target_events}
     for path in paths:
-        if path == OUT:
-            continue
-        try:
-            payload = json.loads(path.read_text())
-        except (OSError, json.JSONDecodeError):
-            continue
+        if not path.is_file():
+            raise FileNotFoundError(f"Frozen novelty input is missing: {path}")
+        payload = json.loads(path.read_text())
         entry = {
             "artifact": str(path.relative_to(ROOT)),
             "experiment_id": payload.get("experiment_id"),
@@ -133,8 +142,9 @@ def novelty_preflight(candidate: dict[str, object]) -> dict[str, object]:
     ]
     known_same_geometry = [path for path in known_same_geometry if (ROOT / path).is_file()]
     return {
+        "scan_snapshot_commit": NOVELTY_SNAPSHOT_COMMIT,
         "scanned_artifacts": len(records),
-        "scope_note": "Scanned every local incumbent-568-* and incumbent-608-* JSON artifact; prior candidate tapes and explicit cut metadata were checked. This does not establish novelty beyond the saved local lineage.",
+        "scope_note": "Scanned the frozen local incumbent-568/608 manifest available at scan_snapshot_commit. Later artifacts are intentionally excluded so this historical preflight remains reproducible and does not treat descendants as prior work.",
         "records": records,
         "selected_geometry": "authored complete reciprocal event sequences around a retained middle; this is a bounded graft instance, not a new search-operator family",
         "selected_normalized_cuts": [LEFT_CUT, RIGHT_CUT],

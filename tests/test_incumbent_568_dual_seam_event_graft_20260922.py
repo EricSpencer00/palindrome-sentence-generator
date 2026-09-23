@@ -37,6 +37,9 @@ def test_artifact_reproduces_with_honest_global_checks():
     payload = build_payload()
     artifact = json.loads(OUT.read_text())
     assert artifact == payload
+    assert payload["novelty_preflight"]["scan_snapshot_commit"] == "b0d5044dde6f4046750193dad63b3fbc7e063819"
+    scanned = {record["artifact"] for record in payload["novelty_preflight"]["records"]}
+    assert "runs/incumbent-568-bilateral-typed-grammar-chart-20261002.json" not in scanned
     row = artifact["rows"][0]
     assert independent_audit(row["rendered"]) == row["independent_audit"]
     assert not row["strict_global_checks"]["all_mechanical_checks"]

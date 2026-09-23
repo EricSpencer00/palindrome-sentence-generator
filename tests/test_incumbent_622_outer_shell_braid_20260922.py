@@ -30,6 +30,7 @@ def test_join_consumes_two_cursors_and_closes_residual() -> None:
 def test_braid_payload_is_exact_growth_and_preserves_parent() -> None:
     payload = build_payload()
     row = payload["rows"][0]
+    assert row["id"] == "outer-shell-braid-mara-leon-nadia-648"
     assert payload["parent"]["sha256"] == PARENT_SHA256
     assert row["independent_audit"]["normalized_letters"] == 648
     assert row["independent_audit"]["two_pointer_exact"] is True

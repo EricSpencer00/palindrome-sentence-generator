@@ -336,7 +336,7 @@ def build_payload() -> dict[str, object]:
     raw_left = base.index(OLD_LEFT)
     raw_right = base.index(OLD_RIGHT)
     row = {
-        "id": "outer-shell-braid-mara-leon-nadia-646",
+        "id": "outer-shell-braid-mara-leon-nadia-648",
         "working_status": "exact_growth_candidate_pending_reader_review",
         "rendered": rendered,
         "audit": project,

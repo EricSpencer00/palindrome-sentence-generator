@@ -39,6 +39,9 @@ then dead residual `iawaronnretnaladeirracnora` (reported by the bounded Luna
 lane; not independently rerun). Two separate typed charts likewise reported
 zero closures. No readability or reader-evidence claim is made. The next
 attempt changes the actual seam and preflights roles before lexicalization.
+One later same-turn auxiliary/participle chart accidentally reused this exact
+geometry; its 2,304 zero-closure count is explicitly marked duplicate rather
+than counted as another experiment.
 
 ### Right-first outer scene (2026-09-23)
 

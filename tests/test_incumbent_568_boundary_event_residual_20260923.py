@@ -47,6 +47,12 @@ class BoundaryEventResidualAuditTest(unittest.TestCase):
         self.assertTrue(all(lane["exact_closures"] == 0 for lane in lanes))
         self.assertTrue(all("not independently rerun" in lane["source"] for lane in lanes))
 
+    def test_same_turn_duplicate_geometry_is_not_counted_as_fresh(self) -> None:
+        duplicate = self.payload["same_turn_duplicate_attempts"][0]
+        self.assertEqual(duplicate["preflight_decision"], "rejected_as_duplicate_geometry")
+        self.assertEqual(duplicate["normalized_spans"], [[186, 194], [374, 382]])
+        self.assertEqual(duplicate["exact_closures_reported"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

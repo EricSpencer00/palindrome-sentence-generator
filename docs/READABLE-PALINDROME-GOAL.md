@@ -202,6 +202,20 @@ not candidate or readability progress. The next method must change the actual
 seam and test character endpoints plus full flank syntax before expanding
 either surface.
 
+### Report-only connected causal chart on a 31-letter subwindow (2026-09-23)
+
+A separate Luna lane tried one connected two-event temporal/causal chart on
+`[163,194)` / `[374,405)`. It reported 254,464 fresh units, zero closures,
+and a one-letter frontier, `After Mara rescued Mara, Mara rescued water.`;
+the exposed residual is
+`ftermararescuedmaramararescuedwater`, with no opposing state reported after
+the opening `a`. The parent seam and this residual are independently checked,
+but the search count is testimony and was not rerun. No child rendering,
+length, or hash exists. The report is preserved at
+[`runs/audit-incumbent-568-causal-frontier-report-20260923.json`](../runs/audit-incumbent-568-causal-frontier-report-20260923.json);
+this is not candidate or readability evidence. The next attempt changes both
+the actual seam and operator.
+
 ### Untouched outer-seam event resegmentation (2026-09-23)
 
 The next 568-lineage edit replaced normalized span `[0,20)` / `[548,568)`

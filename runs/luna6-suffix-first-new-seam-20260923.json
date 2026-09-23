@@ -1,0 +1,160 @@
+{
+  "experiment_id": "luna6-suffix-first-new-seam-20260923",
+  "operator": "one suffix-first multiword owner realization across a token boundary",
+  "novelty_preflight": {
+    "head": "ecdb1421",
+    "signature": "pinned568|insert@163|mirror@405|suffix-first|cross-token-boundary",
+    "signature_absent_from_tracked_experiment_history": true,
+    "left_clause_literal_absent": true,
+    "right_clause_literal_absent": true,
+    "excluded_geometries": [
+      [
+        81,
+        487
+      ],
+      [
+        20,
+        548
+      ],
+      [
+        178,
+        390
+      ],
+      [
+        16,
+        552
+      ],
+      [
+        120,
+        448
+      ]
+    ],
+    "seam": {
+      "left": 163,
+      "right": 405,
+      "reflected_relation": "568 - 163 = 405"
+    },
+    "flanks": {
+      "left_before": "Now, Noel, did I live?",
+      "left_after": "Nora saw Noel live.",
+      "right_before": "“Evil Leon” was Aron.",
+      "right_after": "Evil I did, Aras.",
+      "raw_cut_check": "Both cuts are after sentence punctuation; insertion keeps parent separators and adds complete sentences."
+    },
+    "parent": {
+      "letters": 568,
+      "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+      "independently_exact": true
+    }
+  },
+  "authored_pair": {
+    "left": "Ned owes rent.",
+    "left_parse": "Ned (subject) owes (present transitive verb) rent (object).",
+    "right": "Tailors sew Oden.",
+    "right_parse": "Tailors (subject) sew (present transitive verb) Oden (object/name).",
+    "event_relation": "A debt and the tailoring work are placed in one event frame; relation remains weak and is not a readability claim.",
+    "provenance": "Freshly authored for this exact owner equation; exact phrase literals absent from tracked HEAD; no catalogue or seed text."
+  },
+  "suffix_first_owners": {
+    "partner_final_sequence": [
+      {
+        "surface": "sew",
+        "owner": "verb",
+        "right_source_span": [
+          7,
+          10
+        ],
+        "reverse_consumed_span": [
+          4,
+          7
+        ]
+      },
+      {
+        "surface": "Oden",
+        "owner": "object/name",
+        "right_source_span": [
+          10,
+          14
+        ],
+        "reverse_consumed_span": [
+          0,
+          4
+        ]
+      }
+    ],
+    "reverse_suffix": "nedowes",
+    "left_opening_owners": [
+      {
+        "surface": "Ned",
+        "owner": "subject",
+        "left_span": [
+          0,
+          3
+        ]
+      },
+      {
+        "surface": "owes",
+        "owner": "verb",
+        "left_span": [
+          3,
+          7
+        ]
+      }
+    ],
+    "crosses_word_boundary": true,
+    "remaining_owner_equation": "left `rent` vs reverse of right-initial `Tailors` (`sroliat`)"
+  },
+  "live_residual": {
+    "cursor": 7,
+    "matched_prefix": "nedowes",
+    "left_char": "r",
+    "required_char": "s",
+    "left_residual": "rent",
+    "required_residual": "sroliat"
+  },
+  "attempted_full_rendering": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Ned owes rent. Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Tailors sew Oden. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+  "candidate_audit": {
+    "letters": 593,
+    "growth": 25,
+    "outside_in": {
+      "exact": false,
+      "letters": 593,
+      "matched_outer_pairs": 170,
+      "first_mismatch": {
+        "offset_left": 170,
+        "offset_right": 422,
+        "left": "r",
+        "right": "s"
+      },
+      "left_residual": "rentnorasawnoellivenoelisitpatnotesmaras",
+      "right_reverse_residual": "sroliatnorasawnoellivenoelisitpatnotesma"
+    },
+    "project_validator_exact": false,
+    "forward_sha256": "378d61ca82e48dfadb413bc2713ded31f215308eaba3572c8d4f90d0a1c74b61",
+    "reverse_sha256": "60cb6f04ce78f349d2579af46d4d8f1762ac46d515f1a5ed02397f096bb6c017",
+    "sha_equal": false,
+    "exact": false,
+    "shortcut_audit": {
+      "left_tokens": [
+        "ned",
+        "owes",
+        "rent"
+      ],
+      "right_tokens": [
+        "tailors",
+        "sew",
+        "oden"
+      ],
+      "whole_token_reversal_pairs": [],
+      "singleton_tokens": [],
+      "self_palindromic_tokens": [],
+      "shared_tokens": [],
+      "repeated_content_tokens": [],
+      "shortcut_free": true
+    },
+    "admitted": false,
+    "reason": "The suffix crosses the Ned|owes word boundary and matches exactly, but the next owner conflicts (`r` vs `s`); the full rendering is not exact."
+  },
+  "next_axis": "Stop suffix/prefix phrase pairing. Preflight a non-insertion internal owner-map edit (split one existing lexical owner across two grammatical clauses) before any new authored realization; do not move this suffix to another seam or search endings.",
+  "reader_status": "No exact candidate; no human readability claim or ratings."
+}

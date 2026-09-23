@@ -10039,3 +10039,23 @@ this cycle. No Astra or non-Sol worker is used.
   relative-clause recursion. Artifact:
   `runs/fresh-common-dual-pos-boundary-mask-20261002.json`; generator:
   `experiments/fresh_common_dual_pos_boundary_mask_20261002.py`.
+
+## 568-parent seam attempt: connected event chain (2026-09-23)
+
+On the pinned 568-letter parent (normalized SHA-256
+`6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`), a
+fresh seam `[48,91)/[477,520)` replaced 43 letters per side with these
+connected chains:
+
+- `Mira keeps Owen safe. Owen sees Lena. Lena notes Vera. Vera checks a gem`
+- `Mira sees Owen. Owen traces Vera. Vera opens Lena. Lena marks a blue rim`
+
+The resulting diagnostic is 594 letters (+26), SHA-256
+`9b961f4c1a8fa61008541be9cf37066a8bd321752100c5cf138f970fc29c4f86`. The
+local equation matches `mir`, then fails at cursor 3 (`a` versus required
+`e`); the independent whole-tape mismatch is `[51, a, 542, e]`. Both the
+outside-in checker and project validator reject it. This is a failed seam
+diagnostic, not a palindrome or readable-output claim. The next attempt moves
+to a different parent seam and chooses compatible prose boundaries before
+expanding its event content. Full rendering and residual are preserved in
+[`runs/audit-incumbent-568-shared-event-chain-residual-20260923.json`](../runs/audit-incumbent-568-shared-event-chain-residual-20260923.json).

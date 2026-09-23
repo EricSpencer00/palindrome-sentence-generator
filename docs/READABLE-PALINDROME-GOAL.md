@@ -1,73 +1,48 @@
 # Readable palindrome finder: goal record
 
-## Active working-track override (2026-10-02)
+## Current goal state (2026-09-23)
 
-The working incumbent is the independently verified **568-letter** causal
-scene in `runs/incumbent-560-outer-causal-scene-20261002.json`, row
-`outer-causal-scene-568-working-incumbent`, normalized SHA-256
-`6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`.
-The exact 560, 558, and 556 children remain preserved frontier entries with
-independently verified hashes. Proper spans, repeated scaffolding, rough syntax,
-and absent reader validation are repair debt and do not demote the 568 result.
+The end goal is still unmet. The newest committed candidate on the 568 lineage
+is the **626-letter** `wide-locative-nora-tama-scene-626` in
+`runs/incumbent-620-wide-locative-seam-expansion-20260923.json`, SHA-256
+`96c9e136da7a8a4f78a469f8ac2f701238ccc89a674499ff6ec1cce920c2a234`. Its
+lineage is 568 → 586 → 620 → 626. A fresh two-pointer pass, the project
+validator/normalizer, and forward/reverse SHA-256 agree. It adds a new
+cross-boundary locative/event scene, but the inserted scene is itself a proper
+palindrome span; the whole text also retains repeated scaffolding and rough
+discourse. It is an exact repair frontier, not a clean or human-certified
+result.
 
-The verified parent chain is **568 → 602 → 620 → 644 → rejected 652 → 666
-clause repair → 666 diversification → 666 context-aware reciprocal pair**. The 602 child is row
-`internal-mara-stops-602` in `runs/incumbent-568-internal-seam-growth-20260922.json`
-(SHA-256 `69696036f9bb9392ae9473884f011cfb767b4700d6407f5a07f3fba595953c89`);
-the 620 child is row `fragment-repair-mara-rats-620` in
-`runs/incumbent-602-fragment-seam-repair-20260922.json` (SHA-256
-`d20fc566d6a636e9826e432550be92e3ce5ace8a3cdaa2f6d291ad0709ffb90a`).
+The **672-letter** `discourse-linked-reverse-chain-672` in
+`runs/incumbent-672-discourse-linked-reverse-chain-20260922.json` is a separate,
+older length high-water mark (SHA-256
+`ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee`). Its
+four-beat relation chains are repetitive and schematic, so length alone does
+not promote it over the 626 repair frontier. Preserve the independently exact
+568 parent and the 560/558/556, 586, 620, 626, 666, and 672 comparison rows;
+do not mislabel any as readable or reader-ready.
 
-The 652 row `scaffold-repair-aidan-draws-652` in
-`runs/incumbent-644-scaffold-repair-20260922.json` is exact (SHA-256
-`0b7f1950beac54b34a8ec66e5150f995abeda4d2d07bfd2f0eb454fed108f1e5`) but is
-explicitly rejected/non-promoted for fragment debt: its seam leaves a dangling
-vocative/appositive and a lowercase sentence start. The completed 666 clause
-repair then loads that row at `[115,133)` / `[519,537)` and produces row
-`clause-window-repair-nora-sees-666` in
-`runs/incumbent-652-clause-window-repair-20260922.json`, SHA-256
-`b6ccddf4d34f9d2705238f615336e633cb76bccdd010913d44799881df75584e`.
+No blinded reader study has run. The 38-letter seed remains the only compact
+baseline; the user has also described the 44-letter “Was Noel an era...” line
+as promising but not fully English. Neither counts as blinded evidence. The
+paper must report this honestly, foreground only a genuinely working
+construction method and readable examples, and keep the API fail-closed until
+the stated human and exactness gates pass.
 
-The diversified parent was independently exact at **666 letters**, row
-`central-diversification-nadia-spots-666` in
-`runs/incumbent-666-central-diversification-20260922.json`, SHA-256
-`6d96e68c2f9cffec70f2c688a89ed5ad2dcdf0a80097f1d711c28ec4fdad298a`.
+Local-minimum reset: the direct mirrored-deletion check preserved exactness but
+left broken discourse, so it is not promoted as a readability repair. The
+fixed paired-clause-bank probe on the broad 626 seam also found no admissible
+candidate. The next construction should change the search object: reopen the
+actual normalized spans `[64,108)` / `[518,562)` and let a grammar-typed
+character residual cross at least one neighboring clause boundary, rather
+than requiring a self-contained reversed scene pair. Require complete clauses,
+new event content, no boundary-aligned word-order mirror, and independent exact
+validation; immediately change topology again if every closure is local,
+fragmentary, repeated, or a proper palindrome insertion.
 
-The promoted active **666-letter readability frontier** is row
-`context-aware-reciprocal-pair-noel-sara-666` in
-`runs/incumbent-666-context-aware-reciprocal-pair-20260922.json`, SHA-256
-`a1b4ebaaba06893fdfa2a495676b887355e361266b2960a61818981e59e0da37`.
-Promotion is to the readability frontier only: the independently exact 568
-child remains the working incumbent, and the exact 560/558/556 children remain
-preserved frontier entries. Its context-aware reciprocal-pair method replaces
-`Mara sees Nadia.` / `Aidan sees Aram.` at normalized
-`[127,140)↔[526,539)`, raw `[171,188)↔[719,736)`, with
-`Noel stops Aras.` / `Sara spots Leon.`; paired cursors close at 13/13 with
-empty residuals, and full-parent clause/frame extraction confirms novelty.
-The prior 3951 child remains retained comparison evidence. The local pair
-removes the repeated Mara-sees/Aidan-sees pattern, while inherited rough syntax,
-repeated scaffolding, and absent reader validation remain repair debt.
-
-Remaining debt is inherited proper-palindromic spans, rough syntax, repeated
-star/spam and Mara-stops-rats scaffolding, residual delivers-maps repetition
-elsewhere, and absent reader validation. The next bounded candidate repair is
-the actual seam normalized `[170,197)↔[469,496)`, raw
-`[227,263)↔[644,680)`; preserve residual ownership, the 568 incumbent, and
-the 560/558/556 frontier.
-
-Fresh POS search, productive-affix search, morphology cycles, short witnesses,
-and reader-study operators are stopped. They are not active alternatives.
-The model policy is **gpt-5.6-luna at high reasoning only**: no Sol, Astra,
-Terra, or other model.
-
-Evidence:
-`experiments/incumbent_644_scaffold_repair_20260922.py`,
-`experiments/incumbent_652_clause_window_repair_20260922.py`,
-`experiments/incumbent_666_central_cluster_repair_20260922.py`,
-`experiments/incumbent_666_context_aware_reciprocal_pair_20260922.py`, and
-`experiments/incumbent_666_central_diversification_20260922.py`,
-`experiments/incumbent_666_comparison_alternative_20260922.py` with their
-committed run artifacts.
+The current model constraint is Luna-only; no Astra escalation is warranted
+from this evidence. Readability claims remain reserved for blinded human
+ratings, not programmatic scores.
 
 ## 586-letter continuation (2026-09-23)
 

@@ -1,8 +1,9 @@
-"""Try a fresh dual-seam event graft on the exact 568-letter incumbent.
+"""Record a bounded, authored dual-sentence graft equation on the 568 tape.
 
-The operator owns two complete sentence seams (108/460 normalized letters),
-advancing paired cursors asynchronously while retaining the intervening source
-tape.  It does not replace a shell, split a token, or wrap the midpoint.
+This is not an online cursor search: the complete reciprocal event sequences
+are authored first, compared as whole strings, then rendered around a retained
+middle.  The artifact exists as exact-growth evidence and a negative method
+record, not as a novel residual-owning construction operator.
 """
 from __future__ import annotations
 
@@ -78,35 +79,71 @@ def validate_frontier(entry: dict[str, object]) -> None:
     assert checked["sha_equal"]
 
 
-def novelty_preflight() -> dict[str, object]:
-    """Compare the seam against the three directly relevant prior operators."""
-    paths = [
-        ROOT / "runs" / "incumbent-568-internal-seam-growth-20260922.json",
-        ROOT / "runs" / "incumbent-568-clause-lattice-recomputed-seam-20261002.json",
-        ROOT / "runs" / "incumbent-608-repeated-shell-repair-20261002.json",
-    ]
+def novelty_preflight(candidate: dict[str, object]) -> dict[str, object]:
+    """Scan the local 568/608 lineage and report overlap instead of claiming novelty."""
+    paths = sorted(set(
+        list((ROOT / "runs").glob("incumbent-568-*.json"))
+        + list((ROOT / "runs").glob("incumbent-608-*.json"))
+    ))
+    target_events = candidate["left_events"] + candidate["right_events"]
+    normalized_events = {event: normalize(str(event)) for event in target_events}
     records = []
+    event_hits: dict[str, list[dict[str, str]]] = {event: [] for event in target_events}
     for path in paths:
-        if path == OUT or not path.is_file():
+        if path == OUT:
             continue
-        payload = json.loads(path.read_text())
-        records.append({
+        try:
+            payload = json.loads(path.read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+        entry = {
             "artifact": str(path.relative_to(ROOT)),
             "experiment_id": payload.get("experiment_id"),
             "method": payload.get("method"),
-            "operator": payload.get("operator", payload.get("next_operator")),
-            "row_ids": [row.get("id") for row in payload.get("rows", [])],
-        })
-    known_text = json.dumps(records).lower()
+            "row_ids": [],
+            "same_normalized_cuts": [],
+        }
+        for row in payload.get("rows", []):
+            row_id = str(row.get("id", "unknown"))
+            entry["row_ids"].append(row_id)
+            rendered = str(row.get("rendered", ""))
+            normalized_rendered = normalize(rendered)
+            for event, normalized_event in normalized_events.items():
+                if normalized_event and normalized_event in normalized_rendered:
+                    event_hits[event].append({"artifact": entry["artifact"], "row_id": row_id})
+            # Look for explicit normalized cut declarations anywhere under the row.
+            def visit(value: object) -> None:
+                if isinstance(value, dict):
+                    for key, child in value.items():
+                        if key in {"normalized_cuts", "selected_normalized_cuts"} and child == [LEFT_CUT, RIGHT_CUT]:
+                            entry["same_normalized_cuts"].append(row_id)
+                        visit(child)
+                elif isinstance(value, list):
+                    for child in value:
+                        visit(child)
+            visit(row)
+        records.append(entry)
+    exact_event_hits = {event: hits for event, hits in event_hits.items() if hits}
+    same_cut_records = [record["artifact"] for record in records if record["same_normalized_cuts"]]
+    # Manual evidence from the independent review: this seam family and two of
+    # these clauses had already appeared in earlier shell/clause operators.
+    known_same_geometry = [
+        "runs/incumbent-568-remaining-shell-global-gate-20261002.json",
+        "runs/incumbent-568-repeated-shell-event-lattice-20261002.json",
+    ]
+    known_same_geometry = [path for path in known_same_geometry if (ROOT / path).is_file()]
     return {
         "scanned_artifacts": len(records),
-        "scope_note": "Focused preflight records the three closest prior geometries; the remaining 568 operators are catalogued but not replayed in this bounded run.",
+        "scope_note": "Scanned every local incumbent-568-* and incumbent-608-* JSON artifact; prior candidate tapes and explicit cut metadata were checked. This does not establish novelty beyond the saved local lineage.",
         "records": records,
-        "selected_geometry": "dual complete-sentence seams with one retained middle and one paired event graft",
+        "selected_geometry": "authored complete reciprocal event sequences around a retained middle; this is a bounded graft instance, not a new search-operator family",
         "selected_normalized_cuts": [LEFT_CUT, RIGHT_CUT],
-        "cut_is_new_in_scanned_operator_records": all(str(cut) not in known_text for cut in (LEFT_CUT, RIGHT_CUT)),
+        "same_cut_artifacts": sorted(set(same_cut_records + known_same_geometry)),
+        "prior_exact_event_hits": exact_event_hits,
+        "event_phrases_absent_from_prior_lineage": [event for event in target_events if event not in exact_event_hits],
+        "novelty_status": "not novel as an operator family; event clauses overlap prior saved candidates",
         "forbidden_geometries_not_used": [
-            "split-token insertion", "fixed/repeated sentence shell", "center-pair wrapper", "phrase-bank sweep"
+            "split-token insertion", "fixed/repeated sentence-shell replacement", "center-pair wrapper", "phrase-bank sweep"
         ],
     }
 
@@ -152,20 +189,22 @@ def build_payload() -> dict[str, object]:
         left = " ".join(candidate["left_events"])
         right = " ".join(candidate["right_events"])
         left_tape, right_tape = normalize(left), normalize(right)
-        residual = left_tape + right_tape[::-1]
-        slots = {
+        authored_roles = {
             "left_subjects": [event.split()[0] for event in candidate["left_events"]],
             "left_predicates": [event.split()[1] for event in candidate["left_events"]],
             "left_objects": [event.split()[-1].rstrip(".") for event in candidate["left_events"]],
-            "right_slots_open": False,
+            "right_subjects": [event.split()[0] for event in candidate["right_events"]],
+            "right_predicates": [event.split()[1] for event in candidate["right_events"]],
+            "right_objects": [event.split()[-1].rstrip(".") for event in candidate["right_events"]],
         }
         exact_equation = left_tape == right_tape[::-1]
         attempts.append({
             "id": candidate["id"], "left_events": candidate["left_events"], "right_events": candidate["right_events"],
-            "paired_cursors": {"left_start": LEFT_CUT, "right_reverse_start": RIGHT_CUT - 1, "left_after": LEFT_CUT + len(left_tape), "right_after_reverse": RIGHT_CUT - len(right_tape)},
-            "residual_before_close": residual, "residual_after_close": "" if exact_equation else residual,
-            "grammar_slots": slots, "exact_equation": exact_equation,
-            "status": "accepted" if exact_equation and selected is None else ("exact_not_selected" if exact_equation else "rejected_residual"),
+            "proposed_cut_offsets": {"left_start": LEFT_CUT, "right_reverse_start": RIGHT_CUT - 1, "authored_left_end": LEFT_CUT + len(left_tape), "authored_right_reverse_end": RIGHT_CUT - len(right_tape)},
+            "full_equation_left_side": left_tape, "full_equation_right_side": right_tape[::-1],
+            "equation_checked_after_authoring": True, "exact_equation": exact_equation,
+            "authored_event_roles": authored_roles,
+            "status": "accepted" if exact_equation and selected is None else ("exact_not_selected" if exact_equation else "rejected_equation"),
         })
         if exact_equation and selected is None:
             selected = (candidate, left, right, left_tape, right_tape)
@@ -191,10 +230,10 @@ def build_payload() -> dict[str, object]:
         "human_certified": False,
         "status": "exact growth evidence; inherited shortcut/readability debt is recorded, not silently cleared",
     }
-    novelty = novelty_preflight()
+    novelty = novelty_preflight(candidate)
     return {
         "experiment_id": "incumbent-568-dual-seam-event-graft-20260922",
-        "method": "paired-cursor dual sentence-seam event graft with retained middle tape",
+        "method": "bounded authored reciprocal event-graft equation with retained middle tape (not an online residual search)",
         "novelty_preflight": novelty,
         "parent": {"artifact": str(PARENT.relative_to(ROOT)), "id": PARENT_ID, "letters": 568, "sha256": PARENT_SHA256},
         "preserved_frontier": FRONTIER,
@@ -206,7 +245,7 @@ def build_payload() -> dict[str, object]:
             "growth_over_parent": independent["normalized_letters"] - 568,
             "new_event_content": candidate["left_events"] + candidate["right_events"],
             "seam_provenance": {"normalized_cuts": [LEFT_CUT, RIGHT_CUT], "raw_cuts": [left_raw, right_raw], "left_anchor": "Aidan delivers maps.", "right_anchor": "Spam's reviled, Nadia.", "retained_letters": len(normalize(retained)), "source_tape_retained_byte_for_byte": True},
-            "paired_cursor_state": {"left_cursor_start": LEFT_CUT, "right_cursor_start_reverse": RIGHT_CUT - 1, "left_emission": left_tape, "right_obligation": right_tape[::-1], "residual_sequence": [left_tape, right_tape[::-1]], "final_residual": "", "residual_owner": "paired_event_graft", "open_grammar_slots": {"left": ["subject", "predicate", "object", "clause_boundary"], "right": ["subject", "predicate", "object", "clause_boundary"], "closed": True}},
+            "whole_graft_equation": {"left_cursor_start": LEFT_CUT, "right_reverse_cursor_start": RIGHT_CUT - 1, "complete_left_event_tape": left_tape, "complete_right_obligation": right_tape[::-1], "equation_checked_after_authoring": True, "equation_holds": left_tape == right_tape[::-1], "incremental_residual_tracking": False, "cursor_updates_computed_during_search": False, "residual_owner": None, "grammar_slots_were_online": False},
             "bounded_attempts": attempts, "strict_global_checks": strict,
             "repair_debt": {"inherited_proper_spans": True, "inherited_repeated_scaffolding": True, "rough_syntax": True, "human_reader_validation": False},
         }],

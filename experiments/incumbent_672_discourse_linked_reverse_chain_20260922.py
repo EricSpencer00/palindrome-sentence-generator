@@ -1,10 +1,10 @@
-"""Search a four-event scene chain through a live bilateral residual grammar.
+"""Search a bounded four-beat SVO chain at the verified 568-letter seam.
 
-The left side is a typed SVO chain: the next subject is always the previous
-object.  The right side is generated backwards, one clause at a time, from a
-character residual.  Its next backwards clause is constrained by the subject
-of the clause already discovered, so no complete reciprocal-chain catalogue
-exists before the residual search.
+The left side is a typed SVO chain: each new subject is the previous object.
+The right side is discovered backwards by matching one complete clause at a
+time against a character residual, with object-to-subject continuity between
+clauses. The residual resets at each clause boundary; this is not a
+block-wide decoder, and the emitted chains are not readability-certified.
 """
 from __future__ import annotations
 
@@ -24,6 +24,7 @@ OUT = ROOT / "runs" / "incumbent-672-discourse-linked-reverse-chain-20260922.jso
 SNAPSHOT = ROOT / "runs" / "incumbent-672-global-novelty-snapshot-20260922.json"
 PARENT_ID = "outer-causal-scene-568-working-incumbent"
 PARENT_SHA256 = "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+PRE_SEARCH_COMMIT = "4cc269fbb9af3f133ae325366f7f0e192e8eb75a"
 LEFT_CUT, RIGHT_CUT = 48, 520
 CHAIN_LENGTH = 4
 
@@ -163,6 +164,44 @@ def relation_index_from_snapshot() -> tuple[dict[str, int], dict[str, object]]:
     return dict(payload["relation_counts"]), payload
 
 
+def historical_relation_scan(relations: list[str]) -> dict[str, object]:
+    """Check relation text and structured frame forms at the pre-search commit."""
+    patterns: list[str] = []
+    for relation in relations:
+        subject, predicate, object_ = relation.split()
+        patterns.extend((f"{subject} {predicate} {object_}", f"{subject}|{predicate}|{object_}"))
+    command = ["git", "grep", "-n", "-i", "-F"]
+    for pattern in patterns:
+        command.extend(("-e", pattern))
+    command.extend((PRE_SEARCH_COMMIT, "--", "runs"))
+    matches = subprocess.run(
+        command,
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if matches.returncode not in (0, 1):
+        raise RuntimeError(f"historical novelty scan failed: {matches.stderr.strip()}")
+    tracked = subprocess.check_output(
+        ["git", "ls-tree", "-r", "--name-only", PRE_SEARCH_COMMIT, "--", "runs"],
+        cwd=ROOT,
+        text=True,
+    ).splitlines()
+    hits = matches.stdout.splitlines()
+    return {
+        "source_commit": PRE_SEARCH_COMMIT,
+        "scope": "all tracked files under runs/ at the parent commit before this operator",
+        "tracked_run_files": len(tracked),
+        "tracked_json_files": sum(path.endswith(".json") for path in tracked),
+        "relations_checked": relations,
+        "matched_occurrences": hits,
+        "match_count": len(hits),
+        "status": "absent_in_parent_commit" if not hits else "historical_collision",
+        "chronology": "retrospective verification against the pre-generation tree; not a preregistered experiment",
+    }
+
+
 def freeze_global_snapshot() -> dict[str, object]:
     """Scan every tracked historical run, including failed-attempt strings."""
     tracked = subprocess.check_output(
@@ -283,9 +322,10 @@ def build_payload() -> dict[str, object]:
     assert base[:left_raw] == rendered[:left_raw]
     assert base[right_raw:] == rendered[-len(base[right_raw:]):]
     inserted_relations = [clause.relation for clause in left_chain + right_chain]
+    historical_scan = historical_relation_scan(inserted_relations)
     row = {
         "id": f"discourse-linked-reverse-chain-{result['normalized_letters']}",
-        "working_status": "exact_candidate_novel_connected_four_event_chain",
+        "working_status": "exact_candidate_novel_connected_relation_chains_readability_unverified",
         "rendered": rendered,
         "audit": result,
         "independent_audit": result,
@@ -304,18 +344,18 @@ def build_payload() -> dict[str, object]:
         },
         "left_chain": [{"surface": c.surface, "frame": c.frame, "relation": c.relation} for c in left_chain],
         "right_chain_rendered_order": [{"surface": c.surface, "frame": c.frame, "relation": c.relation} for c in right_chain],
-        "online_search": {"states_examined": reverse_grammar.states_examined, "attempt_count": len(attempts), "accepted_depth": CHAIN_LENGTH, "residual_traces": traces, "attempts": attempts[:256], "right_chain_discovered_tail_first": True, "left_subject_follows_previous_object": True, "right_subject_follows_previous_object": True},
-        "novelty": {"snapshot_id": snapshot["snapshot_id"], "snapshot_commit": snapshot["snapshot_commit"], "manifest_sha256": snapshot["manifest_sha256"], "relations_checked": inserted_relations, "all_inserted_relations_absent": all(prior_relations.get(r, 0) == 0 for r in inserted_relations), "rejected_prior_edges": sorted(r for r in inserted_relations if prior_relations.get(r, 0)), "failed_attempts_scanned": True},
-        "provenance": {"generator": "typed left chain + online reverse-character residual/right chain grammar", "candidate_discovered_online": True, "preauthored_pair_catalogue": False, "repeated_clauses": False, "self_palindromic_clauses": False, "punctuation_changes_letters": False, "human_certified": False, "reader_status": "pending human review; exactness and generator audits are not reader certification"},
-        "global_gate": {"rendered_full_tape_exact": True, "new_relations_unique": True, "connected_four_event_scene": True, "human_certified": False, "status": "exact novel candidate; pending human review"},
+        "online_search": {"states_examined": reverse_grammar.states_examined, "attempt_count": len(attempts), "accepted_depth": CHAIN_LENGTH, "residual_traces": traces, "attempts": attempts[:256], "right_chain_discovered_tail_first": True, "left_subject_follows_previous_object": True, "right_subject_follows_previous_object": True, "residual_scope": "one complete clause at a time", "cross_clause_character_residual": False},
+        "novelty": {"snapshot_id": snapshot["snapshot_id"], "snapshot_commit": snapshot["snapshot_commit"], "manifest_sha256": snapshot["manifest_sha256"], "snapshot_chronology": "retrospective snapshot commit; not a preregistered pre-search snapshot", "relations_checked": inserted_relations, "snapshot_relation_counts_absent": all(prior_relations.get(r, 0) == 0 for r in inserted_relations), "pre_search_archive_scan": historical_scan, "all_inserted_relations_absent_in_parent_commit": historical_scan["match_count"] == 0, "rejected_prior_edges": sorted(r for r in inserted_relations if prior_relations.get(r, 0)), "failed_attempts_scanned": True},
+        "provenance": {"generator": "typed left object-subject chain + per-clause online reverse-character filtering on the right", "candidate_discovered_online": True, "preauthored_pair_catalogue": False, "repeated_clauses": False, "self_palindromic_clauses": False, "punctuation_changes_letters": False, "human_certified": False, "ai_readability_review": "two independent Luna reviews found locally grammatical clauses but did not consider the inserted block or full tape reader-worthy", "reader_status": "no blinded human study; readability remains unverified"},
+        "global_gate": {"rendered_full_tape_exact": True, "new_relations_unique": True, "object_subject_continuity_both_chains": True, "coherent_scene_certified": False, "human_certified": False, "status": "exact working child; prose/readability not established"},
     }
     return {
         "experiment_id": "incumbent-672-discourse-linked-reverse-chain-20260922",
-        "method": "online typed left four-event chain with reverse-character residual/right chain grammar",
+        "method": "four-beat typed relation-chain insertion with per-clause reverse-character filtering",
         "parent": {"artifact": str(PARENT.relative_to(ROOT)), "id": PARENT_ID, "letters": 568, "sha256": PARENT_SHA256},
         "seam": {"normalized_cuts": [LEFT_CUT, RIGHT_CUT], "raw_boundaries": [left_raw, right_raw], "fresh_complete_boundary": True},
-        "novelty_snapshot": {"artifact": str(SNAPSHOT.relative_to(ROOT)), "snapshot_id": snapshot["snapshot_id"], "snapshot_commit": snapshot["snapshot_commit"], "file_count": snapshot["file_count"], "total_bytes": snapshot["total_bytes"], "manifest_sha256": snapshot["manifest_sha256"], "scope": snapshot["scope"], "descendants_scanned_for_global_novelty": snapshot["descendants_scanned_for_global_novelty"], "descendants_counted_as_568_parent_evidence": snapshot["descendants_counted_as_568_parent_evidence"]},
-        "config": {"chain_length": CHAIN_LENGTH, "online_right_residual": True, "complete_boundary_seam": True, "reject_prior_edges": True, "reject_repeated_clauses": True, "reject_self_palindromic_clauses": True, "max_attempt_records": 256},
+        "novelty_snapshot": {"artifact": str(SNAPSHOT.relative_to(ROOT)), "snapshot_id": snapshot["snapshot_id"], "snapshot_commit": snapshot["snapshot_commit"], "chronology": "retrospective snapshot; the row-level parent-commit scan is the pre-generation archive check", "pre_generation_archive_commit": PRE_SEARCH_COMMIT, "file_count": snapshot["file_count"], "total_bytes": snapshot["total_bytes"], "manifest_sha256": snapshot["manifest_sha256"], "scope": snapshot["scope"], "descendants_scanned_for_global_novelty": snapshot["descendants_scanned_for_global_novelty"], "descendants_counted_as_568_parent_evidence": snapshot["descendants_counted_as_568_parent_evidence"]},
+        "config": {"chain_length": CHAIN_LENGTH, "online_right_residual": True, "cross_clause_residual": False, "complete_boundary_seam": True, "reject_prior_edges": True, "reject_repeated_clauses": True, "reject_self_palindromic_clauses": True, "max_attempt_records": 256},
         "stats": {"independently_exact_children": 1, "longest_letters": result["normalized_letters"], "states_examined": reverse_grammar.states_examined, "attempted_paths": len(attempts), "accepted_paths": 1},
         "rows": [row],
     }

@@ -1,6 +1,6 @@
 {
   "experiment_id": "incumbent-672-discourse-linked-reverse-chain-20260922",
-  "method": "online typed left four-event chain with reverse-character residual/right chain grammar",
+  "method": "four-beat typed relation-chain insertion with per-clause reverse-character filtering",
   "parent": {
     "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
     "id": "outer-causal-scene-568-working-incumbent",
@@ -22,6 +22,8 @@
     "artifact": "runs/incumbent-672-global-novelty-snapshot-20260922.json",
     "snapshot_id": "incumbent-672-global-novelty-snapshot-20260922",
     "snapshot_commit": "5c2576e2a98db331ab0f90540119cacecde2ef07",
+    "chronology": "retrospective snapshot; the row-level parent-commit scan is the pre-generation archive check",
+    "pre_generation_archive_commit": "4cc269fbb9af3f133ae325366f7f0e192e8eb75a",
     "file_count": 2633,
     "total_bytes": 692638944,
     "manifest_sha256": "ee1d4ee8782c6f4a2ac51fa662a79e4ac70e2509cd52c62c212345c3bc319155",
@@ -32,6 +34,7 @@
   "config": {
     "chain_length": 4,
     "online_right_residual": true,
+    "cross_clause_residual": false,
     "complete_boundary_seam": true,
     "reject_prior_edges": true,
     "reject_repeated_clauses": true,
@@ -48,7 +51,7 @@
   "rows": [
     {
       "id": "discourse-linked-reverse-chain-672",
-      "working_status": "exact_candidate_novel_connected_four_event_chain",
+      "working_status": "exact_candidate_novel_connected_relation_chains_readability_unverified",
       "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
       "audit": {
         "normalized_letters": 672,
@@ -1422,12 +1425,15 @@
         ],
         "right_chain_discovered_tail_first": true,
         "left_subject_follows_previous_object": true,
-        "right_subject_follows_previous_object": true
+        "right_subject_follows_previous_object": true,
+        "residual_scope": "one complete clause at a time",
+        "cross_clause_character_residual": false
       },
       "novelty": {
         "snapshot_id": "incumbent-672-global-novelty-snapshot-20260922",
         "snapshot_commit": "5c2576e2a98db331ab0f90540119cacecde2ef07",
         "manifest_sha256": "ee1d4ee8782c6f4a2ac51fa662a79e4ac70e2509cd52c62c212345c3bc319155",
+        "snapshot_chronology": "retrospective snapshot commit; not a preregistered pre-search snapshot",
         "relations_checked": [
           "nora stops leon",
           "leon stops nora",
@@ -1438,26 +1444,49 @@
           "aron spots noel",
           "noel spots aron"
         ],
-        "all_inserted_relations_absent": true,
+        "snapshot_relation_counts_absent": true,
+        "pre_search_archive_scan": {
+          "source_commit": "4cc269fbb9af3f133ae325366f7f0e192e8eb75a",
+          "scope": "all tracked files under runs/ at the parent commit before this operator",
+          "tracked_run_files": 2388,
+          "tracked_json_files": 2375,
+          "relations_checked": [
+            "nora stops leon",
+            "leon stops nora",
+            "nora stops noel",
+            "noel spots nora",
+            "aron stops leon",
+            "leon spots aron",
+            "aron spots noel",
+            "noel spots aron"
+          ],
+          "matched_occurrences": [],
+          "match_count": 0,
+          "status": "absent_in_parent_commit",
+          "chronology": "retrospective verification against the pre-generation tree; not a preregistered experiment"
+        },
+        "all_inserted_relations_absent_in_parent_commit": true,
         "rejected_prior_edges": [],
         "failed_attempts_scanned": true
       },
       "provenance": {
-        "generator": "typed left chain + online reverse-character residual/right chain grammar",
+        "generator": "typed left object-subject chain + per-clause online reverse-character filtering on the right",
         "candidate_discovered_online": true,
         "preauthored_pair_catalogue": false,
         "repeated_clauses": false,
         "self_palindromic_clauses": false,
         "punctuation_changes_letters": false,
         "human_certified": false,
-        "reader_status": "pending human review; exactness and generator audits are not reader certification"
+        "ai_readability_review": "two independent Luna reviews found locally grammatical clauses but did not consider the inserted block or full tape reader-worthy",
+        "reader_status": "no blinded human study; readability remains unverified"
       },
       "global_gate": {
         "rendered_full_tape_exact": true,
         "new_relations_unique": true,
-        "connected_four_event_scene": true,
+        "object_subject_continuity_both_chains": true,
+        "coherent_scene_certified": false,
         "human_certified": false,
-        "status": "exact novel candidate; pending human review"
+        "status": "exact working child; prose/readability not established"
       }
     }
   ]

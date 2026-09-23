@@ -19,6 +19,9 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_generated_chain_is_exact_and_uses_its_actual_length() -> None:
     payload = build_payload()
     row = payload["rows"][0]
+    saved = json.loads(OUT.read_text())
+    assert row["rendered"] == saved["rows"][0]["rendered"]
+    assert payload["stats"] == saved["stats"]
     left = " ".join(item["surface"] for item in row["left_chain"])
     right = " ".join(item["surface"] for item in row["right_chain_rendered_order"])
     assert payload["parent"]["letters"] == 568
@@ -52,9 +55,16 @@ def test_online_scene_joins_and_rejection_gates_are_recorded() -> None:
     assert search["right_subject_follows_previous_object"] is True
     assert search["states_examined"] > 0
     assert search["attempts"]
-    assert row["novelty"]["all_inserted_relations_absent"] is True
+    assert search["residual_scope"] == "one complete clause at a time"
+    assert search["cross_clause_character_residual"] is False
+    assert row["novelty"]["snapshot_chronology"].startswith("retrospective")
+    assert row["novelty"]["all_inserted_relations_absent_in_parent_commit"] is True
+    assert row["novelty"]["pre_search_archive_scan"]["match_count"] == 0
+    assert row["novelty"]["pre_search_archive_scan"]["tracked_json_files"] > 0
     assert row["novelty"]["failed_attempts_scanned"] is True
     assert row["provenance"]["preauthored_pair_catalogue"] is False
+    assert row["provenance"]["human_certified"] is False
+    assert row["global_gate"]["coherent_scene_certified"] is False
 
 
 def test_frozen_global_snapshot_is_the_novelty_source() -> None:

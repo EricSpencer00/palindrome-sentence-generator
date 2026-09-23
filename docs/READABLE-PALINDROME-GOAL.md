@@ -128,6 +128,46 @@ the reader study is unrun; the focused API subset passed 26 tests. The paper
 already frames the constructive method and exact checks, with reader evidence
 pending. This is status context, not a substitute for the next construction.
 
+## 620-letter continuation (2026-09-23)
+
+The preserved 586-letter exact branch now has a **620-letter exact child** in
+`runs/incumbent-586-live-center-scene-extension-20260923.json`, SHA-256
+`7dcd33846b8cfe54eca664e3b3be3d27774c486f6e7b054f49aa697047f4f621`. At its
+actual even midpoint (`[293,293)`), the authored 17-letter scene equation
+`Nora saw a rat on a mat.` / `Tama, no! Tara was Aron.` closes character by
+character. The reverse resegmentation crosses boundaries (`mat` + `a` →
+`Tama`; `rat` + `a` → `Tara`), rather than mirroring whole words. Independent
+outside-in, project-validator, normalizer, and forward/reverse SHA checks
+agree. The child adds 34 letters to the verified 586 parent and contains no
+borrowed or catalogue text. The insertion is a proper palindrome span inside
+the larger text; it remains explicit repair debt, not a shortcut-clean or
+reader-worthy claim. The general center-insertion family is already in the
+registry, so this is counted as one incumbent-specific candidate equation,
+not a new general search method.
+
+A same-length repair attempt is preserved only as a rejected control in
+`runs/incumbent-620-repeated-shell-repair-20260923.json`, SHA-256
+`89a670449f342ac46c005885ddc6331fde27d42f65a7a24f9feb18e8a3200186` for its
+normalized candidate tape. At
+normalized spans `[108,121)` / `[499,512)`, the 13-character residual changes
+`Mara stops rats` / `star spots Aram` into `Noel stops flow` / `wolf spots
+Leon`. It removes one duplicate, but the replacement is boundary-aligned
+word-order symmetry; therefore it is **not admitted** to the working frontier
+and is not a readability result. The failure signature is now a preflight for
+the next seam: require genuine boundary-crossing resegmentation rather than
+whole reversed words.
+
+The 620-letter cross-boundary child and 586-letter parent are preserved; the
+word-mirror control is retained only for audit. Neither frontier item has
+been rated by humans, and inherited repetition and rough discourse still make
+the full outputs unready for a fair blinded-reader study. The next
+construction is the remaining `A tub? He maps Nora` event seam on the 620
+lineage, rederiving a wider locative/event pair with valency and character
+residual carried jointly and requiring boundary-crossing resegmentation. The reader test
+remains randomized and blinded, with intact-English and shuffled-letter
+controls, independent comprehension/preference ratings, and a reproducible
+rater package; no automatic measure will certify readability.
+
 ## Historical 498-to-568 construction ledger (superseded by the override above)
 
 The statements in this subsection describe the sequence of earlier

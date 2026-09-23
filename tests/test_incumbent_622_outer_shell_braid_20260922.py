@@ -15,16 +15,29 @@ def test_join_consumes_two_cursors_and_closes_residual() -> None:
         NEW_LEFT,
         NEW_RIGHT,
         LEFT_WINDOW[0],
-        486,
+        512,
         ["Mara sees Aidan.", "Leon stops Mara.", "Nadia spots Leon."],
     )
     assert state["status"] == "accepted"
     assert state["final_residual"] == ""
     assert state["committed_character_contradictions"] == 0
     assert state["left_cursor_after"] == LEFT_WINDOW[0] + len(state["left_emission"])
-    assert state["right_reverse_cursor_after"] == 486 - len(state["right_reverse_obligation"])
+    assert state["right_reverse_cursor_after"] == 512 - len(state["right_reverse_obligation"])
     assert len(state["trace"]) == len(state["left_emission"])
     assert len(state["clause_boundaries"]) == 3
+
+
+def test_rejects_left_text_clause_mismatch_before_character_acceptance() -> None:
+    state = consume_reverse_braid(
+        NEW_LEFT,
+        "Noel stops Aidan. Aram stops Noel. Nadia sees Aram.",
+        LEFT_WINDOW[0],
+        512,
+        ["Mara sees Aidan.", "Leon spots Mara.", "Nadia spots Leon."],
+    )
+    assert state["status"] == "rejected_left_text_clause_mismatch"
+    assert state["trace"] == []
+    assert state["committed_character_contradictions"] == 0
 
 
 def test_braid_payload_is_exact_growth_and_preserves_parent() -> None:
@@ -37,6 +50,9 @@ def test_braid_payload_is_exact_growth_and_preserves_parent() -> None:
     assert row["independent_audit"]["sha_equal"] is True
     assert row["online_join"]["accepted_join"]["final_residual"] == ""
     assert row["online_join"]["accepted_join"]["committed_character_contradictions"] == 0
+    assert row["online_join"]["right_cursor_start_reverse"] == 512
+    assert row["novelty_preflight"]["scanned_artifacts"] >= 13
+    assert row["novelty_preflight"]["operator_is_not_identical_to_scanned_families"] is False
     assert row["flags"]["complete_event_grammar"] is True
     assert row["flags"]["no_fragments_or_gibberish"] is True
     assert row["flags"]["inserted_units_unique"] is True

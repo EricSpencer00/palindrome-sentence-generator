@@ -1,11 +1,9 @@
-"""Repair one repeated outer shell in the exact 622-letter incumbent.
+"""Verify one fixed 648-letter candidate over the exact 622 incumbent.
 
-The operator is a reflected clause braid.  It opens one complete repeated
-shell, emits three new event clauses on the left, and consumes the reverse
-obligation from a second cursor on the right.  The retained tape outside the
-shell is never regenerated.  This differs from the earlier dual-seam graft
-and paired whole-shell substitutions: clause boundaries are part of the join
-state, and the residual is consumed online before the replacement is admitted.
+The verification replays a reflected clause braid: three fixed event clauses
+are bound to the left emission, while the reverse obligation is consumed from
+a second cursor on the right. It does not generate, search, or claim a new
+operator family.
 """
 from __future__ import annotations
 
@@ -112,14 +110,13 @@ def validate_frontier(entry: dict[str, object]) -> None:
 
 
 def novelty_preflight() -> dict[str, object]:
-    """Record the required prior operators and compare operator families."""
-    paths = [
-        ROOT / "runs" / "incumbent-568-repeated-shell-event-lattice-20261002.json",
-        ROOT / "runs" / "incumbent-608-repeated-shell-repair-20261002.json",
-        ROOT / "runs" / "incumbent-568-remaining-shell-global-gate-20261002.json",
-        ROOT / "runs" / "incumbent-568-repeated-shell-intersection-20261002.json",
-        ROOT / "runs" / "incumbent-568-dual-seam-event-graft-20260922.json",
-    ]
+    """Scan the full relevant 568/608/622 lineage without novelty claims."""
+    paths = sorted(
+        set(ROOT.glob("runs/incumbent-568*.json"))
+        | set(ROOT.glob("runs/incumbent-608*.json"))
+        | set(ROOT.glob("runs/incumbent-622*.json"))
+    )
+    paths = [path for path in paths if path != OUT]
     records = []
     for path in paths:
         payload = json.loads(path.read_text())
@@ -147,19 +144,23 @@ def novelty_preflight() -> dict[str, object]:
             "runs/incumbent-608-repeated-shell-repair-20261002.json",
         ],
         "records": records,
-        "selected_operator_family": "single-reflected-shell three-clause reverse braid with clause-boundary cursor state",
+        "selected_operator_family": "fixed-candidate character-level verification",
         "selected_geometry": {
             "normalized_windows": [list(LEFT_WINDOW), list(RIGHT_WINDOW)],
             "retained_middle": False,
+            "shell_replacement": True,
+            "outside_shell_tape_retained": True,
             "whole_shell_wrapper": False,
             "reverse_trie": False,
             "clause_braid": True,
         },
-        "operator_is_not_identical_to_scanned_families": True,
-        "novelty_basis": [
-            "568 event lattice: trie-selected paired event expansions in one recorded shell",
-            "608 shell repair: two whole-shell substitutions with static equations",
-            "622 braid: one reflected shell, three ordered clauses, and online character residual consumption",
+        "operator_is_not_identical_to_scanned_families": False,
+        "operator_family_status": "not_novel_reused_seam_relation_edge_variation",
+        "novelty_basis": "Fixed-candidate verification over the complete relevant incumbent-568/608/622 lineage; this is reused-seam/relation-edge variation, not novel progress.",
+        "reused_seam_finding": "The replaced shell is the incumbent-568 remaining-shell global-gate seam shifted to 622 coordinates [135,162]/[460,487], not a fresh seam.",
+        "reused_relation_edge_findings": [
+            "Mara sees Aidan reciprocates the parent edge Aidan sees Mara.",
+            "Nadia sees Aram reciprocates the parent edge Aram sees Nadia.",
         ],
         "forbidden_geometries_not_used": [
             "split-token insertion",
@@ -186,6 +187,21 @@ def consume_reverse_braid(
     """
     left_tape = normalize(left_text)
     right_obligation = normalize(right_text)[::-1]
+    clause_tape = normalize(" ".join(left_clauses))
+    if clause_tape != left_tape:
+        return {
+            "left_emission": left_tape,
+            "right_reverse_obligation": right_obligation,
+            "left_residual": left_tape,
+            "right_reverse_residual": right_obligation,
+            "final_residual": left_tape + "|" + right_obligation,
+            "committed_character_contradictions": 0,
+            "left_cursor_after": left_cursor_start,
+            "right_reverse_cursor_after": right_cursor_start_reverse,
+            "trace": [],
+            "clause_boundaries": [],
+            "status": "rejected_left_text_clause_mismatch",
+        }
     left_cursor = left_cursor_start
     right_cursor = right_cursor_start_reverse
     consumed_left: list[str] = []
@@ -259,6 +275,7 @@ def grammar_and_duplication_flags(rendered: str, new_clauses: list[str], parent:
     predicates = [clause.split()[1].casefold() for clause in new_clauses]
     objects = [clause.split()[2].rstrip(".").casefold() for clause in new_clauses]
     return {
+        "grammar_check_mode": "static_post_render_candidate_check",
         "complete_event_grammar": all(clause_pattern.fullmatch(clause) for clause in new_clauses),
         "no_fragments_or_gibberish": all(len(clause.split()) == 3 for clause in new_clauses),
         "sentence_boundary_safe": not bool(re.search(r"[.!?]\s+[a-z]", rendered)),
@@ -300,7 +317,7 @@ def build_payload() -> dict[str, object]:
         NEW_LEFT,
         NEW_RIGHT,
         LEFT_WINDOW[0],
-        RIGHT_WINDOW[1] - 1,
+        RIGHT_WINDOW[1] - 1 + 13 + 13,
         ["Mara sees Aidan.", "Leon stops Mara.", "Nadia spots Leon."],
     )
     assert joined["status"] == "accepted"
@@ -329,7 +346,10 @@ def build_payload() -> dict[str, object]:
         "duplication": {key: flags[key] for key in flags if "unit" in key or "frame" in key or "repeat" in key},
         "proper_span": flags["proper_palindromic_spans"],
         "lexicon": flags["lexicon_and_admission"].get("lexicon_words", False),
-        "grammar": {key: flags[key] for key in flags if key in ("complete_event_grammar", "no_fragments_or_gibberish", "sentence_boundary_safe")},
+        "grammar": {
+            "mode": flags["grammar_check_mode"],
+            **{key: flags[key] for key in flags if key in ("complete_event_grammar", "no_fragments_or_gibberish", "sentence_boundary_safe")},
+        },
         "human_certified": False,
         "reader_status": "pending human reader review; exact growth is not promoted as readable",
     }
@@ -337,7 +357,7 @@ def build_payload() -> dict[str, object]:
     raw_right = base.index(OLD_RIGHT)
     row = {
         "id": "outer-shell-braid-mara-leon-nadia-648",
-        "working_status": "exact_growth_candidate_pending_reader_review",
+        "working_status": "fixed_candidate_verified_pending_reader_review",
         "rendered": rendered,
         "audit": project,
         "independent_audit": independent,
@@ -352,6 +372,7 @@ def build_payload() -> dict[str, object]:
         },
         "seam_provenance": {
             "normalized_windows": [list(LEFT_WINDOW), list(RIGHT_WINDOW)],
+            "post_replacement_normalized_windows": [[135, 175], [473, 513]],
             "raw_spans": [[raw_left, raw_left + len(OLD_LEFT)], [raw_right, raw_right + len(OLD_RIGHT)]],
             "old_left": OLD_LEFT,
             "old_right": OLD_RIGHT,
@@ -359,17 +380,18 @@ def build_payload() -> dict[str, object]:
             "source_tape_retained_outside_shell_byte_for_byte": True,
         },
         "online_join": {
-            "operator": "three-clause reverse braid",
+            "operator": "fixed-candidate character-level verification",
             "left_cursor_start": LEFT_WINDOW[0],
-            "right_cursor_start_reverse": RIGHT_WINDOW[1] - 1,
+            "right_cursor_start_reverse": RIGHT_WINDOW[1] - 1 + 13 + 13,
             "accepted_join": joined,
             "final_residual": joined["final_residual"],
             "residual_owner": "clause_braid_join",
+            "grammar_claim": "none; grammar flags are static post-render candidate checks",
         },
         "flags": flags,
         "strict_global_checks": strict,
         "novelty_preflight": novelty,
-        "provenance": "622-letter dual-seam child; one distinct outer-shell clause braid over a reflected 27-letter pair, with online two-cursor residual consumption and independent exact audits",
+        "provenance": "fixed 648-letter candidate over the verified 622 tape; reused seam/relation-edge variation replayed with bound clause text, final-coordinate cursors, online residual consumption, and independent exact audits",
         "repair_debt": {
             "inherited_proper_spans": True,
             "inherited_repeated_scaffolding": True,
@@ -379,7 +401,7 @@ def build_payload() -> dict[str, object]:
     }
     return {
         "experiment_id": "incumbent-622-outer-shell-braid-20260922",
-        "method": "single reflected outer-shell three-clause reverse braid with online residual consumption",
+        "method": "fixed-candidate character-level verification over one reflected shell replacement",
         "parent": {
             "artifact": str(PARENT.relative_to(ROOT)),
             "id": PARENT_ID,
@@ -396,12 +418,12 @@ def build_payload() -> dict[str, object]:
             "bounded_candidates": 1,
         },
         "stats": {
-            "independently_exact_children": 1,
-            "children_longer_than_622": 1,
+            "verified_exact_candidates": 1,
+            "verified_candidates_longer_than_622": 1,
             "longest_letters": independent["normalized_letters"],
             "growth_letters": independent["normalized_letters"] - 622,
-            "attempted_bounded_joins": 1,
-            "accepted_bounded_joins": 1,
+            "attempted_candidate_verifications": 1,
+            "verified_bounded_joins": 1,
             "committed_character_contradictions": joined["committed_character_contradictions"],
         },
         "rows": [row],

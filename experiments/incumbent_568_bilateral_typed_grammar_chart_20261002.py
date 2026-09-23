@@ -23,6 +23,9 @@ PARENT = ROOT / "runs" / "incumbent-560-outer-causal-scene-20261002.json"
 OUT = ROOT / "runs" / "incumbent-568-bilateral-typed-grammar-chart-20261002.json"
 PARENT_ID = "outer-causal-scene-568-working-incumbent"
 PARENT_SHA256 = "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+SCAN_SNAPSHOT_COMMIT = "7e358cfd"
+HISTORICAL_SCAN_ARTIFACT = ROOT / "runs" / "incumbent-666-center-obstruction-widened-bridge-20260922.json"
+HISTORICAL_SCAN_SHA256 = "40e54f901cfbe13cb02b1d54a7a5a13a7078dd5643e3a7500a5e225308fc06c9"
 
 # This is a new complete-sentence boundary seam.  Earlier 568 lanes used
 # 64/91, 73, 100, 108, 121/135, 163/196, and 170/197 (or their reflected
@@ -343,6 +346,27 @@ def novelty_preflight(base_rendered: str) -> dict[str, object]:
         })
 
     new_edges = {"nora sees aidan", "nadia sees aron"}
+    historical_scan = {
+        "snapshot_commit": SCAN_SNAPSHOT_COMMIT,
+        "scope": "targeted cross-lineage check of rows[0].bridge_attempt.new_right and rows[0].bridge_attempt.attempt_rendered",
+        "artifact": str(HISTORICAL_SCAN_ARTIFACT.relative_to(ROOT)),
+        "artifact_sha256": HISTORICAL_SCAN_SHA256,
+        "descendant_of_target_lineage": True,
+        "counted_as_prior_568_608_evidence": False,
+        "matches": [
+            {
+                "path": "rows[0].bridge_attempt.new_right",
+                "text": "Ira stops Aidan. Aidan stops Aram. Aram was Nadia. Nadia sees Aron.",
+                "relation": "nadia sees aron",
+            },
+            {
+                "path": "rows[0].bridge_attempt.attempt_rendered",
+                "text": "... Nadia sees Aron. ...",
+                "relation": "nadia sees aron",
+            },
+        ],
+        "reused_edges": ["nadia sees aron"],
+    }
     return {
         "scanned_artifacts": len(all_paths),
         "prior_568_608_artifacts": len(run_paths),
@@ -351,11 +375,14 @@ def novelty_preflight(base_rendered: str) -> dict[str, object]:
         "base_relation_edges": sorted(extract_relations(base_rendered)),
         "prior_semantic_relation_edges": sorted(prior_relations),
         "new_relation_edges": sorted(new_edges),
+        "historical_scan": historical_scan,
         "relation_reuse": {
             "reused_predicate": "sees",
             "reused_entities": ["aidan", "nadia", "nora", "aron"],
             "new_subject_predicate_object_edges": sorted(new_edges),
-            "all_new_edges_absent_from_scanned_artifacts": new_edges.isdisjoint(prior_relations),
+            "historical_reused_edges": historical_scan["reused_edges"],
+            "all_new_edges_absent_from_scanned_artifacts": False,
+            "all_new_edges_absent_from_568_608_preflight": new_edges.isdisjoint(prior_relations),
         },
         "excluded_622_648_geometry": {
             "artifact": str(excluded_622.relative_to(ROOT)),
@@ -517,7 +544,7 @@ def build_payload() -> dict[str, object]:
             "left_boundary_context": "Pat notes. | Mara saw God.",
             "right_boundary_context": "Dog was Aram. | Seton, tap.",
             "complete_sentence_boundaries": True,
-            "fresh_against_preflight": True,
+            "fresh_against_preflight": False,
         },
         "bilateral_chart": {
             "inventory_sizes": {"subjects": len(SUBJECTS), "predicates": len(PREDICATES), "objects": len(OBJECTS), "attachments": len(ATTACHMENTS), "states": len(chart.states)},
@@ -567,7 +594,7 @@ def build_payload() -> dict[str, object]:
         "global_gate": {
             "rendered_full_tape_exact": bool(project["project_validator_exact"]),
             "independent_hash_agreement": bool(result["sha_equal"]),
-            "new_relations_unique": True,
+            "new_relations_unique": False,
             "duplicate_new_content": False,
             "human_certified": False,
             "status": "exact candidate; uncertified pending human review",

@@ -814,7 +814,7 @@
         "experiment_id": "incumbent-568-dual-seam-event-graft-20260922",
         "method": "bounded authored reciprocal event-graft equation with retained middle tape (not an online residual search)",
         "implementation": "experiments/incumbent_568_dual_seam_event_graft_20260922.py",
-        "implementation_sha256": "06c0adca5f362c793639ba3ff890898dbfb4e564252b6eb8eb6e2c530deb0def",
+        "implementation_sha256": "53ec45d0199f52f6c273553f61a50e54004ec80f205f10471c0a113d580d64b0",
         "row_ids": [
           "dual-seam-aidan-nadia-622"
         ],
@@ -7057,6 +7057,29 @@
       "nadia sees aron",
       "nora sees aidan"
     ],
+    "historical_scan": {
+      "snapshot_commit": "7e358cfd",
+      "scope": "targeted cross-lineage check of rows[0].bridge_attempt.new_right and rows[0].bridge_attempt.attempt_rendered",
+      "artifact": "runs/incumbent-666-center-obstruction-widened-bridge-20260922.json",
+      "artifact_sha256": "40e54f901cfbe13cb02b1d54a7a5a13a7078dd5643e3a7500a5e225308fc06c9",
+      "descendant_of_target_lineage": true,
+      "counted_as_prior_568_608_evidence": false,
+      "matches": [
+        {
+          "path": "rows[0].bridge_attempt.new_right",
+          "text": "Ira stops Aidan. Aidan stops Aram. Aram was Nadia. Nadia sees Aron.",
+          "relation": "nadia sees aron"
+        },
+        {
+          "path": "rows[0].bridge_attempt.attempt_rendered",
+          "text": "... Nadia sees Aron. ...",
+          "relation": "nadia sees aron"
+        }
+      ],
+      "reused_edges": [
+        "nadia sees aron"
+      ]
+    },
     "relation_reuse": {
       "reused_predicate": "sees",
       "reused_entities": [
@@ -7069,7 +7092,11 @@
         "nadia sees aron",
         "nora sees aidan"
       ],
-      "all_new_edges_absent_from_scanned_artifacts": true
+      "historical_reused_edges": [
+        "nadia sees aron"
+      ],
+      "all_new_edges_absent_from_scanned_artifacts": false,
+      "all_new_edges_absent_from_568_608_preflight": true
     },
     "excluded_622_648_geometry": {
       "artifact": "runs/incumbent-622-outer-shell-braid-20260922.json",
@@ -7201,7 +7228,7 @@
         "left_boundary_context": "Pat notes. | Mara saw God.",
         "right_boundary_context": "Dog was Aram. | Seton, tap.",
         "complete_sentence_boundaries": true,
-        "fresh_against_preflight": true
+        "fresh_against_preflight": false
       },
       "bilateral_chart": {
         "inventory_sizes": {
@@ -8629,7 +8656,11 @@
             "nadia sees aron",
             "nora sees aidan"
           ],
-          "all_new_edges_absent_from_scanned_artifacts": true
+          "historical_reused_edges": [
+            "nadia sees aron"
+          ],
+          "all_new_edges_absent_from_scanned_artifacts": false,
+          "all_new_edges_absent_from_568_608_preflight": true
         },
         "human_certified": false,
         "reader_status": "pending human review; exactness is not certification"
@@ -8637,7 +8668,7 @@
       "global_gate": {
         "rendered_full_tape_exact": true,
         "independent_hash_agreement": true,
-        "new_relations_unique": true,
+        "new_relations_unique": false,
         "duplicate_new_content": false,
         "human_certified": false,
         "status": "exact candidate; uncertified pending human review"

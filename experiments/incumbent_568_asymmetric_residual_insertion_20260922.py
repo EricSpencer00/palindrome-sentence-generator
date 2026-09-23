@@ -1,10 +1,9 @@
-"""Add new prose through an asymmetric, parent-owned lexical residual.
+"""Record an exact but novelty-rejected asymmetric residual insertion.
 
 The experiment inserts ``Noel sees`` and ``Leon sees`` at different cuts in
-the exact 568-letter incumbent.  The insertion is licensed by the live
-equation ``noelsees + noel = noel + reverse(leonsees)``; it is not a reversed
-phrase or a symmetric wrapper.  Punctuation is then re-rendered without
-changing the normalized letter tape.
+the exact 568-letter incumbent.  Its live residual equation closes exactly,
+but repository-wide preflight found those clause stems in earlier generated
+runs, so this row is retained only as rejected novelty evidence.
 """
 from __future__ import annotations
 
@@ -139,7 +138,7 @@ def build_payload() -> dict[str, object]:
     return {
         "experiment_id": "incumbent-568-asymmetric-residual-insertion-20260922",
         "method": "asymmetric off-center insertion with a live lexical residual",
-        "status": "exact_growth_frontier_with_inherited_repair_debt",
+        "status": "exact_but_novelty_rejected",
         "parent": {
             "artifact": str(PARENT.relative_to(ROOT)),
             "id": PARENT_ID,
@@ -158,7 +157,13 @@ def build_payload() -> dict[str, object]:
                 "left_added_clause": "Noel sees.",
                 "right_added_clause": "Leon sees.",
                 "new_full_clause_hits_in_parent": 0,
-                "new_full_clause_hits_in_prior_experiment_files": 0,
+                "new_full_clause_hits_in_prior_experiment_files": True,
+                "prior_collision_evidence": [
+                    "experiments/incumbent_568_dual_seam_event_graft_20260922.py",
+                    "runs/semantic-seam-frame-search-20260920.json",
+                    "experiments/finite_predicate_complement_20260918.py",
+                    "runs/human-scene-edge-lattice-20260918.json",
+                ],
                 "borrowed_or_catalogue_text": False,
                 "finished_tape_reversal": False,
                 "symmetric_wrapper": False,
@@ -183,20 +188,22 @@ def build_payload() -> dict[str, object]:
             },
         },
         "novelty_preflight": {
-            "status": "passed_for_this_operator",
+            "status": "rejected_exact_clause_reuse",
             "checked": [
                 "runs/",
                 "experiments/",
                 "docs/",
                 "data/",
             ],
-            "exact_added_clause_collision": False,
+            "exact_added_clause_collision": True,
+            "colliding_phrases": ["Noel sees", "Leon sees"],
             "previous_symmetric_outer_shell_reuse": False,
             "new_dimension": "unequal insertion cuts coupled by an interior lexical residual",
         },
         "stats": {
-            "independently_exact_children": 1,
-            "longest_letters": result_audit["letters"],
+            "exact_trials": 1,
+            "novelty_admitted_children": 0,
+            "longest_exact_but_rejected_trial": result_audit["letters"],
             "growth_over_parent": 16,
             "committed_character_contradictions": 0,
             "backtracks": 0,
@@ -207,9 +214,10 @@ def build_payload() -> dict[str, object]:
             "repair": "moved to the non-central [151, 413] cuts and carried the noel residual",
         },
         "next_repair": {
+            "reason": "the exact event stems already occur in prior generated records",
+            "operator": "replace the reused predicate with an unattested intransitive palindrome verb while retaining the same live noel residual",
             "target": "the inherited repeated 'A tub? He maps' shell",
-            "operator": "replace one actual repeated outer shell with distinct event content while carrying its word-boundary residual",
-            "gate": "retain 584 as frontier parent; accept a child only after separate exact audit and full rendered-text review",
+            "gate": "retain 568 as the eligible parent; preserve 584 only as exact-but-duplicate evidence",
         },
     }
 

@@ -60,6 +60,11 @@ The clean seam `[148,163]` / `[405,420]` was tested. Its exact 578-letter
 trial is preserved separately in
 [`INCUMBENT-568-PHRASEWISE-EQUATION-AUDIT-20260923.md`](INCUMBENT-568-PHRASEWISE-EQUATION-AUDIT-20260923.md),
 but rejected because a shared reflected word boundary splits the inserted
-equation into two reversed phrase chunks. The next construction changes the
-event topology: an auxiliary-plus-participle clause against a finite-verb plus
-object-complement clause, with boundary masks fixed before lexicalization.
+equation into two reversed phrase chunks. The auxiliary/passive and
+object-complement follow-up was also rejected as an already settled method
+family. Locative inversion paired with an active-SVO observation was then
+tested and retired at cursor 6; its controls and residuals are in
+[`INCUMBENT-568-LOCATIVE-INVERSION-ACTIVE-SVO-20260923.md`](INCUMBENT-568-LOCATIVE-INVERSION-ACTIVE-SVO-20260923.md).
+The next action changes to a different actual seam on the pinned 568 tape.
+Longer exact descendants remain comparison artifacts and do not replace the
+user-pinned 568 parent or its 560/558/556 frontier.

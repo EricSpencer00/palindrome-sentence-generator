@@ -1,8 +1,30 @@
 # Readable palindrome finder: goal record
 
-## Current goal state (2026-09-23)
+## Active user-pinned work state (2026-09-23)
 
-The end goal is still unmet. The current **752-letter exact child** is
+For the current continuation, the editable parent is the independently exact
+568-letter artifact `runs/incumbent-560-outer-causal-scene-20261002.json`,
+SHA-256 `6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`.
+Preserve it and the 560/558/556 comparison frontier. The repository also
+contains longer exact descendants (including 626, 640, 672, 686, 736, and
+752); retain those artifacts, but do not substitute them for the explicitly
+pinned active parent. Their exactness and length do not certify readability.
+
+The latest bounded 568-seam probe retired temporal-locative inversion/active
+SVO after its best residual stopped at offset 6 (`s/g` with `magma`, `s/a`
+with `llama`). Its rendered controls and provenance are in
+`docs/INCUMBENT-568-LOCATIVE-INVERSION-ACTIVE-SVO-20260923.md`. The next
+construction must change to another actual seam in the pinned 568 tape and
+carry live character ownership; do not resume that lexical slot sweep. Keep
+the paper and API gated, and do not claim human readability without blinded
+reader evidence.
+
+## Preserved 752-lineage status snapshot (2026-09-23)
+
+This snapshot records a longer comparison branch; the active edit target is
+the user-pinned 568 parent described above.
+
+The end goal is still unmet. The **752-letter exact child** is
 `568-lineage-central-event-path-752` in
 `runs/repair-736-center-lexical-event-path-20260923.json`, normalized SHA-256
 `109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c`. Its

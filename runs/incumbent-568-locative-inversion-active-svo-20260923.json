@@ -1,0 +1,383 @@
+{
+  "experiment_id": "incumbent-568-locative-inversion-active-svo-20260923",
+  "status": "bounded_exact_equation_search_no_child",
+  "method": "pre-register locative-inversion/active-SVO word masks, carry opposite character cursors through typed slots, and repair only the first live residual",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "normalized_letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "target_seam": [
+      [
+        148,
+        163
+      ],
+      [
+        405,
+        420
+      ]
+    ]
+  },
+  "attempts": [
+    {
+      "topology": "locative-inversion/canonical-motion",
+      "preregistered_left_mask": [
+        5,
+        3,
+        5,
+        4,
+        1,
+        5
+      ],
+      "preregistered_right_mask": [
+        3,
+        4,
+        5,
+        4,
+        7
+      ],
+      "left_boundaries": [
+        5,
+        8,
+        13,
+        17,
+        18
+      ],
+      "reflected_right_boundaries": [
+        7,
+        11,
+        16,
+        20
+      ],
+      "probe": {
+        "left_rendered": "Among the reeds rose a heron.",
+        "right_rendered": "The tern soars over islands.",
+        "left_tape": "amongthereedsroseaheron",
+        "right_tape": "theternsoarsoverislands",
+        "left_letters": 23,
+        "right_letters": 23,
+        "left_word_lengths": [
+          5,
+          3,
+          5,
+          4,
+          1,
+          5
+        ],
+        "right_word_lengths": [
+          3,
+          4,
+          5,
+          4,
+          7
+        ],
+        "left_internal_boundaries": [
+          5,
+          8,
+          13,
+          17,
+          18
+        ],
+        "reflected_right_internal_boundaries": [
+          7,
+          11,
+          16,
+          20
+        ],
+        "shared_reflected_boundaries": [],
+        "boundary_masks_match_preregistered": true,
+        "matched_outer_characters": 0,
+        "first_mismatch": {
+          "offset": 0,
+          "left": "a",
+          "right_reversed": "s"
+        },
+        "exact_local_equation": false,
+        "phrasewise_gate_offsets_if_exact": []
+      },
+      "lexical_obstruction": "The ending of the 5-letter animate subject must reverse to a 3-letter determiner; ordinary wetland-animal slots supply no grammatical determiner. The only near hit is archaic `annet`, and `a annet` is ungrammatical."
+    },
+    {
+      "topology": "temporal-locative-inversion/active-SVO",
+      "preregistered_left_mask": [
+        2,
+        4,
+        5,
+        3,
+        8,
+        5
+      ],
+      "preregistered_right_mask": [
+        7,
+        4,
+        7,
+        5,
+        4
+      ],
+      "probe": {
+        "left_rendered": "At dawn stood one watchful guard.",
+        "right_rendered": "Rangers read current field data.",
+        "left_tape": "atdawnstoodonewatchfulguard",
+        "right_tape": "rangersreadcurrentfielddata",
+        "left_letters": 27,
+        "right_letters": 27,
+        "left_word_lengths": [
+          2,
+          4,
+          5,
+          3,
+          8,
+          5
+        ],
+        "right_word_lengths": [
+          7,
+          4,
+          7,
+          5,
+          4
+        ],
+        "left_internal_boundaries": [
+          2,
+          6,
+          11,
+          14,
+          22
+        ],
+        "reflected_right_internal_boundaries": [
+          4,
+          9,
+          16,
+          20
+        ],
+        "shared_reflected_boundaries": [],
+        "boundary_masks_match_preregistered": true,
+        "matched_outer_characters": 2,
+        "first_mismatch": {
+          "offset": 2,
+          "left": "d",
+          "right_reversed": "a"
+        },
+        "exact_local_equation": false,
+        "phrasewise_gate_offsets_if_exact": []
+      },
+      "residual_directed_mask_repair": {
+        "left_rendered": "At a dam stood one watchful guard.",
+        "right_rendered": "Rangers read current field data.",
+        "left_tape": "atadamstoodonewatchfulguard",
+        "right_tape": "rangersreadcurrentfielddata",
+        "left_letters": 27,
+        "right_letters": 27,
+        "left_word_lengths": [
+          2,
+          1,
+          3,
+          5,
+          3,
+          8,
+          5
+        ],
+        "right_word_lengths": [
+          7,
+          4,
+          7,
+          5,
+          4
+        ],
+        "left_internal_boundaries": [
+          2,
+          3,
+          6,
+          11,
+          14,
+          22
+        ],
+        "reflected_right_internal_boundaries": [
+          4,
+          9,
+          16,
+          20
+        ],
+        "shared_reflected_boundaries": [],
+        "boundary_masks_match_preregistered": true,
+        "matched_outer_characters": 4,
+        "first_mismatch": {
+          "offset": 4,
+          "left": "a",
+          "right_reversed": "d"
+        },
+        "exact_local_equation": false,
+        "phrasewise_gate_offsets_if_exact": []
+      },
+      "single_slot_repairs": [
+        {
+          "slot": "right seven-letter modifier before data",
+          "substitution": "field -> magma",
+          "probe": {
+            "left_rendered": "At a dam stood one watchful guard.",
+            "right_rendered": "Rangers read current magma data.",
+            "left_tape": "atadamstoodonewatchfulguard",
+            "right_tape": "rangersreadcurrentmagmadata",
+            "left_letters": 27,
+            "right_letters": 27,
+            "left_word_lengths": [
+              2,
+              1,
+              3,
+              5,
+              3,
+              8,
+              5
+            ],
+            "right_word_lengths": [
+              7,
+              4,
+              7,
+              5,
+              4
+            ],
+            "left_internal_boundaries": [
+              2,
+              3,
+              6,
+              11,
+              14,
+              22
+            ],
+            "reflected_right_internal_boundaries": [
+              4,
+              9,
+              16,
+              20
+            ],
+            "shared_reflected_boundaries": [],
+            "boundary_masks_match_preregistered": true,
+            "matched_outer_characters": 6,
+            "first_mismatch": {
+              "offset": 6,
+              "left": "s",
+              "right_reversed": "g"
+            },
+            "exact_local_equation": false,
+            "phrasewise_gate_offsets_if_exact": []
+          },
+          "residual_obstruction": {
+            "offset": 6,
+            "left_residual": "stoodonewatchfulguard",
+            "mirrored_right_residual": "gamtnerrucdaersregnar",
+            "mismatch": {
+              "offset": 6,
+              "left": "s",
+              "right_reversed": "g"
+            }
+          }
+        },
+        {
+          "slot": "right seven-letter modifier before data",
+          "substitution": "field -> llama",
+          "probe": {
+            "left_rendered": "At a dam stood one watchful guard.",
+            "right_rendered": "Rangers read current llama data.",
+            "left_tape": "atadamstoodonewatchfulguard",
+            "right_tape": "rangersreadcurrentllamadata",
+            "left_letters": 27,
+            "right_letters": 27,
+            "left_word_lengths": [
+              2,
+              1,
+              3,
+              5,
+              3,
+              8,
+              5
+            ],
+            "right_word_lengths": [
+              7,
+              4,
+              7,
+              5,
+              4
+            ],
+            "left_internal_boundaries": [
+              2,
+              3,
+              6,
+              11,
+              14,
+              22
+            ],
+            "reflected_right_internal_boundaries": [
+              4,
+              9,
+              16,
+              20
+            ],
+            "shared_reflected_boundaries": [],
+            "boundary_masks_match_preregistered": true,
+            "matched_outer_characters": 6,
+            "first_mismatch": {
+              "offset": 6,
+              "left": "s",
+              "right_reversed": "a"
+            },
+            "exact_local_equation": false,
+            "phrasewise_gate_offsets_if_exact": []
+          },
+          "residual_obstruction": {
+            "offset": 6,
+            "left_residual": "stoodonewatchfulguard",
+            "mirrored_right_residual": "alltnerrucdaersregnar",
+            "mismatch": {
+              "offset": 6,
+              "left": "s",
+              "right_reversed": "a"
+            }
+          }
+        }
+      ],
+      "lexical_obstruction": "The first control closes `at`; `At a dam` advances through `atad`. Replacing `field` with `magma` advances the live match through `atadam` but leaves offset 6 `s != g`; `llama` also stops at offset 6. No exact local equation exists in this topology, so the next experiment changes the actual parent seam rather than widening this lexical slot."
+    }
+  ],
+  "role_slot_frontier": [
+    {
+      "left_animate": "adder",
+      "right_animate_candidate": "readers",
+      "forced_right_prefix": "redda",
+      "matched_prefix_letters": 2,
+      "first_mismatch": {
+        "offset": 2,
+        "required": "d",
+        "observed": "a"
+      }
+    },
+    {
+      "left_animate": "eider",
+      "right_animate_candidate": "readers",
+      "forced_right_prefix": "redie",
+      "matched_prefix_letters": 2,
+      "first_mismatch": {
+        "offset": 2,
+        "required": "d",
+        "observed": "a"
+      }
+    }
+  ],
+  "stats": {
+    "rendered_clause_pairs": 5,
+    "exact_local_equations": 0,
+    "independently_exact_children": 0,
+    "longest_local_clause_letters_per_side": 27,
+    "prospective_growth_if_27_letter_pair_closed": 24,
+    "prospective_child_letters": 592,
+    "shared_reflected_word_boundaries": 0
+  },
+  "shortcut_checks": {
+    "finished_tape_reversed_to_construct": false,
+    "borrowed_catalogue_text": false,
+    "reader_claim": false,
+    "candidate_admitted": false
+  },
+  "provenance": {
+    "construction_source": "registry-checked locative inversion topology proposed by independent skeptical review; lexical controls and residuals preserved before any child closure",
+    "parent_lineage": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "next_action": "Retire this 27-letter locative-inversion/active-SVO topology after the offset-6 residual: `stood...` begins `s`, while `magma` and `llama` expose `g` and `a`. Change to a different actual seam on the pinned 568 tape and preregister a new grammar topology before lexicalizing. Longer descendants remain preserved comparisons, not replacements for the user-pinned parent. Do not return to the endpoint-infeasible five-letter animal/determiner mask."
+}

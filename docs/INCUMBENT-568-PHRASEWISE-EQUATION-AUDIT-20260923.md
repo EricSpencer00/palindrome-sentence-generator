@@ -34,7 +34,12 @@ inspire Diana”—produces no shared reflected internal word boundary.
 
 **Disposition:** audit-only exact control, not a candidate or a win. The
 `diapered` / `repaid` template is abandoned; name substitutions preserve the
-same subject/object decomposition. The next bounded construction preregisters
-different boundary masks for an auxiliary-plus-participle clause and a
-finite-verb-plus-object-complement clause before choosing words. No reader
-test is appropriate for this rejected, name-heavy example.
+same subject/object decomposition. The obvious auxiliary/resultative and
+object-complement follow-ups were checked against the registry and rejected
+as repeats of settled families. A bounded locative-inversion/active-SVO probe
+then advanced to six matching letters but had no closure; the rendered
+controls and residual are in
+[`INCUMBENT-568-LOCATIVE-INVERSION-ACTIVE-SVO-20260923.md`](INCUMBENT-568-LOCATIVE-INVERSION-ACTIVE-SVO-20260923.md).
+Longer exact descendants remain preserved comparisons under the current
+user-pinned 568-parent instruction. This rejected name-heavy example remains
+audit-only; no reader test is appropriate for it.

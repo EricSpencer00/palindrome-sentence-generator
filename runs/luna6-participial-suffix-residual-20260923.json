@@ -1,0 +1,116 @@
+{
+  "experiment_id": "luna6-participial-suffix-residual-20260923",
+  "method": "one authored suffix-first participial-NP residual attempt",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "exact_outside_in": true,
+    "project_validator_exact": true
+  },
+  "novelty_preflight": {
+    "checked_artifacts": [
+      {
+        "artifact": "experiments/luna6_three_token_cross_owner_20260923.py",
+        "collision_check": "that lane closes `Mara saw rats` as `Star was a ram` with aligned reversed tokens; this probe instead uses a participial-NP chart and a different complete source event"
+      },
+      {
+        "artifact": "experiments/luna6_grammatical_resegmentation_outer_20260923.py",
+        "collision_check": "96-row SVO/adjective/PP bank, no participial-NP production"
+      },
+      {
+        "artifact": "experiments/incumbent_568_outer_event_resegmentation_20260923.py",
+        "collision_check": "multi-clause outer replacement with separate clause surfaces; no terminal participial residual chart"
+      },
+      {
+        "artifact": "experiments/incumbent_568_bilateral_typed_grammar_chart_20261002.py",
+        "collision_check": "typed chart at internal [194,374] seam; not this terminal participial attachment topology"
+      }
+    ],
+    "exact_source_sentence_found_in_committed_experiments": false,
+    "generic_draw_occurrences_in_historical_data": "yes; not used as source text",
+    "signature": "pinned-568 outer suffix-first | participial adjective-NP initial production | final token `draw` plus preceding token reversal | live cursor",
+    "distinct_for_one_bounded_obstruction_test": true
+  },
+  "authored_realization": {
+    "Y": "Mara watched the children draw.",
+    "letters": 26,
+    "reverse_Y": "wardnerdlihcehtdehctawaram",
+    "provenance": "new hand-authored complete event sentence; no seed/catalogue text"
+  },
+  "source_token_owners": [
+    {
+      "source_token": "draw",
+      "reverse_surface": "ward",
+      "reverse_span": [
+        0,
+        4
+      ]
+    },
+    {
+      "source_token": "children",
+      "reverse_surface": "nerdlihc",
+      "reverse_span": [
+        4,
+        12
+      ]
+    },
+    {
+      "source_token": "the",
+      "reverse_surface": "eht",
+      "reverse_span": [
+        12,
+        15
+      ]
+    },
+    {
+      "source_token": "watched",
+      "reverse_surface": "dehctaw",
+      "reverse_span": [
+        15,
+        22
+      ]
+    },
+    {
+      "source_token": "Mara",
+      "reverse_surface": "aram",
+      "reverse_span": [
+        22,
+        26
+      ]
+    }
+  ],
+  "result": {
+    "complete_reverse_parse": false,
+    "rendered_child": null,
+    "candidate_admitted": false,
+    "residual_obstruction": {
+      "target_constituent": "Warded (past-participial adjective) + NP ...",
+      "target_prefix": "warded",
+      "matched_prefix": "ward",
+      "cursor": 4,
+      "expected_next_characters": "ed",
+      "actual_next_characters": "nerdlihcehtdehct",
+      "first_contradiction": {
+        "offset": 4,
+        "expected": "e",
+        "actual": "n"
+      },
+      "owner_at_contradiction": "source token `children` reversed as `nerdlihc`",
+      "remaining_reverse_tape": "nerdlihcehtdehctawaram",
+      "grammar_debt": "No finite participial-NP clause can continue `Warded` from this exact residual without changing the authored suffix; the first required `e` is forced to `n`.",
+      "shortcut_note": "The provisional `ward` stem is fully owned by reverse(draw); treating it as a complete word would be a forbidden aligned reversal. It is retained only as a partial residual, not a clause parse."
+    },
+    "live_cursor": 4,
+    "residual": "nerdlihcehtdehctawaram"
+  },
+  "next_topology_preflight": {
+    "initial_pivot_checked": "interior reduced-relative attachment",
+    "collision": "committed relative-head, attachment-aware relative, normalized multiword-relative, recursive-clause, and typed NP-relative experiments already cover closely related owner grammars",
+    "alternate_signature_checked": "verb-particle placement across an outer seam, with split-object/particle ownership and no reversed finished-word pair",
+    "alternate_collision_found": false,
+    "search_scope": "experiments and runs; targeted particle/phrasal-verb signature scan returned no matches"
+  },
+  "next_topology": "Pivot to a split phrasal-verb particle owner map, not another relative clause or suffix lexical bank: choose one transitive particle verb, place its object between verb and particle on one side, and have the reflected clause consume the particle/object boundary in a different grammatical role. Carry the particle as an independent typed slot and demand that content words span adjacent owners; preflight one exact parent seam before authoring a single frame.",
+  "reader_status": "no candidate rendered; no readability claim"
+}

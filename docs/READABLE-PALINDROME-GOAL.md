@@ -40,6 +40,21 @@ lane; not independently rerun). Two separate typed charts likewise reported
 zero closures. No readability or reader-evidence claim is made. The next
 attempt changes the actual seam and preflights roles before lexicalization.
 
+### Right-first outer scene (2026-09-23)
+
+The widened outer pair `[0,48)` / `[520,568)` was used for a right-first
+connected-scene proposal. Its complete 577-letter rendering and residual are
+in [`runs/incumbent-568-outer-right-first-residual-20260923.json`](../runs/incumbent-568-outer-right-first-residual-20260923.json), SHA-256
+`b1e345b8f904f294dcde573b81da4374cfe0530daad0438c0d9ffde7768a170b`.
+It reads at the edited ends as “A nut fell near Rhea while Otis opens the
+garden gate after dusk” … “Otis opens the garden gate while Rhea waits and
+finds fresh tuna.” It is rejected: those insertions have 52/53 letters, their
+equation diverges after `anut`, and they repeat the same Otis/garden-gate event
+at both ends. A phrase-family preflight found 39 prior tracked uses of
+“opens the garden gate.” Neither exactness nor readability is claimed; the
+next operator must choose new event families before drafting and close an
+equal-length residual.
+
 ### Untouched outer-seam event resegmentation (2026-09-23)
 
 The next 568-lineage edit replaced normalized span `[0,20)` / `[548,568)`

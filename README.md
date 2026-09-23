@@ -25,7 +25,12 @@ The 560, 558, and 556 children remain preserved as a diverse repair frontier.
 The 594-, 600-, and 592-letter children remain available as exact construction
 evidence for seam repair. Fresh POS searches,
 productive-affix cycles, short witnesses, and reader-study packets are frozen.
-Construction stays on the long exact lineage.
+The separate 54-letter NP candidate
+([`seed artifact`](runs/seed-np-cross-role-intersection-20260922.json), SHA-256
+`2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268`) is the
+meaning-bearing growth seed. Its 24-form reader packet remains frozen and
+unrun. The 568 and 666 candidates remain separate exact-construction
+frontiers; no candidate above 38 letters has human-readability evidence.
 
 The active acceptance standard is documented in
 [`docs/READABLE-PALINDROME-GOAL.md`](docs/READABLE-PALINDROME-GOAL.md): an
@@ -41,10 +46,11 @@ casing are presentation choices.
 | Length | Generation | What it shows |
 |---:|---|---|
 | 44 | `Now, an aide rips nine memos; some men inspire. Diana won.` | the first readable-ish seed reconstruction, with discourse debt |
+| 54 | `An aide rips nine memo-hero memos. Some more home men inspire Diana.` | meaning-bearing exact growth seed; frozen reader packet unrun |
 | 106 | Diana reverse-word insertion | exact growth, but a useful word-salad control |
 | 240 | paired seam growth | the first substantial exact center with visible formulaic debt |
 | 568 | causal-scene outer shell | the working incumbent and its repair lineage |
-| 650 | event-shell substitution | a long exact candidate with a closed live equation |
+| 650 | event-shell substitution | exact exploratory descendant; repeated frames and malformed clauses keep it out of the reader lane |
 | 666 | connected central mini-scene | exact comparison evidence; no human evidence |
 
 <details>

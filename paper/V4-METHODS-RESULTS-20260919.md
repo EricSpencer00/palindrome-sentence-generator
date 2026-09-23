@@ -3,12 +3,11 @@
 This note is the current evidence-led core for the paper. The working claim
 is constructive: choose grammatical lexical paths while satisfying character
 seams during search. Exactness is independently checked; automatic language
-scores and AI feedback only diagnose historical lanes. The active search is
-exact-by-construction from the verified 568-letter causal-scene incumbent. The
-same lineage has exact 594-, 600-, and 592-letter construction children, with
-partial-word ownership, residual characters, grammar boundaries, and opposing
-cursors carried together. These are non-reader evidence; no output below is
-human certified yet.
+scores and AI feedback only diagnose historical lanes. The repository keeps
+three distinct construction frontiers: the 568-letter causal-scene incumbent,
+the 666-letter comparison lineage, and a meaning-bearing 54-letter NP seed
+used for growth work. Longer exact descendants are construction evidence; no
+output above 38 letters has human-readability evidence.
 
 The readability target is broad English: an intact, grammatical, scene-bearing
 line that a blinded reader can understand. “Shakespearean,” where it appears
@@ -27,12 +26,19 @@ evidence, and no candidate may be called a readable world record.
 | Lane | Authoritative exact evidence | Reader status |
 |---|---|---|
 | 38 letters | Reader-facing benchmark; the only established human-readability result | Benchmark/control, not a longer-length claim |
-| 54 letters | NP cross-role candidate, SHA-256 `2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268`; [`runs/seed-np-cross-role-intersection-20260922.json`](../runs/seed-np-cross-role-intersection-20260922.json) | Reader packet frozen but unrun; promising, not readable evidence |
-| 568 letters | Working-length incumbent, SHA-256 `6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`; [`runs/incumbent-560-outer-causal-scene-20261002.json`](../runs/incumbent-560-outer-causal-scene-20261002.json) | Rough exact construction; no human evidence |
+| 54 letters | NP cross-role candidate, SHA-256 `2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268`; [`seed artifact`](../runs/seed-np-cross-role-intersection-20260922.json) | Frozen 24-rater packet unrun; promising, not readable evidence. Relative expansions at 78–88 letters and possessive-head relatives at 89–96 letters remain non-exact near misses; [`relative obstruction`](../runs/seed-np-typed-relative-boundary-20260922.json), [`possessive obstruction`](../runs/seed-np-typed-possessive-head-relative-20260922.json) |
+| 568 letters | Working-length incumbent, SHA-256 `6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`; [`incumbent`](../runs/incumbent-560-outer-causal-scene-20261002.json) | Rough exact construction; no human evidence |
+| 592 letters | Exact 568-lineage child, SHA-256 `60a6d0472449b5a7d6843787118dad99df03ebca0f8f4748ecba2b6bf36917f6`; [`corrected-count seam run`](../runs/incumbent-568-remaining-shell-global-gate-20261002.json) | Construction evidence; no human evidence; inherited prose debt remains |
 | 666 letters | Exact comparison frontier parent, SHA-256 `cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297`; naturalness child SHA-256 `2dc6afd1545b52b24f2d53d04e6e2529929f52dd45b81c00495f5cf3b86b19ed`; [`comparison`](../runs/incumbent-666-comparison-alternative-20260922.json), [`naturalness repair`](../runs/incumbent-666-naturalness-seam-repair-20260922.json) | Comparison evidence only; child retained unpromoted after whole-text review; no human evidence |
-| 594 / 600 / 592 letters | Exact 568-lineage construction children: [`594`](../runs/incumbent-596-repeated-shell-repair-20261002.json), [`600`](../runs/incumbent-568-partial-varied-intersection-20261002.json), [`592`](../runs/incumbent-568-sentence-boundary-clause-intersection-20261002.json) | Explicitly non-reader construction evidence |
-| 82 letters | Rejected `spot/stop` center-pair shortcut; [`bounded clause-growth artifact`](../runs/seed-np-cross-role-clause-growth-20260922.json) | Not a reader candidate |
+| 594 / 600 letters | Exact 568-lineage construction children: [`594`](../runs/incumbent-568-repeated-shell-event-lattice-20261002.json), [`600`](../runs/incumbent-568-partial-varied-intersection-20261002.json) | Explicitly non-reader construction evidence |
+| 82 letters | Exact `spot/stop` center-pair event insertion; [`bounded clause-growth artifact`](../runs/seed-np-cross-role-clause-growth-20260922.json) | Rejected: the inserted event pair forms its own palindrome |
 | Strict 54 continuation | Bounded NP continuation leaves the live `memohero + m = m + reverse(morehome)` residual unresolved; [`obstruction`](../runs/seed-np-cross-role-residual-continuation-20260922.json) | Negative construction evidence; no exact closure |
+
+The exact 54-letter seed remains the strongest meaning-bearing growth control.
+Its 82-letter center insertion is rejected because the added event pair is
+itself a palindrome. Later relative and possessive-head experiments produce
+complete near-miss prose and record their first mismatches, but do not close
+the inherited NP residual. The frozen reader packet has not been administered.
 
 The exact mechanical length baselines are separate from the reader lanes:
 the repository's [Norvig-v3 artifact](../artifacts/norvig-v3/) is 90,937
@@ -60,7 +66,7 @@ result. The exact 560-, 558-, and 556-letter children remain the diverse repair
 frontier. Fresh POS, productive-affix, morphology-cycle, short-witness, and
 reader-packet operators are frozen.
 
-The current candidate-producing operator loads the 568 artifact and reopens
+An earlier candidate-producing operator loaded the 568 artifact and reopened
 its actual `w|on ... no|w` seam at normalized cursors 5 and 563. The retained
 558-letter middle stays exact. The left event owns the new residual; the right
 event consumes its exact reverse while completing the words *won* and *now*.
@@ -74,9 +80,10 @@ Its normalized SHA-256 is
 `c48b3e11531d2a81b4f7a1c525556fd22d3098e949455de6a6be83ab00aadc3a`.
 The complete rows, provenance, and owner/residual trace are in
 `experiments/incumbent_568_won_now_seam_growth_20261002.py` and
-`runs/incumbent-568-won-now-seam-growth-20261002.json`. The next construction
-repairs an inherited repeated shell inside one 596 row without changing the
-568 working-incumbent designation.
+`runs/incumbent-568-won-now-seam-growth-20261002.json`. A later 568-lineage
+run added the exact 592-letter child linked in the current-status table, with
+raw subject, predicate, object, and frame counts recomputed from the rendered
+clauses. It remains construction evidence rather than reader evidence.
 
 ## Superseded exploratory 608/650 descendants (not the active incumbent)
 

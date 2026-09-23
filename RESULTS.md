@@ -31,9 +31,23 @@ The separate **568-letter** causal-scene row remains the working incumbent
 because it has the clearest construction lineage. These 666-letter rows are
 exact comparison artifacts, not finished prose or readability evidence.
 
+The **54-letter** NP cross-role candidate remains a separate meaning-bearing
+growth seed (SHA-256
+`2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268`). Its
+24-rater packet is frozen but unrun. Relative and possessive-head growth
+attempts have produced readable near misses from 78 to 96 letters, but none is
+exact. The 82-letter center-pair insertion is rejected because its added pair
+forms its own palindrome.
+
+A later 568-lineage seam child is exact at 592 letters
+([artifact](runs/incumbent-568-remaining-shell-global-gate-20261002.json),
+SHA-256 `60a6d0472449b5a7d6843787118dad99df03ebca0f8f4748ecba2b6bf36917f6`).
+It remains construction evidence with inherited prose debt and no human
+readability evidence.
+
 ## A longer earlier generation
 
-The 650-letter generation below is the earlier event-shell repair that made the length increase concrete while keeping the residual equation closed. It is exact, but its repeated names and event frames are visible.
+The 650-letter generation below is an earlier event-shell repair that made the length increase concrete while keeping the residual equation closed. It is exact, but repeated names, repeated frames, and malformed clauses keep it out of the reader lane.
 
 ```text
 A ram saw Nadia. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora spots a rat. Nadia spots a ram. Mara spots rats. Leon maps Nora. Draw no maps. Aidan spots a rat. Nora spots a ram. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Mara stops Aron. Tara stops Nadia. Spam onward. Aron, spam Noel. Star stops Aram. Mara stops Aidan. Tara stops Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel. Aidan was Mara.
@@ -54,7 +68,8 @@ A ram saw Nadia. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. 
 | 236–240 | Immutable-tape and paired-seam growth | exact, formulaic debt |
 | 498 | Content-bearing center-out growth | exact working parent |
 | 568 | Causal-scene outer-shell construction | working incumbent |
-| 650 | Event-shell substitution with a closed live equation | exact frontier |
+| 592 | Corrected-count reflected-shell construction from 568 | exact construction child; no human evidence |
+| 650 | Event-shell substitution with a closed live equation | exact exploratory descendant; malformed clauses and repeated frames |
 | 666 | Connected central mini-scene comparison | exact comparison evidence; no human evidence |
 
 The 38–240 rows are historical diagnostics. They remain useful because they show where construction debt entered, but they are not reader-validated prose claims.

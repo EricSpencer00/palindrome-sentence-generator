@@ -75,6 +75,33 @@ read awkwardly. This is a rejected exactness control, not a readable result;
 the next construction must preregister genuinely crossed word-boundary masks
 before choosing semantic content.
 
+### Partial-word semantic-first event and residual reports (2026-09-23)
+
+At fresh reflected partial-word spans `[222,248)` / `[320,346)`, the source
+fragments are `aw desserts. Noel, was I stressed` / `Desserts I saw, Leon.
+Stressed wa`. A semantic-first proposal replaced them with `aw Mina carry
+copper cask for Niko` / `Wolf weighs this amber vial; witness wa`. Its full
+rendering, provenance, local equation, and hashes are independently rebuilt
+in [`runs/audit-incumbent-568-partial-scene-residual-20260923.json`](../runs/audit-incumbent-568-partial-scene-residual-20260923.json).
+The 576-letter child has SHA-256
+`e83ac3f3d51d6624f2547bafffe6b76ef07f4e8313cfae05e983786ccdc50697`, grows
+the parent by eight letters, and is **not exact**: its insertions are 28 and
+32 letters, match only the forced `aw`, then diverge `m` versus `s`. The left
+clause also lacks a determiner before `copper cask`; this is not a readable
+candidate or a success claim. The preflight against tracked text at `f85ef046`
+found no literal hits for the specified event phrases.
+
+Three independent Luna-lane obstructions are preserved alongside it, with
+their provenance explicitly marked as reported and not rerun: a typed scene
+chart on `[73,100)` / `[468,495)` (12,000 structures, 11,863 long attempts,
+zero closures, furthest three characters); a typed morphology/valency chart
+on `[250,259)` / `[309,318)` (1,824 attempts, zero closures, furthest six);
+and a partial-word lexicalizer on `[205,229)` / `[339,363)` that reaches `eht`
+after the forced `essed`. These counts are not new independently reproduced
+experiments. The next constructive attempt changes the seam and tries
+suffix-class-first residual typing, with equal insertion lengths and a
+multi-character live prefix required before growing the scene.
+
 ### Untouched outer-seam event resegmentation (2026-09-23)
 
 The next 568-lineage edit replaced normalized span `[0,20)` / `[548,568)`

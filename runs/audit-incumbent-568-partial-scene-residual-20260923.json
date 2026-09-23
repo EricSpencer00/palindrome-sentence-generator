@@ -1,0 +1,161 @@
+{
+  "experiment_id": "audit-incumbent-568-partial-scene-residual-20260923",
+  "working_status": "rejected_nonexact_character_residual",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256_normalized": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "operator": {
+    "name": "semantic-first event graph with partial-word owner cuts",
+    "provenance": "read-only Luna matrix-scene lane; candidate independently reconstructed here",
+    "normalized_parent_spans": [
+      [
+        222,
+        248
+      ],
+      [
+        320,
+        346
+      ]
+    ],
+    "raw_parent_spans": [
+      [
+        305,
+        338
+      ],
+      [
+        436,
+        469
+      ]
+    ],
+    "replaced_left": "aw desserts. Noel, was I stressed",
+    "replaced_right": "Desserts I saw, Leon. Stressed wa",
+    "new_left": "aw Mina carry copper cask for Niko",
+    "new_right": "Wolf weighs this amber vial; witness wa"
+  },
+  "candidate": {
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw Mina carry copper cask for Niko? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Wolf weighs this amber vial; witness was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+    "letters": 576,
+    "growth_over_parent": 8,
+    "normalized_sha256": "e83ac3f3d51d6624f2547bafffe6b76ef07f4e8313cfae05e983786ccdc50697",
+    "audit": {
+      "independent_outside_in_exact": false,
+      "first_mismatch": [
+        224,
+        "m",
+        351,
+        "s"
+      ],
+      "project_validator_exact": false,
+      "sha256_forward": "e83ac3f3d51d6624f2547bafffe6b76ef07f4e8313cfae05e983786ccdc50697",
+      "sha256_reverse": "bc0689fe8d25035757570c306cf200f4c608df9a88b701525c8e7ec16dea4df5",
+      "hashes_equal": false
+    },
+    "local_equation": {
+      "left_tape": "awminacarrycoppercaskforniko",
+      "right_tape": "wolfweighsthisambervialwitnesswa",
+      "required_reverse_right_tape": "awssentiwlaivrebmasihtshgiewflow",
+      "left_letters": 28,
+      "right_letters": 32,
+      "matched_prefix_letters": 2,
+      "first_mismatch": {
+        "cursor": 2,
+        "left": "m",
+        "required": "s"
+      }
+    }
+  },
+  "novelty_preflight": {
+    "revision": "f85ef046",
+    "phrases": [
+      "Mina carry copper cask for Niko",
+      "Wolf weighs this amber vial",
+      "copper cask",
+      "amber vial",
+      "witness was I, Aron"
+    ],
+    "scope": "tracked runs/, experiments/, docs/, and data/",
+    "hits": [],
+    "status": "no_literal_hits"
+  },
+  "parallel_lane_obstructions": [
+    {
+      "lane": "typed-morphology-valency-chart",
+      "normalized_parent_tapes": [
+        "diadelive",
+        "eviledaid"
+      ],
+      "normalized_spans": [
+        [
+          250,
+          259
+        ],
+        [
+          309,
+          318
+        ]
+      ],
+      "fresh_units": 1824,
+      "attempts": 1824,
+      "exact_closures": 0,
+      "furthest_prefix_letters": 6,
+      "reported_frontier": "Nadia has begun building Mara.",
+      "reported_residual": "asbegunbuildingmara",
+      "candidate_hash": null,
+      "provenance": "read-only Luna report; geometry independently checked in this artifact, chart not rerun"
+    },
+    {
+      "lane": "typed-scene-verb-object-chart",
+      "normalized_parent_tapes": [
+        "ratsatubhemapsaronaidandeli",
+        "ilednadianoraspamehbutastar"
+      ],
+      "normalized_spans": [
+        [
+          73,
+          100
+        ],
+        [
+          468,
+          495
+        ]
+      ],
+      "fresh_structures": 12000,
+      "long_attempts": 11863,
+      "exact_closures": 0,
+      "furthest_prefix_letters": 3,
+      "reported_frontier": "Mara guards Mara and Mara guards Mara.",
+      "reported_residual": "aguardsmaraandmaraguardsmara",
+      "candidate_hash": null,
+      "provenance": "read-only Luna report; reflected geometry independently checked in this artifact, chart not rerun"
+    },
+    {
+      "lane": "partial-word-right-lexicalizer",
+      "normalized_spans": [
+        [
+          205,
+          229
+        ],
+        [
+          339,
+          363
+        ]
+      ],
+      "exact_parent_residual": true,
+      "reported_attempt_tape": "araaramdrawsatrapstarthedesse",
+      "required_reverse_tape": "essedehtratspartaswardmaraara",
+      "obstruction_after_forced_suffix": "eht",
+      "reason": "would require the ordinary word `the` to continue backward as `eht`, forcing a semordnilap unit",
+      "candidate_hash": null,
+      "provenance": "read-only Luna report; geometry independently checked in this artifact, lexicalizer not rerun"
+    }
+  ],
+  "admission": {
+    "admitted": false,
+    "reason": "The inserted tapes differ in length (28 vs 32) and diverge after the forced two-letter `aw` fragment; the left clause also lacks a determiner before `copper cask`.",
+    "human_readability_certified": false,
+    "reader_evidence": false
+  },
+  "next_construction": "Change seam and use suffix-class-first residual typing: preflight the preserved cut words, enumerate a grammatical right suffix before composing its reverse as a left complement, and require equal inserted lengths plus a multi-character compatible prefix before extending either event."
+}

@@ -74,6 +74,23 @@ and carry entity, predicate, and argument roles along with the live character
 obligation, rather than adding more clauses to the same narrow seam. The
 blinded-reader gate remains unrun.
 
+### Widened-seam duplicate audit (2026-09-23)
+
+A wider `[16,52)` / `[516,552)` replacement closed as a 612-letter exact
+splice (`84a0d4a7…53a8c`) with the authored clauses “Ira saw Aidan. Aidan
+stops Mara. Mara stops Sara. Sara spots Aras.” / “Sara stops Aras. Aras spots
+Aram. Aram spots Nadia. Nadia was Ari.” Independent outside-in, project
+validator, and forward/reverse SHA checks all pass. It is **rejected**, not
+promoted: a preflight at `8c35aba2` found four of its event clauses already in
+the 568 linked-event and 666 linked-scene runs (`Aidan stops Mara`, `Mara
+stops Sara`, `Aras spots Aram`, and `Aram spots Nadia`). The complete rendering
+and source paths are preserved in
+[`runs/audit-incumbent-568-wide-chain-collision-20260923.json`](../runs/audit-incumbent-568-wide-chain-collision-20260923.json).
+
+The immediate pivot excludes that linked stop/spot clause bank and requires
+phrase-family novelty screening before lexical realization on a different
+actual 568 seam.
+
 ## Preserved 752-lineage status snapshot (2026-09-23)
 
 This snapshot records a longer comparison branch; the active edit target is

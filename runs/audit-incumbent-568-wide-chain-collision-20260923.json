@@ -1,0 +1,96 @@
+{
+  "experiment_id": "audit-incumbent-568-wide-chain-collision-20260923",
+  "working_status": "exact_but_novelty_rejected_not_promoted",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "proposer": "read-only Luna wide-seam lane",
+  "seam": {
+    "normalized_spans": [
+      [
+        16,
+        52
+      ],
+      [
+        516,
+        552
+      ]
+    ],
+    "raw_spans": [
+      [
+        21,
+        67
+      ],
+      [
+        717,
+        764
+      ]
+    ],
+    "left_surface": "Ira. Ira saw Aidan. Aidan stops Mara. Mara stops Sara. Sara spots Aras. Nora",
+    "right_surface": "Aron. Sara stops Aras. Aras spots Aram. Aram spots Nadia. Nadia was Ari. Ari",
+    "left_letters": 58,
+    "right_letters": 58,
+    "retained_middle_letters": 464
+  },
+  "candidate": {
+    "rendered": "Leon won. Wolf spots Ira. Ira saw Aidan. Aidan stops Mara. Mara stops Sara. Sara spots Aras. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Sara stops Aras. Aras spots Aram. Aram spots Nadia. Nadia was Ari. Ari stops flow now, Noel.",
+    "letters": 612,
+    "growth_over_parent": 44,
+    "normalized_sha256": "84a0d4a725d57c1a23d95c624ddb77366b834683131b4bb6bb1566aa8cc53a8c",
+    "local_equation": {
+      "left": "irairasawaidanaidanstopsmaramarastopssarasaraspotsarasnora",
+      "reverse_of_right": "irairasawaidanaidanstopsmaramarastopssarasaraspotsarasnora"
+    },
+    "audit": {
+      "independent_outside_in_exact": true,
+      "outside_in_comparisons": 306,
+      "first_mismatch": null,
+      "project_validator_exact": true,
+      "sha256_forward": "84a0d4a725d57c1a23d95c624ddb77366b834683131b4bb6bb1566aa8cc53a8c",
+      "sha256_reverse": "84a0d4a725d57c1a23d95c624ddb77366b834683131b4bb6bb1566aa8cc53a8c",
+      "hashes_equal": true
+    },
+    "whole_token_sequence_mirror": false
+  },
+  "novelty_preflight": {
+    "revision": "8c35aba2",
+    "scope": "case-insensitive literal clause search in tracked runs/, experiments/, docs/, and data/",
+    "authored_clauses": [
+      "Ira saw Aidan",
+      "Aidan stops Mara",
+      "Mara stops Sara",
+      "Sara spots Aras",
+      "Sara stops Aras",
+      "Aras spots Aram",
+      "Aram spots Nadia",
+      "Nadia was Ari",
+      "Ari stops flow now"
+    ],
+    "collision_paths_by_clause": {
+      "Aidan stops Mara": [
+        "experiments/grow_568_with_linked_event_pair_20260923.py",
+        "runs/incumbent-568-linked-event-pair-growth-20260923.json"
+      ],
+      "Mara stops Sara": [
+        "runs/incumbent-666-linked-scene-lattice-20260922.json",
+        "runs/incumbent-672-global-novelty-snapshot-20260922.json"
+      ],
+      "Aras spots Aram": [
+        "runs/incumbent-666-linked-scene-lattice-20260922.json",
+        "runs/incumbent-672-global-novelty-snapshot-20260922.json"
+      ],
+      "Aram spots Nadia": [
+        "experiments/grow_568_with_linked_event_pair_20260923.py",
+        "runs/incumbent-568-linked-event-pair-growth-20260923.json"
+      ]
+    },
+    "reused_clause_count": 4,
+    "status": "failed"
+  },
+  "decision": "Reject from the working frontier despite exactness and length: multiple event clauses are recycled from prior linked-event experiments.",
+  "reader_evidence": false,
+  "readability_claim": false,
+  "next_action": "Choose a different actual 568 seam and a semantic-first topology; exclude the linked stop/spot clause bank before lexical realization."
+}

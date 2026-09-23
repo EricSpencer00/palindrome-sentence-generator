@@ -168,6 +168,32 @@ remains randomized and blinded, with intact-English and shuffled-letter
 controls, independent comprehension/preference ratings, and a reproducible
 rater package; no automatic measure will certify readability.
 
+## 626-letter continuation (2026-09-23)
+
+The widened 620-lineage seam edit now yields a **626-letter exact child** in
+`runs/incumbent-620-wide-locative-seam-expansion-20260923.json`, normalized
+SHA-256 `96c9e136da7a8a4f78a469f8ac2f701238ccc89a674499ff6ec1cce920c2a234`.
+It loads the 620 parent and rederives the full 27-character pair at `[108,135)`
+and `[485,512)` as 30 characters per side, adding six net letters. The new
+surface includes “Nora stops a ram on a mat. Leon saw a rat.” and its
+cross-boundary reflection “Tara was Noel. Tama, no! Mara spots Aron.” The
+30-character live residual closes with no mismatch; independent outside-in,
+project-validator, normalizer, and forward/reverse SHA checks agree. Phrase
+preflight found no prior collision, and the paired sentences are not a
+boundary-aligned whole-word mirror.
+
+This is candidate-specific construction evidence, not a new general algorithm.
+The exact insertion remains a proper palindromic span, and the full 626-letter
+text still has repeated scaffolding and rough discourse. Human readability is
+not established, so it is not yet reader-ready. The 586-, 620-, and 626-letter
+surfaces are preserved; the 620 word-order-mirror control remains rejected.
+The next construction must reopen the remaining “A tub? He raps, Aron” shell
+at a different/wider event boundary and preserve the live grammar and character
+state. Do not replay the rejected word-mirror pair or the fixed question
+window. The eventual reader test remains randomized and blinded against
+intact-English and shuffled-letter controls, with independent comprehension
+and preference ratings and a reproducible rater package.
+
 ## Historical 498-to-568 construction ledger (superseded by the override above)
 
 The statements in this subsection describe the sequence of earlier

@@ -1,0 +1,115 @@
+{
+  "experiment_id": "luna6-grammatical-resegmentation-outer-20260923",
+  "method": "bounded bidirectional typed grammar intersection at [0,232)/end-568",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "independent_exact": true,
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel."
+  },
+  "novelty_preflight": {
+    "shared_geometry": "released [0,232)/end-568 outer wrapper",
+    "prior_full_sentence_wrapper": "runs/luna6-full-sentence-wrapper-probe-20260923.json; one fixed Y, exact but left reversal not readable",
+    "distinctive_operator": "jointly compose Y under typed SVO/adjective/PP-attachment grammar and parse reverse(Y) through the same character chart before rendering",
+    "catalogue_lookup": false,
+    "38_letter_seed_reuse": false,
+    "broad_sweep": false
+  },
+  "search": {
+    "candidate_grammar": "S -> NP VP; VP -> V NP or V NP PP; NP object may contain an adjective modifier",
+    "candidate_cap": 96,
+    "candidate_count": 96,
+    "reverse_parse_prefix_states": 384,
+    "state_cap": 384,
+    "lexical_slots": {
+      "subjects": 2,
+      "verbs": 2,
+      "adjective_object_NPs": 8,
+      "PP_objects": 4,
+      "PP_attachments": 4
+    },
+    "per_candidate_rlaif": false
+  },
+  "results": {
+    "complete_reverse_grammar_parses": 0,
+    "shortcut_rejected_parses": 0,
+    "shortcut_clean_exact_children": 0,
+    "best_authored_controls": [
+      {
+        "Y": "A sailor carries a key after rain.",
+        "Y_tape": "asailorcarriesakeyafterrain",
+        "reverse_tape": "niarretfayekaseirracroliasa",
+        "best_reverse_grammar_prefix": {
+          "matched": 0,
+          "required_prefix": "niarretfayek",
+          "grammar_prefix": "maracarries",
+          "unconsumed_required": "niarretfayekaseirracroli",
+          "next_grammar_char": "m"
+        },
+        "attachment_state": "PP attached to VP after complete object NP"
+      },
+      {
+        "Y": "A sailor carries a key at dawn.",
+        "Y_tape": "asailorcarriesakeyatdawn",
+        "reverse_tape": "nwadtayekaseirracroliasa",
+        "best_reverse_grammar_prefix": {
+          "matched": 0,
+          "required_prefix": "nwadtayekase",
+          "grammar_prefix": "maracarries",
+          "unconsumed_required": "nwadtayekaseirracroliasa",
+          "next_grammar_char": "m"
+        },
+        "attachment_state": "PP attached to VP after complete object NP"
+      },
+      {
+        "Y": "A sailor carries a key near the gate.",
+        "Y_tape": "asailorcarriesakeynearthegate",
+        "reverse_tape": "etagehtraenyekaseirracroliasa",
+        "best_reverse_grammar_prefix": {
+          "matched": 0,
+          "required_prefix": "etagehtraeny",
+          "grammar_prefix": "maracarries",
+          "unconsumed_required": "etagehtraenyekaseirracro",
+          "next_grammar_char": "m"
+        },
+        "attachment_state": "PP attached to VP after complete object NP"
+      },
+      {
+        "Y": "A sailor carries a key under a tree.",
+        "Y_tape": "asailorcarriesakeyunderatree",
+        "reverse_tape": "eertarednuyekaseirracroliasa",
+        "best_reverse_grammar_prefix": {
+          "matched": 0,
+          "required_prefix": "eertarednuye",
+          "grammar_prefix": "maracarries",
+          "unconsumed_required": "eertarednuyekaseirracrol",
+          "next_grammar_char": "m"
+        },
+        "attachment_state": "PP attached to VP after complete object NP"
+      },
+      {
+        "Y": "A sailor carries a letter after rain.",
+        "Y_tape": "asailorcarriesaletterafterrain",
+        "reverse_tape": "niarretfarettelaseirracroliasa",
+        "best_reverse_grammar_prefix": {
+          "matched": 0,
+          "required_prefix": "niarretfaret",
+          "grammar_prefix": "maracarries",
+          "unconsumed_required": "niarretfarettelaseirracr",
+          "next_grammar_char": "m"
+        },
+        "attachment_state": "PP attached to VP after complete object NP"
+      }
+    ],
+    "rejected_shortcut_examples": [],
+    "rendered_exact_children": [],
+    "reader_status": "no human ratings collected; even a grammatical envelope would not certify readability of the inherited 568-letter interior"
+  },
+  "oversized_pilot_retired": {
+    "candidate_strings": 177450,
+    "shortcut_clean_reverse_parses": 0,
+    "disposition": "pilot exceeded intended local cap; retired and not used to select the bounded 96-row lexical bank"
+  },
+  "next_operator": "Pivot from forward-Y-then-reverse-parse to a suffix-first, boundary-crossing chart: choose one typed clause-initial production, solve the final two Y token slots backward against its character residual, and permit the reverse parse boundary to cut across the Y token boundary. Preflight that exact topology against registry/history before a single capped realization; do not widen this lexical bank."
+}

@@ -8422,6 +8422,16 @@
       "reader_evidence": false,
       "status": "No admissible scene pair was rendered; the sole 11-letter exact lead was rejected as a whole-token reversal. This is an obstruction/pivot record, not a candidate or a closure count.",
       "next_construction": "Preflight the selected changed geometry and attempt one independently authored pair; if it fails, move the owner map rather than swapping words."
+    },
+    {
+      "id": "luna6-grammatical-resegmentation-outer-20260923",
+      "signature": "pinned-568|released-outer-seam|typed-SVO-adjective-PP-grammar|reverse-character-chart",
+      "artifact": "experiments/luna6_grammatical_resegmentation_outer_20260923.py",
+      "run_artifacts": ["runs/luna6-grammatical-resegmentation-outer-20260923.json"],
+      "distinction": "Composes a forward clause from typed subject/verb/object and adjective-or-PP attachment slots, then attempts to recognize its reversed character tape as a separately grammatical sentence before wrapping or rendering.",
+      "reader_evidence": false,
+      "status": "Bounded run: 96 authored clauses, 384 reverse-prefix states, 0 complete reverse parses, 0 shortcut-free exact children. Every retained best control mismatches the available subject+verb grammar at character 0. A 177,450-string pilot exceeded the intended cap and is explicitly retired, not used for selection.",
+      "next_construction": "Use a suffix-first boundary-crossing chart: select one typed clause-initial production and solve the final two Y slots backward; preflight one topology and keep the cap small."
     }
   ],
   "excluded": [

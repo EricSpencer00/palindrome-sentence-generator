@@ -10059,3 +10059,20 @@ diagnostic, not a palindrome or readable-output claim. The next attempt moves
 to a different parent seam and chooses compatible prose boundaries before
 expanding its event content. Full rendering and residual are preserved in
 [`runs/audit-incumbent-568-shared-event-chain-residual-20260923.json`](../runs/audit-incumbent-568-shared-event-chain-residual-20260923.json).
+
+### Identity/witness insertion audit (2026-09-23)
+
+At the reflected sentence cuts `[178,390]` in the pinned 568 parent, the new
+clause pair “Noel was a lie” / “Eila saw Leon” produces an exact 590-letter
+child (+22). The full rendering is retained in
+[`runs/audit-incumbent-568-identity-witness-growth-20260923.json`](../runs/audit-incumbent-568-identity-witness-growth-20260923.json), SHA-256
+`9f94e2ea6ab8976495eea3ab93bbc9c3fdebd70949c5de236e61e2ba184b670b`.
+Outside-in validation, the project validator, and forward/reverse hashes all
+agree. The tracked literal-phrase preflight is clean, but the cuts touch the
+already explored 574-letter replacement region, so this is not a new seam
+family. More importantly, the local tape decomposes into complete `Noel/Leon`
+and `was/saw` reversals plus the self-palindromic one-letter article `a`.
+It is therefore rejected under the no-shortcut criterion, not promoted as a
+working result or readability claim. The next construction changes the
+equation topology: two clause boundaries must share live residual debt, with
+zero whole-token reversal pairs checked before lexicalization.

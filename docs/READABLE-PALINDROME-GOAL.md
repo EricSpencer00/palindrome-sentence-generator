@@ -69,6 +69,51 @@ Evidence:
 `experiments/incumbent_666_comparison_alternative_20260922.py` with their
 committed run artifacts.
 
+## 586-letter continuation (2026-09-23)
+
+The 568-lineage candidate now has a verified 586-letter child in
+`runs/incumbent-586-repeated-shell-valency-repair-20260922.json`. Its parent is
+the 586-letter asymmetric-residual insertion, normalized SHA-256
+`d7cf3db4224acc9042f7f4badd48dfbd69c56f0f554ed9d52f053ef5f197ab41`; the
+child SHA-256 is
+`142f34541db73cb8a7b9c7fa96cb34abec9fd4bea5d3003b6482d476f6e7569b`.
+Independent outside-in, project-validator, normalizer, and forward/reverse
+hash checks agree. The edit changes “He maps Aron” to “He raps, Aron” and its
+reflection “Nora, spam” to “Nora, spar!”, removing one repeated shell. The
+candidate remains a working result, not a readability claim; one “A tub? He
+maps Nora” shell and inherited rough prose remain.
+
+Two read-only follow-ups found no child and are closed against repetition:
+
+- The typed question/answer probe held normalized `[121,134)` (`atubhemapsnora`)
+  against `[451,464)` (`aronspamehbuta`). That fixed 13-letter shell cannot
+  carry a shared question/answer valency state and a nonempty character
+  residual across the question boundary. A next attempt must widen and
+  rederive adjacent clause boundaries together, or choose a different actual
+  seam; do not rerun the fixed window.
+- A prose-first, dependency-unlinked scene (“At dawn, Mira found the
+  greenhouse door ajar. Her brother came running when she waved, carrying the
+  spare key.”) had an 88-letter authored tape, but its first-sentence reverse
+  obligation matched at most 2/36 characters in the 568 or 586 tape, and the
+  second matched 0/52. The `At dawn` fragment's 3/6 hit was incidental, not a
+  grammatical continuation. No residual or exact child resulted.
+
+The tempting SVO/dialogue and discourse-chain follow-ups are not fresh
+operators: prior evidence includes the dual-seam event graft, sentence-boundary
+clause intersection, typed grammar chart, question/answer edge search, and
+`incumbent-672-discourse-linked-reverse-chain`. Do not replay those banks under
+new names. The next construction must move to a genuinely different, measured
+seam on the preserved 568-lineage tape and carry both grammar and character
+residual state while boundaries are selected. Keep the exact 568/586 and 666
+frontiers; do not substitute short witnesses, reader prerequisites, or paper
+work for a candidate-producing action. The blinded human-reader gate remains
+open, and programmatic evidence does not certify readability.
+
+The concurrent API/paper audit found the generation routes fail-closed while
+the reader study is unrun; the focused API subset passed 26 tests. The paper
+already frames the constructive method and exact checks, with reader evidence
+pending. This is status context, not a substitute for the next construction.
+
 ## Historical 498-to-568 construction ledger (superseded by the override above)
 
 The statements in this subsection describe the sequence of earlier

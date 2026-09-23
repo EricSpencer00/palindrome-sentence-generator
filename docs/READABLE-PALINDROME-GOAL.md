@@ -45,6 +45,35 @@ clause. The next action changes to the untried actual parent seam
 only a repaired candidate should enter randomized blinded ratings against
 intact and shuffled controls.
 
+### Internal event resegmentation on the pinned 568 seam (2026-09-23)
+
+The actual raw clauses `Nadia stops, so Tara rewards Nadia.` / `Aidan's
+drawer, Aratos, spots Aidan.` (normalized spans `[20,48)` / `[520,548)`) were
+replaced while retaining the 472-letter middle verbatim. Two exact alternatives
+are recorded, with complete renderings, character owners, hashes, and
+provenance in
+[`runs/incumbent-568-internal-event-resegmentation-20260923.json`](../runs/incumbent-568-internal-event-resegmentation-20260923.json):
+
+- **584 letters** (`895cbb34…e819`): “A rat saw Iris. Iris stops a yak.
+  Aidan was a ram.” / “Mara saw Nadia. Kaya spots Siri. Siri was Tara.”
+- **586 letters** (`6fb55d90…8db6`): “Iris notes a rat. Ari maps a yak.
+  Sara spots a hen.” / “Neha stops Aras. Kaya, spam Ira. Tara, set on Siri.”
+
+Both pass a separately written outside-in scan, equal forward/reverse tape
+hashes, the project validator, and the live local equation; literal clause
+preflight against tracked text at `961ee718` found no reuse. Whole-token
+sequence mirroring is false. Neither is reader-worthy: the 584-letter clauses
+do not form a connected event, and the 586-letter right side relies on odd
+imperatives/attachments. A separate exact 576-letter proposal was rejected
+because it made a drawer a rat. Keep all three as distinct construction or
+rejection evidence; do not promote them as readability progress.
+
+The fixed-tape resegmentation attempt did not improve its sentence topology.
+The concrete repair is to widen the parent window to `[16,52)` / `[516,552)`
+and carry entity, predicate, and argument roles along with the live character
+obligation, rather than adding more clauses to the same narrow seam. The
+blinded-reader gate remains unrun.
+
 ## Preserved 752-lineage status snapshot (2026-09-23)
 
 This snapshot records a longer comparison branch; the active edit target is

@@ -83,6 +83,20 @@ reflection “Nora, spam” to “Nora, spar!”, removing one repeated shell. T
 candidate remains a working result, not a readability claim; one “A tub? He
 maps Nora” shell and inherited rough prose remain.
 
+A fresh outer-frame repair now preserves the same 586-letter length in
+`runs/incumbent-586-outer-flow-frame-repair-20260923.json`, child
+`outer-wolf-flow-scene-586`, SHA-256
+`00cf2cf66f4cf63a0c3b48a204511eeb3436b080fa0033b9477de4328e1a941e`. At the
+actual outer support spans `[7,20)` / `[566,579)`, it changes “Wolf spots
+Nora” / “Aron stops flow” to “Wolf spots flow” / “Wolf stops flow”. The new
+scene has a simple linked action: Wolf notices the flow and later stops it.
+The online 13-character equation closes with an empty residual and no
+contradictions; independent outside-in, project-validator, normalizer, and
+forward/reverse hash checks agree. The phrases were absent from the prior
+tracked runs, experiments, docs, and data. This is a same-length prose repair,
+not evidence that the full 586-letter candidate is human-readable. Its
+remaining grammar and repetition debt is preserved.
+
 Two read-only follow-ups found no child and are closed against repetition:
 
 - The typed question/answer probe held normalized `[121,134)` (`atubhemapsnora`)

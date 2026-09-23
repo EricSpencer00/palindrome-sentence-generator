@@ -2,16 +2,24 @@
 
 ## Current goal state (2026-09-23)
 
-The end goal is still unmet. The newest committed candidate on the 568 lineage
-is the **626-letter** `wide-locative-nora-tama-scene-626` in
+The end goal is still unmet. A new **640-letter exact child** now branches
+directly from the named 568-letter incumbent in
+`runs/incumbent-568-live-event-chain-insertion-20260923.json`, normalized
+SHA-256 `c3013fe4411ae2be7ab3211a41e59606faab7385dc4fe3dc8185d47f8cbedac9`.
+Its lineage is 568 → 640; it adds 72 letters at matched parent sentence cuts
+64/504. The left event chain was resegmented into a distinct, connected right
+event chain while both character cursors and grammar-slot owners advanced.
+Two-pointer, forward/reverse SHA-256, and project-validator checks agree, and
+a deterministic replay on `hst-bench` reproduced the artifact byte-for-byte.
+The child retains the parent's repetition and rough discourse, so it is exact
+construction evidence, not a clean or human-certified result.
+
+The separate **626-letter** `wide-locative-nora-tama-scene-626` remains in
 `runs/incumbent-620-wide-locative-seam-expansion-20260923.json`, SHA-256
 `96c9e136da7a8a4f78a469f8ac2f701238ccc89a674499ff6ec1cce920c2a234`. Its
-lineage is 568 → 586 → 620 → 626. A fresh two-pointer pass, the project
-validator/normalizer, and forward/reverse SHA-256 agree. It adds a new
-cross-boundary locative/event scene, but the inserted scene is itself a proper
-palindrome span; the whole text also retains repeated scaffolding and rough
-discourse. It is an exact repair frontier, not a clean or human-certified
-result.
+lineage is 568 → 586 → 620 → 626; the inserted scene is itself a proper
+palindrome span and inherits repeated scaffolding and rough discourse. Keep it
+as a separate exact repair frontier, not a readability result.
 
 The **672-letter** `discourse-linked-reverse-chain-672` in
 `runs/incumbent-672-discourse-linked-reverse-chain-20260922.json` is a separate,
@@ -29,20 +37,37 @@ paper must report this honestly, foreground only a genuinely working
 construction method and readable examples, and keep the API fail-closed until
 the stated human and exactness gates pass.
 
-Local-minimum reset: the direct mirrored-deletion check preserved exactness but
-left broken discourse, so it is not promoted as a readability repair. The
-fixed paired-clause-bank probe on the broad 626 seam also found no admissible
-candidate. The next construction should change the search object: reopen the
-actual normalized spans `[64,108)` / `[518,562)` and let a grammar-typed
-character residual cross at least one neighboring clause boundary, rather
-than requiring a self-contained reversed scene pair. Require complete clauses,
-new event content, no boundary-aligned word-order mirror, and independent exact
-validation; immediately change topology again if every closure is local,
-fragmentary, repeated, or a proper palindrome insertion.
+Local-minimum reset: the prior 626-seam bank and mirrored-deletion probe did
+not repair readability. The current working track is again the explicitly
+preserved 568 parent. The 640 child is a bounded exact growth result, not a
+reason to replace the user's readability objective with length alone. Next,
+reopen its duplicated shell at parent-support `[64,91)` and reflected
+`[477,504)` (the corresponding 640-child spans are `[100,127)` and
+`[513,540)`); carry the live word-edge residual while replacing that shell
+with complete, connected event clauses. Keep the 568 parent and 640 child
+intact as rollback/frontier evidence, and immediately change the seam if the
+bounded replacement yields only fragments or a character contradiction.
 
 The current model constraint is Luna-only; no Astra escalation is warranted
 from this evidence. Readability claims remain reserved for blinded human
 ratings, not programmatic scores.
+
+## 568-lineage live event-chain continuation (2026-09-23)
+
+The bounded construction loaded
+`outer-causal-scene-568-working-incumbent` directly (568 normalized letters,
+SHA-256 `6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`).
+At its matched sentence boundary `[64,504]`, a three-event left chain,
+“Noel sees Mara. Mara sees Sara. Sara sees Nora.”, produced the exact opposing
+obligation `aronseesarasarasseesaramaramseesleon`. A typed chart found the
+connected right segmentation “Aron sees Aras. Aras sees Aram. Aram sees Leon.”
+The live 36-character residual closed with zero contradictions. The result is
+640 letters, adds 72 letters, and has child SHA-256
+`c3013fe4411ae2be7ab3211a41e59606faab7385dc4fe3dc8185d47f8cbedac9`. The
+candidate and per-character owner/cursor trace are in the run artifact. The
+event pair was checked against the tracked runs, experiments, and docs for
+exact prior-clause reuse. The added repeated “sees” frame and inherited rough
+discourse remain repair debt; no reader or readability claim is made.
 
 ## 586-letter continuation (2026-09-23)
 

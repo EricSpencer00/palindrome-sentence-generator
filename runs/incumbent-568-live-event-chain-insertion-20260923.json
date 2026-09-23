@@ -1,0 +1,850 @@
+{
+  "experiment_id": "incumbent-568-live-event-chain-insertion-20260923",
+  "status": "exact_new_content_child",
+  "execution": {
+    "host": "hst-bench",
+    "python_version": "3.12.3",
+    "stochasticity": "none; deterministic grammar-chart traversal"
+  },
+  "source_commit": "0a44ffd089ab9f9049c815428236ba101f6285ee",
+  "method": "one live event-chain insertion at a matched sentence seam; a typed opposite-side chart resegments the reversed event tape while character cursors and event-slot owners advance together",
+  "parent": {
+    "artifact": "incumbent-560-outer-causal-scene-20261002.json",
+    "id": "outer-causal-scene-568-working-incumbent",
+    "letters": 568,
+    "normalized_tape_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "artifact_sha256": "c2d520dd84f17164da62f691aab95cba57d351cd660ed611ac444fdb6679dc13"
+  },
+  "seam": {
+    "parent_normalized_cuts": [
+      64,
+      504
+    ],
+    "raw_offsets_after_sentence_marks": [
+      82,
+      700
+    ],
+    "parent_boundary_context": [
+      "s Nadia. Nora delivers maps.",
+      " Spam's reviled, Aron. Aidan"
+    ],
+    "retained_parent_tape_byte_for_byte": true
+  },
+  "grammar_state": {
+    "left_event_chain": [
+      {
+        "id": "event-1",
+        "subject": "Noel",
+        "predicate": "sees",
+        "object": "Mara"
+      },
+      {
+        "id": "event-2",
+        "subject": "Mara",
+        "predicate": "sees",
+        "object": "Sara"
+      },
+      {
+        "id": "event-3",
+        "subject": "Sara",
+        "predicate": "sees",
+        "object": "Nora"
+      }
+    ],
+    "right_events_discovered_by_typed_resegmentation": [
+      {
+        "subject": "Aron",
+        "predicate": "sees",
+        "object": "Aras"
+      },
+      {
+        "subject": "Aras",
+        "predicate": "sees",
+        "object": "Aram"
+      },
+      {
+        "subject": "Aram",
+        "predicate": "sees",
+        "object": "Leon"
+      }
+    ],
+    "right_parse_count_before_chain_preference": 1,
+    "right_parse_count_after_chain_preference": 1,
+    "left_chain_connected": true,
+    "right_chain_connected": true
+  },
+  "live_residual": {
+    "left_emitted_tape": "noelseesmaramaraseessarasaraseesnora",
+    "right_reverse_obligation": "aronseesarasarasseesaramaramseesleon",
+    "initial_residual_letters": 36,
+    "steps": [
+      {
+        "step": 1,
+        "left_cursor": 64,
+        "right_reverse_cursor_child": 575,
+        "character": "n",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "object",
+          "word": "Leon"
+        },
+        "remaining_residual_letters": 35,
+        "residual_sha256": "3df3aca61b9f51d8db80d7c133844e0b3667fd929489d77bc10943ce61032599"
+      },
+      {
+        "step": 2,
+        "left_cursor": 65,
+        "right_reverse_cursor_child": 574,
+        "character": "o",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "object",
+          "word": "Leon"
+        },
+        "remaining_residual_letters": 34,
+        "residual_sha256": "0704b18c9ae45376bb889b9902d34413edba6717952e3a1131629f74e856caa0"
+      },
+      {
+        "step": 3,
+        "left_cursor": 66,
+        "right_reverse_cursor_child": 573,
+        "character": "e",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "object",
+          "word": "Leon"
+        },
+        "remaining_residual_letters": 33,
+        "residual_sha256": "bb320d740fa3ec334c819e8ba50c06ed5e10ac41bb880d8992b9a4efb686b09d"
+      },
+      {
+        "step": 4,
+        "left_cursor": 67,
+        "right_reverse_cursor_child": 572,
+        "character": "l",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "subject",
+          "word": "Noel"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "object",
+          "word": "Leon"
+        },
+        "remaining_residual_letters": 32,
+        "residual_sha256": "60a8b7ed67c460d6af2e55db148281f32747d200951c9529e3d79b89fa2cbca8"
+      },
+      {
+        "step": 5,
+        "left_cursor": 68,
+        "right_reverse_cursor_child": 571,
+        "character": "s",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 31,
+        "residual_sha256": "3d93daa9d0096bf55900a60fed2d96028eaad7b151f200ae97111356afdcea9d"
+      },
+      {
+        "step": 6,
+        "left_cursor": 69,
+        "right_reverse_cursor_child": 570,
+        "character": "e",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 30,
+        "residual_sha256": "b185f2fd033f8fb6d4dd9dc93fae1ca301316b52280c25a20be58430a12dbe0c"
+      },
+      {
+        "step": 7,
+        "left_cursor": 70,
+        "right_reverse_cursor_child": 569,
+        "character": "e",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 29,
+        "residual_sha256": "7010f1be7a2a150963621ca7b3679d435b35672fe8aadc35b070d4a0058a9ee9"
+      },
+      {
+        "step": 8,
+        "left_cursor": 71,
+        "right_reverse_cursor_child": 568,
+        "character": "s",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 28,
+        "residual_sha256": "6f148aabca332f6e79ea51d8bbc6a2372c0ee5547d170d337e33cd0179979af1"
+      },
+      {
+        "step": 9,
+        "left_cursor": 72,
+        "right_reverse_cursor_child": 567,
+        "character": "m",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "object",
+          "word": "Mara"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "subject",
+          "word": "Aram"
+        },
+        "remaining_residual_letters": 27,
+        "residual_sha256": "e87c306d58086a39f365f6de9591efc5d4dbe469ccf686b17f8975e8f62f0377"
+      },
+      {
+        "step": 10,
+        "left_cursor": 73,
+        "right_reverse_cursor_child": 566,
+        "character": "a",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "object",
+          "word": "Mara"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "subject",
+          "word": "Aram"
+        },
+        "remaining_residual_letters": 26,
+        "residual_sha256": "3b45567237b833a6f99c96c1effbac7bf18e22c76182684b3db2144fe06fbf03"
+      },
+      {
+        "step": 11,
+        "left_cursor": 74,
+        "right_reverse_cursor_child": 565,
+        "character": "r",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "object",
+          "word": "Mara"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "subject",
+          "word": "Aram"
+        },
+        "remaining_residual_letters": 25,
+        "residual_sha256": "95fcb5a6959f2a6a8d025fe62b538c1cf223d89eb6a2ca5817404029bbd23c75"
+      },
+      {
+        "step": 12,
+        "left_cursor": 75,
+        "right_reverse_cursor_child": 564,
+        "character": "a",
+        "left_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "object",
+          "word": "Mara"
+        },
+        "right_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "subject",
+          "word": "Aram"
+        },
+        "remaining_residual_letters": 24,
+        "residual_sha256": "6cfc9c586908c00cf98b6111ca581dad8fa02a2b0955c227cf3ff510eee1a437"
+      },
+      {
+        "step": 13,
+        "left_cursor": 76,
+        "right_reverse_cursor_child": 563,
+        "character": "m",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "subject",
+          "word": "Mara"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "object",
+          "word": "Aram"
+        },
+        "remaining_residual_letters": 23,
+        "residual_sha256": "32cccfe87e986f8a284c40004b99747a9eea416d1c9ef2c18fb3803068a6d4e2"
+      },
+      {
+        "step": 14,
+        "left_cursor": 77,
+        "right_reverse_cursor_child": 562,
+        "character": "a",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "subject",
+          "word": "Mara"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "object",
+          "word": "Aram"
+        },
+        "remaining_residual_letters": 22,
+        "residual_sha256": "453818cb51c9e23cc0eb4434f8c2a6ea696a43153c24915cc7798f050fe48079"
+      },
+      {
+        "step": 15,
+        "left_cursor": 78,
+        "right_reverse_cursor_child": 561,
+        "character": "r",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "subject",
+          "word": "Mara"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "object",
+          "word": "Aram"
+        },
+        "remaining_residual_letters": 21,
+        "residual_sha256": "72d7ef13169f4c8068440e5b7baf3321691eb62608eb6cafac140cdb65862ba7"
+      },
+      {
+        "step": 16,
+        "left_cursor": 79,
+        "right_reverse_cursor_child": 560,
+        "character": "a",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "subject",
+          "word": "Mara"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "object",
+          "word": "Aram"
+        },
+        "remaining_residual_letters": 20,
+        "residual_sha256": "347ff27c0825cf697131f1763cef3216963235d2b10c96757b4f94e749b93940"
+      },
+      {
+        "step": 17,
+        "left_cursor": 80,
+        "right_reverse_cursor_child": 559,
+        "character": "s",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 19,
+        "residual_sha256": "37c7a745289905b3850bd58b39f56cf6fa1d9f5ae0e402f30272e09c3313c283"
+      },
+      {
+        "step": 18,
+        "left_cursor": 81,
+        "right_reverse_cursor_child": 558,
+        "character": "e",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 18,
+        "residual_sha256": "18c5c3e9aef6b672ad72a851cb7f07367fb6fcd784e53686fc50122a15824ba2"
+      },
+      {
+        "step": 19,
+        "left_cursor": 82,
+        "right_reverse_cursor_child": 557,
+        "character": "e",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 17,
+        "residual_sha256": "a49a53d1fa27d86c6e7e9ffdaa43a8607f2b8d64d2f40054d183e0a5c82e7591"
+      },
+      {
+        "step": 20,
+        "left_cursor": 83,
+        "right_reverse_cursor_child": 556,
+        "character": "s",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 16,
+        "residual_sha256": "ca08e388a6b52ebe39e5bde7061373fb83b808287a6b7bf971d03895904de520"
+      },
+      {
+        "step": 21,
+        "left_cursor": 84,
+        "right_reverse_cursor_child": 555,
+        "character": "s",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "object",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "subject",
+          "word": "Aras"
+        },
+        "remaining_residual_letters": 15,
+        "residual_sha256": "39dc7923af8a5989e68e82c3d5455cd20245f6e2010de1cb84e77dc9bf84bb55"
+      },
+      {
+        "step": 22,
+        "left_cursor": 85,
+        "right_reverse_cursor_child": 554,
+        "character": "a",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "object",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "subject",
+          "word": "Aras"
+        },
+        "remaining_residual_letters": 14,
+        "residual_sha256": "51b98b47c15333e5384cd87d08b01b2f2186edb8f9d58f332cb195c280ecf92c"
+      },
+      {
+        "step": 23,
+        "left_cursor": 86,
+        "right_reverse_cursor_child": 553,
+        "character": "r",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "object",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "subject",
+          "word": "Aras"
+        },
+        "remaining_residual_letters": 13,
+        "residual_sha256": "66d4a47ce3b1a5df4d9d8acd51457eaa3c71637dd784f0085db72a0f78a1f634"
+      },
+      {
+        "step": 24,
+        "left_cursor": 87,
+        "right_reverse_cursor_child": 552,
+        "character": "a",
+        "left_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "object",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 1,
+          "event_id": "event-2",
+          "role": "subject",
+          "word": "Aras"
+        },
+        "remaining_residual_letters": 12,
+        "residual_sha256": "a62203b82a5661ecc33b5dba8b8b2304f201419d5bc96b3bb354c36d28e11eaf"
+      },
+      {
+        "step": 25,
+        "left_cursor": 88,
+        "right_reverse_cursor_child": 551,
+        "character": "s",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "subject",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "object",
+          "word": "Aras"
+        },
+        "remaining_residual_letters": 11,
+        "residual_sha256": "f4b4814bb6e6d8276958e0e445f573396eeab23525f4c574b2e65fdb7f888a02"
+      },
+      {
+        "step": 26,
+        "left_cursor": 89,
+        "right_reverse_cursor_child": 550,
+        "character": "a",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "subject",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "object",
+          "word": "Aras"
+        },
+        "remaining_residual_letters": 10,
+        "residual_sha256": "0768d69272d941ee0f818bd3614dba1130dac35bc213b104140d35b27d622552"
+      },
+      {
+        "step": 27,
+        "left_cursor": 90,
+        "right_reverse_cursor_child": 549,
+        "character": "r",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "subject",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "object",
+          "word": "Aras"
+        },
+        "remaining_residual_letters": 9,
+        "residual_sha256": "c624479bf963e486ef4f56db111b996f5aaf4008cd906f3d4aeca7ebcc95fe26"
+      },
+      {
+        "step": 28,
+        "left_cursor": 91,
+        "right_reverse_cursor_child": 548,
+        "character": "a",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "subject",
+          "word": "Sara"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "object",
+          "word": "Aras"
+        },
+        "remaining_residual_letters": 8,
+        "residual_sha256": "aa322db9ff37c3ede0a6f54a81a17804f2815ef402efccbe1b0957133a4224f8"
+      },
+      {
+        "step": 29,
+        "left_cursor": 92,
+        "right_reverse_cursor_child": 547,
+        "character": "s",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 7,
+        "residual_sha256": "c9ad9f5e6c3d6518d96b2b98779a92ea8c22d4978fad94460d743d3c4ad24a67"
+      },
+      {
+        "step": 30,
+        "left_cursor": 93,
+        "right_reverse_cursor_child": 546,
+        "character": "e",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 6,
+        "residual_sha256": "2de891561c26096c3f04cb57b8363fbcaffeb0212cd1c3953af5b697abcc0e76"
+      },
+      {
+        "step": 31,
+        "left_cursor": 94,
+        "right_reverse_cursor_child": 545,
+        "character": "e",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 5,
+        "residual_sha256": "1437c0a88175ad06a8652c9387bb7bb43bc9658ff6a7c524cb4ff80ab0ab5b56"
+      },
+      {
+        "step": 32,
+        "left_cursor": 95,
+        "right_reverse_cursor_child": 544,
+        "character": "s",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "predicate",
+          "word": "sees"
+        },
+        "remaining_residual_letters": 4,
+        "residual_sha256": "b21ec07effd3fe307782e2a1782ae771e601b303cef1548723a76c539f98f383"
+      },
+      {
+        "step": 33,
+        "left_cursor": 96,
+        "right_reverse_cursor_child": 543,
+        "character": "n",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "object",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "subject",
+          "word": "Aron"
+        },
+        "remaining_residual_letters": 3,
+        "residual_sha256": "1ec63275753fb19a54e664a8d11e7e1529bcd074375e8e06cee38af6e3a5bb9a"
+      },
+      {
+        "step": 34,
+        "left_cursor": 97,
+        "right_reverse_cursor_child": 542,
+        "character": "o",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "object",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "subject",
+          "word": "Aron"
+        },
+        "remaining_residual_letters": 2,
+        "residual_sha256": "37e7702e5ce449c1225fa1b3b3ed8e2dff35d24464d9264a4c2bebf3e0deee05"
+      },
+      {
+        "step": 35,
+        "left_cursor": 98,
+        "right_reverse_cursor_child": 541,
+        "character": "r",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "object",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "subject",
+          "word": "Aron"
+        },
+        "remaining_residual_letters": 1,
+        "residual_sha256": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb"
+      },
+      {
+        "step": 36,
+        "left_cursor": 99,
+        "right_reverse_cursor_child": 540,
+        "character": "a",
+        "left_owner": {
+          "event_index": 2,
+          "event_id": "event-3",
+          "role": "object",
+          "word": "Nora"
+        },
+        "right_owner": {
+          "event_index": 0,
+          "event_id": "event-1",
+          "role": "subject",
+          "word": "Aron"
+        },
+        "remaining_residual_letters": 0,
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "final_residual": "",
+    "committed_character_contradictions": 0
+  },
+  "candidate": {
+    "id": "568-live-linked-observation-chain-640",
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+    "letters": 640,
+    "normalized_tape_sha256": "c3013fe4411ae2be7ab3211a41e59606faab7385dc4fe3dc8185d47f8cbedac9",
+    "growth_over_parent": 72,
+    "new_event_content": [
+      "Noel sees Mara. Mara sees Sara. Sara sees Nora.",
+      "Aron sees Aras. Aras sees Aram. Aram sees Leon."
+    ]
+  },
+  "independent_audit": {
+    "normalized_letters": 640,
+    "two_pointer_exact": true,
+    "first_mismatch": null,
+    "sha256_forward": "c3013fe4411ae2be7ab3211a41e59606faab7385dc4fe3dc8185d47f8cbedac9",
+    "sha256_reverse": "c3013fe4411ae2be7ab3211a41e59606faab7385dc4fe3dc8185d47f8cbedac9",
+    "hashes_equal": true,
+    "normalized_tape": "leonwonwolfspotsnoranadiastopssotararewardsnadianoradeliversmapsnoelseesmaramaraseessarasaraseesnoramarastopsratsatubhemapsaronaidandeliversmapsmarastopsratsatubhemapsnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdessertsnoelwasistressednadiadeliversmapsleonarideliversmapsspamsrevilediranoelspamsreviledaidandessertsisawleonstressedwasiaronevilididarasdogwasaramsetontaptisileonevilleonwasaronevilididleonwonliveonreviledaronspamehbutastarspotsaramspamsrevilednadianoraspamehbutastarspotsaramaronseesarasarasseesaramaramseesleonspamsreviledaronaidansdraweraratosspotsaidanaronstopsflownownoel"
+  },
+  "provenance": {
+    "inserted_text_authored_for_this_run": true,
+    "catalogue_or_corpus_text_used": false,
+    "candidate_phrase_preflight": {
+      "scope": "runs/, experiments/, and docs/ at source commit 0a44ffd089ab9f9049c815428236ba101f6285ee",
+      "exact_clause_hits": [],
+      "phrases_checked": [
+        "Noel sees Mara",
+        "Mara sees Sara",
+        "Sara sees Nora",
+        "Aron sees Aras",
+        "Aras sees Aram",
+        "Aram sees Leon"
+      ]
+    },
+    "generator": "incumbent-568-live-event-chain-insertion-20260923.py",
+    "generator_sha256": "f21c6748a249fa82be02721df0ee23aed0b1c5f89f465b04a1fa66f0da4ad849"
+  },
+  "repair_debt": {
+    "inherited_repetition_and_rough_discourse_retained": true,
+    "new_chain_repeats_predicate": true,
+    "proper_palindromic_spans_may_remain": true,
+    "human_readability": "not assessed; this exact construction is not a readability certification"
+  },
+  "next_repair": "On this 640 child, reopen normalized parent-support [64,91) and its reflected [477,504): replace the duplicated 'Mara stops rats. A tub? He maps Aron.' shell through a new event frame while carrying the actual word-edge residual. Preserve this 640 child as rollback."
+}

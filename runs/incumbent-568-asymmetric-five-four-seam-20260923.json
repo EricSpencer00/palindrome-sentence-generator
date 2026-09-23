@@ -1,0 +1,754 @@
+{
+  "experiment_id": "incumbent-568-asymmetric-five-four-seam-20260923",
+  "status": "completed_no_exact_asymmetric_closure",
+  "claim_boundary": "No 588-character child is rendered or admitted. The 568 parent supplies only a symmetric coordinate system and remains outside this experiment's readability claim.",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "normalized_letter_length": 568,
+    "normalized_letter_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "source_provenance": {
+    "parent_normalized_cuts": [
+      [
+        99,
+        99
+      ],
+      [
+        469,
+        469
+      ]
+    ],
+    "left_owner": {
+      "surface_word": "delivers",
+      "surface_cut": "del|ivers",
+      "letter_cut": "3/8",
+      "normalized_cursor": 99,
+      "raw_cursor": 130
+    },
+    "right_owner": {
+      "surface_word": "reviled",
+      "surface_cut": "revi|led",
+      "letter_cut": "4/7",
+      "normalized_cursor": 469,
+      "raw_cursor": 650
+    },
+    "insertion_equation": "T[:99] + L + T[99:469] + R + T[469:] is exact only when L = reverse(R)"
+  },
+  "seam_viability": {
+    "left_context": "Aidan del|ivers maps.",
+    "right_context": "Spam's revi|led, Nadia.",
+    "standalone_clause_insertion": false,
+    "reason": "A delimiter around an inserted clause leaves the source fragments 'del', 'ivers', 'revi', and 'led' at the seam. Avoiding those fragments requires letters to fuse across inherited word owners, which is the already-archived boundary-shift family.",
+    "archive_collision": [
+      "experiments/live_boundary_shift_grammar_20260920.py",
+      "experiments/morphology_crossword_transducer_20260916.py"
+    ]
+  },
+  "method": {
+    "inventory": "eight authored typed scene pairs; no Cartesian sweep",
+    "topology": "partial-word 568 lineage seam, 5-word left clause <-> 4-word right clause",
+    "construction_rule": "fixed authored clauses, live opposing cursors, then independent pointer+SHA audit",
+    "prohibited": [
+      "archived 38-letter control",
+      "literal reversed token pairs",
+      "self-palindromic tokens",
+      "repeated multiword units",
+      "catalogue text"
+    ]
+  },
+  "novelty_preflight": {
+    "scope": "tracked repository text excluding this experiment's four paths",
+    "checked_surface_phrases": [
+      {
+        "side": "left",
+        "phrase": "a baker cools one tart"
+      },
+      {
+        "side": "right",
+        "phrase": "some diners share data"
+      },
+      {
+        "side": "left",
+        "phrase": "a nurse files one chart"
+      },
+      {
+        "side": "right",
+        "phrase": "some doctors review notes"
+      },
+      {
+        "side": "left",
+        "phrase": "a pilot maps one route"
+      },
+      {
+        "side": "right",
+        "phrase": "some crews plan flights"
+      },
+      {
+        "side": "left",
+        "phrase": "the sailor mends one sail"
+      },
+      {
+        "side": "right",
+        "phrase": "some dockers move cargo"
+      },
+      {
+        "side": "left",
+        "phrase": "an artist drafts one poem"
+      },
+      {
+        "side": "right",
+        "phrase": "some writers edit records"
+      },
+      {
+        "side": "left",
+        "phrase": "a gardener waters one cedar"
+      },
+      {
+        "side": "right",
+        "phrase": "some visitors praise gardens"
+      },
+      {
+        "side": "left",
+        "phrase": "one actor marks the stage"
+      },
+      {
+        "side": "right",
+        "phrase": "some critics review scenes"
+      },
+      {
+        "side": "left",
+        "phrase": "my teacher reads one poem"
+      },
+      {
+        "side": "right",
+        "phrase": "some pupils share notes"
+      }
+    ],
+    "exact_surface_hits": [],
+    "passed": true
+  },
+  "rows": [
+    {
+      "id": "bakery",
+      "event_relation": "baking",
+      "left_rendered": "A baker cools one tart.",
+      "right_rendered": "Some diners share data.",
+      "word_segmentation": {
+        "left": [
+          "a",
+          "baker",
+          "cools",
+          "one",
+          "tart"
+        ],
+        "right": [
+          "some",
+          "diners",
+          "share",
+          "data"
+        ],
+        "shape": "5 words <-> 4 words"
+      },
+      "left_tape": "abakercoolsonetart",
+      "right_tape": "somedinerssharedata",
+      "novelty_and_shortcut_gate": {
+        "direct_cross_token_reversals": [],
+        "self_palindromic_tokens": [],
+        "repeated_nontrivial_multiword_unit": false,
+        "proper_multiword_palindromic_span": false,
+        "passed": true
+      },
+      "live_character_obligation": {
+        "closed": false,
+        "matched_outer_characters": 1,
+        "left_cursor": 1,
+        "right_cursor": 17,
+        "first_mismatch": {
+          "left": {
+            "side": "left",
+            "token_index": 1,
+            "token": "baker",
+            "token_char_index": 0,
+            "letter": "b"
+          },
+          "right": {
+            "side": "right",
+            "token_index": 3,
+            "token": "data",
+            "token_char_index": 2,
+            "letter": "t"
+          }
+        },
+        "residual": {
+          "side": "right",
+          "left_remaining": 17,
+          "right_remaining": 18
+        },
+        "matched_owners": [
+          {
+            "left": {
+              "side": "left",
+              "token_index": 0,
+              "token": "a",
+              "token_char_index": 0,
+              "letter": "a"
+            },
+            "right": {
+              "side": "right",
+              "token_index": 3,
+              "token": "data",
+              "token_char_index": 3,
+              "letter": "a"
+            }
+          }
+        ]
+      },
+      "independent_pointer_audit": {
+        "left_letters": 18,
+        "right_letters": 19,
+        "first_mismatch_offset": 1,
+        "equation_exact": false,
+        "left_sha256": "cfa590751c25ec44d5253c3f24b3570a2e170b7cae2acf4d96576cabefbcfba8",
+        "right_reversed_sha256": "4b7e3f5ebd43870501a710bd4bbc54708ceab326437ce605656e8c3af8aa6c1f",
+        "sha_equal_under_equation": false
+      },
+      "exact_insertion_possible": false,
+      "reader_risk": "The two finite clauses are individually ordinary, but their scene relation is only local; their immediate character mismatch means seam punctuation cannot repair them."
+    },
+    {
+      "id": "clinic",
+      "event_relation": "record keeping",
+      "left_rendered": "A nurse files one chart.",
+      "right_rendered": "Some doctors review notes.",
+      "word_segmentation": {
+        "left": [
+          "a",
+          "nurse",
+          "files",
+          "one",
+          "chart"
+        ],
+        "right": [
+          "some",
+          "doctors",
+          "review",
+          "notes"
+        ],
+        "shape": "5 words <-> 4 words"
+      },
+      "left_tape": "anursefilesonechart",
+      "right_tape": "somedoctorsreviewnotes",
+      "novelty_and_shortcut_gate": {
+        "direct_cross_token_reversals": [],
+        "self_palindromic_tokens": [],
+        "repeated_nontrivial_multiword_unit": false,
+        "proper_multiword_palindromic_span": false,
+        "passed": true
+      },
+      "live_character_obligation": {
+        "closed": false,
+        "matched_outer_characters": 0,
+        "left_cursor": 0,
+        "right_cursor": 21,
+        "first_mismatch": {
+          "left": {
+            "side": "left",
+            "token_index": 0,
+            "token": "a",
+            "token_char_index": 0,
+            "letter": "a"
+          },
+          "right": {
+            "side": "right",
+            "token_index": 3,
+            "token": "notes",
+            "token_char_index": 4,
+            "letter": "s"
+          }
+        },
+        "residual": {
+          "side": "right",
+          "left_remaining": 19,
+          "right_remaining": 22
+        },
+        "matched_owners": []
+      },
+      "independent_pointer_audit": {
+        "left_letters": 19,
+        "right_letters": 22,
+        "first_mismatch_offset": 0,
+        "equation_exact": false,
+        "left_sha256": "e3da30bcaeced4c79fe735b0c343d9d5cd711119f8973b7d592ac0d31fd4a256",
+        "right_reversed_sha256": "bda153e4e4fa703242ea278c1c7933a88d8960b005e754f0b4de913a9455d3a8",
+        "sha_equal_under_equation": false
+      },
+      "exact_insertion_possible": false,
+      "reader_risk": "The two finite clauses are individually ordinary, but their scene relation is only local; their immediate character mismatch means seam punctuation cannot repair them."
+    },
+    {
+      "id": "flight",
+      "event_relation": "navigation",
+      "left_rendered": "A pilot maps one route.",
+      "right_rendered": "Some crews plan flights.",
+      "word_segmentation": {
+        "left": [
+          "a",
+          "pilot",
+          "maps",
+          "one",
+          "route"
+        ],
+        "right": [
+          "some",
+          "crews",
+          "plan",
+          "flights"
+        ],
+        "shape": "5 words <-> 4 words"
+      },
+      "left_tape": "apilotmapsoneroute",
+      "right_tape": "somecrewsplanflights",
+      "novelty_and_shortcut_gate": {
+        "direct_cross_token_reversals": [],
+        "self_palindromic_tokens": [],
+        "repeated_nontrivial_multiword_unit": false,
+        "proper_multiword_palindromic_span": false,
+        "passed": true
+      },
+      "live_character_obligation": {
+        "closed": false,
+        "matched_outer_characters": 0,
+        "left_cursor": 0,
+        "right_cursor": 19,
+        "first_mismatch": {
+          "left": {
+            "side": "left",
+            "token_index": 0,
+            "token": "a",
+            "token_char_index": 0,
+            "letter": "a"
+          },
+          "right": {
+            "side": "right",
+            "token_index": 3,
+            "token": "flights",
+            "token_char_index": 6,
+            "letter": "s"
+          }
+        },
+        "residual": {
+          "side": "right",
+          "left_remaining": 18,
+          "right_remaining": 20
+        },
+        "matched_owners": []
+      },
+      "independent_pointer_audit": {
+        "left_letters": 18,
+        "right_letters": 20,
+        "first_mismatch_offset": 0,
+        "equation_exact": false,
+        "left_sha256": "f63270b6763a1249ae8aaca820ac189fa6d1146e3f2af3f5bef7cd0be8a5bad9",
+        "right_reversed_sha256": "9f5a870603d10c9a5a74263a6a89ba9c5fff3caa844e4b2efc61027ad2d3aec6",
+        "sha_equal_under_equation": false
+      },
+      "exact_insertion_possible": false,
+      "reader_risk": "The two finite clauses are individually ordinary, but their scene relation is only local; their immediate character mismatch means seam punctuation cannot repair them."
+    },
+    {
+      "id": "harbor",
+      "event_relation": "repair",
+      "left_rendered": "The sailor mends one sail.",
+      "right_rendered": "Some dockers move cargo.",
+      "word_segmentation": {
+        "left": [
+          "the",
+          "sailor",
+          "mends",
+          "one",
+          "sail"
+        ],
+        "right": [
+          "some",
+          "dockers",
+          "move",
+          "cargo"
+        ],
+        "shape": "5 words <-> 4 words"
+      },
+      "left_tape": "thesailormendsonesail",
+      "right_tape": "somedockersmovecargo",
+      "novelty_and_shortcut_gate": {
+        "direct_cross_token_reversals": [],
+        "self_palindromic_tokens": [],
+        "repeated_nontrivial_multiword_unit": false,
+        "proper_multiword_palindromic_span": false,
+        "passed": true
+      },
+      "live_character_obligation": {
+        "closed": false,
+        "matched_outer_characters": 0,
+        "left_cursor": 0,
+        "right_cursor": 19,
+        "first_mismatch": {
+          "left": {
+            "side": "left",
+            "token_index": 0,
+            "token": "the",
+            "token_char_index": 0,
+            "letter": "t"
+          },
+          "right": {
+            "side": "right",
+            "token_index": 3,
+            "token": "cargo",
+            "token_char_index": 4,
+            "letter": "o"
+          }
+        },
+        "residual": {
+          "side": "left",
+          "left_remaining": 21,
+          "right_remaining": 20
+        },
+        "matched_owners": []
+      },
+      "independent_pointer_audit": {
+        "left_letters": 21,
+        "right_letters": 20,
+        "first_mismatch_offset": 0,
+        "equation_exact": false,
+        "left_sha256": "c955b9548571ab69ed6cf848825b1bce027f8ef662f7927ec91d1624f20cb24e",
+        "right_reversed_sha256": "c793d8a7e0f6bef5300330ebef24a26a2aef5f8d14c3ef59677dd7867e45d77d",
+        "sha_equal_under_equation": false
+      },
+      "exact_insertion_possible": false,
+      "reader_risk": "The two finite clauses are individually ordinary, but their scene relation is only local; their immediate character mismatch means seam punctuation cannot repair them."
+    },
+    {
+      "id": "workshop",
+      "event_relation": "writing",
+      "left_rendered": "An artist drafts one poem.",
+      "right_rendered": "Some writers edit records.",
+      "word_segmentation": {
+        "left": [
+          "an",
+          "artist",
+          "drafts",
+          "one",
+          "poem"
+        ],
+        "right": [
+          "some",
+          "writers",
+          "edit",
+          "records"
+        ],
+        "shape": "5 words <-> 4 words"
+      },
+      "left_tape": "anartistdraftsonepoem",
+      "right_tape": "somewriterseditrecords",
+      "novelty_and_shortcut_gate": {
+        "direct_cross_token_reversals": [],
+        "self_palindromic_tokens": [],
+        "repeated_nontrivial_multiword_unit": false,
+        "proper_multiword_palindromic_span": false,
+        "passed": true
+      },
+      "live_character_obligation": {
+        "closed": false,
+        "matched_outer_characters": 0,
+        "left_cursor": 0,
+        "right_cursor": 21,
+        "first_mismatch": {
+          "left": {
+            "side": "left",
+            "token_index": 0,
+            "token": "an",
+            "token_char_index": 0,
+            "letter": "a"
+          },
+          "right": {
+            "side": "right",
+            "token_index": 3,
+            "token": "records",
+            "token_char_index": 6,
+            "letter": "s"
+          }
+        },
+        "residual": {
+          "side": "right",
+          "left_remaining": 21,
+          "right_remaining": 22
+        },
+        "matched_owners": []
+      },
+      "independent_pointer_audit": {
+        "left_letters": 21,
+        "right_letters": 22,
+        "first_mismatch_offset": 0,
+        "equation_exact": false,
+        "left_sha256": "5ed9e79913b2138e5d30f8214eba3da0e5db02ac09c6ad93d2f490279779bc32",
+        "right_reversed_sha256": "04d2c3a49ab19f0e5e69fc74b35401c353d21a65d14bd22f84152fca9b29ae0f",
+        "sha_equal_under_equation": false
+      },
+      "exact_insertion_possible": false,
+      "reader_risk": "The two finite clauses are individually ordinary, but their scene relation is only local; their immediate character mismatch means seam punctuation cannot repair them."
+    },
+    {
+      "id": "garden",
+      "event_relation": "gardening",
+      "left_rendered": "A gardener waters one cedar.",
+      "right_rendered": "Some visitors praise gardens.",
+      "word_segmentation": {
+        "left": [
+          "a",
+          "gardener",
+          "waters",
+          "one",
+          "cedar"
+        ],
+        "right": [
+          "some",
+          "visitors",
+          "praise",
+          "gardens"
+        ],
+        "shape": "5 words <-> 4 words"
+      },
+      "left_tape": "agardenerwatersonecedar",
+      "right_tape": "somevisitorspraisegardens",
+      "novelty_and_shortcut_gate": {
+        "direct_cross_token_reversals": [],
+        "self_palindromic_tokens": [],
+        "repeated_nontrivial_multiword_unit": false,
+        "proper_multiword_palindromic_span": false,
+        "passed": true
+      },
+      "live_character_obligation": {
+        "closed": false,
+        "matched_outer_characters": 0,
+        "left_cursor": 0,
+        "right_cursor": 24,
+        "first_mismatch": {
+          "left": {
+            "side": "left",
+            "token_index": 0,
+            "token": "a",
+            "token_char_index": 0,
+            "letter": "a"
+          },
+          "right": {
+            "side": "right",
+            "token_index": 3,
+            "token": "gardens",
+            "token_char_index": 6,
+            "letter": "s"
+          }
+        },
+        "residual": {
+          "side": "right",
+          "left_remaining": 23,
+          "right_remaining": 25
+        },
+        "matched_owners": []
+      },
+      "independent_pointer_audit": {
+        "left_letters": 23,
+        "right_letters": 25,
+        "first_mismatch_offset": 0,
+        "equation_exact": false,
+        "left_sha256": "53f623ec7cd304fb09526ca46f0cb1bfefde3ad45ec584e6ad291a15ca56ba7c",
+        "right_reversed_sha256": "33c92c01876114562bf4efda88ea7e05e727bdfd3bfda3f8c863d191e388120e",
+        "sha_equal_under_equation": false
+      },
+      "exact_insertion_possible": false,
+      "reader_risk": "The two finite clauses are individually ordinary, but their scene relation is only local; their immediate character mismatch means seam punctuation cannot repair them."
+    },
+    {
+      "id": "theater",
+      "event_relation": "rehearsal",
+      "left_rendered": "One actor marks the stage.",
+      "right_rendered": "Some critics review scenes.",
+      "word_segmentation": {
+        "left": [
+          "one",
+          "actor",
+          "marks",
+          "the",
+          "stage"
+        ],
+        "right": [
+          "some",
+          "critics",
+          "review",
+          "scenes"
+        ],
+        "shape": "5 words <-> 4 words"
+      },
+      "left_tape": "oneactormarksthestage",
+      "right_tape": "somecriticsreviewscenes",
+      "novelty_and_shortcut_gate": {
+        "direct_cross_token_reversals": [],
+        "self_palindromic_tokens": [],
+        "repeated_nontrivial_multiword_unit": false,
+        "proper_multiword_palindromic_span": false,
+        "passed": true
+      },
+      "live_character_obligation": {
+        "closed": false,
+        "matched_outer_characters": 0,
+        "left_cursor": 0,
+        "right_cursor": 22,
+        "first_mismatch": {
+          "left": {
+            "side": "left",
+            "token_index": 0,
+            "token": "one",
+            "token_char_index": 0,
+            "letter": "o"
+          },
+          "right": {
+            "side": "right",
+            "token_index": 3,
+            "token": "scenes",
+            "token_char_index": 5,
+            "letter": "s"
+          }
+        },
+        "residual": {
+          "side": "right",
+          "left_remaining": 21,
+          "right_remaining": 23
+        },
+        "matched_owners": []
+      },
+      "independent_pointer_audit": {
+        "left_letters": 21,
+        "right_letters": 23,
+        "first_mismatch_offset": 0,
+        "equation_exact": false,
+        "left_sha256": "c34fb9ed230283c366c561786a4440b82bb448caf15e602b2098a664f991b4ab",
+        "right_reversed_sha256": "74043421220f3298bf36edbc53b3a7c2dba7b27d972350eda798d4bc3d27e282",
+        "sha_equal_under_equation": false
+      },
+      "exact_insertion_possible": false,
+      "reader_risk": "The two finite clauses are individually ordinary, but their scene relation is only local; their immediate character mismatch means seam punctuation cannot repair them."
+    },
+    {
+      "id": "school",
+      "event_relation": "teaching",
+      "left_rendered": "My teacher reads one poem.",
+      "right_rendered": "Some pupils share notes.",
+      "word_segmentation": {
+        "left": [
+          "my",
+          "teacher",
+          "reads",
+          "one",
+          "poem"
+        ],
+        "right": [
+          "some",
+          "pupils",
+          "share",
+          "notes"
+        ],
+        "shape": "5 words <-> 4 words"
+      },
+      "left_tape": "myteacherreadsonepoem",
+      "right_tape": "somepupilssharenotes",
+      "novelty_and_shortcut_gate": {
+        "direct_cross_token_reversals": [],
+        "self_palindromic_tokens": [],
+        "repeated_nontrivial_multiword_unit": false,
+        "proper_multiword_palindromic_span": false,
+        "passed": true
+      },
+      "live_character_obligation": {
+        "closed": false,
+        "matched_outer_characters": 0,
+        "left_cursor": 0,
+        "right_cursor": 19,
+        "first_mismatch": {
+          "left": {
+            "side": "left",
+            "token_index": 0,
+            "token": "my",
+            "token_char_index": 0,
+            "letter": "m"
+          },
+          "right": {
+            "side": "right",
+            "token_index": 3,
+            "token": "notes",
+            "token_char_index": 4,
+            "letter": "s"
+          }
+        },
+        "residual": {
+          "side": "left",
+          "left_remaining": 21,
+          "right_remaining": 20
+        },
+        "matched_owners": []
+      },
+      "independent_pointer_audit": {
+        "left_letters": 21,
+        "right_letters": 20,
+        "first_mismatch_offset": 0,
+        "equation_exact": false,
+        "left_sha256": "fc7688d8cef3d42df8ef0a675387085320b3c32368d4c6e42fbab4f7ae313028",
+        "right_reversed_sha256": "b563362d9739fcca0acde7391d9899f2d04d691e022d15e1a00477bc4c9944bb",
+        "sha_equal_under_equation": false
+      },
+      "exact_insertion_possible": false,
+      "reader_risk": "The two finite clauses are individually ordinary, but their scene relation is only local; their immediate character mismatch means seam punctuation cannot repair them."
+    }
+  ],
+  "obstruction": {
+    "best_clean_probe": "bakery",
+    "rendered_pair": [
+      "A baker cools one tart.",
+      "Some diners share data."
+    ],
+    "equation": "abakercoolsonetart != reverse(somedinerssharedata)",
+    "matched_outer_characters": 1,
+    "first_mismatch": {
+      "left": {
+        "side": "left",
+        "token_index": 1,
+        "token": "baker",
+        "token_char_index": 0,
+        "letter": "b"
+      },
+      "right": {
+        "side": "right",
+        "token_index": 3,
+        "token": "data",
+        "token_char_index": 2,
+        "letter": "t"
+      }
+    },
+    "lengths": [
+      18,
+      19
+    ],
+    "conclusion": "No row supplies the L = reverse(R) obligation required by the selected 568 partial-word seam."
+  },
+  "next_action": {
+    "parent": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "seam": [
+      [
+        148,
+        163
+      ],
+      [
+        405,
+        420
+      ]
+    ],
+    "operator": "replace the actual mirrored clause window with independently authored finite-event clauses under a 5-word/4-word live character equation; require different word-boundary signatures and reject every cross-side reversed-token pair before rendering",
+    "reason": "The [99,99]/[469,469] seam cannot accept complete clauses without splitting inherited words, while generic character-splice repair duplicates archived operators. The selected clean-boundary seam has a previously rejected tokenwise child, so the new test must change the segmentation and equation method, not replay that child."
+  }
+}

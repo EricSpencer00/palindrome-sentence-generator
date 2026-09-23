@@ -4,6 +4,7 @@ from llm_palindrome.admission import (
     has_distinct_content_words,
     has_forbidden_catalogue_endpoint_scaffold,
     has_only_ordinary_short_words,
+    phrasewise_reverse_boundary_offsets,
     has_repeated_nontrivial_unit,
     has_self_palindromic_proper_multiword_span,
     mechanical_admission_checks,
@@ -59,6 +60,28 @@ def test_reverse_whole_word_construction_is_not_admitted():
     )
     assert checks["exact_letter_palindrome"] is True
     assert checks["not_word_order_symmetry"] is False
+
+
+def test_phrasewise_reverse_boundary_gate_rejects_segmented_local_equation():
+    left = "Reda Mar diapered Elena."
+    right = "Ane Lede repaid Rama Der."
+    left_tape = normalize_letters(left)
+    right_tape = normalize_letters(right)
+    assert left_tape == right_tape[::-1]
+    assert phrasewise_reverse_boundary_offsets(left, right) == (7,)
+
+
+def test_phrasewise_reverse_boundary_gate_preserves_the_38_letter_seed():
+    # Split the classic seed at its central word gap. The two intact clauses
+    # close by letters, but have no shared reflected internal word seam.
+    left = "An aide rips nine memos"
+    right = "some men inspire Diana"
+    assert normalize_letters(left) == normalize_letters(right)[::-1]
+    assert phrasewise_reverse_boundary_offsets(left, right) == ()
+
+
+def test_phrasewise_reverse_boundary_gate_only_reports_exact_equations():
+    assert phrasewise_reverse_boundary_offsets("A baker cools one tart", "Some diners share data") == ()
 
 
 def test_paragraph_line_breaks_are_valid_rendering_but_not_a_gate_bypass():

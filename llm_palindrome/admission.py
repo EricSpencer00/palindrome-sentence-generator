@@ -88,6 +88,46 @@ def is_boundary_aligned_word_mirror(units: tuple[str, ...]) -> bool:
     )
 
 
+def phrasewise_reverse_boundary_offsets(left: str, right: str) -> tuple[int, ...]:
+    """Find internal word seams that factor an exact local reverse equation.
+
+    This check is intentionally scoped to the two newly authored sides of a
+    construction equation, not to every inherited word boundary in a larger
+    palindrome.  If the letter tape of ``left`` is the reverse of ``right``,
+    a shared reflected word boundary splits that local equation into smaller
+    word-aligned reverse chunks.  Such a pair is a phrasewise construction
+    shortcut even when no complete token reverses another token.
+
+    The returned offsets are measured from the start of ``left``.  A
+    non-equation or unequal-length input has no exact factorization and
+    returns an empty tuple; callers must still require exactness separately.
+    """
+    left_tape = normalize_letters(left)
+    right_tape = normalize_letters(right)
+    if not left_tape or len(left_tape) != len(right_tape) or left_tape != right_tape[::-1]:
+        return ()
+
+    def boundaries(text: str, tape_length: int) -> set[int]:
+        positions: set[int] = set()
+        offset = 0
+        words = WORD.findall(text.casefold())
+        for word in words[:-1]:
+            offset += len(normalize_letters(word))
+            positions.add(offset)
+        # This also guards against tokenizer/normalizer drift if either is
+        # changed independently in a future version.
+        if words:
+            offset += len(normalize_letters(words[-1]))
+        if offset != tape_length:
+            return set()
+        return positions
+
+    left_boundaries = boundaries(left, len(left_tape))
+    right_boundaries = boundaries(right, len(right_tape))
+    reflected_right = {len(right_tape) - offset for offset in right_boundaries}
+    return tuple(sorted(left_boundaries & reflected_right))
+
+
 def has_repeated_nontrivial_unit(units: tuple[str, ...]) -> bool:
     """Reject a repeated contiguous two-or-more-word unit.
 

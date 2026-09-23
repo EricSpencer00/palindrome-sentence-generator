@@ -1,0 +1,127 @@
+{
+  "experiment_id": "audit-incumbent-568-wide-scene-residual-20260923",
+  "working_status": "rejected_nonexact_no_length_growth",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256_normalized": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "operator": {
+    "name": "context-clean wide causal scene replacement with live residual",
+    "provenance": "read-only Luna matrix-scene lane; complete child reconstructed independently here",
+    "preflight_revision": "c07a68cc",
+    "normalized_spans": [
+      [
+        20,
+        148
+      ],
+      [
+        420,
+        548
+      ]
+    ],
+    "raw_spans": [
+      [
+        27,
+        195
+      ],
+      [
+        582,
+        758
+      ]
+    ],
+    "source_blocks": [
+      "Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil",
+      "Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan"
+    ],
+    "insertions": [
+      "Noticing rain, the courier secured the observatory. The latch delayed the register, so the keeper moved records indoors. Damp notes preserved proof in full",
+      "After warning, the steward examined the breach. One broken hinge delayed delivery, so the clerk rerouted sealed files, so the team at sunrise carried one ton"
+    ],
+    "retained_context": [
+      "Wolf spots Nora. / Now, Noel, did I live?",
+      "... Leon won. / Aron stops flow now, Noel."
+    ]
+  },
+  "candidate": {
+    "rendered": "Leon won. Wolf spots Nora. Noticing rain, the courier secured the observatory. The latch delayed the register, so the keeper moved records indoors. Damp notes preserved proof in full. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. After warning, the steward examined the breach. One broken hinge delayed delivery, so the clerk rerouted sealed files, so the team at sunrise carried one ton. Aron stops flow now, Noel.",
+    "letters": 568,
+    "growth_over_parent": 0,
+    "normalized_sha256": "88f122fa227833415684eebc68f31cf25edac55a316a86ad747a97fd54669c4e",
+    "audit": {
+      "independent_outside_in_exact": false,
+      "first_mismatch": [
+        23,
+        "i",
+        544,
+        "e"
+      ],
+      "project_validator_exact": false,
+      "sha256_forward": "88f122fa227833415684eebc68f31cf25edac55a316a86ad747a97fd54669c4e",
+      "sha256_reverse": "de4b713485035338d7fe5bb21d6f8edbe8e6140ec4faaff0502b8e62b79c2569",
+      "hashes_equal": false
+    },
+    "local_equation": {
+      "left_tape": "noticingrainthecouriersecuredtheobservatorythelatchdelayedtheregistersothekeepermovedrecordsindoorsdampnotespreservedproofinfull",
+      "right_tape": "afterwarningthestewardexaminedthebreachonebrokenhingedelayeddeliverysotheclerkreroutedsealedfilessotheteamatsunrisecarriedoneton",
+      "required_reverse_right_tape": "notenodeirracesirnustamaetehtosselifdelaesdetuorerkrelcehtosyrevileddeyaledegnihnekorbenohcaerbehtdenimaxedrawetsehtgninrawretfa",
+      "left_letters": 128,
+      "right_letters": 128,
+      "matched_prefix_letters": 3,
+      "first_mismatch": {
+        "cursor": 3,
+        "left": "i",
+        "required": "e"
+      }
+    }
+  },
+  "novelty_preflight": {
+    "revision": "c07a68cc",
+    "phrases": [
+      "noticing rain",
+      "courier secured the observatory",
+      "latch delayed the register",
+      "steward examined the breach",
+      "broken hinge delayed delivery",
+      "clerk rerouted sealed files"
+    ],
+    "scope": "tracked runs/, experiments/, docs/, and data/",
+    "hits": [],
+    "status": "no_literal_hits"
+  },
+  "parallel_lane_obstructions": [
+    {
+      "lane": "testimony-evidence-dialogue",
+      "normalized_spans": [
+        [
+          148,
+          204
+        ],
+        [
+          364,
+          420
+        ]
+      ],
+      "source_tapes": [
+        "nownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgod",
+        "dogwasaramsetontaptisileonevilleonwasaronevilididleonwon"
+      ],
+      "fresh_units": 384,
+      "complete_dialogue_states": 18816,
+      "long_attempts": 7416,
+      "exact_closures": 0,
+      "furthest_prefix_letters": 1,
+      "reported_frontier": "Rina reports that Mara heard Mara. Mara denies that Mara found letter.",
+      "reported_residual": "inareportsthatmaraheardmaramaradeniesthatmarafoundletter",
+      "candidate_hash": null,
+      "provenance": "read-only Luna report; reflected geometry independently checked here; dialogue chart not rerun"
+    }
+  ],
+  "admission": {
+    "admitted": false,
+    "reason": "The 128-letter insertions only replace 128-letter source blocks (no length growth), and the local equation matches `not` before diverging i/e at cursor 3; whole-text mismatch is at offset 23.",
+    "human_readability_certified": false,
+    "reader_evidence": false
+  },
+  "next_construction": "Change the actual seam and require a target insertion length strictly greater than the removed block before prose expansion; make reverse-tape continuation a live stopping condition, not a post-hoc check."
+}

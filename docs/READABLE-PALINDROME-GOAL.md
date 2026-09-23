@@ -128,6 +128,31 @@ repair is to make seam admissibility inspect the retained words on both sides
 before any drafting or chart expansion; a geometrically fresh cut is not fresh
 if its unchanged context forces an excluded lexical family.
 
+### Wide causal-scene replacement with a live residual (2026-09-23)
+
+After removing the entire repeated outer event bank at `[20,148)` / `[420,548)`,
+a new causal-scene proposal used equal 128-letter blocks. The left insertion is
+“Noticing rain, the courier secured the observatory. The latch delayed the
+register, so the keeper moved records indoors. Damp notes preserved proof in
+full”; the right is “After warning, the steward examined the breach. One broken
+hinge delayed delivery, so the clerk rerouted sealed files, so the team at
+sunrise carried one ton.” The complete 568-letter rendering and independent
+checks are in
+[`runs/audit-incumbent-568-wide-scene-residual-20260923.json`](../runs/audit-incumbent-568-wide-scene-residual-20260923.json),
+SHA-256 `88f122fa227833415684eebc68f31cf25edac55a316a86ad747a97fd54669c4e`.
+It is not exact: the local tapes match `not`, then diverge `i/e` at cursor 3;
+the whole-tape first mismatch is offset 23. Since both insertions merely tie
+the removed 128-letter spans, it also makes no length progress. Its clauses
+are intact local English, but they neither close nor repair the remaining
+repetitive body; no readability claim or candidate admission.
+
+A disjoint testimony/evidence chart on `[148,204)` / `[364,420)` reported 384
+fresh units, 18,816 dialogue states, 7,416 long attempts, zero closures, and a
+one-character frontier. That is report-only, not independently rerun. The next
+construction changes the cut and sets an explicit target above the removed
+block before any scene is expanded; the character residual must stay live
+through lexicalization instead of being checked after the prose is complete.
+
 ### Untouched outer-seam event resegmentation (2026-09-23)
 
 The next 568-lineage edit replaced normalized span `[0,20)` / `[548,568)`

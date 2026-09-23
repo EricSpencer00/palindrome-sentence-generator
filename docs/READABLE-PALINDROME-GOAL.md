@@ -55,6 +55,23 @@ at both ends. A phrase-family preflight found 39 prior tracked uses of
 next operator must choose new event families before drafting and close an
 equal-length residual.
 
+### Reflected-token factorization audit (2026-09-23)
+
+A separate 574-letter child on `[178,204)` / `[364,390)` is exact and grows
+the pinned source by six letters, but it is not admitted. Its inserted text
+is “Diana was raw as a nomad draws a trap” / “Part a sward, Damon. Asa, war
+saw Anaid.” The full child, independent hashes, and word-boundary partition
+are in
+[`runs/audit-incumbent-568-574-crossed-seam-shortcut-20260923.json`](../runs/audit-incumbent-568-574-crossed-seam-shortcut-20260923.json), SHA-256
+`4c2d2eec9a2bcf0490d760bbe411c58e4f40f323e7e373ddda31dd4800d9d25e`.
+Although whole-token-order equality alone is false, every reflected right
+word boundary lands on a left boundary. The equation factors into six
+whole-word reversals (`Diana/Anaid`, `was/saw`, `raw/war`, `nomad/Damon`,
+`draws/sward`, `trap/part`), plus self-palindromic `a` units. The clauses also
+read awkwardly. This is a rejected exactness control, not a readable result;
+the next construction must preregister genuinely crossed word-boundary masks
+before choosing semantic content.
+
 ### Untouched outer-seam event resegmentation (2026-09-23)
 
 The next 568-lineage edit replaced normalized span `[0,20)` / `[548,568)`

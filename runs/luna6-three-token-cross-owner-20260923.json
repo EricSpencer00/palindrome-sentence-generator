@@ -1,0 +1,177 @@
+{
+  "experiment_id": "luna6-three-token-cross-owner-20260923",
+  "method": "single suffix-first reverse-clause lexicalization with a strict three-source-token owner rule",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "independent_exact": true
+  },
+  "novelty_preflight": {
+    "checked_committed_artifacts": [
+      {
+        "artifact": "experiments/luna6_three_boundary_residual_pivot_20260923.py",
+        "result": "11-character local said/Dias closure rejected; changes seam to [91,232)/cut 477; not an all-content-word cross-owner chart"
+      },
+      {
+        "artifact": "experiments/incumbent_568_outer_event_resegmentation_20260923.py",
+        "result": "outer multi-clause replacement at [0,20)/[548,568), 574/578 exact controls; records shared word boundaries and token reversals rather than requiring every content word to cross owners"
+      },
+      {
+        "artifact": "experiments/incumbent_568_bilateral_typed_grammar_chart_20261002.py",
+        "result": "online typed chart at internal cuts [194,374], distinct geometry and no all-content-word crossing invariant"
+      },
+      {
+        "artifact": "experiments/bounded_cfg_earley_palindrome_intersection_20260920.py",
+        "result": "paired-CFG online intersection on short construction space; not a three-source-token owner map on the pinned 568 outer seam"
+      }
+    ],
+    "signature": "pinned-568-outer-suffix-first|3 adjacent source-token reversals|typed reverse clause|every parsed content word consumes >=2 source-token owners",
+    "collision_found": false,
+    "distinct_enough_for_one_bounded_attempt": true,
+    "scope": "one hand-authored Y and one typed reverse parse only"
+  },
+  "authored_pair": {
+    "Y": "Mara saw rats.",
+    "reverse_Y": "starwasaram",
+    "typed_reverse_parse": "Star was a ram.",
+    "provenance": "fresh hand-authored clause; no seed sentence, catalogue text, or copied line"
+  },
+  "owner_map": {
+    "reverse_Y": "starwasaram",
+    "source_token_reversals": [
+      {
+        "source_token": "rats",
+        "reverse_surface": "star",
+        "span": [
+          0,
+          4
+        ]
+      },
+      {
+        "source_token": "saw",
+        "reverse_surface": "was",
+        "span": [
+          4,
+          7
+        ]
+      },
+      {
+        "source_token": "Mara",
+        "reverse_surface": "aram",
+        "span": [
+          7,
+          11
+        ]
+      }
+    ],
+    "typed_parse_spans": [
+      {
+        "word": "Star",
+        "role": "subject",
+        "span": [
+          0,
+          4
+        ],
+        "source_token_owners": [
+          "rats"
+        ],
+        "crosses_owner_boundary": false
+      },
+      {
+        "word": "was",
+        "role": "copula",
+        "span": [
+          4,
+          7
+        ],
+        "source_token_owners": [
+          "saw"
+        ],
+        "crosses_owner_boundary": false
+      },
+      {
+        "word": "a",
+        "role": "article",
+        "span": [
+          7,
+          8
+        ],
+        "source_token_owners": [
+          "Mara"
+        ],
+        "crosses_owner_boundary": false
+      },
+      {
+        "word": "ram",
+        "role": "predicative_NP",
+        "span": [
+          8,
+          11
+        ],
+        "source_token_owners": [
+          "Mara"
+        ],
+        "crosses_owner_boundary": false
+      }
+    ],
+    "cursor": 11,
+    "residual": "",
+    "content_words_crossing_owner_boundary": 0,
+    "content_words_total": 3
+  },
+  "candidate": {
+    "rendered": "Star was a ram. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel. Mara saw rats.",
+    "letters": 590,
+    "growth": 22,
+    "normalized_sha256": "a8b3523f88709c65c8a2ce1e50ddbe8e1cff37eb1b9d5782074a3ec57d680581",
+    "reverse_sha256": "a8b3523f88709c65c8a2ce1e50ddbe8e1cff37eb1b9d5782074a3ec57d680581",
+    "independent_outside_in": {
+      "exact": true,
+      "letters": 590,
+      "matched_pairs": 295,
+      "first_mismatch": null,
+      "left_residual": "spamsrevilediranoelspamsrevileda",
+      "right_reverse_residual": "spamsrevilediranoelspamsrevileda"
+    },
+    "project_validator_exact": true,
+    "exact": true,
+    "admitted": false,
+    "shortcut_audit": {
+      "left_tokens": [
+        "star",
+        "was",
+        "a",
+        "ram"
+      ],
+      "right_tokens": [
+        "mara",
+        "saw",
+        "rats"
+      ],
+      "whole_token_reversal_pairs": [
+        [
+          "star",
+          "rats"
+        ],
+        [
+          "was",
+          "saw"
+        ]
+      ],
+      "one_letter_palindromic_supports": [
+        "a"
+      ],
+      "multi_letter_self_palindromic_tokens": [],
+      "shared_tokens": [],
+      "repeated_content_tokens": []
+    },
+    "rejection": "The character equation closes, but 0/3 content words cross source-token owners; Star/rats and was/saw are whole-token reversal pairs, and `a` is a singleton support."
+  },
+  "readability": {
+    "human_ratings": false,
+    "whole_tape_readability_claim": false,
+    "assessment": "The short clauses are syntactically parseable but semantically odd; exactness does not establish readability of the inherited 568-letter interior."
+  },
+  "next_topology": "Do not vary the same SVO token bank. Preflight a typed participial-NP start whose first lexical item must consume the entire reversed final token plus a residual from the penultimate source token (e.g. the specific `draw` -> `ward` prefix shape), and require the next typed constituent to own the leftover characters without singleton articles or reversed-token matches. One lexicalization only after proving an English suffix can satisfy both owners."
+}

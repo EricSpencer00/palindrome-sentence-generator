@@ -17154,7 +17154,19 @@
       "distinction": "Audits a 141-letter partial-word seam after the retained `Leon won.` prefix and before retained `now, Noel.` suffix, carrying the reverse-right residual through an endpoint-first lexical proposal and measuring reflected word-boundary alignment.",
       "reader_evidence": false,
       "status": "Rejected before child emission: the exposed endpoint proposal matches `drawa` then leaves `swardraila`; its natural segmentation aligns every reflected word boundary and factors into exact reversed tokens, including the forbidden liar/rail pair and self-palindromic `a`. The bounded lane emitted no equal-length insertion above 141 letters, so no candidate exists to validate.",
-      "next_construction": "Retire this endpoint. Use the novel parent seam [204,220)/[348,364) for a boundary-conditioned dependency-slot operator; require two 24-letter insertions, a live character residual, and a boundary-crossing parse before surface expansion."
+      "next_construction": "Retire this endpoint. The proposed [204,220)/[348,364) seam was tested separately and rejected at the first character; choose a different actual parent seam with both flank parses checked before composing a new residual-aware surface."
+    },
+    {
+      "id": "audit-incumbent-568-attachment-pair-residual-20260923",
+      "signature": "pinned-568|partial-seam-204-220-348-364|independent-attachment-pair|first-letter-residual",
+      "artifact": "experiments/audit_incumbent_568_attachment_pair_residual_20260923.py",
+      "run_artifacts": [
+        "runs/audit-incumbent-568-attachment-pair-residual-20260923.json"
+      ],
+      "distinction": "Reconstructs one fresh equal-length 24/24 attachment pair on normalized [204,220)/[348,364), preserving the pinned 568 parent outside those 16-letter mirrored blocks and evaluating both the live character residual and retained flank syntax.",
+      "reader_evidence": false,
+      "status": "Rejected: the 584-letter diagnostic grows by 16, but `Milo marks a quiet map at dawn` versus `Nora reads a calm path at dusk` has zero compatible letters (`m/k` at cursor 0; global mismatch [204, m, 379, k]). Both exact validators reject, and the splice creates comma-splice/appositive context failures. No readability evidence.",
+      "next_construction": "Retire this seam and these phrases. Choose a different untried 568 geometry; construct a connected discourse pair whose first and last characters satisfy the live reverse tape and whose complete clauses attach to all four retained flanks before length expansion."
     }
   ]
 }

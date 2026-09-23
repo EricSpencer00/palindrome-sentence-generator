@@ -1,0 +1,98 @@
+{
+  "experiment_id": "audit-incumbent-568-attachment-pair-residual-20260923",
+  "working_status": "rejected_nonexact_zero_prefix_context_invalid",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256_normalized": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "operator": {
+    "name": "equal-length independent attachment-pair probe with live reverse residual",
+    "provenance": "bounded Luna matrix-scene lane; parent, raw offsets, child, and exactness independently reconstructed here",
+    "preflight_revision": "be9191c4",
+    "normalized_spans": [
+      [
+        204,
+        220
+      ],
+      [
+        348,
+        364
+      ]
+    ],
+    "raw_spans": [
+      [
+        278,
+        300
+      ],
+      [
+        474,
+        496
+      ]
+    ],
+    "source_blocks": [
+      "Sara, did I live? Nora",
+      "Aron. Evil I did, Aras"
+    ],
+    "insertions": [
+      "Milo marks a quiet map at dawn",
+      "Nora reads a calm path at dusk"
+    ]
+  },
+  "candidate": {
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Milo marks a quiet map at dawn, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Nora reads a calm path at dusk. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+    "letters": 584,
+    "growth_over_parent": 16,
+    "normalized_sha256": "43cc3a96da580c3e2b7bc0e9b1d3de34b4f403252792eaefd381042cc6e926c2",
+    "audit": {
+      "independent_outside_in_exact": false,
+      "first_mismatch": [
+        204,
+        "m",
+        379,
+        "k"
+      ],
+      "project_validator_exact": false,
+      "sha256_forward": "43cc3a96da580c3e2b7bc0e9b1d3de34b4f403252792eaefd381042cc6e926c2",
+      "sha256_reverse": "aff1594d5db5cc5d21cbcc1e7e5e2f9ddd5b6e047054d384825e479d27bd141c",
+      "hashes_equal": false
+    },
+    "local_equation": {
+      "left_tape": "milomarksaquietmapatdawn",
+      "right_tape": "norareadsacalmpathatdusk",
+      "required_reverse_right_tape": "ksudtahtapmlacasdaeraron",
+      "left_letters": 24,
+      "right_letters": 24,
+      "matched_prefix_letters": 0,
+      "first_mismatch": {
+        "cursor": 0,
+        "left": "m",
+        "required": "k"
+      },
+      "left_residual": "milomarksaquietmapatdawn",
+      "required_right_residual": "ksudtahtapmlacasdaeraron"
+    },
+    "context_check": {
+      "left_after_splice": "Mara saw God. Milo marks a quiet map at dawn, I saw desserts.",
+      "right_after_splice": "Stressed was I, Nora reads a calm path at dusk. Dog was Aram.",
+      "status": "both inserted sentences are locally readable, but neither attaches grammatically to its retained flank"
+    }
+  },
+  "novelty_preflight": {
+    "revision": "be9191c4",
+    "phrases": [
+      "Milo marks a quiet map at dawn",
+      "Nora reads a calm path at dusk"
+    ],
+    "scope": "tracked runs/, experiments/, docs/, and data/",
+    "hits": [],
+    "status": "no_literal_hits"
+  },
+  "admission": {
+    "admitted": false,
+    "reason": "Although the 24/24 insertions would add 16 letters, their first characters conflict (`m/k`), so the live equation has zero compatible characters. The rendered diagnostic also creates a left comma splice and an incompatible right appositive/clause after the retained flanks.",
+    "human_readability_certified": false,
+    "reader_evidence": false
+  },
+  "next_construction": "Change the actual seam and pair a boundary-compatible opening/ending inside a connected two-clause discourse skeleton; enforce both flank parses, equal insertion lengths, and the first residual character before drafting full phrases."
+}

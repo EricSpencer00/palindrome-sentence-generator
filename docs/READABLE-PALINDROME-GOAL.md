@@ -183,8 +183,24 @@ insertion longer than the removed 141-letter spans, so it produced no child.
 The independently reconstructed residual and boundary audit are in
 [`runs/audit-incumbent-568-quoted-endpoint-residual-20260923.json`](../runs/audit-incumbent-568-quoted-endpoint-residual-20260923.json);
 this is obstruction evidence, not a candidate or readability result. The next
-distinct seam is `[204,220)` / `[348,364)`, with a 24-letter-per-side target
-and a boundary-conditioned dependency-slot construction.
+selected seam was `[204,220)` / `[348,364)`, with a 24-letter-per-side target;
+its bounded attachment attempt is recorded below.
+
+### Equal-length attachment pair on the 16-letter center seam (2026-09-23)
+
+The proposed `[204,220)` / `[348,364)` cut replaced the 16-letter mirrored
+blocks with “Milo marks a quiet map at dawn” / “Nora reads a calm path at
+dusk” (24 letters each). The full 584-letter rendering is preserved in
+[`runs/audit-incumbent-568-attachment-pair-residual-20260923.json`](../runs/audit-incumbent-568-attachment-pair-residual-20260923.json),
+normalized SHA-256 `43cc3a96da580c3e2b7bc0e9b1d3de34b4f403252792eaefd381042cc6e926c2`.
+It would grow by 16 letters, but the live equation rejects at cursor zero:
+`m` versus `k` (global first mismatch `[204, m, 379, k]`). The outside-in
+scan, project validator, and unequal forward/reverse hashes all reject it.
+The phrases also fail in their actual flanks: the left splice forms a comma
+splice, and the right starts a new clause after an incompatible comma. This is
+not candidate or readability progress. The next method must change the actual
+seam and test character endpoints plus full flank syntax before expanding
+either surface.
 
 ### Untouched outer-seam event resegmentation (2026-09-23)
 

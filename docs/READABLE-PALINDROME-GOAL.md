@@ -19,6 +19,27 @@ carry live character ownership; do not resume that lexical slot sweep. Keep
 the paper and API gated, and do not claim human readability without blinded
 reader evidence.
 
+### Complete-boundary carried-object residual (2026-09-23)
+
+The fresh parent seam `[186,194)` / `[374,382)` replaces `Pat notes` / `Seton,
+tap` while retaining the rest of the pinned 568 text. The visible 602-letter
+proposal is reconstructed in
+[`runs/incumbent-568-boundary-event-residual-20260923.json`](../runs/incumbent-568-boundary-event-residual-20260923.json), SHA-256
+`c65fcc13cf1031a800ab8b9caeab4006b1c1d02d36c98f9d611a829398330392`:
+
+> ...Noel, I sit. Aron carried a lantern; Nora waited. Mara saw God...Dog was
+> Aram. Ari heard a bell near Nora. 'Tis I, Leon...
+
+It grows by 34 letters but is rejected. The local equation matches four
+characters and then diverges (`c` versus `r`); the whole child fails both the
+independent outside-in scan and project validator. A tracked-code phrase
+preflight also finds `Nora waited` in an older endpoint scene. Freezing the
+left event and segmenting its reverse tape found only `de`/`det` prefixes,
+then dead residual `iawaronnretnaladeirracnora` (reported by the bounded Luna
+lane; not independently rerun). Two separate typed charts likewise reported
+zero closures. No readability or reader-evidence claim is made. The next
+attempt changes the actual seam and preflights roles before lexicalization.
+
 ### Untouched outer-seam event resegmentation (2026-09-23)
 
 The next 568-lineage edit replaced normalized span `[0,20)` / `[548,568)`

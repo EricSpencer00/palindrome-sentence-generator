@@ -1,0 +1,148 @@
+{
+  "experiment_id": "incumbent-568-boundary-event-residual-20260923",
+  "working_status": "rejected_nonexact_and_phrase_collision",
+  "parent": {
+    "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "letters": 568,
+    "sha256_normalized": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "method": {
+    "name": "complete-sentence-boundary event insertion with live reversed-tape obligation",
+    "lane": "read-only Luna matrix-scene proposal, independently reconstructed here",
+    "geometry": "new event on the left; distinct auditory-near-location event on the right"
+  },
+  "edit": {
+    "normalized_parent_spans": [
+      [
+        186,
+        194
+      ],
+      [
+        374,
+        382
+      ]
+    ],
+    "raw_parent_spans": [
+      [
+        253,
+        262
+      ],
+      [
+        512,
+        522
+      ]
+    ],
+    "replaced_left": "Pat notes",
+    "replaced_right": "Seton, tap",
+    "new_left": "Aron carried a lantern; Nora waited",
+    "new_right": "Ari heard a bell near Nora",
+    "left_letters": 29,
+    "right_letters": 21,
+    "retained_middle_unchanged": true
+  },
+  "candidate": {
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Aron carried a lantern; Nora waited. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Ari heard a bell near Nora. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+    "letters": 602,
+    "growth_over_parent": 34,
+    "normalized_sha256": "c65fcc13cf1031a800ab8b9caeab4006b1c1d02d36c98f9d611a829398330392",
+    "exact_audit": {
+      "independent_outside_in_exact": false,
+      "outside_in_first_mismatch": {
+        "left_cursor": 190,
+        "right_cursor": 411,
+        "left_char": "c",
+        "right_char": "r"
+      },
+      "project_validator_exact": false,
+      "sha256_forward": "c65fcc13cf1031a800ab8b9caeab4006b1c1d02d36c98f9d611a829398330392",
+      "sha256_reverse": "a57bb5b82de81069ab333ab8ac3262c4524e88a889a70f72fa0a0d8be5e36712",
+      "hashes_equal": false
+    },
+    "local_residual": {
+      "left_tape": "aroncarriedalanternnorawaited",
+      "actual_reverse_right_tape": "aronraenllebadraehira",
+      "required_reverse_right_tape": "detiawaronnretnaladeirracnora",
+      "matched_prefix_letters": 4,
+      "first_mismatch": {
+        "cursor": 4,
+        "left": "c",
+        "required": "r"
+      }
+    }
+  },
+  "novelty_preflight": {
+    "revision": "fffb2af8178c9541c521e7738fa1b2d1b96f3f34",
+    "scope": "tracked runs/, experiments/, docs/, and data/",
+    "phrases": [
+      "Aron carried a lantern",
+      "Nora waited",
+      "Ari heard a bell near Nora"
+    ],
+    "hits": [
+      "fffb2af8178c9541c521e7738fa1b2d1b96f3f34:experiments/endpoint_seeded_scene_inward_20260920.py:11: {'name':'bus-stop','left':('At noon','Nora waited','beside the bus stop','with a red umbrella'),'right':('the driver','checked','the wet timetable','before leaving town'),'attach':('Nora->umbrella','driver->timetable','place=stop')},"
+    ],
+    "status": "collision"
+  },
+  "repair_attempt": {
+    "operator": "freeze one event tape and word-lattice segment its exact character reverse into a distinct event frame",
+    "frozen_left_tape": "aroncarriedalanternnorawaited",
+    "required_reverse_tape": "detiawaronnretnaladeirracnora",
+    "lane_report": {
+      "viable_prefixes": [
+        "de",
+        "det"
+      ],
+      "dead_residual_after_det": "iawaronnretnaladeirracnora",
+      "complete_grammatical_parses": 0,
+      "independently_reproduced": false
+    }
+  },
+  "parallel_lane_reports": [
+    {
+      "lane": "typed-auxiliary-relative-attachment-chart",
+      "normalized_spans": [
+        [
+          112,
+          148
+        ],
+        [
+          420,
+          456
+        ]
+      ],
+      "fresh_units": 200,
+      "chart_states": 15236,
+      "long_path_attempts": 15036,
+      "exact_closures": 0,
+      "first_character_compatible_opposing_state": false,
+      "source": "read-only Luna lane report; not independently rerun in this artifact"
+    },
+    {
+      "lane": "perception-motion-possession-event-chart",
+      "normalized_spans": [
+        [
+          20,
+          48
+        ],
+        [
+          520,
+          548
+        ]
+      ],
+      "fresh_event_units": 384,
+      "chart_states": 12640,
+      "long_path_attempts": 4066,
+      "exact_closures": 0,
+      "furthest_live_prefix_letters": 5,
+      "reported_attempt": "Nadia hears Nora. Nora carries Nora.",
+      "source": "read-only Luna lane report; not independently rerun in this artifact"
+    }
+  ],
+  "admission": {
+    "admitted": false,
+    "reason": "the local character equation fails after four characters; independent novelty preflight also finds `Nora waited` in endpoint_seeded_scene_inward_20260920.py",
+    "readability_certified": false,
+    "reader_evidence": false
+  },
+  "next_action": "Retire this seam. Continue at a different complete-sentence-boundary pair with fresh participant/event roles, and run phrase-family novelty before composing either side."
+}

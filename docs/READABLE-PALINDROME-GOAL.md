@@ -102,6 +102,32 @@ experiments. The next constructive attempt changes the seam and tries
 suffix-class-first residual typing, with equal insertion lengths and a
 multi-character live prefix required before growing the scene.
 
+### Retained-context seam trap and equal-length diagnostic (2026-09-23)
+
+Three more lanes were assigned distinct reflected cuts, but a context-aware
+preflight was missing from the assignment itself. On `[50,62)` / `[506,518)`,
+the unchanged left suffix preserves `maps`, while the opposite `Sp` prefix and
+`'s reviled` continuation preserve the excluded `Spam's reviled` family. A
+diagnostic edit nevertheless tried 45-letter insertions:
+“ra brings fresh records; the courier checks the old gri” / “am's auditor
+weighs brass; our scribe names the sour bar”. The full 634-letter rendering
+and independent audit are in
+[`runs/audit-incumbent-568-context-residual-20260923.json`](../runs/audit-incumbent-568-context-residual-20260923.json),
+SHA-256 `7dc2b275bca05aa6027ded1834f8f2264edb0ea1abd9cc326963f3983f0e9965`.
+It matches `rabr`, then fails `i/u` at local cursor 4 and global offset 54;
+both exact validators reject it. Its newly authored clauses also read poorly,
+and the retained context makes the event unsuitable regardless of the
+equation. It is not a candidate.
+
+The other two lane results are reports, not independently rerun experiments:
+the valency/aspect chart on `[270,280)` / `[288,298)` reports 16,632 states,
+zero closures, and a six-letter frontier; the quoted-attribution lane stops
+before generation on `[259,269)` / `[299,309)` because the forced continuation
+is `is reviled`. None of these creates exact or reader evidence. The actionable
+repair is to make seam admissibility inspect the retained words on both sides
+before any drafting or chart expansion; a geometrically fresh cut is not fresh
+if its unchanged context forces an excluded lexical family.
+
 ### Untouched outer-seam event resegmentation (2026-09-23)
 
 The next 568-lineage edit replaced normalized span `[0,20)` / `[548,568)`

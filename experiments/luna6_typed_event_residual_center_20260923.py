@@ -11,6 +11,9 @@ ROOT = Path(__file__).resolve().parents[1]
 PARENT_PATH = ROOT / "runs/incumbent-560-outer-causal-scene-20261002.json"
 OUTPUT_PATH = ROOT / "runs/luna6-typed-event-residual-center-20260923.json"
 PARENT_SHA = "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+# Freeze novelty against the committed tree immediately before this experiment
+# so rerunning after this artifact has been committed cannot count itself.
+PREFLIGHT_REVISION = "bb89ad91587fdc02651ebb0c2459c14b825107e4"
 CANDIDATE = "No, Mar, I saw Eve; was I Ramon?"
 LOCAL_TAPE = "nomarisaw" + "eve" + "wasiramon"
 
@@ -68,7 +71,8 @@ def main() -> dict:
 
     # Check the authored literal, not just its topology, against tracked history.
     grep = subprocess.run(
-        ["git", "grep", "-F", CANDIDATE, "HEAD", "--", "experiments", "runs", "docs", "data"],
+        ["git", "grep", "-F", CANDIDATE, PREFLIGHT_REVISION,
+         "--", "experiments", "runs", "docs", "data"],
         cwd=ROOT, capture_output=True, text=True)
     if grep.returncode not in (0, 1):
         raise RuntimeError(grep.stderr)
@@ -98,7 +102,8 @@ def main() -> dict:
         "experiment_id": "luna6-typed-event-residual-center-20260923",
         "status": "exact_working_child_with_explicit_readability_and_shortcut_debt",
         "novelty_preflight": {
-            "candidate_literal_absent_from_tracked_HEAD": novelty,
+            "candidate_literal_absent_from_tracked_preflight_revision": novelty,
+            "preflight_revision": PREFLIGHT_REVISION,
             "candidate_literal": CANDIDATE,
             "claim_scope": "incumbent-specific midpoint instantiation only; no claim of a novel general grammar",
             "parent": {"letters": 568, "sha256": PARENT_SHA, "exact": True},

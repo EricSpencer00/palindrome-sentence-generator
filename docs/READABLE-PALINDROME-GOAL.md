@@ -153,6 +153,22 @@ construction changes the cut and sets an explicit target above the removed
 block before any scene is expanded; the character residual must stay live
 through lexicalization instead of being checked after the prose is complete.
 
+### Open-outer endpoint scene attempt (2026-09-23)
+
+The next cut replaced the entire outer shell `[0,148)` / `[420,568)` and
+preselected a three-letter endpoint signature, `not`, by ending the right
+insertion with `one ton`. The 641-letter rendering, provenance, cursor and
+hashes are independently reconstructed in
+[`runs/audit-incumbent-568-outer-endpoint-residual-20260923.json`](../runs/audit-incumbent-568-outer-endpoint-residual-20260923.json),
+SHA-256 `ad68f263f7d1ee681ef60a5d1cbcf80734fb0fbfbabf3f7a96b2d825ae40fb4c`.
+The insertions are 184 and 185 letters, so the lengths already preclude closure;
+their equation also diverges at `i/e` after `not` (offset 3), and both exact
+validators reject. The left semicolon clause drops its subject, while the
+right repeats `one`/`crew` scaffolding. This is only a diagnostic rendering,
+not a candidate or a readability claim. The next attempt changes seam and
+makes equal length plus strict growth constraints hard gates before surface
+expansion, with the reverse-tape cursor kept live.
+
 ### Untouched outer-seam event resegmentation (2026-09-23)
 
 The next 568-lineage edit replaced normalized span `[0,20)` / `[548,568)`

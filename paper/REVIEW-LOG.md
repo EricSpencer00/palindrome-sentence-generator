@@ -135,3 +135,16 @@ export, independent anonymous-evidence verifier, and secret scan pass. No
 Overleaf connector was available, so the bundle was generated and tested
 locally but this revision was not uploaded or remotely compiled. The generated
 PDF and ZIP bundles are excluded from the source commit.
+
+### Round 7: narrow the scholarly framing
+
+In response to concern that the paper's contribution language outpaced its
+evidence, the title and opening now describe a mechanical audit of selected
+constructions. The draft no longer presents the local equation as a general
+generation method. It reports what was checked: a saved exact lineage, one
+bounded search, and finite algebra tests. It explicitly limits these results
+to symmetry and replay and states that they say nothing about reader
+understanding or language quality. The 38,498-candidate equivalence result
+was removed from the main text as a secondary implementation check. Two
+skeptical AI re-reviews found no remaining claim-strength or evidence-scope
+must-fix; these are internal reviews, not human readability evidence.

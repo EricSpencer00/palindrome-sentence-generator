@@ -12,19 +12,19 @@
 \newcommand{\norm}[1]{n(#1)}
 \newcommand{\rev}{\operatorname{rev}}
 \newcommand{\code}[1]{\texttt{#1}}
-\title{Exact Palindrome Growth by Local Residual Constraints}
+\title{A Mechanical Audit of Selected Letter-Level Palindrome Constructions}
 \author{Anonymous submission}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We study paired insertions into a supplied letter-level palindrome. For equal-length insertions, we derive a necessary and sufficient seam equation and verify it against whole-tape reversal. A retrospective lineage grows an exact 568-letter parent to 752 letters in four saved edits: one paired insertion followed by three mirrored-support replacements. A separate bounded clause search yields a 672-letter child. A finite regression tests 54,145 equation cases without mismatch. These results establish replayable exact edits, not readable English: the 752-letter endpoint is rough, and no blinded ratings or language-quality baseline are available.
+This note reports mechanical checks on selected letter-level palindrome constructions from a project archive. For an equal-length paired insertion into an exact parent, a local condition is equivalent to full-tape symmetry. We audit a saved branch from 568 to 752 letters (one insertion followed by three replacements) and replay a bounded 672-letter search. The reported texts pass two exactness checks. These results concern symmetry and replay, not English readability: the prose is rough, and there are no reader ratings or language-quality comparisons.
 \end{abstract}
 
-\section{Method}
+\section{Setup and insertion condition}
 
-Palindrome generation has been approached through remainder search and n-gram corpus enumeration \citep{norvig2002palindrome,papadopoulos2015palindromes}; constrained text generation also uses lexical decoding and constraint programming \citep{hokamp2017grid,bonlarron-regin-2024}. We study paired local edits to an already exact parent. The contribution is a correctness condition for one insertion operation and an audit of saved constructions, not a general generator or a claim of linguistic quality.
+Letter-level palindrome construction has been approached through remainder search and n-gram corpus enumeration \citep{norvig2002palindrome,papadopoulos2015palindromes}; broader text-generation work includes lexical decoding and constraint programming \citep{hokamp2017grid,bonlarron-regin-2024}. This report is narrower: it records exactness checks for selected saved outputs, describes the local condition for one insertion pattern, and reproduces one bounded clause search. Most wording in the examples is authored; we do not compare against the earlier systems.
 
 For rendered text $x$, $\norm{x}$ lowercases and keeps only ASCII letters; exactness means $\norm{x}=\rev(\norm{x})$. Write the normalized parent as
 \begin{equation}
@@ -34,23 +34,23 @@ where $q$ is the retained bridge between edit positions. Insert $U$ after $A$ an
 \begin{equation}
  p'=AUqCV\rev(q)\rev(A).
 \end{equation}
-For $|U|=|V|$, the child is a palindrome iff
+For $|U|=|V|$, the child is a palindrome exactly when
 \begin{equation}
  Uq=q\rev(V). \label{eq:seam}
 \end{equation}
-After removing the mirrored outer $A$, the two prefixes adjacent to $C$ are $Uq$ and $q\rev(V)$. Their equality also matches the suffix by reversal; the center is already palindromic. Every reported child is additionally checked by two independent full-tape validators.
+After removing the mirrored outer $A$, the two prefixes adjacent to $C$ are $Uq$ and $q\rev(V)$. Their equality also matches the suffix by reversal; the center is already palindromic. We separately check every reported child with two full-tape validators.
 
 \section{Results}
 
-\paragraph{Saved lineage.} One selected branch grows from 568 to 752 letters in four edits: one paired insertion, followed by three mirrored-support replacements. Equation~\ref{eq:seam} applies to the insertion only; every descendant is separately checked against the full-tape palindrome condition. Table~\ref{tab:lineage} reports all five audited stages. They are dependent descendants, not independent trials. Repetition statistics are surface diagnostics, not readability scores.
+\paragraph{Saved lineage.} One selected branch grows from 568 to 752 letters in four edits: one paired insertion, followed by three mirrored-support replacements. Equation~\ref{eq:seam} applies only to the insertion; each descendant is checked separately against the full-tape condition. Table~\ref{tab:lineage} reports all five stages in this branch. They are dependent outputs, not independent trials. The repetition statistics describe the surface and do not measure readability.
 
 \input{week_results_table}
 
-The 752-letter endpoint passes both validators (normalized SHA-256 begins \code{109c758e} and ends \code{f5106f222de3c}). From 686 to 752 letters, distinct token types fall from 56 to 48 and repeated-trigram rate rises from 4.8\% to 6.6\%. The endpoint contains rough clauses and a proper palindromic span; it is a construction result, not a readable example or length record. The full text and replay materials are in the companion evidence archive.
+The 752-letter endpoint passes both validators (normalized SHA-256 begins \code{109c758e} and ends \code{f5106f222de3c}). From 686 to 752 letters, distinct token types fall from 56 to 48 and repeated-trigram rate rises from 4.8\% to 6.6\%. The endpoint contains rough clauses and a proper palindromic span. It is not a reader-validated example or a length record. The full text and replay materials are in the companion evidence archive.
 
-\paragraph{Other checks.} A separate bounded search adds four clauses at two seams of the 568-letter parent, yielding an exact 672-letter child after 9,273 frontier examinations, 35 rejected attempts, and one accepted path. Its inserted clauses are: \emph{Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron.} The clauses are schematic and do not establish readability. In a paired-seam ablation, the complete 568-to-630 edit is exact, while either one-sided insertion fails. The equation regression found no mismatch in 54,145 equal-length cases or 91 context cases. Two enumerators produced the same 38,498-candidate finite set; this is an implementation-equivalence check, not a quality or efficiency comparison.
+\paragraph{Other checks.} A separate bounded search adds four clauses at two seams of the 568-letter parent, yielding an exact 672-letter child after 9,273 frontier examinations, 35 rejected attempts, and one accepted path. Its inserted clauses are: \emph{Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron.} The clauses are schematic and do not establish readability. In a paired-seam ablation, the complete 568-to-630 edit is exact, while either one-sided insertion fails. The equation regression found no mismatch in 54,145 equal-length cases or 91 context cases.
 
-\paragraph{Evidence boundary.} The audit is retrospective and selected; most wording is authored, and several outputs share a parent. We collected no reader judgments and ran no language-quality comparison. Human evaluation requires explicit constructs and a reproducible protocol \citep{howcroft-etal-2020-twenty,khashabi-etal-2022-genie}; our mechanical checks cannot substitute for it. Accordingly, the results support exact local editing and replay, not fluent long-form English.
+\paragraph{Evidence boundary.} This is a retrospective audit of selected outputs; several share a parent. We collected no reader judgments and ran no language-quality comparison. Human evaluation requires explicit constructs and a reproducible protocol \citep{howcroft-etal-2020-twenty,khashabi-etal-2022-genie}. Our checks address character symmetry and replay only; they provide no evidence about fluency, coherence, or reader understanding.
 
 \section*{Ethical considerations and assistance}
 No participant data were collected. Generative AI assisted construction, code, drafting, and internal review; it was not human evaluation.

@@ -1,13 +1,14 @@
 # Growing letter-level palindromes
 
 The goal remains long English prose that is exactly palindromic. This short
-mechanics note reports only what the saved constructions establish: exact
-passages through 752 letters, a paired-seam condition, and a reproducible
-672-letter clause-search result. Exactness is established; human readability
-is not.
+audit note reports selected mechanical outcomes: exact passages through 752
+letters, a condition for one paired insertion, and a reproducible 672-letter
+clause-search result. It does not assess whether readers find the passages
+readable.
 
-[naacl2027.tex](naacl2027.tex) is now a short mechanics note: one seam
-condition, a five-stage exact-growth table, and separate algebra/search checks.
+[naacl2027.tex](naacl2027.tex) is a short audit of selected constructions,
+not a general generation method: it reports one seam condition, a five-stage
+table, and separate algebra/search checks.
 The complete 752-letter rendering stays in the anonymous evidence archive,
 not in the main paper. The audit is a selected lineage, not a census or a
 length record. [REVIEW-LOG.md](REVIEW-LOG.md) records independent reviews.

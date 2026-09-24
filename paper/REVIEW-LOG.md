@@ -148,3 +148,14 @@ understanding or language quality. The 38,498-candidate equivalence result
 was removed from the main text as a secondary implementation check. Two
 skeptical AI re-reviews found no remaining claim-strength or evidence-scope
 must-fix; these are internal reviews, not human readability evidence.
+
+### Round 8: use a direct academic frame and natural prose
+
+The title now names the task and operation directly: “Creating Longer
+Letter-Level Palindromes Through Paired Edits.” The introduction explains the
+character constraint, briefly situates prior work, and states the actual
+experiments. Defensive scope language and abstract process labels were
+replaced with direct descriptions of the saved lineage, clause search, and
+tests. Two skeptical AI re-reviews found the framing proportionate and the
+remaining claims consistent with the artifacts. This wording change does not
+add reader or language-quality evidence.

@@ -1,17 +1,14 @@
 # Growing letter-level palindromes
 
-The goal remains long English prose that is exactly palindromic. This short
-audit note reports selected mechanical outcomes: exact passages through 752
-letters, a condition for one paired insertion, and a reproducible 672-letter
-clause-search result. It does not assess whether readers find the passages
-readable.
+The goal remains long English prose with exact letter-level symmetry. The
+paper, [Creating Longer Letter-Level Palindromes Through Paired
+Edits](naacl2027.tex), describes the editing setup and reports its saved
+results: a 568-to-752-letter lineage and a separate 672-letter search. The
+checks establish exactness, not reader-perceived fluency or coherence.
 
-[naacl2027.tex](naacl2027.tex) is a short audit of selected constructions,
-not a general generation method: it reports one seam condition, a five-stage
-table, and separate algebra/search checks.
 The complete 752-letter rendering stays in the anonymous evidence archive,
-not in the main paper. The audit is a selected lineage, not a census or a
-length record. [REVIEW-LOG.md](REVIEW-LOG.md) records independent reviews.
+not in the main paper. The lineage is selected, not a census or length record.
+[REVIEW-LOG.md](REVIEW-LOG.md) records internal reviews and evidence checks.
 
 ## Reproduce the evidence
 

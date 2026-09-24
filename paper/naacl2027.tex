@@ -12,45 +12,49 @@
 \newcommand{\norm}[1]{n(#1)}
 \newcommand{\rev}{\operatorname{rev}}
 \newcommand{\code}[1]{\texttt{#1}}
-\title{A Mechanical Audit of Selected Letter-Level Palindrome Constructions}
+\title{Creating Longer Letter-Level Palindromes Through Paired Edits}
 \author{Anonymous submission}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-This note reports mechanical checks on selected letter-level palindrome constructions from a project archive. For an equal-length paired insertion into an exact parent, a local condition is equivalent to full-tape symmetry. We audit a saved branch from 568 to 752 letters (one insertion followed by three replacements) and replay a bounded 672-letter search. The reported texts pass two exactness checks. These results concern symmetry and replay, not English readability: the prose is rough, and there are no reader ratings or language-quality comparisons.
+We examine one way to extend exact letter-level palindromes: edit two paired locations while keeping the rest of the text. For equal-length insertions, exactness reduces to a local equation across the retained bridge. A saved lineage grows from 568 to 752 letters through one insertion and three replacements of paired spans; a separate bounded search yields an exact 672-letter text. Rechecks and ablations confirm the character constraints, but not the quality of the prose. Most wording was authored, and no reader study or language-quality comparison was conducted.
 \end{abstract}
 
-\section{Setup and insertion condition}
+\section{Introduction}
 
-Letter-level palindrome construction has been approached through remainder search and n-gram corpus enumeration \citep{norvig2002palindrome,papadopoulos2015palindromes}; broader text-generation work includes lexical decoding and constraint programming \citep{hokamp2017grid,bonlarron-regin-2024}. This report is narrower: it records exactness checks for selected saved outputs, describes the local condition for one insertion pattern, and reproduces one bounded clause search. Most wording in the examples is authored; we do not compare against the earlier systems.
+A letter-level palindrome has the same sequence of ASCII letters in both directions, ignoring case and all other characters. Making one longer means finding wording that fits the character pattern while still reading as prose. Earlier work searches from unmatched remainders or builds palindromes from n-gram corpora \citep{norvig2002palindrome,papadopoulos2015palindromes}; related text-generation work handles lexical and structural constraints during decoding \citep{hokamp2017grid,bonlarron-regin-2024}.
 
-For rendered text $x$, $\norm{x}$ lowercases and keeps only ASCII letters; exactness means $\norm{x}=\rev(\norm{x})$. Write the normalized parent as
+We start with an exact palindrome and change text at paired locations. The report follows a saved lineage from 568 to 752 letters and reproduces a bounded search that finds a 672-letter text. The local condition below describes the first insertion; later replacements are checked on the complete text.
+
+\section{Paired insertion condition}
+
+For rendered text $x$, $\norm{x}$ lowercases and keeps only ASCII letters. We call $x$ a palindrome when $\norm{x}=\rev(\norm{x})$. Write an exact parent as
 \begin{equation}
  p=AqC\rev(q)\rev(A),\qquad C=\rev(C),
 \end{equation}
-where $q$ is the retained bridge between edit positions. Insert $U$ after $A$ and $V$ after $C$:
+Here $q$ is the retained bridge between the edit positions and $C$ is the center. Insert $U$ after $A$ and $V$ after $C$:
 \begin{equation}
  p'=AUqCV\rev(q)\rev(A).
 \end{equation}
-For $|U|=|V|$, the child is a palindrome exactly when
+When $|U|=|V|$, the new text is a palindrome exactly when
 \begin{equation}
  Uq=q\rev(V). \label{eq:seam}
 \end{equation}
-After removing the mirrored outer $A$, the two prefixes adjacent to $C$ are $Uq$ and $q\rev(V)$. Their equality also matches the suffix by reversal; the center is already palindromic. We separately check every reported child with two full-tape validators.
+Once the mirrored outer $A$ is set aside, the two prefixes beside $C$ are $Uq$ and $q\rev(V)$. If they match, reversing that equality matches the suffix too, and the center already reads the same in both directions. This condition applies to the first insertion in the 568-to-640 step; the later replacements are checked directly against the full palindrome.
 
 \section{Results}
 
-\paragraph{Saved lineage.} One selected branch grows from 568 to 752 letters in four edits: one paired insertion, followed by three mirrored-support replacements. Equation~\ref{eq:seam} applies only to the insertion; each descendant is checked separately against the full-tape condition. Table~\ref{tab:lineage} reports all five stages in this branch. They are dependent outputs, not independent trials. The repetition statistics describe the surface and do not measure readability.
+\paragraph{Saved lineage.} The branch grows from 568 to 752 letters in four edits: one paired insertion, followed by three replacements of paired spans. Equation~\ref{eq:seam} describes the insertion only; each later output is checked against the complete palindrome condition. Table~\ref{tab:lineage} shows the five saved stages. Each stage inherits the previous text, so these are successive edits, not independent trials. The repetition statistics describe repeated wording; they do not tell us whether the passage reads well.
 
 \input{week_results_table}
 
-The 752-letter endpoint passes both validators (normalized SHA-256 begins \code{109c758e} and ends \code{f5106f222de3c}). From 686 to 752 letters, distinct token types fall from 56 to 48 and repeated-trigram rate rises from 4.8\% to 6.6\%. The endpoint contains rough clauses and a proper palindromic span. It is not a reader-validated example or a length record. The full text and replay materials are in the companion evidence archive.
+The 752-letter endpoint passes both exactness checks (normalized SHA-256 begins \code{109c758e} and ends \code{f5106f222de3c}). From 686 to 752 letters, the number of distinct word types falls from 56 to 48, while the repeated-trigram rate rises from 4.8\% to 6.6\%. The passage still contains rough clauses and a proper palindromic span. Its full text and replay materials are in the companion evidence archive.
 
-\paragraph{Other checks.} A separate bounded search adds four clauses at two seams of the 568-letter parent, yielding an exact 672-letter child after 9,273 frontier examinations, 35 rejected attempts, and one accepted path. Its inserted clauses are: \emph{Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron.} The clauses are schematic and do not establish readability. In a paired-seam ablation, the complete 568-to-630 edit is exact, while either one-sided insertion fails. The equation regression found no mismatch in 54,145 equal-length cases or 91 context cases.
+\paragraph{Other checks.} A bounded search inserts four clauses at two seams of the 568-letter parent. It returns one exact 672-letter result after examining 9,273 states, rejecting 35 attempts, and accepting one path. The inserted clauses are: \emph{Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron.} The clauses are formulaic. In an ablation, the complete 568-to-630 paired edit is exact, while either one-sided insertion fails. The equation check found no mismatch in 54,145 equal-length cases or 91 context cases.
 
-\paragraph{Evidence boundary.} This is a retrospective audit of selected outputs; several share a parent. We collected no reader judgments and ran no language-quality comparison. Human evaluation requires explicit constructs and a reproducible protocol \citep{howcroft-etal-2020-twenty,khashabi-etal-2022-genie}. Our checks address character symmetry and replay only; they provide no evidence about fluency, coherence, or reader understanding.
+\paragraph{Scope.} These results come from selected saved outputs, and several share a parent. We did not ask readers to rate them or compare their language quality with another system. Studies of generated text use explicit criteria and repeatable protocols \citep{howcroft-etal-2020-twenty,khashabi-etal-2022-genie}. Our checks measure symmetry and replay; they do not measure fluency, coherence, or reader understanding.
 
 \section*{Ethical considerations and assistance}
 No participant data were collected. Generative AI assisted construction, code, drafting, and internal review; it was not human evaluation.

@@ -1,0 +1,137 @@
+{
+  "check_id": "asymmetric-568-to-630-live-residual-splice",
+  "sources": {
+    "generator": "experiments/luna6_god_dog_live_residual_growth_20260923.py",
+    "saved_run": "runs/luna6-god-dog-live-residual-growth-20260923.json",
+    "parent_run": "runs/incumbent-560-outer-causal-scene-20261002.json"
+  },
+  "parent": {
+    "normalized_letters": 568,
+    "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+  },
+  "splice": {
+    "normalized_cursors": [
+      16,
+      548
+    ],
+    "raw_cursors": [
+      20,
+      758
+    ],
+    "A_letters": 16,
+    "q": "nora",
+    "C_letters": 528,
+    "right_residual": "aron",
+    "U": "noranorasawgodnadiasawgoddogwas",
+    "U_letters": 31,
+    "V": "aronsawgoddogwasaidandogwasaron",
+    "V_letters": 31,
+    "equal_inserted_letter_lengths": true,
+    "equation": "U + q = q + reverse(V)",
+    "equation_holds": true,
+    "outer_and_center_invariants_hold": true,
+    "full_splice_closes": true
+  },
+  "child": {
+    "normalized_letters": 630,
+    "growth_over_parent": 62,
+    "sha256": "017d5e73f11339204b3f343fa66e63b5c4674afd01c5ea823e36999879a2ac11",
+    "outside_in_exact": true,
+    "first_mismatch": null,
+    "project_validator_exact": true,
+    "forward_reverse_hashes_equal": true,
+    "exact": true
+  },
+  "bounded_algebra_audit": {
+    "alphabet": "{a,b}",
+    "domains": {
+      "A_strings_length_0_to_2": 7,
+      "q_strings_length_0_to_2": 7,
+      "C_palindromes_length_0_to_4": 13,
+      "U_strings_length_0_to_3": 15,
+      "V_strings_length_0_to_3": 15
+    },
+    "full_unrestricted_cartesian_size": 143325,
+    "checks_performed": {
+      "equal_length_U_V_full_tape_equivalence_cases_over_A_q_U_V_C": 54145,
+      "outer_center_context_cases_over_A_C": 91,
+      "total": 54236
+    },
+    "false_positives": 0,
+    "false_negatives": 0,
+    "invalid_outer_center_contexts": 0,
+    "unequal_length_insertions_per_q_C_A_context": 140,
+    "unequal_length_counterexample": {
+      "A": "",
+      "q": "a",
+      "C": "",
+      "U": "",
+      "V": "a",
+      "full_tape": "aaa",
+      "full_tape_exact": true,
+      "equation_holds": false,
+      "shows_iff_fails_when_lengths_differ": true
+    },
+    "all_checks_passed": true,
+    "scope_note": "The iff claim is checked only for equal-length U and V. The equation is sufficient at unequal lengths, but not necessary. This verifies algebra only, not Englishness, novelty, or readability."
+  },
+  "bounded_672_clause_inventory_census": {
+    "source": "experiments/incumbent_672_discourse_linked_reverse_chain_20260922.py",
+    "entity_count": 10,
+    "predicate_count": 3,
+    "raw_clause_count": 300,
+    "clauses_with_subject_equal_object": 30,
+    "self_palindromic_clauses": 8,
+    "clauses_after_both_filters": 262,
+    "ordered_reverse_compatible_clause_pairs": 160,
+    "scope_note": "A per-clause inventory census only. It does not count connected four-clause chains, historical novelty gates, or readability."
+  },
+  "ablations": {
+    "full_paired_edit": {
+      "letters": 630,
+      "exact": true,
+      "first_mismatch": null,
+      "sha256": "017d5e73f11339204b3f343fa66e63b5c4674afd01c5ea823e36999879a2ac11"
+    },
+    "left_only": {
+      "letters": 599,
+      "exact": false,
+      "first_mismatch": {
+        "left_offset": 21,
+        "right_offset": 577,
+        "left": "o",
+        "right": "a"
+      },
+      "sha256": "f540e85d53cf7bbdffb06d2853b181ef59cd9b206f76d3b91ce6110cbc00b65c"
+    },
+    "right_only": {
+      "letters": 599,
+      "exact": false,
+      "first_mismatch": {
+        "left_offset": 21,
+        "right_offset": 577,
+        "left": "a",
+        "right": "o"
+      },
+      "sha256": "0fabf14d38d13e1721224af97149f25aed3858e9516095e7974d2e553ed91dc5"
+    },
+    "one_left_inserted_character_removed": {
+      "letters": 629,
+      "exact": false,
+      "first_mismatch": {
+        "left_offset": 46,
+        "right_offset": 582,
+        "left": "n",
+        "right": "s"
+      },
+      "sha256": "15d7337551abc30e259ffda6dd0c60616f916c77000288b11aef9a4c25f4f501"
+    },
+    "letter_preserving_punctuation_change": {
+      "letters": 630,
+      "exact": true,
+      "first_mismatch": null,
+      "sha256": "017d5e73f11339204b3f343fa66e63b5c4674afd01c5ea823e36999879a2ac11"
+    }
+  },
+  "interpretation": "The paired edit is mechanically sufficient at this saved seam. This check does not test whether the inserted clauses are natural, coherent, novel, or readable."
+}

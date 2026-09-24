@@ -1,0 +1,138 @@
+"""Build allowlisted Overleaf source and anonymous evidence bundles.
+
+Raw run files and Git history are deliberately not copied: some historical
+run metadata contains operator host information unrelated to the evidence.
+"""
+from __future__ import annotations
+
+import ast
+import hashlib
+import json
+import re
+import zipfile
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+PAPER = ROOT / "paper"
+OUT = ROOT / "output/naacl-submission"
+PRIVATE_PATTERNS = (
+    r"/Users/", r"/home/", r"(?i)ericspencer", r"(?i)overleaf\.com/project/",
+    r"-----BEGIN [A-Z ]*PRIVATE KEY-----", r"\bgh[pousr]_[A-Za-z0-9]{20,}",
+)
+
+
+def json_bytes(value: object) -> bytes:
+    return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+
+
+def audit_bytes(name: str, payload: bytes) -> None:
+    text = payload.decode("utf-8")
+    for pattern in PRIVATE_PATTERNS:
+        if re.search(pattern, text):
+            raise AssertionError(f"Privacy screen rejected {name}; pattern {pattern}")
+
+
+def write_bundle(name: str, files: dict[str, bytes]) -> None:
+    directory = OUT / name
+    directory.mkdir(parents=True, exist_ok=True)
+    manifest = {path: hashlib.sha256(content).hexdigest() for path, content in sorted(files.items())}
+    payloads = {**files, "manifest.json": json_bytes(manifest)}
+    with zipfile.ZipFile(OUT / f"{name}.zip", "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for filename, payload in sorted(payloads.items()):
+            if Path(filename).name != filename:
+                raise ValueError("Bundle paths must be flat allowlisted filenames")
+            audit_bytes(filename, payload)
+            (directory / filename).write_bytes(payload)
+            info = zipfile.ZipInfo(filename, date_time=(2020, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o100644 << 16
+            archive.writestr(info, payload)
+
+
+def bibliography_for(source: str) -> str:
+    needed = set()
+    for match in re.finditer(r"\\cite\w*\s*(?:\[[^\]]*\]\s*)*\{([^}]+)\}", source):
+        needed.update(key.strip() for key in match.group(1).split(","))
+    bib = (PAPER / "refs.bib").read_text()
+    starts = list(re.finditer(r"^@\w+\{\s*([^,]+),", bib, re.MULTILINE))
+    entries = {}
+    for index, match in enumerate(starts):
+        end = starts[index + 1].start() if index + 1 < len(starts) else len(bib)
+        entries[match.group(1)] = bib[match.start():end].strip()
+    missing = needed - entries.keys()
+    if missing:
+        raise AssertionError(f"Unresolved bibliography keys: {sorted(missing)}")
+    return "\n\n".join(entries[key] for key in sorted(needed)) + "\n"
+
+
+def build() -> dict[str, object]:
+    source = (PAPER / "naacl2027.tex").read_text()
+    for part in ("week_results_table", "week_examples"):
+        token = "\\input{" + part + "}"
+        if source.count(token) != 1:
+            raise AssertionError(f"Expected one table/example input: {part}")
+        source = source.replace(token, (PAPER / f"{part}.tex").read_text())
+    if "\\input{" in source:
+        raise AssertionError("Unresolved manuscript input in upload source")
+    write_bundle("overleaf-source", {
+        "naacl2027.tex": source.encode(),
+        "refs.bib": bibliography_for(source).encode(),
+        "acl.sty": (PAPER / "acl.sty").read_bytes(),
+        "acl_natbib.bst": (PAPER / "acl_natbib.bst").read_bytes(),
+    })
+
+    selected = json.loads((PAPER / "week_results.json").read_text())
+    selected.pop("snapshot", None)
+    for row in selected["results"]:
+        row["source"].pop("git_revision", None)
+    index = json.loads((ROOT / "runs/incumbent-672-global-novelty-snapshot-20260922.json").read_text())
+    module = ast.parse((ROOT / "experiments/luna6_god_dog_live_residual_growth_20260923.py").read_text())
+    constants = {}
+    for node in module.body:
+        if isinstance(node, ast.Assign):
+            for target in node.targets:
+                if isinstance(target, ast.Name) and target.id in {"LEFT_INSERT", "RIGHT_INSERT"}:
+                    constants[target.id] = ast.literal_eval(node.value)
+    fixture = {
+        "raw_cursors": [20, 758], "right_punctuation_skip": 1,
+        "left_insert": constants["LEFT_INSERT"], "right_insert": constants["RIGHT_INSERT"],
+        "scope": "Authored paired insertion; exact raw rendering replay, not a new generation run.",
+    }
+    readme = """# Anonymous construction evidence
+
+Run `python3 verify_anonymous_evidence.py` after extracting this archive.
+Python 3.10 or later and its standard library are sufficient. No network,
+Git checkout, credentials, model API, or additional corpus is required.
+
+The verifier checks all eleven selected renderings with a raw-text scan and
+normalized reversal, reconstructs the 630-letter edit, independently replays
+the 672-letter first-success clause search using its fixed relation index,
+and runs the bounded seam-algebra check. The manifest checks bundle integrity.
+
+Selection is retrospective, not exhaustive. These outputs are mechanically
+exact construction results; no human-study results are included. The fixed
+relation index supports replay, not a new historical novelty investigation.
+The selected-results file preserves source filenames and source-file digests
+for provenance. Original source files are not bundled, so those original-file
+digests are provenance identifiers here, not independently rechecked inputs.
+No Git history, host metadata, account information, or raw execution logs are
+included. The two imported modules also have repository-specific entry points;
+use the verifier command above for this standalone archive.
+"""
+    files = {
+        "selected-results.json": json_bytes(selected),
+        "relation-index.json": json_bytes(index["relation_counts"]),
+        "seam-fixture.json": json_bytes(fixture),
+        "README.md": readme.encode(),
+    }
+    for name in ("verify_anonymous_evidence.py", "check_seam_invariant.py", "replay_clause_search.py"):
+        files[name] = (PAPER / name).read_bytes()
+    write_bundle("anonymous-evidence", files)
+    return {"source_bundle": str((OUT / "overleaf-source.zip").relative_to(ROOT)),
+            "evidence_bundle": str((OUT / "anonymous-evidence.zip").relative_to(ROOT)),
+            "privacy_screen": "passed on every allowlisted text file"}
+
+
+if __name__ == "__main__":
+    print(json.dumps(build(), indent=2))

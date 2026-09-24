@@ -1,0 +1,90 @@
+{
+  "replay_id": "incumbent-672-fixed-index-replay",
+  "method_scope": "deterministic replay of the saved bounded DFS using a fixed relation-count index; no repository history scan and no new novelty claim",
+  "sources": {
+    "parent_artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
+    "parent_artifact_sha256": "c2d520dd84f17164da62f691aab95cba57d351cd660ed611ac444fdb6679dc13",
+    "parent_normalized_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+    "relation_index_artifact": "runs/incumbent-672-global-novelty-snapshot-20260922.json",
+    "relation_index_file_sha256": "437d1ccdeb995fa78e21d960769b80a26c2ef99062aa696987d949c1463c8086",
+    "relation_index_key_count": 160,
+    "relation_index_snapshot_id": "incumbent-672-global-novelty-snapshot-20260922",
+    "generator_source": "experiments/incumbent_672_discourse_linked_reverse_chain_20260922.py",
+    "generator_source_sha256": "93a2c9372dca27c9f308e6126723094ca783e99a9a3fae5204846903ac0bdad4",
+    "saved_result_artifact": "runs/incumbent-672-discourse-linked-reverse-chain-20260922.json",
+    "saved_result_file_sha256": "51435f9d8bacb1b2378663932a9c9261e4a9fab9eb46b43c5ecfee03e45fc878"
+  },
+  "configuration": {
+    "entities_in_order": [
+      "Nora",
+      "Leon",
+      "Aron",
+      "Noel",
+      "Mara",
+      "Aram",
+      "Nadia",
+      "Aidan",
+      "Liam",
+      "Ira"
+    ],
+    "predicates_in_order": [
+      "stops",
+      "spots",
+      "sees"
+    ],
+    "normalized_seam_cuts": [
+      48,
+      520
+    ],
+    "chain_length": 4,
+    "first_success_stop": true,
+    "novelty_gate": "relation counts from the supplied fixed index only"
+  },
+  "result": {
+    "letters": 672,
+    "sha256": "ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee",
+    "exact": true,
+    "first_mismatch": null,
+    "states_examined": 9273,
+    "rejected_attempts": 35,
+    "rejections_by_type": {
+      "rejected_chain_gate": 27,
+      "rejected_residual": 8
+    },
+    "accepted_paths": 1,
+    "left_chain": [
+      "nora stops leon",
+      "leon stops nora",
+      "nora stops noel",
+      "noel spots nora"
+    ],
+    "right_chain": [
+      "aron stops leon",
+      "leon spots aron",
+      "aron spots noel",
+      "noel spots aron"
+    ],
+    "inserted_relations": [
+      "nora stops leon",
+      "leon stops nora",
+      "nora stops noel",
+      "noel spots nora",
+      "aron stops leon",
+      "leon spots aron",
+      "aron spots noel",
+      "noel spots aron"
+    ],
+    "residual_scope": "one complete clause at a time; no cross-clause buffer"
+  },
+  "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+  "saved_run_comparison": {
+    "rendered_text_matches": true,
+    "normalized_length_matches": true,
+    "saved_sha256": "ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee"
+  },
+  "limitations": [
+    "This is a deterministic replay on the saved parent and relation index, not a fresh novelty audit.",
+    "The small proper-name and predicate inventory is engineered for reverse compatibility.",
+    "Exactness and relation-chain continuity do not establish readability or coherent discourse."
+  ]
+}

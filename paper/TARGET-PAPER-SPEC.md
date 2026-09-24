@@ -1,61 +1,35 @@
 # Target paper: long readable exact English palindromes
 
-This is the paper the project is working toward. It is not a negative-result
-paper and it must not claim evidence that does not exist.
+The research goal remains a long, genuinely readable English letter-level
+palindrome. Longer readable output is better. Speed, proxy scores, and a
+negative-result narrative do not substitute for that goal.
 
-The paper's center of gravity is the working construction: an original,
-intact-English palindrome longer than the 38-letter benchmark “An aide rips
-nine memos; some men inspire Diana.” Search diagnostics are supporting
-evidence only. The manuscript must lead with rendered candidates, independent
-exact validation, provenance, and reader outcomes; failed operators belong in
-a concise reproducibility record and must trigger the next constructive repair.
+The user's current paper request authorizes rewriting the manuscript around
+the week's actual constructions. This supersedes the earlier instruction in
+this file that prohibited any manuscript before all historical gates passed.
+It does not authorize inventing reader evidence or claiming the goal complete.
 
-Its contribution sequence is fixed:
+## Current evidence contract
 
-1. An independently authored constructive generator with a documented repair
-   operator and a length-indexed exact core. For every requested letter count,
-   the core must either return an independently verified closure or a
-   reproducible strict-mode reachability report; its explicit totality
-   fallback is permanently non-reader evidence. Each failed readable-search
-   run must feed the repair operator a concrete, replayable residual or
-   globally reopened region; it must not be answered by merely adding another
-   narrow sentence frame. A family may be retired only after that repair
-   mechanism has been exercised or shown inapplicable.
-2. Rendered, long English examples with provenance; no catalogue text,
-   relexicalized catalogue frame, whole-word reflection, repeated or
-   self-palindromic building block, fragment, or punctuation shortcut.
-3. A separately implemented exact-letter verifier and fail-closed provenance
-   checks for every displayed example.
-4. A blinded reader experiment whose rater forms contain intact prose and
-   shuffled controls, randomized opaque IDs, one competing condition per event
-   per rater, a separately held key, preregistered completion and inclusion
-   rules, and blinded dual paraphrase coding.
-5. Human reader results that establish ordinary English readability. Automated
-   scores may filter or diagnose candidates, but they never certify this claim.
+1. Center the working construction methods, exact checks, rendered examples,
+   and their provenance. Preserve the 568-letter parent and its repair frontier;
+   report the audited 752-letter endpoint without demoting it for repair debt.
+2. Distinguish authored proposals, parsed reverse paths, bounded clause search,
+   and inherited text. Archive-relative novelty is not proof of originality.
+3. Independently verify every reported exact string. Report lengths on
+   lowercase ASCII letters and retain full, uncorrected rendered surfaces.
+4. Allow proper palindrome spans, repeated scaffolding, rough syntax, and
+   unresolved discourse on the working construction track. Describe those
+   properties plainly; they do not certify readable English.
+5. Keep length, repetition diagnostics, and human readability separate.
+   Programmatic measures cannot certify readability. Reader evidence must be
+   actual completed observations, not prepared forms or AI judgments.
+6. Use intact prose and shuffled controls with randomized opaque labels and
+   reproducible rater materials when conducting the reader study. The current
+   appendix describes a prospective protocol, not a completed study.
 
-For this paper, a **long** output has at least 100 ASCII letters after
-normalization. This is a promotion floor, not an upper-bound objective: among
-outputs that satisfy every hard exclusion and the reader gate, longer is
-better. Shorter exact strings may be retained only as rejected construction
-diagnostics; they are not paper examples or reader-study items.
-
-## Scalable exact-length contract
-
-The paper must separate two claims that are often conflated. The exact core
-must scale to arbitrary requested length `N` (strict lexical search, or an
-explicit reachability report; `construct_total(N)` is the audited linear-time
-totality witness). Readability must scale through the typed, boundary-crossing
-inventory and its repair operators. The totality witness is never a readable
-example, never enters the blinded packet, and cannot satisfy the long-output
-claim by itself. Results therefore report exact-length coverage and
-reader-rated intact prose as separate axes, while the main narrative centers
-the working constructive route and any promoted human-readable outputs.
-
-Until all five elements exist, no ACL/NAACL submission, release, API output,
-or reader-material distribution is permitted.
-
-The current construction ledger also retains a typed lexical-graph residual
-run (number, tense, determiner, and transitivity states): 424,334 left clauses
-and 5,092,008 independently audited residual attempts produced zero closures at
-the 39-letter floor. This is a failed operator with a concrete successor
-(attested valency edges and inflectional variants), not the paper thesis.
+The current paper is a constructive methods case study, not an assertion of
+arbitrary-length readable generation, a new length record, or an empirical
+win over prior work. A comparative language-quality experiment and blinded
+reader evidence remain substantive research work. Limitations are concise
+and honest; they are not the paper's thesis.

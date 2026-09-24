@@ -1,46 +1,42 @@
-# Manuscript workbench -- constructive palindrome generation
+# Growing letter-level palindromes
 
-The target paper is specified in [TARGET-PAPER-SPEC.md](TARGET-PAPER-SPEC.md).
-The manuscript centers a working independent construction loop: live
-character obligations coupled to typed grammar and semantic repair, exact
-independent validation, rendered long examples, and a blinded reader protocol.
-The current snapshot is still a development result: no candidate has yet
-passed every gate, so the paper reports the actual frontiers and their next
-repairs without calling them readable successes.
+The goal is still long English prose that is exactly palindromic. This draft
+reports what the saved constructions actually show: independently exact
+passages through 752 letters, an explicit seam equation, and a reproducible
+672-letter clause-search result. Exactness is established; human readability
+is not. The paper prints the long passages instead of hiding their rough parts.
 
-[naacl2027.tex](naacl2027.tex) is the method-centered draft. Catalogue-family
-and repeated-unit materials remain rejected controls, not paper results. The
-historical 2026-09-11 release is quarantined because its bundled claims and
-source no longer meet the acceptance standard.
+[naacl2027.tex](naacl2027.tex) replaces the earlier search-speed manuscript.
+It separates authored left paths, grammar-parsed right paths, and searched
+clauses. The audit is a selected case study, not a census or a length record.
+[REVIEW-LOG.md](REVIEW-LOG.md) records the independent reviews and fixes.
 
-## Build and verify
+## Reproduce the evidence
 
-From the repository root:
+From the repository root, using Python 3.10 or newer:
 
 ```sh
+python3 paper/audit_week_results.py
+python3 paper/check_seam_invariant.py
+python3 paper/replay_clause_search.py
+python3 paper/export_submission.py
+python3 output/naacl-submission/anonymous-evidence/verify_anonymous_evidence.py
 tectonic --keep-logs -o output/pdf paper/naacl2027.tex
-python3 experiments/possessive_name_relexicalizer.py --out RUN.json
-python3 experiments/verify_possessive_name_candidates.py --input RUN.json --out INDEPENDENT.json
 ```
 
-All legacy release builders and validators now fail closed. A new release may
-be enabled only after an independent candidate passes the hard provenance gate
-and the corrected blinded human study described in the draft.
+The audit pins original source-file digests and a repository snapshot. It
+checks eleven complete renderings using normalized reversal and a separate
+raw-text scan. The bounded algebra test covers 54,145 equal-length cases plus
+91 context checks. The independent clause replay reproduces the saved text,
+digest, and counters: 9,273 frontier examinations, 35 rejected records, and
+one accepted chain.
 
-## Current evidence status
+The exporter creates two allowlisted archives under `output/naacl-submission/`:
+expanded Overleaf sources and anonymous evidence. The latter runs without
+Git history, network access, credentials, or model calls. It excludes raw run
+metadata and private host information. Generated PDFs and these archives are
+not part of this source commit.
 
-The possessive-name run is retained solely as an auditable rejection: its
-separate verifier re-enumerates all 100 frozen derivations, recomputes every
-gate, requires the rejected-run contract and matching source/provenance hashes,
-and finds four exact but zero promotion-eligible closures. The public catalogue
-control provenance is recorded in
-[`data/catalogue_provenance.json`](../data/catalogue_provenance.json).
-
-The active construction is a ten-lane workbench: character-level decoding,
-exact-tape resegmentation, dependency seams, agreement morphology, CFG
-intersection, scene lattices, valency/attachment, inflectional boundaries, flat
-composition, and semantic slot repair. Each lane writes an intact rendered
-surface, independent exact checks, provenance, novelty status, and a concrete
-next repair. The authoritative 2026-09-16 ledger is summarized in
-`docs/TEN-LUNA-LANE-EVIDENCE-20260916.md` and the aggregate run is
-`runs/parallel-luna-readability-diagnostics-20260916.json`.
+There are no completed blinded reader results or comparative readability
+results. The prospective reader protocol is labeled as a plan. Neither this
+draft nor its internal AI reviews establish that the research goal is done.

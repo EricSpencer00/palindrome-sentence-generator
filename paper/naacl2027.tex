@@ -7,1521 +7,551 @@
 \usepackage{microtype}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
-\usepackage{enumitem}
-\title{Scene-Conditioned Construction of Long English Letter-Level Palindromes}
-\author{Anonymous submission}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage{needspace}
 \newcommand{\norm}[1]{n(#1)}
 \newcommand{\rev}{\operatorname{rev}}
+\newcommand{\code}[1]{\texttt{#1}}
+\title{Growing Letter-Level Palindromes with Residual-Constrained Editing}
+\author{Anonymous submission}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We study the constructive generation of long English palindromes under a
-strict letter-level definition.  A candidate must be an exact palindrome,
-originate from an auditable construction rather than borrowed catalogue text,
-avoid repeated or self-palindromic units, and survive a blinded human
-readability study.  Our central method is a live scene-conditioned
-character-obligation constructor: it jointly chooses typed semantic spans,
-grammar states, and word boundaries while consuming the opposing character
-equation.  It grows intact prose from fresh lexical and discourse plans,
-rather than writing a sentence and mirroring it afterward.  Evidence-guided
-replay is used only to choose which genuinely new construction topology to try
-next; it is not a post-hoc editing objective or a readability judge.  Ten deliberately
-orthogonal lanes share an independent two-pointer and hash verifier,
-provenance records, and a novelty registry.  The manuscript leads with
-rendered construction traces, exact gates, and the path toward blinded reader
-evidence.  The contribution is a reproducible route toward genuinely readable
-long output, not a speed benchmark, proxy-only result, or negative-result
-thesis.
+Long English palindromes couple a global character constraint with local word
+boundaries and discourse decisions. We study an incremental construction
+method that edits a verified palindrome while preserving the text outside
+explicitly chosen seams. Each edit tracks the character obligations induced
+by retained text, their owning words or clauses, and the positions at which
+the two sides must agree. We formalize the seam equation and distinguish authored edit proposals
+from a bounded search over typed clauses. A retrospective audit of eleven
+saved examples verifies exact letter symmetry independently of the generators.
+The examples include a 568-letter parent, a 630-letter child produced at an
+asymmetric seam, a 672-letter child found by clause search, and an editing
+sequence ending at 752 letters with authored left paths and grammar-parsed
+right paths. We provide the rendered passages,
+parent links, hashes, and executable checks, and measure repetition separately
+from length. These are exact construction results: inherited fragments,
+repeated syntax, and unresolved discourse remain visible, and no blinded human
+readability result is available. The method supports auditable growth and
+local revision of long palindromes; establishing that this growth produces
+readable English remains an empirical question.
 \end{abstract}
 
-\section{Task and acceptance gate}
-Let $x$ be a rendered English passage.  We normalize by lowercasing and
-retaining ASCII letters only,
+\section{Introduction}
+
+An English letter-level palindrome must support two simultaneous readings:
+its words must form a passage, while its letters must agree with their own
+reversal. A change as small as replacing a verb can invalidate the whole
+string. Conversely, an exactly symmetric string may consist of familiar
+words without conveying a coherent scene. Length, exactness, and readability
+therefore describe different properties of a construction.
+
+Our objective is to grow a long passage that a reader can understand. We
+investigate a practical intermediate capability: modifying a long verified
+palindrome without discarding its existing construction. The central object
+is an \emph{editable seam}, a pair of positions whose character obligations
+are tracked together. A seam may fall at a sentence boundary, between words,
+or within a word. Retaining the surrounding text reduces an edit to a local
+equation; the new wording still has to satisfy that equation in context.
+
+Consider two insertions in a 568-letter parent. The left insertion emits
+\path{noranorasawgodnadiasawgoddogwas}; the right emits
+\path{aronsawgoddogwasaidandogwasaron}. They close after accounting for
+the retained four-letter bridge \code{nora}.
+The resulting passage has 630 letters and passes an independent full-string
+check. Its observation and identity clauses remain awkward. This example
+shows both the usefulness and the scope of the method: it makes an exact
+edit possible, but does not establish what a reader will understand.
+
+We report three concrete contributions. First, we give a precise account of
+residual-constrained editing, including character positions, retained text,
+and the distinction between a spelling obligation and a grammatical
+obligation. Second, we reproduce long saved constructions and a bounded
+clause-search result, explicitly separating automated search from authored
+lexical choices. Third, we provide a compact audit in which every displayed
+result is tied to its rendered text and source artifact. The largest among
+these selected examples has 752 letters; it is a construction endpoint, not a length record
+or a human-validated English passage.
+
+This is an incremental editing study. Remainder-based palindrome construction
+and joint word--character search predate this work
+\citep{norvig2002palindrome,papadopoulos2015palindromes}. Our contribution is
+the editing interface, its correctness contract, and its reproducible
+application to saved long texts. The equation specializes an existing
+remainder-based construction principle to fixed editing positions.
+
+\section{Task and evidence}
+\label{sec:task}
+
+For rendered text $x$, $\norm{x}$ retains only the ASCII letters
+\code{A--Z} and \code{a--z}, then lowercases them. In particular, it does not
+transliterate non-ASCII characters. Let $\rev(s)$ reverse a string $s$.
+We require a nonempty tape and
 \begin{equation}
-  \norm{x}=\operatorname{letters}(\operatorname{lower}(x)),
+  \norm{x}=\rev(\norm{x}).
 \end{equation}
-and require $\norm{x}=\rev(\norm{x})$.  Punctuation and spacing are displayed
-for readers but cannot change the equation.  The target is an intact,
-multi-clause passage of at least 100 normalized letters; the familiar
-38-letter seed is used only as a development benchmark.
+All lengths in this paper count normalized letters. Spaces, apostrophes,
+and punctuation remain visible in the rendering but contribute no letters.
+We preserve the saved wording when displaying an example; punctuation is
+never used to hide a character edit.
 
-The hard gate has four independent parts.  First, a standard-library
-two-pointer check and a separately implemented forward/reverse hash check
-must agree.  Second, the provenance ledger must show that the text was
-constructed by the current method, with no catalogue import, scaffold
-relexicalization, repeated multiword unit, word-order reflection, or
-self-palindromic word/span.  Third, the rendering must be ordinary prose with
-distinct lexical choices, not a list or fragment.  Finally, blinded readers
-must judge it readable and coherent.  Programmatic language scores can rank
-or diagnose candidates; they never certify the last condition.
+\paragraph{Mechanical and linguistic outcomes.}
+We treat an exact construction as an established mechanical result even when
+it contains repeated phrases or poor syntax. Those properties remain
+documented targets for revision. A stronger claim of readable English would
+require evidence that people can follow the wording and recover its events.
+Automatic scores and grammar templates can diagnose particular language
+properties; we reserve the readability claim for reader evidence.
 
-The current evidence must be reported with two separate maxima.  The best
-admitted exact, original, coherent, shortcut-free candidate is the 38-letter
-benchmark, ``An aide rips nine memos; some men inspire Diana.''  The ledger
-also contains longer exact diagnostics: the most human-looking is the
-44-letter ``Was Noel an era, a gas, an item? Met in a, saga, arena, Leon
-saw.'', while named v4 diagnostics reach 47, 50, 56, 66, and 132 letters.
-Historical artifact files contain a 142-letter exact but visibly fragmented
-row, and a synthetic totality harness reaches 100,001 exact fallback letters;
-neither is English output.  The human-looking and named rows are quarantined
-for malformed prose, incoherence, proper self-palindromic spans, aligned
-semordnilap chains, or an embedded copy of the 38-letter anchor.  We therefore
-do not describe 38 as the global mechanical maximum; it is the current
-maximum under the paper's actual admission gate.
+\paragraph{Provenance.}
+Each audited row identifies a saved source object, its complete rendering,
+and a digest of the normalized tape. Parent links distinguish inherited text
+from local additions. A check that a proposed phrase is absent from an earlier
+repository snapshot establishes only archive-relative novelty. It cannot
+establish that the phrase was never previously written, or that every
+inherited motif is original. Familiar palindrome motifs and reversible word
+pairs occur in the long examples. We make no claim that these passages are
+free of such building blocks.
 
-\section{A working construction loop}
-The constructor maintains a state
-$(L,R,d,\sigma_L,\sigma_R,\rho)$, where $L$ and $R$ are the committed left
-and right tapes, $d$ is the vector of mirrored character debt, $\sigma$ stores
-grammar and agreement state, and $\rho$ is the semantic scene graph.  At each
-step it (i) chooses a typed scene slot or boundary, (ii) proposes a short
-ordinary word or inflection compatible with $\sigma$ and $\rho$, (iii) updates
-the opposing character obligation immediately, and (iv) retains the best
-frontier by length and unresolved debt.  A new branch may choose a different
-semantic slot, resegment a boundary, change a dependency seam, or alter an
-inflection/clitic boundary.  A run is not counted as progress when it merely
-resamples the same lane or duplicates a prior signature.
+\paragraph{Scope of the snapshot.}
+The evaluation is a retrospective selection of eleven saved examples from a
+development archive. Selection covers an inherited short reference, a
+54-letter noun-phrase candidate over an inherited open frame, a 498-letter
+overhang-search output included as contextual evidence, the 568-letter parent, two
+asymmetric-seam children, the searched 672-letter child, and the
+640--752-letter editing sequence. It is a case study of these mechanisms,
+not a random sample or a census of all attempted methods. File-name date
+suffixes are identifiers; the audit pins file contents rather than using
+those suffixes to infer chronology. We do not aggregate unrelated search
+counters into a success rate.
 
-This is a character-constrained generation problem in the spirit of prior
-palindrome enumeration and lexically constrained decoding
-\citep{papadopoulos2015palindromes,hokamp2017grid,lu2022astar}, but the
-character obligation is coupled to a live scene and grammar rather than
-applied after a sentence has been written.
+\section{Residual-constrained seam editing}
+\label{sec:method}
 
-The ten lanes are intentionally different views of this same loop:
-character-level LM decoding; exact-tape grammatical resegmentation;
-dependency-tree seam CSP; agreement-carrying morphology; CFG/Earley character
-intersection; a human-authored scene lattice with live equations; semantic
-valency and attachment; inflectional and clitic boundary search; a flat,
-compositional grammar without nested palindrome spans; and semantic slot
-substitution.  Each lane writes its rendered text,
-normalized tape, independent checks, source hashes, novelty result, and a
-concrete next construction to a JSON artifact.
+\subsection{Representation}
 
-\section{Evidence-guided construction branching}
-\label{sec:dream-rsi}
-Dream-RSI treats accumulated discovery history as a replay simulator for
-exploration policies \citep{zheng2026dreamrsi}.  We use that idea only as an
-orchestration layer for choosing the next genuinely new constructor, not as a
-generator, post-hoc editing objective, or automatic readability judge.  Each completed
-lane contributes a node containing its rendered surface, independently
-recomputed exactness, residual signature, provenance, and next construction
-topology.  A deterministic policy frontier is trained on one parity split of
-these nodes; the selected policy is evaluated on held-out nodes and then used
-to route the next live constructor.  Exactness and reader status are never
-replay rewards.
+The editor maintains the rendered parent $x$, its normalized tape $p$, and a
+mapping from each tape position to the corresponding character in $x$.
+An edit record stores two intervals or insertion positions, the proposed
+wording, and a residual. An owner identifies the word or clause to which a
+character belongs; grammar annotations can record a missing argument,
+unresolved attachment, or incomplete word. In the authored experiments these
+annotations are supplied with the edit. They are not the output of a general
+English parser or semantic verifier.
 
-The live operator is masked-span infilling.  A state freezes already matched
-outer character assignments, identifies the first unresolved seam, and
-reopens the seam-owning typed constituents on both sides.  Reopened spans may
-change lexical content, inflection, and word boundaries; all other assignments
-remain fixed.  Narrow one-slot and wider constituent policies are compared in
-replay before held-out deployment.  The current rounds render complete scene
-traces such as ``The careful baker records a blue map near the harbor. A young
-gardener carries winter herbs after class.'' (85 letters, 33--35 unresolved
-character pairs) and ``At first light, the keeper marks the signal, while the
-sailor notes the route, by the inlet.'' (72 letters, exactness false).  These
-surfaces are construction evidence, not promoted palindrome examples: each
-carries its generator hash, independent pointer/SHA audit, and the next
-geometry-changing construction.
+The separation matters at a partial-word seam. If a retained substring begins
+inside a word, its first characters are already committed. A new proposal
+must complete that word without duplicating or deleting them. Punctuation
+and whitespace must then be rendered at the corresponding raw positions.
+Earlier recipes explicitly retain boundaries such as \code{m|e},
+\code{op|en}, and \code{i|ts}; their validity comes from the complete
+character equation, not from treating either fragment as an English word.
 
-The latest typed-relative CFG branch changes the grammar topology before any
-surface is rendered: 80 typed relative-clause phrases are intersected with
-309,680 variable boundary shifts and live equations, all of which prune before
-a complete rendering.  A separate valency-indexed phrase-graph branch renders
-540 paired-clause diagnostics (maximum 80 letters) from 180 graph edges and
-three boundary shifts.  Its strongest surface duplicates and fragments a
-clause, so it is quarantined rather than sent to readers.  These two branches
-provide distinct next states---dual relative attachments and an incremental
-valency edge trie---instead of repeating a larger sweep.
-Between them, the semantic-cadence branch retained four vivid scene
-diagnostics to 121 letters after eight seam prunes while carrying held-out
-animate/inanimate role alternations.  It also produced no exact closure; its
-next state is tense-compatible cadence slots, so its prose is evidence for
-the constructor and not a readability claim.
+\subsection{An asymmetric seam equation}
+\label{sec:equation}
 
-The following three held-out branches keep the same gate while changing the
-construction state.  Tense-compatible cadence growth retains four vivid
-diagnostics to 121 letters; an incremental valency edge trie retains 15,360
-ordinary-clause controls to 53 letters; and a dual-relative antecedent graph
-retains 72 complete scenes to 108 letters.  All three have zero exact rows
-above the 38-letter anchor, so their surfaces remain quarantined diagnostics.
-Their next states are aspect-compatible cadence, synchronized dual tries, and
-typed relative agreement in a residual trie, respectively.
+Write a normalized parent as
+\begin{equation}
+ p=AqC\rev(q)\rev(A),\qquad C=\rev(C),
+\end{equation}
+where $q$ is a retained \emph{seam bridge}, already mirrored in the parent.
+It is not a mismatch in that parent. The offset between editing positions
+makes it part of the new spelling obligation. Insert $U$ immediately after $A$ and
+$V$ immediately after $C$. The proposed tape is
+\begin{equation}
+ p'=AUqCV\rev(q)\rev(A).
+\end{equation}
+The local closure condition is
+\begin{equation}
+  Uq=q\rev(V).
+  \label{eq:seam}
+\end{equation}
+For equal-length insertions $|U|=|V|$, this condition is necessary and
+sufficient for $p'$ to be palindromic.
 
-The subsequent aspect-compatible cadence, synchronized paired-valency, and
-typed dual-relative residual branches likewise retain only quarantined
-controls: they produce four diagnostics to 121 letters, 12 paired controls to
-119 letters, and 72 scenes to 88 letters, respectively, with no exact row above
-the anchor.  Their construction states are explicit next steps rather than
-reader evidence.
+\paragraph{Proof.}
+The outer $A$ and $\rev(A)$ cancel in the forward/reverse comparison.
+The two sides surrounding $C$ have equal length. They agree exactly when
+$Uq=\rev(V\rev(q))=q\rev(V)$. The remaining center $C$ is already a
+palindrome. The argument is reversible. $\square$
 
-The voice, asymmetric-tense, and lexical-edge branches keep the same
-reader-first gate while changing the carried state: four voice diagnostics to
-121 letters, 36 tense-conditioned controls to 137 letters, and 48 lexical-edge
-diagnostics to 100 letters.  None has an exact row above the anchor; each is
-retained only to drive the next construction.
+The equal-length condition is essential for the stated equivalence: with
+unequal insertions, the center may move, so this equation remains sufficient
+but need not be necessary. The formula also includes an ordinary symmetric
+insertion when $q$ is empty. This theorem concerns insertion into the stated
+parent decomposition. The later replacement recipes remove old phrase pairs
+and check their new supports and the complete resulting tape. Their saved
+outputs are validated independently; we do not apply the insertion theorem
+to a replacement without first establishing its required decomposition.
 
-The modality, residual-buffer, and chained-role branches continue this
-construction-first progression: four modal diagnostics reach 121 letters, 36
-buffered paired controls reach 137 letters, and 72 alternating-role scenes
-reach 155 letters.  None has an exact row above the anchor, so none enters the
-reader package; each supplies the state for the next topology.
-
-Polarity-conditioned cadence, synchronous residual consumption, and the
-three-edge tense transition continue to supply bounded, inspectable states:
-four diagnostics to 121 letters, 36 paired controls to 137 letters, and 192
-scenes to 195 letters.  Their exact-above-anchor counts remain zero, so the
-surfaces stay outside the reader package while the next constructions are
-explicitly recorded.
-
-The evidential, residual-mismatch, and four-edge aspectual branches extend the
-same audit trail to 121, 137, and 238 letters respectively.  Their exact
-counts above the anchor remain zero; the bounded fallback is explicitly
-diagnostic-only, and none of these controls is reader-facing.
-
-The discourse, optional-adjunct, and aspectual-automaton branches continue to
-separate construction evidence from reader evidence: their longest diagnostics
-reach 121, 148, and 127 letters, respectively, while exact-above-anchor counts
-remain zero.  The optional edge and aspect states therefore remain active
-search topology, not promoted prose.
-
-The quotation, two-adjunct scope, and dual-aspect branches extend the same
-construction state without relaxing the gate: their diagnostics reach 121,
-161, and 127 letters, respectively, while exact-above-anchor counts remain
-zero.  They remain outside the reader package and supply the next topology
-for each lane.
-
-For length scaling, the same constructor can grow a recursive discourse spine,
-\(\textsc{Spine}\mathrel{::=}\textsc{Event}\ (\textsc{TypedAdjunct})^*\).
-Each adjunct is a complete, semantically attached temporal, locative,
-instrumental, or causal event sentence.  The derivation state carries the live
-outer-character equation and chooses a fresh typed adjunct or reopens an
-existing adjunct boundary at the first unresolved pair.  Across the current
-construction rounds this grammar produced intact prose at requested 100,
-150, 200, and 300-letter targets (roughly 170--394 letters after
-normalization, depending on the live center and adjunct choices); none was
-exact.  The constructor now retains a residual-ranked frontier over center,
-first-adjunct, and terminal-adjunct choices, with duplicate-adjunct rejection.
-This is a scalable construction mechanism and a concrete frontier, not
-a length-based admission shortcut: every target still requires the independent
-exact gate and, only after survival, the blinded reader gate.
-
-Replay makes the search policy scalable without turning a score into a
-readability claim.  A fresh branch can spend its bounded budget on a new
-constituent geometry instead of resampling a completed sentence.  Only a novel
-exact row with intact prose enters the randomized intact-versus-shuffled reader
-study.
-
-\paragraph{Latest Dream-RSI evaluation.}
-On the 2026-09-18 snapshot, the registry-corrected round 118 replayed 573
-worlds and 21,806 independently audited nodes; the held-out
-mismatch-first policy remained at 0.780 and produced zero admissible exact
-rows.  A fresh deployment of that policy generated an eight-node branching
-tree (not a replay duplicate).  Its intact, provenance-traceable controls
-include ``The theater archivist found a torn playbill in a locked drawer,
-carried it to the reading table, and marked the missing cast names before the
-house lights rose.'' (130 normalized letters, 60 mismatches) and ``The stage
-archivist retrieved a torn playbill from a locked drawer, carried it to the
-reading table, and marked the missing cast names as the house lights dimmed.''
-(132 letters, 62 mismatches).  All eight controls are exactness-false under
-the independent two-pointer and forward/reverse SHA-256 audits; none is
-reader-certified.  The next reader-facing test is therefore still gated: it
-will randomize any future exact survivor with an intact/shuffled pair and
-blinded raters, rather than treating replay residuals as readability evidence.
-
-The current live constructor is now evaluated on fresh role-bearing
-topologies rather than larger replay sweeps.  An asynchronous three-way join
-keeps agent, theme, and attachment residuals separate and retains broad
-English controls to 97 letters; possibility-modal and modal-scope branches
-likewise preserve intact lexical and agreement states while consuming the
-character equation online.  Independent semordnilap-scene and synchronous
-clause-growth branches likewise retain intact controls from 71 to 96 letters;
-these surfaces remain construction controls until
-an exact closure survives the no-shortcuts audit.  Their concrete next
-operators---cross-stream synchronization, probabilistic modal scope, and new
-typed attachment states---are recorded with immutable artifacts so that every
-failed run changes the constructor rather than becoming a negative-result
-claim.
-
-The next construction turn changed the search geometry rather than enlarging
-that replay.  A grammar-aware seam enumerated 3,456 fresh complete scene
-frames around the withheld 38-letter benchmark and found no reflected frame
-pair; six typed semordnilap residual repairs also closed zero seams.  The
-resulting typed reflected-residual chart then grew two scene frames from
-opposite character edges, carrying debt across word boundaries while checking
-agreement and transitivity before closure.  It expanded three live states
-across three frame pairs and found zero exact rows.  Its fresh controls were
-67--68 letters and are reported only as independently audited, human-unreviewed
-prose.  These failures select the next constructive operator---a
-role-preserving lexical-category transition at a live boundary---rather than
-relaxing exactness or promoting a fragment.
-
-We then closed an implementation gap in the denoising hypothesis itself.  A
-cached GPT-2 policy was actually queried for 12 complete seam spans, and a
-bounded lexical chart independently resegmented each reflected residual.  The
-12 resulting surfaces are exact by construction and range from 86 to 120
-normalized letters, but none admits a lexical segmentation on the reflected
-side, so zero are shortcut-free admissions.  Their model scores are routing
-signals only; no row is reader-certified.  The 38-letter user sentence used
-to keep the first tape exact is explicitly bootstrap structure rather than a
-claimed novel output.  The next constructive repair therefore replaces that
-scaffold with two independently model-authored boundary clauses and carries
-the residual chart across both seams before any reader study.
-
-The corresponding Dream-RSI replay ingested those saved model worlds as
-alternatives rather than as a larger sweep.  Across 21,990 independently
-audited nodes it retained 120 exact-but-fragment controls and zero admissible
-exact rows; the held-out mismatch-first policy stayed at 0.780.  This is a
-policy-selection result, not a readability result, and it sends the next
-construction turn to a two-boundary model-authored scene with no bootstrap
-sentence in the output.
-
-That two-boundary turn queried the local language model independently for eight
-left and eight right complete clauses, then crossed them into 64 fresh worlds.
-The seed sentence was absent from every rendered surface.  The best intact
-pair was 58 letters and none was exact; the first residual is therefore a
-complete-word obligation for the next operator rather than a reason to relax
-the gate.
-
-A separate discourse operator tested a polar question followed by a
-topicalized answer, with typed word-boundary resegmentation.  It yielded 148
-exact diagnostic rows of 42--46 letters.  The longest cross-boundary row was
-``Was Noel an era, a gas, an item? Met in a, saga, arena, Leon saw.''  Its
-two-pointer and forward/reverse SHA-256 checks agree, but it is rejected by
-the strict gate because it contains a proper palindromic island; none of the
-148 rows is reader-ready.  The next construction jointly authors a complete
-answer clause and rejects every proper palindromic subspan before closure.
-
-The latest constructive branch makes the character-orbit index explicit in
-the grammar state.  An independently authored scene lattice indexed exposed
-character classes and phrase boundaries, producing the intact 103-letter
-control ``Two patient cartographers observe weather in the upland pass beside
-the unlit ferry, because observation grounds setting.'' (exact emph{false})
-and zero closures.  A typed center-state WFST then carried agreement,
-valency, odd/even center parity, and clause depth through 120 rendered
-controls to 101 letters, again with zero exact closures.  A separate
-character-orbit residual product exposed 40 mechanical closures, but all were
-rejected before admission; its strongest exact-looking row repeated a famous
-palindrome unit and was therefore not a candidate.  These branches change the
-search representation rather than reranking completed tapes; their next
-operator adds typed relative and discourse-relation transitions inside the
-same live residual state.
-
-The lexical reverse-automaton lane tests the API-inspired indexing idea under
-a stricter linguistic boundary.  It builds a reverse trie from Brown token
-and part-of-speech frequencies only, then intersects that trie online with
-independently generated typed complete clauses.  The run rendered 2,058
-clause states and visited 2,401 online states, reaching 74 letters but no
-exact-clean closure above the 38-letter benchmark.  Because Brown sentence
-context is never emitted, this is a construction experiment rather than
-borrowed prose; its next step expands held-out role classes while retaining
-the live trie intersection.
-
-Three additional Luna lanes test whether the remaining failure is the choice
-of linguistic state rather than the character equation itself.  A semantic
-role-skeleton CSP lazily assigns transitive, intransitive, and copular roles
-inside the opposing-character state, producing ten complete controls to 39
-letters.  A bilateral discourse-graph CSP carries relation, tense, agreement,
-and attachment through 408 frontier nodes and produces 288 complete controls
-to 73 letters.  Finally, an unequal-center grammar intersection explicitly
-allows in-word centers and unequal word boundaries, evaluating 129,600 paired
-grammar states and rendering controls to 94 letters.  All three lanes have
-zero exact-clean closures above 38 letters.  They therefore narrow the next
-construction: add a second typed boundary or attachment state without
-relaxing the live equation, rather than widening a completed-tape reranker.
-
-Held-out follow-ups sharpen these boundaries without changing the acceptance
-gate.  The relative-attachment graph adds an antecedent-number feature and
-renders 192 complete controls to 85 letters; the unequal-center product adds
-32 ditransitive and 64 object-relative paths, rendering 20 intact controls to
-142 letters; and the role CSP's two-character temporal/instrumental seam
-reaches the live boundary ``an|an'' across eight controls to 46 letters.  All
-three remain non-exact.  The next operators are an object-gap relative edge,
-benefactive/subject-relative valency alternatives, and a relative-temporal
-edge respectively.  These are held-out grammar productions, not post-hoc
-repairs or larger reranking queues.
-
-The next object-gap relative edge preserves the same graph state and yields
-192 complete controls to 87 letters, but no relative-object slot survives the
-live equations.  The relative-temporal boundary experiment then confirms
-that the earlier ``an|an'' seam has no third-character continuation: two
-two-character survivors are pruned at the third character, leaving eight
-controls of 57--64 letters and no closure.  These failures are useful because
-they identify the exhausted character frontier before center enumeration;
-they do not justify promoting the separate 286,199-letter dynamic-inventory
-control, whose exact tape is catalogue-like word salad rather than prose.
-
-The held-out benefactive/subject-relative extension adds 64 to-dative, 64
-for-benefactive, and 32 subject-relative paths.  It renders 24 complete
-controls to 119 letters while carrying 16,896 unequal-word and 22,806
-unequal-letter pairings, but it also has zero seam closures.  Its successor is
-a temporal subject-relative production with future/perfect tense, selected
-because it changes the grammar state rather than merely widening the same
-lexical inventory.
-
-That temporal successor uses 162 future-perfect subject-relative paths and
-26,244 paired grammar states, with independently authored before/by temporal
-adjuncts and live unequal-boundary and in-word-center cursor states.  It
-renders intact controls to 177 letters but has zero exact closures.  In
-parallel, a boundary-diverse instrumental-relative edge was admitted only
-after the prior ``an|an'' frontier check: its new endpoint class is
-``ar|ar'', with 11 live states, 14 equations, four two-character survivors,
-and six intact controls of 65--70 letters, again with zero closure.  These
-lanes change typed grammar state or endpoint class; neither is a lexical
-reranking sweep or a reader claim.
-
-The discourse graph's next edge adds a right-side benefactive gap whose
-antecedent is a typed recipient (``for whom'') rather than an overt repeated
-benefactive.  It preserves the preceding lexical bank, visits 136 online
-nodes, prunes 96 live character mismatches, and renders 192 complete controls
-to 108 letters.  No exact closure survives, so its recorded successor is a
-new instrumental/source-gap edge rather than a repair or a replay.
-
-That source-gap successor uses a typed overt source antecedent and a
-``from whom'' relative, with the same 136-node graph and 96 live character
-prunes.  It renders 192 complete controls to 110 letters and independently
-replays 24 retained audits without disagreement; it also has zero exact
-closures.  The temporal branch separately adds a held-out matrix
-future-perfect clause and since/after adjuncts: 162 paths, 26,244 paired
-states, and controls to 186 letters, again with no exact closure.  Its next
-operator relocates one temporal adjunct to matrix attachment, changing the
-topology instead of widening the lexical bank.
-
-We also tested a scalable reverse-segmentation construction on the remote
-bench.  A simultaneous forward-clause/reverse-clause trie initially stopped
-at its root because the authored clause endpoints had no compatible initial
-and final characters.  The concrete repair authored adjuncts with overlapping
-endpoint classes and indexed them before intersection; this reached four live
-trie states and two frontiers but still no complete pair.  The evidence is
-useful because the repair changes the construction precondition rather than
-reranking failed tapes; the next step is a new PP/relative template with a
-third endpoint class.
-
-We then revisited two 39-letter exact rows surfaced by an earlier broad POS
-intersection.  They looked longer than the 38-letter benchmark, but both were
-malformed agreement controls: determiner--noun and subject--verb number did not
-unify.  The typed-agreement replay carried those obligations in the residual
-state before character closure rather than checking them after a tape was
-finished.  Across five asymmetric clause templates it visited 1,981 nodes and
-found zero agreement-valid exact closures or reader candidates.  This is a
-concrete false-positive repair: the rows remain in the diagnostic ledger,
-while the next construction adds transitive/intransitive valency to the same
-live residual key.
-
-The implementation also exposes an explicit totality witness for arbitrary
-requested lengths.  This witness is useful for testing the state machine but
-is tagged as non-reader output and cannot satisfy the admission gate.  Thus
-termination of the software is never confused with success of the linguistic
-task.
-
-\section{Current rendered evidence}
-Table~\ref{tab:lanes} gives one fresh surface for each lane family.  These are
-actual outputs, not templates; lengths count normalized letters.  Exactness
-and readability status are shown together so that a high-scoring but invalid
-surface cannot become a headline result.
-
-\begin{table*}[t]
-\centering
-\scriptsize
-\begin{tabular}{@{}p{0.20\linewidth}p{0.34\linewidth}p{0.06\linewidth}p{0.05\linewidth}p{0.23\linewidth}@{}}
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lr}
 \toprule
-Lane family & Rendered surface & Letters & Exact & Next repair \\
+568-to-630 edit component & Letters \\
 \midrule
-LM + tape & the careful teacher guides a young visitor; a patient sailor carries the red lantern & 70 & no & held-out LM boundary proposals \\
-Dependency + morphology + CFG & Ava saw radar level civic; civic level radar was Ava & 42 & yes$^\dagger$ & typed boundary resegmentation / fresh frame \\
-Scene lattice & At dawn, the patient guide carries a red map to the waiting child. & 52 & no & replace one typed object slot \\
-Valency / attachment & By noon, the careful nurse labels the sealed vial for the quiet ward. & 55 & no & preserve valency while changing object/attachment \\
-Inflection / clitic & After rain, the young keeper opens the old gate beside the garden. & 53 & no & held-out inflection-boundary repair \\
-Flat composition / slot repair & At dawn, the patient guide carries a blue chart to the waiting child. & 55 & no & satisfy the global character obligation \\
+Outer prefix $A$ & 16 \\
+Retained bridge $q=\code{nora}$ & 4 \\
+Retained palindromic center $C$ & 528 \\
+Left insertion $U$ & 31 \\
+Right insertion $V$ & 31 \\
+\midrule
+Parent: $2|A|+2|q|+|C|$ & 568 \\
+Child: $|p|+|U|+|V|$ & 630 \\
 \bottomrule
 \end{tabular}
-\caption{Representative outputs in the 2026-09-16 ledger.  $^\dagger$The
-42-letter seam is exact under both independent checks but is rejected because
-it repeats self-palindromic words, mirrors word order, and fails the distinct
-word gate.  The other rows are fresh ordinary prose and are retained as
-repairable frontiers, not as palindrome claims.}
-\label{tab:lanes}
-\end{table*}
-
-The aggregate also records a 1,922-letter recursive clause-growth diagnostic;
-it is retained as a scalability probe, but fails exactness and the repetition
-and length gates, so it is not a reader-facing result.  Among the complete
-prose frontiers, the CFG/Earley lane reaches 270 letters and the character-LM
-lane reaches 227 letters; neither closes exactly.  A tape resegmentation lane
-also found the 21-letter catalogue
-control ``a man a plan a canal panama''; its exactness is independently
-confirmed, but catalogue provenance excludes it.  These controls are useful
-for checking the gates, never for inflating the result set.
-
-Three further search-space probes are retained as separate, non-duplicate
-construction evidence.  The simultaneous grammar-product beam emits complete
-typed scenes such as ``The young keeper carries a blue lantern and rests
-quietly beside the garden as evening falls.'' (77 letters); its live
-reverse-character ledger and independent two-pointer audit both report
-non-exactness, and its next repair seam-relexicalizes the follow-up to consume
-the outstanding obligation.  An initial reverse-tape trie
-boundary beam produced the exact surface ``no one was at home | em oh ta sa we
-no on'' (28 letters; forward/reverse SHA-256 agree), but the right side was
-visibly fragmentary.  The tagged-POS, frequency-filtered follow-up correctly
-returned no complete clause rather than relabeling a fragment as prose; its
-next repair expands attested subject/verb/object senses without lowering the
-frequency floor.
-Finally, immutable-tape dynamic-programming resegmentation yields exact
-132-letter paths such as ``tr ad er are wa st em et ...''; lexical admission
-rejects these fragments, and a clause-bigram model on a fresh exact tape is
-the next test.  Each row stores its source file, construction choices, two
-independent checks, novelty preflight, and repair operator; none is presented
-as readable output.
-
-The latest typed-frame repair adds the fresh 40-letter sentence ``The baker
-carries a letter near the quiet harbor.''  Its eight live obligations remain
-open, while every mechanical quality check other than exactness passes.  The
-next run changes only the adjunct boundary lexeme selected by the first
-residual obligation.  That targeted repair changes ``near'' to ``by'', yielding
-``The baker carries a letter by the quiet harbor''; it remains non-exact at 38
-letters, below the mechanical length floor, and records the determiner slot as
-the next repair.
-
-Two further joint searches extend the constructive evidence.  A central-pivot
-CSP retains the intact 113-letter pair ``The archivist records the carefully
-folded winter map at dawn. A patient sailor observes a weathered cedar rescue
-boat beside the river.''  Its first mirrored characters already disagree, so
-both independent audits reject it.  A semantic-slot lattice renders 108
-jointly selected states and prunes all 108 before admission.  A bidirectional
-decoder also reproduces the 51-letter ``Doc, note: I dissent.'' palindrome,
-but the provenance gate identifies it as catalogue text and keeps it out of the
-result set.
-
-The word-pair graph contributes a 164-letter intact scene frontier but no
-closure.  Paired semantic mutation produces two fresh 61-letter controls and
-no closure.  Finally, weighted reverse-tape segmentation retains two authored
-103--104-letter clauses but finds no legal segmentation.  These runs are
-separate construction states; each leaves an explicit repair rather than being
-counted as a larger duplicate sweep.
-
-A residual repair then produces a 239-letter four-clause scene from fresh
-independent clause authoring; its first boundary remains unmatched under both
-audits.  A separate semantic-slot repair adds two new 108--109-letter scenes,
-again with complete slots and no exact closure.  Both are retained as the next
-reader-facing controls and specify a local boundary or paired-slot repair.
-
-The character-LM grammar decoder retains a 77-letter legal-prose frontier.  A
-new dependency-seam CSP adds a 105-letter typed scene, and an agreement-carrying
-morphology/clitic transducer adds a 122-letter scene.  All three are fresh,
-ordinary-order constructions with independent audits and explicit repairs;
-none closes the global character equation.
-
-The joint CFG/Earley intersection adds one 140-letter scene from a paired
-bidirectional chart.  A 729-row cross-product variant is explicitly excluded
-as a duplicate sweep, preserving its evidence without counting it as progress.
-The rendered controls are ``a patient child carries the river trail at dusk.
-the keeper opens old wooden gates before dawn,'' ``The patient archivist
-carefully maps a quiet museum archive before dawn. Curious visitors study faded
-stars beside the river,'' ``When the careful archivist restores the damaged
-ledger, she records each witness name and sends the sealed copy to the harbor
-office before winter,'' and ``The patient gardener waters the cedar seedlings
-beside the schoolhouse before sunrise The teacher labels every seedling and
-stores the tools beneath the quiet porch.''  Their independent audits all
-reject exactness; each has a named local repair and remains reader-ineligible.
-
-The hand-authored clause lattice then aligns five fresh complete clauses across
-word boundaries, with an explicit all-different content-word gate.  It yields
-the longest current intact-prose frontier (308 letters): ``Mara carries warm
-bread to the river. The careful pilot studies cloud maps. Children gather
-bright shells by moonlight. A gardener shelters young cedar shoots. Old
-friends share stories beside fire. By the hearth, new tales begin. Near the
-grove, small finches settle. At twilight, the patient tide returns. Beyond the
-hills, a quiet engine waits. At the shore, Owen listens for bells.''  The
-independent pointer and forward/reverse SHA checks disagree at the first
-character, so it is explicitly non-exact and non-admitted.  Its provenance,
-fresh lexical bank, and next semordnilap-compatible slot repair are recorded
-in the run artifact; it is a reader-facing control, not a palindrome claim.
-
-Three follow-up constructions add new state representations rather than larger
-sweeps.  A boundary-conditioned finite-state resegmentation produces a
-270-letter six-clause scene; a dependency-boundary CSP exposes 127 live
-character equations in a marine-biologist scene; and a residual semantic-slot
-lattice produces a 122-letter observatory scene while locking valency,
-agreement, and content-word uniqueness.  Each has a first-mismatch pointer
-trace, unequal forward/reverse hashes, fresh provenance, novelty preflight, and
-a targeted next repair.  None is exact or mechanically admitted.
-
-The outside-in scene grammar was then repaired to use distinct held-out right
-frames instead of reflecting a left clause. Its longest pair is ``At first
-light, the marine biologist records patient observations beside the sheltered
-tide pool. At dusk, the coastal engineer maps hidden channels.'' (124 letters);
-six fresh 102--124-letter prose pairs survive an all-different content-word
-filter. An exact-tape-first control
-does close on ``Able was I; I saw Elba,'' but novelty and length gates exclude
-that known 16-letter catalogue sentence; a fresh 72-letter exact tape is also
-excluded because its reflected half is gibberish. Finally, a ten-clause residual solver
-retains a 355-letter clinic scene: ``At first light Mara opens the clinic,
-checks the quiet generators, greets the two nurses, and records the medicine
-count. She carries clean water to the waiting room, labels each parcel, phones
-the mountain driver, updates the weather board, thanks the volunteers, and
-closes the ledger before dusk. After supper she inventories the blankets,
-answers the radio, repairs a torn notice, and leaves clear instructions for the
-morning shift.'' All three results carry independent audits,
-provenance, and novelty records; none is mechanically admitted. A finite
-clause automaton adds a 109-letter archivist/visitor scene, a typed
-semordnilap lane adds a 100-letter baker near miss beside the rejected short
-``Stressed desserts.'' control, and a two-sided discourse equation adds a
-156-letter Nora/harbor scene. These lanes retain dual audits and targeted
-repairs but no mechanically admitted output.
-
-The fresh ten-lane rerun keeps the construction dimensions separate.  The
-character-LM beam emits a 227-letter archival scene; immutable-tape boundary
-DP retains a 75-letter prose fallback after finding no grammatical segmentation;
-dependency seam CSP, agreement morphology, CFG/Earley intersection, and a
-live human-authored scene lattice emit 123-, 155-, 270-, and 117-letter scenes;
-typed valency/attachment and semantic slot repair emit 100 and 170 letters;
-and flat compositional grammar reaches a 208-letter action sequence without
-nested palindrome spans.  Each row is rendered and independently pointer/hash
-audited with provenance, novelty preflight, and a named repair.  A 126-letter
-exact surface from the inflection/clitic lane is quarantined because it repeats
-the catalogue clause ``A man, a plan, a canal, Panama.'' six times; it is not
-counted as generated readable evidence.
-
-The subsequent held-out inflection/clitic repair replaces that repeated unit
-with a distinct 128-letter harbor scene carrying plural, past-tense, and
-possessive-clitic registers.  Its pointer and hash audits still reject exact
-closure, but the route demonstrates a concrete anti-shortcut repair rather
-than accepting the duplicate control.
-
-Three post-audit continuations extend the construction state without widening a
-duplicate sweep: a free-center semantic machine (138 letters), an independent
-phrase-level reverse parser (nine 116--118-letter probes), and a finite-domain
-clause-equation SAT model (116 letters).  Their rendered clauses, independent
-pointer/hash audits, provenance, novelty preflight, and named repairs are
-included in the evidence ledger; none reaches the reader gate.
-
-The newest outside-in role-phrase equation lane adds a distinct constructive
-state rather than another duplicate sweep.  It expands 256 fresh role-typed
-phrase pairs while checking the live outer character obligation before each
-completion.  Its best intact rendering is ``The weathered cartographer examines
-a fragile sextant beside the northern observatory. A patient instrument maker
-restores a brass chronometer inside the maritime archive.'' (147 normalized
-letters).  An independent two-pointer comparison and forward/reverse SHA
-check both reject exactness; the run records its lexical choices, anti-shortcut
-flags, novelty preflight, and the next repair at the first open outer role
-phrase.  It is retained as a reader-facing construction probe, not presented
-as a palindrome.
-
-Three additional Luna lanes keep the state spaces orthogonal.  A bounded
-character-LM obligation beam retains 64 representative realizations from
-4,096 bilateral completions; its best is ``The careful archivist studies young
-cedar seedlings inside the village school. A careful cartographer examines
-silver seed cases across the maritime archive.'' (134 letters).  A fresh
-CFG/Earley character-equation forest retains two complete parses, including
-``The quiet botanist studies a folded survey beside the river station. The
-careful cartographer records a weathered notebook before the evening bell.''
-(124 letters).  A first-residual semantic-slot repair lane keeps six complete
-seed/repair scenes, with a 108-letter beekeeper/ranger witness.  All three
-lanes independently reject exactness, preserve provenance and anti-shortcut
-flags, and name a held-out next repair; none is promoted to reader material.
-
-The next continuation adds a center-free equation ledger and an inflectional
-boundary repair.  The center-free lane jointly selects a semantic center after
-choosing the outer clauses and retains ``The quiet engineer tests a repaired
-valve beneath the river bridge. Meanwhile a small lantern warms the reading
-room. A diligent teacher prepares clear lessons for the village school.'' (152
-letters).  The morphology lane preserves five complete SVO/PP scenes and five
-held-out suffix/clitic repairs; its best repair is ``The patient surveyor
-records the northern route near the cedar bridge.'' (59 letters).  Both have
-independent pointer/SHA checks, fresh provenance, novelty preflight, and
-concrete next repairs; neither is exact or reader-eligible.
-
-Finally, a dependency-tree seam CSP expands 64 attachment-compatible scene
-states with distinct agents on the two complete clauses.  Its best rendering
-is ``Two watchful sailors water young seedlings toward the harbor office, then
-The careful archivist repairs the brass lantern beside the north window during
-the long afternoon.'' (145 letters).  The dependency reparse, two-pointer
-audit, and forward/reverse SHA check agree that it is non-exact; lexical
-distinctness, provenance, novelty, and a held-out attachment repair are all
-recorded.  It remains construction evidence rather than a readable-palindrome
-claim.
-
-A held-out dependency-role repair then changes one complete scene by replacing
-the first residual role pair rather than replaying the 64-state CSP.  Its best
-rendering is ``The careful courier delivers folded maps beside the weathered
-shed. The watchful sailor repairs loose rigging near the harbor. The young
-porter carries sealed parcels toward records offices.'' (160 letters).  The
-lexicon and distinctness gates pass, while independent pointer/SHA validation
-still rejects exactness; the artifact records provenance, novelty preflight,
-and a concrete next repair at the second-clause attachment seam.
-
-The following dialogue speech-act, typed morpheme-compound, and first-token
-equation probes add 130-, 68-, and 91-letter ordinary-language renderings.
-They remain diagnostic controls because the first two do not close and the
-morpheme realization also fails the lexicon gate.
-
-An A* typed word-boundary probe retains a 140-letter garden/schoolhouse scene,
-while a single-slot human semantic search retains seven deduplicated
-92--97-letter scenes.  An attested phrase-bridge preflight found no complete
-clause and is excluded.  These outcomes are recorded as bounded construction
-evidence, not as larger duplicate sweeps.
-
-Three further Luna continuations add distinct constructive states: a paired
-lexical grammar renders six fresh 75--82-letter SVO pairs, a free-center
-semantic bridge renders a 109-letter scene, and a productive grammar-pair
-composition grows complete paired productions through 55, 114, 168, and
-223-letter states.  Each has independent pointer/SHA validation, provenance,
-novelty preflight, and a first-residual repair; all remain non-exact and are
-retained as bounded evidence rather than duplicate sweeps.
-
-A typed onset/rime grapheme constructor contributes 12 corrected 37--47-letter
-complete clauses, and a reader-first function/inflection editor contributes
-five 96--104-letter scenes.  Both remain non-exact after independent audits.
-An entailment-preserving active/passive rewrite is retained only as excluded
-failure evidence because novelty preflight found overlap with existing voice
-and information-structure families.
-
-Three additional Luna lanes keep the construction state distinct rather than
-resampling a prior sweep.  A constrained edit program renders four intact
-97--106-letter versions of one cartographer/ranger scene while lowering
-mirrored-character debt from 51 to 44; an append-algebra probe renders four
-complete 28--102-letter clause-growth states and records the suffix-obligation
-invariant; and a discourse-relation involution renders 12 complete 43--56-letter
-cause/effect or contrast propositions.  Each has fresh provenance, a novelty
-preflight, independent pointer/SHA replay, and a named next repair.  None is
-exact or reader-eligible.
-
-The next repair wave adds three more orthogonal states.  A typed semantic
-center-out solver renders 12 complete 95--109-letter scenes; a lexical
-word-equation intersection renders four complete 133--143-letter scenes; and
-a joint slot/boundary repair renders nine complete 45--62-letter scenes.  The
-representative surfaces are ``The patient curator shelters the fragile maps
-during the storm; the careful teacher copies the final field notes beside the
-window.'', ``The curator labels the fragile map before the archivist stores the
-ledger, while rain gathers softly against the western windows and visitors wait
-beside the reading room.'', and ``The quiet curator labels the old faded map
-before dawn.''  Their normalized tapes are independently rejected by
-two-pointer and forward/reverse SHA checks; each run records provenance,
- novelty, and a concrete boundary repair.
-
-Two further Luna lanes keep the search constructive. A character-level beam
-over typed semantic frames emits ``The young botanist studies the silver seed
-cases beside the greenhouse; a careful pilot marks the distant landing lights
-through the mist.'' (115 letters; first mismatch 1; normalized SHA prefixes
-``e57cebaf...'' and ``99cbaec3...''). A fresh CFG/Earley character
-intersection emits ``At first light, the surveyor records the river current
-while the baker warms bread for the waiting crew, and the harbor keeper checks
-the lamps before opening the gate.'' (137 letters; first mismatch 0; SHA
-prefixes ``a24dca02...'' and ``8b577593...''). Both are complete prose with independent
-pointer/SHA checks, provenance, novelty preflight, and a typed next repair;
-neither is exact or reader-eligible.
-
-Three further Luna constructions are retained as fresh states. A paired
-semantic CFG produces a 108-letter two-clause scene; a joint semantic/
-inflection word-boundary DP produces a 109-letter scene with independent
-sentence boundaries; and an online clause-order lattice produces a 151-letter
-four-sentence archive scene. Their rendered surfaces, pointer/SHA audits,
-provenance, novelty checks, and next repairs are recorded in the evidence
-ledger. None is exact or reader-eligible.
-
-The newest bounded continuations change the state representation again. An
-endpoint-aware bilateral seam reserves lexical terminals before interior
-character decoding (six 100--105-letter scenes); a fresh-scene tape/CFG
-intersection keeps boundaries mutable and records a 126-letter lexical repair;
-and a typed semantic-slot neighborhood changes one role-compatible slot in six
-109--160-letter scenes. All retain intact prose, independent two-pointer and
-forward/reverse SHA audits, provenance, novelty preflight, and a concrete next
-repair. None closes exactly, so none is promoted to the reader packet.
-
-The latest constructive continuations add a nested-free slot-boundary DP, a
-held-out semantic phrase-edge joiner, a coupled object/attachment repair, a
-role-typed reversible-clause product, and a POS-filtered reversible-clause
-composer with appendable frame growth.  They produce intact 98--124-letter
-scenes (including a 111-letter harbor/reader clause), keep character equations
-live during construction, and record independent audits, provenance, novelty,
-and the next repair.  They add construction states rather than duplicate
-sweeps; none has yet closed the exact tape.
-
-Two additional fresh states extend this evidence without changing the gate.  A
-seed-free authored-frame insertion lane renders the 83-letter scene ``At dawn,
-the archivist opens the cedar cabinet and records the harbor map, before dusk.''
-An interrogative/relative-template solver renders the 87-letter scene ``Was the
-quiet curator sure that the young pilot had seen the chart I filed beside the
-harbor ledger?''  Both are complete prose with online character obligations,
-independent pointer/hash replays, provenance, novelty preflight, and a named
-repair; neither is exact or reader-eligible.
-
-The newest Luna queue adds three more non-overlapping constructive states.  A
-live mirrored-tape terminal decoder emits six complete 88--103-letter scenes;
-a human-authored attachment CSP emits two 105--107-letter museum scenes; and
-an unbounded bilateral semantic-growth grammar emits three non-repeating
-clause-growth states up to 140 letters.  Each row is independently checked,
-provenance-backed, and paired with a concrete first-residual repair.  None is
-an exact, mechanically admissible palindrome, so none is represented as a
-reader result.
-
-The following queue pass adds three boundary-aware states: an independently
-resegmented reflected-tape grammar (two 103--107-letter scenes), a semantic
-scene equation lattice with asymmetric token counts (two 111--112-letter
-scenes), and a finite-state semantic boundary-macro grammar (three growth
-states up to 74 letters).  These are fresh complete prose rows with
-independent pointer/hash replay, provenance, novelty preflight, and concrete
-residual repairs; none closes exactly or enters the reader packet.
-
-The reset wave then changes the construction state rather than expanding a
-prior sweep. A live CFG/Earley character chart renders six fresh scenes up to
-102 letters; a held-out cross-word seam CSP renders sixteen 62--75-letter
-role-typed scenes without a fixed tape; and POS-shaped seam mining feeds fresh
-authoring of two connected 100--101-letter valency scenes. Each row is actual
-prose with independent pointer/SHA validation, provenance, novelty preflight,
-anti-shortcut checks, and a concrete next repair. None closes exactly.
-
-For audit transparency, the corrected grapheme lane's representative rendering
-is ``The baker repairs the gate; the pilot maps a gate.'' (39 letters, first
-mismatch at 0), while the longest function-edit rendering is ``At dusk, Mara
-carries the blue lantern across the quiet bridge, and Jonah records each
-rescued name so the town archive can open.'' (104 letters, first mismatch at
-0).  Their normalized forward/reverse digests disagree; neither is presented
-as a readable palindrome.
-
-The latest three Luna continuations keep the gate unchanged while changing the
-construction state. Held-out reported-speech frames retain four vivid
-diagnostics up to 121 letters; asynchronous aspect transitions retain 288
-complete controls up to 164 letters; and nested adjunct ordering retains 36
-paired controls up to 161 letters. All three have zero exact candidates above
-38, and their rendered rows remain diagnostic controls rather than reader
-claims. Their immutable artifacts record the next construction as
-narrative-voice frames, explicit residual handoffs, and bounded third-adjunct
-scope, respectively.
-
-The topology reset then changes the construction state rather than extending
-those seams. An author-first semantic lattice explores 27 live scene states up
-to 53 letters; an independent shared-scene clause matcher retains 20
-non-repeated controls up to 53 letters; and a factorized full-clause CSP visits
-5,000 states but reaches no complete two-sided parse (its longest control is
-108 letters). All three have zero exact candidates above 38. They remain
-diagnostic construction traces, with the next states recorded as multi-character
-residuals, a second typed event, and held-out valency frames.
-
-The next queue pass widens those states without editing emitted strings. The
-number-aware semantic lattice carries a two-character residual through
-singular/plural scene frames (36 states, 58-letter diagnostics); the
-valency-alternation CSP adds held-out ditransitive/intransitive agreement but
-reaches no complete parse in 5,000 bounded states; and the two-event scene
-matcher retains 20 non-repeated controls up to 53 letters. All exact counts
-above 38 remain zero, so these traces stay diagnostic-only while their next
-construction topologies are preserved in the run artifacts.
-
-Subsequent continuations keep the same constructive gate while widening the
-state product: benefactive/locative attachment exhausts 5,000 bounded states;
-asynchronous width-two semantic slots retain 58-letter diagnostics; and
-event-order/tense matching retains 20 complete controls up to 65 letters. No
-lane has an exact candidate above 38, so none is sent to readers; each records
-the next live construction rather than editing a failed surface.
-
-The following states continue the same online construction discipline: held-out
-instrument/source attachment exhausts 5,000 bounded states; unequal-slot
-residual carryover retains 58-letter diagnostics; and cross-event temporal
-scope reaches 66-letter controls after 972 online prunes. None closes exactly
-above 38, so these surfaces remain diagnostic traces and the next causal,
-role-conditioned, or recipient-conditioned constructors are recorded rather
-than applied as post-hoc edits.
-
-The next continuations test role and discourse structure directly: recipient/
-theme attachment again exhausts 5,000 bounded states; role-typed residuals
-retain 58-letter diagnostics after 108 labeled steps; and causal/concessive
-scope reaches 69-letter controls after 972 online prunes. Exact-above-anchor
-counts remain zero, and all rendered rows stay outside the reader package until
-an exact, independently validated survivor exists.
-
-The most recent structural states add argument alternation, explicit
-event-to-theme valency, and modal/entailment scope. They reach 108-letter
-ordinary controls, 58-letter role-conditioned diagnostics, and 74-letter
-two-event controls, respectively, while exact-above-anchor counts remain zero.
-These are construction traces only; evidential/polarity and locative relation
-states are queued as new online branches rather than post-hoc repairs.
-
-The subsequent frame and discourse branches reach 108-letter ordinary
-controls, 65-letter locative scenes, and 91-letter evidential/polarity scenes.
-Their exact-above-anchor counts remain zero; each is retained as a construction
-trace with an explicit next state, not as a readability result.
-
-The unified valency lattice retains 64-letter scene controls, while the
-source-attribution and negation branch reaches 105-letter complete controls
-after 19,440 online prunes. Neither produces an exact row above the anchor;
-the next states are quotation/reporting scope and role-preserving residual
-carryover.
-
-Aspect/voice factorization still exhausts 5,000 bounded states; the live
-valency residual retains 64-letter controls; and quotation/reporting scope
-reaches 112-letter controls after 31,104 online prunes. These remain
-diagnostic-only with exact-above-anchor count zero, while the next operators
-change the live state (polarity/aspect, variable residuals, and quotation
-content boundaries) rather than editing a completed string.
-
-The latest quoted-speaker state reaches 147-letter complete controls after
-186,624 online prunes; the two-adjunct residual state reaches 87 letters; and
-the evidential clause topology again exhausts 5,000 bounded states. All exact
-counts above 38 remain zero, so the output remains construction evidence while
-quotation polarity and mixed-valency residuals are explored next.
-
-The next three audited branches keep construction and readability separate:
-discourse-conditioned factorization exhausts 5,000 states with a 108-letter
-intact control; mixed-valency role residuals render 72 controls through 1,008
-residual steps and reach 87 letters; and quotation attitude/polarity scope
-reaches 151-letter controls after 233,280 prunes. None closes exactly above
-38, and the residual controls are explicitly diagnostic rather than
-reader-facing. Their next operators are quotation/discourse alternation,
-role-compatible valency transitions, and attitude entailment/source
-consistency, respectively.
-
-An author-first boundary lane then grew fresh intact clauses independently from
-a shared center while consuming opposite character obligations online. Its 54
-walks retained prose controls up to 67 letters but produced no exact closure;
-the next operator adds a typed third outward edge. This is a new construction
-family, not a post-hoc repair of the earlier strings.
-
-A bounded CFG/Earley intersection provides a second independent construction
-family: five fresh grammar nonterminals were paired under the character-level
-palindrome relation with explicit odd/even center states. All 81 complete
-derivations pruned before exact closure; the longest intact control was 40
-letters. The next operator pairs distinct clause productions under a shared
-semantic frame with residual buffers.
-
-The shared-frame continuation checked 18 paired CFG states and 54 residual
-transitions, while the author-first attachment-order continuation checked 216
-center/outward walks. Both retained intact prose diagnostics but produced no
-exact candidate above 38; their next states add typed agreement and role
-agreement rather than editing an already rendered string.
-
-The held-out reverse-segmentation lane generated 32 complete-forward phrase
- candidates and found no reverse grammar parse, so it produced no exact closure.
-Its longest intact diagnostic was 56 letters; the next state carries typed
-attachment during reverse parsing.
-
-Typed attachment and agreement continuations remain diagnostic: reverse
-attachment checks 32 typed states with no parse, the CFG agreement/adjunct lane
-prunes 108 transitions before a 38-letter closure, and author-first role
-agreement checks 216 states while retaining 80-letter prose controls. Their
-next operators add tense attachment, distinct adjunct roles, and center-predicate
-compatibility, respectively.
-
-The attached-adjunct CFG lane checks 81 typed transitions before closure, while
-author-first semantic compatibility retains 144 prose diagnostics after online
-role filtering. Both remain outside the reader package; their next states add
-distinct adjunct ownership and event/setting entailment.
-
-The dual-owned adjunct lane checks 162 states and 324 boundaries, while
-event-setting entailment retains 108 compatible author-first diagnostics. Both
-remain exact-gated construction traces; the next states add separate residual
-ownership and typed instrument entailment.
-
-Separate adjunct buffers and typed instrument entailment continue the same
-constructive boundary search: 162 buffer states and 54 instrument-compatible
-states retain intact prose diagnostics but no exact closure. Reverse polarity
-attachment likewise finds no reverse parse in 32 typed states. These lanes stay
-outside the reader package while their next operators add asynchronous boundary
-crossing, scope ordering, and evidential state.
-
-The reset to a minimal direct construction was audited separately. A
-first/last-character index over six fresh complete clauses removed every
-incompatible pair before seam checking. A two-seam character-boundary
-automaton then checked 20 clause pairs and accepted no boundary, while a
-two-step held-out continuation made nine online choices and retained controls
-to 73 letters. These are distinct boundary topologies, not larger semantic
-state products; none produced an exact closure above 38.
-
-In parallel, a fresh author-first vivid-scene CSP chose among three subjects,
-verbs, objects, and tails while solving the outer character equation online.
-All 81 states pruned before closure, with complete controls to 66 letters.
-The direct six-clause lane and its twelve-clause expansion are retained as
-diagnostic evidence but excluded from method counts as duplicate sweeps. No
-row from these lanes enters the reader packet.
-
-The direct reset then tested two-character exposed indexing with unequal
-normalized clause lengths: two compatible pairs reached live seam checks, both
-mismatched, and the longest intact control was 48 letters. A three-seam
-boundary automaton retained the same minimal character state across 20 bounded
-triples and accepted no boundary. Finally, one attached instrument/location
-adjunct was added to the vivid-scene CSP; 162 states pruned before closure,
-while complete controls reached 83 letters. These are distinct next topologies,
-not repeated inventory expansions, and none is reader-eligible.
-
-Three orthogonal whole-scene constructions followed. Jointly authored left and
-right clauses with tails retained nine opening-compatible scenes from 27 and
-controls to 77 letters. An internally crossing consequence grammar visited
-10,312 lexical states and pruned 3,072 equations without rendering a complete
-target. A two-clause consequence/contrast grammar checked 27 states and
-retained controls to 73 letters. All three produced zero exact rows above the
-38-letter anchor; their controls remain outside the reader packet.
-
-The next relation-focused family fixed semantic relation state before
-lexicalization, then tested a character grammar intersection and a full
-center-relation outward grammar. The prelexical half lane visited 5,550 states
-and pruned 768 equations; the compact relation intersection made 1,536
-transitions over 48 emissions; and the full outward lane checked 243 states.
-None rendered an exact closure above the anchor, while intact controls reached
-76 letters. These results motivate a center-nonterminal construction rather
-than another direct inventory sweep.
-
-Relation-conditioned voice alternation retained the same 5,550-state,
-768-prune boundary while switching active/passive lexicalizations. An explicit
-odd/even center nonterminal closed 48 local derivations but no full clause, and
-a two-center-relation scope grammar checked 648 states with controls to 91
-letters. These are relation-topology diagnostics, not reader candidates; all
-exact-above-anchor counts remain zero.
-
-A fresh dialogue grammar then composed 36 punctuation-bearing exchanges across
-vocative, declarative, and reply turns. Online opening equations rejected every
-turn combination; the longest intact dialogue was 39 letters and no row was
-reader-eligible. The next construction assigns typed speaker roles and
-two-character turn-boundary obligations without reusing a turn.
-
-An independent imperative/relative-clause grammar crossed 16 complete pairs
-with 130 online states. It retained complete prose controls to 75 letters but
-produced zero online completions and zero exact rows above the 38-letter
-anchor. The next construction adds held-out transitive/intransitive imperative
-frames with subject-gap and object-gap relative attachments. Both lanes use
-pointer and forward/reverse SHA-256 audits and remain outside the reader packet.
-
-Typed speaker-role alternation next composed 81 complete captain/witness
-dialogues with 6,543 online two-character checks. The longest intact exchange
-was 169 letters, but the first speaker boundary rejected every construction;
-the lane produced no exact or reader-eligible row. An appositive/participial
-grammar independently crossed 243 complete single sentences, retaining
-grammatical controls to 104 letters after 11,400 live checks. Finally,
-transitive/intransitive imperative frames with subject-gap and object-gap
-relatives retained 108 complete controls to 79 letters. None closed above the
-38-letter anchor; all three remain diagnostic and independently pointer/SHA
-audited.
-
-Endpoint-conditioned continuations then selected outer subject/tail classes
-before interior lexicalization. The appositive form retained controls to 89
-letters after 3,315 live checks; a two-letter SVO/clause index rendered 30
-complete controls to 64 letters. A prelexical three-turn dialogue retained
-three complete exchanges to 122 letters, while a held-out temporal
-imperative/relative lane pruned all nine of its states before complete prose.
-These constructive endpoint tests produced no exact row above the anchor and
-remain diagnostic rather than reader evidence.
-
-As a bounded compute diagnostic, the existing outside-in sentence-plan walk
-was run on the Intel NUC bench with a frozen 11,011-word vocabulary. It explored
-one million nodes and 8,371 closures in 88.771 seconds and found zero
-sentence-shaped palindrome hits. This family is therefore retired rather than
-expanded by a vocabulary-only sweep; it does not change the reader evidence.
-
-Three algorithmic resets followed. A bidirectional CFG word-boundary
-intersection crossed 65,536 independent derivation pairs with 81,920 memoized
-frontier states and controls to 59 letters. A phrase-level convolution paired
-96 paths per side with variable buffers, making 9,792 character transitions and
-retaining controls to 124 letters. A recursive length-scaled event grammar
-tested 40-, 60-, and 80-letter targets and retained controls to 117 letters.
-All three produced zero exact rows above the anchor; non-exact controls remain
-outside the reader packet.
-
-The optional phrase-lattice continuation changed the topology rather than the
-bank size: PP, adverbial, and relative edges could be taken or skipped in an
-acyclic graph while residual characters were consumed online. It explored
-5,000 states, pruned 29,994 transitions, and retained controls to 56 letters,
-with no exact or reader-eligible row.
-
-The recursive relative CFG frontier then added `NP -> Det N RC` while retaining
-the opposite-frontier memo state. It traversed 32,400 frontier transitions and
-2,160 character-pair states, reaching only a one-letter mirrored prefix before
-failure; no exact row entered the reader packet.
-
-The typed event-composition buffer recursively expanded event sequences through
-depth five, testing 1,010,526 derivations and 1,636 paired states. It retained
-complete prose controls to 298 letters but no exact row; the next state chooses
-a typed center event before continuation without enlarging the Cartesian pair.
-
-\section{Independent verification and provenance}
-For every row, the verifier recomputes normalization, length, first mismatch,
-two-pointer equality, and a forward/reverse digest without importing the
-generator's booleans.  The mechanical admission vector records ASCII support,
-lexical form, distinctness, catalogue-family exclusion, repeated-unit and
-self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
-one signature to each run and rejects duplicate families before aggregation.
-On the authoritative snapshot the registry contains 431 unique artifacts (35
-preflight exclusions); the aggregate contains 5,529 rows, 84 exact rows, and
-zero mechanically admitted rows across 332 route summaries.  Every exact row
-therefore has a visible reason for rejection or promotion status rather than
-being silently discarded.  The aggregate report is registered separately as
-an audit artifact, never as a construction family.
-
-The latest bounded wave adds six non-duplicate constructive operators.  A
-finite-state boundary beam renders 12 intact 102--107-letter scenes; an
-agreement-carrying morphology transducer generates 24 retained 85--88-letter
-clause pairs from 144 complete clauses; a human-authored scene lattice emits
-three 73--83-letter scenes; a memoized POS/valency intersection emits 12
-50--63-letter scenes; a semantic phrase-chunk decoder emits 15 intact
-106--114-letter two-clause scenes; and a held-out paired-slot repair emits
-three independently exact 101-letter tapes.  The longest readable rendering
-is ``The careful archivist stores weathered maps beside the north window. A
-quiet teacher reviews marked field notes near the harbor office.''  Its
-independent pointer and forward/reverse SHA checks agree on \emph{not exact}.
-The exact 101-letter tapes are also visible in the run artifact, but their
-surface is not readable and they are rejected before any reader claim.  Each
-failure names a next operation (held-out adjunct, inflectional, role-clause,
-chunk, or semantic-slot repair); none is counted as progress from a duplicate
-sweep.
-
-A follow-up typed scene realizer adds three complete 39--42-letter SVO/PP
-scenes by choosing an open character skeleton before lexical realization; its
-best surface is ``The harbor guides the vessel near the breakwater.'' (41
-letters, exact \emph{false}) and the recorded next repair reselects the object
-at the first residual while preserving valency and agreement. Two other exact
-controls are deliberately excluded: a 50-letter CFG chart witness is rejected
-for boundary word-order mirroring and a self-palindromic span, and a 42-letter
-lexical-closure witness is rejected for mirrored word order and self-collision.
-Their exact tapes remain auditable failure evidence, never readability claims.
-
-Three targeted repairs continue the same constructive discipline: a typed
-boundary lattice produces a 72--75-letter night-porter scene, the manual
-clause-plan inventory produces a 71-letter baker/carpenter scene, and the
-repaired CFG frame produces a 124-letter mason/botanist/curator scene. Their
-independent exact audits all return \emph{false}; each has fresh provenance,
-novelty preflight, and a first-residual repair operator. The best intact
-rendering is ``The baker bakes fresh bread before dawn; The carpenter repairs
-blue sails after lunch.'' It is preserved as a readable control, not presented
-as a palindrome.
-
-The next frontier keeps the same clause-first discipline while changing the
-obligation mechanism: a cross-word character trie retains eight 79-letter
-SVO/PP scenes, a fresh-center composition retains twelve complete scenes, and
-an LM-ranked legal-transition decoder retains twelve more. The cross-word
-representative is ``The gardener carries the bell beside the garden. The
-writer watches the seed within the station.'' (79 letters; exact
-\emph{false}); its held-out repair replaces the first right-clause place with
-``orchard''. None embeds the known seed or uses a mirrored word-order unit.
-
-Three further orthogonal probes make the scalability claim concrete.  The
-closed-form grammar family appends a fresh typed clause to a complete state,
-rendering a 122-letter base, ``At dawn, the archivist catalogs river maps
-beside the old observatory. Before noon, a patient courier delivers sealed
-parcels to the village clinic.'', and a 184-letter one-clause extension that
-adds ``By evening, the groundskeeper labels young seedlings near the rain
-barrel.''  Both are ordinary, independently pointer/SHA-audited prose with
-unresolved character debt; the next repair replaces the first unresolved
-boundary with a fresh typed clause.  A semantic valency path solver retains
-three base realizations plus three held-out role repairs; its repaired 79-letter
-scene is ``The young botanist points out a coastal inlet near the market, and
-keeps a quiet secret.''  All four local edge obligations close, but the full
-tape remains non-palindromic; the next repair expands the consequence predicate
-for whole-tape closure.
-Finally, a reverse-automaton phrase lattice
-produces a 51-letter exact tape, ``Doc, note: I dissent. A fast never prevents
-a fatness. I diet on cod.'', but the independent gate rejects it for local
-catalogue collision and a self-palindromic span.  This exact control is kept
-as rejection evidence, not counted as a readable output.
-
-The exact-candidate repair lane also tested the 50-letter witness ``A dog was
-stressed; live on time; emit no evil; desserts saw God a.''  Its tape and
-hashes agree exactly, but the independent gate rejects it for mirrored
-word-order and a proper self-palindromic span; a semantic substitution loses
-exactness.  We retain that failed repair as a concrete boundary, not as a
-readability claim.
-
-As a family switch, the semantic lane then built a distinct causal path with
-initiates-cause, transforms, situated-within, and causes edges.  Its best
-intact rendering is ``The marine expert points out a small fort by the coast,
-and causes a quiet shift at sunset.''  All four local terminal obligations
-close, but its full tape remains non-palindromic; the next repair couples the
-causal consequence and locative slots.
-
-The subsequent frontier adds three non-duplicate constructive operators.  A
-lexicalized reverse-trie grammar retains five 110--123-letter clause pairs
-after a held-out locative repair;
-the representative is ``The careful archivist studies weathered maps beside
-the quiet harbor. The thoughtful teacher records clear field notes inside the
-village school.'' (123 letters, exact \emph{false}), with a held-out locative
-edge repair.  A scene-first agreement/tense/clitic transducer retains 24
-displayed variants from 72 jointly realized states; its longest grammatical
-rendering is ``The careful gardeners watered the red roses behind the stone
-wall; the notes of the careful gardeners remain ready.'' (95 letters, exact
-\emph{false}).  Its next operation is a held-out possessive/clitic seam
-substitution that preserves agreement.  Finally, recursive balanced grammar
-emits six complete states through depth two, including the 240-letter scene
-``The village doctor examines a careful sketch inside the quiet clinic. The
-careful archivist stores weathered maps beside the harbor window. Meanwhile, a
-patient teacher reviews marked field notes near the village school. At dusk, a
-gentle keeper mends the garden gate after the winter storm.'' (exact
-\emph{false}); its first-residual repair replaces the outer seam with a
-role-compatible clause pair.  None is reader-eligible until exact admission.
-
-Two additional seams are kept joint rather than repaired post hoc.  A
-punctuation-center bridge retains 144 baseline/subject/object/locative/verb/agreement/determiner/adjective/noun/modifier-repaired 112--140-letter scenes,
-including ``The patient cartographer marks a coastal inlet beside the old
-pier; the harbor bell sounds, while the young archivist files weathered maps
-near the harbor office.'' (exact \emph{false}); its next repair holds out a
-locative while preserving the repaired object seam.
-An affix/clitic crossword retains 49 complete 117--136-letter baseline/repaired clause pairs, including ``The seasoned harbor
-pilot guides the weathered ferry through the morning fog. The kind librarian
-returns the borrowed novels to the neighborhood shelves.'' (129 letters, exact
-\emph{false}), with held-out possessive owner-number substitutions next.
-Both lanes independently audit the full normalized tape and preserve
-provenance; neither is reader-eligible until exact admission.
-
-The dependency-semantic seam CSP v2 then searches argument attachment and
-lexical domains jointly across 186{,}624 pair states.  Its three base and six
-held-out repaired probes are complete ordinary clauses; the clearest is ``The archivist
-studies the weathered maps within the quiet station. The messenger delivers
-the marked journals within the quiet station.'' (exact \emph{false}).  The
-first-residual repair holds that seam fixed and substitutes a held-out
-role-compatible object/place realization before recomputing attachment.
-Repeated station context is explicitly visible in its mechanical rejection
-fields; this is failure evidence, not a readability certificate.
-
-The next Dream-RSI repair carries model-proposed semantic roles through the
-character search itself.  A local model produced 34 valid fresh phrase units
-(one subject, eleven verb phrases, eleven objects, and eleven adjuncts), and
-the decoder rejected 189{,}481 states whose two displayed halves could no
-longer realize a live clause-prefix/suffix chart.  It produced no exact
-closure.  This is a construction diagnostic: the sparse Brown-derived shape
-inventory is the bottleneck, so the next branch replaces it with a typed
-hand-authored subject/verb/object automaton while preserving the role labels
-at both mirrored boundaries.  No row is sent to readers from this lane.
-
-\paragraph{Shared-tape support chart.}
-The latest construction changes the search state rather than reranking completed
-strings.  A packed CFG forest is built over a single unknown letter tape;
-root-to-leaf support is propagated to a fixpoint, mirrored character domains
-are intersected, and branching occurs only at the most constrained character
-orbit.  An object-relative production with a bound object gap (``the poet that
-the writer reads'') removes the earlier noun/name endpoint bottleneck while
-retaining complete finite clauses.  The chart independently recovers the
-38-letter benchmark in three nodes and seven propagation rounds, but its held-
-out relative grammar is unsatisfiable at 39, 40, 44, 48, 52, 60, 72, 90, and
-100 letters (nine nodes per target; zero exact closures).  Complete relative
-controls remain ordinary prose (for example, ``the poet that the writer reads
-studies a memo'', 37 letters); no row is reader-eligible.  This result narrows
-the next construction to agreement-carrying relative subjects and passive
-relative frames, rather than another text-noun sweep.
-
-We then made that next construction explicit.  The agreement/passive-relative
-chart carries singular/plural state through both matrix and relative clauses,
-and adds an auxiliary/participle relative frame (``the poet that the writer has
-read'').  Its separate calibration again recovers the 38-letter benchmark in
-three nodes and seven propagation rounds.  On the held-out grammar, target
-lengths 39, 40, 44, 48, 52, 60, 72, 90, and 100 are all root-unsatisfiable
-(12, 12, 12, 12, 11, 1, 1, 1, and 1 nodes respectively; zero exact
-closures).  Three active, passive, and plural controls parse as complete
-sentences, with the longest at 39 letters, but none is palindromic.  The
-failure selects a subject-relative role frame with a center-capable finite
-clause as the next construction; it does not justify a larger vocabulary
-sweep or a readability claim.
-
-The subject-relative chart makes that role change concrete: the head noun is
-now the relative subject (``the poet who reads a memo''), with active and
-auxiliary/participle realizations and an agreement-bearing matrix clause.  The
-38-letter calibration remains recoverable in three nodes and seven rounds.  At
-each held-out target 39, 40, 44, 48, 52, 60, 72, 90, and 100, root support
-visits 11 nodes and 21 propagation rounds before proving unsatisfiability; no
-exact closure survives.  Active, auxiliary, and plural controls parse as
-complete prose at 31--34 letters, but none is a palindrome.  The next
-construction is an explicit-complementizer subject-relative center bridge
-with a held-out semantic-role frame.
-
-In parallel, a prose-first semantic-scene lattice selected complete authored
-clause pairs before applying live opposing-character equations.  Three scenes
-yielded six complete clause-pair states and six immediate equation prunes; the
-longest intact prose control was 88 letters, with zero exact-clean closures
-above 38.  Because each atom was a whole clause, this is not a fragment bank
-or a finished-tape reversal.  Its next construction carries a two-character
-residual class across a discourse connector while preserving agreement and
-complete clauses.
-
-A separate phrase-first lane jointly selected independently authored phrase
-paths and consumed their word boundaries from opposite ends.  Four left paths
-and four right paths produced 16 online states and 16 mismatch prunes, with 16
-intact controls and a longest surface of 57 letters.  The independently audited
-intersection contained zero exact-clean rows above 38.  The next construction
-adds typed relative-clause phrase alternatives and allows one side to cross a
-phrase boundary before the other, preserving complete phrase provenance.
-
-The typed asynchronous extension retained finite and relative attachment
-labels while advancing the two ordinary-order paths with independent word and
-character offsets.  Three paths per side produced nine complete controls and
-zero exact-clean intersections; the longest surface was 60 letters.  The
-bounded inventory mismatched before a phrase-boundary skew occurred, so its
-next test adds two typed relative attachments per side while preserving the
-skew trace rather than enlarging the same bank.
-
-The scene branch also carried a two-character residual from one complete
-clause edge into a second discourse edge with explicit number metadata.  Three
-frames yielded six complete transitions and six live prunes, with an 82-letter
-prose control and zero exact-clean closures above 38.  Its next construction is
-a third complete discourse edge keyed by the surviving residual class.
-
-The next phrase-lattice extension retained two independently typed relative
-attachments per side and bounded their depth before the live bilateral walk.
-It produced four complete controls, the longest at 85 letters, and zero
-exact-clean intersections.  The recorded successor chooses attachment
-alternatives by the residual class after the first relative edge.
-
-The scene branch then selected a third complete discourse edge only when its
-two-character residual key agreed with the prior transition.  Three scenes
-yielded three keyed third-edge states and no key prunes; the longest complete
-prose surface was 124 letters, but no exact closure above 38 survived.  The
-next construction indexes connector and tense alternatives by each residual
-class rather than adding another unconditioned scene bank.
-
-The public composition API suggested a different abstraction: retain a
-provenance-carrying sequence of composition units, but make every unit a
-complete clause rather than a catalogue fragment.  Our first implementation
-therefore selected independent word-boundary cuts inside four fresh left and
-four fresh right clauses, and consumed the two sides online before rendering.
-It visited 702 segmentation states and retained two intact controls to 107
-letters, but every state mismatched at the live equation and no exact closure
-above 38 resulted.  A follow-up replaced the fixed cuts with eight fresh
-complete continuations selected by four declared two-character residual keys;
-the residual was carried through both chunks, yet all eight continuations were
-pruned and the longest control was 105 letters.  These are construction
-diagnostics, not reader candidates: the API's generated catalogue was not
-imported, no mirrored chunk was reused, and neither search uses post-hoc repair.
-The next operator derives a three-character key from the actual outer emission
-before selecting a held-out continuation, rather than supplying a residual key
-in advance.  That emission-derived follow-up exposed five runtime keys and
-seven held-out clauses, yielding five complete diagnostic renderings to 105
-letters; all five still pruned online and none closed above 38.  The next
-state change therefore moves the key to a residual suffix class and adds
-agreement-compatible alternatives, rather than increasing the number of
-unconditioned chunks.
-
-To address the immediate seam bottleneck directly, a separate seam-indexed
-lane authored 72 ordinary clause variants and indexed three-character
-left-prefix/right-suffix-reversed classes before comparing interiors.  This
-reduced 5,184 possible pairs to 576 compatible pairs and let all 576 pass the
-outer seam, but every interior comparison still mismatched; the longest
-complete control was 80 letters and no exact closure above 38 appeared.  The
-next test changes the endpoint family and uses two-character classes, while
-keeping full-clause syntax and the same independent pointer/hash audits.
-
-The endpoint-family follow-up authored a distinct set of 27 left and 18 right
-complete clauses, admitting 243 of 486 pairs through a two-character outer
-index before the live interior walk.  It reached a 65-letter complete control,
-but no pair closed exactly above 38: the family was stopped when its interior
-mismatch remained structural.  This is a decision point rather than a larger
-lexical sweep; the next construction changes the syntax and semantic frame.
-
-We then implemented that semantic pivot as a bilateral role construction.
-Four shared relation frames were paired with independently selected
-agent--recipient assignments, and both sides were emitted as one intact
-ordinary sentence surface while opposing character obligations were consumed
-online. The run produced 12 complete controls (up to 75 letters), with 12
-live first-mismatch prunes and no exact closure above 38 letters. Every
-control has an independent pointer audit and forward/reverse SHA-256 record;
-none is reader evidence, and the API catalogue was not used. The next
-construction introduces ditransitive case state rather than widening this
-relation bank.
-
-The next case-state construction used fresh ditransitive frames with separate
-agent, recipient, and theme roles. Explicit emph{to}/emph{for} realization
-was selected before bilateral emission, and opposing character obligations
-were consumed online. It produced 12 intact ordinary controls, including a
-92-letter control: ``Mara gives Jon a letter to Iris while Owen listens. Owen
-gives Iris a letter to Jon while Mara listens.'' No candidate closed exactly
-above 38 letters. Independent pointer and forward/reverse SHA-256 audits were
-recorded for every output. These are diagnostic controls, not readability
-evidence; no catalogue text was imported and the API/readability gate remains
-closed. The next construction tests a benefactive agreement alternation.
-
-Two further lanes widened the state representation without importing any API
-text. A three-beat scene/argument lattice selected an event, an evidence
-claim, a discourse connector, and a follow-up obligation before rendering.
-Across 729 states it retained intact controls to 125 letters, including
-``The patient ferryman tests the harbor lantern near the salt shed, because
-the witness confirms the crossing; although the crew waits for clear
-weather.'' All six typed obligations were live, but no exact closure above 38
-letters survived the independent pointer and SHA-256 audits. A compact
-character-level CFG intersection then tested 2,916 live derivation pairs; its
-current envelope closed zero exact candidates, and repeated lexical controls
-were explicitly excluded from reader consideration. The recorded successors
-add held-out PP/relative productions and a fourth modal scene clause,
-respectively, rather than widening either existing bank.
-
-The two recorded successors were then run. The modal scene extension held out
-the evidence verbs and added a fourth commitment clause: 729 states yielded
-81 intact controls to 116 letters after 648 live edge rejections, with no
-exact closure above 38. The CFG extension added nullable PP and
-subject-relative productions and retained an intact-versus-shuffled control
-set: 1,024 intact pairs and 32 shuffled controls produced no exact closure.
-These controls are diagnostic and include no reader certification; both lanes
-retain independent pointer and forward/reverse SHA-256 audits. Their next
-operators are a contrastive modal pair with an agent switch and two typed
-relative subjects, respectively.
-
-The relative-subject follow-up then made the two relative roles independent
-agent and observer states. It evaluated 4,096 intact pairs alongside 64
-deterministically shuffled controls under the same live character equations;
-neither set produced an exact closure. The lane therefore contributes a
-reproducible reader-control protocol and a typed-relative successor, not a
-palindrome claim.
-
-The API-inspired topology was then tested without importing the API's catalogue:
-a recursive typed event graph chose complete event clauses around a free
-discourse center while carrying boundary-character obligations through each
-production.  Thirty-six recursive states produced complete controls to 106
-letters, independently checked by a two-pointer audit and forward/reverse
-SHA-256, but no exact closure above 38.  The first recursive obligation is
-incompatible with the authored event-agent class; the concrete next operator
-adds a second agent/theme obligation slot and a held-out center lexicon rather
-than expanding the same endpoint bank.
-
-The dual-obligation follow-up made that operator explicit as a typed bilateral
-event product: four fresh events on each side were paired with six held-out
-center words while agent and theme boundary obligations were checked before
-admission.  All 96 states were rejected by those live obligations, but two
-complete prose controls remained (40 and 43 letters).  Each control has an
-independent two-pointer audit and both forward and reverse SHA-256 digests.
-The next construction selects the center before event realization and replaces
-plain boundary equality with typed agreement-aware subcategorical obligations;
-it does not enlarge this lexical inventory.
-
-The center-first follow-up selected a complete center clause and its
-number/tense/agreement features before realizing either event.  Subject--verb
-agreement was enforced in a 4-by-4 bilateral event product: 64 states yielded
-six typed products and two intact controls, the longest at 61 letters.  The
-independent pointer and forward/reverse SHA-256 audits found no exact closure
-above 38.  The next construction adds transitive/intransitive valency to the
-center-first state before lexical realization, keeping this inventory fixed.
-
-The valency follow-up made transitive versus intransitive selection a
-pre-lexical state.  It revisited the same 64 center/event combinations with
-that argument structure carried through emission, admitting six grammatical
-products and retaining controls to 61 letters.  The exact gate still found no
-closure above 38 under independent pointer and forward/reverse SHA-256 audits.
-The recorded successor uses a mixed-valency center clause with an explicitly
-licensed adjunct, rather than expanding this event inventory.
-
-The mixed-valency extension added one explicitly licensed adjunct to the
-center clause while retaining center-first selection and typed event valency.
-It produced six admitted products and complete controls at 60 and 68 letters;
-none closed exactly above 38 under the independent pointer and hash audits.
-The next state types the adjunct attachment independently of the center
-valency and solves its boundary obligation before event emission.
-
-To make that boundary decision live, the next lane formed a held-out lattice
-of four complete adjuncts and consumed two residual equalities during each
-center/event emission.  It examined 256 transitions and retained two intact
-controls to 70 letters, but all transitions were pruned before rendering an
-admissible candidate and none closed exactly above 38.  The next construction
-replaces the two single-character equalities with a typed multi-character
-boundary automaton that can license morphology without another lexical sweep.
-
-The multi-character follow-up made each boundary a small explicit automaton:
-two residual strings were consumed character by character for every one of the
-256 held-out center/adjunct/event transitions.  All transitions were rejected
-by the residual streams, while two complete controls reached 70 letters; no
-exact closure above 38 survived the independent audits.  The next topology
-reverses the residual-consumption orientation and adds typed morphology
-transitions, rather than widening the phrase bank.
-
-The reverse-oriented follow-up traversed the same held-out lattice from the
-opposite residual end and inserted typed morphology states at each adjunct
-boundary.  It again examined 256 transitions, retained controls to 70 letters,
-and admitted no exact closure above 38.  The repeated zero-closure result is a
-family stop: the next experiment changes to a center-mediated dependency
-topology instead of adding another seam orientation.
-
-In parallel, a fresh typed subject-relative temporal grammar provided a useful
-readability stress test without changing the exact gate.  Its future-perfect
-relative clauses and before/by adjuncts produced 24 ordinary complete controls
-from 26,244 live paired grammar states; the longest was 177 letters.  For
-example: ``The patient pilot who will have guarded the quiet inlet before the
-tide turns will guide the narrow bridge; a careful gardener who will have
-studied the broad atlas before the tide turns will record the evening bell.''
-Every state mismatched online, so the lane contributed no exact candidate; its
-value is a held-out long-prose bank for the next matrix-perfect topology, not a
-readability certification.
-
-The matrix-perfect temporal follow-up added a number-agreeing future-perfect
-matrix auxiliary and a fresh since/after adjunct inventory.  It produced 24
-complete controls from 26,244 live paired grammar states; the longest was 186
-letters, including the same ordinary pilot/gardener construction with ``will
-have guided'' and ``will have recorded'' matrix predicates.  All states still
-mismatched at the live seam and no exact closure above 38 survived, so this is
-another long-prose diagnostic bank rather than a reader candidate.
-
-The attachment-topology follow-up kept a fresh relative adjunct bank while
-moving a distinct since/after adjunct to the matrix clause.  It evaluated 48
-paths across 2,304 paired states and 3,456 live character equations, retaining
-24 complete controls up to 210 letters.  All 2,304 states were pruned and no
-exact closure above 38 appeared; these long controls remain diagnostic because
-no exact or human-readability gate was met.
-
-After the seam-family stop, a center-mediated dependency graph changed the
-state topology: a typed relation node selected independent subject, theme, and
-attachment edges while consuming role obligations during expansion.  Its 256
-dependency expansions all pruned before exact admission, but the two complete
-controls reached 66 and 72 letters.  This records a structural pivot rather
-than another seam sweep; the next state adds a second owned dependency edge.
-
-The second-edge extension expanded the center relation sequentially through
-two independently owned dependency edges.  Of 256 expansions, four produced
-grammatical products and two complete controls reached 70 letters; none closed
-exactly above 38.  The ownership traces make the failure actionable: a third
-edge is warranted only if it changes the live center state, otherwise the
-semantic topology must change again.
-
-The third-edge family was therefore stopped and replaced by a clause-level
-matrix dependency grammar with nonrepeated matrix frames.  Its typed center
-relations generated 16 complete clause expansions; all 16 failed the live
-boundary obligation, while the two controls reached 60 and 65 letters.  This
-keeps the failure evidence but moves the search away from another copied edge.
-
-A smaller outside-in reset then made the exposed character state explicit rather
-than scoring complete sentences after the fact.  Matching two-character
-prefix classes against the reversed two-character suffix classes retained 81
-complete, lexically disjoint prose controls (maximum 82 letters) from 243
-outer assignments; the remaining 162 assignments were rejected before the
-interior slots were rendered.  Every retained control still failed its
-center seam, and the independent pointer and forward/reverse SHA-256 audits
-admitted zero exact candidates above 38 letters.  The corrected suffix
-orientation is important: a forward suffix match would be a directional bug,
-not an outside-in palindrome constraint.  This lane is therefore a concrete
-construction state for the next repair (a fresh tail with a matching interior
-two-character seam), not reader evidence.
-
-\section{Reader-facing evaluation}
-No candidate is called readable by the automatic diagnostics.  The release
-package is gated until a mechanically admitted survivor exists.  The planned
-study uses intact prose and controls within five normalized letters,
-randomized blinded order, opaque item identifiers with a separate key, and a
-reproducible rater package.  The builder requires structured provenance with
-immutable generator/source hashes and explicit false flags for copied or
-borrowed text and shortcut symmetries; it also regenerates controls until their
-normalized tapes are changed and non-palindromic.  Readers rate Englishness,
-coherence, and grammaticality
-independently; two blinded coders adjudicate free-form paraphrases.  The
-analysis is preregistered before unblinding, with the candidate admitted only
-if it beats the controls on the prespecified reader criteria; agreement will
-be reported with a preregistered reliability statistic such as Krippendorff's
-alpha \citep{krippendorff2011computing}.  The current
-manuscript reports no human responses and makes no readability claim. Before
-any future release, the reader-gate hygiene manifest audits historical
-artifacts and moves every non-exact or shortcut-prone row to the diagnostic
-pool; borrowed/catalogue rows remain protected controls.
-
-\section{Limitations and next construction}
-The present snapshot has not yet produced a $\geq100$-letter candidate that
-passes all gates.  That is a development status, not the intended contribution.
-The next run will change the construction state rather than repeat a sweep:
-the seam lane will use typed boundary resegmentation and then a fresh
-non-palindromic subject/verb/object frame while preserving agreement; the scene
-lanes will solve an object/attachment slot against the live tape; and the LM
-lane will propose new clause boundaries on held-out vocabulary.
-Each resulting surface will be rendered and audited before a reader-facing
-test.  Once a survivor appears, the reader package and paper tables will be
-regenerated from its immutable provenance record.
-
-\bibliography{refs,refs-dreamrsi}
-
+\caption{A concrete asymmetric seam. Insertion positions are 16 and 548 in
+the parent tape, measured as zero-based boundaries. The four-letter residual
+accounts for the offset from symmetric positions.}
+\label{tab:seam}
+\end{table}
+
+For the edit in Table~\ref{tab:seam}, the inserted left wording supplies
+``Nora saw God'' and ``Nadia saw God,'' while retained characters complete
+``Dog was Nora.'' The opposite edit includes ``Aron saw God'' and identity
+clauses about Aidan and Aron. These are additions to the saved parent, with
+their exact renderings in Appendix~\ref{app:examples}. The repeated
+\emph{God/dog} and \emph{was} patterns are conspicuous and remain part of
+the reported result.
+
+\subsection{Construction procedure}
+
+The implemented recipes follow the same checking protocol, although they
+are separate programs rather than one shared search engine:
+\begin{enumerate}
+\item Load a named parent and check its expected tape digest and exactness.
+\item Select the editable positions and record their owning words or clauses.
+\item Propose left and right text, retaining the residual required by the
+      frozen text. Proposals may be authored or searched; this choice is
+      recorded per result.
+\item Consume matching characters, retain any unresolved suffix and its
+      owner, and reject a conflicting assignment at its first position.
+\item Render the splice and check the whole passage independently. Save the
+      rendering, new and retained spans, validation, and remaining language
+      problems together.
+\end{enumerate}
+
+Proposal generation has three forms. The 630-letter recipe supplies both
+insertions directly. In the 640--752 sequence, the left event path is authored
+and a small role grammar segments its reversed tape into the right event
+path. Each of these saved runs yields one right parse before and after its
+linkage filter. Thus the right surface is computed, but the system does not
+search for the left events. Section~\ref{sec:search} describes a third form
+that searches left clauses and their compatible right counterparts.
+
+Replaying a fixed recipe establishes its reproducibility, not a discovery
+rate. When an edit fails, its first conflicting positions identify which
+wording or seam must change. In each case, exactness is decided on the
+complete rendered text after the edit.
+
+\section{A bounded typed-clause search}
+\label{sec:search}
+
+We analyze one saved clause-search operator in detail. It starts with
+the same 568-letter parent and inserts two blocks at normalized positions
+48 and 520, both complete sentence boundaries. Its grammar has ten named
+entities and three present-tense transitive predicates:
+\emph{sees}, \emph{stops}, and \emph{spots}. The entity inventory is Nora,
+Leon, Aron, Noel, Mara, Aram, Nadia, Aidan, Liam, and Ira. Each clause is
+subject--predicate--object, giving 300 possible clauses before filtering.
+The inventory intentionally contains reverse-compatible spellings. A
+fresh exhaustive census removes 30 self-relations and eight palindromic
+clauses, leaving 262 clauses and 160 ordered reverse-compatible pairs.
+These are clause-level counts before chain and archive filters.
+
+A depth-first search builds four left clauses. After the first clause,
+each subject must equal the preceding object. For each proposed clause, the
+right grammar begins with the compatible subject--predicate--object options
+and removes options one character at a time unless their reversed spelling
+matches the emitted left character. The right block is discovered from its
+last clause toward its first. An object constraint makes its consecutive
+clauses satisfy the same entity-continuity rule in reading order.
+
+At depth four, the operator requires distinct relation triples across both
+blocks, at least two predicate spellings on the left, and absence of the
+relation strings in a recorded archive index. It excludes self-relations,
+repeated clauses, and individually palindromic clauses during construction.
+The residual is reset at each completed clause. Thus this experiment tests
+online \emph{within-clause} character matching and cross-clause entity
+continuity; it does not test character obligations that cross clause
+boundaries. Subject--object continuity is a structural constraint, not a
+guarantee of a coherent narrative.
+
+The first accepted insertion is:
+\begin{quote}\small
+Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora.
+\end{quote}
+with its paired block:
+\begin{quote}\small
+Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron.
+\end{quote}
+Each block has 52 letters. Their normalized tapes are reversals, so the
+combined edit adds 104 letters and produces the exact 672-letter passage.
+None of the original 568 letters is removed. The saved run records 9,273
+candidate-frontier examinations, 35 rejected-attempt records, and one
+accepted chain. These counters describe a deterministic first-success search
+on this inventory, not 9,273 independent trials or a measured probability
+of readable output. A new, separately implemented replay over the frozen
+relation index reproduces the complete text, digest, and all three counters;
+the 35 rejected records comprise 27 chain-gate rejections and eight
+character-residual rejections. It performs no new historical novelty scan.
+
+The archive index used by this run includes a retrospective snapshot.
+A separately recorded scan checks the inserted relation strings against
+an earlier commit. We report the resulting archive-relative checks as
+provenance, not as a preregistered held-out test. This search demonstrates
+the executable mechanism separately from the authored editing recipes.
+
+\section{Evaluation}
+\label{sec:evaluation}
+
+\subsection{Independent reconstruction and validation}
+
+Our audit reads rendered strings directly from the selected saved artifacts
+and does not import their generators or trust their stored exactness flags.
+It independently extracts ASCII letters and compares the tape with its
+reversal. A second implementation scans the raw text from both ends,
+skipping every character outside ASCII \code{A--Z}/\code{a--z} and comparing
+each surviving pair. Both exactness checks must pass. Normalized length and
+digest are compared separately with the pinned artifact for every example. SHA-256 identifies
+the tape; hash equality is a useful integrity check but is not the proof of
+palindromicity. The character comparisons establish exactness.
+
+Source-file digests and a frozen repository snapshot make accidental changes
+to the inputs detectable. The audit retains complete text, not only hashes or
+an excerpt selected for fluency. Eleven examples pass both exactness checks.
+These are eleven selected strings, many sharing an ancestor, so they are not
+eleven independent experimental replications.
+
+\subsection{Exact growth and repetition}
+\label{sec:results}
+
+\input{week_results_table}
+
+The sequence 568 $\rightarrow$ 640 $\rightarrow$ 686 $\rightarrow$ 736
+$\rightarrow$ 752 grows by 184 letters. The 640 child adds an observation
+chain. The next two edits replace mirrored question/fragment shells with
+event chains, first with repeated \emph{sees} predicates and then with
+\emph{sees}, \emph{stops}, and \emph{spots}. The final edit replaces a
+central phrase pair with ``Ari sees Leon. Leon stops Ira.'' and ``Ari spots
+Noel. Noel sees Ira.'' These local revisions are executable and exact; their
+left event content was authored and their right paths were parsed from the
+opposing tape. The 616 and 630 examples are separate children
+of 568, not steps on this sequence. The searched 672 passage is another branch.
+
+We report word counts and repeated sentence segments alongside letter
+length. Tokens are ASCII alphabetic strings with optional internal
+apostrophes, lowercased for type counts. A sentence segment ends at a
+period, question mark, or exclamation mark. Duplicate segments are
+counted after lowercasing and whitespace normalization as excess occurrences
+of an identical segment, retaining punctuation. The supplementary audit also
+records excess repeated three-token
+sequences divided by all three-token positions. These reproducible measures
+identify repeated material, but they do not measure comprehensibility.
+In particular, changing names can eliminate an identical segment while
+preserving a repetitive sentence pattern. This distinction is visible in the
+568-to-752 sequence: letter length grows by 32.4\%, duplicate sentence
+segments fall from three to zero, and vocabulary size falls from 55 to 48
+types. Removing exact duplicates does not imply greater lexical variety.
+
+The 752 rendering still contains ``Leon.'' as an isolated fragment and
+``Aidan's drawer, Aratos, spots Aidan'' as an opaque clause. It also contains
+a proper palindromic central event span. Those observations prevent a claim
+that the longest audited endpoint resolves the English-generation objective.
+They do not erase its independently verified growth. Appendix~\ref{app:examples}
+prints the full passage so that this distinction is inspectable.
+
+The short reference and its 54-letter seed-based extension provide additional
+context. The latter reads ``An aide rips nine memo-hero memos. Some more home
+men inspire Diana.'' Its exactness is established, while \emph{memo-hero}
+and \emph{home men} require interpretation. The inherited 38-letter reference
+is neither a mechanical upper bound nor an original result claimed here.
+
+\subsection{Checking the editing invariant}
+\label{sec:invariant-check}
+
+A separate exhaustive check enumerates binary strings with $|A|,|q|\leq2$,
+palindromic $C$ of length at most four, and $|U|=|V|\leq3$. All 54,145
+cases agree with Equation~\ref{eq:seam}; an additional 91 outer/center
+checks pass. Empty strings are included as algebraic boundary cases.
+The unequal-length counterexample $A=C=U=\epsilon$, $q=V=\code{a}$
+yields the palindrome \code{aaa} while violating the equation, illustrating
+the scope of the equivalence. This bounded software check complements the
+proof; it does not model English.
+
+Table~\ref{tab:ablations} reconstructs the actual splice and perturbations.
+The controls establish that both sides of this edit matter to its exactness.
+They are deterministic consistency checks rather than estimates of a
+readability effect.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrrl}
+\toprule
+Edit & Letters & Exact & Mismatch \\
+\midrule
+Both insertions & 630 & Yes & -- \\
+Left only & 599 & No & 21/577 \\
+Right only & 599 & No & 21/577 \\
+Delete one new letter & 629 & No & 46/582 \\
+Punctuation only & 630 & Yes & -- \\
+\bottomrule
+\end{tabular}
+\caption{Replay and perturbations of the 568-to-630 edit. Mismatch positions
+are zero-based offsets in the resulting normalized tape. The punctuation
+control preserves the paired edit's letters and digest.}
+\label{tab:ablations}
+\end{table}
+
+\section{Language analysis and reader evidence}
+\label{sec:readers}
+
+The 736-to-752 edit illustrates the difference between a local language
+change and whole-text understanding. It replaces ``Ari delivers maps'' /
+``Spam's reviled, Ira'' with two pairs of complete transitive clauses.
+``Ari sees Leon. Leon stops Ira.'' specifies actors and actions clearly in
+isolation. The matching ``Ari spots Noel. Noel sees Ira.'' also has ordinary
+local syntax. Their relationship to the surrounding text still needs an
+interpretation; exact matching supplies none.
+
+We distinguish ease of reading, local grammaticality, and discourse coherence,
+following the need for explicit evaluation dimensions emphasized by
+\citet{howcroft-etal-2020-twenty}. A sentence may be grammatical while its
+relation to the next sentence is unclear; likewise, a reader may infer a
+meaning from a fragment without finding the passage fluent.
+
+No reader scores appear in this paper. The existing 54-letter packet has
+24 prepared forms and no completed responses in the audited evidence.
+That form count is not a participant count. Qualitative AI reviews of the
+672 construction describe locally grammatical clauses but unresolved
+whole-passage readability; these are development feedback, not blinded
+human observations.
+
+Appendix~\ref{app:readers} outlines a proposed blinded evaluation with intact
+and shuffled controls. It is a plan for measuring these distinctions, not
+an additional experimental result.
+
+\section{Related work}
+
+\citet{norvig2002palindrome} describes phrase- and letter-based palindrome
+construction with unmatched remainders. Our residual notation follows that
+basic construction problem. \citet{papadopoulos2015palindromes} combine
+forward and backward corpus graphs to handle characters and word transitions,
+and incorporate syntactic patterns. Their method already addresses arbitrary
+length within a defined corpus language. We study edits of a supplied
+palindrome and preserve the particular retained text across those edits;
+we do not claim the first use of syntax during palindrome generation.
+
+Lexically constrained decoding maintains requirements during generation
+\citep{hokamp2017grid}. Here the constraint is equality with an opposing
+character sequence, whose word boundaries can differ. The searched operator
+uses a finite grammar rather than a trained language model, while the
+authored recipes expose lexical decisions directly. Human evaluation of
+generated language requires defined constructs and reproducible procedures
+\citep{howcroft-etal-2020-twenty,belz-etal-2021-reprogen}; mechanical symmetry
+alone does not address either.
+
+\section{Conclusion}
+
+Residual-constrained editing provides a reproducible way to modify long
+letter-level palindromes while preserving a verified parent. We make the
+local spelling equation, retained text, and proposal source explicit, and
+independently verify selected constructions through 752 letters. A separate
+typed-clause search constructs a 672-letter child. The resulting passages
+make progress in exact construction visible, including the repeated language
+and unresolved seams that still need revision. The next substantive test is
+whether edits improve readers' understanding of the full passages.
+
+\section*{Limitations}
+
+The long examples share an inherited parent and were selected
+retrospectively. Their outcomes do not estimate population success rates.
+Most left edit proposals are authored; the clause-search example uses a
+small, deliberately reverse-compatible vocabulary, fixed depth, and a
+first-success stop. It does not establish autonomous generation of arbitrary
+English or a scaling law. Proper palindromic spans, repeated lexical material,
+and rough prose remain. Archive-relative absence does not prove originality,
+and we have not independently established the origin of every inherited motif.
+No completed blinded human study, calibrated automatic readability measure,
+or comparative language-quality evaluation supports a claim that the long
+texts are readable. We have not compared against the corpus-graph baseline
+of \citet{papadopoulos2015palindromes}. The ASCII definition excludes accented letters and is
+not a multilingual normalization policy.
+
+\section*{Ethical considerations and assistance}
+
+The evaluated artifacts are synthetic text and software traces. The reported
+audit contains no newly collected participant data. Any future reader study
+requires appropriate consent, compensation, and institutional review under
+the authors' applicable procedures. Generative AI assisted the development
+of construction recipes, code, manuscript drafting, and internal review.
+These internal reviews are not independent human evaluation. The authors
+remain responsible for source verification and claims. At submission, this
+assistance and its scope must also be declared in the venue's responsible
+research checklist and any required acknowledgment.
+
+\bibliography{refs}
+
+\clearpage
 \appendix
-\section{Reproduction checklist}
-Run the ten lane drivers, then the candidate-readability audit and novelty
-validator scripts in \texttt{tools/} and \texttt{experiments/}.  The former
-recomputes exactness and mechanical gates; the latter checks unique signatures
-and required repair artifacts.  The committed JSON files under \texttt{runs/}
-contain the rendered text, normalized lengths, hashes, provenance, and next
-repair for every row.  A reader package is generated only after the mechanical
-admission count becomes nonzero.
+\section{Selected constructions in full}
+\label{app:examples}
+
+The following saved renderings are printed without grammatical correction.
+Their labels identify mechanical outcomes, not human readability judgments.
+The exact audit accompanying the manuscript supplies the normalized text,
+full SHA-256 digests, source object selectors, and parent links.
+
+\input{week_examples}
+
+\section{Reproduction and artifact boundaries}
+\label{app:reproduction}
+
+The source repository contains a selection manifest and three local audit
+scripts that use the repository and Git. From the repository root:
+\begin{quote}\small\ttfamily\raggedright
+python3 paper/audit\_week\_results.py\\
+python3 paper/check\_seam\_invariant.py\\
+python3 paper/replay\_clause\_search.py
+\end{quote}
+The first verifies the selected source artifacts, renders the descriptive
+table, and produces \code{week\_results.json}. The second writes
+\code{seam\_invariant\_results.json}. The third writes
+\code{clause\_search\_replay.json} by replaying the small typed grammar over
+the fixed relation index. None launches model inference or a historical
+archive scan.
+
+The separate anonymous evidence archive includes all eleven complete
+renderings, their normalized tapes and digests, the frozen relation index,
+a raw splice fixture, and standard-library verification code. After extraction,
+run \code{python3} with \path{verify_anonymous_evidence.py} as its argument.
+It checks all eleven texts,
+reconstructs the 630-letter edit, independently replays the 672-letter search,
+and verifies the bounded algebraic cases. No Git checkout, network access,
+model API, or external corpus is needed.
+
+The manifest distinguishes inherited material, authored proposals with
+constrained right-side parsing, and searched clauses. Original run-file
+digests remain provenance identifiers in this archive; the original files
+and Git history are not included, so only the repository audit rechecks those
+original-file digests. A separate bundle contains the expanded manuscript,
+bibliography, and ACL style files for upload to Overleaf.
+
+\section{Prospective blinded reader evaluation}
+\label{app:readers}
+
+A reader study should freeze candidate text and include both intact ordinary
+prose and token-shuffled controls. Opaque item identifiers and independently
+randomized orders conceal construction provenance. Each participant should
+see only one version of a given content item, preventing an intact control
+from teaching the intended reading of its shuffled counterpart. Besides
+separate ordinal questions for fluency and coherence, event-paraphrase
+questions can test whether readers agree about who did what. Coding those
+answers should remain blind to condition. Sample size, exclusion rules,
+assignment, and analysis must be fixed before collecting responses. This
+is a proposed evaluation, not a preregistered or completed experiment.
+
 \end{document}

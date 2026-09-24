@@ -1,0 +1,357 @@
+{
+  "title": "Selected exact palindrome construction results",
+  "snapshot": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+  "selection_note": "Named exemplars selected for audit; not an exhaustive scan and not a global maximum claim.",
+  "human_evidence": "No project human reader study has run for any selected row. The 38-letter item is an inherited reference/control whose authorship is not established by this audit. The 54-letter candidate's 24-rater packet is frozen but has no responses.",
+  "definitions": {
+    "normalization": "Lowercase ASCII letters only: re.sub('[^A-Za-z]', '', surface).lower().",
+    "exactness": "Two independent checks are required: a raw-text outside-in scan skips every character outside ASCII A-Z/a-z and compares lowercase surviving letters; separately, the re.sub-normalized tape must equal its full reversal. Its SHA-256 must also match the source artifact.",
+    "word_count": "Regex [A-Za-z]+(?:'[A-Za-z]+)* over the full surface; straight ASCII apostrophes remain internal to words.",
+    "unique_word_count": "Number of distinct case-folded tokens from the word-count regex.",
+    "repeated_trigram_rate": "Excess token-trigram occurrences (each occurrence after the first for a repeated trigram) divided by all token-trigram windows across the full token sequence; sentence boundaries do not reset the sequence.",
+    "duplicate_sentence_count": "Number of sentence occurrences after the first that exactly repeat an earlier case-insensitive sentence after whitespace normalization; sentence boundaries are terminal .?! punctuation, with immediately following quote marks attached, and punctuation is retained for duplicate comparison."
+  },
+  "results": [
+    {
+      "id": "38-control",
+      "surface": "An aide rips nine memos; some men inspire Diana.",
+      "normalized_ascii_letters": "anaideripsninememossomemeninspirediana",
+      "letters": 38,
+      "normalized_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "independently_exact": true,
+      "normalization": "re.sub('[^A-Za-z]', '', surface).lower()",
+      "raw_text_outside_in_check": "passed",
+      "normalized_full_reverse_equality": "passed",
+      "metrics": {
+        "word_count": 9,
+        "unique_lowercase_word_count": 9,
+        "repeated_trigram_excess_occurrences": 0,
+        "trigram_occurrences": 7,
+        "repeated_trigram_rate": 0.0,
+        "sentence_count": 1,
+        "duplicate_sentence_count": 0
+      },
+      "mechanism": "inherited 38-letter reference/control; this audit does not establish authorship",
+      "lineage": "loaded unchanged as incumbent_oracle; origin and authorship are not established by this audit",
+      "reader_status": "not studied in a project reader study",
+      "caveat": "Reference/control only; not evidence that this project generated a readable palindrome or that 38 is a maximum.",
+      "source": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/seed-np-cross-role-intersection-20260922.json",
+        "json_key": "incumbent_oracle.rendered",
+        "file_sha256": "606d7b9e3150a8e9ea845e0c669a741ebfe10bb58a18593a66c6bc17310f4ff3",
+        "tracked_at_snapshot": true
+      }
+    },
+    {
+      "id": "54-np-candidate",
+      "surface": "An aide rips nine memo-hero memos. Some more home men inspire Diana.",
+      "normalized_ascii_letters": "anaideripsninememoheromemossomemorehomemeninspirediana",
+      "letters": 54,
+      "normalized_sha256": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268",
+      "independently_exact": true,
+      "normalization": "re.sub('[^A-Za-z]', '', surface).lower()",
+      "raw_text_outside_in_check": "passed",
+      "normalized_full_reverse_equality": "passed",
+      "metrics": {
+        "word_count": 13,
+        "unique_lowercase_word_count": 13,
+        "repeated_trigram_excess_occurrences": 0,
+        "trigram_occurrences": 11,
+        "repeated_trigram_rate": 0.0,
+        "sentence_count": 2,
+        "duplicate_sentence_count": 0
+      },
+      "mechanism": "bounded live-residual noun-phrase grammar intersection over an inherited open frame",
+      "lineage": "retains the aide/rips/nine/memos and some/men/inspire/Diana frame; adds derived NP material without reflecting a closed span",
+      "reader_status": "not run; frozen 24-rater packet has no responses",
+      "caveat": "Mechanically admitted and flagged for study; unusual compounds and intended meaning still require reader evaluation.",
+      "source": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/seed-np-cross-role-intersection-20260922.json",
+        "json_key": "rows[0].rendered",
+        "file_sha256": "606d7b9e3150a8e9ea845e0c669a741ebfe10bb58a18593a66c6bc17310f4ff3",
+        "tracked_at_snapshot": true
+      }
+    },
+    {
+      "id": "498-overhang",
+      "surface": "to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got",
+      "normalized_ascii_letters": "togetatseemenintolongnolastneveronepostitsappleherewemanymerateyesupusifforevenofisallitstategotwonodotwoheranitsomybenotasinorofnoeldidilivenorawasievilnoeldididrawmarawasigodsaradidilivenoraisawdessertsnoelwasistressednoraisawdelivernoelisawdiaperrepaidwasileonreviledwasiarondessertsisawleonstressedwasiaronevilididarasdogisawaramwardididleonliveisawaronevilididleonforonisatonebymostinarehowtodonowtogetatstillasifoneveroffisupuseyetaremynamewerehelppastitsopenoreventsalongnolotninemeestategot",
+      "letters": 498,
+      "normalized_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032",
+      "independently_exact": true,
+      "normalization": "re.sub('[^A-Za-z]', '', surface).lower()",
+      "raw_text_outside_in_check": "passed",
+      "normalized_full_reverse_equality": "passed",
+      "metrics": {
+        "word_count": 161,
+        "unique_lowercase_word_count": 88,
+        "repeated_trigram_excess_occurrences": 9,
+        "trigram_occurrences": 159,
+        "repeated_trigram_rate": 0.05660377358490566,
+        "sentence_count": 1,
+        "duplicate_sentence_count": 0
+      },
+      "mechanism": "bounded center-out overhang search from an inherited 240-letter seed",
+      "lineage": "search-produced growth row; parent_artifact and growth_over_parent are recorded in the row",
+      "reader_status": "not run",
+      "caveat": "Exact construction with explicitly rough, unreviewed generated boundary syntax; not a readability example.",
+      "source": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/overhang-growth-from-240-20261001.json",
+        "json_key": "rows[0].rendered",
+        "file_sha256": "83c755c8855f0260ccc0e75c428a473b1f38f2ef9fa0c70bdb0043ea93ea495a",
+        "tracked_at_snapshot": true
+      }
+    },
+    {
+      "id": "568-pinned",
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "normalized_ascii_letters": "leonwonwolfspotsnoranadiastopssotararewardsnadianoradeliversmapsmarastopsratsatubhemapsaronaidandeliversmapsmarastopsratsatubhemapsnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdessertsnoelwasistressednadiadeliversmapsleonarideliversmapsspamsrevilediranoelspamsreviledaidandessertsisawleonstressedwasiaronevilididarasdogwasaramsetontaptisileonevilleonwasaronevilididleonwonliveonreviledaronspamehbutastarspotsaramspamsrevilednadianoraspamehbutastarspotsaramspamsreviledaronaidansdraweraratosspotsaidanaronstopsflownownoel",
+      "letters": 568,
+      "normalized_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+      "independently_exact": true,
+      "normalization": "re.sub('[^A-Za-z]', '', surface).lower()",
+      "raw_text_outside_in_check": "passed",
+      "normalized_full_reverse_equality": "passed",
+      "metrics": {
+        "word_count": 143,
+        "unique_lowercase_word_count": 55,
+        "repeated_trigram_excess_occurrences": 18,
+        "trigram_occurrences": 141,
+        "repeated_trigram_rate": 0.1276595744680851,
+        "sentence_count": 42,
+        "duplicate_sentence_count": 3
+      },
+      "mechanism": "pinned working incumbent; authored outer-macro replacement with a causal scene",
+      "lineage": "parent is the 560-letter central-event bridge",
+      "reader_status": "not run",
+      "caveat": "Working-length incumbent, not the longest selected result; proper palindromic spans, repeated units, and rough prose are documented debt.",
+      "source": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/incumbent-560-outer-causal-scene-20261002.json",
+        "json_key": "rows[id=outer-causal-scene-568-working-incumbent].rendered",
+        "file_sha256": "c2d520dd84f17164da62f691aab95cba57d351cd660ed611ac444fdb6679dc13",
+        "tracked_at_snapshot": true
+      }
+    },
+    {
+      "id": "616-nora-aron",
+      "surface": "Leon won. Wolf spots Nora. Nora sees Aron. Aron sees Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron sees Nora. Nora sees Aron. Aron stops flow now, Noel.",
+      "normalized_ascii_letters": "leonwonwolfspotsnoranoraseesaronaronseesnoranadiastopssotararewardsnadianoradeliversmapsmarastopsratsatubhemapsaronaidandeliversmapsmarastopsratsatubhemapsnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdessertsnoelwasistressednadiadeliversmapsleonarideliversmapsspamsrevilediranoelspamsreviledaidandessertsisawleonstressedwasiaronevilididarasdogwasaramsetontaptisileonevilleonwasaronevilididleonwonliveonreviledaronspamehbutastarspotsaramspamsrevilednadianoraspamehbutastarspotsaramspamsreviledaronaidansdraweraratosspotsaidanaronseesnoranoraseesaronaronstopsflownownoel",
+      "letters": 616,
+      "normalized_sha256": "e777b97605099d24ff0b9f16e77ebe27d3bbd6baedabb4ba5a79f1a58f2eb222",
+      "independently_exact": true,
+      "normalization": "re.sub('[^A-Za-z]', '', surface).lower()",
+      "raw_text_outside_in_check": "passed",
+      "normalized_full_reverse_equality": "passed",
+      "metrics": {
+        "word_count": 155,
+        "unique_lowercase_word_count": 56,
+        "repeated_trigram_excess_occurrences": 22,
+        "trigram_occurrences": 153,
+        "repeated_trigram_rate": 0.1437908496732026,
+        "sentence_count": 46,
+        "duplicate_sentence_count": 5
+      },
+      "mechanism": "authored reciprocal-clause insertion at a live partial-word seam",
+      "lineage": "separate direct child of the 568 pinned incumbent",
+      "reader_status": "not run",
+      "caveat": "Repeated reciprocal shell, self-palindromic token sees, and whole-token reversal pairs in the insertion are recorded debt.",
+      "source": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/luna6-nora-aron-live-residual-growth-20260923.json",
+        "json_key": "rendered_full_tape",
+        "file_sha256": "54775109bbb8cfda710cffae3cb5345ad2e1729d0b324e0482c61a98bf1e4758",
+        "tracked_at_snapshot": true
+      }
+    },
+    {
+      "id": "630-god-dog",
+      "surface": "Leon won. Wolf spots Nora. Nora saw God. Nadia saw God. Dog was Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron saw God. Dog was Aidan. Dog was Aron. Aron stops flow now, Noel.",
+      "normalized_ascii_letters": "leonwonwolfspotsnoranorasawgodnadiasawgoddogwasnoranadiastopssotararewardsnadianoradeliversmapsmarastopsratsatubhemapsaronaidandeliversmapsmarastopsratsatubhemapsnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdessertsnoelwasistressednadiadeliversmapsleonarideliversmapsspamsrevilediranoelspamsreviledaidandessertsisawleonstressedwasiaronevilididarasdogwasaramsetontaptisileonevilleonwasaronevilididleonwonliveonreviledaronspamehbutastarspotsaramspamsrevilednadianoraspamehbutastarspotsaramspamsreviledaronaidansdraweraratosspotsaidanaronsawgoddogwasaidandogwasaronaronstopsflownownoel",
+      "letters": 630,
+      "normalized_sha256": "017d5e73f11339204b3f343fa66e63b5c4674afd01c5ea823e36999879a2ac11",
+      "independently_exact": true,
+      "normalization": "re.sub('[^A-Za-z]', '', surface).lower()",
+      "raw_text_outside_in_check": "passed",
+      "normalized_full_reverse_equality": "passed",
+      "metrics": {
+        "word_count": 161,
+        "unique_lowercase_word_count": 55,
+        "repeated_trigram_excess_occurrences": 20,
+        "trigram_occurrences": 159,
+        "repeated_trigram_rate": 0.12578616352201258,
+        "sentence_count": 48,
+        "duplicate_sentence_count": 3
+      },
+      "mechanism": "authored six-clause insertion at a live partial-word seam",
+      "lineage": "separate direct child of the 568 pinned incumbent",
+      "reader_status": "not run",
+      "caveat": "The inserted surface contains dog/god reversal and repeated identity frames; no readability claim.",
+      "source": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/luna6-god-dog-live-residual-growth-20260923.json",
+        "json_key": "rendered_full_text",
+        "file_sha256": "5f2df550ad7d4d919a4f42750b6679f9010cb94253c1baf1e86911c615822823",
+        "tracked_at_snapshot": true
+      }
+    },
+    {
+      "id": "640-event-chain",
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "normalized_ascii_letters": "leonwonwolfspotsnoranadiastopssotararewardsnadianoradeliversmapsnoelseesmaramaraseessarasaraseesnoramarastopsratsatubhemapsaronaidandeliversmapsmarastopsratsatubhemapsnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdessertsnoelwasistressednadiadeliversmapsleonarideliversmapsspamsrevilediranoelspamsreviledaidandessertsisawleonstressedwasiaronevilididarasdogwasaramsetontaptisileonevilleonwasaronevilididleonwonliveonreviledaronspamehbutastarspotsaramspamsrevilednadianoraspamehbutastarspotsaramaronseesarasarasseesaramaramseesleonspamsreviledaronaidansdraweraratosspotsaidanaronstopsflownownoel",
+      "letters": 640,
+      "normalized_sha256": "c3013fe4411ae2be7ab3211a41e59606faab7385dc4fe3dc8185d47f8cbedac9",
+      "independently_exact": true,
+      "normalization": "re.sub('[^A-Za-z]', '', surface).lower()",
+      "raw_text_outside_in_check": "passed",
+      "normalized_full_reverse_equality": "passed",
+      "metrics": {
+        "word_count": 161,
+        "unique_lowercase_word_count": 56,
+        "repeated_trigram_excess_occurrences": 14,
+        "trigram_occurrences": 159,
+        "repeated_trigram_rate": 0.0880503144654088,
+        "sentence_count": 48,
+        "duplicate_sentence_count": 3
+      },
+      "mechanism": "authored left event chain; bounded typed chart chooses a connected opposing resegmentation under a live residual",
+      "lineage": "direct child of the 568 pinned incumbent",
+      "reader_status": "not run",
+      "caveat": "Repeated predicate and inherited rough discourse remain; exactness does not certify readability.",
+      "source": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/incumbent-568-live-event-chain-insertion-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "621d4e8c9fdfc6bbc4217527c120b28854762a81d94c1a01be47e6bd76e0cabd",
+        "tracked_at_snapshot": true
+      }
+    },
+    {
+      "id": "672-reverse-chain",
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "normalized_ascii_letters": "leonwonwolfspotsnoranadiastopssotararewardsnadianorastopsleonleonstopsnoranorastopsnoelnoelspotsnoranoradeliversmapsmarastopsratsatubhemapsaronaidandeliversmapsmarastopsratsatubhemapsnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdessertsnoelwasistressednadiadeliversmapsleonarideliversmapsspamsrevilediranoelspamsreviledaidandessertsisawleonstressedwasiaronevilididarasdogwasaramsetontaptisileonevilleonwasaronevilididleonwonliveonreviledaronspamehbutastarspotsaramspamsrevilednadianoraspamehbutastarspotsaramspamsreviledaronaronstopsleonleonspotsaronaronspotsnoelnoelspotsaronaidansdraweraratosspotsaidanaronstopsflownownoel",
+      "letters": 672,
+      "normalized_sha256": "ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee",
+      "independently_exact": true,
+      "normalization": "re.sub('[^A-Za-z]', '', surface).lower()",
+      "raw_text_outside_in_check": "passed",
+      "normalized_full_reverse_equality": "passed",
+      "metrics": {
+        "word_count": 167,
+        "unique_lowercase_word_count": 55,
+        "repeated_trigram_excess_occurrences": 20,
+        "trigram_occurrences": 165,
+        "repeated_trigram_rate": 0.12121212121212122,
+        "sentence_count": 50,
+        "duplicate_sentence_count": 3
+      },
+      "mechanism": "bounded relation-chain search with per-clause reverse-character filtering",
+      "lineage": "direct comparison child of the 568 pinned incumbent",
+      "reader_status": "not run; saved AI review did not consider the full tape reader-worthy",
+      "caveat": "Four-beat chains are schematic/repetitive; the run reports one accepted exact path from 9,273 examined states.",
+      "source": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/incumbent-672-discourse-linked-reverse-chain-20260922.json",
+        "json_key": "rows[id=discourse-linked-reverse-chain-672].rendered",
+        "file_sha256": "51435f9d8bacb1b2378663932a9c9261e4a9fab9eb46b43c5ecfee03e45fc878",
+        "tracked_at_snapshot": true
+      }
+    },
+    {
+      "id": "686-shell-cycle",
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "normalized_ascii_letters": "leonwonwolfspotsnoranadiastopssotararewardsnadianoradeliversmapsnoelseesmaramaraseessarasaraseesnoraleonseessarasaraseesaidanaidanseesnoranoraseesleonaidandeliversmapsmarastopsratsatubhemapsnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdessertsnoelwasistressednadiadeliversmapsleonarideliversmapsspamsrevilediranoelspamsreviledaidandessertsisawleonstressedwasiaronevilididarasdogwasaramsetontaptisileonevilleonwasaronevilididleonwonliveonreviledaronspamehbutastarspotsaramspamsrevilednadianoelseesaronaronseesnadianadiaseesarasarasseesnoelaronseesarasarasseesaramaramseesleonspamsreviledaronaidansdraweraratosspotsaidanaronstopsflownownoel",
+      "letters": 686,
+      "normalized_sha256": "cb47534ec3f66a5a3624e7573e15cde7c1cdc53c7ff9cebdc788412b940f982c",
+      "independently_exact": true,
+      "normalization": "re.sub('[^A-Za-z]', '', surface).lower()",
+      "raw_text_outside_in_check": "passed",
+      "normalized_full_reverse_equality": "passed",
+      "metrics": {
+        "word_count": 169,
+        "unique_lowercase_word_count": 56,
+        "repeated_trigram_excess_occurrences": 8,
+        "trigram_occurrences": 167,
+        "repeated_trigram_rate": 0.04790419161676647,
+        "sentence_count": 51,
+        "duplicate_sentence_count": 0
+      },
+      "mechanism": "authored left event cycle; bounded deterministic grammar chart chooses opposing shell resegmentation",
+      "lineage": "640 → 686 → 736 → 752 descendant branch from the 568 incumbent",
+      "reader_status": "not run",
+      "caveat": "Repeated sees-cycle and inherited repetition/rough discourse remain.",
+      "source": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/repair-640-mirrored-shell-cycle-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "4e9174e68397d9519cfa90cdb12dcbaa87a2a93bf4fa0d9a9f9e7ef0cab73f49",
+        "tracked_at_snapshot": true
+      }
+    },
+    {
+      "id": "736-mixed-cycle",
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "normalized_ascii_letters": "leonwonwolfspotsnoranadiastopssotararewardsnadianoradeliversmapsnoelseesmaramaraseessarasaraseesnoraleonseessarasaraseesaidanaidanseesnoranoraseesleonaidandeliversmapsnoraseessarasarastopsaidanaidanstopsnoelnoelseesnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdessertsnoelwasistressednadiadeliversmapsleonarideliversmapsspamsrevilediranoelspamsreviledaidandessertsisawleonstressedwasiaronevilididarasdogwasaramsetontaptisileonevilleonwasaronevilididleonwonliveonreviledaronseesleonleonspotsnadianadiaspotsarasarasseesaronspamsrevilednadianoelseesaronaronseesnadianadiaseesarasarasseesnoelaronseesarasarasseesaramaramseesleonspamsreviledaronaidansdraweraratosspotsaidanaronstopsflownownoel",
+      "letters": 736,
+      "normalized_sha256": "608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2",
+      "independently_exact": true,
+      "normalization": "re.sub('[^A-Za-z]', '', surface).lower()",
+      "raw_text_outside_in_check": "passed",
+      "normalized_full_reverse_equality": "passed",
+      "metrics": {
+        "word_count": 177,
+        "unique_lowercase_word_count": 48,
+        "repeated_trigram_excess_occurrences": 10,
+        "trigram_occurrences": 175,
+        "repeated_trigram_rate": 0.05714285714285714,
+        "sentence_count": 54,
+        "duplicate_sentence_count": 0
+      },
+      "mechanism": "authored left mixed-predicate cycle; bounded deterministic grammar chart chooses opposing resegmentation",
+      "lineage": "686 → 736 → 752 descendant branch from the 568 incumbent",
+      "reader_status": "not run",
+      "caveat": "Predicate repetition and inherited rough discourse remain; this is construction evidence.",
+      "source": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/repair-686-mixed-predicate-shell-cycle-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "77c38810fea972550a396ced140dd534f4004ac327fd2a7bdcec96ecbf2b9317",
+        "tracked_at_snapshot": true
+      }
+    },
+    {
+      "id": "752-center-path",
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "normalized_ascii_letters": "leonwonwolfspotsnoranadiastopssotararewardsnadianoradeliversmapsnoelseesmaramaraseessarasaraseesnoraleonseessarasaraseesaidanaidanseesnoranoraseesleonaidandeliversmapsnoraseessarasarastopsaidanaidanstopsnoelnoelseesnoradelivernoevilnownoeldidilivenorasawnoellivenoelisitpatnotesmarasawgodsaradidilivenoraisawdessertsnoelwasistressednadiadeliversmapsleonariseesleonleonstopsiraarispotsnoelnoelseesiranoelspamsreviledaidandessertsisawleonstressedwasiaronevilididarasdogwasaramsetontaptisileonevilleonwasaronevilididleonwonliveonreviledaronseesleonleonspotsnadianadiaspotsarasarasseesaronspamsrevilednadianoelseesaronaronseesnadianadiaseesarasarasseesnoelaronseesarasarasseesaramaramseesleonspamsreviledaronaidansdraweraratosspotsaidanaronstopsflownownoel",
+      "letters": 752,
+      "normalized_sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c",
+      "independently_exact": true,
+      "normalization": "re.sub('[^A-Za-z]', '', surface).lower()",
+      "raw_text_outside_in_check": "passed",
+      "normalized_full_reverse_equality": "passed",
+      "metrics": {
+        "word_count": 183,
+        "unique_lowercase_word_count": 48,
+        "repeated_trigram_excess_occurrences": 12,
+        "trigram_occurrences": 181,
+        "repeated_trigram_rate": 0.06629834254143646,
+        "sentence_count": 56,
+        "duplicate_sentence_count": 0
+      },
+      "mechanism": "authored left two-event open path; bounded role chart chooses the connected opposing resegmentation",
+      "lineage": "736 → 752; upstream branch is 568 → 640 → 686 → 736 → 752",
+      "reader_status": "not run",
+      "caveat": "Strongest exact-length endpoint in this selected audit; a central reversed event pair is a proper palindromic span, and prose/repetition debt remains.",
+      "source": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/repair-736-center-lexical-event-path-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "424d9d5fa3a4f8a450f149e3feb2d239f6116b4fe99c60e3328df58fda367a2d",
+        "tracked_at_snapshot": true
+      }
+    }
+  ]
+}

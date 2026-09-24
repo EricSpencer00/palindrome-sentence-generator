@@ -29,7 +29,8 @@ RUBRIC = (
     "Choose the passage that reads more like ordinary connected English. "
     "Consider grammatical completeness, coherent meaning, and ease of "
     "understanding. Ignore length, punctuation style, and how either passage "
-    "was made. Reply with only A or B."
+    "was made. Reply A or B; use TIE for equal readability or UNSURE if you "
+    "cannot judge."
 )
 READINESS_MIN_TRAIN_TASKS = 20
 READINESS_MIN_VALIDATION_TASKS = 8

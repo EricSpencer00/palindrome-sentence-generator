@@ -1,4 +1,4 @@
-"""Grow the 650-letter exact lineage with a fresh outer event pair."""
+"""Record a 650/654 comparison candidate without promoting by length."""
 from __future__ import annotations
 
 import json
@@ -64,16 +64,32 @@ def build_payload() -> dict[str, object]:
         },
         "stats": {
             "independently_exact_children": 1,
-            "longest_letters": 654,
+            "maximum_length_observed": 654,
             "growth_over_parent": 4,
             "committed_character_contradictions": 0,
         },
-        "working_length_incumbent": {
-            "artifact": str(OUT.relative_to(ROOT)),
-            "id": "outer-stop-spot-event-654",
-            "letters": 654,
-            "sha256": EXPECTED_SHA256,
+        "selection_policy": {
+            "status": "unranked_readability_comparison_frontier",
+            "primary_criterion": "blinded human ratings of naturalness and connected meaning",
+            "length_role": "descriptive only; a longer candidate is not promoted without better readability evidence",
+            "human_ratings_collected": False,
         },
+        "comparison_frontier": [
+            {
+                "artifact": str(PARENT.relative_to(ROOT)),
+                "id": PARENT_ID,
+                "letters": 650,
+                "sha256": PARENT_SHA256,
+                "status": "unranked_comparison_candidate",
+            },
+            {
+                "artifact": str(OUT.relative_to(ROOT)),
+                "id": "outer-stop-spot-event-654",
+                "letters": 654,
+                "sha256": EXPECTED_SHA256,
+                "status": "unranked_comparison_candidate",
+            },
+        ],
         "preserved_lineage": [
             {
                 "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
@@ -96,7 +112,7 @@ def build_payload() -> dict[str, object]:
         ],
         "rows": [{
             "id": "outer-stop-spot-event-654",
-            "working_status": "working_length_incumbent",
+            "working_status": "unranked_comparison_candidate",
             "rendered": child,
             "audit": child_audit,
             "parent_artifact": str(PARENT.relative_to(ROOT)),
@@ -124,14 +140,14 @@ def build_payload() -> dict[str, object]:
             "repair_debt": {
                 "inherits_rough_prose_and_repeated_scaffolding": True,
                 "human_certified": False,
-                "effect": "retain as a length-track child; do not present as reader-validated prose",
+                "effect": "retain beside its 650-letter parent; do not rank either by length or present either as reader-validated prose",
             },
             "next_reader_facing_test": {
                 "status": "not_administered",
-                "comparison": "blind randomized comparison of this child, its 650-letter parent, the 38-letter clean benchmark, intact English controls, and shuffled controls",
+                "comparison": "reader-package-v5 compares the 650- and 654-letter candidates with the 666-letter candidate, the 38-letter clean benchmark, intact prose, and shuffled controls",
                 "readability_measure": "human preference and connected-English ratings; no programmatic score certifies readability",
             },
-            "next_operator": "reopen the remaining central repeated delivers/maps and spam's reviled shells with a fresh event equation and live residual ownership",
+            "next_operator": "use blinded reader ratings to identify the most readable lineage before choosing any further seam edit; optimize connected English, not length",
         }],
     }
 

@@ -9,16 +9,32 @@
   },
   "stats": {
     "independently_exact_children": 1,
-    "longest_letters": 654,
+    "maximum_length_observed": 654,
     "growth_over_parent": 4,
     "committed_character_contradictions": 0
   },
-  "working_length_incumbent": {
-    "artifact": "runs/incumbent-650-outer-scene-growth-20260924.json",
-    "id": "outer-stop-spot-event-654",
-    "letters": 654,
-    "sha256": "a190df41487ba2d1e1b55054690e4002c63f3a94123202b51aa4e502772b8acf"
+  "selection_policy": {
+    "status": "unranked_readability_comparison_frontier",
+    "primary_criterion": "blinded human ratings of naturalness and connected meaning",
+    "length_role": "descriptive only; a longer candidate is not promoted without better readability evidence",
+    "human_ratings_collected": false
   },
+  "comparison_frontier": [
+    {
+      "artifact": "runs/incumbent-608-repeated-shell-repair-20261002.json",
+      "id": "double-event-shell-repair-650",
+      "letters": 650,
+      "sha256": "2bd92686cbd01945be3869fbeee7ae9415cfcdae5cd616b26d89ec4f0acc54a9",
+      "status": "unranked_comparison_candidate"
+    },
+    {
+      "artifact": "runs/incumbent-650-outer-scene-growth-20260924.json",
+      "id": "outer-stop-spot-event-654",
+      "letters": 654,
+      "sha256": "a190df41487ba2d1e1b55054690e4002c63f3a94123202b51aa4e502772b8acf",
+      "status": "unranked_comparison_candidate"
+    }
+  ],
   "preserved_lineage": [
     {
       "artifact": "runs/incumbent-560-outer-causal-scene-20261002.json",
@@ -42,7 +58,7 @@
   "rows": [
     {
       "id": "outer-stop-spot-event-654",
-      "working_status": "working_length_incumbent",
+      "working_status": "unranked_comparison_candidate",
       "rendered": "Nadia stops a ram. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora spots a rat. Nadia spots a ram. Mara spots rats. Leon maps Nora. Draw no maps. Aidan spots a rat. Nora spots a ram. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Mara stops Aron. Tara stops Nadia. Spam onward. Aron, spam Noel. Star stops Aram. Mara stops Aidan. Tara stops Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel. Mara spots Aidan.",
       "audit": {
         "letters": 654,
@@ -83,14 +99,14 @@
       "repair_debt": {
         "inherits_rough_prose_and_repeated_scaffolding": true,
         "human_certified": false,
-        "effect": "retain as a length-track child; do not present as reader-validated prose"
+        "effect": "retain beside its 650-letter parent; do not rank either by length or present either as reader-validated prose"
       },
       "next_reader_facing_test": {
         "status": "not_administered",
-        "comparison": "blind randomized comparison of this child, its 650-letter parent, the 38-letter clean benchmark, intact English controls, and shuffled controls",
+        "comparison": "reader-package-v5 compares the 650- and 654-letter candidates with the 666-letter candidate, the 38-letter clean benchmark, intact prose, and shuffled controls",
         "readability_measure": "human preference and connected-English ratings; no programmatic score certifies readability"
       },
-      "next_operator": "reopen the remaining central repeated delivers/maps and spam's reviled shells with a fresh event equation and live residual ownership"
+      "next_operator": "use blinded reader ratings to identify the most readable lineage before choosing any further seam edit; optimize connected English, not length"
     }
   ]
 }

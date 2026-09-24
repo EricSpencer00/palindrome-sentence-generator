@@ -17,7 +17,9 @@ def test_fresh_outer_event_pair_grows_exact_650_lineage() -> None:
     assert payload["parent"]["sha256"] == PARENT_SHA256
     assert row["parent_sha256"] == PARENT_SHA256
     assert row["audit"]["letters"] == 654
-    assert payload["working_length_incumbent"]["letters"] == 654
+    assert payload["selection_policy"]["status"] == "unranked_readability_comparison_frontier"
+    assert payload["selection_policy"]["length_role"].startswith("descriptive only")
+    assert [row["letters"] for row in payload["comparison_frontier"]] == [650, 654]
     assert row["audit"]["sha256_forward"] == EXPECTED_SHA256
     assert tape == tape[::-1]
     assert row["audit"]["two_pointer_exact"]
@@ -38,3 +40,4 @@ def test_new_scene_closes_residual_and_keeps_reader_gate_honest() -> None:
     assert seam["final_residual"] == ""
     assert row["repair_debt"]["human_certified"] is False
     assert row["next_reader_facing_test"]["status"] == "not_administered"
+    assert "reader ratings" in row["next_operator"]

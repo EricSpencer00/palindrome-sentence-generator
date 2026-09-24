@@ -1,15 +1,16 @@
 # Growing letter-level palindromes
 
-The goal is still long English prose that is exactly palindromic. This draft
-reports what the saved constructions actually show: independently exact
-passages through 752 letters, an explicit seam equation, and a reproducible
+The goal remains long English prose that is exactly palindromic. This short
+mechanics note reports only what the saved constructions establish: exact
+passages through 752 letters, a paired-seam condition, and a reproducible
 672-letter clause-search result. Exactness is established; human readability
-is not. The paper prints the long passages instead of hiding their rough parts.
+is not.
 
-[naacl2027.tex](naacl2027.tex) replaces the earlier search-speed manuscript.
-It separates authored left paths, grammar-parsed right paths, and searched
-clauses. The audit is a selected case study, not a census or a length record.
-[REVIEW-LOG.md](REVIEW-LOG.md) records the independent reviews and fixes.
+[naacl2027.tex](naacl2027.tex) is now a short mechanics note: one seam
+condition, a five-stage exact-growth table, and separate algebra/search checks.
+The complete 752-letter rendering stays in the anonymous evidence archive,
+not in the main paper. The audit is a selected lineage, not a census or a
+length record. [REVIEW-LOG.md](REVIEW-LOG.md) records independent reviews.
 
 ## Reproduce the evidence
 
@@ -26,10 +27,11 @@ tectonic --keep-logs -o output/pdf paper/naacl2027.tex
 
 The audit pins original source-file digests and a repository snapshot. It
 checks eleven complete renderings using normalized reversal and a separate
-raw-text scan. The bounded algebra test covers 54,145 equal-length cases plus
-91 context checks. The independent clause replay reproduces the saved text,
-digest, and counters: 9,273 frontier examinations, 35 rejected records, and
-one accepted chain.
+raw-text scan. The lineage table is generated from those recomputed records.
+The bounded algebra test covers 54,145 equal-length cases plus 91 context
+checks. The independent clause replay reproduces the saved text, digest, and
+counters: 9,273 frontier examinations, 35 rejected records, and one accepted
+chain. No reader or comparative language-quality result is available.
 
 The exporter creates two allowlisted archives under `output/naacl-submission/`:
 expanded Overleaf sources and anonymous evidence. The latter runs without

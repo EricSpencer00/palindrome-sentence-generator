@@ -1,11 +1,12 @@
 """Build allowlisted Overleaf source and anonymous evidence bundles.
 
-Raw run files and Git history are deliberately not copied: some historical
-run metadata contains operator host information unrelated to the evidence.
+Git history and unrelated raw runs are excluded. The matched-comparison
+candidate archive is included because it directly supports a manuscript result.
 """
 from __future__ import annotations
 
 import ast
+import gzip
 import hashlib
 import json
 import re
@@ -26,8 +27,21 @@ def json_bytes(value: object) -> bytes:
     return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
 
 
+def rename_candidate_digest_fields(value: object) -> object:
+    if isinstance(value, dict):
+        return {
+            ("candidate_set_digest" if key == "candidate_key_sha256" else key):
+            rename_candidate_digest_fields(item)
+            for key, item in value.items()
+        }
+    if isinstance(value, list):
+        return [rename_candidate_digest_fields(item) for item in value]
+    return value
+
+
 def audit_bytes(name: str, payload: bytes) -> None:
-    text = payload.decode("utf-8")
+    source = gzip.decompress(payload) if name.endswith(".gz") else payload
+    text = source.decode("utf-8")
     for pattern in PRIVATE_PATTERNS:
         if re.search(pattern, text):
             raise AssertionError(f"Privacy screen rejected {name}; pattern {pattern}")
@@ -68,10 +82,10 @@ def bibliography_for(source: str) -> str:
 
 def build() -> dict[str, object]:
     source = (PAPER / "naacl2027.tex").read_text()
-    for part in ("week_results_table", "week_examples"):
+    for part in ("week_results_table",):
         token = "\\input{" + part + "}"
         if source.count(token) != 1:
-            raise AssertionError(f"Expected one table/example input: {part}")
+            raise AssertionError(f"Expected one manuscript input: {part}")
         source = source.replace(token, (PAPER / f"{part}.tex").read_text())
     if "\\input{" in source:
         raise AssertionError("Unresolved manuscript input in upload source")
@@ -106,9 +120,15 @@ Python 3.10 or later and its standard library are sufficient. No network,
 Git checkout, credentials, model API, or additional corpus is required.
 
 The verifier checks all eleven selected renderings with a raw-text scan and
-normalized reversal, reconstructs the 630-letter edit, independently replays
+normalized reversal, including the complete 752-letter endpoint, reconstructs
+the 630-letter edit, independently replays
 the 672-letter first-success clause search using its fixed relation index,
-and runs the bounded seam-algebra check. The manifest checks bundle integrity.
+checks every candidate in the matched operator-equivalence archive against the
+parent seam and frozen relation index, and runs the bounded seam-algebra check.
+It also recomputes the five-stage lineage's word and repetition diagnostics.
+The manifest checks bundle integrity.
+In the comparison archive, `candidate_key_sha256` field names are normalized
+to `candidate_set_digest`; every digest value and candidate row is unchanged.
 
 Selection is retrospective, not exhaustive. These outputs are mechanically
 exact construction results; no human-study results are included. The fixed
@@ -120,10 +140,22 @@ No Git history, host metadata, account information, or raw execution logs are
 included. The two imported modules also have repository-specific entry points;
 use the verifier command above for this standalone archive.
 """
+    comparison_run = ROOT / "runs/comparison-568-online-residual-vs-offline-reverse-index-20260924.json.gz"
+    comparison_audit = ROOT / "runs/comparison-568-online-residual-vs-offline-reverse-index-20260924.audit.json"
+    comparison_audit_data = json.loads(comparison_audit.read_text())
+    comparison_audit_data = rename_candidate_digest_fields(comparison_audit_data)
+    with gzip.open(comparison_run, "rt", encoding="utf-8") as stream:
+        comparison_data = rename_candidate_digest_fields(json.load(stream))
+    comparison_payload = gzip.compress(
+        json.dumps(comparison_data, ensure_ascii=False, separators=(",", ":")).encode("utf-8"),
+        mtime=0,
+    )
     files = {
         "selected-results.json": json_bytes(selected),
         "relation-index.json": json_bytes(index["relation_counts"]),
         "seam-fixture.json": json_bytes(fixture),
+        "comparison-candidates.json.gz": comparison_payload,
+        "comparison-audit.json": json_bytes(comparison_audit_data),
         "README.md": readme.encode(),
     }
     for name in ("verify_anonymous_evidence.py", "check_seam_invariant.py", "replay_clause_search.py"):

@@ -306,7 +306,7 @@ def build() -> dict[str, Any]:
         "human_evidence": "No project human reader study has run for any selected row. The 38-letter item is an inherited reference/control whose authorship is not established by this audit. The 54-letter candidate's 24-rater packet is frozen but has no responses.",
         "definitions": {
             "normalization": "Lowercase ASCII letters only: re.sub('[^A-Za-z]', '', surface).lower().",
-            "exactness": "Two independent checks are required: a raw-text outside-in scan skips every character outside ASCII A-Z/a-z and compares lowercase surviving letters; separately, the re.sub-normalized tape must equal its full reversal. Its SHA-256 must also match the source artifact.",
+            "exactness": "Two distinct implementations in audit_week_results.py are required: a raw-text outside-in scan skips every character outside ASCII A-Z/a-z and compares lowercase surviving letters; separately, the re.sub-normalized tape must equal its full reversal. Its SHA-256 must also match the source artifact.",
             "word_count": "Regex [A-Za-z]+(?:'[A-Za-z]+)* over the full surface; straight ASCII apostrophes remain internal to words.",
             "unique_word_count": "Number of distinct case-folded tokens from the word-count regex.",
             "repeated_trigram_rate": "Excess token-trigram occurrences (each occurrence after the first for a repeated trigram) divided by all token-trigram windows across the full token sequence; sentence boundaries do not reset the sequence.",
@@ -318,34 +318,37 @@ def build() -> dict[str, Any]:
 
 def render_table(records: list[dict[str, Any]]) -> str:
     labels = {
-        "38-control": "Reference", "54-np-candidate": "NP extension",
-        "498-overhang": "Overhang", "568-pinned": "Parent",
-        "616-nora-aron": "Reciprocal seam", "630-god-dog": "Asymmetric seam",
-        "640-event-chain": "Event insertion", "672-reverse-chain": "Clause search",
-        "686-shell-cycle": "Shell revision", "736-mixed-cycle": "Mixed predicates",
-        "752-center-path": "Center revision",
+        "568-pinned": "Parent", "640-event-chain": "Edit 1",
+        "686-shell-cycle": "Edit 2", "736-mixed-cycle": "Edit 3",
+        "752-center-path": "Edit 4",
     }
+    lineage_ids = list(labels)
+    selected = {row["id"]: row for row in records}
     header = [
         r"\begin{table}[t]",
-        r"\centering\small",
-        r"\setlength{\tabcolsep}{3pt}",
-        r"\begin{tabular}{lrrrr}",
+        r"\centering\scriptsize",
+        r"\setlength{\tabcolsep}{2pt}",
+        r"\begin{tabular}{@{}lrrrrr@{}}",
         r"\toprule",
-        r"Example & L & W & V & D \\",
+        r"Stage & $L$ & $\Delta L$ & $W/V$ & Rep. 3g & Dup. sent. \\",
         r"\midrule",
     ]
     rows = []
-    for row in records:
+    previous_letters = None
+    for record_id in lineage_ids:
+        row = selected[record_id]
         m = row["metrics"]
-        rows.append(
-            f"{labels[row['id']]} & {row['letters']} & {m['word_count']} & "
-            f"{m['unique_lowercase_word_count']} & {m['duplicate_sentence_count']} " + r"\\"
-        )
+        delta = "---" if previous_letters is None else f"+{row['letters'] - previous_letters}"
+        repeat = f"{100 * m['repeated_trigram_rate']:.1f}\\%"
+        rows.append(f"{labels[record_id]} & {row['letters']} & {delta} & "
+                    f"{m['word_count']}/{m['unique_lowercase_word_count']} & {repeat} & "
+                    f"{m['duplicate_sentence_count']} " + r"\\")
+        previous_letters = row["letters"]
     footer = [
         r"\bottomrule",
         r"\end{tabular}",
-        r"\caption{Selected exact constructions. L is normalized ASCII-letter count; W is token count; V is the number of distinct lowercased token types; D is the number of excess exact duplicate sentence segments, compared case-insensitively after whitespace normalization with punctuation retained.}",
-        r"\label{tab:week-results}",
+        r"\caption{Five exact tapes in one selected lineage. Words/types are token and distinct-token counts. Repeat 3-gram is excess frequency of repeated token trigrams divided by all trigram windows; duplicate sentences require an exact case-insensitive sentence match. These are repetition diagnostics, not readability judgments.}",
+        r"\label{tab:lineage}",
         r"\end{table}",
         "",
     ]

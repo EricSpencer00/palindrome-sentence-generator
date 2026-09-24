@@ -5,7 +5,7 @@
   "human_evidence": "No project human reader study has run for any selected row. The 38-letter item is an inherited reference/control whose authorship is not established by this audit. The 54-letter candidate's 24-rater packet is frozen but has no responses.",
   "definitions": {
     "normalization": "Lowercase ASCII letters only: re.sub('[^A-Za-z]', '', surface).lower().",
-    "exactness": "Two independent checks are required: a raw-text outside-in scan skips every character outside ASCII A-Z/a-z and compares lowercase surviving letters; separately, the re.sub-normalized tape must equal its full reversal. Its SHA-256 must also match the source artifact.",
+    "exactness": "Two distinct implementations in audit_week_results.py are required: a raw-text outside-in scan skips every character outside ASCII A-Z/a-z and compares lowercase surviving letters; separately, the re.sub-normalized tape must equal its full reversal. Its SHA-256 must also match the source artifact.",
     "word_count": "Regex [A-Za-z]+(?:'[A-Za-z]+)* over the full surface; straight ASCII apostrophes remain internal to words.",
     "unique_word_count": "Number of distinct case-folded tokens from the word-count regex.",
     "repeated_trigram_rate": "Excess token-trigram occurrences (each occurrence after the first for a repeated trigram) divided by all token-trigram windows across the full token sequence; sentence boundaries do not reset the sequence.",

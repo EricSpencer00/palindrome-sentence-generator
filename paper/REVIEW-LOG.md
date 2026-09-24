@@ -71,17 +71,67 @@ Formatting and disclosure checks used the official
 The anonymous draft includes limitations and assistance disclosures.
 Creating this draft does not submit it to a conference.
 
-## Delivery verification
+## Revision and delivery verification
 
-The final local manuscript compiles to nine pages including references and
-appendices; the main discussion ends on page six. Every page was rendered
-and visually inspected. The final build has no overfull boxes, missing glyphs,
-or unresolved references. Non-fatal underfull-box warnings remain.
+### Round 3: shorten and rebalance evidence
 
-The staged source diff and both allowlisted delivery bundles pass the secret
-scanner. A private receipt in an already ignored output directory is excluded.
-The original Overleaf sources were backed up locally before replacing only
-the manuscript and bibliography. Both replacement uploads were acknowledged
-by Overleaf, and recompilation was started. The browser-control connection
-closed before its final status could be read; remote compilation is therefore
-not claimed as verified. The locally compiled PDF is the verified deliverable.
+The draft is now four pages including the complete 752-letter endpoint. A
+results table reports the paired-edit ablation, 672-letter search yield,
+four-edit growth, finite-set operator equivalence, and bounded algebra check.
+Two directly relevant constrained-creative-NLG references were added. The
+operator count is not presented as a quality baseline or independent sample.
+
+### Round 4: independent re-review
+
+Two skeptical reviewers confirmed the equation proof, scoped table caption,
+commit-versus-file-hash wording, and explicit non-record claim. Exact-text
+membership in the matched archive was checked directly: the saved 672-letter
+rendering occurs once, with the same parent, seam, eight relation triples, and
+normalized digest. The 38,498 count is described as finite-set cardinality,
+not a sample or success rate. Reviewers agree that this does not establish
+comparative language quality. Human ratings and a relevant quality baseline
+remain absent; the manuscript makes no readability claim. This review preceded
+the final compact revision and refresh of the anonymous artifact bundle.
+
+### Round 5: shorten and strengthen the evidence-to-space ratio
+
+Following the objection that the four-page draft had too much exposition for
+its evidence, the full 752-letter rendering was removed from the main text and
+retained in the anonymous evidence archive. The main paper is now a three-page
+note with one generated table showing all five exact stages from 568 to 752,
+including word/type counts, duplicate sentences, and repeated-trigram rates.
+These measures are explicitly descriptive diagnostics, not readability
+scores. The introduction and related work now distinguish Norvig's
+remainder-based algorithm from n-gram corpus enumeration and cite direct
+constrained-generation and evaluation work.
+
+The skeptical re-review verified the table and all stated counts against the
+saved artifacts. It also caught and corrected the Norvig citation description.
+The remaining substantive gaps are unchanged: no blinded reader responses
+and no comparative language-quality result. These are named plainly, not
+papered over with automatic metrics.
+
+### Round 6: reduce the paper to its evidence
+
+After the objection that the draft was still too long for its results, the
+general motivation, repeated scope disclaimers, and redundant related-work
+paragraph were removed. The result is a two-page, roughly 1,000-word note with
+six directly relevant references. It retains the seam condition and proof,
+the complete five-stage 568-to-752 table, the 672-letter search counters,
+paired-seam ablation, and bounded-equation checks. The prose explicitly
+states that the longest construction is rough and that human ratings and a
+language-quality baseline are absent. Skeptical review caught one scope
+ambiguity: the lineage has one insertion followed by three mirrored-support
+replacements, so the insertion equation must not be read as certifying every
+edit. The text now states this distinction and reports full-tape validation
+for each descendant.
+
+The revised PDF was rebuilt and both pages were rendered and inspected. All
+citations resolve. Non-fatal underfull-box and `lineno.sty` encoding warnings
+remain. The expanded Overleaf-source ZIP was extracted to a clean directory
+and independently compiled; the table is inlined, so no table input file is
+missing. The selected-output audit, seam/algebra checks, 672 replay, bundle
+export, independent anonymous-evidence verifier, and secret scan pass. No
+Overleaf connector was available, so the bundle was generated and tested
+locally but this revision was not uploaded or remotely compiled. The generated
+PDF and ZIP bundles are excluded from the source commit.

@@ -5,12 +5,19 @@ Run this file inside the extracted anonymous evidence archive with Python 3.10+.
 from __future__ import annotations
 
 import hashlib
+import gzip
 import json
 import re
+import statistics
+from collections import Counter
 from pathlib import Path
 
 from check_seam_invariant import exhaustive_algebra_audit
 from replay_clause_search import replay
+
+
+WORD_RE = re.compile(r"[A-Za-z]+(?:'[A-Za-z]+)*")
+SENTENCE_RE = re.compile(r"[^.!?]*[.!?](?:[\"”’']*)|[^.!?]+$")
 
 
 def letters(text: str) -> str:
@@ -34,6 +41,125 @@ def raw_exact(text: str) -> bool:
     return found
 
 
+def structural_metrics(text: str) -> dict[str, object]:
+    tokens = [token.lower() for token in WORD_RE.findall(text)]
+    trigrams = Counter(tuple(tokens[i:i + 3]) for i in range(max(0, len(tokens) - 2)))
+    trigram_total = sum(trigrams.values())
+    trigram_excess = sum(count - 1 for count in trigrams.values() if count > 1)
+    sentences = [part.strip() for part in SENTENCE_RE.findall(text) if part.strip()]
+    sentence_keys = [" ".join(sentence.split()).casefold() for sentence in sentences]
+    sentence_counts = Counter(sentence_keys)
+    return {
+        "word_count": len(tokens),
+        "unique_lowercase_word_count": len(set(tokens)),
+        "repeated_trigram_excess_occurrences": trigram_excess,
+        "trigram_occurrences": trigram_total,
+        "repeated_trigram_rate": trigram_excess / trigram_total if trigram_total else 0.0,
+        "sentence_count": len(sentences),
+        "duplicate_sentence_count": sum(count - 1 for count in sentence_counts.values() if count > 1),
+    }
+
+
+def clause(frame: str, entities: dict[str, str], predicates: set[str]) -> tuple[str, str, str]:
+    subject, predicate, obj = frame.split("|")
+    if subject not in entities or obj not in entities or predicate not in predicates:
+        raise AssertionError(f"Unknown clause frame: {frame}")
+    return subject, predicate, obj
+
+
+def verify_comparison(directory: Path, parent: str, saved_672: dict[str, object],
+                      prior_relations: dict[str, int]) -> dict[str, object]:
+    audit = json.loads((directory / "comparison-audit.json").read_text())
+    with gzip.open(directory / "comparison-candidates.json.gz", "rt", encoding="utf-8") as stream:
+        comparison = json.load(stream)
+    arms = [comparison["arms"][name]["stats"] for name in ("online", "offline")]
+    expected_digest = audit["candidate_set_digest"]
+    assert comparison["candidate_sets_match"]
+    assert arms[0]["candidate_set_digest"] == arms[1]["candidate_set_digest"] == expected_digest
+    assert audit["independent_candidate_rows_checked"] == 38498
+    assert audit["all_candidates_replayed_from_parent"]
+    assert audit["all_candidates_pass_two_independent_exactness_checks"]
+    assert audit["all_candidate_provenance_and_novelty_gates_recomputed"]
+    assert audit["all_structural_metrics_recomputed"]
+
+    grammar = comparison["grammar"]
+    entities = {item.casefold(): item for item in grammar["entities"]}
+    predicates = set(grammar["predicates"])
+    base = letters(parent)
+    assert len(base) == comparison["parent"]["letters"] == 568
+    assert hashlib.sha256(base.encode("ascii")).hexdigest() == comparison["parent"]["sha256"]
+    assert comparison["shared_protocol"]["seam_normalized_cuts"] == [48, 520]
+
+    keys = set()
+    key_digest = hashlib.sha256()
+    lengths = []
+    target_matches = []
+    candidates = comparison["accepted_candidates"]
+    for row in candidates:
+        provenance = row["provenance"]
+        assert provenance["parent_sha256"] == comparison["parent"]["sha256"]
+        assert provenance["parent_id"] == comparison["parent"]["id"]
+        assert provenance["seam_normalized_cuts"] == [48, 520]
+        assert provenance["method_arms"] == ["online_character_residual", "offline_reverse_pair_index"]
+        left_frames = provenance["left_chain"]
+        right_reverse = provenance["right_reverse_pairing_order"]
+        right_frames = provenance["right_chain_rendered_order"]
+        assert len(left_frames) == len(right_reverse) == len(right_frames) == 4
+        assert right_reverse == list(reversed(right_frames))
+
+        left = [clause(frame, entities, predicates) for frame in left_frames]
+        right = [clause(frame, entities, predicates) for frame in right_frames]
+        assert all(left[i][2] == left[i + 1][0] for i in range(3))
+        assert all(right[i][2] == right[i + 1][0] for i in range(3))
+        all_frames = left_frames + right_frames
+        assert len(set(all_frames)) == 8
+        assert len({frame.split("|")[1] for frame in left_frames}) >= 2
+        relation_strings = [frame.replace("|", " ") for frame in all_frames]
+        assert all(prior_relations.get(relation, 0) == 0 for relation in relation_strings)
+
+        left_text = " ".join(f"{entities[s]} {p} {entities[o]}." for s, p, o in left)
+        right_text = " ".join(f"{entities[s]} {p} {entities[o]}." for s, p, o in right)
+        left_tape, right_tape = letters(left_text), letters(right_text)
+        assert left_tape == right_tape[::-1]
+        expected_tape = base[:48] + left_tape + base[48:520] + right_tape + base[520:]
+        rendered = row["rendered"]
+        tape = letters(rendered)
+        assert tape == expected_tape and tape == tape[::-1] and raw_exact(rendered)
+        digest = hashlib.sha256(tape.encode("ascii")).hexdigest()
+        saved_audit = row["audit"]
+        assert saved_audit["outside_in_exact"] and saved_audit["normalizer_reverse_equal"]
+        assert saved_audit["letters"] == len(tape) and saved_audit["sha256_forward"] == digest
+
+        key = "||".join(left_frames + ["--"] + right_reverse)
+        assert key not in keys
+        keys.add(key)
+        if len(keys) > 1:
+            key_digest.update(b"\n")
+        key_digest.update(key.encode("utf-8"))
+        lengths.append(len(tape))
+        if rendered == saved_672["surface"]:
+            target_matches.append((row, digest))
+
+    count = len(candidates)
+    assert count == arms[0]["accepted_candidates"] == arms[1]["accepted_candidates"] == 38498
+    assert key_digest.hexdigest() == expected_digest
+    assert len(target_matches) == 1
+    match, target_digest = target_matches[0]
+    assert target_digest == saved_672["normalized_sha256"]
+    assert match["provenance"]["parent_id"] == comparison["parent"]["id"]
+    assert match["provenance"]["seam_normalized_cuts"] == [48, 520]
+    summary = audit["length_summary"]
+    assert [min(lengths), statistics.median(lengths), max(lengths)] == [
+        summary["min"], summary["median"], summary["max"]
+    ]
+    return {
+        "operator_equivalence_candidates": count,
+        "candidate_set_digest": key_digest.hexdigest(),
+        "exact_672_membership_count": len(target_matches),
+        "all_candidates_replayed_and_exact": True,
+    }
+
+
 def verify(directory: Path) -> dict[str, object]:
     manifest = json.loads((directory / "manifest.json").read_text())
     for name, digest in manifest.items():
@@ -50,6 +176,13 @@ def verify(directory: Path) -> dict[str, object]:
         assert tape and tape == tape[::-1] and raw_exact(row["surface"])
         assert len(tape) == row["letters"]
         assert hashlib.sha256(tape.encode("ascii")).hexdigest() == row["normalized_sha256"]
+        assert structural_metrics(row["surface"]) == row["metrics"]
+
+    lineage_ids = ["568-pinned", "640-event-chain", "686-shell-cycle", "736-mixed-cycle", "752-center-path"]
+    lineage = [rows[row_id] for row_id in lineage_ids]
+    lineage_lengths = [row["letters"] for row in lineage]
+    assert lineage_lengths == [568, 640, 686, 736, 752]
+    assert [lineage_lengths[i] - lineage_lengths[i - 1] for i in range(1, len(lineage_lengths))] == [72, 46, 50, 16]
 
     parent = rows["568-pinned"]["surface"]
     fixture = json.loads((directory / "seam-fixture.json").read_text())
@@ -68,13 +201,17 @@ def verify(directory: Path) -> dict[str, object]:
     assert searched["accepted_paths"] == 1
     algebra = exhaustive_algebra_audit()
     assert algebra["all_checks_passed"]
+    comparison = verify_comparison(directory, parent, rows["672-reverse-chain"], relations)
     return {
         "selected_exact_examples": len(rows),
+        "lineage_lengths": lineage_lengths,
+        "lineage_metrics_recomputed": True,
         "seam_replay_letters": len(letters(child)),
         "clause_search_letters": searched["letters"],
         "clause_search_frontier_examinations": searched["states_examined"],
         "clause_search_rejected_attempts": searched["rejected_attempts"],
         "algebra_checks": algebra["checks_performed"],
+        "matched_operator_check": comparison,
         "human_readability_evidence": "not supplied; no human-study result is claimed",
     }
 

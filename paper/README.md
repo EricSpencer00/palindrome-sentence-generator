@@ -64,6 +64,10 @@ labels historical date-like run suffixes as identifiers, not run dates. It
 excludes raw run metadata and private host information. Generated PDFs and
 these archives are not part of this source commit.
 
+The tracked archive under `paper/releases/naacl2027-2026-09-11/` is a historical
+snapshot and does not match this working manuscript. For current review, use
+only the freshly generated bundles under `output/naacl-submission/`.
+
 The selected evidence archive carries a replayable normalized-character diff
 for each 568-to-752 transition. Those diffs replay the saved tapes, not the
 original candidate-generation procedures.

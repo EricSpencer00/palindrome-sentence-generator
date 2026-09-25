@@ -324,3 +324,20 @@ a prior-method baseline, broader generalization, semantic-quality evaluation,
 and human readability judgments. The current evidence does not support calling
 the manuscript submission-ready. Internal reviews are not peer review or
 reader evidence.
+
+## Q10 Pass 7
+
+A fresh reviewer found that the abstract still left the roles of the selected
+lineage, 672-letter search, and 38,498-candidate equivalence result implicit.
+It now identifies the 568-to-752 sequence as a retrospectively selected,
+authored four-edit lineage; labels the 672 tape a separate bounded-search
+artifact; and calls the 38,498 result finite set equivalence, not a speed or
+prior-method comparison. It also states that the endpoint is rough and that
+there are no human ratings. The Brown scorer-method paragraph was tightened
+without removing the longness controls or their range, keeping the PDF at three
+pages. The README now labels the tracked September 11 release as historical and
+directs readers to the current generated bundles. The anonymous verifier and
+focused test passed; the current PDF was rendered and checked. A fresh final
+review found no wording, exactness, or layout blocker, but again judged the
+paper not submission-ready for NAACL main because there is no prior-method
+baseline, broader generalization, or human semantic/readability evaluation.

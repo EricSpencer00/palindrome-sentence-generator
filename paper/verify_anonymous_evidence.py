@@ -95,7 +95,19 @@ def verify_comparison(directory: Path, parent: str, saved_672: dict[str, object]
     arms = [comparison["arms"][name]["stats"] for name in ("online", "offline")]
     expected_digest = audit["candidate_set_digest"]
     assert comparison["candidate_sets_match"]
+    assert comparison["shared_protocol"]["enumeration"].startswith("exhaustive DFS")
+    assert comparison["arms"]["online"]["exhaustive"]
+    assert comparison["arms"]["offline"]["exhaustive"]
     assert arms[0]["candidate_set_digest"] == arms[1]["candidate_set_digest"] == expected_digest
+    assert arms[0]["accepted_candidates"] == arms[1]["accepted_candidates"] == 38498
+    online_ops = arms[0]["operator_counters"]
+    offline_ops = arms[1]["operator_counters"]
+    assert online_ops["left_clause_expansions"] == offline_ops["left_clause_expansions"] == 1739558
+    assert online_ops["matched_counterpart_rows"] == offline_ops["matched_counterpart_rows"] == 1321024
+    assert online_ops["character_steps"] == 162580
+    assert online_ops["residual_lookups"] == offline_ops["pair_index_lookups"] == 470
+    assert offline_ops["indexed_clause_rows"] == 300
+    assert offline_ops["exact_reverse_pair_edges"] == 160
     assert audit["independent_candidate_rows_checked"] == 38498
     assert audit["all_candidates_replayed_from_parent"]
     assert audit["all_candidates_pass_two_independent_exactness_checks"]

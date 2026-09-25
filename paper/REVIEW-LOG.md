@@ -300,3 +300,27 @@ found no must-fix, confirmed the updated verifier and the current three-page
 render, and reiterated that no human readability result exists. The Brown
 word-order statistic remains a local-order diagnostic, not a readability
 judgment. Internal AI review is not peer review or reader evidence.
+
+## Q10 Pass 6
+
+A fresh NAACL-focused review concluded that the evidence still describes
+selected artifacts more strongly than it establishes a general NLP contribution.
+To add the strongest existing same-space comparison without overstating it, the
+paper now reports an archived exhaustive comparison of online character-residual
+matching and an offline reverse-pair index: both report the same 38,498 exact
+candidates and candidate-set digest, with operation counters stated as counts,
+not runtime wins. The text explicitly says this is not a comparison against
+prior systems. The anonymous archive now includes both enumerator sources, the
+independent audit source, and sanitized parent/relation-count inputs so readers
+can rerun the comparison. The quick evidence verifier checks the saved set,
+exhaustive flags, digest, and operation counters; it also replays every archived
+candidate. The full enumeration itself was not rerun in this revision pass.
+
+The refreshed PDF remains three pages and was visually checked; the anonymous
+bundle's privacy screen and quick verifier passed. A separate final reviewer
+found no package, wording, or layout blocker, but agreed that the draft remains
+a narrow case report rather than a defensible NAACL main paper: it still lacks
+a prior-method baseline, broader generalization, semantic-quality evaluation,
+and human readability judgments. The current evidence does not support calling
+the manuscript submission-ready. Internal reviews are not peer review or
+reader evidence.

@@ -107,6 +107,20 @@ def build() -> dict[str, object]:
     for row in selected["results"]:
         row["source"].pop("git_revision", None)
     index = json.loads((ROOT / "runs/incumbent-672-global-novelty-snapshot-20260922.json").read_text())
+    comparison_parent = next(row for row in selected["results"] if row["id"] == "568-pinned")
+    sanitized_parent_input = {
+        "rows": [{
+            "id": "outer-causal-scene-568-working-incumbent",
+            "rendered": comparison_parent["surface"],
+        }],
+    }
+    sanitized_novelty_input = {
+        "relation_counts": index["relation_counts"],
+        "snapshot_id": index["snapshot_id"],
+        "snapshot_commit": index["snapshot_commit"],
+        "manifest_sha256": index["manifest_sha256"],
+        "note": "Sanitized fixed relation-count input for deterministic replay.",
+    }
     module = ast.parse((ROOT / "experiments/luna6_god_dog_live_residual_growth_20260923.py").read_text())
     constants = {}
     for node in module.body:
@@ -189,6 +203,18 @@ No Git history, host metadata, account information, or raw execution logs are
 included. The two imported modules also have repository-specific entry points;
 use the verifier command above for this standalone archive.
 
+For a full rerun of the two exhaustive search implementations and their
+independent candidate audit, run these additional standard-library-only
+commands from this archive:
+
+```sh
+python3 experiments/compare_568_residual_vs_reverse_index_20260924.py
+python3 experiments/verify_comparison_568_residual_vs_reverse_index_20260924.py
+```
+
+These commands write regenerated comparison and audit files under `runs/`.
+The full enumeration is separate from the quicker saved-evidence verifier.
+
 `readability-calibration.json` records ten selected project outputs of
 54--752 letters plus an inherited 38-letter reference, matched held-out prose
 spans, and 108 additional length controls. The score measures local word
@@ -208,6 +234,8 @@ order, not human readability.
         "selected-results.json": json_bytes(selected),
         "relation-index.json": json_bytes(index["relation_counts"]),
         "seam-fixture.json": json_bytes(fixture),
+        "runs/incumbent-560-outer-causal-scene-20261002.json": json_bytes(sanitized_parent_input),
+        "runs/incumbent-672-global-novelty-snapshot-20260922.json": json_bytes(sanitized_novelty_input),
         "comparison-candidates.json.gz": comparison_payload,
         "comparison-audit.json": json_bytes(comparison_audit_data),
         "readability-calibration.json": json_bytes(json.loads(
@@ -216,6 +244,11 @@ order, not human readability.
     }
     for name in ("verify_anonymous_evidence.py", "check_seam_invariant.py", "replay_clause_search.py"):
         files[name] = (PAPER / name).read_bytes()
+    for name in (
+        "compare_568_residual_vs_reverse_index_20260924.py",
+        "verify_comparison_568_residual_vs_reverse_index_20260924.py",
+    ):
+        files[f"experiments/{name}"] = (ROOT / "experiments" / name).read_bytes()
     for name in (
         "audit_programmatic_readability.py",
         "score_week_results_readability.py",

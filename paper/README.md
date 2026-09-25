@@ -37,8 +37,12 @@ edit and checks that each one-sided 599-letter variant first fails at the
 recorded normalized offsets. The independent clause replay reproduces the
 saved text, digest, and counters: 9,273 frontier examinations, 35 rejected
 records, and one accepted chain. The Brown diagnostic uses a fixed
-document-level split of the NLTK
-Brown corpus and requires `nltk`, `wordfreq`, and the NLTK `brown` resource.
+document-level split of the NLTK Brown corpus and requires `nltk`, `wordfreq`,
+and the NLTK `brown` resource. The saved comparison reports the same 38,498
+exact candidates for online-residual and offline reverse-pair enumeration under
+the finite grammar. The quick verifier checks the archived set and counters;
+both source implementations and sanitized inputs are included for a full
+rerun. Operator counts are not runtime comparisons.
 Install with `python3 -m pip install nltk wordfreq` and
 `python3 -m nltk.downloader brown`. It compares
 each text with deterministic shuffles of the same tokens; its output is a

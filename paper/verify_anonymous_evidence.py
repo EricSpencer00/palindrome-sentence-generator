@@ -42,6 +42,25 @@ def raw_exact(text: str) -> bool:
     return found
 
 
+def outside_in_report(text: str) -> dict[str, object]:
+    tape = letters(text)
+    left, right = 0, len(tape) - 1
+    while left < right and tape[left] == tape[right]:
+        left += 1
+        right -= 1
+    exact = left >= right
+    return {
+        "letters": len(tape),
+        "exact": exact,
+        "first_mismatch": None if exact else {
+            "left_offset": left,
+            "right_offset": right,
+            "left": tape[left],
+            "right": tape[right],
+        },
+    }
+
+
 def structural_metrics(text: str) -> dict[str, object]:
     tokens = [token.lower() for token in WORD_RE.findall(text)]
     trigrams = Counter(tuple(tokens[i:i + 3]) for i in range(max(0, len(tokens) - 2)))
@@ -285,6 +304,17 @@ def verify(directory: Path) -> dict[str, object]:
              + fixture["right_insert"] + parent[right + skipped:])
     assert child == rows["630-god-dog"]["surface"] and raw_exact(child)
 
+    one_sided = {
+        "left_only": parent[:left] + fixture["left_insert"] + parent[left:],
+        "right_only": (parent[:left] + parent[left:right]
+                       + fixture["right_insert"] + parent[right + skipped:]),
+    }
+    expected_ablations = fixture["one_sided_ablation_expectations"]
+    for name, surface in one_sided.items():
+        report = outside_in_report(surface)
+        assert not raw_exact(surface)
+        assert report == expected_ablations[name]
+
     relations = json.loads((directory / "relation-index.json").read_text())
     searched = replay(parent, relations)
     assert searched["rendered"] == rows["672-reverse-chain"]["surface"]
@@ -300,6 +330,9 @@ def verify(directory: Path) -> dict[str, object]:
         "lineage_metrics_recomputed": True,
         "lineage_tape_replay": lineage_replay,
         "seam_replay_letters": len(letters(child)),
+        "one_sided_seam_ablations": {
+            name: outside_in_report(surface) for name, surface in one_sided.items()
+        },
         "clause_search_letters": searched["letters"],
         "clause_search_frontier_examinations": searched["states_examined"],
         "clause_search_rejected_attempts": searched["rejected_attempts"],

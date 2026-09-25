@@ -5,7 +5,10 @@ Study](naacl2027.tex), documents a saved 568-to-752-letter lineage and a
 separate exact 672-letter search result. It prints the 752-letter endpoint,
 labels its prose as rough and not reader-validated, and reports a Brown
 word-order comparison only as a diagnostic. The lineage is selected, not a
-census or length record; no human readability results are available.
+census or length record; these are construction artifacts, not readability
+incumbents. The repository retains 568 letters as its working-length
+incumbent, and the inherited 38-letter example remains the only established
+reader-facing benchmark.
 [REVIEW-LOG.md](REVIEW-LOG.md) records internal reviews and evidence checks.
 
 ## Reproduce the evidence
@@ -29,9 +32,12 @@ checks eleven complete renderings using normalized reversal and a separate
 raw-text scan. The lineage table and representative 752-letter rendering are
 generated from those recomputed records.
 The bounded algebra test covers 54,145 equal-length cases plus 91 context
-checks. The independent clause replay reproduces the saved text, digest, and
-counters: 9,273 frontier examinations, 35 rejected records, and one accepted
-chain. The Brown diagnostic uses a fixed document-level split of the NLTK
+checks. The anonymous verifier also reconstructs the separate 568-to-630 seam
+edit and checks that each one-sided 599-letter variant first fails at the
+recorded normalized offsets. The independent clause replay reproduces the
+saved text, digest, and counters: 9,273 frontier examinations, 35 rejected
+records, and one accepted chain. The Brown diagnostic uses a fixed
+document-level split of the NLTK
 Brown corpus and requires `nltk`, `wordfreq`, and the NLTK `brown` resource.
 Install with `python3 -m pip install nltk wordfreq` and
 `python3 -m nltk.downloader brown`. It compares

@@ -117,6 +117,24 @@ def build() -> dict[str, object]:
     fixture = {
         "raw_cursors": [20, 758], "right_punctuation_skip": 1,
         "left_insert": constants["LEFT_INSERT"], "right_insert": constants["RIGHT_INSERT"],
+        "one_sided_ablation_expectations": {
+            "left_only": {
+                "letters": 599,
+                "exact": False,
+                "first_mismatch": {
+                    "left_offset": 21, "right_offset": 577,
+                    "left": "o", "right": "a",
+                },
+            },
+            "right_only": {
+                "letters": 599,
+                "exact": False,
+                "first_mismatch": {
+                    "left_offset": 21, "right_offset": 577,
+                    "left": "a", "right": "o",
+                },
+            },
+        },
         "scope": "Authored paired insertion; exact raw rendering replay, not a new generation run.",
     }
     readme = """# Anonymous construction evidence
@@ -127,7 +145,8 @@ It needs no network, Git checkout, credentials, model API, or corpus download.
 
 The verifier checks all eleven selected renderings with a raw-text scan and
 normalized reversal, including the complete 752-letter endpoint, reconstructs
-the 630-letter edit, independently replays
+the exact 630-letter paired edit and both non-exact one-sided ablations,
+independently replays
 the 672-letter first-success clause search using its fixed relation index,
 checks every candidate in the matched operator-equivalence archive against the
 parent seam and frozen relation index, and runs the bounded seam-algebra check.

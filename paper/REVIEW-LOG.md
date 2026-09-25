@@ -272,3 +272,31 @@ was visually inspected. A fresh final Luna reviewer found no remaining
 must-fix. No human readability evidence or comparative language-quality
 baseline was added; those empirical gaps remain open. Internal AI reviews are
 not reader evidence or peer review.
+
+## Q10 Pass 4
+
+A fresh skeptic found that stale page renders no longer matched the source,
+that the selected 752/672-letter artifacts could be mistaken for the project's
+working-length incumbent, and that the 9,273 counter needed a precise
+definition. The paper and README now distinguish those selected construction
+artifacts from the 568-letter working incumbent and inherited 38-letter
+reader-facing benchmark. The counter is defined as the sum of live right-clause
+frontier sizes before each residual-character filter, not unique search nodes
+or candidate chains. The PDF and all three page renders were rebuilt from the
+current source. A fresh final reviewer found no remaining must-fix. Readability
+is still unverified by people.
+
+## Q10 Pass 5
+
+A fresh skeptic confirmed the separate 568-to-630 ablation's numbers but found
+that its one-sided outcomes were not checked by the standalone anonymous
+verifier. The exported seam fixture now pins both expected one-sided outcomes,
+and the verifier reconstructs each variant from the included 568-letter parent
+and independently checks normalized length, exactness, first mismatch offsets,
+and mismatching letters. The manuscript now names those outcomes while
+restricting the inference to closure at this saved seam; it explicitly makes
+no language-quality or general-advantage claim. The final independent review
+found no must-fix, confirmed the updated verifier and the current three-page
+render, and reiterated that no human readability result exists. The Brown
+word-order statistic remains a local-order diagnostic, not a readability
+judgment. Internal AI review is not peer review or reader evidence.

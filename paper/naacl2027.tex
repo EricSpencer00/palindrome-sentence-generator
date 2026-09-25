@@ -54,9 +54,11 @@ The selected lineage grows from 568 to 752 letters in four edits: one paired ins
 
 The exact endpoint is reproduced verbatim for inspection. Its prose is strained and repetitive; it is not reader-validated or offered as fluent text.
 
+A separate saved edit starts from the same 568-letter parent at a different seam. Replaying both 31-letter insertions produces an exact 630-letter tape; either one-sided 599-letter variant fails at the first outside-in comparison (zero-based offsets 21/577; mismatching letters $o/a$ and $a/o$, respectively). This single ablation checks closure at that seam, not language quality or a general advantage for paired edits.
+
 \input{representative_output}
 
-A separate bounded relation-chain search returned one exact 672-letter tape after 9,273 frontier examinations. Its fixed setup has 10 proper names, 3 predicates, four-clause chains, normalized seam cuts at 48 and 520, and a 160-key relation-count index. The archived deterministic replay reproduces this saved search result; it is not a fresh or general novelty search. Across the named examples, exactness was checked by a raw-text outside-in scan that skips nonletters and by equality of the normalized tape and its reversal; recorded lengths and SHA-256 digests also match. The archive's lineage diffs replay saved tapes, not candidate generation.
+A separate bounded relation-chain search returned one exact 672-letter tape. Its fixed setup has 10 proper names, 3 predicates, four-clause chains, normalized seam cuts at 48 and 520, and a 160-key relation-count index. The archived deterministic replay reproduces the saved result. Its counter of 9,273 sums the live right-clause frontier sizes before each residual-character filter; it is not a count of unique search nodes or candidate chains. This is not a fresh or general novelty search. Across the named examples, exactness was checked by a raw-text outside-in scan that skips nonletters and by equality of the normalized tape and its reversal; recorded lengths and SHA-256 digests also match. The archive's lineage diffs replay saved tapes, not candidate generation.
 
 \section{A local-order diagnostic}
 
@@ -70,7 +72,7 @@ Each matched prose span scores higher than its paired output (mean gains 1.522 v
 
 \section{Discussion}
 
-The paired-edit condition preserves exactness in this saved 568-to-752 lineage; a separate bounded construction reaches 672. Neither result establishes a general advantage or fluent English. The printed endpoint makes the remaining quality gap visible rather than treating length as a proxy for prose quality.
+The paired-edit condition preserves exactness in this saved 568-to-752 lineage; a separate bounded construction reaches 672. These are selected construction artifacts, not readability incumbents: the repository retains the 568-letter causal-scene row as its working-length incumbent, while the inherited 38-letter reference remains its only established reader-facing benchmark. Neither construction establishes a general advantage or fluent English. The printed endpoint makes the remaining quality gap visible rather than treating length as a proxy for prose quality.
 
 The Brown comparison reports one local-order statistic on a retrospectively selected, dependent set. It has no demonstrated relationship to readers' judgments and is not an evaluation of candidate readability. Human judgments of readability, coherence, and meaning remain necessary; standard evaluation work recommends explicit criteria and reproducible protocols for such judgments \citep{howcroft-etal-2020-twenty,khashabi-etal-2022-genie}. No reader study was conducted here.
 

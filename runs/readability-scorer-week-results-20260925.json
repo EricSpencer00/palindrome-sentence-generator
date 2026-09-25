@@ -1,0 +1,636 @@
+{
+  "experiment": "week-results-brown-order-gain-local-20260925",
+  "created_utc": "2026-09-25T05:09:25.045040+00:00",
+  "status": "diagnostic_not_human_readability_result",
+  "manifest": {
+    "path": "paper/week_results.json",
+    "snapshot_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+    "candidate_count": 11
+  },
+  "method": {
+    "scorer": "NLTK Brown word-bigram mean log probability",
+    "primary_metric": "observed word-order score minus the mean over deterministic shuffles of the same word multiset",
+    "shuffle_count_per_item": 32,
+    "random_seed": 20260925,
+    "control": "one contiguous intact Brown sentence span per candidate, nearest by word count, plus same-word shuffles",
+    "corpus_sentences": 57340,
+    "nltk_version": "3.10.3"
+  },
+  "summary": {
+    "candidate_mean_order_gain": 0.34340132321623523,
+    "candidate_median_order_gain": 0.31185202967270165,
+    "intact_prose_control_mean_order_gain": 2.2149508010742207,
+    "intact_prose_control_median_order_gain": 2.2261806843678364,
+    "intact_prose_controls_with_positive_order_gain": 11,
+    "intact_prose_control_count": 11,
+    "candidate_minus_prose_mean_order_gain": -1.8715494778579855,
+    "matched_controls_with_higher_order_gain": 11,
+    "mean_matched_prose_minus_candidate_order_gain": 1.8715494778579858,
+    "candidate_rank_by_local_order_gain": [
+      "498-overhang",
+      "38-control",
+      "54-np-candidate",
+      "568-pinned",
+      "640-event-chain",
+      "616-nora-aron",
+      "672-reverse-chain",
+      "686-shell-cycle",
+      "630-god-dog",
+      "752-center-path",
+      "736-mixed-cycle"
+    ]
+  },
+  "limits": [
+    "A word-bigram model measures local word order, not grammatical completeness, recoverable meaning, discourse coherence, or human readability.",
+    "This diagnostic must not certify a candidate or select a paper example by itself.",
+    "Brown controls validate only that the metric responds to ordinary corpus word order versus shuffled words; they are not human ratings.",
+    "A blinded human comparison with intact prose and shuffled controls remains the readability test."
+  ],
+  "candidates": [
+    {
+      "id": "38-control",
+      "source": "exact_palindrome_candidate",
+      "word_count": 9,
+      "brown_bigram_logprob": -9.80451477836748,
+      "brown_order_gain_vs_own_shuffle": 0.4999255067041055,
+      "mean_own_shuffle_logprob": -10.304440285071585,
+      "shuffles": 32,
+      "surface": "An aide rips nine memos; some men inspire Diana.",
+      "letters": 38,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 38,
+        "manifest_word_count": 9,
+        "scorer_token_count": 9,
+        "normalized_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/seed-np-cross-role-intersection-20260922.json",
+        "json_key": "incumbent_oracle.rendered",
+        "file_sha256": "606d7b9e3150a8e9ea845e0c669a741ebfe10bb58a18593a66c6bc17310f4ff3",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "inherited 38-letter reference/control; this audit does not establish authorship",
+      "lineage": "loaded unchanged as incumbent_oracle; origin and authorship are not established by this audit",
+      "reader_status": "not studied in a project reader study"
+    },
+    {
+      "id": "54-np-candidate",
+      "source": "exact_palindrome_candidate",
+      "word_count": 13,
+      "brown_bigram_logprob": -9.91344741424062,
+      "brown_order_gain_vs_own_shuffle": 0.3817305262924471,
+      "mean_own_shuffle_logprob": -10.295177940533067,
+      "shuffles": 32,
+      "surface": "An aide rips nine memo-hero memos. Some more home men inspire Diana.",
+      "letters": 54,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 54,
+        "manifest_word_count": 13,
+        "scorer_token_count": 13,
+        "normalized_sha256": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/seed-np-cross-role-intersection-20260922.json",
+        "json_key": "rows[0].rendered",
+        "file_sha256": "606d7b9e3150a8e9ea845e0c669a741ebfe10bb58a18593a66c6bc17310f4ff3",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "bounded live-residual noun-phrase grammar intersection over an inherited open frame",
+      "lineage": "retains the aide/rips/nine/memos and some/men/inspire/Diana frame; adds derived NP material without reflecting a closed span",
+      "reader_status": "not run; frozen 24-rater packet has no responses"
+    },
+    {
+      "id": "498-overhang",
+      "source": "exact_palindrome_candidate",
+      "word_count": 161,
+      "brown_bigram_logprob": -9.056012559960166,
+      "brown_order_gain_vs_own_shuffle": 0.5878957710524997,
+      "mean_own_shuffle_logprob": -9.643908331012666,
+      "shuffles": 32,
+      "surface": "to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got",
+      "letters": 498,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 498,
+        "manifest_word_count": 161,
+        "scorer_token_count": 161,
+        "normalized_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/overhang-growth-from-240-20261001.json",
+        "json_key": "rows[0].rendered",
+        "file_sha256": "83c755c8855f0260ccc0e75c428a473b1f38f2ef9fa0c70bdb0043ea93ea495a",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "bounded center-out overhang search from an inherited 240-letter seed",
+      "lineage": "search-produced growth row; parent_artifact and growth_over_parent are recorded in the row",
+      "reader_status": "not run"
+    },
+    {
+      "id": "568-pinned",
+      "source": "exact_palindrome_candidate",
+      "word_count": 148,
+      "brown_bigram_logprob": -10.187186264457836,
+      "brown_order_gain_vs_own_shuffle": 0.34098994499551516,
+      "mean_own_shuffle_logprob": -10.52817620945335,
+      "shuffles": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 568,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 568,
+        "manifest_word_count": 143,
+        "scorer_token_count": 148,
+        "normalized_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/incumbent-560-outer-causal-scene-20261002.json",
+        "json_key": "rows[id=outer-causal-scene-568-working-incumbent].rendered",
+        "file_sha256": "c2d520dd84f17164da62f691aab95cba57d351cd660ed611ac444fdb6679dc13",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "pinned working incumbent; authored outer-macro replacement with a causal scene",
+      "lineage": "parent is the 560-letter central-event bridge",
+      "reader_status": "not run"
+    },
+    {
+      "id": "616-nora-aron",
+      "source": "exact_palindrome_candidate",
+      "word_count": 160,
+      "brown_bigram_logprob": -10.218363924525008,
+      "brown_order_gain_vs_own_shuffle": 0.31185202967270165,
+      "mean_own_shuffle_logprob": -10.53021595419771,
+      "shuffles": 32,
+      "surface": "Leon won. Wolf spots Nora. Nora sees Aron. Aron sees Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron sees Nora. Nora sees Aron. Aron stops flow now, Noel.",
+      "letters": 616,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 616,
+        "manifest_word_count": 155,
+        "scorer_token_count": 160,
+        "normalized_sha256": "e777b97605099d24ff0b9f16e77ebe27d3bbd6baedabb4ba5a79f1a58f2eb222"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/luna6-nora-aron-live-residual-growth-20260923.json",
+        "json_key": "rendered_full_tape",
+        "file_sha256": "54775109bbb8cfda710cffae3cb5345ad2e1729d0b324e0482c61a98bf1e4758",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored reciprocal-clause insertion at a live partial-word seam",
+      "lineage": "separate direct child of the 568 pinned incumbent",
+      "reader_status": "not run"
+    },
+    {
+      "id": "630-god-dog",
+      "source": "exact_palindrome_candidate",
+      "word_count": 166,
+      "brown_bigram_logprob": -10.214263806249777,
+      "brown_order_gain_vs_own_shuffle": 0.2782292468630345,
+      "mean_own_shuffle_logprob": -10.492493053112812,
+      "shuffles": 32,
+      "surface": "Leon won. Wolf spots Nora. Nora saw God. Nadia saw God. Dog was Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron saw God. Dog was Aidan. Dog was Aron. Aron stops flow now, Noel.",
+      "letters": 630,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 630,
+        "manifest_word_count": 161,
+        "scorer_token_count": 166,
+        "normalized_sha256": "017d5e73f11339204b3f343fa66e63b5c4674afd01c5ea823e36999879a2ac11"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/luna6-god-dog-live-residual-growth-20260923.json",
+        "json_key": "rendered_full_text",
+        "file_sha256": "5f2df550ad7d4d919a4f42750b6679f9010cb94253c1baf1e86911c615822823",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored six-clause insertion at a live partial-word seam",
+      "lineage": "separate direct child of the 568 pinned incumbent",
+      "reader_status": "not run"
+    },
+    {
+      "id": "640-event-chain",
+      "source": "exact_palindrome_candidate",
+      "word_count": 166,
+      "brown_bigram_logprob": -10.232303751761963,
+      "brown_order_gain_vs_own_shuffle": 0.3229576895116715,
+      "mean_own_shuffle_logprob": -10.555261441273634,
+      "shuffles": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 640,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 640,
+        "manifest_word_count": 161,
+        "scorer_token_count": 166,
+        "normalized_sha256": "c3013fe4411ae2be7ab3211a41e59606faab7385dc4fe3dc8185d47f8cbedac9"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/incumbent-568-live-event-chain-insertion-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "621d4e8c9fdfc6bbc4217527c120b28854762a81d94c1a01be47e6bd76e0cabd",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored left event chain; bounded typed chart chooses a connected opposing resegmentation under a live residual",
+      "lineage": "direct child of the 568 pinned incumbent",
+      "reader_status": "not run"
+    },
+    {
+      "id": "672-reverse-chain",
+      "source": "exact_palindrome_candidate",
+      "word_count": 172,
+      "brown_bigram_logprob": -10.245108181124236,
+      "brown_order_gain_vs_own_shuffle": 0.3080254528527391,
+      "mean_own_shuffle_logprob": -10.553133633976975,
+      "shuffles": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 672,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 672,
+        "manifest_word_count": 167,
+        "scorer_token_count": 172,
+        "normalized_sha256": "ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/incumbent-672-discourse-linked-reverse-chain-20260922.json",
+        "json_key": "rows[id=discourse-linked-reverse-chain-672].rendered",
+        "file_sha256": "51435f9d8bacb1b2378663932a9c9261e4a9fab9eb46b43c5ecfee03e45fc878",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "bounded relation-chain search with per-clause reverse-character filtering",
+      "lineage": "direct comparison child of the 568 pinned incumbent",
+      "reader_status": "not run; saved AI review did not consider the full tape reader-worthy"
+    },
+    {
+      "id": "686-shell-cycle",
+      "source": "exact_palindrome_candidate",
+      "word_count": 174,
+      "brown_bigram_logprob": -10.300756911942557,
+      "brown_order_gain_vs_own_shuffle": 0.28385891988419765,
+      "mean_own_shuffle_logprob": -10.584615831826754,
+      "shuffles": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 686,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 686,
+        "manifest_word_count": 169,
+        "scorer_token_count": 174,
+        "normalized_sha256": "cb47534ec3f66a5a3624e7573e15cde7c1cdc53c7ff9cebdc788412b940f982c"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/repair-640-mirrored-shell-cycle-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "4e9174e68397d9519cfa90cdb12dcbaa87a2a93bf4fa0d9a9f9e7ef0cab73f49",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored left event cycle; bounded deterministic grammar chart chooses opposing shell resegmentation",
+      "lineage": "640 \u2192 686 \u2192 736 \u2192 752 descendant branch from the 568 incumbent",
+      "reader_status": "not run"
+    },
+    {
+      "id": "736-mixed-cycle",
+      "source": "exact_palindrome_candidate",
+      "word_count": 182,
+      "brown_bigram_logprob": -10.363138681816759,
+      "brown_order_gain_vs_own_shuffle": 0.22754468433865505,
+      "mean_own_shuffle_logprob": -10.590683366155414,
+      "shuffles": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 736,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 736,
+        "manifest_word_count": 177,
+        "scorer_token_count": 182,
+        "normalized_sha256": "608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/repair-686-mixed-predicate-shell-cycle-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "77c38810fea972550a396ced140dd534f4004ac327fd2a7bdcec96ecbf2b9317",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored left mixed-predicate cycle; bounded deterministic grammar chart chooses opposing resegmentation",
+      "lineage": "686 \u2192 736 \u2192 752 descendant branch from the 568 incumbent",
+      "reader_status": "not run"
+    },
+    {
+      "id": "752-center-path",
+      "source": "exact_palindrome_candidate",
+      "word_count": 187,
+      "brown_bigram_logprob": -10.369634173774289,
+      "brown_order_gain_vs_own_shuffle": 0.23440478321102098,
+      "mean_own_shuffle_logprob": -10.60403895698531,
+      "shuffles": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 752,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 752,
+        "manifest_word_count": 183,
+        "scorer_token_count": 187,
+        "normalized_sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/repair-736-center-lexical-event-path-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "424d9d5fa3a4f8a450f149e3feb2d239f6116b4fe99c60e3328df58fda367a2d",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored left two-event open path; bounded role chart chooses the connected opposing resegmentation",
+      "lineage": "736 \u2192 752; upstream branch is 568 \u2192 640 \u2192 686 \u2192 736 \u2192 752",
+      "reader_status": "not run"
+    }
+  ],
+  "intact_prose_controls": [
+    {
+      "id": "brown-control-38-control",
+      "source": "intact_brown_prose_control",
+      "word_count": 9,
+      "brown_bigram_logprob": -6.114463716986313,
+      "brown_order_gain_vs_own_shuffle": 2.1080068132239447,
+      "mean_own_shuffle_logprob": -8.222470530210257,
+      "shuffles": 32,
+      "matched_candidate_id": "38-control",
+      "candidate_word_count": 9,
+      "source_corpus": "NLTK Brown corpus, contiguous complete-sentence span",
+      "source_sentence_indices_half_open": [
+        6997,
+        6998
+      ],
+      "source_word_count": 9,
+      "word_count_difference": 0,
+      "surface_sha256": "eddb7ee916a85100d2c0666b2f1170bf99a0074e4277a8f34018721425ebbc1e"
+    },
+    {
+      "id": "brown-control-54-np-candidate",
+      "source": "intact_brown_prose_control",
+      "word_count": 15,
+      "brown_bigram_logprob": -7.169641557465055,
+      "brown_order_gain_vs_own_shuffle": 1.8740827895650183,
+      "mean_own_shuffle_logprob": -9.043724347030073,
+      "shuffles": 32,
+      "matched_candidate_id": "54-np-candidate",
+      "candidate_word_count": 13,
+      "source_corpus": "NLTK Brown corpus, contiguous complete-sentence span",
+      "source_sentence_indices_half_open": [
+        47959,
+        47962
+      ],
+      "source_word_count": 13,
+      "word_count_difference": 0,
+      "surface_sha256": "df62f5f2e6b26fdb4554b0d42aa5b384f83338e778acd26d78240bcba154597f"
+    },
+    {
+      "id": "brown-control-498-overhang",
+      "source": "intact_brown_prose_control",
+      "word_count": 167,
+      "brown_bigram_logprob": -6.801368712978648,
+      "brown_order_gain_vs_own_shuffle": 2.4902534241252576,
+      "mean_own_shuffle_logprob": -9.291622137103905,
+      "shuffles": 32,
+      "matched_candidate_id": "498-overhang",
+      "candidate_word_count": 161,
+      "source_corpus": "NLTK Brown corpus, contiguous complete-sentence span",
+      "source_sentence_indices_half_open": [
+        54584,
+        54597
+      ],
+      "source_word_count": 161,
+      "word_count_difference": 0,
+      "surface_sha256": "f2cb83e1cbab8f2932d6384b3cd92c3f976ba8e646eb39c86a86936b101eb23a"
+    },
+    {
+      "id": "brown-control-568-pinned",
+      "source": "intact_brown_prose_control",
+      "word_count": 182,
+      "brown_bigram_logprob": -7.804510435149009,
+      "brown_order_gain_vs_own_shuffle": 2.0285035972887346,
+      "mean_own_shuffle_logprob": -9.833014032437744,
+      "shuffles": 32,
+      "matched_candidate_id": "568-pinned",
+      "candidate_word_count": 148,
+      "source_corpus": "NLTK Brown corpus, contiguous complete-sentence span",
+      "source_sentence_indices_half_open": [
+        48394,
+        48424
+      ],
+      "source_word_count": 148,
+      "word_count_difference": 0,
+      "surface_sha256": "def855ef7a90c1d4f59319c6ed3d70764951713f71d272e31aab3c2be8588224"
+    },
+    {
+      "id": "brown-control-616-nora-aron",
+      "source": "intact_brown_prose_control",
+      "word_count": 162,
+      "brown_bigram_logprob": -7.176310547195393,
+      "brown_order_gain_vs_own_shuffle": 2.355396965853928,
+      "mean_own_shuffle_logprob": -9.531707513049321,
+      "shuffles": 32,
+      "matched_candidate_id": "616-nora-aron",
+      "candidate_word_count": 160,
+      "source_corpus": "NLTK Brown corpus, contiguous complete-sentence span",
+      "source_sentence_indices_half_open": [
+        19031,
+        19041
+      ],
+      "source_word_count": 160,
+      "word_count_difference": 0,
+      "surface_sha256": "c8e9fe0105cb88b3c4b98072e4193e918a4ac662879fe862c932ede4c3603c06"
+    },
+    {
+      "id": "brown-control-630-god-dog",
+      "source": "intact_brown_prose_control",
+      "word_count": 188,
+      "brown_bigram_logprob": -7.546761015770291,
+      "brown_order_gain_vs_own_shuffle": 2.0120010520407297,
+      "mean_own_shuffle_logprob": -9.55876206781102,
+      "shuffles": 32,
+      "matched_candidate_id": "630-god-dog",
+      "candidate_word_count": 166,
+      "source_corpus": "NLTK Brown corpus, contiguous complete-sentence span",
+      "source_sentence_indices_half_open": [
+        44825,
+        44843
+      ],
+      "source_word_count": 166,
+      "word_count_difference": 0,
+      "surface_sha256": "cb3a0780be53f6193815777035972b9d85723ee67ce0ec3a72e6d4ede651812a"
+    },
+    {
+      "id": "brown-control-640-event-chain",
+      "source": "intact_brown_prose_control",
+      "word_count": 183,
+      "brown_bigram_logprob": -7.910331180633136,
+      "brown_order_gain_vs_own_shuffle": 2.2395374339311935,
+      "mean_own_shuffle_logprob": -10.14986861456433,
+      "shuffles": 32,
+      "matched_candidate_id": "640-event-chain",
+      "candidate_word_count": 166,
+      "source_corpus": "NLTK Brown corpus, contiguous complete-sentence span",
+      "source_sentence_indices_half_open": [
+        2587,
+        2596
+      ],
+      "source_word_count": 166,
+      "word_count_difference": 0,
+      "surface_sha256": "49aa66383eed3c3ad94b880fbdb70b90bb0acf5abf264f3e7dd34a401a0ad31d"
+    },
+    {
+      "id": "brown-control-672-reverse-chain",
+      "source": "intact_brown_prose_control",
+      "word_count": 176,
+      "brown_bigram_logprob": -7.0419409946667235,
+      "brown_order_gain_vs_own_shuffle": 2.4934622512888494,
+      "mean_own_shuffle_logprob": -9.535403245955573,
+      "shuffles": 32,
+      "matched_candidate_id": "672-reverse-chain",
+      "candidate_word_count": 172,
+      "source_corpus": "NLTK Brown corpus, contiguous complete-sentence span",
+      "source_sentence_indices_half_open": [
+        20410,
+        20421
+      ],
+      "source_word_count": 172,
+      "word_count_difference": 0,
+      "surface_sha256": "1dac79005e53853ae770c1418e1a13d86c5114587183d96b1bda7ea16687c1cd"
+    },
+    {
+      "id": "brown-control-686-shell-cycle",
+      "source": "intact_brown_prose_control",
+      "word_count": 184,
+      "brown_bigram_logprob": -7.396496931152951,
+      "brown_order_gain_vs_own_shuffle": 2.2261806843678364,
+      "mean_own_shuffle_logprob": -9.622677615520788,
+      "shuffles": 32,
+      "matched_candidate_id": "686-shell-cycle",
+      "candidate_word_count": 174,
+      "source_corpus": "NLTK Brown corpus, contiguous complete-sentence span",
+      "source_sentence_indices_half_open": [
+        39101,
+        39125
+      ],
+      "source_word_count": 174,
+      "word_count_difference": 0,
+      "surface_sha256": "1f62a9294fa07b2b77cf4305c4e039d463b2ca8563338d6d92764aed02277ffe"
+    },
+    {
+      "id": "brown-control-736-mixed-cycle",
+      "source": "intact_brown_prose_control",
+      "word_count": 192,
+      "brown_bigram_logprob": -7.168827476869943,
+      "brown_order_gain_vs_own_shuffle": 2.3763040758259084,
+      "mean_own_shuffle_logprob": -9.545131552695851,
+      "shuffles": 32,
+      "matched_candidate_id": "736-mixed-cycle",
+      "candidate_word_count": 182,
+      "source_corpus": "NLTK Brown corpus, contiguous complete-sentence span",
+      "source_sentence_indices_half_open": [
+        47500,
+        47511
+      ],
+      "source_word_count": 182,
+      "word_count_difference": 0,
+      "surface_sha256": "23aea23b8f5ecb53c0bcc51b8ee99c9c29a1a353265d30c59318b82de073a59f"
+    },
+    {
+      "id": "brown-control-752-center-path",
+      "source": "intact_brown_prose_control",
+      "word_count": 191,
+      "brown_bigram_logprob": -7.3771083768493675,
+      "brown_order_gain_vs_own_shuffle": 2.1607297243050283,
+      "mean_own_shuffle_logprob": -9.537838101154396,
+      "shuffles": 32,
+      "matched_candidate_id": "752-center-path",
+      "candidate_word_count": 187,
+      "source_corpus": "NLTK Brown corpus, contiguous complete-sentence span",
+      "source_sentence_indices_half_open": [
+        37222,
+        37243
+      ],
+      "source_word_count": 187,
+      "word_count_difference": 0,
+      "surface_sha256": "11b8cf2b587fc4e4ece56142e288503c64fc359601018debe255c59846bcc871"
+    }
+  ]
+}

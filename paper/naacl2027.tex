@@ -19,45 +19,61 @@
 \maketitle
 
 \begin{abstract}
-We examine one way to extend exact letter-level palindromes: edit two paired locations while keeping the rest of the text. For equal-length insertions, exactness reduces to a local equation across the retained bridge. A saved lineage grows from 568 to 752 letters through one insertion and three replacements of paired spans; a separate bounded search yields an exact 672-letter text. Rechecks and ablations confirm the character constraints, but not the quality of the prose. Most wording was authored, and no reader study or language-quality comparison was conducted.
+Exact letter-level palindromes preserve a global character constraint while still needing to read as English. We report a paired-edit construction in which mirrored insertions obey a local string equation, and audit a saved lineage from 568 to 752 letters. A separate bounded search records one exact 672-letter construction. We also compare nine selected project outputs from 498 to 752 letters with held-out Brown prose spans matched by alphabetic-token count. Every prose control has higher Brown word-bigram order gain (mean 1.462 vs. 0.256 nats per transition). Across 108 additional intact controls from 16 to about 2,050 tokens, every control scores above its own word-shuffled versions. This statistic measures local word order, not readability: it does not model syntax, meaning, or discourse, and no human ratings were collected. We provide the exactness checks and recorded diagnostic in an auditable case study.
 \end{abstract}
 
 \section{Introduction}
 
-A letter-level palindrome has the same sequence of ASCII letters in both directions, ignoring case and all other characters. Making one longer means finding wording that fits the character pattern while still reading as prose. Earlier work searches from unmatched remainders or builds palindromes from n-gram corpora \citep{norvig2002palindrome,papadopoulos2015palindromes}; related text-generation work handles lexical and structural constraints during decoding \citep{hokamp2017grid,bonlarron-regin-2024}.
+A letter-level palindrome reads the same after its letters are reversed, ignoring case, spaces, and punctuation. The short example \emph{An aide rips nine memos; some men inspire Diana.} has 38 letters under this definition. It is an inherited reference, not a result produced by the constructions studied here. Extending an exact tape is straightforward if words do not matter; finding longer text that also reads naturally is harder because word boundaries and sentence structure must fit the character constraint.
 
-We start with an exact palindrome and change text at paired locations. The report follows a saved lineage from 568 to 752 letters and reproduces a bounded search that finds a 672-letter text. The local condition below describes the first insertion; later replacements are checked on the complete text.
+Prior work has generated palindromes by searching n-gram corpora and by working from unmatched remainders \citep{papadopoulos2015palindromes,norvig2002palindrome}. Constraint-based language generation offers related ways to compose text under lexical and structural restrictions \citep{bonlarron-regin-2024}. We study a simple complementary construction: edit two locations in an existing exact tape, preserving the intervening text and solving for the mirrored character sequence. Our aim is to document this construction and its evidence, not to make a general claim about palindrome search or readable long-form generation.
 
-\section{Paired insertion condition}
+The paper makes two measurements that are often conflated explicit. First, exactness and length can be checked mechanically. Second, prose quality needs its own evidence. We report a 568-to-752-letter saved lineage and a separate 672-letter search result. To assess one narrow aspect of language, we compare selected outputs with intact Brown-corpus spans using a transparent word-bigram diagnostic. That diagnostic is deliberately not called a readability score: it only tests whether a text's local word order is preferred to shuffles of the same words.
 
-For rendered text $x$, $\norm{x}$ lowercases and keeps only ASCII letters. We call $x$ a palindrome when $\norm{x}=\rev(\norm{x})$. Write an exact parent as
+\section{Paired edits}
+
+For rendered text $x$, let $\norm{x}$ lowercase and keep only ASCII letters. An exact palindrome satisfies $\norm{x}=\rev(\norm{x})$. Work below is on normalized letter strings. Write an exact parent as
 \begin{equation}
- p=AqC\rev(q)\rev(A),\qquad C=\rev(C),
+ p=AqC\rev(q)\rev(A), \qquad C=\rev(C),
 \end{equation}
-Here $q$ is the retained bridge between the edit positions and $C$ is the center. Insert $U$ after $A$ and $V$ after $C$:
+where $q$ is the unchanged bridge between the edit sites and $C$ is the center. Insert equal-length strings $U$ and $V$ on opposite sides of the center:
 \begin{equation}
  p'=AUqCV\rev(q)\rev(A).
 \end{equation}
-When $|U|=|V|$, the new text is a palindrome exactly when
+The edited tape is exact if and only if
 \begin{equation}
  Uq=q\rev(V). \label{eq:seam}
 \end{equation}
-Once the mirrored outer $A$ is set aside, the two prefixes beside $C$ are $Uq$ and $q\rev(V)$. If they match, reversing that equality matches the suffix too, and the center already reads the same in both directions. This condition applies to the first insertion in the 568-to-640 step; the later replacements are checked directly against the full palindrome.
+After the mirrored outer string $A$ is set aside, this equality matches the two strings adjacent to $C$; reversing it matches the corresponding suffixes. Equation~\ref{eq:seam} describes the first insertion in the 568-to-640 step. The three later lineage edits replace paired spans, so we validate each complete output directly rather than applying the insertion result beyond its assumptions.
 
-\section{Results}
+\section{Construction results}
 
-\paragraph{Saved lineage.} The branch grows from 568 to 752 letters in four edits: one paired insertion, followed by three replacements of paired spans. Equation~\ref{eq:seam} describes the insertion only; each later output is checked against the complete palindrome condition. Table~\ref{tab:lineage} shows the five saved stages. Each stage inherits the previous text, so these are successive edits, not independent trials. The repetition statistics describe repeated wording; they do not tell us whether the passage reads well.
+The selected lineage grows from 568 to 752 letters in four edits: one paired insertion and three paired-span replacements. Each stage inherits its parent and is therefore not an independent trial. Table~\ref{tab:lineage} reports exact tapes and simple repetition counts; these statistics describe the strings but do not measure their prose quality.
 
 \input{week_results_table}
 
-The 752-letter endpoint passes both exactness checks (normalized SHA-256 begins \code{109c758e} and ends \code{f5106f222de3c}). From 686 to 752 letters, the number of distinct word types falls from 56 to 48, while the repeated-trigram rate rises from 4.8\% to 6.6\%. The passage still contains rough clauses and a proper palindromic span. Its full text and replay materials are in the companion evidence archive.
+A separate bounded relation-chain search returned one exact 672-letter tape after 9,273 frontier examinations. This is a saved search result, not a success-rate or efficiency comparison. Across the named examples, exactness was checked in two ways: a raw-text outside-in scan that skips nonletters, and equality between the normalized string and its reversal. The audit also checked the recorded letter counts and SHA-256 digests. The full 752-letter rendering, provenance, and replay records are in the accompanying evidence archive.
 
-\paragraph{Other checks.} A bounded search inserts four clauses at two seams of the 568-letter parent. It returns one exact 672-letter result after examining 9,273 states, rejecting 35 attempts, and accepting one path. The inserted clauses are: \emph{Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron.} The clauses are formulaic. In an ablation, the complete 568-to-630 paired edit is exact, while either one-sided insertion fails. The equation check found no mismatch in 54,145 equal-length cases or 91 context cases.
+\section{Local word-order calibration}
 
-\paragraph{Scope.} These results come from selected saved outputs, and several share a parent. We did not ask readers to rate them or compare their language quality with another system. Studies of generated text use explicit criteria and repeatable protocols \citep{howcroft-etal-2020-twenty,khashabi-etal-2022-genie}. Our checks measure symmetry and replay; they do not measure fluency, coherence, or reader understanding.
+We selected nine project outputs from 498 to 752 letters, including related stages from the 568-to-752 lineage and the separate 672-letter search. A tenth project output of 54 letters and an inherited 38-letter reference are retained in the full diagnostic record but excluded from this long-output comparison. Selection is retrospective and non-exhaustive; several outputs share text and construction history.
+
+The diagnostic uses a word-bigram model trained on 401 Brown documents; 99 different Brown documents are held out for controls. Brown is a collection of edited American English text, accessed through NLTK \citep{kucera-francis-1967,loper-bird-2002-nltk}. We lowercase alphabetic tokens and score each observed adjacent-token sequence with additive smoothing. For each text, \emph{order gain} is its mean bigram log probability minus the mean for 32 deterministic shuffles of the same tokens, in nats per transition. A positive value means the observed order fits this model better than its own shuffles. It does not mean the text is grammatical or understandable.
+
+Each output is paired with a contiguous, intact span from the held-out documents containing the same number of scorer tokens. An additional 108 non-overlapping intact spans calibrate the score at nine target lengths: 16, 32, 64, 128, 192, 256, 512, 1,024, and 2,048 tokens, with 12 spans per target. The longest spans contain 2,042 to 2,050 tokens. All controls were selected before scoring and compared with 32 shuffles of their own words.
+
+\input{readability_table}
+
+Across the nine long outputs, mean order gain is 0.256 nats per transition, compared with 1.462 for the matched prose; every one of the nine prose controls scores higher. The 108 length controls all have positive order gain, with mean values between 1.508 and 1.855 across the length bands. Thus the diagnostic continues to distinguish intact corpus order from shuffled order well beyond the lengths of the palindromes. It does not show that any palindrome is readable, or that longer palindromes are better. The highest-scoring output is the rough 498-letter overhang example, illustrating that a local bigram preference cannot stand in for a human judgment of prose.
+
+\section{Discussion}
+
+The paired-edit condition gives a direct way to preserve exactness while changing content on both sides of an existing tape. In the saved lineage, this supports growth from 568 to 752 letters; a separate construction reaches 672. These are concrete, audited outputs, not a claim that the method finds the longest palindrome or produces consistently fluent text.
+
+The Brown comparison adds a length-matched point of reference for one local language signal. Its gap between selected outputs and intact prose shows why character count and exactness should not be used as substitutes for language evaluation. At the same time, the score sees only adjacent words, and its corpus reflects one variety and period of written American English. Human judgments of readability, coherence, and meaning remain necessary; standard evaluation work recommends explicit criteria and reproducible protocols for such judgments \citep{howcroft-etal-2020-twenty,khashabi-etal-2022-genie}. No reader study was conducted here, and we make no human-readability claim.
 
 \section*{Ethical considerations and assistance}
-No participant data were collected. Generative AI assisted construction, code, drafting, and internal review; it was not human evaluation.
+No participant data were collected. Generative AI assisted candidate construction, code, drafting, and internal review. Internal AI reviews are not human evaluation.
 
 \bibliography{refs}
 \end{document}

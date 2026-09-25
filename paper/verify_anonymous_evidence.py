@@ -160,6 +160,56 @@ def verify_comparison(directory: Path, parent: str, saved_672: dict[str, object]
     }
 
 
+def verify_readability_calibration(directory: Path,
+                                  selected: dict[str, dict[str, object]]) -> dict[str, object]:
+    report = json.loads((directory / "readability-calibration.json").read_text())
+    assert report["status"] == "programmatic_diagnostic_not_human_readability_result"
+    assert report["method"]["training_file_count"] == 401
+    assert report["method"]["heldout_file_count"] == 99
+    assert report["method"]["shuffles_per_item"] == 32
+    assert len(report["candidates"]) == len(report["matched_heldout_prose_controls"]) == 11
+    assert len(report["length_stratified_heldout_controls"]) == 108
+
+    candidates = {row["id"]: row for row in report["candidates"]}
+    controls = {row["matched_candidate_id"]: row
+                for row in report["matched_heldout_prose_controls"]}
+    assert set(candidates) == set(selected)
+    for item_id, row in candidates.items():
+        audit = selected[item_id]
+        assert row["surface"] == audit["surface"]
+        assert row["letters"] == audit["letters"]
+        assert row["exactness"]["normalized_sha256"] == audit["normalized_sha256"]
+        assert all(row["exactness"]["checks"].values())
+        assert row["scorer_tokens"] == controls[item_id]["scorer_tokens"]
+        assert "surface" not in controls[item_id]
+
+    long_ids = [item_id for item_id, row in candidates.items()
+                if 498 <= row["letters"] <= 752]
+    assert len(long_ids) == 9
+    output_scores = [candidates[item_id]["brown_order_gain_vs_own_shuffle"]
+                     for item_id in long_ids]
+    control_scores = [controls[item_id]["brown_order_gain_vs_own_shuffle"]
+                      for item_id in long_ids]
+    assert all(control > output
+               for output, control in zip(output_scores, control_scores))
+    assert round(statistics.fmean(output_scores), 3) == 0.256
+    assert round(statistics.fmean(control_scores), 3) == 1.462
+
+    curve = report["length_curve"]
+    assert [row["target_scorer_tokens"] for row in curve] == [
+        16, 32, 64, 128, 192, 256, 512, 1024, 2048
+    ]
+    assert all(row["control_count"] == row["positive_order_gain_controls"] == 12
+               for row in curve)
+    return {
+        "exact_candidates_checked": len(candidates),
+        "long_output_control_pairs": len(long_ids),
+        "all_long_output_controls_higher": True,
+        "additional_length_controls": 108,
+        "human_readability_evidence": "not supplied; metric is a local word-order diagnostic",
+    }
+
+
 def verify(directory: Path) -> dict[str, object]:
     manifest = json.loads((directory / "manifest.json").read_text())
     for name, digest in manifest.items():
@@ -177,6 +227,8 @@ def verify(directory: Path) -> dict[str, object]:
         assert len(tape) == row["letters"]
         assert hashlib.sha256(tape.encode("ascii")).hexdigest() == row["normalized_sha256"]
         assert structural_metrics(row["surface"]) == row["metrics"]
+
+    calibration = verify_readability_calibration(directory, rows)
 
     lineage_ids = ["568-pinned", "640-event-chain", "686-shell-cycle", "736-mixed-cycle", "752-center-path"]
     lineage = [rows[row_id] for row_id in lineage_ids]
@@ -212,6 +264,7 @@ def verify(directory: Path) -> dict[str, object]:
         "clause_search_rejected_attempts": searched["rejected_attempts"],
         "algebra_checks": algebra["checks_performed"],
         "matched_operator_check": comparison,
+        "readability_calibration": calibration,
         "human_readability_evidence": "not supplied; no human-study result is claimed",
     }
 

@@ -1,7 +1,8 @@
 """Build allowlisted Overleaf source and anonymous evidence bundles.
 
-Git history and unrelated raw runs are excluded. The matched-comparison
-candidate archive is included because it directly supports a manuscript result.
+Git history and unrelated raw runs are excluded. The selected-output audit,
+matched-candidate archive, and length-stratified Brown diagnostic are included
+because they directly support manuscript results.
 """
 from __future__ import annotations
 
@@ -82,7 +83,7 @@ def bibliography_for(source: str) -> str:
 
 def build() -> dict[str, object]:
     source = (PAPER / "naacl2027.tex").read_text()
-    for part in ("week_results_table",):
+    for part in ("week_results_table", "readability_table"):
         token = "\\input{" + part + "}"
         if source.count(token) != 1:
             raise AssertionError(f"Expected one manuscript input: {part}")
@@ -126,7 +127,9 @@ the 672-letter first-success clause search using its fixed relation index,
 checks every candidate in the matched operator-equivalence archive against the
 parent seam and frozen relation index, and runs the bounded seam-algebra check.
 It also recomputes the five-stage lineage's word and repetition diagnostics.
-The manifest checks bundle integrity.
+The verifier cross-checks the eleven Brown diagnostic records against the
+selected exact texts, cross-checks the recorded nine long-output pairs and the
+108 length-control summaries, and checks the bundle manifest.
 In the comparison archive, `candidate_key_sha256` field names are normalized
 to `candidate_set_digest`; every digest value and candidate row is unchanged.
 
@@ -139,6 +142,15 @@ digests are provenance identifiers here, not independently rechecked inputs.
 No Git history, host metadata, account information, or raw execution logs are
 included. The two imported modules also have repository-specific entry points;
 use the verifier command above for this standalone archive.
+
+`readability-calibration.json` records a separate Brown word-bigram diagnostic:
+ten selected project outputs of 54--752 letters plus an inherited 38-letter
+reference, matched held-out prose spans, and 108 additional length controls.
+It includes scores, hashes, split metadata, and exactness checks, but does not
+redistribute the Brown control passages. The score measures local word order,
+not human readability. To rerun it from the repository, install `nltk` and
+`wordfreq`, make the NLTK Brown corpus available, and run
+`python3 experiments/score_length_stratified_readability.py`.
 """
     comparison_run = ROOT / "runs/comparison-568-online-residual-vs-offline-reverse-index-20260924.json.gz"
     comparison_audit = ROOT / "runs/comparison-568-online-residual-vs-offline-reverse-index-20260924.audit.json"
@@ -156,6 +168,8 @@ use the verifier command above for this standalone archive.
         "seam-fixture.json": json_bytes(fixture),
         "comparison-candidates.json.gz": comparison_payload,
         "comparison-audit.json": json_bytes(comparison_audit_data),
+        "readability-calibration.json": json_bytes(json.loads(
+            (ROOT / "runs/readability-length-stratified-20260925.json").read_text())),
         "README.md": readme.encode(),
     }
     for name in ("verify_anonymous_evidence.py", "check_seam_invariant.py", "replay_clause_search.py"):

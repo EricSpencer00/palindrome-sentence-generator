@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Selected tape & Letters & Tokens & Output & Intact prose \\
+\midrule
+498 overhang & 498 & 161 & 0.582 & 1.630 \\
+568 parent & 568 & 148 & 0.239 & 1.448 \\
+616 clause pair & 616 & 160 & 0.209 & 0.952 \\
+630 clause edit & 630 & 166 & 0.192 & 1.927 \\
+640 event edit & 640 & 166 & 0.246 & 1.797 \\
+672 search & 672 & 172 & 0.212 & 1.771 \\
+686 shell edit & 686 & 174 & 0.228 & 1.187 \\
+736 mixed edit & 736 & 182 & 0.184 & 1.340 \\
+752 lineage end & 752 & 187 & 0.209 & 1.103 \\
+Mean & --- & --- & 0.256 & 1.462 \\
+\bottomrule
+\end{tabular}
+\caption{Brown word-bigram order gain in nats per transition. Each output is paired with a held-out intact prose span matched by scorer-token count. Higher gain means stronger local-order preference over shuffles, not greater readability. Alphabetic tokenization splits apostrophized forms.}
+\label{tab:order-gain}
+\end{table}

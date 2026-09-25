@@ -159,3 +159,23 @@ replaced with direct descriptions of the saved lineage, clause search, and
 tests. Two skeptical AI re-reviews found the framing proportionate and the
 remaining claims consistent with the artifacts. This wording change does not
 add reader or language-quality evidence.
+
+### Round 9: add a length-aware prose control
+
+The current draft adds a held-out Brown word-bigram diagnostic to the paired-
+edit construction record. Nine selected project outputs from 498 to 752 letters
+are compared with intact spans matched by scorer-token count; every matched
+prose span has higher local-order gain. A separate set of 108 held-out spans
+checks the same shuffle contrast from 16 to about 2,050 tokens. The paper names
+this a local-order diagnostic, not a readability score, and separates the
+inherited 38-letter reference from project outputs.
+
+Two independent Luna reviewers checked the claims against the saved result and
+revised manuscript. They verified the per-output pairs, means, split counts,
+and length-control totals. Their revisions prompted a clearer statement that
+the score does not assess syntax or meaning, and that the anonymous verifier
+cross-checks recorded scores rather than recomputing them without Brown text.
+The updated three-page PDF was rendered and inspected; the source and anonymous
+evidence bundles were exported, privacy-screened, extracted, compiled, and
+verified. These are internal AI reviews, not peer review or human readability
+evidence. No blinded human ratings are available.

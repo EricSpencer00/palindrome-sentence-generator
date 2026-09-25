@@ -88,7 +88,7 @@ def bibliography_for(source: str) -> str:
 
 def build() -> dict[str, object]:
     source = (PAPER / "naacl2027.tex").read_text()
-    for part in ("week_results_table", "readability_table"):
+    for part in ("week_results_table", "representative_output", "readability_table"):
         token = "\\input{" + part + "}"
         if source.count(token) != 1:
             raise AssertionError(f"Expected one manuscript input: {part}")

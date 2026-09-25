@@ -242,3 +242,33 @@ scores were produced in the repository, and the archived verifier and
 Luna review found no actionable remaining defect. Human readability results
 and a relevant baseline remain unresolved empirical gaps; internal AI reviews
 do not resolve them.
+
+## Q10 Pass 3
+
+A fresh skeptic found that the paper framed a single saved hybrid lineage too
+generally, kept the Brown diagnostic too prominent, and hid the actual 752-letter
+endpoint in the artifact archive. The title and related-work discussion now
+call this a case study, distinguish the authored paired-edit lineage from the
+separate bounded search, and state that the seam equation is not a new
+palindrome principle. The exact 752-letter endpoint is printed with its
+normalized digest and a clear “rough prose, not reader-validated” label.
+
+Independent revision review then identified two missing setup details. The
+paper now reports the 672 search's fixed 10-name/3-predicate inventory,
+four-clause chains, normalized seam cuts, and 160-key relation-count index,
+and labels its evidence as a deterministic replay rather than a general
+novelty search. It also states that both matched and length-control Brown
+spans use token-count closeness and deterministic SHA tie-breaking, do not
+overlap, and are selected without model scores. The chart's contribution is
+described narrowly as connected subject-predicate-object clauses filtered
+against a reverse character residual that resets at clause boundaries.
+
+The representative-output generation test and adjacent scorer/table/quarantine
+tests passed (9 tests). The anonymous verifier checked all 11 exact examples,
+the four saved lineage diffs, the 630-letter seam replay, the 672-letter fixed
+search replay, and associated diagnostics. The privacy-screened source and
+evidence bundles passed; the current three-page PDF compiled, rendered, and
+was visually inspected. A fresh final Luna reviewer found no remaining
+must-fix. No human readability evidence or comparative language-quality
+baseline was added; those empirical gaps remain open. Internal AI reviews are
+not reader evidence or peer review.

@@ -1,16 +1,11 @@
 # Growing letter-level palindromes
 
-The goal remains long English prose with exact letter-level symmetry. The
-paper, [Creating Longer Letter-Level Palindromes Through Paired
-Edits](naacl2027.tex), reports a 568-to-752-letter lineage, a separate exact
-672-letter search result, and a length-matched Brown word-order diagnostic.
-The diagnostic compares nine selected outputs from 498 to 752 letters with
-intact held-out prose spans, and calibrates the score on prose controls up to
-about 2,050 tokens. It measures local word order only; it does not establish
-human readability or coherence.
-
-The complete 752-letter rendering stays in the anonymous evidence archive,
-not in the main paper. The lineage is selected, not a census or length record.
+The paper, [Growing Letter-Level Palindromes with Paired Edits: A Case
+Study](naacl2027.tex), documents a saved 568-to-752-letter lineage and a
+separate exact 672-letter search result. It prints the 752-letter endpoint,
+labels its prose as rough and not reader-validated, and reports a Brown
+word-order comparison only as a diagnostic. The lineage is selected, not a
+census or length record; no human readability results are available.
 [REVIEW-LOG.md](REVIEW-LOG.md) records internal reviews and evidence checks.
 
 ## Reproduce the evidence
@@ -31,7 +26,8 @@ tectonic --keep-logs -o output/pdf/paper-revision paper/naacl2027.tex
 
 The audit pins original source-file digests and a repository snapshot. It
 checks eleven complete renderings using normalized reversal and a separate
-raw-text scan. The lineage table is generated from those recomputed records.
+raw-text scan. The lineage table and representative 752-letter rendering are
+generated from those recomputed records.
 The bounded algebra test covers 54,145 equal-length cases plus 91 context
 checks. The independent clause replay reproduces the saved text, digest, and
 counters: 9,273 frontier examinations, 35 rejected records, and one accepted

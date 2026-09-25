@@ -1,0 +1,304 @@
+{
+  "experiment": "static-language-verifier-20260925",
+  "status": "complete",
+  "created_utc": "2026-09-25T20:31:36.883864+00:00",
+  "input_manifest_sha256": "65034504b22d500c66ecfd9a6a5b0bdfd7e848383f55bdb3bf99679fa382a41e",
+  "model": {
+    "id": "deepseek.v3.2",
+    "region": "us-east-2"
+  },
+  "method": {
+    "task": "blinded pairwise preference for ordinary-language quality",
+    "system_prompt": "You are comparing two short English texts for ordinary-language quality. Judge sentence-level grammaticality, natural phrasing, and whether the text communicates a coherent meaning. Ignore length. One may be deliberately word-shuffled. Do not infer or reward palindrome status. Do not provide chain-of-thought. Return one JSON object only with choice A, B, or tie and a brief observable language feature (at most 12 words).",
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens_including_reasoning": 256,
+    "ordering": "deterministic SHA-256 assignment; the request contains no candidate/control labels",
+    "provider_seed": null,
+    "in_region_requests_per_minute_quota": 100,
+    "minimum_wait_before_each_request_seconds": 0.25,
+    "preflight_cost_ceiling_usd": 0.01922532,
+    "input_token_bound_method": "UTF-8 byte count for fixed ASCII prompts; one byte per token upper bound, plus configured output-token cap",
+    "cost_cap_usd": 0.02,
+    "pricing_source": "AWS Bedrock pricing page, retrieved 2026-09-25; V3.2 $0.62/M input and $1.85/M output"
+  },
+  "usage": {
+    "comparisons": 11,
+    "input_tokens": 6327,
+    "output_tokens": 217,
+    "total_tokens": 6544
+  },
+  "estimated_cost_usd": 0.00432419,
+  "comparisons": [
+    {
+      "comparison_id": "38-control::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:38-control",
+      "baseline_id": "shuffle:candidate:38-control:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "A",
+      "a_id": "candidate:38-control",
+      "b_id": "shuffle:candidate:38-control:00",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: An aide rips nine memos; some men inspire Diana.\n\nB: some aide memos rips An; Diana nine men inspire.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "45c86a2fed07f81add538e2307d183ded2b833f695833ecebe626de91b9bd757",
+      "raw_visible_response": "{\"choice\":\"A\",\"observable_feature\":\"Subject-verb agreement and coherent syntax\"}",
+      "parsed": {
+        "choice": "A",
+        "observable_feature": "Subject-verb agreement and coherent syntax"
+      },
+      "usage": {
+        "inputTokens": 154,
+        "outputTokens": 19,
+        "totalTokens": 173
+      },
+      "stop_reason": "end_turn",
+      "request_id": "c650b53d-727c-424a-b0ad-4df291960431"
+    },
+    {
+      "comparison_id": "54-np-candidate::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:54-np-candidate",
+      "baseline_id": "shuffle:candidate:54-np-candidate:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "B",
+      "a_id": "shuffle:candidate:54-np-candidate:00",
+      "b_id": "candidate:54-np-candidate",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: aide men inspire more An-memo rips. hero memos home Some Diana nine.\n\nB: An aide rips nine memo-hero memos. Some more home men inspire Diana.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "7a1c44853583bf98d447d97e48f310a3cf2b68b2c88d6c6b0d2c5c3dabb09207",
+      "raw_visible_response": "{\"choice\":\"tie\",\"observable_feature\":\"Both are nonsensical word strings\"}",
+      "parsed": {
+        "choice": "TIE",
+        "observable_feature": "Both are nonsensical word strings"
+      },
+      "usage": {
+        "inputTokens": 164,
+        "outputTokens": 20,
+        "totalTokens": 184
+      },
+      "stop_reason": "end_turn",
+      "request_id": "dfb22988-ae0b-4002-a68b-5067973fdb43"
+    },
+    {
+      "comparison_id": "498-overhang::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:498-overhang",
+      "baseline_id": "shuffle:candidate:498-overhang:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "A",
+      "a_id": "candidate:498-overhang",
+      "b_id": "shuffle:candidate:498-overhang:00",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got\n\nB: by Leon was is to all never saw open me even as long Live see most Nora Evil it in an two rate lot Leon Aras deliver no was Noel state I Noel events us at I of I did yes last get Desserts its her into saw Dog do up go my men desserts how Aron Repaid Nora Noel to on were got nine did is use me or diaper I not we did for was now did I are Aram past two I as God was off here I did or if in Aron I no get name help Leon I live Leon stressed I saw along I ever at live I be estate Evil Sara I one yet its do of Mara if I are still I no was draw Stressed did Reviled Aron for I I I my apple up one many was to evil Ward saw is saw post at on Nora so saw Noel it\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "7a95e0c2421f40cfc89ed22bfca6bc5d67817a8f1816dd87024f1d9ad733b6a1",
+      "raw_visible_response": "{\"choice\":\"tie\",\"observable_feature\":\"Both are word-shuffled nonsense with no coherent meaning.\"}",
+      "parsed": {
+        "choice": "TIE",
+        "observable_feature": "Both are word-shuffled nonsense with no coherent meaning."
+      },
+      "usage": {
+        "inputTokens": 468,
+        "outputTokens": 25,
+        "totalTokens": 493
+      },
+      "stop_reason": "end_turn",
+      "request_id": "8560db46-f28e-4ceb-afc4-fd729e3d822c"
+    },
+    {
+      "comparison_id": "568-pinned::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:568-pinned",
+      "baseline_id": "shuffle:candidate:568-pinned:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "B",
+      "a_id": "shuffle:candidate:568-pinned:00",
+      "b_id": "candidate:568-pinned",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: Evil Spam's. Leon rats Evil. Aratos did, on Nora Aron maps. stops Nora evil. I Dog tub. Nadia spam? live was Leon. Aram tap God. Pat Aidan's reviled. Leon Noel? Noel Aron notes. no Tis Now. stressed, saw, Noel I Mara? A saw Noel I. Deliver, Aron delivers. star I. A Nora Wolf. spots, Ari Mara Aram? live, did I flow. won, Nadia was Tara? I Aras spam. stops. Nora maps a. rats so, Leon. was; spots Aidan, was. maps reviled Seton, maps. He maps Aidan, saw. Leon Desserts Aron, He. desserts did drawer. now, I. 'did Stressed, stops. “live but” saw Mara. star Sara Eh, delivers reviled. sit tub, spam's. Aidan, Nadia. maps, Live but Evil rewards Aron. Spam's Nadia, Ira. Leon, I. won, spots reviled delivers Noel Aron. a I, Spam's. reviled I, spots, Noel Eh. Nora stops Nora delivers, Aram.\n\nB: Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "90ecf8c0b10c1743ee31bf07da160aea3b173f73e66e5cd333932e316952311f",
+      "raw_visible_response": "{\"choice\":\"B\",\"observable_feature\":\"Contains some coherent sentences\"}",
+      "parsed": {
+        "choice": "B",
+        "observable_feature": "Contains some coherent sentences"
+      },
+      "usage": {
+        "inputTokens": 623,
+        "outputTokens": 16,
+        "totalTokens": 639
+      },
+      "stop_reason": "end_turn",
+      "request_id": "6a9ade79-95cc-440b-be8a-4af0261a1b35"
+    },
+    {
+      "comparison_id": "616-nora-aron::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:616-nora-aron",
+      "baseline_id": "shuffle:candidate:616-nora-aron:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "A",
+      "a_id": "candidate:616-nora-aron",
+      "b_id": "shuffle:candidate:616-nora-aron:00",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: Leon won. Wolf spots Nora. Nora sees Aron. Aron sees Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron sees Nora. Nora sees Aron. Aron stops flow now, Noel.\n\nB: spam's was. Leon Mara stressed. maps Sara Noel. live I I. Evil God, Aron spots I Aron. rewards star star. did Desserts maps. maps Leon? Nora no Now. A reviled Aram. Pat Stressed Aram. delivers Noel? I A Dog. was Mara saw. so, notes, but evil maps? sees Nadia sees Evil. He, live Nadia. delivers Leon. a on tap. sees, Leon did but? reviled, Wolf Aron Aidan. now, Nora Evil flow? Aidan Nora spam. rats. Noel spots live. was maps, saw. was; Tis Spam's, reviled. sit maps spam, reviled. Noel Nora Nora, tub. Nora drawer I, Nadia. Noel Spam's Aron. did, Aron. 'spots Aras, delivers. “Ari I” won saw. Leon Nora Leon, Spam's Aidan's. desserts Eh, won. delivers, Aram. Aron, stops Deliver Noel Aron Aron. I saw, I. reviled, Nora. stops, Aratos did Aidan Mara spots. Seton Tara, sees. I I, stops, stops a. tub He Nadia. Eh Live rats. Ira Nora Aron Nora, Aron.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "13270d4f0e57319f5122b6f3e9f8522111a675d5cda26ce72c5e6f79ab2e6eb1",
+      "raw_visible_response": "{\"choice\":\"A\",\"observable_feature\":\"some coherent sentences and grammatical phrases\"}",
+      "parsed": {
+        "choice": "A",
+        "observable_feature": "some coherent sentences and grammatical phrases"
+      },
+      "usage": {
+        "inputTokens": 664,
+        "outputTokens": 18,
+        "totalTokens": 682
+      },
+      "stop_reason": "end_turn",
+      "request_id": "45c2ccb5-5bc7-45c4-85bb-c0dbf0b2bcf1"
+    },
+    {
+      "comparison_id": "630-god-dog::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:630-god-dog",
+      "baseline_id": "shuffle:candidate:630-god-dog:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "A",
+      "a_id": "candidate:630-god-dog",
+      "b_id": "shuffle:candidate:630-god-dog:00",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: Leon won. Wolf spots Nora. Nora saw God. Nadia saw God. Dog was Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron saw God. Dog was Aidan. Dog was Aron. Aron stops flow now, Noel.\n\nB: I saw. Aras Dog rewards. reviled Tis notes. Aron no maps. stops He maps. He Seton, Live saw Dog Aidan. Leon Nadia Aron. Aram saw drawer. but was? Nora maps stops. was God Spam's. Stressed delivers God. Nora God? tub maps flow. Leon Aram tub. Dog, God, spots I Leon? Eh spam's Nadia A. Aidan, Aron Nora. spots Aidan's. I was Aidan. I, was Leon Now? was, stressed Aron star. did, Nadia evil Aron? maps spam Leon. saw. Desserts spam Eh. Nadia saw, rats. on; reviled spots, Pat. Aron Mara Tara, won. was delivers Ira, Aron. Nadia Evil I, did. Aratos tap Noel. Nora, Nora. 'Deliver a, Nora. “was live” now Nora. delivers I star, did I. Spam's I, Spam's. saw, reviled. spots, Wolf stops saw reviled live. I sit, so. I, maps. reviled, A stops Noel Noel Aram. live Mara, but. Dog won, Sara, desserts Noel. Nora Mara Leon. Noel rats Aidan. did Noel Evil. Aron Ari delivers Evil, a.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "b3281ad48452d7e3cdc3475208a41eb63dffa034ba20391fc02f0e15939b79de",
+      "raw_visible_response": "{\"choice\":\"A\",\"observable_feature\":\"Some coherent sentences and grammatical phrases\"}",
+      "parsed": {
+        "choice": "A",
+        "observable_feature": "Some coherent sentences and grammatical phrases"
+      },
+      "usage": {
+        "inputTokens": 680,
+        "outputTokens": 18,
+        "totalTokens": 698
+      },
+      "stop_reason": "end_turn",
+      "request_id": "4cc5ca81-9909-4a25-b292-399ca3f648f1"
+    },
+    {
+      "comparison_id": "640-event-chain::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:640-event-chain",
+      "baseline_id": "shuffle:candidate:640-event-chain:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "B",
+      "a_id": "shuffle:candidate:640-event-chain:00",
+      "b_id": "candidate:640-event-chain",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: stops I. A but Mara. I so, Tara Aidan's Nadia Aron. Aras desserts tap. Aron spots saw. Tis live rats. Ari I delivers. did maps Leon. Nora Aram? live spam's live. Aron Leon saw. reviled delivers delivers. Aidan maps? stressed flow Nora. Aidan Aratos spam. Nora, sees, Aram Leon Leon? Desserts Noel maps Aron. delivers, reviled I. I a. Aron Mara sit. Evil, Ira Pat star? Noel, sees Leon sees. Nadia, He was tub? Nora Eh Aidan. Aram. Aram won spots. Seton maps, Mara. a; spam Live, He. Stressed Sara I, I. Sara spots Noel, Nora. won Mara I, Mara. reviled Spam's sees. reviled, Nora. 'saw but, Dog. “did stops” I saw. Aram was did, Spam's Sara. Nadia did, spots. was, stops. Nadia, maps Noel Aron reviled tub. Aron God, Aras. Leon, A. sees, on Evil star Wolf Noel. Noel no Spam's. was I Noel. rats sees maps. Aras Deliver, evil. Leon rewards, Evil, stops drawer. notes now Now Eh, Nora.\n\nB: Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "5e5068132d78eb231f055eec5a786b994aca5804462dfb4d404b8eb7228641c8",
+      "raw_visible_response": "{\"choice\":\"B\",\"observable_feature\":\"Contains coherent sentences and narrative flow.\"}",
+      "parsed": {
+        "choice": "B",
+        "observable_feature": "Contains coherent sentences and narrative flow."
+      },
+      "usage": {
+        "inputTokens": 678,
+        "outputTokens": 19,
+        "totalTokens": 697
+      },
+      "stop_reason": "end_turn",
+      "request_id": "1ef1abda-5006-4283-861b-3dd0c98ed87b"
+    },
+    {
+      "comparison_id": "672-reverse-chain::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:672-reverse-chain",
+      "baseline_id": "shuffle:candidate:672-reverse-chain:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "A",
+      "a_id": "candidate:672-reverse-chain",
+      "b_id": "shuffle:candidate:672-reverse-chain:00",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.\n\nB: stops evil. was Leon stops. Aram stops, Aron on I A. Leon stressed Aidan. delivers Leon I. Nora but rewards. Noel delivers Aron. saw sit Noel. Aron Tis tub. won star? maps Nadia Eh. Noel Evil spots. spots Ari Sara. tap saw? Aron did Noel. spots Nora spam. no, Noel, stops reviled rats? Leon a Aram rats. live, reviled Aras. Tara Leon. Leon live Aron. Seton, I Now live? but, Nora I Ira. I, maps Leon spam's? Leon did Spam's. tub. Aron was Dog. Leon I, Nora. Nora; did Nora, reviled. delivers spots Nora, I. delivers saw Aron, God. stops so Aidan, maps. Leon Spam's Spam's. Noel, Noel. 'notes was, Nora. “Nadia Mara” Stressed Wolf. Evil star reviled, spots flow. maps stops, Eh. Aron, Nora. maps, Noel I Pat Aidan's drawer. spots spots, Noel. Mara, was. stops, desserts A Nora did Mara. Nadia Aram, I. Desserts Nadia a. Evil Aron He. won Aratos He. saw Aron stops. maps spots, Noel, I spam. Aidan now Live Deliver, reviled.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "61844ab78ca8cd1b75bb992d6494b54f19a45b81862d6f7d7bbbead3bcca8d88",
+      "raw_visible_response": "{\"choice\":\"A\",\"observable_feature\":\"Some coherent sentences and names\"}",
+      "parsed": {
+        "choice": "A",
+        "observable_feature": "Some coherent sentences and names"
+      },
+      "usage": {
+        "inputTokens": 695,
+        "outputTokens": 17,
+        "totalTokens": 712
+      },
+      "stop_reason": "end_turn",
+      "request_id": "cafc9946-b647-4cce-92b6-c83b834ba369"
+    },
+    {
+      "comparison_id": "686-shell-cycle::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:686-shell-cycle",
+      "baseline_id": "shuffle:candidate:686-shell-cycle:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "B",
+      "a_id": "shuffle:candidate:686-shell-cycle:00",
+      "b_id": "candidate:686-shell-cycle",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: tub Aron. Noel Aidan sees. Leon Aron, Aratos saw Nora won. I delivers no. was Desserts Nadia. on did was. Mara Leon sees. Sara sees I. Aram Aidan's live. sit reviled Aron. Leon stressed Leon. delivers Nora notes. Nadia Tis Noel. Aras Dog? He stops sees. Nora A Nora. Leon, maps, Nadia sees spam's? Nora spots Sara Evil. I, Aram star. Nadia Aras. a Seton Aron. rewards, Nora Aram Nora? drawer, did I live. Wolf, I Aidan Nora? God Deliver maps. Mara. saw was stops. Nadia reviled, sees. maps; maps Spam's, Stressed. Noel did won, Leon. I spam sees, sees. Noel delivers Sara, Now. Sara Ira Mara. Aras, so. 'now Nadia, sees. “rats Noel” Eh Evil. Tara Aras Aidan, spots saw. live Aron, Mara. maps, reviled. reviled, but sees sees Ari Aidan. spots sees, Aidan. Spam's sees saw. Leon Evil reviled. sees Noel I. Leon Leon desserts. Aron Sara I. Live Aron Noel. delivers was Spam's. did stops, Noel. I I, flow, tap Aron. Pat evil Aras Aram, Noel.\n\nB: Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "3baa479f58e53babb0463aacc3c45cf679d76050a9d5ef6c1564ca3b6363ef4a",
+      "raw_visible_response": "{\"choice\":\"B\",\"observable_feature\":\"B forms coherent sentences with subject-verb-object structure.\"}",
+      "parsed": {
+        "choice": "B",
+        "observable_feature": "B forms coherent sentences with subject-verb-object structure."
+      },
+      "usage": {
+        "inputTokens": 709,
+        "outputTokens": 23,
+        "totalTokens": 732
+      },
+      "stop_reason": "end_turn",
+      "request_id": "9b2b5228-5c38-4b1a-bf31-37be72ec0002"
+    },
+    {
+      "comparison_id": "736-mixed-cycle::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:736-mixed-cycle",
+      "baseline_id": "shuffle:candidate:736-mixed-cycle:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "A",
+      "a_id": "candidate:736-mixed-cycle",
+      "b_id": "shuffle:candidate:736-mixed-cycle:00",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.\n\nB: Noel did. Mara sees Aras. Aras sees, I Evil Sara Leon. Live I I. Evil Aron Leon. Sara sees Aras. Sara Nadia Nora. Aidan Sara Dog. Aratos Noel sees. Aidan stops Aram. sit delivers I. was Noel Aron. Sara sees Nadia. Nadia reviled Aron. Mara Nadia Aron. Noel reviled spots. Aidan's stressed Noel. maps, Nora, rewards sees saw? God Spam's Stressed sees. Ira, sees Aras. I tap. now sees on. stops, reviled was Noel? Nora, live sees delivers. maps, Aron Noel did? was Nadia Aron. Sara. saw Spam's Nora. I notes, Mara. spots; Sara Spam's, Nora. I Noel Nora, Leon. flow stops Seton, Ari. Aras won Aras, saw. Leon Nadia drawer. won, live. 'Nora maps, was. “sees saw” Aidan Leon. reviled spam's did, Deliver Leon. Aron Nadia, Tis. Leon so Nora. Aras sees sees. spots Leon live. did Leon Nora. maps Aidan, I. Wolf Desserts Aron. stops Tara Nadia. evil sees delivers. spots sees sees. I Noel sees. sees Evil delivers. reviled Aidan I. Aram Leon, Aidan. Noel no, Leon, Noel Now. Aidan Aron Aram desserts, Pat.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "87986c12a12f91e4314791ca97428f406b93e6c6f90a059d99564f47d4c891bb",
+      "raw_visible_response": "{\"choice\":\"A\",\"observable_feature\":\"More grammatical sentences and coherent names.\"}",
+      "parsed": {
+        "choice": "A",
+        "observable_feature": "More grammatical sentences and coherent names."
+      },
+      "usage": {
+        "inputTokens": 743,
+        "outputTokens": 19,
+        "totalTokens": 762
+      },
+      "stop_reason": "end_turn",
+      "request_id": "b181e54e-a1b4-4cc0-9461-fefaefb70f76"
+    },
+    {
+      "comparison_id": "752-center-path::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:752-center-path",
+      "baseline_id": "shuffle:candidate:752-center-path:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "B",
+      "a_id": "shuffle:candidate:752-center-path:00",
+      "b_id": "candidate:752-center-path",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: Desserts Nora. I sees stops. God sees, Leon Tara spots spam's. Nora on I. desserts spots did. Noel Evil sees. Aron evil Aidan. Seton Noel Noel. Nora Mara was. notes sees did. now sees sees. won Aras Nadia. sees Nadia stops. I Sara Nadia. did sees Stressed. Aras reviled Nora. sees did Noel. Sara, Ari, Nora Leon saw? Tis I Ira sees. sit, Aron saw. drawer so. delivers Aram Leon. Aidan, I tap sees? Aidan, Nadia Evil was. maps, Noel stops Aron? Aras saw Nadia. Evil. I sees sees. Leon sees sees. Aidan Aron Dog. Aras Aras Leon. Aidan; stops rewards, Noel. Nora spots Leon, Leon. Sara I Spam's, Aras. Noel Nadia flow, Aron. Aron Leon sees. Leon, no. 'Aron Leon, Nora. “live Leon” Live Aratos. Nora Sara sees, spots was. Mara reviled, delivers. Aras Deliver live. Noel Mara Aidan's. Noel Noel Nora. reviled won reviled. saw sees, Aidan. Pat I Leon. delivers Noel Noel. Ira Now Aidan. stressed sees Sara. maps live Aron. Sara Aron Aram. Aram Wolf Noel. Nadia sees, Sara. spots I, was, I stops. Leon maps Nadia Spam's, Ari.\n\nB: Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "de436259954eb025e950840f4c14745ba34a928c43af3a823c02792aa686e7f6",
+      "raw_visible_response": "{\"choice\":\"B\",\"observable_feature\":\"B forms coherent sentences with subject-verb-object structure.\"}",
+      "parsed": {
+        "choice": "B",
+        "observable_feature": "B forms coherent sentences with subject-verb-object structure."
+      },
+      "usage": {
+        "inputTokens": 749,
+        "outputTokens": 23,
+        "totalTokens": 772
+      },
+      "stop_reason": "end_turn",
+      "request_id": "76a37012-bc74-4c0e-888f-5006a7cc6d77"
+    }
+  ],
+  "runner_source_sha256_after_resume_fix": "d4f7be90776ded12092db1349b343353e654d541e3276d297180e844d3bd83f0",
+  "runner_source_sha256_first_three_comparisons": "41bdfc50bac1ac12a7cb72a0b26bc308054e62378c0928a3fa534a6a95c76b01",
+  "sources": {
+    "aws_model_card": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-deepseek-deepseek-v3-2.html",
+    "aws_pricing": "https://aws.amazon.com/bedrock/pricing/",
+    "aws_service_quota": "AWS Service Quotas, us-east-2, read 2026-09-25: 100 on-demand requests/minute for DeepSeek V3.2"
+  },
+  "excluded_preflight": {
+    "artifact": "runs/static-language-verifier-20260925/deepseek-r1-preflight.json",
+    "status": "incomplete_preflight_excluded_from_main_analysis",
+    "calls": 3,
+    "input_tokens": 789,
+    "output_tokens": 1949,
+    "estimated_cost_usd": 0.011589750000000001,
+    "reason": "Two visible outputs were retained but excluded; the third used its 1,024-token output ceiling without a visible verdict."
+  },
+  "total_bedrock_estimated_cost_usd": 0.01591394
+}

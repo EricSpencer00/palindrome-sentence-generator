@@ -364,3 +364,23 @@ Luna re-review found no factual or layout must-fix. It judged the draft useful
 for internal review but still weak for NAACL main: a general generation
 advantage, prior-method comparison, and human language-quality evidence are
 absent. This is an internal AI review, not peer review.
+
+## Q10 Pass 9: restore the required Limitations section
+
+A fresh Luna reviewer found a venue-compliance defect: the draft discussed its
+limitations but did not have the dedicated section titled `Limitations` that
+ARR requires for both short and long submissions. The NAACL 2027 main call
+adopts ARR's submission requirements. The existing scope caveats were moved
+and condensed into a dedicated section before ethical considerations and the
+references. It states the selected, dependent lineage; narrow fixed search;
+missing prior-generator language-quality comparison; Brown metric's lack of
+reader validation; and absence of human readability or coherence ratings.
+It introduces no new method or result.
+
+The source package was rebuilt and privacy-screened, the focused exact-output
+test passed, and the revised PDF compiled to three pages. Its final page was
+rendered and inspected after shortening the limitations paragraph so it stays
+in one column. A different fresh Luna reviewer found no remaining section or
+bibliography must-fix. The added section resolves the identified formatting
+blocker, but no new evidence was produced and NAACL main-paper readiness is
+unchanged on substance.

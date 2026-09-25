@@ -341,3 +341,26 @@ focused test passed; the current PDF was rendered and checked. A fresh final
 review found no wording, exactness, or layout blocker, but again judged the
 paper not submission-ready for NAACL main because there is no prior-method
 baseline, broader generalization, or human semantic/readability evaluation.
+
+## Q10 Pass 8: one Sol critique, then Luna re-review
+
+A fresh Sol skeptic found that the 672-letter first-success search appeared to
+conflict with the 38,498-result exhaustive comparison. The manuscript now
+states that both use the same frozen grammar and gates, but the exhaustive
+comparison runs without early stopping. It defines 38,498 as one shared set of
+accepted ordered four-clause-chain pairings; the saved 672-letter surface
+appears once. The 160 indexed reverse-pair edges are identified as directed,
+and the 9,273 counter is explained as right-clause candidates considered
+before character filtering. The lineage description now separates AI-assisted
+left proposals from chart-selected opposing resegmentations.
+
+The Brown paragraph now identifies the 99 held-out documents as a control
+pool, distinguishes punctuation-derived candidate sentence boundaries from
+Brown's corpus boundaries, and confines the reported gains to the saved
+32-shuffle diagnostic. The paper still supplies no human readability results.
+The anonymous evidence verifier passed, the privacy-screened bundles were
+rebuilt, and the revised three-page PDF was rendered and inspected. A fresh
+Luna re-review found no factual or layout must-fix. It judged the draft useful
+for internal review but still weak for NAACL main: a general generation
+advantage, prior-method comparison, and human language-quality evidence are
+absent. This is an internal AI review, not peer review.

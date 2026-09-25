@@ -1,0 +1,2668 @@
+{
+  "experiment": "heldout-brown-length-stratified-readability-20260925",
+  "created_utc": "2026-09-25T05:29:21.674151+00:00",
+  "status": "programmatic_diagnostic_not_human_readability_result",
+  "manifest": {
+    "path": "paper/week_results.json",
+    "snapshot_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+    "candidate_count": 11
+  },
+  "method": {
+    "scorer": "Brown word-bigram mean log probability; order gain is the observed score minus the mean over same-word shuffles",
+    "metric_units": "nats per word transition",
+    "training_split": "document-level deterministic split; no held-out control document is used to train the scorer",
+    "training_file_count": 401,
+    "heldout_file_count": 99,
+    "training_fileid_manifest_sha256": "7a470140799e3af2e61798ffa53369b8cfdec37ab707f73dd6fd670e4641b1db",
+    "heldout_fileid_manifest_sha256": "9fd34725125c9d3b1a35faaf2e3900bf610e52cd762aed59ca3fbb0888362644",
+    "length_targets_scorer_tokens": [
+      16,
+      32,
+      64,
+      128,
+      192,
+      256,
+      512,
+      1024,
+      2048
+    ],
+    "controls_per_length": 12,
+    "matched_prose_controls": 11,
+    "shuffles_per_item": 32,
+    "random_seed": 20260925,
+    "brown_sentences": 57340,
+    "nltk_version": "3.10.3",
+    "controls_are_complete_contiguous_sentences": true,
+    "controls_are_nonoverlapping_within_heldout_documents": true
+  },
+  "summary": {
+    "candidate_mean_order_gain": 0.2784407218046157,
+    "candidate_median_order_gain": 0.22837170065087875,
+    "matched_heldout_prose_mean_order_gain": 1.373083067773144,
+    "matched_heldout_prose_median_order_gain": 1.447672750593691,
+    "matched_controls_with_higher_order_gain": 10,
+    "mean_matched_prose_minus_candidate_order_gain": 1.0946423459685284,
+    "candidate_rank_by_order_gain": [
+      "498-overhang",
+      "38-control",
+      "54-np-candidate",
+      "640-event-chain",
+      "568-pinned",
+      "686-shell-cycle",
+      "672-reverse-chain",
+      "752-center-path",
+      "616-nora-aron",
+      "630-god-dog",
+      "736-mixed-cycle"
+    ]
+  },
+  "length_curve": [
+    {
+      "target_scorer_tokens": 16,
+      "control_count": 12,
+      "actual_tokens_min": 16,
+      "actual_tokens_median": 16.0,
+      "actual_tokens_max": 16,
+      "mean_order_gain_nats_per_transition": 1.508139003407001,
+      "median_order_gain_nats_per_transition": 1.4377028773741647,
+      "positive_order_gain_controls": 12
+    },
+    {
+      "target_scorer_tokens": 32,
+      "control_count": 12,
+      "actual_tokens_min": 32,
+      "actual_tokens_median": 32.0,
+      "actual_tokens_max": 32,
+      "mean_order_gain_nats_per_transition": 1.8547305823278009,
+      "median_order_gain_nats_per_transition": 1.80808262322356,
+      "positive_order_gain_controls": 12
+    },
+    {
+      "target_scorer_tokens": 64,
+      "control_count": 12,
+      "actual_tokens_min": 64,
+      "actual_tokens_median": 64.0,
+      "actual_tokens_max": 64,
+      "mean_order_gain_nats_per_transition": 1.8371289475736052,
+      "median_order_gain_nats_per_transition": 1.8851919467226237,
+      "positive_order_gain_controls": 12
+    },
+    {
+      "target_scorer_tokens": 128,
+      "control_count": 12,
+      "actual_tokens_min": 128,
+      "actual_tokens_median": 128.0,
+      "actual_tokens_max": 128,
+      "mean_order_gain_nats_per_transition": 1.5985241684462335,
+      "median_order_gain_nats_per_transition": 1.5718293612362708,
+      "positive_order_gain_controls": 12
+    },
+    {
+      "target_scorer_tokens": 192,
+      "control_count": 12,
+      "actual_tokens_min": 192,
+      "actual_tokens_median": 192.0,
+      "actual_tokens_max": 192,
+      "mean_order_gain_nats_per_transition": 1.7779311503760862,
+      "median_order_gain_nats_per_transition": 1.7942040426886705,
+      "positive_order_gain_controls": 12
+    },
+    {
+      "target_scorer_tokens": 256,
+      "control_count": 12,
+      "actual_tokens_min": 256,
+      "actual_tokens_median": 256.0,
+      "actual_tokens_max": 256,
+      "mean_order_gain_nats_per_transition": 1.6036123196015388,
+      "median_order_gain_nats_per_transition": 1.6413061803347255,
+      "positive_order_gain_controls": 12
+    },
+    {
+      "target_scorer_tokens": 512,
+      "control_count": 12,
+      "actual_tokens_min": 512,
+      "actual_tokens_median": 512.0,
+      "actual_tokens_max": 512,
+      "mean_order_gain_nats_per_transition": 1.6134212811926263,
+      "median_order_gain_nats_per_transition": 1.59632098118169,
+      "positive_order_gain_controls": 12
+    },
+    {
+      "target_scorer_tokens": 1024,
+      "control_count": 12,
+      "actual_tokens_min": 1024,
+      "actual_tokens_median": 1024.0,
+      "actual_tokens_max": 1024,
+      "mean_order_gain_nats_per_transition": 1.5549530474469837,
+      "median_order_gain_nats_per_transition": 1.4975343224731361,
+      "positive_order_gain_controls": 12
+    },
+    {
+      "target_scorer_tokens": 2048,
+      "control_count": 12,
+      "actual_tokens_min": 2042,
+      "actual_tokens_median": 2048.0,
+      "actual_tokens_max": 2050,
+      "mean_order_gain_nats_per_transition": 1.6276241156809046,
+      "median_order_gain_nats_per_transition": 1.5836075716759832,
+      "positive_order_gain_controls": 12
+    }
+  ],
+  "candidates": [
+    {
+      "id": "38-control",
+      "scorer_tokens": 9,
+      "brown_bigram_logprob": -9.770104027564093,
+      "brown_order_gain_vs_own_shuffle": 0.515164797801571,
+      "mean_own_shuffle_logprob": -10.285268825365664,
+      "shuffle_count": 32,
+      "surface": "An aide rips nine memos; some men inspire Diana.",
+      "letters": 38,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 38,
+        "manifest_word_count": 9,
+        "scorer_token_count": 9,
+        "normalized_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/seed-np-cross-role-intersection-20260922.json",
+        "json_key": "incumbent_oracle.rendered",
+        "file_sha256": "606d7b9e3150a8e9ea845e0c669a741ebfe10bb58a18593a66c6bc17310f4ff3",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "inherited 38-letter reference/control; this audit does not establish authorship",
+      "lineage": "loaded unchanged as incumbent_oracle; origin and authorship are not established by this audit",
+      "reader_status": "not studied in a project reader study"
+    },
+    {
+      "id": "54-np-candidate",
+      "scorer_tokens": 13,
+      "brown_bigram_logprob": -10.025357378841123,
+      "brown_order_gain_vs_own_shuffle": 0.2473342322394192,
+      "mean_own_shuffle_logprob": -10.272691611080543,
+      "shuffle_count": 32,
+      "surface": "An aide rips nine memo-hero memos. Some more home men inspire Diana.",
+      "letters": 54,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 54,
+        "manifest_word_count": 13,
+        "scorer_token_count": 13,
+        "normalized_sha256": "2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/seed-np-cross-role-intersection-20260922.json",
+        "json_key": "rows[0].rendered",
+        "file_sha256": "606d7b9e3150a8e9ea845e0c669a741ebfe10bb58a18593a66c6bc17310f4ff3",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "bounded live-residual noun-phrase grammar intersection over an inherited open frame",
+      "lineage": "retains the aide/rips/nine/memos and some/men/inspire/Diana frame; adds derived NP material without reflecting a closed span",
+      "reader_status": "not run; frozen 24-rater packet has no responses"
+    },
+    {
+      "id": "498-overhang",
+      "scorer_tokens": 161,
+      "brown_bigram_logprob": -9.090819160598658,
+      "brown_order_gain_vs_own_shuffle": 0.581786776147208,
+      "mean_own_shuffle_logprob": -9.672605936745866,
+      "shuffle_count": 32,
+      "surface": "to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got",
+      "letters": 498,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 498,
+        "manifest_word_count": 161,
+        "scorer_token_count": 161,
+        "normalized_sha256": "e809a2a05a414347615f68f27f6b4974aa00ede287fdb2a4b23f6ffbadec9032"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/overhang-growth-from-240-20261001.json",
+        "json_key": "rows[0].rendered",
+        "file_sha256": "83c755c8855f0260ccc0e75c428a473b1f38f2ef9fa0c70bdb0043ea93ea495a",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "bounded center-out overhang search from an inherited 240-letter seed",
+      "lineage": "search-produced growth row; parent_artifact and growth_over_parent are recorded in the row",
+      "reader_status": "not run"
+    },
+    {
+      "id": "568-pinned",
+      "scorer_tokens": 148,
+      "brown_bigram_logprob": -10.213235588883197,
+      "brown_order_gain_vs_own_shuffle": 0.23857681763878347,
+      "mean_own_shuffle_logprob": -10.45181240652198,
+      "shuffle_count": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 568,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 568,
+        "manifest_word_count": 143,
+        "scorer_token_count": 148,
+        "normalized_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/incumbent-560-outer-causal-scene-20261002.json",
+        "json_key": "rows[id=outer-causal-scene-568-working-incumbent].rendered",
+        "file_sha256": "c2d520dd84f17164da62f691aab95cba57d351cd660ed611ac444fdb6679dc13",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "pinned working incumbent; authored outer-macro replacement with a causal scene",
+      "lineage": "parent is the 560-letter central-event bridge",
+      "reader_status": "not run"
+    },
+    {
+      "id": "616-nora-aron",
+      "scorer_tokens": 160,
+      "brown_bigram_logprob": -10.23743455988599,
+      "brown_order_gain_vs_own_shuffle": 0.2085269917903414,
+      "mean_own_shuffle_logprob": -10.445961551676332,
+      "shuffle_count": 32,
+      "surface": "Leon won. Wolf spots Nora. Nora sees Aron. Aron sees Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron sees Nora. Nora sees Aron. Aron stops flow now, Noel.",
+      "letters": 616,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 616,
+        "manifest_word_count": 155,
+        "scorer_token_count": 160,
+        "normalized_sha256": "e777b97605099d24ff0b9f16e77ebe27d3bbd6baedabb4ba5a79f1a58f2eb222"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/luna6-nora-aron-live-residual-growth-20260923.json",
+        "json_key": "rendered_full_tape",
+        "file_sha256": "54775109bbb8cfda710cffae3cb5345ad2e1729d0b324e0482c61a98bf1e4758",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored reciprocal-clause insertion at a live partial-word seam",
+      "lineage": "separate direct child of the 568 pinned incumbent",
+      "reader_status": "not run"
+    },
+    {
+      "id": "630-god-dog",
+      "scorer_tokens": 166,
+      "brown_bigram_logprob": -10.227739885211495,
+      "brown_order_gain_vs_own_shuffle": 0.19249732518673568,
+      "mean_own_shuffle_logprob": -10.42023721039823,
+      "shuffle_count": 32,
+      "surface": "Leon won. Wolf spots Nora. Nora saw God. Nadia saw God. Dog was Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron saw God. Dog was Aidan. Dog was Aron. Aron stops flow now, Noel.",
+      "letters": 630,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 630,
+        "manifest_word_count": 161,
+        "scorer_token_count": 166,
+        "normalized_sha256": "017d5e73f11339204b3f343fa66e63b5c4674afd01c5ea823e36999879a2ac11"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/luna6-god-dog-live-residual-growth-20260923.json",
+        "json_key": "rendered_full_text",
+        "file_sha256": "5f2df550ad7d4d919a4f42750b6679f9010cb94253c1baf1e86911c615822823",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored six-clause insertion at a live partial-word seam",
+      "lineage": "separate direct child of the 568 pinned incumbent",
+      "reader_status": "not run"
+    },
+    {
+      "id": "640-event-chain",
+      "scorer_tokens": 166,
+      "brown_bigram_logprob": -10.248258533177813,
+      "brown_order_gain_vs_own_shuffle": 0.2457687993538631,
+      "mean_own_shuffle_logprob": -10.494027332531676,
+      "shuffle_count": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 640,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 640,
+        "manifest_word_count": 161,
+        "scorer_token_count": 166,
+        "normalized_sha256": "c3013fe4411ae2be7ab3211a41e59606faab7385dc4fe3dc8185d47f8cbedac9"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/incumbent-568-live-event-chain-insertion-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "621d4e8c9fdfc6bbc4217527c120b28854762a81d94c1a01be47e6bd76e0cabd",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored left event chain; bounded typed chart chooses a connected opposing resegmentation under a live residual",
+      "lineage": "direct child of the 568 pinned incumbent",
+      "reader_status": "not run"
+    },
+    {
+      "id": "672-reverse-chain",
+      "scorer_tokens": 172,
+      "brown_bigram_logprob": -10.258215412133488,
+      "brown_order_gain_vs_own_shuffle": 0.2121414588594117,
+      "mean_own_shuffle_logprob": -10.4703568709929,
+      "shuffle_count": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora stops Leon. Leon stops Nora. Nora stops Noel. Noel spots Nora. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aron stops Leon. Leon spots Aron. Aron spots Noel. Noel spots Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 672,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 672,
+        "manifest_word_count": 167,
+        "scorer_token_count": 172,
+        "normalized_sha256": "ed6290e2459a142ace98a5d20219eff252c6c89d1dae47115289c11211ec1bee"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/incumbent-672-discourse-linked-reverse-chain-20260922.json",
+        "json_key": "rows[id=discourse-linked-reverse-chain-672].rendered",
+        "file_sha256": "51435f9d8bacb1b2378663932a9c9261e4a9fab9eb46b43c5ecfee03e45fc878",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "bounded relation-chain search with per-clause reverse-character filtering",
+      "lineage": "direct comparison child of the 568 pinned incumbent",
+      "reader_status": "not run; saved AI review did not consider the full tape reader-worthy"
+    },
+    {
+      "id": "686-shell-cycle",
+      "scorer_tokens": 174,
+      "brown_bigram_logprob": -10.296637868383876,
+      "brown_order_gain_vs_own_shuffle": 0.22837170065087875,
+      "mean_own_shuffle_logprob": -10.525009569034754,
+      "shuffle_count": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 686,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 686,
+        "manifest_word_count": 169,
+        "scorer_token_count": 174,
+        "normalized_sha256": "cb47534ec3f66a5a3624e7573e15cde7c1cdc53c7ff9cebdc788412b940f982c"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/repair-640-mirrored-shell-cycle-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "4e9174e68397d9519cfa90cdb12dcbaa87a2a93bf4fa0d9a9f9e7ef0cab73f49",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored left event cycle; bounded deterministic grammar chart chooses opposing shell resegmentation",
+      "lineage": "640 \u2192 686 \u2192 736 \u2192 752 descendant branch from the 568 incumbent",
+      "reader_status": "not run"
+    },
+    {
+      "id": "736-mixed-cycle",
+      "scorer_tokens": 182,
+      "brown_bigram_logprob": -10.340735245746602,
+      "brown_order_gain_vs_own_shuffle": 0.18409417222440894,
+      "mean_own_shuffle_logprob": -10.524829417971011,
+      "shuffle_count": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 736,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 736,
+        "manifest_word_count": 177,
+        "scorer_token_count": 182,
+        "normalized_sha256": "608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/repair-686-mixed-predicate-shell-cycle-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "77c38810fea972550a396ced140dd534f4004ac327fd2a7bdcec96ecbf2b9317",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored left mixed-predicate cycle; bounded deterministic grammar chart chooses opposing resegmentation",
+      "lineage": "686 \u2192 736 \u2192 752 descendant branch from the 568 incumbent",
+      "reader_status": "not run"
+    },
+    {
+      "id": "752-center-path",
+      "scorer_tokens": 187,
+      "brown_bigram_logprob": -10.341529085389025,
+      "brown_order_gain_vs_own_shuffle": 0.20858486795815168,
+      "mean_own_shuffle_logprob": -10.550113953347177,
+      "shuffle_count": 32,
+      "surface": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. \u201cEvil Leon\u201d was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+      "letters": 752,
+      "exactness": {
+        "checks": {
+          "outside_in_ascii_scan": true,
+          "normalized_reverse_equality": true,
+          "letter_count_matches_manifest": true,
+          "normalized_sha256_matches_manifest": true,
+          "manifest_independently_exact": true
+        },
+        "letters": 752,
+        "manifest_word_count": 183,
+        "scorer_token_count": 187,
+        "normalized_sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c"
+      },
+      "provenance": {
+        "git_revision": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
+        "path": "runs/repair-736-center-lexical-event-path-20260923.json",
+        "json_key": "candidate.rendered",
+        "file_sha256": "424d9d5fa3a4f8a450f149e3feb2d239f6116b4fe99c60e3328df58fda367a2d",
+        "tracked_at_snapshot": true
+      },
+      "mechanism": "authored left two-event open path; bounded role chart chooses the connected opposing resegmentation",
+      "lineage": "736 \u2192 752; upstream branch is 568 \u2192 640 \u2192 686 \u2192 736 \u2192 752",
+      "reader_status": "not run"
+    }
+  ],
+  "matched_heldout_prose_controls": [
+    {
+      "id": "matched-prose-38-control",
+      "scorer_tokens": 9,
+      "brown_bigram_logprob": -10.080808592552028,
+      "brown_order_gain_vs_own_shuffle": 0.02508715183178367,
+      "mean_own_shuffle_logprob": -10.105895744383812,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_control",
+      "matched_candidate_id": "38-control",
+      "source_word_count": 9,
+      "word_count_difference": 0,
+      "brown_fileid": "cg56",
+      "sentence_indices_half_open": [
+        5,
+        6
+      ],
+      "surface_sha256": "e1d4ffb1449f5c7027dfcdedaa4142ad01048e6ccaaaf92931f2a39b31e9ba4e"
+    },
+    {
+      "id": "matched-prose-54-np-candidate",
+      "scorer_tokens": 13,
+      "brown_bigram_logprob": -6.6009895892934125,
+      "brown_order_gain_vs_own_shuffle": 1.923469474203058,
+      "mean_own_shuffle_logprob": -8.52445906349647,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_control",
+      "matched_candidate_id": "54-np-candidate",
+      "source_word_count": 13,
+      "word_count_difference": 0,
+      "brown_fileid": "cg54",
+      "sentence_indices_half_open": [
+        93,
+        94
+      ],
+      "surface_sha256": "a985824b05fcb2c0da713025f3e00a60070f8ba11786a0404e7acde3ed36e19a"
+    },
+    {
+      "id": "matched-prose-498-overhang",
+      "scorer_tokens": 161,
+      "brown_bigram_logprob": -8.054636011294946,
+      "brown_order_gain_vs_own_shuffle": 1.6302372815891424,
+      "mean_own_shuffle_logprob": -9.684873292884088,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_control",
+      "matched_candidate_id": "498-overhang",
+      "source_word_count": 161,
+      "word_count_difference": 0,
+      "brown_fileid": "cd12",
+      "sentence_indices_half_open": [
+        53,
+        59
+      ],
+      "surface_sha256": "b3bfc516d4416cc57c0f4eec885399eca168549944d4254deca423adfcdee633"
+    },
+    {
+      "id": "matched-prose-568-pinned",
+      "scorer_tokens": 148,
+      "brown_bigram_logprob": -8.482661821792908,
+      "brown_order_gain_vs_own_shuffle": 1.447672750593691,
+      "mean_own_shuffle_logprob": -9.930334572386599,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_control",
+      "matched_candidate_id": "568-pinned",
+      "source_word_count": 148,
+      "word_count_difference": 0,
+      "brown_fileid": "cf41",
+      "sentence_indices_half_open": [
+        45,
+        53
+      ],
+      "surface_sha256": "e3ea25c8bd14bc15e348a6c85db527c152fcb84a72461cf622f934921047fe16"
+    },
+    {
+      "id": "matched-prose-616-nora-aron",
+      "scorer_tokens": 160,
+      "brown_bigram_logprob": -8.92758222285588,
+      "brown_order_gain_vs_own_shuffle": 0.9518708406400975,
+      "mean_own_shuffle_logprob": -9.879453063495978,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_control",
+      "matched_candidate_id": "616-nora-aron",
+      "source_word_count": 160,
+      "word_count_difference": 0,
+      "brown_fileid": "cj15",
+      "sentence_indices_half_open": [
+        61,
+        71
+      ],
+      "surface_sha256": "5f3ecdf01571712b384cc7d62a4e3f9fdd5bed2d395c6b7ad0a1d78f6efc4c77"
+    },
+    {
+      "id": "matched-prose-630-god-dog",
+      "scorer_tokens": 166,
+      "brown_bigram_logprob": -7.569667850504459,
+      "brown_order_gain_vs_own_shuffle": 1.9270762925356824,
+      "mean_own_shuffle_logprob": -9.496744143040141,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_control",
+      "matched_candidate_id": "630-god-dog",
+      "source_word_count": 166,
+      "word_count_difference": 0,
+      "brown_fileid": "cm03",
+      "sentence_indices_half_open": [
+        83,
+        100
+      ],
+      "surface_sha256": "e9cfe85aab2f1d9f1c4adab405435197ee30d731efdbc7778b70350208574a05"
+    },
+    {
+      "id": "matched-prose-640-event-chain",
+      "scorer_tokens": 166,
+      "brown_bigram_logprob": -7.631143073781321,
+      "brown_order_gain_vs_own_shuffle": 1.796999223057374,
+      "mean_own_shuffle_logprob": -9.428142296838695,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_control",
+      "matched_candidate_id": "640-event-chain",
+      "source_word_count": 166,
+      "word_count_difference": 0,
+      "brown_fileid": "cr04",
+      "sentence_indices_half_open": [
+        60,
+        70
+      ],
+      "surface_sha256": "87c7b7fa215e9097013bd0c70a6baba445f37b4cb80e73ff3bea4cf13265644d"
+    },
+    {
+      "id": "matched-prose-672-reverse-chain",
+      "scorer_tokens": 172,
+      "brown_bigram_logprob": -7.565653677710957,
+      "brown_order_gain_vs_own_shuffle": 1.7709347328383203,
+      "mean_own_shuffle_logprob": -9.336588410549277,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_control",
+      "matched_candidate_id": "672-reverse-chain",
+      "source_word_count": 172,
+      "word_count_difference": 0,
+      "brown_fileid": "ch17",
+      "sentence_indices_half_open": [
+        57,
+        65
+      ],
+      "surface_sha256": "7d84d62c83a3f4f075757dde77ddaa8316ea7e3dac8ce45500ef14521a458055"
+    },
+    {
+      "id": "matched-prose-686-shell-cycle",
+      "scorer_tokens": 174,
+      "brown_bigram_logprob": -8.817870074745848,
+      "brown_order_gain_vs_own_shuffle": 1.187442094683762,
+      "mean_own_shuffle_logprob": -10.00531216942961,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_control",
+      "matched_candidate_id": "686-shell-cycle",
+      "source_word_count": 174,
+      "word_count_difference": 0,
+      "brown_fileid": "cj12",
+      "sentence_indices_half_open": [
+        21,
+        32
+      ],
+      "surface_sha256": "19947204997b04b2962c45bf79cb585d06b3361edaecc46b811063ac58457b9b"
+    },
+    {
+      "id": "matched-prose-736-mixed-cycle",
+      "scorer_tokens": 182,
+      "brown_bigram_logprob": -8.369283424214672,
+      "brown_order_gain_vs_own_shuffle": 1.3402979575733873,
+      "mean_own_shuffle_logprob": -9.709581381788059,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_control",
+      "matched_candidate_id": "736-mixed-cycle",
+      "source_word_count": 182,
+      "word_count_difference": 0,
+      "brown_fileid": "ch07",
+      "sentence_indices_half_open": [
+        100,
+        112
+      ],
+      "surface_sha256": "fecd1adbb26214e02e0208c6cf4e021c97687af3a1f0aea2fc2578a95e7bdc16"
+    },
+    {
+      "id": "matched-prose-752-center-path",
+      "scorer_tokens": 187,
+      "brown_bigram_logprob": -8.659873262529617,
+      "brown_order_gain_vs_own_shuffle": 1.1028259459582852,
+      "mean_own_shuffle_logprob": -9.762699208487902,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_control",
+      "matched_candidate_id": "752-center-path",
+      "source_word_count": 187,
+      "word_count_difference": 0,
+      "brown_fileid": "cc17",
+      "sentence_indices_half_open": [
+        39,
+        49
+      ],
+      "surface_sha256": "8d97ef353e5eaf7f2330af8f95a2887244b8808c5850d746a78e634f09e71c33"
+    }
+  ],
+  "length_stratified_heldout_controls": [
+    {
+      "id": "length-16-control-00",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -8.077462432740983,
+      "brown_order_gain_vs_own_shuffle": 1.4179886766225156,
+      "mean_own_shuffle_logprob": -9.495451109363499,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "cl08",
+      "sentence_indices_half_open": [
+        71,
+        72
+      ],
+      "surface_sha256": "2d9cbe4544ccf033f80da8646972f1f56b2e1872c1ce7ce2984bc0611c4b62a4"
+    },
+    {
+      "id": "length-16-control-01",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -7.857407707545726,
+      "brown_order_gain_vs_own_shuffle": 1.537473718282869,
+      "mean_own_shuffle_logprob": -9.394881425828595,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "ch15",
+      "sentence_indices_half_open": [
+        89,
+        90
+      ],
+      "surface_sha256": "f7e0141ab75c0666933cf3bac6169b390f703eda13cfdbc2104274dcc0348ccd"
+    },
+    {
+      "id": "length-16-control-02",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -6.915174215421656,
+      "brown_order_gain_vs_own_shuffle": 2.2210506463274715,
+      "mean_own_shuffle_logprob": -9.136224861749128,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "ck18",
+      "sentence_indices_half_open": [
+        71,
+        72
+      ],
+      "surface_sha256": "43d3224b27c6f5b9751bd40ea279fa42cbb6a61fa6cdfe2d632193835aadae2b"
+    },
+    {
+      "id": "length-16-control-03",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -7.212216983407012,
+      "brown_order_gain_vs_own_shuffle": 1.4574170781258138,
+      "mean_own_shuffle_logprob": -8.669634061532825,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "cc17",
+      "sentence_indices_half_open": [
+        57,
+        58
+      ],
+      "surface_sha256": "0271a8fa16c5e17235d7937ad67d7977c78fdb51729be1c60b47323ac8240545"
+    },
+    {
+      "id": "length-16-control-04",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -7.879542834620503,
+      "brown_order_gain_vs_own_shuffle": 1.6172960931679725,
+      "mean_own_shuffle_logprob": -9.496838927788476,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "ce33",
+      "sentence_indices_half_open": [
+        51,
+        52
+      ],
+      "surface_sha256": "6373787817d14f3119511c7df316daabf103a73c62f35dbcca7b36e506fb1999"
+    },
+    {
+      "id": "length-16-control-05",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -7.424795000848268,
+      "brown_order_gain_vs_own_shuffle": 1.855929046385417,
+      "mean_own_shuffle_logprob": -9.280724047233685,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "ck28",
+      "sentence_indices_half_open": [
+        25,
+        27
+      ],
+      "surface_sha256": "1bb6bea8b46143e745cb8e4d9991cc143e53276d45693525d0d355d72d591b03"
+    },
+    {
+      "id": "length-16-control-06",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -7.586154172630406,
+      "brown_order_gain_vs_own_shuffle": 1.396421509282745,
+      "mean_own_shuffle_logprob": -8.98257568191315,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "cf28",
+      "sentence_indices_half_open": [
+        2,
+        3
+      ],
+      "surface_sha256": "ff63b4f9dc9112a9a2a178740556fd6de8af3529e29f903f36eb32d9dc87ce9f"
+    },
+    {
+      "id": "length-16-control-07",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -7.371696331932161,
+      "brown_order_gain_vs_own_shuffle": 1.1339640760740552,
+      "mean_own_shuffle_logprob": -8.505660408006216,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "cl18",
+      "sentence_indices_half_open": [
+        51,
+        52
+      ],
+      "surface_sha256": "3ad4ce151e24d04f512d6be0c54b98e5f988626ddbd7ee64f0135732fbd8eba5"
+    },
+    {
+      "id": "length-16-control-08",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -7.202357270105498,
+      "brown_order_gain_vs_own_shuffle": 2.0429062397455127,
+      "mean_own_shuffle_logprob": -9.24526350985101,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "cn17",
+      "sentence_indices_half_open": [
+        34,
+        36
+      ],
+      "surface_sha256": "e77a5cb7cc091aa885d480bd16ee990af7f3d70d2b349f2d9c7328c5a72ad1a4"
+    },
+    {
+      "id": "length-16-control-09",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -8.888827507869912,
+      "brown_order_gain_vs_own_shuffle": 0.8278473576996195,
+      "mean_own_shuffle_logprob": -9.716674865569532,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "cn12",
+      "sentence_indices_half_open": [
+        110,
+        112
+      ],
+      "surface_sha256": "7ab14ff17181458b600a777821601e114cad317bd19eb585777eee9e64a80491"
+    },
+    {
+      "id": "length-16-control-10",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -7.6643703982995515,
+      "brown_order_gain_vs_own_shuffle": 1.3865895668461032,
+      "mean_own_shuffle_logprob": -9.050959965145655,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "cl23",
+      "sentence_indices_half_open": [
+        60,
+        63
+      ],
+      "surface_sha256": "41f01258b1780abb9a02ebf3f5f86339830552f6eb97daa1a8d02f6f77d05cdf"
+    },
+    {
+      "id": "length-16-control-11",
+      "scorer_tokens": 16,
+      "brown_bigram_logprob": -7.771556367378828,
+      "brown_order_gain_vs_own_shuffle": 1.2027840323239172,
+      "mean_own_shuffle_logprob": -8.974340399702745,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 16,
+      "source_word_count": 16,
+      "word_count_difference": 0,
+      "brown_fileid": "cm03",
+      "sentence_indices_half_open": [
+        41,
+        42
+      ],
+      "surface_sha256": "599ece9a82629f6292f67f63777096a5577d41c666a8e61c767e615f1bbcef46"
+    },
+    {
+      "id": "length-32-control-00",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -8.862674202659536,
+      "brown_order_gain_vs_own_shuffle": 0.943861854656511,
+      "mean_own_shuffle_logprob": -9.806536057316046,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "cl12",
+      "sentence_indices_half_open": [
+        108,
+        112
+      ],
+      "surface_sha256": "72815715cb07369c7b62fddb57be6d515113364117dfdf12dab7586c7357ce2f"
+    },
+    {
+      "id": "length-32-control-01",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -6.8808391014718095,
+      "brown_order_gain_vs_own_shuffle": 1.8508956258632816,
+      "mean_own_shuffle_logprob": -8.731734727335091,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "cp07",
+      "sentence_indices_half_open": [
+        57,
+        60
+      ],
+      "surface_sha256": "a6788c92af0067e1db473441701871b032e081c9e0fb47b7bf21fe7ff9563861"
+    },
+    {
+      "id": "length-32-control-02",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -8.36144601439634,
+      "brown_order_gain_vs_own_shuffle": 0.8629533456156242,
+      "mean_own_shuffle_logprob": -9.224399360011963,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "cn21",
+      "sentence_indices_half_open": [
+        75,
+        79
+      ],
+      "surface_sha256": "21fa54e4b9049da81bcfa06e403691dbc8a74778667a45ca34de9583dc4e1692"
+    },
+    {
+      "id": "length-32-control-03",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -7.42506249340069,
+      "brown_order_gain_vs_own_shuffle": 1.7652696205838385,
+      "mean_own_shuffle_logprob": -9.190332113984528,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "cg46",
+      "sentence_indices_half_open": [
+        29,
+        30
+      ],
+      "surface_sha256": "3681e28a02cb78c9040e2a5459a2a7c3c41a10cf53aa777fd5abbf73cd56f34e"
+    },
+    {
+      "id": "length-32-control-04",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -7.880399874834175,
+      "brown_order_gain_vs_own_shuffle": 1.574839975759498,
+      "mean_own_shuffle_logprob": -9.455239850593673,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "cg32",
+      "sentence_indices_half_open": [
+        66,
+        67
+      ],
+      "surface_sha256": "80c56cb1550171ed6bbdcc75cc4fff098c088b8f0d3156695b612e86cc2ac668"
+    },
+    {
+      "id": "length-32-control-05",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -7.274787400172977,
+      "brown_order_gain_vs_own_shuffle": 2.3715787968018933,
+      "mean_own_shuffle_logprob": -9.64636619697487,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "cp14",
+      "sentence_indices_half_open": [
+        162,
+        168
+      ],
+      "surface_sha256": "2583ad6412db55f57d9ba65c4da29d3b00cef9cbe6c92b10e31dea26e9a6d8f3"
+    },
+    {
+      "id": "length-32-control-06",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -7.464332973710713,
+      "brown_order_gain_vs_own_shuffle": 2.1801841118867404,
+      "mean_own_shuffle_logprob": -9.644517085597453,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "cl23",
+      "sentence_indices_half_open": [
+        129,
+        135
+      ],
+      "surface_sha256": "4a99a8f860d97cff68389c4c0ff0c7e41b29a245c3f9763e9310b6258f944e65"
+    },
+    {
+      "id": "length-32-control-07",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -6.095843734193292,
+      "brown_order_gain_vs_own_shuffle": 2.8553891409176115,
+      "mean_own_shuffle_logprob": -8.951232875110904,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "cm03",
+      "sentence_indices_half_open": [
+        74,
+        77
+      ],
+      "surface_sha256": "62d60bc45b500f5cfe5ea851fb7b767b241f30cf9340b1de3ab432ebdfcf4255"
+    },
+    {
+      "id": "length-32-control-08",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -7.687592272385088,
+      "brown_order_gain_vs_own_shuffle": 1.6045651825901723,
+      "mean_own_shuffle_logprob": -9.29215745497526,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "cl14",
+      "sentence_indices_half_open": [
+        10,
+        12
+      ],
+      "surface_sha256": "92589cd77668cf221b557fc28f0c45506b4541f36581f397dd2533281169ac38"
+    },
+    {
+      "id": "length-32-control-09",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -8.016571617504576,
+      "brown_order_gain_vs_own_shuffle": 1.7554688516635029,
+      "mean_own_shuffle_logprob": -9.77204046916808,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "cl16",
+      "sentence_indices_half_open": [
+        106,
+        109
+      ],
+      "surface_sha256": "3bdafe953c2e9270dca9e1496c211cccddec77804964b97e0b9725f4952ef6fc"
+    },
+    {
+      "id": "length-32-control-10",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -7.094769430362811,
+      "brown_order_gain_vs_own_shuffle": 2.1850935722875464,
+      "mean_own_shuffle_logprob": -9.279863002650357,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "ce29",
+      "sentence_indices_half_open": [
+        36,
+        38
+      ],
+      "surface_sha256": "3ad72d88d868d2f59818a9c8583e5dc4fe9e49c03a8ab4d964689b972c076699"
+    },
+    {
+      "id": "length-32-control-11",
+      "scorer_tokens": 32,
+      "brown_bigram_logprob": -7.040716533962006,
+      "brown_order_gain_vs_own_shuffle": 2.3066669093073875,
+      "mean_own_shuffle_logprob": -9.347383443269393,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 32,
+      "source_word_count": 32,
+      "word_count_difference": 0,
+      "brown_fileid": "cn17",
+      "sentence_indices_half_open": [
+        56,
+        60
+      ],
+      "surface_sha256": "021fcdfd86e91bd0495e99d0cc007d90ae842637576d916babd368052cf31541"
+    },
+    {
+      "id": "length-64-control-00",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -7.427253489223011,
+      "brown_order_gain_vs_own_shuffle": 2.048700964870296,
+      "mean_own_shuffle_logprob": -9.475954454093307,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "cg36",
+      "sentence_indices_half_open": [
+        60,
+        65
+      ],
+      "surface_sha256": "4f132858b2147e9c842a337da72db0c700a4035470bc9867a38dfa959fdc30af"
+    },
+    {
+      "id": "length-64-control-01",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -7.76415881688315,
+      "brown_order_gain_vs_own_shuffle": 1.8858251643726565,
+      "mean_own_shuffle_logprob": -9.649983981255806,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "cg32",
+      "sentence_indices_half_open": [
+        31,
+        33
+      ],
+      "surface_sha256": "824903d52f9ffc9f2c300fd5960b7811b6bf8e799ff69402804e315d740c0291"
+    },
+    {
+      "id": "length-64-control-02",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -8.125725856592165,
+      "brown_order_gain_vs_own_shuffle": 1.6124567253332476,
+      "mean_own_shuffle_logprob": -9.738182581925413,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "ch17",
+      "sentence_indices_half_open": [
+        37,
+        40
+      ],
+      "surface_sha256": "8f07642f622a7b81f702d85a263c38a866681a889f45d8cccd5af2f443bbd9bc"
+    },
+    {
+      "id": "length-64-control-03",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -7.138249855553997,
+      "brown_order_gain_vs_own_shuffle": 2.124300335453012,
+      "mean_own_shuffle_logprob": -9.262550191007008,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "cl18",
+      "sentence_indices_half_open": [
+        61,
+        65
+      ],
+      "surface_sha256": "2c44d02fb7340ba95e2eb7f48edb645be3579aa931188d1ea736ce5932844868"
+    },
+    {
+      "id": "length-64-control-04",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -8.158615336552907,
+      "brown_order_gain_vs_own_shuffle": 1.5113105987264621,
+      "mean_own_shuffle_logprob": -9.66992593527937,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "ck28",
+      "sentence_indices_half_open": [
+        132,
+        136
+      ],
+      "surface_sha256": "c14c944e6072bd025caf491d1afaf4d2c70af57d3cb64f84fe146946fddd74d6"
+    },
+    {
+      "id": "length-64-control-05",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -8.258801311635988,
+      "brown_order_gain_vs_own_shuffle": 1.5042139511149735,
+      "mean_own_shuffle_logprob": -9.763015262750962,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "cn14",
+      "sentence_indices_half_open": [
+        76,
+        83
+      ],
+      "surface_sha256": "9379fb8d85c57a6c8fba3188422ef8f7c3bcb271bb79b8d6eb9c88de0a752436"
+    },
+    {
+      "id": "length-64-control-06",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -7.405400694839454,
+      "brown_order_gain_vs_own_shuffle": 1.884558729072591,
+      "mean_own_shuffle_logprob": -9.289959423912045,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "cn12",
+      "sentence_indices_half_open": [
+        115,
+        119
+      ],
+      "surface_sha256": "f2d2d633a11498888f296f56f68aab7af8e9656e901b137eddf32eb5dcc8fd54"
+    },
+    {
+      "id": "length-64-control-07",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -7.485814068309201,
+      "brown_order_gain_vs_own_shuffle": 1.8645966501494815,
+      "mean_own_shuffle_logprob": -9.350410718458683,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "ca05",
+      "sentence_indices_half_open": [
+        44,
+        46
+      ],
+      "surface_sha256": "da4042a3398ea581542559f13b376999a1945391699c2d984409a644a016a987"
+    },
+    {
+      "id": "length-64-control-08",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -7.018197867839074,
+      "brown_order_gain_vs_own_shuffle": 2.189118053609418,
+      "mean_own_shuffle_logprob": -9.207315921448492,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "ch15",
+      "sentence_indices_half_open": [
+        57,
+        68
+      ],
+      "surface_sha256": "2b3fd16bf6de3c653c5036fbe10ca3a15f0c4e5ea815028f347647b5bee17cde"
+    },
+    {
+      "id": "length-64-control-09",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -7.145723406273393,
+      "brown_order_gain_vs_own_shuffle": 2.170074003567275,
+      "mean_own_shuffle_logprob": -9.315797409840668,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "cd16",
+      "sentence_indices_half_open": [
+        95,
+        104
+      ],
+      "surface_sha256": "c6a6a427a1d12c96a346c46cd4455ea6f6d311b888a787c4fce1ded0dd7af4d7"
+    },
+    {
+      "id": "length-64-control-10",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -7.51118941099843,
+      "brown_order_gain_vs_own_shuffle": 1.9566957815404162,
+      "mean_own_shuffle_logprob": -9.467885192538846,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "ch15",
+      "sentence_indices_half_open": [
+        131,
+        136
+      ],
+      "surface_sha256": "68b00ec13b850a5949ec2f357ff8bb9a175f9907b0fd1663099aef1ace89a24e"
+    },
+    {
+      "id": "length-64-control-11",
+      "scorer_tokens": 64,
+      "brown_bigram_logprob": -8.675149968684519,
+      "brown_order_gain_vs_own_shuffle": 1.293696413073432,
+      "mean_own_shuffle_logprob": -9.96884638175795,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 64,
+      "source_word_count": 64,
+      "word_count_difference": 0,
+      "brown_fileid": "ch15",
+      "sentence_indices_half_open": [
+        34,
+        40
+      ],
+      "surface_sha256": "43a878c32cdd76e822918a23335779202ec0a065ea25aae90d53e7e68967f279"
+    },
+    {
+      "id": "length-128-control-00",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -8.410086597598713,
+      "brown_order_gain_vs_own_shuffle": 1.3653299193981354,
+      "mean_own_shuffle_logprob": -9.775416516996849,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "cj73",
+      "sentence_indices_half_open": [
+        128,
+        143
+      ],
+      "surface_sha256": "006878341e3cc81beff0c02672f97a4ce3768cf67e34ab2b5e61da79e330191a"
+    },
+    {
+      "id": "length-128-control-01",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -7.502179438174463,
+      "brown_order_gain_vs_own_shuffle": 1.9991631657693416,
+      "mean_own_shuffle_logprob": -9.501342603943804,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "cp14",
+      "sentence_indices_half_open": [
+        72,
+        93
+      ],
+      "surface_sha256": "8eb322438857d78699f23c9d2d665e693e41af108fbc1118b499e77583e96a3a"
+    },
+    {
+      "id": "length-128-control-02",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -7.8640735684857175,
+      "brown_order_gain_vs_own_shuffle": 1.599570093559751,
+      "mean_own_shuffle_logprob": -9.463643662045468,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "cj24",
+      "sentence_indices_half_open": [
+        10,
+        14
+      ],
+      "surface_sha256": "0a433867bb56436be433112a6829d2c1999c640754930eac33c7a873aaec0eba"
+    },
+    {
+      "id": "length-128-control-03",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -7.8322571285942395,
+      "brown_order_gain_vs_own_shuffle": 1.8221319174782717,
+      "mean_own_shuffle_logprob": -9.654389046072511,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "cl16",
+      "sentence_indices_half_open": [
+        129,
+        137
+      ],
+      "surface_sha256": "0b7ccd7d27e76804bb3d654771b5963fc3cace7ee992f4c532442f96c229f94e"
+    },
+    {
+      "id": "length-128-control-04",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -7.891109825139247,
+      "brown_order_gain_vs_own_shuffle": 1.6772924593719063,
+      "mean_own_shuffle_logprob": -9.568402284511153,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "cc16",
+      "sentence_indices_half_open": [
+        16,
+        21
+      ],
+      "surface_sha256": "4168d22f1c8b4b8a9ec04958e32d795133fbe93d00622e37b9ad7263f0b4681a"
+    },
+    {
+      "id": "length-128-control-05",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -8.202942780155663,
+      "brown_order_gain_vs_own_shuffle": 1.5027858680419168,
+      "mean_own_shuffle_logprob": -9.70572864819758,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "cf04",
+      "sentence_indices_half_open": [
+        89,
+        98
+      ],
+      "surface_sha256": "a6217a8e3688aa44c632ec35f1aa5c987e2ef6ccd3a0a4040b4ae4d67454f0aa"
+    },
+    {
+      "id": "length-128-control-06",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -8.075221272108644,
+      "brown_order_gain_vs_own_shuffle": 1.5440886289127906,
+      "mean_own_shuffle_logprob": -9.619309901021435,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "ch15",
+      "sentence_indices_half_open": [
+        139,
+        149
+      ],
+      "surface_sha256": "a6066c571c1af4e5c7d25ec74f475990b6b7d5ea067d0790316e8d8bf603dbe4"
+    },
+    {
+      "id": "length-128-control-07",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -8.696397143267186,
+      "brown_order_gain_vs_own_shuffle": 1.1094013108077831,
+      "mean_own_shuffle_logprob": -9.805798454074969,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "ce30",
+      "sentence_indices_half_open": [
+        3,
+        13
+      ],
+      "surface_sha256": "dd02f502f40257e06bc12d91126a81bd5dabf3c92c95f16b94c50fdb8eecd52a"
+    },
+    {
+      "id": "length-128-control-08",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -8.455249575780691,
+      "brown_order_gain_vs_own_shuffle": 1.144371771714864,
+      "mean_own_shuffle_logprob": -9.599621347495555,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "cl14",
+      "sentence_indices_half_open": [
+        31,
+        43
+      ],
+      "surface_sha256": "62222e80c5e223d915ba225d7c689fcdf7ac12d0cb291eda23f6e9ee03bbde8c"
+    },
+    {
+      "id": "length-128-control-09",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -8.477266848996718,
+      "brown_order_gain_vs_own_shuffle": 1.279882267296161,
+      "mean_own_shuffle_logprob": -9.75714911629288,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "cc16",
+      "sentence_indices_half_open": [
+        44,
+        52
+      ],
+      "surface_sha256": "073f36454cb25e2c4dc95bfd91d17541e25d47987187a6c36794c1b32cdd231f"
+    },
+    {
+      "id": "length-128-control-10",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -7.520643605761963,
+      "brown_order_gain_vs_own_shuffle": 1.991071794074431,
+      "mean_own_shuffle_logprob": -9.511715399836394,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "cd16",
+      "sentence_indices_half_open": [
+        44,
+        57
+      ],
+      "surface_sha256": "597468b0d9e8ef541df04e9c7eaae55e4cb70fb3254b10981c596cfa43833d00"
+    },
+    {
+      "id": "length-128-control-11",
+      "scorer_tokens": 128,
+      "brown_bigram_logprob": -7.083473146824775,
+      "brown_order_gain_vs_own_shuffle": 2.1472008249294516,
+      "mean_own_shuffle_logprob": -9.230673971754227,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 128,
+      "source_word_count": 128,
+      "word_count_difference": 0,
+      "brown_fileid": "cn18",
+      "sentence_indices_half_open": [
+        40,
+        47
+      ],
+      "surface_sha256": "2f0d492df0365496b4ac67354bdbfa745b55d011a944cd16beaefd914a6dfb8e"
+    },
+    {
+      "id": "length-192-control-00",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -7.262858395637349,
+      "brown_order_gain_vs_own_shuffle": 2.2930980996664596,
+      "mean_own_shuffle_logprob": -9.555956495303809,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cl23",
+      "sentence_indices_half_open": [
+        30,
+        49
+      ],
+      "surface_sha256": "7df1247c17a6b57ba2d79e4e86103ee7698cab26d443391b50d487108d11ca55"
+    },
+    {
+      "id": "length-192-control-01",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -7.538277405346322,
+      "brown_order_gain_vs_own_shuffle": 2.00002496058248,
+      "mean_own_shuffle_logprob": -9.538302365928802,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cf31",
+      "sentence_indices_half_open": [
+        54,
+        63
+      ],
+      "surface_sha256": "ed33a314c10b9234d35a7e8cde0076a44286ab50fd7a54b72d1a7c475d765104"
+    },
+    {
+      "id": "length-192-control-02",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -7.436643944567019,
+      "brown_order_gain_vs_own_shuffle": 2.0511186604492346,
+      "mean_own_shuffle_logprob": -9.487762605016254,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cn10",
+      "sentence_indices_half_open": [
+        34,
+        51
+      ],
+      "surface_sha256": "e8f59696a1303373b6a6077b48b2a8b7feada0fa02c57ecf10ba7c5e3ff1e9a3"
+    },
+    {
+      "id": "length-192-control-03",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -7.947460528905296,
+      "brown_order_gain_vs_own_shuffle": 1.671737966956071,
+      "mean_own_shuffle_logprob": -9.619198495861367,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cg27",
+      "sentence_indices_half_open": [
+        47,
+        55
+      ],
+      "surface_sha256": "87082b6038e2e73362d4303dd0f7b55588d5bbd28824cc6186f3055be1d74f85"
+    },
+    {
+      "id": "length-192-control-04",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -7.669505938117041,
+      "brown_order_gain_vs_own_shuffle": 1.797586320858123,
+      "mean_own_shuffle_logprob": -9.467092258975164,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cl16",
+      "sentence_indices_half_open": [
+        19,
+        48
+      ],
+      "surface_sha256": "7b35c98480944c601e6f36fc2b411f2249f2d778903e17518a560d71669e5ff0"
+    },
+    {
+      "id": "length-192-control-05",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -8.163050242550675,
+      "brown_order_gain_vs_own_shuffle": 1.6538055606102233,
+      "mean_own_shuffle_logprob": -9.816855803160898,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cl14",
+      "sentence_indices_half_open": [
+        77,
+        98
+      ],
+      "surface_sha256": "efc17a3a1468a0977aa63566927e5c4516d3cece7c7d192f5dd16a2cc73c8ec6"
+    },
+    {
+      "id": "length-192-control-06",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -7.335961903383378,
+      "brown_order_gain_vs_own_shuffle": 2.158062211639246,
+      "mean_own_shuffle_logprob": -9.494024115022624,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cl18",
+      "sentence_indices_half_open": [
+        23,
+        36
+      ],
+      "surface_sha256": "a662b63186b3bdd76b5110534e5d02820139a7f880bff438dc8d4bb857018878"
+    },
+    {
+      "id": "length-192-control-07",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -8.311815825770045,
+      "brown_order_gain_vs_own_shuffle": 1.4378922533422944,
+      "mean_own_shuffle_logprob": -9.74970807911234,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cj22",
+      "sentence_indices_half_open": [
+        31,
+        37
+      ],
+      "surface_sha256": "adc5c5e48320204c882e955d832167da7bbb368e8d07b07e093e6866cfcba699"
+    },
+    {
+      "id": "length-192-control-08",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -9.169994253164665,
+      "brown_order_gain_vs_own_shuffle": 0.776347898980255,
+      "mean_own_shuffle_logprob": -9.94634215214492,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cj15",
+      "sentence_indices_half_open": [
+        41,
+        54
+      ],
+      "surface_sha256": "3f83a1df2ca9ddfa0c622da71ada0081adcdf3d7c9daf0f18594e0aa93f69c5a"
+    },
+    {
+      "id": "length-192-control-09",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -7.609738826084947,
+      "brown_order_gain_vs_own_shuffle": 1.7594460092710422,
+      "mean_own_shuffle_logprob": -9.36918483535599,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cm03",
+      "sentence_indices_half_open": [
+        19,
+        35
+      ],
+      "surface_sha256": "2d913593ca5ca5eb7b5a19be081873021118073c5f600e7ca0bb9f9171e6bb5d"
+    },
+    {
+      "id": "length-192-control-10",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -7.58444543863991,
+      "brown_order_gain_vs_own_shuffle": 1.9452320976383843,
+      "mean_own_shuffle_logprob": -9.529677536278294,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cg19",
+      "sentence_indices_half_open": [
+        23,
+        33
+      ],
+      "surface_sha256": "f90aaf38f6305decf52b56179602b643c5a674e72cc5bca5067af473da4e4fa4"
+    },
+    {
+      "id": "length-192-control-11",
+      "scorer_tokens": 192,
+      "brown_bigram_logprob": -7.646442854715457,
+      "brown_order_gain_vs_own_shuffle": 1.790821764519218,
+      "mean_own_shuffle_logprob": -9.437264619234675,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 192,
+      "source_word_count": 192,
+      "word_count_difference": 0,
+      "brown_fileid": "cn17",
+      "sentence_indices_half_open": [
+        102,
+        112
+      ],
+      "surface_sha256": "1394745ee11204bc84aa840ca4b267268c005c08240135d19becbc7467ca23ae"
+    },
+    {
+      "id": "length-256-control-00",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -7.956205448870081,
+      "brown_order_gain_vs_own_shuffle": 1.7066455472799014,
+      "mean_own_shuffle_logprob": -9.662850996149983,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "ch15",
+      "sentence_indices_half_open": [
+        92,
+        114
+      ],
+      "surface_sha256": "2e549d52fd9ce510d986275b458ce8c6a7ceda53dc08c6a40e0875c8e85a7682"
+    },
+    {
+      "id": "length-256-control-01",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -8.017696512796721,
+      "brown_order_gain_vs_own_shuffle": 1.5658852678034947,
+      "mean_own_shuffle_logprob": -9.583581780600216,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "ch07",
+      "sentence_indices_half_open": [
+        83,
+        98
+      ],
+      "surface_sha256": "891959922f316f5efa0e075dbac7b14ae82af978580d8e8cc0b05e84801fa712"
+    },
+    {
+      "id": "length-256-control-02",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -7.955718354278426,
+      "brown_order_gain_vs_own_shuffle": 1.7268628188053992,
+      "mean_own_shuffle_logprob": -9.682581173083825,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "cl19",
+      "sentence_indices_half_open": [
+        1,
+        21
+      ],
+      "surface_sha256": "d60ffafdc962a03c66c90904063950208048ea97f71ee1f859fa7a5d23191f6d"
+    },
+    {
+      "id": "length-256-control-03",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -8.357012210846605,
+      "brown_order_gain_vs_own_shuffle": 1.5031035296068946,
+      "mean_own_shuffle_logprob": -9.8601157404535,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "ck15",
+      "sentence_indices_half_open": [
+        35,
+        50
+      ],
+      "surface_sha256": "5129a9716185b0a01bde1c16707662337ac89a9db4d073f92948d089db29280a"
+    },
+    {
+      "id": "length-256-control-04",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -7.938159205270632,
+      "brown_order_gain_vs_own_shuffle": 1.7947269136741921,
+      "mean_own_shuffle_logprob": -9.732886118944824,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "cl12",
+      "sentence_indices_half_open": [
+        145,
+        174
+      ],
+      "surface_sha256": "717d01ec4e22c5f55bd594f701c3b5f939569cccee91b14c27aedd57c2b4dbde"
+    },
+    {
+      "id": "length-256-control-05",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -8.352278365080268,
+      "brown_order_gain_vs_own_shuffle": 1.2651725737259536,
+      "mean_own_shuffle_logprob": -9.617450938806222,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "cb19",
+      "sentence_indices_half_open": [
+        104,
+        121
+      ],
+      "surface_sha256": "e4456d44b256779c7331f32c88246e52336d37fed0b69d5e38cbbd04e2b85723"
+    },
+    {
+      "id": "length-256-control-06",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -8.004239912034894,
+      "brown_order_gain_vs_own_shuffle": 1.698270321313954,
+      "mean_own_shuffle_logprob": -9.702510233348848,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "cf22",
+      "sentence_indices_half_open": [
+        57,
+        72
+      ],
+      "surface_sha256": "e20227f36e4a4099ba928376f0e9086b3bd6e5ed598857422c64782366162492"
+    },
+    {
+      "id": "length-256-control-07",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -8.230827528090515,
+      "brown_order_gain_vs_own_shuffle": 1.3924759861753575,
+      "mean_own_shuffle_logprob": -9.623303514265872,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "cg65",
+      "sentence_indices_half_open": [
+        28,
+        41
+      ],
+      "surface_sha256": "0c4032eef88185d587f66ad55d5f9036c97cfe66f7a5f51c0087b755f9491dae"
+    },
+    {
+      "id": "length-256-control-08",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -8.718205803884432,
+      "brown_order_gain_vs_own_shuffle": 1.1300694881840059,
+      "mean_own_shuffle_logprob": -9.848275292068438,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "cj12",
+      "sentence_indices_half_open": [
+        1,
+        14
+      ],
+      "surface_sha256": "832a59a55758188b87c1c9fa65caf2c349a048dcc05f1aeb089d6229bc179011"
+    },
+    {
+      "id": "length-256-control-09",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -7.371574089310675,
+      "brown_order_gain_vs_own_shuffle": 2.135895971995268,
+      "mean_own_shuffle_logprob": -9.507470061305943,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "cl23",
+      "sentence_indices_half_open": [
+        7,
+        22
+      ],
+      "surface_sha256": "1e6d11cf5800d541dfc19d2f792da183cc337ad7830a0cb91e6544f032f9f0f6"
+    },
+    {
+      "id": "length-256-control-10",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -7.93113735111139,
+      "brown_order_gain_vs_own_shuffle": 1.7398973772985489,
+      "mean_own_shuffle_logprob": -9.67103472840994,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "cn14",
+      "sentence_indices_half_open": [
+        103,
+        121
+      ],
+      "surface_sha256": "1aa837c93b5fbcc277cc9ef7b872f19df46f61c4272947865d21ec6b1071b442"
+    },
+    {
+      "id": "length-256-control-11",
+      "scorer_tokens": 256,
+      "brown_bigram_logprob": -7.829836011572911,
+      "brown_order_gain_vs_own_shuffle": 1.584342039355497,
+      "mean_own_shuffle_logprob": -9.414178050928408,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 256,
+      "source_word_count": 256,
+      "word_count_difference": 0,
+      "brown_fileid": "cj40",
+      "sentence_indices_half_open": [
+        51,
+        62
+      ],
+      "surface_sha256": "6c3de2b24e08583d52037a366ad6a122810e181a3f910e415359e0f5e0f1815d"
+    },
+    {
+      "id": "length-512-control-00",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -8.091199285013012,
+      "brown_order_gain_vs_own_shuffle": 1.4629700859363837,
+      "mean_own_shuffle_logprob": -9.554169370949396,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "ck27",
+      "sentence_indices_half_open": [
+        17,
+        36
+      ],
+      "surface_sha256": "e5e08e9320ce54106a522674307e1938501d00eadf0f6b89c4e8775ae3230af2"
+    },
+    {
+      "id": "length-512-control-01",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -8.630250535358002,
+      "brown_order_gain_vs_own_shuffle": 1.220302041831033,
+      "mean_own_shuffle_logprob": -9.850552577189035,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "cc14",
+      "sentence_indices_half_open": [
+        16,
+        35
+      ],
+      "surface_sha256": "af56d18c70c08eff322c6df4fc81c4871bf6075dca4e0e64b5ba0bc520dd50e1"
+    },
+    {
+      "id": "length-512-control-02",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -8.134157582852847,
+      "brown_order_gain_vs_own_shuffle": 1.5673724469181742,
+      "mean_own_shuffle_logprob": -9.701530029771021,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "ck14",
+      "sentence_indices_half_open": [
+        45,
+        85
+      ],
+      "surface_sha256": "8d4a05fdada25d30052a3a25c3ff65dece3135235c840267b708361c2574e3a7"
+    },
+    {
+      "id": "length-512-control-03",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -8.007342551085715,
+      "brown_order_gain_vs_own_shuffle": 1.5555387714849438,
+      "mean_own_shuffle_logprob": -9.562881322570659,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "cb21",
+      "sentence_indices_half_open": [
+        17,
+        35
+      ],
+      "surface_sha256": "f0dfd557356756745480d7f0125576c79b4626dccb818903ac3dbd8a8eca5b11"
+    },
+    {
+      "id": "length-512-control-04",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -7.963608342308096,
+      "brown_order_gain_vs_own_shuffle": 1.6922926610511988,
+      "mean_own_shuffle_logprob": -9.655901003359295,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "ca08",
+      "sentence_indices_half_open": [
+        43,
+        66
+      ],
+      "surface_sha256": "336b50becc0928d90d97e8af6c3507a74e6c3e5412ec2a2ffde33bb127d05dc0"
+    },
+    {
+      "id": "length-512-control-05",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -7.967726542105748,
+      "brown_order_gain_vs_own_shuffle": 1.680960422249326,
+      "mean_own_shuffle_logprob": -9.648686964355074,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "cp03",
+      "sentence_indices_half_open": [
+        119,
+        145
+      ],
+      "surface_sha256": "e5f617e9a5e282ed56370a5395a42a29ebd1fba320ef15863a699fcf333ae304"
+    },
+    {
+      "id": "length-512-control-06",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -8.385338977962723,
+      "brown_order_gain_vs_own_shuffle": 1.3577847981668398,
+      "mean_own_shuffle_logprob": -9.743123776129563,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "ch07",
+      "sentence_indices_half_open": [
+        8,
+        51
+      ],
+      "surface_sha256": "ef7d1480cace054cfbe7c02e9666ce058b08dde11b125dea188c31aa66eec335"
+    },
+    {
+      "id": "length-512-control-07",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -8.287326399949867,
+      "brown_order_gain_vs_own_shuffle": 1.5160846881226782,
+      "mean_own_shuffle_logprob": -9.803411088072545,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "cl19",
+      "sentence_indices_half_open": [
+        95,
+        135
+      ],
+      "surface_sha256": "39c8aaef6b9a0452ee8ed67df9838ed4659536ef51fe416dee8a241a7ce5f1f8"
+    },
+    {
+      "id": "length-512-control-08",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -7.6571394234899515,
+      "brown_order_gain_vs_own_shuffle": 1.9942587775207983,
+      "mean_own_shuffle_logprob": -9.65139820101075,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "ch13",
+      "sentence_indices_half_open": [
+        0,
+        26
+      ],
+      "surface_sha256": "1f8c8a6d719ed740513952a852cb7711e0607176f0d2b8aa796806ebdbf62e05"
+    },
+    {
+      "id": "length-512-control-09",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -7.719068850946984,
+      "brown_order_gain_vs_own_shuffle": 1.927868946902315,
+      "mean_own_shuffle_logprob": -9.646937797849299,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "ck17",
+      "sentence_indices_half_open": [
+        109,
+        162
+      ],
+      "surface_sha256": "f834ff47e5e8449e4f85de342040adc732c983ea6a27a94cbce0883b390d57c7"
+    },
+    {
+      "id": "length-512-control-10",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -7.760811441082715,
+      "brown_order_gain_vs_own_shuffle": 1.7603522186826188,
+      "mean_own_shuffle_logprob": -9.521163659765334,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "cg02",
+      "sentence_indices_half_open": [
+        18,
+        38
+      ],
+      "surface_sha256": "129e16048405b549bc91479513250164cc2f7329d26ca7f1f2a457c6035a4959"
+    },
+    {
+      "id": "length-512-control-11",
+      "scorer_tokens": 512,
+      "brown_bigram_logprob": -8.027207503532267,
+      "brown_order_gain_vs_own_shuffle": 1.625269515445206,
+      "mean_own_shuffle_logprob": -9.652477018977473,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 512,
+      "source_word_count": 512,
+      "word_count_difference": 0,
+      "brown_fileid": "cn12",
+      "sentence_indices_half_open": [
+        126,
+        166
+      ],
+      "surface_sha256": "0760a89efefb22aba1bc7a1ccf8da34ec5a663ff88cfa6d8a4e49e3b826420d6"
+    },
+    {
+      "id": "length-1024-control-00",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -8.180784054813712,
+      "brown_order_gain_vs_own_shuffle": 1.4949616517889215,
+      "mean_own_shuffle_logprob": -9.675745706602633,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cf18",
+      "sentence_indices_half_open": [
+        0,
+        55
+      ],
+      "surface_sha256": "ab405971ae1d15489c17f2cfcca001735d73172ea0e4330775486c7971d536e2"
+    },
+    {
+      "id": "length-1024-control-01",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -8.567683388323537,
+      "brown_order_gain_vs_own_shuffle": 1.3169558020916874,
+      "mean_own_shuffle_logprob": -9.884639190415225,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cj78",
+      "sentence_indices_half_open": [
+        16,
+        78
+      ],
+      "surface_sha256": "7218c14dc8119548e3c0a54f4a0480278639fe136b1b19ef120ac896fc2d9add"
+    },
+    {
+      "id": "length-1024-control-02",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -7.841798211153281,
+      "brown_order_gain_vs_own_shuffle": 1.6463567783865374,
+      "mean_own_shuffle_logprob": -9.488154989539819,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cg56",
+      "sentence_indices_half_open": [
+        41,
+        81
+      ],
+      "surface_sha256": "21675379ad965b78274413e03fee1f73f40d23972c6b32a3fe5e611ce2af79cd"
+    },
+    {
+      "id": "length-1024-control-03",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -8.287655418342478,
+      "brown_order_gain_vs_own_shuffle": 1.4868994707739116,
+      "mean_own_shuffle_logprob": -9.77455488911639,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cn25",
+      "sentence_indices_half_open": [
+        19,
+        107
+      ],
+      "surface_sha256": "a7829611ca207e72eba131360ba43c4a3dd1c95911b8ebe934fc7dff173a02cf"
+    },
+    {
+      "id": "length-1024-control-04",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -7.825694270218533,
+      "brown_order_gain_vs_own_shuffle": 1.5769997981099069,
+      "mean_own_shuffle_logprob": -9.40269406832844,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cj65",
+      "sentence_indices_half_open": [
+        37,
+        80
+      ],
+      "surface_sha256": "b7c074e389aad268184f5c5f3b96ab69243b04ff6c2f1da5216c8756718eb7de"
+    },
+    {
+      "id": "length-1024-control-05",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -8.43481739776227,
+      "brown_order_gain_vs_own_shuffle": 1.3427249143920186,
+      "mean_own_shuffle_logprob": -9.777542312154289,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cj12",
+      "sentence_indices_half_open": [
+        43,
+        96
+      ],
+      "surface_sha256": "b6b1d0fc48d2fe8ed405d5ed5ea4ca3d52d0f4aae1b643e2edeedc53f70086b7"
+    },
+    {
+      "id": "length-1024-control-06",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -8.445726609785028,
+      "brown_order_gain_vs_own_shuffle": 1.3300944758131852,
+      "mean_own_shuffle_logprob": -9.775821085598214,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cj73",
+      "sentence_indices_half_open": [
+        22,
+        116
+      ],
+      "surface_sha256": "b4cd36424a40f45a9accc8d51e6b256d8f7c694e5df28699cd2ec0e7ee1ac09a"
+    },
+    {
+      "id": "length-1024-control-07",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -7.998712793223102,
+      "brown_order_gain_vs_own_shuffle": 1.651560617833879,
+      "mean_own_shuffle_logprob": -9.65027341105698,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cb26",
+      "sentence_indices_half_open": [
+        38,
+        91
+      ],
+      "surface_sha256": "bb65a6c49f87b8e239660a8ed60a5b5dd7998cbdb3507070fcac2e1b695c5f53"
+    },
+    {
+      "id": "length-1024-control-08",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -7.536910462694247,
+      "brown_order_gain_vs_own_shuffle": 1.8874016152167394,
+      "mean_own_shuffle_logprob": -9.424312077910987,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cp11",
+      "sentence_indices_half_open": [
+        0,
+        65
+      ],
+      "surface_sha256": "57b9a6175a71e61125d960e45ba942cdcf01b0f06660a5b496e4db6ab480a726"
+    },
+    {
+      "id": "length-1024-control-09",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -8.10925112202361,
+      "brown_order_gain_vs_own_shuffle": 1.5001069931573507,
+      "mean_own_shuffle_logprob": -9.60935811518096,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cj45",
+      "sentence_indices_half_open": [
+        7,
+        65
+      ],
+      "surface_sha256": "19c58bc84678db3877cfd3c3dd1e22b5e45e43d6a7d08110d44ac7c1aadbf0ba"
+    },
+    {
+      "id": "length-1024-control-10",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -8.242263324249226,
+      "brown_order_gain_vs_own_shuffle": 1.4239379799910576,
+      "mean_own_shuffle_logprob": -9.666201304240284,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cp03",
+      "sentence_indices_half_open": [
+        24,
+        96
+      ],
+      "surface_sha256": "4f307274394e96b0bb0f763e21702bb42cc2572f41922145cb18d890399b41d3"
+    },
+    {
+      "id": "length-1024-control-11",
+      "scorer_tokens": 1024,
+      "brown_bigram_logprob": -7.487724349841482,
+      "brown_order_gain_vs_own_shuffle": 2.001436471808608,
+      "mean_own_shuffle_logprob": -9.48916082165009,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 1024,
+      "source_word_count": 1024,
+      "word_count_difference": 0,
+      "brown_fileid": "cf23",
+      "sentence_indices_half_open": [
+        14,
+        60
+      ],
+      "surface_sha256": "34e72cffd8cda15b77188ab8189e0e913af8c91ad8789829cea2b76b0e94cfc8"
+    },
+    {
+      "id": "length-2048-control-00",
+      "scorer_tokens": 2048,
+      "brown_bigram_logprob": -7.687055427261158,
+      "brown_order_gain_vs_own_shuffle": 1.8847505057443472,
+      "mean_own_shuffle_logprob": -9.571805933005505,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2048,
+      "word_count_difference": 0,
+      "brown_fileid": "ca34",
+      "sentence_indices_half_open": [
+        0,
+        94
+      ],
+      "surface_sha256": "3db1efbb64c00691f306cc8f5e2228f2cad04d1e4044cc405384da43bc6d87a6"
+    },
+    {
+      "id": "length-2048-control-01",
+      "scorer_tokens": 2048,
+      "brown_bigram_logprob": -8.17054736168727,
+      "brown_order_gain_vs_own_shuffle": 1.3702640362698908,
+      "mean_own_shuffle_logprob": -9.54081139795716,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2048,
+      "word_count_difference": 0,
+      "brown_fileid": "cg15",
+      "sentence_indices_half_open": [
+        0,
+        90
+      ],
+      "surface_sha256": "6c501ce7a6719ee3cdd7088be68fc4ceb941cd9e2beb6d07066c448973266600"
+    },
+    {
+      "id": "length-2048-control-02",
+      "scorer_tokens": 2048,
+      "brown_bigram_logprob": -7.550604430234858,
+      "brown_order_gain_vs_own_shuffle": 1.9058878283149925,
+      "mean_own_shuffle_logprob": -9.45649225854985,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2048,
+      "word_count_difference": 0,
+      "brown_fileid": "cp25",
+      "sentence_indices_half_open": [
+        1,
+        99
+      ],
+      "surface_sha256": "27744827621486bad0c4a55bdcd151c53d7a1ec6c753021ca55bca0f2c801d6c"
+    },
+    {
+      "id": "length-2048-control-03",
+      "scorer_tokens": 2049,
+      "brown_bigram_logprob": -8.084728666196364,
+      "brown_order_gain_vs_own_shuffle": 1.519682155185409,
+      "mean_own_shuffle_logprob": -9.604410821381773,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2049,
+      "word_count_difference": 1,
+      "brown_fileid": "cd03",
+      "sentence_indices_half_open": [
+        1,
+        84
+      ],
+      "surface_sha256": "19cc4b7dfecae8ce365877f3f175ea3ba6c06c22051b766df4ffec33fc742662"
+    },
+    {
+      "id": "length-2048-control-04",
+      "scorer_tokens": 2049,
+      "brown_bigram_logprob": -8.447171848331891,
+      "brown_order_gain_vs_own_shuffle": 1.3449271326218355,
+      "mean_own_shuffle_logprob": -9.792098980953726,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2049,
+      "word_count_difference": 1,
+      "brown_fileid": "cc01",
+      "sentence_indices_half_open": [
+        2,
+        116
+      ],
+      "surface_sha256": "b6e2249e997b5f3a3745b7c47113b415f931f876c84f860764a2df8171d59cb7"
+    },
+    {
+      "id": "length-2048-control-05",
+      "scorer_tokens": 2049,
+      "brown_bigram_logprob": -8.096616258458369,
+      "brown_order_gain_vs_own_shuffle": 1.602230654531935,
+      "mean_own_shuffle_logprob": -9.698846912990303,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2049,
+      "word_count_difference": 1,
+      "brown_fileid": "cg61",
+      "sentence_indices_half_open": [
+        0,
+        80
+      ],
+      "surface_sha256": "c8833d752ddb31b755a9b95689400187d0cee6979c91b6d41af8bdcae984377e"
+    },
+    {
+      "id": "length-2048-control-06",
+      "scorer_tokens": 2049,
+      "brown_bigram_logprob": -7.53412419848141,
+      "brown_order_gain_vs_own_shuffle": 1.8130525781395468,
+      "mean_own_shuffle_logprob": -9.347176776620957,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2049,
+      "word_count_difference": 1,
+      "brown_fileid": "cp26",
+      "sentence_indices_half_open": [
+        0,
+        109
+      ],
+      "surface_sha256": "39d5ed25030c45d5c808a951e3dd703f5789e000317346e35ef6ed85e9b73cce"
+    },
+    {
+      "id": "length-2048-control-07",
+      "scorer_tokens": 2050,
+      "brown_bigram_logprob": -8.363885623819288,
+      "brown_order_gain_vs_own_shuffle": 1.3947048526285357,
+      "mean_own_shuffle_logprob": -9.758590476447823,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2050,
+      "word_count_difference": 2,
+      "brown_fileid": "cg08",
+      "sentence_indices_half_open": [
+        1,
+        88
+      ],
+      "surface_sha256": "f716adba27a60938a1e6d395b1de82da0bf5afdb4363d11f8b35879d804b5976"
+    },
+    {
+      "id": "length-2048-control-08",
+      "scorer_tokens": 2045,
+      "brown_bigram_logprob": -8.18714249945173,
+      "brown_order_gain_vs_own_shuffle": 1.5093004585593413,
+      "mean_own_shuffle_logprob": -9.69644295801107,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2045,
+      "word_count_difference": -3,
+      "brown_fileid": "cc05",
+      "sentence_indices_half_open": [
+        0,
+        103
+      ],
+      "surface_sha256": "50e175b81499056d0fce0cac4b616051f49bc53ff231c25543767dec55df1325"
+    },
+    {
+      "id": "length-2048-control-09",
+      "scorer_tokens": 2044,
+      "brown_bigram_logprob": -7.583585595837488,
+      "brown_order_gain_vs_own_shuffle": 1.9128642252108294,
+      "mean_own_shuffle_logprob": -9.496449821048317,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2044,
+      "word_count_difference": -4,
+      "brown_fileid": "ch12",
+      "sentence_indices_half_open": [
+        0,
+        78
+      ],
+      "surface_sha256": "413df65f071b177c3bba4d720d5a14ea863568d31ef02cfb7aad702a1046cb90"
+    },
+    {
+      "id": "length-2048-control-10",
+      "scorer_tokens": 2043,
+      "brown_bigram_logprob": -7.799269048045578,
+      "brown_order_gain_vs_own_shuffle": 1.7088404721441597,
+      "mean_own_shuffle_logprob": -9.508109520189738,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2043,
+      "word_count_difference": -5,
+      "brown_fileid": "ch25",
+      "sentence_indices_half_open": [
+        0,
+        81
+      ],
+      "surface_sha256": "10aca1eed31d99c5caef90e4603f592813e0b698e04aa6029825f1de8b592ede"
+    },
+    {
+      "id": "length-2048-control-11",
+      "scorer_tokens": 2042,
+      "brown_bigram_logprob": -7.957871591070998,
+      "brown_order_gain_vs_own_shuffle": 1.5649844888200315,
+      "mean_own_shuffle_logprob": -9.52285607989103,
+      "shuffle_count": 32,
+      "source": "heldout_intact_prose_length_control",
+      "target_scorer_tokens": 2048,
+      "source_word_count": 2042,
+      "word_count_difference": -6,
+      "brown_fileid": "cg20",
+      "sentence_indices_half_open": [
+        0,
+        88
+      ],
+      "surface_sha256": "fc8bf1508bc8d55c663e60897bf2f0189a193bcbdbd3e6a9fab474abcaeda78c"
+    }
+  ],
+  "limits": [
+    "The score diagnoses local word order only; it does not establish grammar, meaning, discourse coherence, or human readability.",
+    "Brown controls and model share a corpus domain, but held-out documents prevent direct document leakage; corpus/style bias remains.",
+    "Long prose controls calibrate score behavior beyond the current candidate lengths; they do not make the palindrome candidates longer or more readable.",
+    "Use blinded human comparisons with intact prose and shuffled controls for any readability claim."
+  ]
+}

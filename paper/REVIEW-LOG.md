@@ -384,3 +384,26 @@ in one column. A different fresh Luna reviewer found no remaining section or
 bibliography must-fix. The added section resolves the identified formatting
 blocker, but no new evidence was produced and NAACL main-paper readiness is
 unchanged on substance.
+
+## Q10 Pass 10: remove identifying Git provenance from the supplement
+
+A fresh Luna reviewer found full Git commit IDs in the generated anonymous
+evidence ZIP: one frozen-index `snapshot_commit` and repeated calibration
+`snapshot_revision`/`git_revision` fields. These could identify the public
+repository and violate ARR's supplementary-material anonymity requirement.
+The export now drops the revision fields recursively, replaces snapshot commit
+values with an anonymous label, and rejects standalone 40-character hex hashes
+in every plain or gzip-decoded archive entry. The source input hashes remain
+for exactness and provenance checks. A focused regression test covers nested
+metadata and plain/compressed screening.
+
+Both regenerated ZIPs passed the export privacy screen. The standalone
+evidence verifier again checked eleven exact examples, four lineage replays,
+the 630 and 672 constructions, 38,498 archived chain pairings, and the Brown
+records. A separate fresh Luna reviewer checked archive entries, CRCs,
+manifest hashes, decoded text, and the three-page anonymous manuscript; it
+found no remaining privacy or evidence-package must-fix. The old tracked PDFs
+are historical; the current review PDF is under `output/pdf/paper-revision/`.
+The ten-pass internal review is complete. It does not supply human ratings,
+a prior-generator quality comparison, or a general method result, so the paper
+is not yet strong enough to call NAACL main submission-ready.

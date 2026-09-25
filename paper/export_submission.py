@@ -22,22 +22,27 @@ OUT = ROOT / "output/naacl-submission"
 PRIVATE_PATTERNS = (
     r"/Users/", r"/home/", r"(?i)ericspencer", r"(?i)overleaf\.com/project/",
     r"-----BEGIN [A-Z ]*PRIVATE KEY-----", r"\bgh[pousr]_[A-Za-z0-9]{20,}",
+    r"(?<![A-Za-z0-9])[0-9A-Fa-f]{40}(?![A-Za-z0-9])",
 )
+ANONYMOUS_COMMIT = "withheld-for-anonymous-review"
+DROP_REVISION_FIELDS = {"git_revision", "snapshot_revision"}
+ANONYMIZE_COMMIT_FIELDS = {"snapshot_commit", "novelty_snapshot_commit"}
 
 
 def json_bytes(value: object) -> bytes:
     return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
 
 
-def rename_candidate_digest_fields(value: object) -> object:
+def sanitize_export_metadata(value: object) -> object:
     if isinstance(value, dict):
         return {
             ("candidate_set_digest" if key == "candidate_key_sha256" else key):
-            rename_candidate_digest_fields(item)
-            for key, item in value.items()
+            (ANONYMOUS_COMMIT if key in ANONYMIZE_COMMIT_FIELDS
+             else sanitize_export_metadata(item))
+            for key, item in value.items() if key not in DROP_REVISION_FIELDS
         }
     if isinstance(value, list):
-        return [rename_candidate_digest_fields(item) for item in value]
+        return [sanitize_export_metadata(item) for item in value]
     return value
 
 
@@ -102,10 +107,8 @@ def build() -> dict[str, object]:
         "acl_natbib.bst": (PAPER / "acl_natbib.bst").read_bytes(),
     })
 
-    selected = json.loads((PAPER / "week_results.json").read_text())
+    selected = sanitize_export_metadata(json.loads((PAPER / "week_results.json").read_text()))
     selected.pop("snapshot", None)
-    for row in selected["results"]:
-        row["source"].pop("git_revision", None)
     index = json.loads((ROOT / "runs/incumbent-672-global-novelty-snapshot-20260922.json").read_text())
     comparison_parent = next(row for row in selected["results"] if row["id"] == "568-pinned")
     sanitized_parent_input = {
@@ -117,7 +120,7 @@ def build() -> dict[str, object]:
     sanitized_novelty_input = {
         "relation_counts": index["relation_counts"],
         "snapshot_id": index["snapshot_id"],
-        "snapshot_commit": index["snapshot_commit"],
+        "snapshot_commit": ANONYMOUS_COMMIT,
         "manifest_sha256": index["manifest_sha256"],
         "note": "Sanitized fixed relation-count input for deterministic replay.",
     }
@@ -199,9 +202,11 @@ The selected-results file preserves source filenames and source-file digests
 for provenance; inherited date-like filename suffixes are experiment labels,
 not asserted run dates. Original source files are not bundled, so those original-file
 digests are provenance identifiers here, not independently rechecked inputs.
-No Git history, host metadata, account information, or raw execution logs are
-included. The two imported modules also have repository-specific entry points;
-use the verifier command above for this standalone archive.
+Git revisions are removed or replaced with anonymous labels; input-content
+digests remain for verification. No Git history, host metadata, account
+information, or raw execution logs are included. The two imported modules
+also have repository-specific entry points; use the verifier command above
+for this standalone archive.
 
 For a full rerun of the two exhaustive search implementations and their
 independent candidate audit, run these additional standard-library-only
@@ -223,9 +228,9 @@ order, not human readability.
     comparison_run = ROOT / "runs/comparison-568-online-residual-vs-offline-reverse-index-20260924.json.gz"
     comparison_audit = ROOT / "runs/comparison-568-online-residual-vs-offline-reverse-index-20260924.audit.json"
     comparison_audit_data = json.loads(comparison_audit.read_text())
-    comparison_audit_data = rename_candidate_digest_fields(comparison_audit_data)
+    comparison_audit_data = sanitize_export_metadata(comparison_audit_data)
     with gzip.open(comparison_run, "rt", encoding="utf-8") as stream:
-        comparison_data = rename_candidate_digest_fields(json.load(stream))
+        comparison_data = sanitize_export_metadata(json.load(stream))
     comparison_payload = gzip.compress(
         json.dumps(comparison_data, ensure_ascii=False, separators=(",", ":")).encode("utf-8"),
         mtime=0,
@@ -238,8 +243,8 @@ order, not human readability.
         "runs/incumbent-672-global-novelty-snapshot-20260922.json": json_bytes(sanitized_novelty_input),
         "comparison-candidates.json.gz": comparison_payload,
         "comparison-audit.json": json_bytes(comparison_audit_data),
-        "readability-calibration.json": json_bytes(json.loads(
-            (ROOT / "runs/readability-length-stratified-sentence-aware-20260925.json").read_text())),
+        "readability-calibration.json": json_bytes(sanitize_export_metadata(json.loads(
+            (ROOT / "runs/readability-length-stratified-sentence-aware-20260925.json").read_text()))),
         "README.md": readme.encode(),
     }
     for name in ("verify_anonymous_evidence.py", "check_seam_invariant.py", "replay_clause_search.py"):

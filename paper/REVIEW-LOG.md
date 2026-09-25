@@ -203,3 +203,42 @@ normalizes resolved paths, and the bundled scorer was rerun successfully from
 that location. The current three-page PDF was rebuilt and visually checked.
 These are internal Luna AI reviews, not human ratings or peer review. The
 human-readability evidence gap remains open.
+
+## Q10 Pass 2
+
+A fresh skeptic found that the saved 568-to-752 chain could not be reconstructed
+from the anonymous package, the manuscript implied more generality than the
+authored/search hybrid supports, and the Brown scorer treated an entire
+multi-sentence item as one sentence. The scorer now inserts sentence boundaries
+for candidate text and retains Brown's sentence boundaries for controls; its
+shuffle preserves each item's sentence-length vector. The sentence-aware rerun
+changes the nine long-output means to $-0.109$ for the selected palindromes and
+1.522 for matched prose, with all nine pairs favoring the prose controls. All
+108 additional controls have positive gain over their own shuffle means. The
+paper now frames the lineage as a hybrid case study and states its retrospective
+selection and dependence.
+
+The evidence package now includes a four-edge normalized-character diff that
+reconstructs each saved 568-to-752 tape and checks parent/child lengths and
+hashes. It is explicitly a tape replay, not a replay of the original generation
+procedure. The score report records the NLTK version, training/holdout ID
+digests, and a SHA-256 fingerprint of the full tokenized Brown sentence stream;
+`--expected-report` makes a score rerun fail if corpus, span, or score values
+differ. Date-like suffixes in inherited run filenames are labeled as identifiers,
+not run dates. A second reviewer caught the remaining `W/V` table abbreviation
+and a stale-PDF wording issue; the table now says `Words/types`, the manuscript
+defines the count distinction, and the README labels the tracked PDF as a
+separate potentially stale legacy snapshot. The legacy PDF and log were not
+changed or staged in this pass.
+
+The focused scorer/table tests passed (10 tests), adjacent exact-audit and
+quarantine tests passed (12 tests), the anonymous verifier passed with all 11
+exact examples and four lineage replays, and the privacy-screened archive was
+rebuilt. The current three-page PDF was rendered and visually checked. A full
+scorer rerun from the extracted bundle using the installed Python environment
+was terminated by the execution environment (exit 143); the sentence-aware
+scores were produced in the repository, and the archived verifier and
+`--expected-report` comparison are separately tested. A final independent
+Luna review found no actionable remaining defect. Human readability results
+and a relevant baseline remain unresolved empirical gaps; internal AI reviews
+do not resolve them.

@@ -1,7 +1,14 @@
+import json
+
+import pytest
+
 from experiments.score_length_stratified_readability import (
+    DEFAULT_OUTPUT,
+    candidate_sentences,
     manifest_label,
     select_heldout_span,
     split_fileids,
+    verify_reference_report,
 )
 
 
@@ -19,6 +26,21 @@ def test_brown_document_split_is_deterministic_and_disjoint():
 def test_manifest_label_normalizes_symlinked_tmp_paths(tmp_path):
     manifest = tmp_path / "selected-results.json"
     assert manifest_label(manifest) == "selected-results.json"
+
+
+def test_candidate_sentence_splitter_keeps_quotes_with_terminal_sentence():
+    assert candidate_sentences('A dog waits. “A cat sees!” Then both rest.') == [
+        ["a", "dog", "waits"], ["a", "cat", "sees"], ["then", "both", "rest"]
+    ]
+
+
+def test_reference_report_pins_corpus_and_score_rows():
+    reference = json.loads(DEFAULT_OUTPUT.read_text())
+    verify_reference_report(reference, reference)
+    changed = json.loads(json.dumps(reference))
+    changed["method"]["brown_tokenized_sentence_stream_sha256"] = "0" * 64
+    with pytest.raises(ValueError, match="reference Brown/method mismatch"):
+        verify_reference_report(changed, reference)
 
 
 def test_heldout_controls_are_complete_contiguous_and_nonoverlapping():

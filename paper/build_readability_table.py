@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_INPUT = ROOT / "runs/readability-length-stratified-20260925.json"
+DEFAULT_INPUT = ROOT / "runs/readability-length-stratified-sentence-aware-20260925.json"
 DEFAULT_OUTPUT = ROOT / "paper/readability_table.tex"
 
 LABELS = {

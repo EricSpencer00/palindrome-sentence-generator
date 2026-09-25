@@ -44,16 +44,23 @@ local-order diagnostic, not a readability rating. The saved calibration JSON
 contains the scores and hashes but not the held-out prose passages.
 
 The current review PDF is `output/pdf/paper-revision/naacl2027.pdf`. The
-historical `output/pdf/naacl2027.pdf` is not produced by the command above and is
-left untouched; generated PDFs are excluded from this source update.
+tracked `output/pdf/naacl2027.pdf` is a separate legacy snapshot and may not
+match the current source. The command above builds only the current review PDF;
+PDFs are excluded from this source update.
 
 The exporter creates two allowlisted archives under `output/naacl-submission/`:
 expanded Overleaf sources and anonymous evidence. The latter includes the
 scorer source and can recompute recorded Brown scores when the NLTK Brown
-corpus is installed; its standard-library verifier checks the saved audit
-without corpus access. It excludes raw run metadata and private host
-information. Generated PDFs and these archives are not part of this source
-commit.
+corpus is installed. Its command uses `--expected-report` to fail if corpus
+fingerprint, held-out spans, or scores differ; the standard-library verifier
+checks saved exactness and tape replays without corpus access. The archive also
+labels historical date-like run suffixes as identifiers, not run dates. It
+excludes raw run metadata and private host information. Generated PDFs and
+these archives are not part of this source commit.
+
+The selected evidence archive carries a replayable normalized-character diff
+for each 568-to-752 transition. Those diffs replay the saved tapes, not the
+original candidate-generation procedures.
 
 There are no completed blinded reader results. The Brown comparison is
 descriptive and does not replace reader judgments. Neither this draft nor its

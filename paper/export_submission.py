@@ -131,7 +131,8 @@ the 630-letter edit, independently replays
 the 672-letter first-success clause search using its fixed relation index,
 checks every candidate in the matched operator-equivalence archive against the
 parent seam and frozen relation index, and runs the bounded seam-algebra check.
-It also recomputes the five-stage lineage's word and repetition diagnostics.
+It replays the four saved normalized-tape diffs in the 568-to-752 lineage and
+recomputes its word and repetition diagnostics.
 The verifier cross-checks the eleven Brown diagnostic records against the
 selected exact texts, cross-checks the recorded nine long-output pairs and the
 108 length-control summaries, and checks the bundle manifest. It does not
@@ -144,14 +145,17 @@ python3 -m pip install nltk wordfreq
 python3 -m nltk.downloader brown
 python3 experiments/score_length_stratified_readability.py \\
   --manifest "$PWD/selected-results.json" \\
+  --expected-report "$PWD/readability-calibration.json" \\
   --output /tmp/readability-reproduced.json
 ```
 
-The calibration records retain Brown document IDs, sentence offsets, corpus
-version, and span hashes, so the script reconstructs the exact held-out spans
-without redistributing their text. The model uses add-alpha smoothing with
-alpha 0.1, sentence boundaries, and an unknown-token bucket; the item-keyed
-shuffle seed and split procedure are in the bundled source.
+The calibration records retain Brown document IDs, sentence offsets, a digest
+of the tokenized Brown sentence stream, NLTK version, and span hashes. Passing
+the saved report with `--expected-report` makes a rerun fail if the corpus,
+selected spans, or scores differ, without redistributing Brown text. The model
+uses add-alpha smoothing with alpha 0.1, one boundary pair per sentence, and
+an unknown-token bucket. Candidate sentence splits, control sentence
+boundaries, and the item-keyed shuffle are specified in the bundled source.
 In the comparison archive, `candidate_key_sha256` field names are normalized
 to `candidate_set_digest`; every digest value and candidate row is unchanged.
 
@@ -159,7 +163,8 @@ Selection is retrospective, not exhaustive. These outputs are mechanically
 exact construction results; no human-study results are included. The fixed
 relation index supports replay, not a new historical novelty investigation.
 The selected-results file preserves source filenames and source-file digests
-for provenance. Original source files are not bundled, so those original-file
+for provenance; inherited date-like filename suffixes are experiment labels,
+not asserted run dates. Original source files are not bundled, so those original-file
 digests are provenance identifiers here, not independently rechecked inputs.
 No Git history, host metadata, account information, or raw execution logs are
 included. The two imported modules also have repository-specific entry points;
@@ -187,7 +192,7 @@ order, not human readability.
         "comparison-candidates.json.gz": comparison_payload,
         "comparison-audit.json": json_bytes(comparison_audit_data),
         "readability-calibration.json": json_bytes(json.loads(
-            (ROOT / "runs/readability-length-stratified-20260925.json").read_text())),
+            (ROOT / "runs/readability-length-stratified-sentence-aware-20260925.json").read_text())),
         "README.md": readme.encode(),
     }
     for name in ("verify_anonymous_evidence.py", "check_seam_invariant.py", "replay_clause_search.py"):

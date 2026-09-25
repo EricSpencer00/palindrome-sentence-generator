@@ -1,7 +1,7 @@
 {
   "title": "Selected exact palindrome construction results",
   "snapshot": "2bdd7df301e185e67480f4cc3a0dbec43589b90b",
-  "selection_note": "Named exemplars selected for audit; not an exhaustive scan and not a global maximum claim.",
+  "selection_note": "Named exemplars selected for audit; not an exhaustive scan and not a global maximum claim. Date-like suffixes in inherited run filenames are experiment identifiers, not asserted run dates.",
   "human_evidence": "No project human reader study has run for any selected row. The 38-letter item is an inherited reference/control whose authorship is not established by this audit. The 54-letter candidate's 24-rater packet is frozen but has no responses.",
   "definitions": {
     "normalization": "Lowercase ASCII letters only: re.sub('[^A-Za-z]', '', surface).lower().",
@@ -10,6 +10,300 @@
     "unique_word_count": "Number of distinct case-folded tokens from the word-count regex.",
     "repeated_trigram_rate": "Excess token-trigram occurrences (each occurrence after the first for a repeated trigram) divided by all token-trigram windows across the full token sequence; sentence boundaries do not reset the sequence.",
     "duplicate_sentence_count": "Number of sentence occurrences after the first that exactly repeat an earlier case-insensitive sentence after whitespace normalization; sentence boundaries are terminal .?! punctuation, with immediately following quote marks attached, and punctuation is retained for duplicate comparison."
+  },
+  "lineage_tape_replay": {
+    "representation": "deterministic normalized-character diff; replays saved tapes, not candidate-generation procedures",
+    "diff": "Python difflib.SequenceMatcher, autojunk=False; coordinates refer to the parent tape",
+    "stages": [
+      {
+        "parent_id": "568-pinned",
+        "child_id": "640-event-chain",
+        "parent_letters": 568,
+        "child_letters": 640,
+        "parent_sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+        "child_sha256": "c3013fe4411ae2be7ab3211a41e59606faab7385dc4fe3dc8185d47f8cbedac9",
+        "edits": [
+          {
+            "parent_span_half_open": [
+              64,
+              64
+            ],
+            "old": "",
+            "new": "noelseesmaramaraseessarasaraseesnora"
+          },
+          {
+            "parent_span_half_open": [
+              504,
+              504
+            ],
+            "old": "",
+            "new": "aronseesarasarasseesaramaramseesleon"
+          }
+        ]
+      },
+      {
+        "parent_id": "640-event-chain",
+        "child_id": "686-shell-cycle",
+        "parent_letters": 640,
+        "child_letters": 686,
+        "parent_sha256": "c3013fe4411ae2be7ab3211a41e59606faab7385dc4fe3dc8185d47f8cbedac9",
+        "child_sha256": "cb47534ec3f66a5a3624e7573e15cde7c1cdc53c7ff9cebdc788412b940f982c",
+        "edits": [
+          {
+            "parent_span_half_open": [
+              100,
+              101
+            ],
+            "old": "m",
+            "new": "leonseess"
+          },
+          {
+            "parent_span_half_open": [
+              105,
+              109
+            ],
+            "old": "tops",
+            "new": "a"
+          },
+          {
+            "parent_span_half_open": [
+              111,
+              112
+            ],
+            "old": "t",
+            "new": "see"
+          },
+          {
+            "parent_span_half_open": [
+              114,
+              118
+            ],
+            "old": "tubh",
+            "new": "idanaidans"
+          },
+          {
+            "parent_span_half_open": [
+              119,
+              120
+            ],
+            "old": "m",
+            "new": "esnor"
+          },
+          {
+            "parent_span_half_open": [
+              121,
+              122
+            ],
+            "old": "p",
+            "new": "nora"
+          },
+          {
+            "parent_span_half_open": [
+              123,
+              125
+            ],
+            "old": "ar",
+            "new": "eesle"
+          },
+          {
+            "parent_span_half_open": [
+              515,
+              515
+            ],
+            "old": "",
+            "new": "elseesa"
+          },
+          {
+            "parent_span_half_open": [
+              516,
+              516
+            ],
+            "old": "",
+            "new": "onaronseesnadianadi"
+          },
+          {
+            "parent_span_half_open": [
+              518,
+              521
+            ],
+            "old": "pam",
+            "new": ""
+          },
+          {
+            "parent_span_half_open": [
+              522,
+              535
+            ],
+            "old": "hbutastarspot",
+            "new": "e"
+          },
+          {
+            "parent_span_half_open": [
+              539,
+              540
+            ],
+            "old": "m",
+            "new": "sarasseesnoel"
+          }
+        ]
+      },
+      {
+        "parent_id": "686-shell-cycle",
+        "child_id": "736-mixed-cycle",
+        "parent_letters": 686,
+        "child_letters": 736,
+        "parent_sha256": "cb47534ec3f66a5a3624e7573e15cde7c1cdc53c7ff9cebdc788412b940f982c",
+        "child_sha256": "608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2",
+        "edits": [
+          {
+            "parent_span_half_open": [
+              167,
+              168
+            ],
+            "old": "m",
+            "new": "noraseessaras"
+          },
+          {
+            "parent_span_half_open": [
+              176,
+              177
+            ],
+            "old": "r",
+            "new": ""
+          },
+          {
+            "parent_span_half_open": [
+              178,
+              178
+            ],
+            "old": "",
+            "new": "idanaidans"
+          },
+          {
+            "parent_span_half_open": [
+              179,
+              179
+            ],
+            "old": "",
+            "new": "op"
+          },
+          {
+            "parent_span_half_open": [
+              180,
+              185
+            ],
+            "old": "atubh",
+            "new": "no"
+          },
+          {
+            "parent_span_half_open": [
+              186,
+              189
+            ],
+            "old": "map",
+            "new": "lnoelsee"
+          },
+          {
+            "parent_span_half_open": [
+              497,
+              497
+            ],
+            "old": "",
+            "new": "eesleonleons"
+          },
+          {
+            "parent_span_half_open": [
+              498,
+              498
+            ],
+            "old": "",
+            "new": "otsn"
+          },
+          {
+            "parent_span_half_open": [
+              499,
+              505
+            ],
+            "old": "mehbut",
+            "new": "di"
+          },
+          {
+            "parent_span_half_open": [
+              506,
+              508
+            ],
+            "old": "st",
+            "new": "n"
+          },
+          {
+            "parent_span_half_open": [
+              509,
+              510
+            ],
+            "old": "r",
+            "new": "dia"
+          },
+          {
+            "parent_span_half_open": [
+              518,
+              519
+            ],
+            "old": "m",
+            "new": "sarasseesaron"
+          }
+        ]
+      },
+      {
+        "parent_id": "736-mixed-cycle",
+        "child_id": "752-center-path",
+        "parent_letters": 736,
+        "child_letters": 752,
+        "parent_sha256": "608733c3af8b3d838bc18cfa998ae7202622a4e5abba1aa489733d3dfead78a2",
+        "child_sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c",
+        "edits": [
+          {
+            "parent_span_half_open": [
+              356,
+              357
+            ],
+            "old": "d",
+            "new": "seesleonleonstopsiraarispotsno"
+          },
+          {
+            "parent_span_half_open": [
+              359,
+              361
+            ],
+            "old": "iv",
+            "new": "no"
+          },
+          {
+            "parent_span_half_open": [
+              362,
+              363
+            ],
+            "old": "r",
+            "new": "l"
+          },
+          {
+            "parent_span_half_open": [
+              364,
+              367
+            ],
+            "old": "map",
+            "new": "ee"
+          },
+          {
+            "parent_span_half_open": [
+              368,
+              380
+            ],
+            "old": "spamsreviled",
+            "new": ""
+          }
+        ]
+      }
+    ]
   },
   "results": [
     {

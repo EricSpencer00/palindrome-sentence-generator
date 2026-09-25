@@ -13,13 +13,18 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import re
 import statistics
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from experiments.audit_programmatic_readability import BrownBigramModel, order_gain, tokens  # noqa: E402
+from experiments.audit_programmatic_readability import (  # noqa: E402
+    BrownBigramModel,
+    order_gain_by_sentence,
+    tokens,
+)
 from experiments.score_week_results_readability import (  # noqa: E402
     select_brown_window,
     verify_candidate,
@@ -31,6 +36,8 @@ LENGTH_TARGETS = (16, 32, 64, 128, 192, 256, 512, 1024, 2048)
 CONTROLS_PER_TARGET = 12
 SHUFFLES = 32
 SEED = 20260925
+DEFAULT_OUTPUT = ROOT / "runs/readability-length-stratified-sentence-aware-20260925.json"
+SENTENCE_BREAK_RE = re.compile(r"(?<=[.!?])[\"'”’)]*\s+")
 
 
 def manifest_label(manifest_path: Path) -> str:
@@ -101,12 +108,24 @@ def select_heldout_span(documents: dict, target: int,
     return fileid, first, after_last, count, surface
 
 
-def score(model: BrownBigramModel, item_id: str, text: str) -> dict:
-    words = tokens(text)
-    observed, gain = order_gain(model, words, item_id, SEED, SHUFFLES)
+def candidate_sentences(text: str) -> list[list[str]]:
+    """Split candidates after terminal punctuation, omitting empty segments."""
+    return [words for part in SENTENCE_BREAK_RE.split(text)
+            if (words := tokens(part))]
+
+
+def score(model: BrownBigramModel, item_id: str, text: str,
+          sentences: list[list[str]] | None = None) -> dict:
+    sentence_words = candidate_sentences(text) if sentences is None else [
+        list(words) for words in sentences if words
+    ]
+    words = [word for sentence in sentence_words for word in sentence]
+    observed, gain = order_gain_by_sentence(
+        model, sentence_words, item_id, SEED, SHUFFLES)
     return {
         "id": item_id,
         "scorer_tokens": len(words),
+        "sentence_count": len(sentence_words),
         "brown_bigram_logprob": observed,
         "brown_order_gain_vs_own_shuffle": gain,
         "mean_own_shuffle_logprob": observed - gain if gain is not None else None,
@@ -129,6 +148,42 @@ def aggregate(rows: list[dict], target: int) -> dict:
     }
 
 
+def verify_reference_report(current: dict, reference: dict) -> None:
+    """Fail closed if a rerun differs from the archived corpus or scores."""
+    method_keys = (
+        "scorer", "metric_units", "tokenizer", "candidate_sentence_segmentation",
+        "control_sentence_segmentation", "shuffle", "smoothing_alpha",
+        "unknown_token", "training_file_count", "heldout_file_count",
+        "training_fileid_manifest_sha256", "heldout_fileid_manifest_sha256",
+        "length_targets_scorer_tokens", "controls_per_length", "matched_prose_controls",
+        "shuffles_per_item", "random_seed", "brown_sentences", "nltk_version",
+        "brown_tokenized_sentence_stream_sha256",
+    )
+    for key in method_keys:
+        if current["method"].get(key) != reference["method"].get(key):
+            raise ValueError(f"reference Brown/method mismatch for {key}")
+
+    row_fields = (
+        "id", "scorer_tokens", "sentence_count", "brown_bigram_logprob",
+        "brown_order_gain_vs_own_shuffle", "mean_own_shuffle_logprob",
+        "shuffle_count", "source_word_count", "brown_fileid",
+        "sentence_indices_half_open", "surface_sha256",
+    )
+    for current_key, reference_key in (
+        ("candidates", "candidates"),
+        ("matched_heldout_prose_controls", "matched_heldout_prose_controls"),
+        ("length_stratified_heldout_controls", "length_stratified_heldout_controls"),
+    ):
+        actual_rows = current[current_key]
+        expected_rows = reference[reference_key]
+        if len(actual_rows) != len(expected_rows):
+            raise ValueError(f"reference row-count mismatch for {current_key}")
+        for actual, expected in zip(actual_rows, expected_rows):
+            for key in row_fields:
+                if actual.get(key) != expected.get(key):
+                    raise ValueError(f"reference mismatch for {current_key}.{key}: {actual.get('id')}")
+
+
 def run(manifest_path: Path = ROOT / "paper/week_results.json") -> dict:
     from nltk.corpus import brown
     import nltk
@@ -136,7 +191,13 @@ def run(manifest_path: Path = ROOT / "paper/week_results.json") -> dict:
     manifest = json.loads(manifest_path.read_text())
     candidates = manifest["results"]
     audits = {row["id"]: verify_candidate(row) for row in candidates}
-    train_ids, heldout_ids = split_fileids(list(brown.fileids()))
+    all_fileids = sorted(brown.fileids())
+    train_ids, heldout_ids = split_fileids(all_fileids)
+    corpus_hash = hashlib.sha256()
+    for fileid in all_fileids:
+        corpus_hash.update(fileid.encode("utf-8") + b"\0")
+        for sentence in brown.sents(fileid):
+            corpus_hash.update("\x1f".join(sentence).encode("utf-8") + b"\n")
     model = model_from_training_documents(brown, train_ids)
     holdout = holdout_documents(brown, heldout_ids)
     occupied: dict[str, list[tuple[int, int]]] = {}
@@ -161,7 +222,10 @@ def run(manifest_path: Path = ROOT / "paper/week_results.json") -> dict:
         fileid, first, after_last, count, surface = select_heldout_span(
             holdout, candidate_score["scorer_tokens"], occupied, span_id)
         occupied.setdefault(fileid, []).append((first, after_last))
-        control = score(model, span_id, surface)
+        raw_sentences = holdout[fileid][0][first:after_last]
+        brown_sentence_words = [tokens(" ".join(sentence))
+                                for sentence in raw_sentences]
+        control = score(model, span_id, surface, brown_sentence_words)
         control.update({
             "source": "heldout_intact_prose_control",
             "matched_candidate_id": candidate_id,
@@ -180,7 +244,10 @@ def run(manifest_path: Path = ROOT / "paper/week_results.json") -> dict:
             fileid, first, after_last, count, surface = select_heldout_span(
                 holdout, target, occupied, span_id)
             occupied.setdefault(fileid, []).append((first, after_last))
-            control = score(model, span_id, surface)
+            raw_sentences = holdout[fileid][0][first:after_last]
+            brown_sentence_words = [tokens(" ".join(sentence))
+                                    for sentence in raw_sentences]
+            control = score(model, span_id, surface, brown_sentence_words)
             control.update({
                 "source": "heldout_intact_prose_length_control",
                 "target_scorer_tokens": target,
@@ -209,7 +276,7 @@ def run(manifest_path: Path = ROOT / "paper/week_results.json") -> dict:
                     key=lambda row: row["brown_order_gain_vs_own_shuffle"],
                     reverse=True)
     return {
-        "experiment": "heldout-brown-length-stratified-readability-20260925",
+        "experiment": "heldout-brown-length-stratified-sentence-aware-20260925",
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "status": "programmatic_diagnostic_not_human_readability_result",
         "manifest": {
@@ -218,8 +285,14 @@ def run(manifest_path: Path = ROOT / "paper/week_results.json") -> dict:
             "candidate_count": len(candidate_rows),
         },
         "method": {
-            "scorer": "Brown word-bigram mean log probability; order gain is the observed score minus the mean over same-word shuffles",
+            "scorer": "Brown word-bigram mean log probability; order gain is observed minus the mean over same-word shuffles, with one boundary pair per sentence",
             "metric_units": "nats per word transition",
+            "tokenizer": r"[A-Za-z]+, lowercased; apostrophes split tokens",
+            "candidate_sentence_segmentation": "split after terminal .?! plus closing quote marks; omit token-empty segments",
+            "control_sentence_segmentation": "NLTK Brown sentence boundaries retained",
+            "shuffle": "shuffle pooled item tokens, then repartition to the original per-sentence token lengths",
+            "smoothing_alpha": model.alpha,
+            "unknown_token": "<unk>",
             "training_split": "document-level deterministic split; no held-out control document is used to train the scorer",
             "training_file_count": len(train_ids),
             "heldout_file_count": len(heldout_ids),
@@ -233,6 +306,7 @@ def run(manifest_path: Path = ROOT / "paper/week_results.json") -> dict:
             "shuffles_per_item": SHUFFLES,
             "random_seed": SEED,
             "brown_sentences": len(brown.sents()),
+            "brown_tokenized_sentence_stream_sha256": corpus_hash.hexdigest(),
             "nltk_version": nltk.__version__,
             "controls_are_complete_contiguous_sentences": True,
             "controls_are_nonoverlapping_within_heldout_documents": True,
@@ -265,10 +339,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path,
                         default=ROOT / "paper/week_results.json")
-    parser.add_argument("--output", type=Path,
-                        default=ROOT / "runs/readability-length-stratified-20260925.json")
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--expected-report", type=Path,
+                        help="optional archived report; fail if corpus, spans, or scores differ")
     args = parser.parse_args()
     report = run(args.manifest)
+    if args.expected_report:
+        verify_reference_report(report, json.loads(args.expected_report.read_text()))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({

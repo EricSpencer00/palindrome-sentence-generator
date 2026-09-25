@@ -74,14 +74,22 @@ class BrownBigramModel:
         return cls(unigrams, bigrams, len(unigrams))
 
     def score(self, words: Sequence[str]) -> float | None:
-        if not words:
-            return None
-        sequence = ["<s>"] + [word if word in self.unigrams else "<unk>" for word in words] + ["</s>"]
-        scores = [
-            math.log((self.bigrams[(left, right)] + self.alpha)
-                     / (self.unigrams[left] + self.alpha * (self.vocabulary_size + 1)))
-            for left, right in zip(sequence, sequence[1:])
-        ]
+        return self.score_sentences([words])
+
+    def score_sentences(self, sentences: Sequence[Sequence[str]]) -> float | None:
+        """Mean transition log probability with a boundary pair per sentence."""
+        scores = []
+        for words in sentences:
+            if not words:
+                continue
+            sequence = (["<s>"] +
+                        [word if word in self.unigrams else "<unk>" for word in words] +
+                        ["</s>"])
+            scores.extend(
+                math.log((self.bigrams[(left, right)] + self.alpha)
+                         / (self.unigrams[left] + self.alpha * (self.vocabulary_size + 1)))
+                for left, right in zip(sequence, sequence[1:])
+            )
         return safe_mean(scores)
 
 
@@ -102,6 +110,33 @@ def order_gain(model: BrownBigramModel, words: Sequence[str], item_id: str,
         shuffled = list(words)
         rng.shuffle(shuffled)
         score = model.score(shuffled)
+        if score is not None:
+            baseline.append(score)
+    mean_baseline = safe_mean(baseline)
+    return observed, (observed - mean_baseline) if mean_baseline is not None else None
+
+
+def order_gain_by_sentence(model: BrownBigramModel,
+                           sentences: Sequence[Sequence[str]],
+                           item_id: str, seed: int, shuffles: int
+                           ) -> tuple[float | None, float | None]:
+    """Score true sentence boundaries; shuffle words while preserving lengths."""
+    sentence_words = [list(words) for words in sentences if words]
+    observed = model.score_sentences(sentence_words)
+    if observed is None:
+        return None, None
+    lengths = [len(words) for words in sentence_words]
+    flat_words = [word for words in sentence_words for word in words]
+    rng = seeded_rng(seed, item_id)
+    baseline = []
+    for _ in range(shuffles):
+        shuffled = list(flat_words)
+        rng.shuffle(shuffled)
+        partitioned, cursor = [], 0
+        for length in lengths:
+            partitioned.append(shuffled[cursor:cursor + length])
+            cursor += length
+        score = model.score_sentences(partitioned)
         if score is not None:
             baseline.append(score)
     mean_baseline = safe_mean(baseline)

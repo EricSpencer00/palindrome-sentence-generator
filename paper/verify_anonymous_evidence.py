@@ -168,6 +168,9 @@ def verify_readability_calibration(directory: Path,
     assert report["method"]["training_file_count"] == 401
     assert report["method"]["heldout_file_count"] == 99
     assert report["method"]["shuffles_per_item"] == 32
+    assert report["method"]["brown_tokenized_sentence_stream_sha256"]
+    assert report["method"]["candidate_sentence_segmentation"]
+    assert report["method"]["control_sentence_segmentation"] == "NLTK Brown sentence boundaries retained"
     assert len(report["candidates"]) == len(report["matched_heldout_prose_controls"]) == 11
     assert len(report["length_stratified_heldout_controls"]) == 108
 
@@ -193,8 +196,8 @@ def verify_readability_calibration(directory: Path,
                       for item_id in long_ids]
     assert all(control > output
                for output, control in zip(output_scores, control_scores))
-    assert round(statistics.fmean(output_scores), 3) == 0.256
-    assert round(statistics.fmean(control_scores), 3) == 1.462
+    assert round(statistics.fmean(output_scores), 3) == -0.109
+    assert round(statistics.fmean(control_scores), 3) == 1.522
 
     curve = report["length_curve"]
     assert [row["target_scorer_tokens"] for row in curve] == [
@@ -202,6 +205,8 @@ def verify_readability_calibration(directory: Path,
     ]
     assert all(row["control_count"] == row["positive_order_gain_controls"] == 12
                for row in curve)
+    assert all(row["brown_order_gain_vs_own_shuffle"] > 0
+               for row in report["length_stratified_heldout_controls"])
     return {
         "exact_candidates_checked": len(candidates),
         "long_output_control_pairs": len(long_ids),
@@ -209,6 +214,36 @@ def verify_readability_calibration(directory: Path,
         "additional_length_controls": 108,
         "human_readability_evidence": "not supplied; metric is a local word-order diagnostic",
     }
+
+
+def verify_lineage_tape_replay(selected: dict[str, dict[str, object]]) -> dict[str, object]:
+    lineage = json.loads((Path(__file__).resolve().parent / "selected-results.json").read_text())[
+        "lineage_tape_replay"
+    ]
+    assert "not candidate-generation procedures" in lineage["representation"]
+    stages = lineage["stages"]
+    assert [(stage["parent_id"], stage["child_id"]) for stage in stages] == [
+        ("568-pinned", "640-event-chain"),
+        ("640-event-chain", "686-shell-cycle"),
+        ("686-shell-cycle", "736-mixed-cycle"),
+        ("736-mixed-cycle", "752-center-path"),
+    ]
+    for stage in stages:
+        parent = letters(selected[stage["parent_id"]]["surface"])
+        child = letters(selected[stage["child_id"]]["surface"])
+        assert len(parent) == stage["parent_letters"]
+        assert len(child) == stage["child_letters"]
+        assert hashlib.sha256(parent.encode("ascii")).hexdigest() == stage["parent_sha256"]
+        assert hashlib.sha256(child.encode("ascii")).hexdigest() == stage["child_sha256"]
+        replayed = parent
+        edits = stage["edits"]
+        assert edits
+        for edit in sorted(edits, key=lambda row: row["parent_span_half_open"][0], reverse=True):
+            start, end = edit["parent_span_half_open"]
+            assert replayed[start:end] == edit["old"]
+            replayed = replayed[:start] + edit["new"] + replayed[end:]
+        assert replayed == child
+    return {"stages_replayed": len(stages), "scope": "saved normalized tapes only"}
 
 
 def verify(directory: Path) -> dict[str, object]:
@@ -233,6 +268,7 @@ def verify(directory: Path) -> dict[str, object]:
         assert structural_metrics(row["surface"]) == row["metrics"]
 
     calibration = verify_readability_calibration(directory, rows)
+    lineage_replay = verify_lineage_tape_replay(rows)
 
     lineage_ids = ["568-pinned", "640-event-chain", "686-shell-cycle", "736-mixed-cycle", "752-center-path"]
     lineage = [rows[row_id] for row_id in lineage_ids]
@@ -262,6 +298,7 @@ def verify(directory: Path) -> dict[str, object]:
         "selected_exact_examples": len(rows),
         "lineage_lengths": lineage_lengths,
         "lineage_metrics_recomputed": True,
+        "lineage_tape_replay": lineage_replay,
         "seam_replay_letters": len(letters(child)),
         "clause_search_letters": searched["letters"],
         "clause_search_frontier_examinations": searched["states_examined"],

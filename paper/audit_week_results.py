@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 import subprocess
+from difflib import SequenceMatcher
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -230,6 +231,38 @@ def escape_tex(text: str) -> str:
     return "".join(replacements.get(char, char) for char in text)
 
 
+def make_lineage_replay(records: list[dict[str, Any]]) -> dict[str, Any]:
+    """Describe normalized-tape changes; this is not replay of generation."""
+    by_id = {row["id"]: row for row in records}
+    chain = ["568-pinned", "640-event-chain", "686-shell-cycle",
+             "736-mixed-cycle", "752-center-path"]
+    stages = []
+    for parent_id, child_id in zip(chain, chain[1:]):
+        parent = by_id[parent_id]["normalized_ascii_letters"]
+        child = by_id[child_id]["normalized_ascii_letters"]
+        matcher = SequenceMatcher(None, parent, child, autojunk=False)
+        edits = [
+            {"parent_span_half_open": [i1, i2],
+             "old": parent[i1:i2], "new": child[j1:j2]}
+            for tag, i1, i2, j1, j2 in matcher.get_opcodes()
+            if tag != "equal"
+        ]
+        stages.append({
+            "parent_id": parent_id,
+            "child_id": child_id,
+            "parent_letters": len(parent),
+            "child_letters": len(child),
+            "parent_sha256": hashlib.sha256(parent.encode("ascii")).hexdigest(),
+            "child_sha256": hashlib.sha256(child.encode("ascii")).hexdigest(),
+            "edits": edits,
+        })
+    return {
+        "representation": "deterministic normalized-character diff; replays saved tapes, not candidate-generation procedures",
+        "diff": "Python difflib.SequenceMatcher, autojunk=False; coordinates refer to the parent tape",
+        "stages": stages,
+    }
+
+
 def build() -> dict[str, Any]:
     records = []
     for selection in SELECTIONS:
@@ -302,7 +335,7 @@ def build() -> dict[str, Any]:
     return {
         "title": "Selected exact palindrome construction results",
         "snapshot": SNAPSHOT,
-        "selection_note": "Named exemplars selected for audit; not an exhaustive scan and not a global maximum claim.",
+        "selection_note": "Named exemplars selected for audit; not an exhaustive scan and not a global maximum claim. Date-like suffixes in inherited run filenames are experiment identifiers, not asserted run dates.",
         "human_evidence": "No project human reader study has run for any selected row. The 38-letter item is an inherited reference/control whose authorship is not established by this audit. The 54-letter candidate's 24-rater packet is frozen but has no responses.",
         "definitions": {
             "normalization": "Lowercase ASCII letters only: re.sub('[^A-Za-z]', '', surface).lower().",
@@ -312,6 +345,7 @@ def build() -> dict[str, Any]:
             "repeated_trigram_rate": "Excess token-trigram occurrences (each occurrence after the first for a repeated trigram) divided by all token-trigram windows across the full token sequence; sentence boundaries do not reset the sequence.",
             "duplicate_sentence_count": "Number of sentence occurrences after the first that exactly repeat an earlier case-insensitive sentence after whitespace normalization; sentence boundaries are terminal .?! punctuation, with immediately following quote marks attached, and punctuation is retained for duplicate comparison.",
         },
+        "lineage_tape_replay": make_lineage_replay(records),
         "results": records,
     }
 
@@ -330,7 +364,7 @@ def render_table(records: list[dict[str, Any]]) -> str:
         r"\setlength{\tabcolsep}{2pt}",
         r"\begin{tabular}{@{}lrrrrr@{}}",
         r"\toprule",
-        r"Stage & $L$ & $\Delta L$ & $W/V$ & Rep. 3g & Dup. sent. \\",
+        r"Stage & $L$ & $\Delta L$ & Words/types & Rep. 3g & Dup. sent. \\",
         r"\midrule",
     ]
     rows = []
@@ -347,7 +381,7 @@ def render_table(records: list[dict[str, Any]]) -> str:
     footer = [
         r"\bottomrule",
         r"\end{tabular}",
-        r"\caption{Five exact tapes in one selected lineage. Words/types are token and distinct-token counts. Repeat 3-gram is excess frequency of repeated token trigrams divided by all trigram windows; duplicate sentences require an exact case-insensitive sentence match. These are repetition diagnostics, not readability judgments.}",
+        r"\caption{Five exact tapes in the saved lineage. Types are distinct lowercase words. Repeat 3g is excess frequency of repeated three-token windows; duplicate sentences are exact case-insensitive repeats. These are not fluency measures.}",
         r"\label{tab:lineage}",
         r"\end{table}",
         "",

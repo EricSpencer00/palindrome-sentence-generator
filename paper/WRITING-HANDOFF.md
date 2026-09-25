@@ -1,3 +1,11 @@
+# Archived handoff — superseded 25 September 2026
+
+The notes below describe earlier drafts and experiments and are retained as
+historical context, not current instructions. The current manuscript is
+`paper/naacl2027.tex`; its review PDF is generated at
+`output/pdf/paper-revision/naacl2027.pdf`. References below to
+`paper/naacl2027.pdf` describe the earlier compiled draft.
+
 Latest editorial direction — 11 September 2026: the user asked to run the
 controlled experiment proposed in the publication assessment. The manuscript
 now centers the formal solution-preservation proposition and the 50-opening
@@ -14,10 +22,11 @@ release includes the fixed inputs, raw controlled trials, and audit runtime.
 
 # Current paper-writing decisions — 10 September 2026
 
-Current-file update: the user requested a rewrite resembling the Eric draft in
-Git history and a LaTeX version for the project's NAACL target (interpreting
-"NAACP" in that context). The sole manuscript is now `paper/naacl2027.tex`, with
-its compiled PDF at `paper/naacl2027.pdf`. The prose follows commit `ce7b807`
+Historical current-file note (10 September 2026): the user requested a rewrite
+resembling the Eric draft in Git history and a LaTeX version for the project's
+NAACL target (interpreting "NAACP" in that context). At that time, the manuscript
+was `paper/naacl2027.tex`, with its compiled PDF at `paper/naacl2027.pdf`. This
+describes the earlier draft, not the current review PDF. The prose followed commit `ce7b807`
 ("good draft") and the original `eric_layout.md` outline. It starts with examples,
 then explains the construction and constraints. The correction ledger lives in
 `paper/EVIDENCE.md`, separate from the paper. The historical critique is in

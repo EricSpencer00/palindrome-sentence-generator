@@ -179,3 +179,27 @@ The updated three-page PDF was rendered and inspected; the source and anonymous
 evidence bundles were exported, privacy-screened, extracted, compiled, and
 verified. These are internal AI reviews, not peer review or human readability
 evidence. No blinded human ratings are available.
+
+## Q10 Pass 1
+
+The first fresh skeptic identified three concrete risks: ambiguity about which
+prose controls were paired with palindrome outputs, an overly broad impression
+from a retrospective and related sample, and incomplete replay instructions for
+the Brown diagnostic. The abstract now names the nine paired controls and
+labels the comparison descriptive; Table 2 reports each prose-minus-output
+gap; the manuscript specifies smoothing, boundaries, OOV handling, and the
+item-keyed shuffle. The anonymous archive now carries the scorer source and
+recomputation instructions while still omitting Brown text. A rerun from a
+clean extraction reproduced the saved candidate scores, control spans, hashes,
+and all 108 length-control rows.
+
+Independent re-reviews caught two follow-up issues: the implementation selects
+and scores controls in an interleaved loop, so the paper now says span choice
+does not use model scores; and the legacy PDF path appeared current in a stale
+handoff. The handoff now labels that path historical, while the README names
+the current review PDF under `output/pdf/paper-revision/`. A final audit also
+found that `/tmp` may resolve to `/private/tmp` on macOS; path metadata now
+normalizes resolved paths, and the bundled scorer was rerun successfully from
+that location. The current three-page PDF was rebuilt and visually checked.
+These are internal Luna AI reviews, not human ratings or peer review. The
+human-readability evidence gap remains open.

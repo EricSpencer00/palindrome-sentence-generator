@@ -33,6 +33,15 @@ SHUFFLES = 32
 SEED = 20260925
 
 
+def manifest_label(manifest_path: Path) -> str:
+    """Keep in-root paths reproducible and external paths free of host details."""
+    resolved = manifest_path.resolve()
+    try:
+        return resolved.relative_to(ROOT).as_posix()
+    except ValueError:
+        return resolved.name
+
+
 def split_fileids(fileids: list[str]) -> tuple[list[str], list[str]]:
     """Deterministically hold out roughly one fifth of Brown documents."""
     train, heldout = [], []
@@ -204,7 +213,7 @@ def run(manifest_path: Path = ROOT / "paper/week_results.json") -> dict:
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "status": "programmatic_diagnostic_not_human_readability_result",
         "manifest": {
-            "path": str(manifest_path.relative_to(ROOT)),
+            "path": manifest_label(manifest_path),
             "snapshot_revision": manifest.get("snapshot"),
             "candidate_count": len(candidate_rows),
         },

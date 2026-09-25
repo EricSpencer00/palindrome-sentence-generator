@@ -11,6 +11,7 @@ import re
 import statistics
 from collections import Counter
 from pathlib import Path
+from pathlib import PurePosixPath
 
 from check_seam_invariant import exhaustive_algebra_audit
 from replay_clause_search import replay
@@ -213,9 +214,12 @@ def verify_readability_calibration(directory: Path,
 def verify(directory: Path) -> dict[str, object]:
     manifest = json.loads((directory / "manifest.json").read_text())
     for name, digest in manifest.items():
-        if Path(name).name != name:
-            raise ValueError("unexpected path in archive manifest")
-        if hashlib.sha256((directory / name).read_bytes()).hexdigest() != digest:
+        relative = PurePosixPath(name)
+        if (relative.is_absolute() or ".." in relative.parts or
+                "\\" in name or not relative.parts):
+            raise ValueError("unsafe path in archive manifest")
+        target = directory.joinpath(*relative.parts)
+        if hashlib.sha256(target.read_bytes()).hexdigest() != digest:
             raise AssertionError(f"File digest mismatch: {name}")
     data = json.loads((directory / "selected-results.json").read_text())
     rows = {row["id"]: row for row in data["results"]}

@@ -1,4 +1,5 @@
 from experiments.score_length_stratified_readability import (
+    manifest_label,
     select_heldout_span,
     split_fileids,
 )
@@ -13,6 +14,11 @@ def test_brown_document_split_is_deterministic_and_disjoint():
     assert set(train).isdisjoint(heldout)
     assert set(train) | set(heldout) == set(fileids)
     assert 10 <= len(heldout) <= 30
+
+
+def test_manifest_label_normalizes_symlinked_tmp_paths(tmp_path):
+    manifest = tmp_path / "selected-results.json"
+    assert manifest_label(manifest) == "selected-results.json"
 
 
 def test_heldout_controls_are_complete_contiguous_and_nonoverlapping():

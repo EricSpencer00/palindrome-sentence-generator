@@ -43,11 +43,17 @@ each text with deterministic shuffles of the same tokens; its output is a
 local-order diagnostic, not a readability rating. The saved calibration JSON
 contains the scores and hashes but not the held-out prose passages.
 
+The current review PDF is `output/pdf/paper-revision/naacl2027.pdf`. The
+historical `output/pdf/naacl2027.pdf` is not produced by the command above and is
+left untouched; generated PDFs are excluded from this source update.
+
 The exporter creates two allowlisted archives under `output/naacl-submission/`:
-expanded Overleaf sources and anonymous evidence. The latter runs without
-Git history, network access, credentials, or model calls. It excludes raw run
-metadata and private host information. Generated PDFs and these archives are
-not part of this source commit.
+expanded Overleaf sources and anonymous evidence. The latter includes the
+scorer source and can recompute recorded Brown scores when the NLTK Brown
+corpus is installed; its standard-library verifier checks the saved audit
+without corpus access. It excludes raw run metadata and private host
+information. Generated PDFs and these archives are not part of this source
+commit.
 
 There are no completed blinded reader results. The Brown comparison is
 descriptive and does not replace reader judgments. Neither this draft nor its

@@ -42,33 +42,36 @@ def build_table(report_path: Path = DEFAULT_INPUT) -> str:
             raise ValueError(f"token count mismatch: {candidate['id']}")
         output_score = candidate["brown_order_gain_vs_own_shuffle"]
         control_score = control["brown_order_gain_vs_own_shuffle"]
+        gap = control_score - output_score
         output_scores.append(output_score)
         control_scores.append(control_score)
         rows.append(
             f"{LABELS[candidate['id']]} & {candidate['letters']} & "
-            f"{candidate['scorer_tokens']} & {output_score:.3f} & {control_score:.3f} \\\\\n"
+            f"{candidate['scorer_tokens']} & {output_score:.3f} & "
+            f"{control_score:.3f} & {gap:.3f} \\\\\n"
         )
 
     mean_output = sum(output_scores) / len(output_scores)
     mean_control = sum(control_scores) / len(control_scores)
-    rows.append(f"Mean & --- & --- & {mean_output:.3f} & {mean_control:.3f} \\\\\n")
+    rows.append(f"Mean & --- & --- & {mean_output:.3f} & {mean_control:.3f} & "
+                f"{mean_control - mean_output:.3f} \\\\\n")
     body = "".join(rows)
     return (
         "\\begin{table}[t]\n"
         "\\centering\\scriptsize\n"
         "\\setlength{\\tabcolsep}{3pt}\n"
-        "\\begin{tabular}{@{}lrrrr@{}}\n"
+        "\\begin{tabular}{@{}lrrrrr@{}}\n"
         "\\toprule\n"
-        "Selected tape & Letters & Tokens & Output & Intact prose \\\\\n"
+        "Selected tape & Letters & Tokens & Output & Intact prose & Gap \\\\\n"
         "\\midrule\n"
         f"{body}"
         "\\bottomrule\n"
         "\\end{tabular}\n"
         "\\caption{Brown word-bigram order gain in nats per transition. Each "
         "output is paired with a held-out intact prose span matched by scorer-token "
-        "count. Higher gain means stronger local-order preference over shuffles, "
-        "not greater readability. Alphabetic tokenization splits apostrophized "
-        "forms.}\n"
+        "count. Gap is intact-prose gain minus output gain. Higher gain means "
+        "stronger local-order preference over shuffles, not greater readability. "
+        "Alphabetic tokenization splits apostrophized forms.}\n"
         "\\label{tab:order-gain}\n"
         "\\end{table}\n"
     )

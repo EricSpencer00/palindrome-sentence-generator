@@ -13,6 +13,7 @@ import json
 import re
 import zipfile
 from pathlib import Path
+from pathlib import PurePosixPath
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -55,10 +56,14 @@ def write_bundle(name: str, files: dict[str, bytes]) -> None:
     payloads = {**files, "manifest.json": json_bytes(manifest)}
     with zipfile.ZipFile(OUT / f"{name}.zip", "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for filename, payload in sorted(payloads.items()):
-            if Path(filename).name != filename:
-                raise ValueError("Bundle paths must be flat allowlisted filenames")
+            relative = PurePosixPath(filename)
+            if (relative.is_absolute() or ".." in relative.parts or
+                    "\\" in filename or not relative.parts):
+                raise ValueError("Bundle paths must be safe relative POSIX paths")
             audit_bytes(filename, payload)
-            (directory / filename).write_bytes(payload)
+            target = directory.joinpath(*relative.parts)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(payload)
             info = zipfile.ZipInfo(filename, date_time=(2020, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
@@ -117,8 +122,8 @@ def build() -> dict[str, object]:
     readme = """# Anonymous construction evidence
 
 Run `python3 verify_anonymous_evidence.py` after extracting this archive.
-Python 3.10 or later and its standard library are sufficient. No network,
-Git checkout, credentials, model API, or additional corpus is required.
+Python 3.10 or later and its standard library are sufficient for that verifier.
+It needs no network, Git checkout, credentials, model API, or corpus download.
 
 The verifier checks all eleven selected renderings with a raw-text scan and
 normalized reversal, including the complete 752-letter endpoint, reconstructs
@@ -129,7 +134,24 @@ parent seam and frozen relation index, and runs the bounded seam-algebra check.
 It also recomputes the five-stage lineage's word and repetition diagnostics.
 The verifier cross-checks the eleven Brown diagnostic records against the
 selected exact texts, cross-checks the recorded nine long-output pairs and the
-108 length-control summaries, and checks the bundle manifest.
+108 length-control summaries, and checks the bundle manifest. It does not
+recompute Brown scores. The exact scorer and its two local modules are included
+under `experiments/`; to recompute scores, install `nltk` and `wordfreq`, make
+the NLTK Brown corpus available, and run from the extracted archive root:
+
+```sh
+python3 -m pip install nltk wordfreq
+python3 -m nltk.downloader brown
+python3 experiments/score_length_stratified_readability.py \\
+  --manifest "$PWD/selected-results.json" \\
+  --output /tmp/readability-reproduced.json
+```
+
+The calibration records retain Brown document IDs, sentence offsets, corpus
+version, and span hashes, so the script reconstructs the exact held-out spans
+without redistributing their text. The model uses add-alpha smoothing with
+alpha 0.1, sentence boundaries, and an unknown-token bucket; the item-keyed
+shuffle seed and split procedure are in the bundled source.
 In the comparison archive, `candidate_key_sha256` field names are normalized
 to `candidate_set_digest`; every digest value and candidate row is unchanged.
 
@@ -143,14 +165,10 @@ No Git history, host metadata, account information, or raw execution logs are
 included. The two imported modules also have repository-specific entry points;
 use the verifier command above for this standalone archive.
 
-`readability-calibration.json` records a separate Brown word-bigram diagnostic:
-ten selected project outputs of 54--752 letters plus an inherited 38-letter
-reference, matched held-out prose spans, and 108 additional length controls.
-It includes scores, hashes, split metadata, and exactness checks, but does not
-redistribute the Brown control passages. The score measures local word order,
-not human readability. To rerun it from the repository, install `nltk` and
-`wordfreq`, make the NLTK Brown corpus available, and run
-`python3 experiments/score_length_stratified_readability.py`.
+`readability-calibration.json` records ten selected project outputs of
+54--752 letters plus an inherited 38-letter reference, matched held-out prose
+spans, and 108 additional length controls. The score measures local word
+order, not human readability.
 """
     comparison_run = ROOT / "runs/comparison-568-online-residual-vs-offline-reverse-index-20260924.json.gz"
     comparison_audit = ROOT / "runs/comparison-568-online-residual-vs-offline-reverse-index-20260924.audit.json"
@@ -174,6 +192,12 @@ not human readability. To rerun it from the repository, install `nltk` and
     }
     for name in ("verify_anonymous_evidence.py", "check_seam_invariant.py", "replay_clause_search.py"):
         files[name] = (PAPER / name).read_bytes()
+    for name in (
+        "audit_programmatic_readability.py",
+        "score_week_results_readability.py",
+        "score_length_stratified_readability.py",
+    ):
+        files[f"experiments/{name}"] = (ROOT / "experiments" / name).read_bytes()
     write_bundle("anonymous-evidence", files)
     return {"source_bundle": str((OUT / "overleaf-source.zip").relative_to(ROOT)),
             "evidence_bundle": str((OUT / "anonymous-evidence.zip").relative_to(ROOT)),

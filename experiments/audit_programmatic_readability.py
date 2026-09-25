@@ -31,9 +31,6 @@ from typing import Iterable, Sequence
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from wordfreq import zipf_frequency
-
-
 WORD_RE = re.compile(r"[A-Za-z]+")
 DEFAULT_STUDY = ROOT / "runs" / "readability-length-study-2026-09-12"
 
@@ -162,6 +159,10 @@ def punctuation_segments(text: str) -> int:
 
 def item_features(row: dict, text: str, model: BrownBigramModel, seed: int,
                   shuffles: int) -> dict:
+    # Word frequency is an optional diagnostic. The Brown order-gain audit
+    # imports this module but does not use wordfreq.
+    from wordfreq import zipf_frequency
+
     words = tokens(text)
     if not words:
         raise ValueError(f"{row['id']} has no alphabetic words")

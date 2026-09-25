@@ -1,4 +1,4 @@
-"""Build the manuscript's long-output/control table from the frozen audit."""
+"""Build the manuscript's local-word-order table from the frozen audit."""
 from __future__ import annotations
 
 import argparse
@@ -10,68 +10,104 @@ DEFAULT_INPUT = ROOT / "runs/readability-length-stratified-sentence-aware-202609
 DEFAULT_OUTPUT = ROOT / "paper/readability_table.tex"
 
 LABELS = {
-    "498-overhang": "498 overhang",
-    "568-pinned": "568 parent",
-    "616-nora-aron": "616 clause pair",
-    "630-god-dog": "630 clause edit",
+    "38-control": "38 inherited example",
+    "54-np-candidate": "54 NP candidate",
+    "498-overhang": "498 overhang search",
+    "568-pinned": "568 pinned text",
+    "616-nora-aron": "616 clause insertion",
+    "630-god-dog": "630 paired edit",
     "640-event-chain": "640 event edit",
-    "672-reverse-chain": "672 search",
+    "672-reverse-chain": "672 bounded search",
     "686-shell-cycle": "686 shell edit",
     "736-mixed-cycle": "736 mixed edit",
-    "752-center-path": "752 lineage end",
+    "752-center-path": "752 center path",
 }
+LONG_IDS = set(LABELS) - {"38-control", "54-np-candidate"}
 
 
-def build_table(report_path: Path = DEFAULT_INPUT) -> str:
+def checked_rows(report_path: Path) -> tuple[list[dict], dict[str, dict]]:
     report = json.loads(report_path.read_text())
+    method = report["method"]
+    if report.get("status") != "programmatic_diagnostic_not_human_readability_result":
+        raise ValueError("unexpected score status")
+    if (method.get("shuffles_per_item") != 32 or
+            method.get("random_seed") != 20260925 or
+            method.get("training_file_count") != 401 or
+            method.get("heldout_file_count") != 99 or
+            method.get("nltk_version") != "3.10.3" or
+            method.get("metric_units") != "nats per word transition"):
+        raise ValueError("score method differs from the audited manuscript protocol")
+
+    candidates = report["candidates"]
+    if {row["id"] for row in candidates} != set(LABELS):
+        raise ValueError("calibration must include all eleven manuscript cases")
+    if len(report["matched_heldout_prose_controls"]) != len(LABELS):
+        raise ValueError("calibration must include one matched prose control per case")
+    if len(report["length_stratified_heldout_controls"]) != 108:
+        raise ValueError("calibration must include all 108 length-stratified controls")
+
     controls = {row["matched_candidate_id"]: row
                 for row in report["matched_heldout_prose_controls"]}
-    candidates = [row for row in report["candidates"] if row["id"] in LABELS]
-    candidates.sort(key=lambda row: row["letters"])
-    if {row["id"] for row in candidates} != set(LABELS):
-        raise ValueError("calibration is missing a manuscript output")
-
-    output_scores = []
-    control_scores = []
-    rows = []
+    if set(controls) != set(LABELS):
+        raise ValueError("matched prose controls do not cover all manuscript cases")
+    candidates = sorted(candidates, key=lambda row: row["letters"])
     for candidate in candidates:
         if not all(candidate["exactness"]["checks"].values()):
             raise ValueError(f"candidate is not independently exact: {candidate['id']}")
         control = controls[candidate["id"]]
         if control["scorer_tokens"] != candidate["scorer_tokens"]:
             raise ValueError(f"token count mismatch: {candidate['id']}")
+    return candidates, controls
+
+
+def mean(rows: list[dict], field: str) -> float:
+    return sum(row[field] for row in rows) / len(rows)
+
+
+def build_table(report_path: Path = DEFAULT_INPUT) -> str:
+    candidates, controls = checked_rows(report_path)
+    rows = []
+    for candidate in candidates:
+        control = controls[candidate["id"]]
         output_score = candidate["brown_order_gain_vs_own_shuffle"]
         control_score = control["brown_order_gain_vs_own_shuffle"]
-        gap = control_score - output_score
-        output_scores.append(output_score)
-        control_scores.append(control_score)
         rows.append(
             f"{LABELS[candidate['id']]} & {candidate['letters']} & "
             f"{candidate['scorer_tokens']} & {output_score:.3f} & "
-            f"{control_score:.3f} & {gap:.3f} \\\\\n"
+            f"{control_score:.3f} & {control_score - output_score:.3f} \\\\\n"
         )
 
-    mean_output = sum(output_scores) / len(output_scores)
-    mean_control = sum(control_scores) / len(control_scores)
-    rows.append(f"Mean & --- & --- & {mean_output:.3f} & {mean_control:.3f} & "
-                f"{mean_control - mean_output:.3f} \\\\\n")
+    long_candidates = [row for row in candidates if row["id"] in LONG_IDS]
+    long_controls = [controls[row["id"]] for row in long_candidates]
+    rows.extend((
+        "Long set mean ($n=9$) & --- & --- & "
+        f"{mean(long_candidates, 'brown_order_gain_vs_own_shuffle'):.3f} & "
+        f"{mean(long_controls, 'brown_order_gain_vs_own_shuffle'):.3f} & "
+        f"{mean(long_controls, 'brown_order_gain_vs_own_shuffle') - mean(long_candidates, 'brown_order_gain_vs_own_shuffle'):.3f} \\\\\n",
+        "All cases mean ($n=11$) & --- & --- & "
+        f"{mean(candidates, 'brown_order_gain_vs_own_shuffle'):.3f} & "
+        f"{mean(list(controls.values()), 'brown_order_gain_vs_own_shuffle'):.3f} & "
+        f"{mean(list(controls.values()), 'brown_order_gain_vs_own_shuffle') - mean(candidates, 'brown_order_gain_vs_own_shuffle'):.3f} \\\\\n",
+    ))
     body = "".join(rows)
     return (
         "\\begin{table}[t]\n"
         "\\centering\\scriptsize\n"
-        "\\setlength{\\tabcolsep}{3pt}\n"
+        "\\setlength{\\tabcolsep}{2pt}\n"
         "\\begin{tabular}{@{}lrrrrr@{}}\n"
         "\\toprule\n"
-        "Selected tape & Letters & Tokens & Output & Intact prose & Gap \\\\\n"
+        "Text & Letters & Tokens & Output & Brown prose & Gap \\\\\n"
         "\\midrule\n"
         f"{body}"
         "\\bottomrule\n"
         "\\end{tabular}\n"
-        "\\caption{Brown word-bigram order gain in nats per transition. Each "
-        "output is paired with a held-out intact prose span matched by scorer-token "
-        "count. Gap is intact-prose gain minus output gain. Higher gain means "
-        "stronger local-order preference over shuffles, not greater readability. "
-        "Alphabetic tokenization splits apostrophized forms.}\n"
+        "\\caption{Brown word-bigram order gain in nats per transition: observed "
+        "score minus the mean of 32 same-word shuffles, preserving sentence "
+        "lengths. Each output is paired with a non-overlapping held-out Brown "
+        "span matched by scorer-token count. Gap is prose gain minus output gain. "
+        "The 38-letter example is inherited; its origin and authorship are not "
+        "established by this audit. Higher values indicate stronger local-order "
+        "preference under this model, not greater human readability.}\n"
         "\\label{tab:order-gain}\n"
         "\\end{table}\n"
     )

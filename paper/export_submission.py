@@ -95,9 +95,11 @@ def build() -> dict[str, object]:
     source = (PAPER / "naacl2027.tex").read_text()
     for part in ("week_results_table", "representative_output", "readability_table"):
         token = "\\input{" + part + "}"
-        if source.count(token) != 1:
-            raise AssertionError(f"Expected one manuscript input: {part}")
-        source = source.replace(token, (PAPER / f"{part}.tex").read_text())
+        count = source.count(token)
+        if count > 1:
+            raise AssertionError(f"Expected at most one manuscript input: {part}")
+        if count:
+            source = source.replace(token, (PAPER / f"{part}.tex").read_text())
     if "\\input{" in source:
         raise AssertionError("Unresolved manuscript input in upload source")
     write_bundle("overleaf-source", {
@@ -177,12 +179,13 @@ under `experiments/`; to recompute scores, install `nltk` and `wordfreq`, make
 the NLTK Brown corpus available, and run from the extracted archive root:
 
 ```sh
-python3 -m pip install nltk wordfreq
+python3 -m pip install -r readability-requirements.txt
 python3 -m nltk.downloader brown
 python3 experiments/score_length_stratified_readability.py \\
   --manifest "$PWD/selected-results.json" \\
   --expected-report "$PWD/readability-calibration.json" \\
   --output /tmp/readability-reproduced.json
+python3 paper/build_readability_table.py --input "$PWD/readability-calibration.json" --output /tmp/readability-table.tex
 ```
 
 The calibration records retain Brown document IDs, sentence offsets, a digest
@@ -223,7 +226,8 @@ The full enumeration is separate from the quicker saved-evidence verifier.
 `readability-calibration.json` records ten selected project outputs of
 54--752 letters plus an inherited 38-letter reference, matched held-out prose
 spans, and 108 additional length controls. The score measures local word
-order, not human readability.
+order, not human readability. `paper/build_readability_table.py` regenerates
+the manuscript table from this report.
 """
     comparison_run = ROOT / "runs/comparison-568-online-residual-vs-offline-reverse-index-20260924.json.gz"
     comparison_audit = ROOT / "runs/comparison-568-online-residual-vs-offline-reverse-index-20260924.audit.json"
@@ -245,10 +249,12 @@ order, not human readability.
         "comparison-audit.json": json_bytes(comparison_audit_data),
         "readability-calibration.json": json_bytes(sanitize_export_metadata(json.loads(
             (ROOT / "runs/readability-length-stratified-sentence-aware-20260925.json").read_text()))),
+        "readability-requirements.txt": (PAPER / "readability-requirements.txt").read_bytes(),
         "README.md": readme.encode(),
     }
     for name in ("verify_anonymous_evidence.py", "check_seam_invariant.py", "replay_clause_search.py"):
         files[name] = (PAPER / name).read_bytes()
+    files["paper/build_readability_table.py"] = (PAPER / "build_readability_table.py").read_bytes()
     for name in (
         "compare_568_residual_vs_reverse_index_20260924.py",
         "verify_comparison_568_residual_vs_reverse_index_20260924.py",

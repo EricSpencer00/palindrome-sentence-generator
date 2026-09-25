@@ -274,7 +274,50 @@ def verify_lineage_tape_replay(selected: dict[str, dict[str, object]]) -> dict[s
             assert replayed[start:end] == edit["old"]
             replayed = replayed[:start] + edit["new"] + replayed[end:]
         assert replayed == child
-    return {"stages_replayed": len(stages), "scope": "saved normalized tapes only"}
+
+    # Replay the equal-length paired insertion used by the 568-to-640 example.
+    # This pins the manuscript's Uq = q reverse(V) statement to the archived
+    # tapes and the archived edit coordinates, rather than leaving it as an
+    # unchecked algebraic gloss.
+    first = stages[0]
+    parent = letters(selected[first["parent_id"]]["surface"])
+    child = letters(selected[first["child_id"]]["surface"])
+    edits = sorted(first["edits"], key=lambda row: row["parent_span_half_open"][0])
+    assert len(edits) == 2
+    (left_start, left_end), (right_start, right_end) = [
+        row["parent_span_half_open"] for row in edits
+    ]
+    left_insert, right_insert = (row["new"] for row in edits)
+    assert left_start == left_end == 64
+    assert right_start == right_end == len(parent) - left_start
+    assert len(left_insert) == len(right_insert)
+    # Here q is empty and the whole interior is the palindromic center C.
+    # The general seam equation therefore reduces to U = reverse(V).
+    q = ""
+    center = parent[left_start:right_start]
+    assert center == center[::-1]
+    equation_holds = left_insert + q == q + right_insert[::-1]
+    assert equation_holds
+    assert child == (
+        parent[:left_start] + left_insert + parent[left_start:right_start]
+        + right_insert + parent[right_end:]
+    )
+    assert child == child[::-1]
+    return {
+        "stages_replayed": len(stages),
+        "scope": "saved normalized tapes only",
+        "568_to_640_equal_length_seam": {
+            "left_cut": left_start,
+            "right_cut": right_start,
+            "residual_letters": len(q),
+            "center_letters": len(center),
+            "left_insert_letters": len(left_insert),
+            "right_insert_letters": len(right_insert),
+            "equation": "U + q = q + reverse(V)",
+            "equation_holds": equation_holds,
+            "child_exact": child == child[::-1],
+        },
+    }
 
 
 def verify(directory: Path) -> dict[str, object]:

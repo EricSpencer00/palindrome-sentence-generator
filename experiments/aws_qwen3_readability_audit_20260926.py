@@ -27,10 +27,17 @@ MODEL_ID = "qwen.qwen3-32b-v1:0"
 REGION = "us-east-2"
 EXPERIMENT_ID = "aws-qwen3-32b-readability-audit-20260926"
 DEFAULT_OUTPUT = ROOT / "runs/aws-qwen3-32b-readability-audit-20260926.json"
-DEFAULT_MAX_COST_USD = 1.00
+DEFAULT_MAX_COST_USD = 2.00
 INPUT_USD_PER_1K = 0.000150
 OUTPUT_USD_PER_1K = 0.000600
 PRICING_EFFECTIVE_DATE = "2026-09-01"
+PRICING_SNAPSHOT = ROOT / "experiments/pricing_snapshots/aws-bedrock-qwen3-32b-us-east-2-20260926.json"
+PRICING_SKUS = {
+    "input_standard": "REQSN4M8AVCDU8BK",
+    "output_standard": "SQ4MM597ZHN23FMA",
+}
+MAX_CONTEXT_TOKENS = 32768
+MAX_OUTPUT_TOKENS = 128
 CALIBRATION_CONDITIONS = {
     "heldout_brown_prose",
     "heldout_brown_same_word_shuffle",
@@ -140,12 +147,19 @@ def request_body(text: str, presentation_id: str) -> dict[str, Any]:
             "content": [{"text": USER_PROMPT_TEMPLATE.format(text=text)}],
         }],
         "inferenceConfig": DECODING,
+        "serviceTier": {"type": "default"},
         "outputConfig": build_schema_request(),
         "requestMetadata": {
             "experiment": EXPERIMENT_ID,
             "presentation": presentation_id,
         },
     }
+
+
+def request_sha256(text: str, presentation_id: str) -> str:
+    body = request_body(text, presentation_id)
+    serialized = json.dumps(body, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return sha256_bytes(serialized.encode("utf-8"))
 
 
 def ask_bedrock(client: Any, text: str, presentation_id: str) -> dict[str, Any]:
@@ -161,9 +175,11 @@ def ask_bedrock(client: Any, text: str, presentation_id: str) -> dict[str, Any]:
     usage = response.get("usage", {})
     input_tokens = usage.get("inputTokens")
     output_tokens = usage.get("outputTokens")
-    if type(input_tokens) is not int or type(output_tokens) is not int:
-        raise ValueError("Bedrock response omitted input/output token usage")
-    cost = (input_tokens * INPUT_USD_PER_1K + output_tokens * OUTPUT_USD_PER_1K) / 1000
+    if type(input_tokens) is int and type(output_tokens) is int:
+        cost = (input_tokens * INPUT_USD_PER_1K + output_tokens * OUTPUT_USD_PER_1K) / 1000
+        cost = round(cost, 9)
+    else:
+        cost = None
 
     parse_error = None
     parsed: dict[str, Any] | None
@@ -177,17 +193,24 @@ def ask_bedrock(client: Any, text: str, presentation_id: str) -> dict[str, Any]:
     except (json.JSONDecodeError, TypeError, ValueError) as exc:
         parsed = None
         parse_error = f"{type(exc).__name__}: {exc}"
+    if cost is None:
+        parse_error = (parse_error + "; " if parse_error else "") + "Bedrock response omitted input/output token usage"
 
     # Keep the exact generated JSON plus the unmodified response fields relevant
     # to replay and provenance; never save prompt text (especially Brown text).
+    metadata = response.get("ResponseMetadata", {})
     safe_response = {
         "output": response.get("output"),
         "stopReason": response.get("stopReason"),
         "usage": usage,
         "metrics": response.get("metrics"),
         "performanceConfig": response.get("performanceConfig"),
+        "response_metadata": {
+            "request_id": metadata.get("RequestId"),
+            "http_status_code": metadata.get("HTTPStatusCode"),
+            "retry_attempts": metadata.get("RetryAttempts"),
+        },
     }
-    metadata = response.get("ResponseMetadata", {})
     return {
         "scores": parsed,
         "parse_error": parse_error,
@@ -198,14 +221,238 @@ def ask_bedrock(client: Any, text: str, presentation_id: str) -> dict[str, Any]:
         "aws_request_id": metadata.get("RequestId"),
         "http_status_code": metadata.get("HTTPStatusCode"),
         "api_metrics": {
-            "input_tokens": input_tokens,
-            "output_tokens": output_tokens,
+            "input_tokens": input_tokens if type(input_tokens) is int else None,
+            "output_tokens": output_tokens if type(output_tokens) is int else None,
             "total_tokens": usage.get("totalTokens"),
             "latency_seconds": latency_seconds,
-            "estimated_cost_usd": round(cost, 9),
+            "estimated_cost_usd": cost,
+            "retry_attempts": metadata.get("RetryAttempts"),
         },
         "request_completed_utc": utc_now(),
     }
+
+
+def collect_runtime_facts() -> dict[str, Any]:
+    identity_proc = subprocess.run(
+        ["aws", "sts", "get-caller-identity", "--output", "json"],
+        check=False,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    if identity_proc.returncode:
+        raise RuntimeError("could not verify the active AWS identity before model inference")
+    identity = json.loads(identity_proc.stdout)
+    arn = identity.get("Arn", "")
+    principal_type = "account-root" if arn.endswith(":root") else (
+        "assumed-role" if ":assumed-role/" in arn else "iam-user" if ":user/" in arn else "other"
+    )
+    version_proc = subprocess.run(
+        ["aws", "--version"], check=False, capture_output=True, text=True, timeout=10
+    )
+    import boto3
+    import botocore
+
+    return {
+        "credential_source": "AWS CLI temporary credentials; values not written to the run",
+        "active_profile": os.environ.get("AWS_PROFILE", "default"),
+        "caller_principal_type": principal_type,
+        "account_id_sha256_prefix": sha256_bytes(identity.get("Account", "").encode())[:16],
+        "caller_arn_sha256_prefix": sha256_bytes(arn.encode())[:16],
+        "aws_cli_version": version_proc.stdout.strip() or version_proc.stderr.strip(),
+        "boto3_version": boto3.__version__,
+        "botocore_version": botocore.__version__,
+        "sdk_retry_policy": "total_max_attempts=1; no transparent retries",
+    }
+
+
+def runtime_identity_key(facts: dict[str, Any]) -> tuple[str, str, str, str]:
+    """Bind a resumable run to the same AWS profile and caller identity."""
+    return (
+        facts.get("active_profile", ""),
+        facts.get("account_id_sha256_prefix", ""),
+        facts.get("caller_arn_sha256_prefix", ""),
+        facts.get("caller_principal_type", ""),
+    )
+
+
+def same_runtime_identity(recorded: dict[str, Any], current: dict[str, Any]) -> bool:
+    return runtime_identity_key(recorded) == runtime_identity_key(current)
+
+
+def max_request_cost_usd() -> float:
+    """Conservative per-call bound from the documented context and output caps."""
+    return (
+        MAX_CONTEXT_TOKENS * INPUT_USD_PER_1K
+        + MAX_OUTPUT_TOKENS * OUTPUT_USD_PER_1K
+    ) / 1000
+
+
+def execute_one(
+    client: Any,
+    row: dict[str, Any],
+    stage: str,
+    result: dict[str, Any],
+    responses: list[dict[str, Any]],
+    output_path: Path,
+    current_budget: float,
+    max_cost: float,
+) -> float:
+    presentation_id = row["presentation_id"]
+    reserved_upper_bound = max_request_cost_usd()
+    if current_budget + reserved_upper_bound > max_cost:
+        result["status"] = "cost_cap_exceeded"
+        record_cost_fields(result, current_budget)
+        atomic_write(output_path, result)
+        raise RuntimeError("run budget cannot reserve the worst-case cost of one more request")
+
+    failures = [
+        attempt for attempt in result.get("failed_attempts", [])
+        if attempt.get("presentation_id") == presentation_id
+    ]
+    in_flight = {
+        "presentation_id": presentation_id,
+        "stage": stage,
+        "attempt_number": len(failures) + 1,
+        "request_sha256": request_sha256(row["text"], presentation_id),
+        "text_sha256": frozen.sha256_text(row["text"]),
+        "started_utc": utc_now(),
+        "status": "in_flight",
+        "billing_status": "unknown until response is checkpointed",
+        "reserved_max_cost_usd": round(reserved_upper_bound, 9),
+    }
+    result["in_flight_attempt"] = in_flight
+    result["status"] = f"running_{stage}"
+    record_cost_fields(result, current_budget + reserved_upper_bound)
+    atomic_write(output_path, result)
+    try:
+        response = ask_bedrock(client, row["text"], presentation_id)
+    except Exception as exc:
+        in_flight["status"] = "ambiguous"
+        in_flight["billing_status"] = "unknown; explicit retry required"
+        in_flight["error_type"] = type(exc).__name__
+        in_flight["error"] = "Call ended without a confirmed response; billing is conservatively reserved."
+        in_flight["finished_utc"] = utc_now()
+        in_flight["budget_charge_usd"] = reserved_upper_bound
+        result["status"] = "ambiguous_model_call"
+        record_cost_fields(result, current_budget + reserved_upper_bound)
+        atomic_write(output_path, result)
+        raise RuntimeError(
+            "Bedrock did not return a confirmed response; run is checkpointed and will not retry without --retry-failed-attempts"
+        ) from exc
+
+    response["presentation_id"] = presentation_id
+    response["condition_hidden"] = True
+    response["attempt_number"] = in_flight["attempt_number"]
+    cost = response["api_metrics"].get("estimated_cost_usd")
+    budget_charge = reserved_upper_bound
+    current_budget += budget_charge
+    in_flight["finished_utc"] = utc_now()
+    in_flight["budget_charge_usd"] = budget_charge
+    response["budget_charge_usd"] = budget_charge
+    response["budget_charge_basis"] = "per-request worst-case token bound"
+    result["in_flight_attempt"] = None
+    if response["parse_error"]:
+        brown_text = row["condition"] in CALIBRATION_CONDITIONS
+        failure = {
+            **in_flight,
+            "status": "response_received_invalid",
+            "billing_status": "token-derived estimate recorded" if type(cost) in (float, int) else "unknown; worst-case budget bound used",
+            "error_type": "InvalidModelOutput",
+            "aws_request_id": response["aws_request_id"],
+            "http_status_code": response["http_status_code"],
+            "api_metrics": response["api_metrics"],
+            "estimated_cost_usd": cost,
+            "budget_charge_usd": budget_charge,
+            "raw_json_sha256": sha256_bytes(response["raw_json"].encode("utf-8")),
+            "raw_json_length": len(response["raw_json"]),
+        }
+        if brown_text:
+            # Never persist licensed Brown text, even if a malformed response
+            # happens to echo its input in the JSON or response envelope.
+            failure["error"] = "Model output did not match the frozen score schema."
+        else:
+            failure.update({
+                "error": response["parse_error"],
+                "raw_json": response["raw_json"],
+                "raw_response": response["raw_response"],
+            })
+        result.setdefault("failed_attempts", []).append({
+            "finished_utc": utc_now(),
+            **failure,
+        })
+        result["status"] = "failed_partial"
+        record_cost_fields(result, current_budget)
+        atomic_write(output_path, result)
+        raise RuntimeError("Bedrock returned a response that failed the frozen score schema")
+
+    response.pop("parse_error", None)
+    responses.append(response)
+    result["responses"] = responses
+    record_cost_fields(result, current_budget)
+    result["status"] = "running_calibration" if stage == "calibration" else "running_candidates"
+    atomic_write(output_path, result)
+    return current_budget
+
+
+def actual_cost_accounted(result: dict[str, Any]) -> float:
+    response_cost = sum(
+        row.get("api_metrics", {}).get("estimated_cost_usd") or 0
+        for row in result.get("responses", [])
+    )
+    failed_cost = sum(
+        row.get("estimated_cost_usd") or 0
+        for row in result.get("failed_attempts", [])
+    )
+    return response_cost + failed_cost
+
+
+def record_cost_fields(result: dict[str, Any], budget_reserved: float) -> None:
+    known = actual_cost_accounted(result)
+    missing_response_usage = any(
+        row.get("api_metrics", {}).get("estimated_cost_usd") is None
+        for row in result.get("responses", [])
+    )
+    missing_failed_usage = any(
+        row.get("estimated_cost_usd") is None
+        for row in result.get("failed_attempts", [])
+    )
+    unknown_in_flight = result.get("in_flight_attempt") is not None
+    complete = not (missing_response_usage or missing_failed_usage or unknown_in_flight)
+    result["estimated_cost_usd"] = round(known, 9) if complete else None
+    result["known_token_cost_subtotal_usd"] = round(known, 9)
+    result["actual_cost_estimate_complete"] = complete
+    result["budget_reserved_usd"] = round(budget_reserved, 9)
+
+
+def cost_accounted(result: dict[str, Any]) -> float:
+    """Worst-case budget reserved by every successful and failed request."""
+    response_cost = sum(
+        row.get("budget_charge_usd", max_request_cost_usd())
+        for row in result.get("responses", [])
+    )
+    failed_cost = sum(
+        row.get("budget_charge_usd", row.get("estimated_cost_usd", max_request_cost_usd()))
+        for row in result.get("failed_attempts", [])
+    )
+    in_flight = result.get("in_flight_attempt") or {}
+    in_flight_cost = in_flight.get("budget_charge_usd", in_flight.get("reserved_max_cost_usd", 0)) or 0
+    return response_cost + failed_cost + in_flight_cost
+
+
+def checkpoint_interrupted_attempt(result: dict[str, Any]) -> bool:
+    """Turn a crash-left in-flight marker into an auditable ambiguous attempt."""
+    attempt = result.get("in_flight_attempt")
+    if not attempt:
+        return False
+    attempt["status"] = "interrupted_unknown"
+    attempt["billing_status"] = "unknown after process interruption; explicit retry required"
+    attempt["finished_utc"] = utc_now()
+    attempt["budget_charge_usd"] = attempt.get("reserved_max_cost_usd", max_request_cost_usd())
+    result.setdefault("failed_attempts", []).append(attempt)
+    result["in_flight_attempt"] = None
+    result["status"] = "awaiting_explicit_retry"
+    return True
 
 
 def calibration_summary(rows: list[dict[str, Any]], responses: list[dict[str, Any]]) -> dict[str, Any]:
@@ -263,6 +510,8 @@ def build_fingerprint(
     input_hashes: dict[str, str],
     brown_manifest_hash: str,
     script_hash: str,
+    frozen_script_hash: str,
+    pricing_snapshot_hash: str,
     max_cost: float,
 ) -> str:
     prompt_hash = sha256_bytes((SYSTEM_PROMPT + "\0" + USER_PROMPT_TEMPLATE).encode("utf-8"))
@@ -274,14 +523,22 @@ def build_fingerprint(
         "input_hashes": input_hashes,
         "brown_control_manifest_sha256": brown_manifest_hash,
         "scorer_script_sha256": script_hash,
+        "frozen_protocol_script_sha256": frozen_script_hash,
+        "pricing_snapshot_sha256": pricing_snapshot_hash,
         "system_prompt_sha256": sha256_bytes(SYSTEM_PROMPT.encode("utf-8")),
         "user_prompt_template_sha256": sha256_bytes(USER_PROMPT_TEMPLATE.encode("utf-8")),
         "prompt_sha256": prompt_hash,
         "decoding": DECODING,
+        "service_tier": "default",
         "response_schema": BEDROCK_OUTPUT_SCHEMA,
         "presentation_manifest": public_presentations(rows),
         "control_gate": {"positive_minimum": 8, "shuffle_maximum": 3, "n_each": 12},
         "max_cost_usd": max_cost,
+        "pricing": {
+            "input_usd_per_1k": INPUT_USD_PER_1K,
+            "output_usd_per_1k": OUTPUT_USD_PER_1K,
+            "effective_date": PRICING_EFFECTIVE_DATE,
+        },
     }
     return sha256_bytes(json.dumps(material, sort_keys=True, separators=(",", ":")).encode("utf-8"))
 
@@ -291,10 +548,17 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--prepare-only", action="store_true")
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument(
+        "--retry-failed-attempts",
+        action="store_true",
+        help="explicitly permit new billable requests for inputs with an ambiguous/invalid prior attempt",
+    )
     parser.add_argument("--max-cost-usd", type=float, default=DEFAULT_MAX_COST_USD)
     args = parser.parse_args()
     if not 0 < args.max_cost_usd <= 10:
         parser.error("--max-cost-usd must be greater than 0 and no more than $10")
+    if args.retry_failed_attempts and not args.resume:
+        parser.error("--retry-failed-attempts requires --resume")
 
     candidates, input_hashes = frozen.load_candidate_rows(
         frozen.INPUT_CANDIDATES, frozen.INPUT_STATIC
@@ -324,12 +588,16 @@ def main() -> int:
             "presentation_manifest_sha256": sha256_bytes(json.dumps(
                 public_presentations(rows), sort_keys=True, separators=(",", ":")
             ).encode("utf-8")),
+            "pricing_snapshot_sha256": sha256_bytes(PRICING_SNAPSHOT.read_bytes()),
         }, indent=2))
         return 0
 
     script_hash = sha256_bytes(Path(__file__).read_bytes())
+    frozen_script_hash = sha256_bytes(Path(frozen.__file__).read_bytes())
+    pricing_snapshot_hash = sha256_bytes(PRICING_SNAPSHOT.read_bytes())
     run_fingerprint = build_fingerprint(
-        rows, input_hashes, brown_manifest_hash, script_hash, args.max_cost_usd
+        rows, input_hashes, brown_manifest_hash, script_hash, frozen_script_hash,
+        pricing_snapshot_hash, args.max_cost_usd,
     )
     if args.output.exists() and not args.resume:
         raise FileExistsError(f"{args.output} exists; use a new path or --resume")
@@ -342,7 +610,12 @@ def main() -> int:
         if result.get("status") == "calibration_failed":
             print(json.dumps(result["calibration"], indent=2))
             return 2
+        if result.get("status") == "complete":
+            print(json.dumps(result.get("analysis", {}), indent=2, ensure_ascii=False))
+            return 0
         responses = result.get("responses", [])
+        checkpoint_interrupted_attempt(result)
+        record_cost_fields(result, cost_accounted(result))
     else:
         result = {
             "experiment_id": EXPERIMENT_ID,
@@ -356,27 +629,48 @@ def main() -> int:
                 "local_protocol_script": Path(frozen.__file__).relative_to(ROOT).as_posix(),
                 "aws_scorer_script": Path(__file__).relative_to(ROOT).as_posix(),
                 "aws_scorer_script_sha256": script_hash,
+                "frozen_protocol_script": Path(frozen.__file__).relative_to(ROOT).as_posix(),
+                "frozen_protocol_script_sha256": frozen_script_hash,
+                "pricing_snapshot": PRICING_SNAPSHOT.relative_to(ROOT).as_posix(),
+                "pricing_snapshot_sha256": pricing_snapshot_hash,
                 **input_hashes,
                 "heldout_brown_control_manifest_sha256": brown_manifest_hash,
             },
             "model_facts": {
                 "provider": "Alibaba Qwen via Amazon Bedrock",
-            "model_id": MODEL_ID,
-            "region": REGION,
-            "api": "bedrock-runtime Converse",
-            "model_weight_digest": None,
-            "model_weight_digest_note": "not exposed for this Bedrock-managed model ID",
-            "reasoning_mode": "Qwen3 /no_think directive; no rationale requested or returned",
+                "model_id": MODEL_ID,
+                "region": REGION,
+                "api": "bedrock-runtime Converse",
+                "model_weight_digest": None,
+                "model_weight_digest_note": "not exposed for this Bedrock-managed model ID",
+                "reasoning_mode": {
+                    "requested": "Qwen3 /no_think prompt directive",
+                    "enforcement": "soft prompt-level directive; Bedrock does not expose a separate reasoning-mode control here",
+                },
                 "endpoint_provisioned": False,
             },
             "pricing": {
-                "service_tier": "standard",
+                "request_service_tier": "default",
+                "pricing_tier": "standard on-demand",
                 "input_usd_per_1000_tokens": INPUT_USD_PER_1K,
                 "output_usd_per_1000_tokens": OUTPUT_USD_PER_1K,
                 "effective_date": PRICING_EFFECTIVE_DATE,
                 "source": "AWS Price List API, AmazonBedrock, Qwen3 32B, us-east-2, standard on-demand",
+                "price_list_query": {
+                    "api": "GetProducts",
+                    "endpoint_region": "us-east-1",
+                    "filters": {"location": "US East (Ohio)", "model": "Qwen3 32B"},
+                    "effective_date": PRICING_EFFECTIVE_DATE,
+                    "retrieved_on": "2026-09-26",
+                    "standard_input_sku": PRICING_SKUS["input_standard"],
+                    "standard_output_sku": PRICING_SKUS["output_standard"],
+                    "snapshot_sha256": pricing_snapshot_hash,
+                },
                 "source_url": "https://aws.amazon.com/bedrock/pricing/",
                 "run_cost_cap_usd": args.max_cost_usd,
+                "per_request_worst_case_usd": round(max_request_cost_usd(), 9),
+                "full_244_request_worst_case_usd": round(244 * max_request_cost_usd(), 6),
+                "budget_accounting": "Every attempt reserves the full per-request token bound, including successful calls, so resumed runs and explicit retries cannot forget prior spend. estimated_cost_usd is the token-usage cost estimate only when usage is complete; otherwise it is null and known_token_cost_subtotal_usd reports the known subtotal.",
             },
             "method": {
                 "model_blind_to_condition": True,
@@ -409,74 +703,73 @@ def main() -> int:
             "presentations": public_presentations(rows),
             "responses": [],
             "failed_attempts": [],
+            "in_flight_attempt": None,
         }
         responses = []
 
+    if args.resume:
+        result.pop("pending_retry_count", None)
+        completed_before_retry = {row["presentation_id"] for row in responses}
+        pending_failures = [
+            attempt for attempt in result.get("failed_attempts", [])
+            if attempt.get("presentation_id") not in completed_before_retry
+        ]
+        if pending_failures and not args.retry_failed_attempts:
+            result["status"] = "awaiting_explicit_retry"
+            result["pending_retry_count"] = len(pending_failures)
+            record_cost_fields(result, cost_accounted(result))
+            atomic_write(args.output, result)
+            print(
+                f"{len(pending_failures)} unresolved/invalid presentation(s); resume again with --retry-failed-attempts to authorize another billable attempt",
+                file=sys.stderr,
+            )
+            return 4
+
+    runtime_facts = collect_runtime_facts()
+    if args.resume:
+        recorded_facts = result.get("runtime_environment")
+        if not recorded_facts:
+            result["status"] = "runtime_identity_unverifiable"
+            atomic_write(args.output, result)
+            print("saved run has no original AWS identity record; refusing to resume", file=sys.stderr)
+            return 5
+        result.setdefault("runtime_environment_checks", []).append({
+            "checked_utc": utc_now(),
+            **runtime_facts,
+        })
+        if not same_runtime_identity(recorded_facts, runtime_facts):
+            result["status"] = "runtime_identity_mismatch"
+            record_cost_fields(result, cost_accounted(result))
+            atomic_write(args.output, result)
+            print("active AWS profile/account/principal differs from the original run; refusing to resume", file=sys.stderr)
+            return 5
+    else:
+        result["runtime_environment"] = runtime_facts
+        result["runtime_environment_checks"] = [{"checked_utc": utc_now(), **runtime_facts}]
+    atomic_write(args.output, result)
     client = make_runtime_client()
     completed = {row["presentation_id"] for row in responses}
-    total_cost = sum(row.get("api_metrics", {}).get("estimated_cost_usd", 0) for row in responses)
-    total_cost += sum(row.get("estimated_cost_usd", 0) or 0 for row in result.get("failed_attempts", []))
-    if total_cost >= args.max_cost_usd:
+    budget_reserved = cost_accounted(result)
+    record_cost_fields(result, budget_reserved)
+    if budget_reserved + 1e-12 >= args.max_cost_usd:
         result["status"] = "cost_cap_exceeded"
-        result["estimated_cost_usd"] = round(total_cost, 9)
         atomic_write(args.output, result)
-        print(f"run cost cap reached; no further model calls made (${total_cost:.4f})", file=sys.stderr)
+        print(f"run budget cap reached; no further model calls made (${budget_reserved:.4f} reserved)", file=sys.stderr)
         return 3
     result["status"] = "running_calibration"
     atomic_write(args.output, result)
     started = time.monotonic()
     try:
-        for stage_name, stage_rows in (("calibration", calibration_rows),):
-            for row in stage_rows:
-                presentation_id = row["presentation_id"]
-                if presentation_id in completed:
-                    continue
-                try:
-                    response = ask_bedrock(client, row["text"], presentation_id)
-                except Exception as exc:
-                    result["failed_attempts"].append({
-                        "presentation_id": presentation_id,
-                        "stage": stage_name,
-                        "attempted_utc": utc_now(),
-                        "error_type": type(exc).__name__,
-                        "error": str(exc)[:500],
-                    })
-                    result["responses"] = responses
-                    result["status"] = "failed_partial"
-                    atomic_write(args.output, result)
-                    raise
-                total_cost += response["api_metrics"]["estimated_cost_usd"]
-                response["presentation_id"] = presentation_id
-                response["condition_hidden"] = True
-                if response["parse_error"]:
-                    result["failed_attempts"].append({
-                        "presentation_id": presentation_id,
-                        "stage": stage_name,
-                        "attempted_utc": utc_now(),
-                        "error_type": "InvalidModelOutput",
-                        "error": response["parse_error"],
-                        "aws_request_id": response["aws_request_id"],
-                        "api_metrics": response["api_metrics"],
-                        "estimated_cost_usd": response["api_metrics"]["estimated_cost_usd"],
-                        "raw_json": response["raw_json"],
-                        "raw_response": response["raw_response"],
-                    })
-                    result["responses"] = responses
-                    result["estimated_cost_usd"] = round(total_cost, 9)
-                    result["status"] = "failed_partial"
-                    atomic_write(args.output, result)
-                    raise RuntimeError("Bedrock returned a response that failed the frozen score schema")
-                response.pop("parse_error", None)
-                responses.append(response)
-                completed.add(presentation_id)
-                result["responses"] = responses
-                result["estimated_cost_usd"] = round(total_cost, 9)
-                atomic_write(args.output, result)
-                print(f"calibration {len(completed)}/24; estimated cost ${total_cost:.4f}", flush=True)
-                if total_cost > args.max_cost_usd:
-                    result["status"] = "cost_cap_exceeded"
-                    atomic_write(args.output, result)
-                    raise RuntimeError("estimated token cost exceeded the configured run cap")
+        for row in calibration_rows:
+            presentation_id = row["presentation_id"]
+            if presentation_id in completed:
+                continue
+            budget_reserved = execute_one(
+                client, row, "calibration", result, responses, args.output,
+                budget_reserved, args.max_cost_usd,
+            )
+            completed.add(presentation_id)
+            print(f"calibration {sum(r['presentation_id'] in completed for r in calibration_rows)}/24; known token-cost subtotal ${actual_cost_accounted(result):.4f}; worst-case budget ${budget_reserved:.4f}", flush=True)
 
         calibration = calibration_summary(rows, responses)
         result["calibration"] = calibration
@@ -484,7 +777,7 @@ def main() -> int:
             result["status"] = "calibration_failed"
             result["finished_utc"] = utc_now()
             result["elapsed_seconds"] = round(time.monotonic() - started, 3)
-            result["estimated_cost_usd"] = round(total_cost, 9)
+            record_cost_fields(result, budget_reserved)
             atomic_write(args.output, result)
             print(json.dumps(calibration, indent=2))
             return 2
@@ -495,64 +788,24 @@ def main() -> int:
             presentation_id = row["presentation_id"]
             if presentation_id in completed:
                 continue
-            try:
-                response = ask_bedrock(client, row["text"], presentation_id)
-            except Exception as exc:
-                result["failed_attempts"].append({
-                    "presentation_id": presentation_id,
-                    "stage": "candidate_and_shuffle",
-                    "attempted_utc": utc_now(),
-                    "error_type": type(exc).__name__,
-                    "error": str(exc)[:500],
-                })
-                result["responses"] = responses
-                result["status"] = "failed_partial"
-                atomic_write(args.output, result)
-                raise
-            total_cost += response["api_metrics"]["estimated_cost_usd"]
-            response["presentation_id"] = presentation_id
-            response["condition_hidden"] = True
-            if response["parse_error"]:
-                result["failed_attempts"].append({
-                    "presentation_id": presentation_id,
-                    "stage": "candidate_and_shuffle",
-                    "attempted_utc": utc_now(),
-                    "error_type": "InvalidModelOutput",
-                    "error": response["parse_error"],
-                    "aws_request_id": response["aws_request_id"],
-                    "api_metrics": response["api_metrics"],
-                    "estimated_cost_usd": response["api_metrics"]["estimated_cost_usd"],
-                    "raw_json": response["raw_json"],
-                    "raw_response": response["raw_response"],
-                })
-                result["responses"] = responses
-                result["estimated_cost_usd"] = round(total_cost, 9)
-                result["status"] = "failed_partial"
-                atomic_write(args.output, result)
-                raise RuntimeError("Bedrock returned a response that failed the frozen score schema")
-            response.pop("parse_error", None)
-            responses.append(response)
+            budget_reserved = execute_one(
+                client, row, "candidate_and_shuffle", result, responses, args.output,
+                budget_reserved, args.max_cost_usd,
+            )
             completed.add(presentation_id)
-            result["responses"] = responses
-            result["estimated_cost_usd"] = round(total_cost, 9)
-            atomic_write(args.output, result)
-            print(f"candidate/control {index}/220; estimated cost ${total_cost:.4f}", flush=True)
-            if total_cost > args.max_cost_usd:
-                result["status"] = "cost_cap_exceeded"
-                atomic_write(args.output, result)
-                raise RuntimeError("estimated token cost exceeded the configured run cap")
+            print(f"candidate/control {index}/220; known token-cost subtotal ${actual_cost_accounted(result):.4f}; worst-case budget ${budget_reserved:.4f}", flush=True)
 
         result["analysis"] = frozen.compute_analysis(rows, responses)
         result["status"] = "complete"
         result["finished_utc"] = utc_now()
         result["elapsed_seconds"] = round(time.monotonic() - started, 3)
-        result["estimated_cost_usd"] = round(total_cost, 9)
+        record_cost_fields(result, budget_reserved)
         atomic_write(args.output, result)
         print(json.dumps(result["analysis"], indent=2, ensure_ascii=False))
         return 0
     except Exception:
         result["responses"] = responses
-        result["estimated_cost_usd"] = round(total_cost, 9)
+        record_cost_fields(result, cost_accounted(result))
         result["elapsed_seconds"] = round(time.monotonic() - started, 3)
         atomic_write(args.output, result)
         raise

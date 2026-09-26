@@ -1,13 +1,42 @@
-# NAACL draft review handoff
+# NAACL 2027 professor review handoff
 
-This folder holds the anonymous four-page PDF, a short reviewer brief, the full local-judge results report, the current readiness plan, an offline copy of the one-author review page and its instructions, and the frozen reproducibility archive for the September 26, 2026 handoff. The PDF is built from `paper/naacl2027.tex` and `paper/refs.bib` with the repository's ACL style files. `SHA256SUMS` records the handoff-file hashes.
+This bundle contains the anonymous manuscript PDF and source, reviewer brief,
+readiness plan, reproducible diagnostic reports, and a separate first-pass
+rating packet. The paper reports a bundled resource-sensitivity result; it
+does not claim the generated strings are readable. The packet explicitly
+defines letter-level versus word-order palindromes.
 
-To rebuild in a clean output directory from the repository root:
+## Read the paper
+
+Start with `naacl2027.pdf`. The included TeX source, bibliography, and ACL
+style files can rebuild it from this folder with:
 
 ```sh
-tectonic -X compile --outdir /tmp/naacl2027-review paper/naacl2027.tex
+tectonic -X compile --outdir /tmp/naacl2027-review naacl2027.tex
 ```
 
-`SHA256SUMS` records the PDF digest. The manuscript is an exploratory resource-sensitivity report. The attached reviewer brief states the claim boundaries and the three decisions on which feedback is most useful.
+## Optional first-pass rating
 
-The separate one-author review is ready at the private Tailscale link supplied with the handoff. The same self-contained page and instructions are included here if opening it directly is easier. It contains 52 unique items, autosaves in the current browser, supports pause/resume and checkpoint export, and does not transmit ratings. The item instructions explain the letter-level versus word-order distinction. Its export is a first-person pilot, not independent confirmatory evidence.
+Extract `first-person-review-packet.zip` and follow `START-HERE.txt`, or open
+the included `reviewer.html` directly. It is a one-file offline page. It
+supports pause/resume, saves locally when browser storage is available, and
+exports the ratings to JSON. No ratings are transmitted. The export validator
+and schema are included beside the page in the ZIP.
+
+The private Tailscale route is https://erics-mac-mini.taild34f34.ts.net/review. Tailscale Serve is limited
+to the tailnet; see the [Tailscale Serve documentation](https://tailscale.com/docs/features/tailscale-serve).
+HTTPS returned 200 with certificate validation on the checked hosts. The
+custom name `review.espencer.me` is not configured. Use the offline page if
+the reviewer is not on the tailnet.
+
+The ratings are one author's exploratory pilot, not independent or
+confirmatory evidence. Keep the raw export with the packet and do not open the
+sealed provenance key before the first rating pass is complete.
+
+## Evidence archive
+
+The full `v4-reproducibility.zip` is maintained separately in the repository.
+It is deliberately not embedded here because it includes the sealed mapping
+from opaque review IDs to method and task provenance. Keep it closed until
+first-pass ratings are finalized. `SHA256SUMS` covers files in this handoff
+folder except itself.

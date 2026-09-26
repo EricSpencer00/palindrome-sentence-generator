@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xurl}
+\newcommand{\code}[1]{\texttt{#1}}
+\title{Resource Sensitivity in Exact Letter-Level Palindrome Search}
+\author{Anonymous submission}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We measured whether a larger search-resource bundle changes exact letter-level palindrome coverage, and audited automatic language diagnostics on outputs that passed mechanical checks. Across 20 fresh seeds, three length bands, two search implementations, and two resource bundles (240 runs), basic-valid coverage rose from 0/120 to 66/120. The paired increase was 0.55 (95\% seed-cluster bootstrap interval: 0.35--0.75); both implementations returned 33/60 outputs under the larger bundle. Beam width, candidate limit, branching, and time budget changed together, so the estimate is for the bundle and does not identify which setting accounts for the increase. Brown gain exceeded its scorer-specific shuffle baseline for 40/66 outputs; GPT-2 likelihood did so for 37/66; DeepSeek V3.2 tied all 66 comparisons. A local Qwen2.5-3B audit gave all 52 unique texts 0 on both 0--3 dimensions, but failed its Brown-control calibration; these candidate scores are inconclusive. We collected no human ratings. The evidence supports a resource-sensitive coverage result, not a claim that generated outputs are readable.
+\end{abstract}
+
+\section{Introduction}
+
+An exact letter-level palindrome has a normalized ASCII-letter tape equal to its reversal; its words need not reverse, and the property does not imply ordinary prose. Prior work searches corpus n-gram graphs or uses residual-character search to construct palindromes \citep{papadopoulos2015palindromes,norvig2002palindrome}. Here we study a narrower question: when a fixed search task yields no eligible output, does a larger resource bundle change exact-output coverage, and what do automatic language diagnostics say about outputs that are found?
+
+The v4 study is an adaptive follow-up to an earlier 180-run comparison with no basic-valid outputs. It compares two operational implementations and scores selected outputs against deterministic same-word shuffles using a document-held-out Brown bigram model, a pinned GPT-2 checkpoint, and one blinded DeepSeek V3.2 judgment per output. Neither implementation reproduces the cited systems; these model diagnostics are not human evaluations.
+
+\section{Experiment}
+
+\paragraph{Tasks and search.} Each task uses one of three target bands (30--49, 50--79, or 80--119 normalized letters). Both algorithms begin from an empty text and share a frozen vocabulary, state constraints, and basic structural gate: supported ASCII rendering, exact palindrome tape, length band, lexicon-backed words, ordinary short words, and exclusions for known catalogue items and templates. The outside-in arm closes when its residual character debt is a palindrome; center-out closes only on empty overhang. The short-word predicate accepts words longer than two letters or a frozen allowlist of 32 one- and two-letter forms. A search returns its eligible closure with the largest accumulated Zipf frequency score per normalized letter. Repeated words are retained and reported. Outputs are lower-case space-joined words, with an initial capital and final period.
+
+The previous v3 comparison had 90 tasks per algorithm and yielded no basic-valid outputs. After toy-vocabulary controls confirmed that both search implementations could reach a known target, we froze v4 on 20 fresh seeds (4000--4019) crossed with the three bands. Each of the 60 seed-by-band blocks ran both algorithms under both resource bundles, for 240 runs. The original bundle used beam/candidate/per-parent limits of 60/200/8 and a 45-second cooperative budget; the escalated bundle used 256/800/32 and 180 seconds. Both have a 400-step ceiling. These settings change together, so the comparison does not isolate any one resource. No run reached its deadline.
+
+The vocabulary is derived from the project's frozen 30K word list, then filtered through its English lexicon and ordinary-short-word list. Search priorities use English Zipf frequencies from \code{wordfreq} 3.1.1, add 0.3 per word character, subtract 2 for each prior word use and 4 for an adjacent repeated word, then select the eligible closure with the highest accumulated score per letter \citep{speer-2022-wordfreq}. This is a search heuristic, not a calibrated measure of sentence quality.
+
+The primary outcome is the fraction of requested runs returning an output that passes the shared basic gate. We compute the paired escalated-minus-original difference and a percentile bootstrap interval over 20 whole seed clusters (20,000 resamples; PRNG seed 20260925). Runs with no output stay in the denominator. The follow-up is adaptive: its design responds to v3's null yield, so it is not an independent confirmation of a pre-v3 hypothesis.
+
+\paragraph{Language diagnostics.} We scored only the 66 selected v4 outputs; no v3 output existed to score. Brown order gain is the add-0.1 word-bigram mean log probability minus the mean for 32 deterministic permutations generated independently for each item by a hash-seeded scorer RNG. GPT-2 uses the pinned \url{openai-community/gpt2} revision \url{607a30d783dfa663caf39e06633721c8d4cfcd7e}; its value is candidate mean causal token log probability minus the mean for 32 archived deterministic same-word controls. Brown and GPT-2 use different permutations, although both preserve token counts and sentence lengths. The Brown model trains on 401 Brown documents; the remaining 99 are held out from model fitting, and a sample from that split supplies separate Qwen calibration controls, not validation data for the Brown scorer \citep{kucera-francis-1967,loper-bird-2002-nltk}. DeepSeek V3.2 received one counterbalanced, blinded candidate--shuffle pair per output through Bedrock (temperature 0, top-p 1, maximum 256 tokens) \citep{awsbedrockdeepseekv32}. Prompts, visible responses, hashes, and token usage are archived. AWS did not provide a model seed, so an API rerun need not reproduce the exact response.
+
+\paragraph{Local absolute-rating audit.} In a separate post-selection diagnostic, local Qwen2.5-3B-Instruct assigned 0--3 grammaticality and coherent-meaning scores to the 52 unique candidate texts, their three word shuffles each, 12 Brown control spans and their shuffles, and 12 hidden repeats \citep{qwen25}. A joint pass required at least 2 on both dimensions; the prespecified control gate required at least 8/12 controls and at most 3/12 shuffles to pass. The archived protocol and complete outputs accompany the reproducibility supplement. This judge is not used during search.
+
+\section{Results}
+
+\paragraph{Coverage.} The original bundle returned 0/120 basic-valid outputs; the escalated bundle returned 66/120 (0.550). The paired difference was 0.550, with a 95\% seed-cluster bootstrap interval of [0.350, 0.750]. Each algorithm returned 33/60 under the escalated bundle. Median time per task was 0.014 seconds in the original bundle and 8.954 seconds in the escalated bundle; no task timed out. Four resource settings changed together, so the comparison estimates the bundled change and cannot identify which setting accounts for the coverage increase. The full task-level counts, including closure candidates and failures, are in the artifact.
+
+\begin{table}[t]
+\centering
+\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Bundle & Runs & Basic-valid & Coverage & Strict* & Median s. \\
+\midrule
+Original & 120 & 0 & 0.000 & --- & 0.014 \\
+Escalated & 120 & 66 & 0.550 & 54/66 & 8.954 \\
+\bottomrule
+\end{tabular}}
+\caption{Coverage by resource bundle. *Strict is the fraction of selected basic-valid outputs passing all additional mechanical anti-shortcut checks; it is not strict search coverage.}
+\label{tab:coverage}
+\end{table}
+
+\paragraph{Language diagnostics on selected outputs.} Table~\ref{tab:language} summarizes each method's 33 outputs. Brown gain was positive for 40/66 outputs overall, and GPT-2 candidate-minus-shuffle likelihood was positive for 37/66. Positive values mean only that the output scored above its own shuffle baseline under that model. DeepSeek tied in every pair and preferred neither side. These measurements do not establish readability.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Search arm & n & Strict & Unique & Brown gain & GPT-2 diff. & DeepSeek C/S/T \\
+\midrule
+Outside-in* & 33 & 28 & 26 & 0.303 (25) & 0.068 (23) & 0/0/33 \\
+Center-out & 33 & 26 & 26 & 0.124 (15) & -0.003 (14) & 0/0/33 \\
+\bottomrule
+\end{tabular}}
+\caption{Automatic diagnostics, computed only on selected basic-valid outputs. Brown gain is nats per word transition; GPT-2 difference is nats per predicted token. Parentheses give the number of positive candidate--shuffle differences. C/S/T counts DeepSeek choices of candidate, shuffle, or tie. *Outside-in is an adaptation of residual search, not a reproduction of Norvig's system.}
+\label{tab:language}
+\end{table}
+
+All 52 unique strings pass the exact normalized-letter reversal check; none reverses the word order. The 66 outputs contain 52 distinct strings across the two arms (26 per arm); 54 pass the additional mechanical anti-shortcut checks. Those extra checks require distinct content words and reject whole-word reversals, repeated multiword units, proper palindromic subspans, and listed catalogue templates. Still, 36/66 contain the exact phrase ``one poem association.'' Thus exactness, lexicon membership, and these construction screens leave conspicuous repetitive language. Brown and GPT-2 scores are conditional on search success and are not direct measures of meaning. DeepSeek tied all 66 pairs; in 38 responses its feature note was ``Both are word salad with no coherent meaning.''
+
+\paragraph{Local judge calibration.} Qwen assigned both dimensions 0/3 to all 52 unique candidates, but only 1/12 original Brown control spans met the joint threshold (0/12 matched shuffles); the control gate failed. Post-run inspection found that 7 of the 12 spans contained 2--4 adjacent Brown sentences; 5 were single sentences. A separate post-hoc sensitivity check used 12 individual Brown sentences selected from previously unused sentence indices, matched exactly by word count, with one deterministic same-word shuffle each. The unchanged judge passed 4/12 sentences and 0/12 shuffles, below the same 8/12 threshold. The follow-up changes source content and presentation units; it cannot explain or revise the first failure. Qwen therefore supplies no calibrated evidence about candidate readability. Its 12/12 exact hidden-repeat agreement demonstrates repeatability under this setup, not validity.
+
+\section{Discussion}
+
+The supported finding is that the escalated resource bundle recovered basic-valid outputs on 66 of 120 tasks where the original bundle recovered none. The algorithms tied in coverage. This does not show that one growth direction is better, that runtime alone caused the increase, or that the returned texts are readable. In the success-conditioned sample, the 54/66 strict-pass figure is a mechanical sensitivity check, not an estimate of strict search coverage. The repeated phrase in 36 outputs makes the difference between exactness and useful language concrete.
+
+\section*{Reproducibility and assistance}
+
+The checksum-manifested archive \url{v4-reproducibility.zip} contains frozen manifests, row-level outputs, scorer inputs and responses, source code, model revisions, and rerun commands. Brown and GPT-2 scores can be recomputed from the saved inputs; DeepSeek's stored response can be re-parsed, but provider rerun stability was not measured. The local Qwen results, prompts, and exact model digest are archived; Brown sentence text is omitted under the corpus terms. The reported Bedrock charge is an estimated USD 0.0098 from recorded tokens and published rates \citep{awsbedrockpricing}. Generative AI assisted code, drafting, and internal review; no AI review is human evaluation. No participant data were collected.
+
+\section{Limitations}
+
+This is an adaptive experiment on one vocabulary, three narrow length bands, and 20 fresh seeds. v4 bundles beam width, candidate limit, branching, and time budget; the two methods also use different native closure rules. The language diagnostics condition on search success and are automatic model outputs, not reader judgments. Brown measures local word-order fit under one corpus model; GPT-2 measures likelihood under one pinned model; DeepSeek is one unseeded API judgment per item. The local Qwen judge failed its prespecified calibration check, so its candidate scores are inconclusive. None of these measures replaces blind human ratings of grammaticality and coherence \citep{howcroft-etal-2020-twenty,khashabi-etal-2022-genie}. We make no population, human-readability, causal, or general system-superiority claim.
+
+\bibliography{refs}
+\end{document}

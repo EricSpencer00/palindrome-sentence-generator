@@ -10,7 +10,7 @@ On 120 frozen tasks, a larger bundle of search resources returned 66 basic-valid
 
 The automatic diagnostics are descriptive. Brown word-bigram gain was positive for 40/66 selected outputs, GPT-2 likelihood for 37/66, and DeepSeek V3.2 tied every candidate/shuffle pair. A separate Qwen2.5-3B local audit assigned floor grammar and meaning scores to all 52 unique candidates, but it passed only 1/12 initial Brown controls. A post-hoc, individual-sentence sensitivity check passed 4/12 controls. Both miss the frozen 8/12 calibration criterion, so the Qwen candidate scores are inconclusive. The paper has no human ratings.
 
-All 52 unique strings pass the exact normalized-letter reversal check, but none is a word-order palindrome. The output set contains 52 distinct strings; 36 of the 66 selected outputs contain the same phrase, “one poem association.” The paper therefore makes no readability, causal, population, or general-superiority claim.
+All 52 unique strings pass the exact normalized-letter reversal check, but none is a word-order palindrome. This letter-level definition does not make a string a coherent sentence. The output set contains 52 distinct strings; 36 of the 66 selected outputs contain the same phrase, “one poem association.” The paper therefore makes no readability, causal, population, or general-superiority claim.
 
 ## Questions for review
 

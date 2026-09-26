@@ -18,11 +18,12 @@ main{max-width:850px;margin:0 auto;padding:28px 20px 56px}h1{font-size:1.45rem;l
 <main>
 <h1>Private first-pass review</h1>
 <p class="note">One author's exploratory review of frozen v4 outputs. Rate each text as written. This is not an independent or confirmatory study.</p>
-<p class="note">The construction rule checks whether the complete letter sequence reads the same backward after ignoring case and punctuation. These are character-level palindromes, not word-order palindromes. Please rate the sentence as written; do not give credit for the letter pattern.</p>
+<p class="note">The construction rule checks whether the complete letter sequence reads the same backward after ignoring case and punctuation. These are letter-level palindromes, not word-order palindromes. Please rate the text as written; do not give credit for the letter pattern.</p>
 <div class="toolbar" aria-label="Review controls">
   <button id="start" class="primary" type="button">Start / Resume</button>
   <button id="pause" type="button" disabled>Pause</button>
   <button id="export" type="button">Export answers</button>
+  <button id="confirm-export" class="hidden" type="button">I saved the checkpoint</button>
   <label class="file-button">Import checkpoint<input id="import" type="file" accept="application/json,.json"></label>
 </div>
 <div id="status" role="status" aria-live="polite">Not started. Your answers save on this device.</div>
@@ -33,7 +34,7 @@ main{max-width:850px;margin:0 auto;padding:28px 20px 56px}h1{font-size:1.45rem;l
   <p id="sentence" class="sentence"></p>
   <div class="rate-grid">
     <fieldset id="grammar-set"><legend>Grammaticality</legend>
-      <p class="scale-help">How well formed and natural is this sentence as written?</p>
+      <p class="scale-help">How well formed and natural is this text as written?</p>
       <div class="choices" data-field="grammaticality"></div>
     </fieldset>
     <fieldset id="meaning-set"><legend>Understandability</legend>
@@ -61,6 +62,8 @@ main{max-width:850px;margin:0 auto;padding:28px 20px 56px}h1{font-size:1.45rem;l
   const emptyAnswer = () => ({grammaticality:null, understandability:null, paraphrase:""});
   let state = {started:false, paused:true, index:0, answers:{}};
   let storageOk = true;
+  let checkpointDirty = false;
+  let exportPendingConfirmation = false;
   const $ = (id) => document.getElementById(id);
   const safeInt = (v) => Number.isInteger(v) && v >= 1 && v <= 5;
   function normalizeState(s) {
@@ -86,10 +89,12 @@ main{max-width:850px;margin:0 auto;padding:28px 20px 56px}h1{font-size:1.45rem;l
     return {started:!!s.started, paused:true, index, answers};
   }
   function localSave() {
+    exportPendingConfirmation = false;
     try {
       localStorage.setItem(storageKey, JSON.stringify({packet_id:meta.packet_id,source_input_sha256:meta.source_sha256,started:state.started,paused:state.paused,current_index:state.index,answers:items.map(i=>({item_id:i.id,item_sha256:i.sha256,...(state.answers[i.id]||emptyAnswer())}))}));
       storageOk = true;
-    } catch (_) { storageOk = false; }
+      checkpointDirty = false;
+    } catch (_) { storageOk = false; checkpointDirty = true; }
     renderStatus();
   }
   function completedCount() { return items.filter(i => {const a=state.answers[i.id]; return a && safeInt(a.grammaticality) && safeInt(a.understandability);}).length; }
@@ -103,6 +108,7 @@ main{max-width:850px;margin:0 auto;padding:28px 20px 56px}h1{font-size:1.45rem;l
     else if(!state.started) $("status").textContent="Not started. Your answers save on this device.";
     else if(state.paused) $("status").textContent="Paused. Your latest answers and position are saved locally.";
     else $("status").textContent="Review in progress. Changes save locally as you make them.";
+    $("confirm-export").classList.toggle("hidden",!(exportPendingConfirmation&&!storageOk&&checkpointDirty));
     $("start").disabled=state.started && !state.paused;
     $("pause").disabled=!state.started || state.paused;
   }
@@ -142,16 +148,29 @@ main{max-width:850px;margin:0 auto;padding:28px 20px 56px}h1{font-size:1.45rem;l
     const payload={schema_version:"1.0",packet_id:meta.packet_id,source_input_sha256:meta.source_sha256,exported_at_utc:new Date().toISOString(),review_scope:"one_author_first_person_pilot_exploratory_not_confirmatory",item_count:items.length,completed_count:completedCount(),current_index:state.index,started:state.started,paused:state.paused,answers:answerRows};
     const blob=new Blob([JSON.stringify(payload,null,2)+"\n"],{type:"application/json"});
     const url=URL.createObjectURL(blob), a=document.createElement("a"); a.href=url; a.download="palindrome-v4-first-person-pilot-answers.json"; document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000);
-    renderStatus("Checkpoint exported. Keep the JSON file with your private review materials.");
+    if(!storageOk&&checkpointDirty){
+      exportPendingConfirmation=true;
+      renderStatus("Download started. Confirm the file appears in your downloads to clear the close warning.");
+    } else {
+      renderStatus("Checkpoint exported. Keep the JSON file with your private review materials.");
+    }
   }
+  window.addEventListener("beforeunload",event=>{
+    if(!storageOk&&checkpointDirty){event.preventDefault();event.returnValue="";}
+  });
   $("start").addEventListener("click",()=>{state.started=true;state.paused=false;localSave();render();});
   $("pause").addEventListener("click",()=>{state.paused=true;localSave();render();});
   $("previous").addEventListener("click",()=>{if(state.index>0){state.index--;localSave();render();}});
   $("next").addEventListener("click",()=>{if(state.index<items.length-1){state.index++;localSave();render();}});
   $("export").addEventListener("click",exportAnswers);
+  $("confirm-export").addEventListener("click",()=>{
+    exportPendingConfirmation=false;
+    checkpointDirty=false;
+    renderStatus("Checkpoint confirmed. Keep the JSON file with your private review materials.");
+  });
   $("import").addEventListener("change",async ev=>{
     const file=ev.target.files&&ev.target.files[0]; if(!file)return;
-    try {const parsed=JSON.parse(await file.text()); const restored=normalizeState(parsed); const hasCurrent=Object.values(state.answers).some(a=>a&&(a.grammaticality!==null||a.understandability!==null||a.paraphrase)); if(hasCurrent&&!confirm("Restore this checkpoint and replace ratings currently saved in this browser?")) return; state=restored; localSave(); render(); renderStatus("Checkpoint restored. The imported answers are saved locally.");}
+    try {const parsed=JSON.parse(await file.text()); const restored=normalizeState(parsed); const hasCurrent=Object.values(state.answers).some(a=>a&&(a.grammaticality!==null||a.understandability!==null||a.paraphrase)); if(hasCurrent&&!confirm("Restore this checkpoint and replace ratings currently saved in this browser?")) return; state=restored; localSave(); render(); renderStatus(storageOk?"Checkpoint restored and saved locally.":"Checkpoint restored in this page only. Local autosave is unavailable; export and confirm a checkpoint before leaving.");}
     catch(err){alert(`Checkpoint not imported: ${err.message}`);}
     finally{ev.target.value="";}
   });

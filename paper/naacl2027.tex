@@ -21,7 +21,7 @@ We measured whether a larger search-resource bundle changes exact letter-level p
 
 \section{Introduction}
 
-An exact letter-level palindrome has a normalized ASCII-letter tape equal to its reversal. This property is easy to verify and says nothing about whether the text forms ordinary prose. Prior work searches corpus n-gram graphs or uses residual-character search to construct palindromes \citep{papadopoulos2015palindromes,norvig2002palindrome}. Here we study a narrower question: when a fixed search task yields no eligible output, does a larger resource bundle change exact-output coverage, and what do automatic language diagnostics say about outputs that are found?
+An exact letter-level palindrome has a normalized ASCII-letter tape equal to its reversal; its words need not reverse, and the property does not imply ordinary prose. Prior work searches corpus n-gram graphs or uses residual-character search to construct palindromes \citep{papadopoulos2015palindromes,norvig2002palindrome}. Here we study a narrower question: when a fixed search task yields no eligible output, does a larger resource bundle change exact-output coverage, and what do automatic language diagnostics say about outputs that are found?
 
 The v4 study is an adaptive follow-up to an earlier 180-run comparison with no basic-valid outputs. It compares two operational implementations and scores selected outputs against deterministic same-word shuffles using a document-held-out Brown bigram model, a pinned GPT-2 checkpoint, and one blinded DeepSeek V3.2 judgment per output. Neither implementation reproduces the cited systems; these model diagnostics are not human evaluations.
 

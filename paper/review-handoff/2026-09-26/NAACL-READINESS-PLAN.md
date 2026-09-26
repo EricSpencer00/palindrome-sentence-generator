@@ -31,13 +31,17 @@ output; its 66 ties are not a human study.
 | Archive evidence | 63-member deterministic zip; 62 per-file hashes; v4 model/search records plus both Qwen protocols, runners, result JSONs and report; export-only Brown control projection contains no Brown text | Complete; privacy and hash-link tests pass; archive SHA-256 `0a72885649c102d87fc8b462a66baf5be11b9748300f4726f757c1759b72bc06` |
 | Local Qwen audit | 244 presentations using the installed Qwen2.5-3B-Instruct model, frozen scoring protocol and duplicate checks | Complete; model calibration failed, so candidate scores are inconclusive |
 | Qwen control sensitivity | Separate 12-sentence/12-shuffle check with unchanged model, prompt, rubric, and gate | Complete; 4/12 sentences and 0/12 shuffles passed; same gate failed |
+| Resource-setting attribution follow-up | Frozen five-condition, 600-task OAT protocol; 20 new seed clusters; one setting changed per arm; manifest SHA-256 `3f10b1e14a7282273d647819d130f64b5ce51fac744ce6a6183ad268ccc18733` | Not run; the remote transfer of internal search source and vocabulary was rejected by automatic review. Explicit authorization request is recorded as private ticket #473; no search tasks started. |
+| User-provided example score | The pasted sentence matches one v4 candidate's normalized letter tape; its question mark is a punctuation variation. The exact variant received Qwen 3B grammar 0/3 and meaning 0/3; the source candidate received the same scores in the frozen audit. | Diagnostic only and excluded from study totals; it is a letter-level palindrome, not a word-order palindrome. Qwen's failed positive-control gate means neither score is calibrated. |
 | Revise manuscript | Four-page anonymous draft with diagnostic totals, Qwen calibration failure, exact closure rules, bundle attribution, adaptive-design disclosure and limits | Complete; final independent reviewer QA complete |
 | Reproduce and inspect PDF | Rebuilt in an isolated temporary directory; verified four-page count and extracted text; rendered and visually inspected all pages | Complete; bibliography occupies page 4; TeX emitted line-break warnings only |
 | Recompute diagnostics | Recomputed Brown scores from the frozen inputs, joined saved GPT-2 and DeepSeek outputs, and reran the v4 analyzer with candidate-ID and text-hash checks | Complete; 240 tasks and 66 outputs verified |
 | Test implementation | Changed search tests and related palindrome tests | 34 passed; GPT-2 download test needs network; full suite collection is blocked by three historical tests importing absent modules |
-| Obtain a stronger local/AWS judge | Mini has only Qwen 3B and Gemma 2B installed; the Mini is swap-heavy. No NUC endpoint or stronger cached model is ready. AWS has no usable credentials in this session. | Blocked by available compute/auth; no extra model was downloaded or billed |
-| One-author packet | 52 unique outputs with separate 1–5 grammar and understandability items; local autosave, pause/resume and JSON export are implemented | Ready; ratings not collected |
-| Custom `espencer.me` review alias | Current private Tailscale `.ts.net` route exists. No separate review hostname/DNS/Cloudflare Access route is configured; preserve the existing `ssh.espencer.me` route. | Unavailable from current host credentials; use the private Tailscale link for now |
+| Obtain a stronger local/AWS judge | The configured Mini has only the audited Qwen2.5-3B and Gemma 2B cached; the NUC has no Ollama runtime and only smaller cached chat models. AWS has no usable credentials in this session. | No stronger judge is available without a model download/install; none was performed or billed. |
+| One-author packet | 52 unique outputs with separate 1–5 grammar and understandability items; standalone HTML, local autosave, pause/resume, import/export, and a close-warning confirmation for failed autosave | Ready; ratings not collected; the rating ZIP includes its validator and schema |
+| Private Tailscale review route | Existing Serve route is `https://erics-mac-mini.taild34f34.ts.net/review`; HEAD returned 200 with certificate verification from the coordinator and Mac mini when resolving the tailnet host to `100.117.97.102` | Private route verified; requires tailnet access; standalone review ZIP is the guaranteed fallback |
+| Custom `review.espencer.me` alias | DNS lookup failed from both checked hosts and no route is configured. Standard [Tailscale Serve](https://tailscale.com/docs/features/tailscale-serve) restricts names to the device's tailnet domain. | Not available as requested; no DNS or proxy settings were changed |
+| Professor handoff bundle | Deterministic handoff builder includes the PDF, review brief, readiness plan, results report, and a separate method-label-masked rating ZIP; it excludes the full archive containing the sealed key | Built and hash-checked; optional live link is private; offline ZIP works without Tailscale |
 
 ## Evidence and reproduction
 
@@ -49,7 +53,7 @@ hashes match the rerun outputs. A fresh DeepSeek call is not guaranteed to
 reproduce its response because Bedrock supplied no provider seed.
 
 Search and summary reproduction commands are in
-[`DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md`](../experiments/DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md).
+[`DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md`](DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md).
 The prior 11-text score audit, split definition and expected-report rerun are
 in [`READABILITY-SCORE-AUDIT.md`](READABILITY-SCORE-AUDIT.md). Historical v1--v3
 zero-yield results stay in the run archive and are not pooled into v4.

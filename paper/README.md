@@ -13,6 +13,13 @@ the PDF has five pages including limitations, references, and the separate
 Diana construction appendix. [FRAMING-REVISION-20260926.md](FRAMING-REVISION-20260926.md)
 records the changes and claim-to-source map.
 
+The final editorial revision resolves the last review's four requests:
+contribution positioning, rubric anchors and control limits, seeded search
+mechanics, and descriptive length wording. The supplementary report clearly
+distinguishes the raw GPT-2 likelihood contrast from shuffle-relative gains.
+The manuscript and professor packet are finalized; no further internal
+review or experiment is scheduled.
+
 [NAACL-READINESS-PLAN.md](NAACL-READINESS-PLAN.md) records the claim boundary,
 QA status, and readiness assessment. [READABILITY-SCORE-AUDIT.md](READABILITY-SCORE-AUDIT.md)
 documents the separate Brown audit and its exact rerun. The complete v4

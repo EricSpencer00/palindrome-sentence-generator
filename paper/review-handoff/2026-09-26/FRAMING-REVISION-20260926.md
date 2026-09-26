@@ -64,3 +64,27 @@ text extraction, page inspection, supplement manifest checks, and professor
 packet source/PDF equality checks are part of this editorial turnaround.
 They introduce no new search or scoring observations. Historical PDF outputs
 are preserved separately.
+
+## Final review corrections: complete
+
+The final mock ARR review recommended 3/5 overall (Findings). Its four
+editorial requests are resolved:
+
+| Review concern | Completed correction | Evidence |
+| --- | --- | --- |
+| Incremental contribution unclear | Introduction states the recorded findings and why coverage, variety, likelihood, and absolute ratings require separate interpretation; discussion identifies the question each criterion leaves unresolved | Existing v4 outputs and scorer records; cited prior work |
+| Rubric and control interpretation | Methods include all 0–3 anchors and the exact-text instruction; the screen is explicitly limited to ordinary versus shuffled prose, without validating quality differences among palindromes | Frozen local_llm_readability_audit_20260926.py prompt, reused by Qwen3 |
+| Seed mechanics and experimental unit | Methods specify child-ranking perturbations in [0, 0.4), their exclusion from the final objective, 32-word and 24-letter-overhang limits, and whole-seed resampling of all 12 conditions | Frozen search.py, centerout.py, resource manifest, and analyzer |
+| Descriptive length results | Subsection heading and interpretation describe scorer-specific patterns and closure-length concentration without asserting effects of length or strategy | Existing length-by-construction table |
+
+The supplementary report and its rendering function now name the 0.280
+GPT-2 contrast as the outside-in-minus-center-out difference in raw candidate
+mean token log probability. Its definition is preserved in the saved
+static-verifier summary and summarizer source. It is distinct from the
+candidate-minus-shuffle endpoint used by the manuscript's length table.
+No numbers, search/scoring code, frozen protocols, or raw outcomes changed;
+the report renderer changed only explanatory labels.
+
+The final source, PDF, professor brief, and packages are synchronized. The
+editorial work is complete, with no further internal review or experiment
+scheduled. The earlier review entries above remain a chronological record.

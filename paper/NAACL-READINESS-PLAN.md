@@ -7,6 +7,13 @@ limitations, references, and a separate Diana construction appendix.
 The September 26 framing revision runs no new experiments or model scoring
 calls. This plan does not claim submission or acceptance.
 
+**Final editorial status:** all four requests from the last internal review
+are resolved in the manuscript. The contribution is explicit, rubric anchors
+and calibration limits are stated, search randomization and fixed limits are
+specified, and length comparisons are descriptive. The supplementary GPT-2
+endpoint label is also corrected. No further internal review, experiment,
+or editorial task is scheduled.
+
 **24-hour handoff clock:** work began 2026-09-25 22:59 CDT. The draft and
 evidence packet are due by 2026-09-26 22:59 CDT; the professor then has at
 least seven full days, through 2026-10-03 22:59 CDT. No professor message has
@@ -29,7 +36,11 @@ of language quality across bundles. The length table is descriptive; the
 Diana pair is a separate retrospective construction case. No prior-system
 superiority or readable-generation advance is claimed.
 
-## Work completed
+## Evidence and historical execution record
+
+The rows below preserve earlier execution status. Historical unrun follow-ups,
+optional author ratings, and the custom review-domain request are outside this
+final manuscript revision and are not prerequisites for its handoff.
 
 | Step | Evidence/check | Status |
 | --- | --- | --- |
@@ -37,14 +48,14 @@ superiority or readable-generation advance is claimed.
 | Verify search coverage | 0/120 original, 66/120 escalated; paired difference 0.550, seed-cluster interval [0.350, 0.750]; zero deadline exits | Complete |
 | Audit output limitations | 54/66 selected outputs passed the stricter mechanical screen; 26 unique strings per arm; the phrase “one poem association” appears in 36/66 | Complete |
 | Run static language diagnostics | Brown and pinned GPT-2 on 66 outputs and 32 same-word shuffles each; one DeepSeek V3.2 comparison per output; requests, responses, settings, hashes and cost preserved | Complete |
-| Archive evidence | 71-member deterministic zip; 70 per-file hashes; current manuscript, frozen search/model records, protocols, runners, saved responses, and length analysis; export-only Brown control projection contains no Brown text | Complete; privacy and hash-link checks pass; archive SHA-256 `329631609eabe69d85b5a776f92e8cba94fb1c26ec281fd1525c8a06f08090f2` |
+| Archive evidence | 71-member deterministic zip; 70 per-file hashes; current manuscript, frozen search/model records, protocols, runners, saved responses, and length analysis; export-only Brown control projection contains no Brown text | Complete; privacy and hash-link checks pass; archive SHA-256 `c0899afbe116038d812e91cdcc957eea59511b059c240dada61a7cc871fbeb3a` |
 | Local Qwen audit | 244 presentations using the installed Qwen2.5-3B-Instruct model, frozen scoring protocol and duplicate checks | Complete; model calibration failed, so candidate scores are inconclusive |
 | Qwen control sensitivity | Separate 12-sentence/12-shuffle check with unchanged model, prompt, rubric, and gate | Complete; 4/12 sentences and 0/12 shuffles passed; same gate failed |
 | Hosted Qwen3 rubric audit | 244 Bedrock presentations; 11/12 Brown spans and 0/12 shuffles passed the control gate; all 52 candidates scored 0/3 on both model dimensions and candidate-minus-shuffle joint-pass difference was zero | Complete; 7/12 Brown controls are multi-sentence, repeats agree on 11/12 pairs, and this remains model-only diagnostic evidence. Exact run, costs, hashes, and offline reanalysis: [`AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md`](../experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md) |
 | Readability × length/construction analysis | Offline reanalysis of 66 v4 outputs by target length and construction strategy, plus the 38/54-letter Diana-frame pair | Complete; descriptive Brown/GPT-2/DeepSeek proxies only, no human or causal claim. Source hashes and script: [`READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md`](../experiments/READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md) |
 | Resource-setting attribution follow-up | Frozen five-condition, 600-task OAT protocol; 20 new seed clusters; one setting changed per arm; manifest SHA-256 `3f10b1e14a7282273d647819d130f64b5ce51fac744ce6a6183ad268ccc18733` | Not run; the remote transfer of internal search source and vocabulary was rejected by automatic review. Existing private ticket #473 requests authorization; the board is currently unreachable, so its current status could not be confirmed. No search tasks started. |
 | User-provided example score | The pasted sentence matches one v4 candidate's normalized letter tape; its question mark is a punctuation variation. The exact variant received Qwen 3B grammar 0/3 and meaning 0/3; the source candidate received the same scores in the frozen audit. Raw request/response, prompt, model digest, decoding settings, and exactness check are recorded in `paper/local-llm-user-example-score-20260926.json` (SHA-256 `849dd1424f57b095638cea3801990addc1328d4baf0d9bc6f9c54abde2044706`). | Diagnostic only and excluded from study totals; it is a letter-level palindrome, not a word-order palindrome. Qwen's failed positive-control gate means neither score is calibrated. |
-| Revise manuscript | Evaluation case study with existing length results in the main text, explicit distinction between likelihood and rubric outcomes, and separate Diana appendix | Complete; independent subagent checked claims against saved records and two wording overclaims were corrected |
+| Revise manuscript | Evaluation case study with sourced results, rubric anchors, search randomization and fixed limits, descriptive length analysis, and separate Diana appendix | Complete; all four final-review requests resolved; no additional internal review or experiment scheduled |
 | Reproduce and inspect PDF | Rebuilt from the current source; five pages including references and appendix, with main content ending on page 4 | Current PDF and professor packet synchronized; all pages rendered and visually inspected |
 | Recompute diagnostics | Recomputed Brown scores from the frozen inputs, joined saved GPT-2 and DeepSeek outputs, and reran the v4 analyzer with candidate-ID and text-hash checks | Complete; 240 tasks and 66 outputs verified |
 | Test implementation | Changed search tests and related palindrome tests | 34 passed; GPT-2 download test needs network; full suite collection is blocked by three historical tests importing absent modules |
@@ -70,14 +81,16 @@ zero-yield results stay in the run archive and are not pooled into v4.
 
 ## Readiness assessment
 
-The earlier resource-centered draft received an informal internal estimate
-of Soundness 3/5, Excitement 2/5, Reproducibility 4/5, and Overall 2.5/5.
-That historical estimate is neither an ARR decision nor a score of the
-rewritten manuscript. The current draft has a clearer evaluation contribution
-and retains the same evidence limits: one vocabulary, an adaptive resource
-comparison, dependent outputs, and no human language-quality ratings.
-The framing review checked accuracy and coherence; it did not assign a new
-acceptance score. A wording revision alone cannot establish a higher rating.
+The last mock ARR assessment of the evaluation draft, before the final
+editorial corrections, recommended Soundness 3.5/5, Excitement 2.5/5,
+Reproducibility 4/5, and Overall 3/5 (Findings). An independent Astra review
+also recommended 3/5 overall. These are internal assessments, not an ARR
+decision; a borderline-Findings assessment remains plausible. The earlier
+resource-centered draft's 2.5/5 estimate is historical.
+
+The four requested clarifications are now complete. No new score is assigned
+to these corrections. The evidence remains one vocabulary, an adaptive
+resource comparison, dependent outputs, and model-only language judgments.
 
 ## External requirements checked
 

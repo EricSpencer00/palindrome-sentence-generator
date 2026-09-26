@@ -10,6 +10,7 @@ import argparse
 from collections import Counter
 from datetime import datetime, timezone
 import hashlib
+import inspect
 import json
 import re
 import statistics
@@ -17,6 +18,8 @@ import sys
 import time
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError
+from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "experiments"))
@@ -28,6 +31,12 @@ SELECTION_SEED = 20260927
 PRESENTATION_SEED = 20260928
 CONTROL_COUNT = 12
 DEFAULT_OUTPUT = ROOT / "runs/local-llm-single-sentence-brown-sensitivity-20260926.json"
+FIRST_RUN_OUTPUT = ROOT / "runs/local-llm-readability-audit-20260926.json"
+FIRST_RUN_OUTPUT_SHA256 = "f11f7cb1d0cfc475e4c8c0b6ce03f18a8bd76ef29ed57887ac4d3701a8fa5022"
+FIRST_RUN_SCORER_SHA256 = "67a72cc85d7379bbf7ea61825097e746ecd4203eabb18277d2c7e328e03a8199"
+FIRST_RUN_MODEL = "qwen2.5:3b"
+FIRST_RUN_MODEL_DIGEST = "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b"
+FIRST_RUN_PROMPT_SHA256 = "231485ef7812fe0c37d3f32215a2baa260f3edccc5d15deb84a0176c074ce632"
 TERMINAL_RE = re.compile(r"[.!?][\"'”’)]*\s*$")
 
 
@@ -48,6 +57,115 @@ def atomic_write(path: Path, data: dict[str, Any]) -> None:
 
 def public_row(row: dict[str, Any]) -> dict[str, Any]:
     return {key: value for key, value in row.items() if key != "text"}
+
+
+def validate_frozen_scorer(model: str, facts: dict[str, Any]) -> dict[str, str]:
+    original_raw = FIRST_RUN_OUTPUT.read_bytes()
+    original_sha = sha256_bytes(original_raw)
+    if original_sha != FIRST_RUN_OUTPUT_SHA256:
+        raise ValueError("original audit result changed since this sensitivity protocol was frozen")
+    original = json.loads(original_raw)
+    original_method = original["method"]
+    base_script_sha = sha256_file(Path(base.__file__))
+    if base_script_sha != FIRST_RUN_SCORER_SHA256:
+        raise ValueError("imported scorer/helper code differs from the first frozen run")
+    if original["source_artifacts"].get("scorer_script_sha256") != base_script_sha:
+        raise ValueError("first-run scorer hash does not match its archived provenance")
+    prompt_sha = base.sha256_bytes(
+        (base.SYSTEM_PROMPT + "\0" + base.USER_PROMPT_TEMPLATE).encode()
+    )
+    if prompt_sha != FIRST_RUN_PROMPT_SHA256 or prompt_sha != original_method.get("prompt_sha256"):
+        raise ValueError("prompt differs from the first frozen run")
+    if base.SYSTEM_PROMPT != original_method.get("system_prompt"):
+        raise ValueError("system prompt differs from the first frozen run")
+    if base.USER_PROMPT_TEMPLATE != original_method.get("user_prompt_template"):
+        raise ValueError("user prompt differs from the first frozen run")
+    if base.OUTPUT_SCHEMA != original_method.get("output_schema"):
+        raise ValueError("structured-output schema differs from the first frozen run")
+    if base.DECODE != original_method.get("decoding"):
+        raise ValueError("decoding settings differ from the first frozen run")
+    if model != FIRST_RUN_MODEL or facts.get("model_digest") != FIRST_RUN_MODEL_DIGEST:
+        raise ValueError("follow-up must use the exact model digest from the first frozen run")
+    if facts != original.get("model_facts"):
+        raise ValueError("model metadata differs from the first frozen run")
+    scoring_contract = {
+        "prompt_sha256": prompt_sha,
+        "schema_sha256": base.sha256_bytes(json.dumps(base.OUTPUT_SCHEMA, sort_keys=True).encode()),
+        "decoding_sha256": base.sha256_bytes(json.dumps(base.DECODE, sort_keys=True).encode()),
+        "shuffle_helper_sha256": base.sha256_bytes(inspect.getsource(base.shuffle_surface).encode()),
+    }
+    return {
+        "first_run_result_sha256": original_sha,
+        "first_run_scorer_sha256": base_script_sha,
+        **scoring_contract,
+    }
+
+
+class ScoringRequestError(RuntimeError):
+    def __init__(self, message: str, raw_response: str = "") -> None:
+        super().__init__(message)
+        self.raw_response = raw_response
+
+
+def ask_model_auditable(base_url: str, model: str, text: str) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Match the frozen Ollama request while retaining malformed replies for QA."""
+    endpoint = base_url.rstrip("/")
+    body = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": base.SYSTEM_PROMPT},
+            {"role": "user", "content": base.USER_PROMPT_TEMPLATE.format(text=text)},
+        ],
+        "stream": False,
+        "format": base.OUTPUT_SCHEMA,
+        "options": base.DECODE,
+        "keep_alive": "5m",
+    }
+    request = Request(
+        endpoint + "/api/chat",
+        data=json.dumps(body, ensure_ascii=False).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+    )
+    raw_response = ""
+    try:
+        with urlopen(request, timeout=300) as response:
+            response_bytes = response.read()
+        raw_response = response_bytes.decode("utf-8", errors="replace")
+        result = json.loads(response_bytes)
+        raw_response = str(result.get("message", {}).get("content", ""))
+        parsed = json.loads(raw_response)
+        scores: dict[str, int] = {}
+        for key in ("grammaticality", "coherent_meaning"):
+            value = parsed.get(key)
+            if type(value) is not int or not 0 <= value <= 3:
+                raise ValueError(f"invalid {key} value from model: {value!r}")
+            scores[key] = value
+    except HTTPError as exc:
+        raw_response = exc.read().decode("utf-8", errors="replace")
+        raise ScoringRequestError(f"HTTPError: {exc.code}", raw_response) from exc
+    except Exception as exc:
+        raise ScoringRequestError(f"{type(exc).__name__}: {exc}", raw_response) from exc
+    return {"scores": scores, "raw_json": raw_response}, {
+        "done_reason": result.get("done_reason"),
+        "prompt_eval_count": result.get("prompt_eval_count"),
+        "eval_count": result.get("eval_count"),
+        "total_duration_ns": result.get("total_duration"),
+        "load_duration_ns": result.get("load_duration"),
+        "prompt_eval_duration_ns": result.get("prompt_eval_duration"),
+        "eval_duration_ns": result.get("eval_duration"),
+    }
+
+
+def failure_evidence(presentation_id: str, text: str, exc: ScoringRequestError) -> dict[str, Any]:
+    raw = exc.raw_response
+    safe_raw = re.sub(re.escape(text), "[SOURCE TEXT REDACTED]", raw, flags=re.IGNORECASE)
+    return {
+        "presentation_id": presentation_id,
+        "error": str(exc),
+        "raw_response_sha256": sha256_bytes(raw.encode("utf-8")),
+        "redacted_raw_response_excerpt": safe_raw[:1000],
+        "request_completed_utc": datetime.now(timezone.utc).isoformat(),
+    }
 
 
 def prepare() -> tuple[list[dict[str, Any]], dict[str, Any]]:
@@ -71,8 +189,10 @@ def prepare() -> tuple[list[dict[str, Any]], dict[str, Any]]:
         raise ValueError("Brown held-out file split does not match the frozen manifest")
 
     previously_used: set[tuple[str, int]] = set()
+    previously_used_fileids: set[str] = set()
     for group_name in ("matched_heldout_prose_controls", "length_stratified_heldout_controls"):
         for row in controls_doc.get(group_name, []):
+            previously_used_fileids.add(row["brown_fileid"])
             start, end = row["sentence_indices_half_open"]
             previously_used.update((row["brown_fileid"], index) for index in range(start, end))
 
@@ -194,10 +314,20 @@ def prepare() -> tuple[list[dict[str, Any]], dict[str, Any]]:
         "heldout_file_count": len(heldout_fileids),
         "heldout_fileid_manifest_sha256": heldout_hash,
         "length_control_manifest_sha256": length_hash,
-        "prior_controls_excluded": True,
+        "prior_sentence_indices_excluded": True,
+        "prior_control_fileids": sorted(previously_used_fileids),
+        "prior_control_fileids_can_overlap": True,
+        "prior_control_sentence_indices_excluded": True,
+        "selection_filters": "12-40 word Brown sentence with terminal punctuation",
+        "selection_tokenization": "Brown sentence tokens joined by single spaces, then case-normalized for scoring",
+        "word_count_match_abs_differences": [
+            abs(row["word_count"] - row["target_word_count"]) for row in chosen
+        ],
+        "unique_brown_files_within_followup": len(used_fileids) == CONTROL_COUNT,
         "individual_sentence_selection": (
             "four hash-selected candidate target lengths per band; nearest word count; "
-            "deterministic SHA-256 tie break; no file or sentence reuse; no model scores"
+            "deterministic SHA-256 tie break; prior sentence indices excluded; unique file per "
+            "selection within this follow-up; no model scores"
         ),
         "candidate_packet_sha256": candidate_hashes["candidate_packet_sha256"],
         "static_verifier_input_sha256": candidate_hashes["static_verifier_input_sha256"],
@@ -255,6 +385,20 @@ def summarize(presentations: list[dict[str, Any]], responses: list[dict[str, Any
         "intact_single_sentence_controls": group_stats(candidate_rows),
         "matched_same_word_shuffles": group_stats(shuffle_rows),
         "paired_transitions": transitions,
+        "word_count_matching": {
+            "absolute_differences": [
+                abs(row["word_count"] - row["target_word_count"])
+                for row in presentations if row["condition"] == "individual_brown_sentence"
+            ],
+            "mean_absolute_difference": round(statistics.mean(
+                abs(row["word_count"] - row["target_word_count"])
+                for row in presentations if row["condition"] == "individual_brown_sentence"
+            ), 4),
+            "maximum_absolute_difference": max(
+                abs(row["word_count"] - row["target_word_count"])
+                for row in presentations if row["condition"] == "individual_brown_sentence"
+            ),
+        },
         "posthoc_gate_passes": sentence_passes >= 8 and shuffle_passes <= 3,
         "caveat": (
             "separate post-hoc calibration sensitivity only; it cannot change the first run's failed gate "
@@ -271,7 +415,10 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--prepare-only", action="store_true")
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--retry-failures", action="store_true")
     args = parser.parse_args()
+    if args.retry_failures and not args.resume:
+        parser.error("--retry-failures requires --resume so failed attempts remain in the run record")
 
     presentations, brown_source = prepare()
     public_presentations = [public_row(row) for row in presentations]
@@ -289,6 +436,7 @@ def main() -> None:
         return
 
     facts = base.model_facts(args.base_url, args.model)
+    frozen_hashes = validate_frozen_scorer(args.model, facts)
     script_hash = sha256_file(Path(__file__))
     prompt_hash = base.sha256_bytes(
         (base.SYSTEM_PROMPT + "\0" + base.USER_PROMPT_TEMPLATE).encode()
@@ -296,6 +444,7 @@ def main() -> None:
     fingerprint = base.sha256_bytes(json.dumps({
         "brown_source": brown_source,
         "model_facts": facts,
+        "frozen_first_run_hashes": frozen_hashes,
         "scorer_script_sha256": script_hash,
         "prompt_sha256": prompt_hash,
         "decode": base.DECODE,
@@ -308,7 +457,19 @@ def main() -> None:
         result = json.loads(args.output.read_text(encoding="utf-8"))
         if result.get("run_fingerprint") != fingerprint:
             raise ValueError("resume fingerprint differs from frozen inputs/model/prompt")
+        if result.get("presentations") != public_presentations:
+            raise ValueError("saved presentation manifest differs from the frozen follow-up")
         responses = result.get("responses", [])
+        failures = result.get("failures", [])
+        expected_ids = {row["presentation_id"] for row in public_presentations}
+        response_ids = [row.get("presentation_id") for row in responses]
+        failure_ids = [row.get("presentation_id") for row in failures]
+        if len(response_ids) != len(set(response_ids)) or not set(response_ids) <= expected_ids:
+            raise ValueError("saved responses contain duplicate or unexpected presentation IDs")
+        if not set(failure_ids) <= expected_ids:
+            raise ValueError("saved failures contain unexpected presentation IDs")
+        if failures and not args.retry_failures:
+            raise ValueError("failed attempts are preserved; pass --resume --retry-failures to retry them")
     else:
         result = {
             "experiment_id": RUN_ID,
@@ -334,6 +495,7 @@ def main() -> None:
                 "no_AWS_or_hosted_model_calls": True,
                 "brown_source": brown_source,
                 "prompt_sha256": prompt_hash,
+                "first_run_provenance_hashes": frozen_hashes,
                 "decoding": base.DECODE,
                 "system_prompt": base.SYSTEM_PROMPT,
                 "user_prompt_template": base.USER_PROMPT_TEMPLATE,
@@ -341,8 +503,10 @@ def main() -> None:
             },
             "presentations": public_presentations,
             "responses": [],
+            "failures": [],
         }
         responses = []
+        failures = []
 
     completed = {row["presentation_id"] for row in responses}
     result["status"] = "running"
@@ -354,9 +518,18 @@ def main() -> None:
             presentation_id = presentation["presentation_id"]
             if presentation_id in completed:
                 continue
-            parsed, api_metrics = base.ask_model(
-                args.base_url, args.model, presentation["text"]
-            )
+            try:
+                parsed, api_metrics = ask_model_auditable(
+                    args.base_url, args.model, presentation["text"]
+                )
+            except ScoringRequestError as exc:
+                failures.append(failure_evidence(presentation_id, presentation["text"], exc))
+                result["responses"] = responses
+                result["failures"] = failures
+                result["status"] = "failed_partial"
+                atomic_write(args.output, result)
+                print(f"failed {len(completed)}/24; attempt preserved for {presentation_id}", flush=True)
+                raise
             responses.append({
                 "presentation_id": presentation_id,
                 "scores": parsed["scores"],
@@ -366,9 +539,11 @@ def main() -> None:
             })
             completed.add(presentation_id)
             result["responses"] = responses
+            result["failures"] = failures
             atomic_write(args.output, result)
             print(f"scored {len(completed)}/24", flush=True)
         result["analysis"] = summarize(presentations, responses)
+        result["failures"] = failures
         result["status"] = "complete"
         result["started_utc"] = result.get("started_utc") or datetime.now(timezone.utc).isoformat()
         result["finished_utc"] = datetime.now(timezone.utc).isoformat()
@@ -376,6 +551,7 @@ def main() -> None:
         atomic_write(args.output, result)
     except Exception as exc:
         result["responses"] = responses
+        result["failures"] = failures
         result["status"] = "failed_partial"
         result["last_error"] = f"{type(exc).__name__}: {exc}"
         atomic_write(args.output, result)

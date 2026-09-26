@@ -32,6 +32,7 @@ BASE_SPEC = importlib.util.spec_from_file_location("frozen_v4_search", BASE_PATH
 if BASE_SPEC is None or BASE_SPEC.loader is None:
     raise RuntimeError("could not load the frozen v4 search implementation")
 BASE = importlib.util.module_from_spec(BASE_SPEC)
+sys.modules[BASE_SPEC.name] = BASE
 BASE_SPEC.loader.exec_module(BASE)
 
 EXPERIMENT = "paired-directional-search-resource-oat-20260926"

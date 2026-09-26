@@ -2,9 +2,9 @@
 
 **Active manuscript, v1:**
 [Methods of Finding Longer, Readable Palindromes](../output/pdf/methods-of-finding-longer-readable-palindromes-v1.pdf),
-an anonymous evaluation case study using the existing v4 search and diagnostic
-records. Here, v1 identifies the manuscript edition; the underlying study,
-runs, and evidence archive retain their v4 identifiers. The main content ends
+an anonymous evaluation case study. All public release artifacts use v1,
+including the paper, supplement, and handoff package. The saved experiment
+identifiers record internal development history. The main content ends
 on page 4; the complete PDF is five pages with limitations, references, and a
 separate Diana construction appendix.
 The September 26 framing revision runs no new experiments or model scoring
@@ -51,7 +51,7 @@ final manuscript revision and are not prerequisites for its handoff.
 | Verify search coverage | 0/120 original, 66/120 escalated; paired difference 0.550, seed-cluster interval [0.350, 0.750]; zero deadline exits | Complete |
 | Audit output limitations | 54/66 selected outputs passed the stricter mechanical screen; 26 unique strings per arm; the phrase “one poem association” appears in 36/66 | Complete |
 | Run static language diagnostics | Brown and pinned GPT-2 on 66 outputs and 32 same-word shuffles each; one DeepSeek V3.2 comparison per output; requests, responses, settings, hashes and cost preserved | Complete |
-| Archive evidence | 71-member deterministic zip; 70 per-file hashes; current manuscript, frozen search/model records, protocols, runners, saved responses, and length analysis; export-only Brown control projection contains no Brown text | Complete; privacy and hash-link checks pass; archive SHA-256 `c0899afbe116038d812e91cdcc957eea59511b059c240dada61a7cc871fbeb3a` |
+| Archive evidence | Public v1 deterministic zip with 72 members and 71 per-file hashes; current manuscript, frozen search/model records, protocols, runners, saved responses, and length analysis; export-only Brown control projection contains no Brown text | Complete; privacy and hash-link checks pass; archive SHA-256 `d7ed4b34bc5385b4039c0705df96a218e6043280fecaba201e78b140f0b97f59` |
 | Local Qwen audit | 244 presentations using the installed Qwen2.5-3B-Instruct model, frozen scoring protocol and duplicate checks | Complete; model calibration failed, so candidate scores are inconclusive |
 | Qwen control sensitivity | Separate 12-sentence/12-shuffle check with unchanged model, prompt, rubric, and gate | Complete; 4/12 sentences and 0/12 shuffles passed; same gate failed |
 | Hosted Qwen3 rubric audit | 244 Bedrock presentations; 11/12 Brown spans and 0/12 shuffles passed the control gate; all 52 candidates scored 0/3 on both model dimensions and candidate-minus-shuffle joint-pass difference was zero | Complete; 7/12 Brown controls are multi-sentence, repeats agree on 11/12 pairs, and this remains model-only diagnostic evidence. Exact run, costs, hashes, and offline reanalysis: [`AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md`](../experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md) |
@@ -70,7 +70,7 @@ final manuscript revision and are not prerequisites for its handoff.
 ## Evidence and reproduction
 
 The v4 manifest, raw task-level results, model inputs and outputs, source code,
-and a per-file checksum list are bundled in `paper/v4-reproducibility.zip`.
+and a per-file checksum list are bundled in `paper/v1-reproducibility.zip`.
 The Brown and GPT-2 scorers can be rerun from the frozen inputs. The search
 replay checker also verifies that the scorer summary's candidate IDs and text
 hashes match the rerun outputs. A fresh DeepSeek call is not guaranteed to

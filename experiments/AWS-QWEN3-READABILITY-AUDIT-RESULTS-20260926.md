@@ -56,7 +56,7 @@ The primary source files and hashes recorded by the run are:
 
 The saved record is the metadata-redacted
 `runs/aws-qwen3-32b-readability-audit-20260926.json` member of
-`paper/v4-reproducibility.zip`. The published copy removes transient AWS
+`paper/v1-reproducibility.zip`. The published copy removes transient AWS
 request and runtime-identity metadata; presentations, saved model responses,
 score fields, and analysis are preserved.
 AWS's standard on-demand price snapshot records $0.000150/1K input tokens
@@ -88,7 +88,7 @@ guaranteed to return identical judgments. The Brown corpus text is not copied
 into the run record; the frozen manifest retains locations and hashes so the
 licensed local corpus can reconstruct and verify each control.
 
-For archive-only reanalysis, extract `paper/v4-reproducibility.zip` and run
+For archive-only reanalysis, extract `paper/v1-reproducibility.zip` and run
 the same summarizer from the extracted root without `--verify-sources`. The
 public archive uses anonymized input projections, whose hashes differ from
 the original private workspace files; the archive manifest and

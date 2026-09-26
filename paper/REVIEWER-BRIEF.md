@@ -1,6 +1,6 @@
 # Reviewer brief
 
-**Draft:** *Evaluating Exact Palindrome Generation Beyond Character Validity*
+**Public release v1:** *Methods of Finding Longer, Readable Palindromes*
 
 ## Central result
 
@@ -48,7 +48,7 @@ phrase “one poem association.”
 The Diana appendix is a separate, retrospective 38/54-letter construction
 pair. It demonstrates a recorded extension with exactness preserved and
 contrasts own-word shuffle scores with prose matched on scorer-token count.
-It is outside the v4 study and Qwen audits. Its reference has no established authorship in the
+It is outside the main study and Qwen audits. Its reference has no established authorship in the
 project record; neither text has project human ratings.
 
 ## Interpretation limits

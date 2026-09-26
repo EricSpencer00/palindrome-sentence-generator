@@ -1,4 +1,4 @@
-"""Regression checks for the anonymized v4 reproduction archive."""
+"""Regression checks for the anonymized v1 public reproduction archive."""
 from __future__ import annotations
 
 import json
@@ -7,10 +7,10 @@ import tempfile
 import unittest
 import zipfile
 
-from paper import build_v4_supplement as supplement
+from paper import build_v1_supplement as supplement
 
 
-class V4SupplementPrivacyTests(unittest.TestCase):
+class V1SupplementPrivacyTests(unittest.TestCase):
     def test_export_is_anonymous_relinked_and_deterministic(self) -> None:
         root = supplement.ROOT
         original_v3_manifest_bytes = (root / supplement.V3_MANIFEST).read_bytes()
@@ -25,7 +25,7 @@ class V4SupplementPrivacyTests(unittest.TestCase):
         original_input_hash = supplement.sha256((root / supplement.V4_INPUT).read_bytes())
         original_summary_hash = supplement.sha256((root / supplement.V4_STATIC_SUMMARY).read_bytes())
 
-        with tempfile.TemporaryDirectory(prefix="v4-supplement-test-") as temporary:
+        with tempfile.TemporaryDirectory(prefix="v1-supplement-test-") as temporary:
             first = Path(temporary) / "first.zip"
             second = Path(temporary) / "second.zip"
             first_result = supplement.build(first)

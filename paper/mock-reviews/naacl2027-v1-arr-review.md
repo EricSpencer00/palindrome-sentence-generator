@@ -16,7 +16,7 @@ The paper reports a 240-run study of two exact-palindrome search implementations
 
 1. The paper defines exactness, basic validity, coverage, the shuffle comparisons, and the joint rubric pass in operational terms. It reports the full task denominator and retains unsuccessful runs rather than conditioning the construction result on successes.
 2. The authors generally keep their claims within the evidence. They distinguish shuffle-relative likelihood from absolute language judgments, acknowledge that four resource settings change together, and avoid claiming that the palindrome constraint itself causes poor language.
-3. The v4 reproducibility archive is substantial: it includes frozen search records, selected texts and controls, scorer sources, prompts, saved responses, and analysis code. This supports strong auditability, with the qualifications below.
+3. The v1 reproducibility archive is substantial: it includes frozen search records, selected texts and controls, scorer sources, prompts, saved responses, and analysis code. This supports strong auditability, with the qualifications below.
 4. The paper is relevant to constrained generation and makes a useful methodological point: a candidate can beat disordered versions of its own words without receiving a positive absolute language rating.
 
 ## Major concerns

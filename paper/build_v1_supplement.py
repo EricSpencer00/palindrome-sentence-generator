@@ -1,4 +1,4 @@
-"""Build a deterministic, self-contained v4 evidence and source archive."""
+"""Build the deterministic v1 public supplementary evidence and source archive."""
 from __future__ import annotations
 
 import argparse
@@ -10,7 +10,7 @@ import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT = ROOT / "paper" / "v4-reproducibility.zip"
+DEFAULT_OUTPUT = ROOT / "paper" / "v1-reproducibility.zip"
 
 FILES = (
     "data/known_palindromes.json",
@@ -60,8 +60,9 @@ FILES = (
     "llm_palindrome/validator.py",
     "paper/acl.sty",
     "paper/acl_natbib.bst",
-    "paper/build_v4_supplement.py",
+    "paper/build_v1_supplement.py",
     "paper/naacl2027.tex",
+    "paper/naacl2027-v1.tex",
     "paper/readability-requirements.txt",
     "paper/refs.bib",
     "paper/human_eval_v4_packet/sealed_key.json",
@@ -84,17 +85,17 @@ FILES = (
     "tools/polaris/payload/vocab30k.txt",
 )
 
-README = """# v4 supplementary evidence and reproduction
+README = """# v1 supplementary evidence and reproduction
 
-This archive accompanies `paper/naacl2027.tex`. Extract it at a clean checkout
-of the repository root, preserving its paths. It contains the frozen v4
-manifest and raw results, v3 comparison used to motivate the adaptive follow-
-up, all 66 selected texts and their 32 fixed shuffles, model outputs, source
+This is the first public release, v1. It accompanies `paper/naacl2027-v1.tex`.
+Extract it at a clean checkout of the repository root, preserving its paths.
+It contains the frozen study manifest and raw results, the earlier comparison
+used to motivate the adaptive follow-up, all 66 selected texts and their 32 fixed shuffles, model outputs, source
 code, vocabulary/lexicon inputs, and pinned dependency lists. `MANIFEST.sha256`
-records each archived file hash.
+records each archived file hash. Internal experiment identifiers in the saved
+records describe development history, not earlier public releases.
 
-The manuscript is titled *Evaluating Exact Palindrome Generation Beyond
-Character Validity*. Its September 26 framing revision relates construction,
+The manuscript is titled *Methods of Finding Longer, Readable Palindromes*. Its September 26 framing revision relates construction,
 length, relative likelihood, and absolute model ratings using these saved
 records. The revision adds no new search experiments or model scoring calls.
 
@@ -110,12 +111,12 @@ files. From the repository root, run:
 ```sh
 python3 experiments/paired_directional_search_resource_sensitivity_20260925.py run \\
   --manifest runs/directional-search-resource-sensitivity-20260925/manifest.json \\
-  --phase confirmatory --output /tmp/replayed-v4.json --workers 6
+  --phase confirmatory --output /tmp/replayed-v1.json --workers 6
 python3 experiments/analyze_directional_search_resource_sensitivity_20260925.py \\
   --manifest runs/directional-search-resource-sensitivity-20260925/manifest.json \\
-  --results /tmp/replayed-v4.json \\
+  --results /tmp/replayed-v1.json \\
   --static-verifier-summary runs/directional-search-resource-sensitivity-20260925/static-verifier-summary-v4-aws.json \\
-  --json-output /tmp/v4-summary.json --markdown-output /tmp/v4-summary.md
+  --json-output /tmp/v1-summary.json --markdown-output /tmp/v1-summary.md
 ```
 
 The search runner checks every source hash and the pinned `wordfreq` version
@@ -132,18 +133,18 @@ use the pinned GPT-2 revision shown in the paper to rerun GPT-2. Example:
 ```sh
 NLTK_DATA=/path/to/nltk_data python3 -m experiments.score_directional_search_brown_20260925 \\
   --input runs/directional-search-resource-sensitivity-20260925/static-verifier-input-aws.json \\
-  --output /tmp/brown-v4.json
+  --output /tmp/brown-v1.json
 HF_HOME=/path/to/hf-cache OMP_NUM_THREADS=4 python3 -m experiments.score_gpt2_static_verifier_aws_20260925 \\
   --input runs/directional-search-resource-sensitivity-20260925/static-verifier-input-aws.json \\
-  --output /tmp/gpt2-v4.json --revision 607a30d783dfa663caf39e06633721c8d4cfcd7e \\
+  --output /tmp/gpt2-v1.json --revision 607a30d783dfa663caf39e06633721c8d4cfcd7e \\
   --batch-size 8 --execution-host 'authorized CPU host'
 python3 experiments/infer_deepseek_static_verifier_20260925.py \\
   --input runs/directional-search-resource-sensitivity-20260925/static-verifier-input-aws.json \\
-  --output /tmp/deepseek-v4.json --budget-usd 0.20 --interval-seconds 0.75
+  --output /tmp/deepseek-v1.json --budget-usd 0.20 --interval-seconds 0.75
 python3 experiments/summarize_directional_static_verifier_20260925.py \\
   --input runs/directional-search-resource-sensitivity-20260925/static-verifier-input-aws.json \\
-  --brown /tmp/brown-v4.json --gpt2 /tmp/gpt2-v4.json --deepseek /tmp/deepseek-v4.json \\
-  --output /tmp/static-summary-v4.json
+  --brown /tmp/brown-v1.json --gpt2 /tmp/gpt2-v1.json --deepseek /tmp/deepseek-v1.json \\
+  --output /tmp/static-summary-v1.json
 ```
 
 These scores are deterministic for the archived inputs and model/corpus
@@ -163,7 +164,7 @@ ratings are in this archive.
 
 The archive also contains the frozen Qwen protocols, both runner scripts, the
 two saved result JSON files, and the dated results report. These are
-success-conditioned diagnostics on the 52 selected v4 candidates. The first
+success-conditioned diagnostics on the 52 selected candidates. The first
 run failed its prespecified Brown-control calibration gate; its candidate
 scores are inconclusive. The follow-up is post-hoc, changes control units, and
 does not rescore candidates. Neither run provides human ratings or generation
@@ -176,7 +177,7 @@ and sentence hashes required by the runners, but excludes Brown sentence
 surfaces. The licensed Brown corpus itself is not included. Install the
 specified NLTK version and Brown corpus locally; the runners reconstruct each
 control and verify its text hash before scoring. The sealed candidate key is
-rebound to the anonymized v4 inputs in this archive. The saved Qwen result
+rebound to the anonymized study inputs in this archive. The saved Qwen result
 files are preserved as historical records and still identify their original
 input hashes. Therefore a new run from this archive has a new input fingerprint;
 do not try to resume either saved historical run. The exact original and
@@ -232,7 +233,7 @@ run has no provider seed and can return different ratings.
 
 `experiments/READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md` reports an
 offline stratification of the frozen Brown, GPT-2, and DeepSeek diagnostics
-for the 66 selected v4 outputs, plus the 38/54-letter Diana-frame case. It is
+for the 66 selected outputs, plus the 38/54-letter Diana-frame case. It is
 descriptive model evidence, not human readability evidence. Recreate the
 report without network access or inference from the extracted archive root:
 
@@ -523,7 +524,7 @@ def export_qwen_inputs(
     brown_projection_sha = sha256(content[QWEN_BROWN_SOURCE])
 
     # Candidate strings are unchanged, but their source packet must point to
-    # the anonymized v4 inputs packed beside it.
+    # the anonymized study inputs packed beside it.
     packet = parse_json(content, QWEN_PACKET)
     packet["input_manifest_sha256"] = v4_manifest_sha
     packet["search_result_sha256"] = v4_result_sha
@@ -832,7 +833,7 @@ def validate_privacy(content: dict[str, bytes]) -> None:
     """Screen exported text and metadata without rejecting public model hashes."""
     for name, payload in content.items():
         # This source file necessarily contains its own privacy-pattern literals.
-        if name != "paper/build_v4_supplement.py":
+        if name != "paper/build_v1_supplement.py":
             for pattern in PRIVATE_TEXT_PATTERNS:
                 if pattern.search(payload):
                     raise ValueError(f"privacy screen rejected {name}: {pattern.pattern.decode('ascii')}")

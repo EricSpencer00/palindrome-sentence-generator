@@ -42,7 +42,7 @@ def packaged_hashes() -> dict[str, str]:
     if manifest_path.is_file():
         manifest_text = manifest_path.read_text(encoding="utf-8")
     else:
-        archive_path = ROOT / "paper" / "v4-reproducibility.zip"
+        archive_path = ROOT / "paper" / "v1-reproducibility.zip"
         if not archive_path.is_file():
             raise FileNotFoundError(
                 "run this from the repository root or an extracted reproducibility archive"

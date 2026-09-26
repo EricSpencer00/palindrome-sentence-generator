@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Private first-pass review</title>
+<style>
+:root{color-scheme:light;--ink:#17231c;--muted:#526258;--line:#cbd5cc;--paper:#fbfcf8;--accent:#185c45;--accent-soft:#e8f2eb;--warn:#7b4715;--focus:#c45312}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:850px;margin:0 auto;padding:28px 20px 56px}h1{font-size:1.45rem;line-height:1.2;margin:0 0 8px}p{margin:.45rem 0 1rem}.note{color:var(--muted);font-size:.94rem}.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0;align-items:center}.toolbar button,.nav button,.file-button{border:1px solid var(--line);background:white;color:var(--ink);border-radius:8px;padding:10px 14px;font:inherit;cursor:pointer}.toolbar button.primary{background:var(--accent);border-color:var(--accent);color:#fff}.toolbar button:disabled,.nav button:disabled{opacity:.48;cursor:not-allowed}button:focus-visible,.file-button:focus-within,input:focus-visible,textarea:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+#status{min-height:1.5em;color:var(--muted);font-size:.9rem}#progress-wrap{height:8px;border-radius:6px;background:#e5eae5;overflow:hidden;margin:8px 0 20px}#progress{height:100%;width:0;background:var(--accent);transition:width .15s}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;box-shadow:0 2px 10px #15251a0a}.item-count{color:var(--muted);font-size:.9rem}.sentence{font-family:Georgia,"Times New Roman",serif;font-size:1.55rem;line-height:1.5;margin:16px 0 22px;overflow-wrap:anywhere}.rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.rate-grid fieldset{min-width:0;margin:0;padding:14px;border:1px solid var(--line);border-radius:9px}.rate-grid legend{font-weight:700;padding:0 5px}.scale-help{font-size:.87rem;color:var(--muted);margin:0 0 10px}.choices{display:flex;gap:7px;flex-wrap:wrap}.choice{display:flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:7px;padding:5px 8px;cursor:pointer}.choice input{accent-color:var(--accent);width:18px;height:18px;margin:0}.choice:has(input:checked){background:var(--accent-soft);border-color:var(--accent)}.paraphrase{display:block;margin-top:20px;font-weight:650}.paraphrase span{display:block;font-weight:400;color:var(--muted);font-size:.9rem}.paraphrase textarea{display:block;width:100%;min-height:74px;margin-top:7px;padding:10px;border:1px solid var(--line);border-radius:8px;font:inherit;resize:vertical}.nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}.privacy{margin-top:18px;padding:12px 14px;border-left:3px solid var(--accent);background:var(--accent-soft);font-size:.9rem}.file-button{display:inline-flex;align-items:center}.file-button input{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.hidden{display:none!important}
+@media(max-width:650px){main{padding:18px 14px 40px}.rate-grid{grid-template-columns:1fr;gap:12px}.card{padding:17px}.sentence{font-size:1.35rem}.toolbar>*{flex:1 1 auto}}
+</style>
+</head>
+<body>
+<main>
+<h1>Private first-pass review</h1>
+<p class="note">One author's exploratory review of frozen v4 outputs. Rate each text as written. This is not an independent or confirmatory study.</p>
+<div class="toolbar" aria-label="Review controls">
+  <button id="start" class="primary" type="button">Start / Resume</button>
+  <button id="pause" type="button" disabled>Pause</button>
+  <button id="export" type="button">Export answers</button>
+  <label class="file-button">Import checkpoint<input id="import" type="file" accept="application/json,.json"></label>
+</div>
+<div id="status" role="status" aria-live="polite">Not started. Your answers save on this device.</div>
+<p id="progress-label" class="item-count">0 of 52 rated</p>
+<div id="progress-wrap" role="progressbar" aria-label="Completed review items" aria-valuemin="0" aria-valuemax="52" aria-valuenow="0"><div id="progress"></div></div>
+<section id="review" class="card hidden" aria-live="polite">
+  <div id="item-count" class="item-count"></div>
+  <p id="sentence" class="sentence"></p>
+  <div class="rate-grid">
+    <fieldset id="grammar-set"><legend>Grammaticality</legend>
+      <p class="scale-help">How well formed and natural is this sentence as written?</p>
+      <div class="choices" data-field="grammaticality"></div>
+    </fieldset>
+    <fieldset id="meaning-set"><legend>Understandability</legend>
+      <p class="scale-help">How clear and coherent is the meaning expressed?</p>
+      <div class="choices" data-field="understandability"></div>
+    </fieldset>
+  </div>
+  <label class="paraphrase">Optional one-line paraphrase
+    <span>Write the meaning you took from the sentence. Leave blank if no coherent reading is recoverable.</span>
+    <textarea id="paraphrase" maxlength="500" rows="2"></textarea>
+  </label>
+  <div class="nav"><button id="previous" type="button">Previous</button><button id="next" class="primary" type="button">Next</button></div>
+</section>
+<p class="privacy">Autosaves locally in this browser. Nothing is sent over the network. Export a JSON checkpoint before closing or switching devices; the local save belongs to this browser profile.</p>
+<noscript>This offline review page requires JavaScript enabled in your browser.</noscript>
+</main>
+<script id="packet-items" type="application/json">[{"id":"P-BD99304E57F2","text":"Is ago that never ever off one poem association no it a i cos same open of forever event ah to gas i.","sha256":"246fe67ea1171d0c04ee8928753ab719c489d7d9e7097ab0ba7a3fa5d35699a0"},{"id":"P-F121D3B532BD","text":"No it a i cos same open of for event ah were had nation no it and a here what never off one poem association.","sha256":"1507eb95a24fe6e847ae8a1b129479b25f855585398345c19773f0e728ae4d8c"},{"id":"P-6A91F964A6E5","text":"No it a i cos say let in if edward name to that sri from i him or first ah totem and raw definitely association.","sha256":"fd8c49861f2d1578838f7c761b2c9451f0c7e0f8d1fb34221ab5dc9eebf9a8e0"},{"id":"P-18B4E393A4BA","text":"No it a i cos say let in if edward name open or oft on not for one poem and raw definitely association.","sha256":"a1c967ac13059e1655c59bca14a405b42ff43dac3a9f74b811e9cc41a60f81f6"},{"id":"P-A6977E5771AA","text":"No it a i cos same open of for event ah to get at so do do state go that never off one poem association.","sha256":"15b6584e093e7dd6dfde7d6d263bf76f84161dbabcc102eecb24229aa9b1c509"},{"id":"P-2009037E851C","text":"Is an if one poem association no it a i cos same open of in as i.","sha256":"c76da0d69ed5d6a34731eabdefaf2b6488073e7e992bd34ba893fff5bda0b89c"},{"id":"P-CA4CB677ADD9","text":"Oh were him or flare definitely national lab to of football a no it any let in i federal from i here who.","sha256":"09da97ec610fef02e1a781ac7abe6755bb32329f2401675134c174b57b4e2f06"},{"id":"P-3231D99D4947","text":"No it a i cos same open of forever office that us i a is utah tec if for ever off one poem association.","sha256":"bc3a5ca0a9fd2c087d275e809e9a0fe31729b0c87f945d20ce4bfad38b188148"},{"id":"P-CDA2F22506A4","text":"Not ah were hero met at seem and raw definitely association no it a i cos say let in if edward name estate more here what on.","sha256":"d3f97ac9487dfc9a6b62fa00f9d3de5a80006e12109c2e370e88919aa7a8b64e"},{"id":"P-E975FB746A85","text":"No it a i cos say let in if edward name open of for event sri from i had a him or first never off one poem and raw definitely association.","sha256":"4ac881244b9ae73c833ae6e44c5b055b6bf0da8055d77d11cc17635281277ef8"},{"id":"P-C0B29518F573","text":"As utah totem and raw definitely association no it a i cos say let in if edward name to that us a.","sha256":"f5751be2352472298d783697a3bad78fe4ffbeea192a804f683801e9f2b38a7e"},{"id":"P-CD167A367004","text":"All item i that i definitely national lab to of football a no it any let in if edit ah time till a.","sha256":"63a42f82866fb5b54266a6ed37722338f1b760d91d0b8aea4ef8015e952dc7d0"},{"id":"P-28045521526C","text":"Is up also that never off one poem association no it a i cos same open of for event ah to slap us i.","sha256":"437e5d3d16c9db38ca527309fb524e69a53d8ab18889a6c755ec620c2d0bef93"},{"id":"P-FD7235C0F4A3","text":"Do off one poem and raw definitely association no it a i cos say let in if edward name open of food.","sha256":"b68c8b4efb40fd4c3410513bff9148e4a73a30b38d1856beb253eeab1b05b329"},{"id":"P-2753642B3F06","text":"No it a i cos say let in if edit ah to so that i definitely association.","sha256":"366170743fc907e3a6db42aeb88ec339078e84687af38dddc9d26fd079db2169"},{"id":"P-831699EA9EF6","text":"No it a i cos say let in if edward name open of for eve now to so two never off one poem and raw definitely association.","sha256":"48b282711c1487c49cbf64db3bfbb4d22f7a8dae37df9a33213b1bcaab9ca8ee"},{"id":"P-4EC4352FF7DE","text":"Football a no it any let in i federal a it net open or off on of for one potential are definitely national lab to of.","sha256":"3ea0d7997fcb1f0fd031691c3ffe57e6513a6074a3d84f4de57f759b6c0e37ef"},{"id":"P-6E1363B0D635","text":"Eva him or first ah to those magnet for ever off one vessel association no it a i cos sales seven of forever often games oh to that sri from i have.","sha256":"7069b6decb9f53851c1393effdbe4ebfe1a59a3adaa4e17b66ff01af70ea7225"},{"id":"P-34D9FC7C808F","text":"No it a i cos same open of forever event ah to slam or for pro from also that never ever off one poem association.","sha256":"09d6317733c229365883e13edc3c8463284f50aaae844e7945e89b0bbd12394c"},{"id":"P-58F36B4833F9","text":"No it a i cos sales seven of forever often games oh to that sri from i had a him or first ah to those magnet for ever off one vessel association.","sha256":"39fadcefb591ebaa79a1ebc360912bacbb502a03c161432a1cae5816b132f1e5"},{"id":"P-3EEDB0FE74CB","text":"No it a i cos same open or off out stu of for one poem association.","sha256":"c1fb1d0061d85df804064d402e3c5c8f3e2687d6a98fa5a364a25bfb5967c27a"},{"id":"P-950957C8DCDD","text":"As if owen know association no it a i cos saw on knew of is a.","sha256":"d5b77c0101d62b4076ef94425b69a85c556b8c982a6898f4c9ceaf9c13c7e325"},{"id":"P-3AFF65EEE596","text":"No it a i cos saw on knew of for event ah to gas in as us an is ago that never off owen know association.","sha256":"cfaf61c32f4a1853098e84acf1c4c63a6391ca5fee20e47654da943d187c38e0"},{"id":"P-95CDA180DFEA","text":"No it a i cos saw on knew of is an in as if owen know association.","sha256":"d7f275290c053bdb10cfba8d4aa60814e3ce6b5d91ec18696e0731f2bdb37379"},{"id":"P-86F9745EDDB3","text":"No it a i cos same open of forever event ah to did a had i do that never ever off one poem association.","sha256":"c4ef2000de7d1288c85b79f88cf1d0ec516e9498380b13a3d0fd20e190c6b172"},{"id":"P-A3ADBE7D754E","text":"I as in one potential lab to of football a it net open on is a i.","sha256":"0cbae07196958d70feec66ecf5ada564245292e874308c545c09dc8b2a767918"},{"id":"P-40E97D822E33","text":"No it a i cos same open of is an i a in as if one poem association.","sha256":"5bb779dda3e7fc6d1c6f1572abf115433b7b494c31a2606c84fddb7f295d5244"},{"id":"P-5F2B12CCB76F","text":"No it a i cos same open of in as i a is an if one poem association.","sha256":"2392a9309699df0f7c60bd39c9aa927f60c6d1d352f7776ead7fd5a8c07fb860"},{"id":"P-E2550C0B409D","text":"No it a i cos same open of forever office to get is a site go tec if for ever off one poem association.","sha256":"b6c9f3f06775256e0bc2f09d3bfe1aa9ca26b0d3a84dda6431f4ac823bc0544f"},{"id":"P-594389F00135","text":"Rev of for one poem association no it a i cos same open or off over.","sha256":"1254adcf0cdfbd59346b38064646dfc37f4a3331ce28fe272058fbe753a466be"},{"id":"P-2EBBA4CA8445","text":"Man of one poem and raw definitely association no it a i cos say let in if edward name open of on am.","sha256":"02dc3bc070890b1df8f1aa8311a2380b2d3ed2519f4fe04d197ba3cec184762c"},{"id":"P-FD7E5E459251","text":"Manila no it a not to otto national in am.","sha256":"7c37c11183f64f8f5631d055680066ab239a8ddc42559ba7b98855bcc3bc5a7f"},{"id":"P-72FDD5B25DDF","text":"Football a no it any let in if edit ah time till as is all item i that i definitely national lab to of.","sha256":"e9fdfeaa0998f13b7f1f31c6532cd0432ecf650d9fbc6b3e7e77a62e8efd3e89"},{"id":"P-5560F701B380","text":"Otto national lives oh that a i at ah those villa no it a not to.","sha256":"8f2db3d87f284a07e8e8a71738e071412613385c59c2d28d8979f0f6d4a25d4a"},{"id":"P-CADB53A9352B","text":"In as if one poem association no it a i cos same open of is an i.","sha256":"065188d68265fcfbb1dbf1961ff4cddf1ca301c4bc14cd13375b50d90229c6b2"},{"id":"P-46D0DAE2440E","text":"Not first i so pedro from also that never ever off one poem association no it a i cos same open of forever event ah to slam or for deposits rift on.","sha256":"983b414c63e7c2112c2d9f2530e3922dec140b6fe30dce73c2376d49d1006c46"},{"id":"P-8E070F039807","text":"No it a i cos same open of forever often games oh that one rates otto had a hot to set are not ah those magnet for ever off one poem association.","sha256":"7a5de2cf7b7776de2edf12b132822fafac1e1950f1773cc0db1ee20a1323667d"},{"id":"P-0A2DB168C075","text":"No it and a here what never off one poem association no it a i cos same open of for event ah were had nation.","sha256":"6364b8789c3d9897fbe99652122c25ddc4215e838cdf8cedabe2f82e04795b10"},{"id":"P-F0C684108278","text":"No it a i cos saw on knew of for event ones oh to get at state go those not never off owen know association.","sha256":"a3ee5db1e5bea9474340f41fa7b417cf14c0eff162cff16afa44a57bbf3d8e73"},{"id":"P-DC7520B8B6F1","text":"If is ago that never off owen know association no it a i cos saw on knew of for event ah to gas if i.","sha256":"76e4d759f9c3d4376ad496f211086f1b02a672e9d6b1fb4fd447d74c2162a63d"},{"id":"P-3D90CC2643EB","text":"No it a i cos say let in if edit ah to get at some my be by memo state go that i definitely association.","sha256":"6ef94072dae054c60fd574b7aa5efbb8b8b087ea1be9736be90d28f1958af5ab"},{"id":"P-5F598AE48221","text":"Football a it net open on is a i a i as in one potential lab to of.","sha256":"03ae70778f62a3c77c657eae2e38313197d9f4ec12d460a9eef8c36b89f87e9e"},{"id":"P-E0D24E1BD6DE","text":"No is ice do those not never off owen know association no it a i cos saw on knew of for event ones oh to decision.","sha256":"40314817b551dd213636647cfcdf5f9e5953e92e1e7f804c2d7b07967276d007"},{"id":"P-F4C534F2AE3A","text":"Not for one poem and raw definitely association no it a i cos say let in if edward name open or oft on.","sha256":"222bed0af5a3137c64c2298e9b37e05070fac714423fcb118c0c260ca1f69673"},{"id":"P-5EBFC91B9034","text":"Site go tec if for ever off one poem association no it a i cos same open of forever office to get is.","sha256":"0cffa130c147efa64278e59dee62cf002b115cb3f6e7a52c1d5ff85eb6568871"},{"id":"P-B3DFCA4724B7","text":"No it a i cos same open of for event ah to get is opposed i sides opposite go that never off one poem association.","sha256":"bb1f5db13e8a5c8a88ad2b50a9bfdbbb7aefb5a34b50fce869877948ad888ac0"},{"id":"P-4B985F114217","text":"To never off one poem association no it a i cos same open of for eve not.","sha256":"152bfe4bd76cec14f7906236077afb38c1f5cd6f6f82bad2b4a1a85f4dd11ac5"},{"id":"P-C1D841C4875A","text":"Is utah tec if for ever off one poem association no it a i cos same open of forever office that us i.","sha256":"e33ed93638337ab3215cb4a6c93e563c8b330feb24efcf8adf51341ff0f188e7"},{"id":"P-31F1D5611851","text":"No it a i cos same open of for event ah to slap us in on is up also that never off one poem association.","sha256":"914ba488d70953ab559e3895379f7faa7d2508151a1a67f322f6d484281b1a37"},{"id":"P-32D04CC14E3A","text":"Not ah those magnet for ever off one poem association no it a i cos same open of forever often games oh that on.","sha256":"66b1e13cd4af3a12b324b2dd2b180d591b989fef443bbc12c6015e6739662e72"},{"id":"P-4B4FD6DB3924","text":"To never off one poem and raw definitely association no it a i cos say let in if edward name open of for eve not.","sha256":"7a20703b1bd1fa26dbf58abed721a892a783557c7b0bfc757487cec1403fa54f"},{"id":"P-47FF10F84FDF","text":"Sides opposite go that never off one poem association no it a i cos same open of for event ah to get is opposed is.","sha256":"9126a5b6b1bf99b9a95d9e310a86f89310a5c1b755d523a74b8f10b25a3814b8"}]</script>
+<script id="packet-meta" type="application/json">{"packet_id":"palindrome-v4-pilot-9229cdfdf761dace","source_sha256":"9229cdfdf761dace9824686bd2f9ed285b30a12c798045995d6fa834e3130bf0"}</script>
+<script>
+(() => {
+  "use strict";
+  const items = JSON.parse(document.getElementById("packet-items").textContent);
+  const meta = JSON.parse(document.getElementById("packet-meta").textContent);
+  const storageKey = `palindrome-review:${meta.packet_id}`;
+  const emptyAnswer = () => ({grammaticality:null, understandability:null, paraphrase:""});
+  let state = {started:false, paused:true, index:0, answers:{}};
+  let storageOk = true;
+  const $ = (id) => document.getElementById(id);
+  const safeInt = (v) => Number.isInteger(v) && v >= 1 && v <= 5;
+  function normalizeState(s) {
+    if (!s || s.packet_id !== meta.packet_id || s.source_input_sha256 !== meta.source_sha256 || !Array.isArray(s.answers)) throw new Error("This checkpoint belongs to a different packet or has an invalid shape.");
+    if (s.schema_version !== undefined && s.schema_version !== "1.0") throw new Error("Unsupported checkpoint schema version.");
+    if (s.review_scope !== undefined && s.review_scope !== "one_author_first_person_pilot_exploratory_not_confirmatory") throw new Error("Checkpoint review scope does not match this packet.");
+    if (s.item_count !== undefined && s.item_count !== items.length) throw new Error("Checkpoint item count does not match this packet.");
+    if (typeof s.started !== "boolean" || typeof s.paused !== "boolean" || !Number.isInteger(s.current_index) || s.current_index < 0 || s.current_index >= items.length) throw new Error("Checkpoint is missing valid session state.");
+    if (s.answers.length !== items.length) throw new Error("Checkpoint must contain exactly 52 item entries.");
+    const byId = new Map(items.map(x => [x.id, x]));
+    const answers = {};
+    for (const a of s.answers) {
+      const item = byId.get(a.item_id);
+      if (!item || item.sha256 !== a.item_sha256 || Object.hasOwn(answers, a.item_id)) throw new Error("Checkpoint has an unknown, mismatched, or repeated item ID.");
+      if (!(a.grammaticality === null || safeInt(a.grammaticality)) || !(a.understandability === null || safeInt(a.understandability))) throw new Error("Ratings must be blank or integers from 1 to 5.");
+      if (!(a.paraphrase === null || (typeof a.paraphrase === "string" && a.paraphrase.length <= 500))) throw new Error("Paraphrases must be strings of at most 500 characters or null.");
+      answers[a.item_id] = {grammaticality:a.grammaticality, understandability:a.understandability, paraphrase:a.paraphrase || ""};
+    }
+    if (Object.keys(answers).length !== items.length) throw new Error("Checkpoint is missing one or more items.");
+    const completed=Object.values(answers).filter(a=>safeInt(a.grammaticality)&&safeInt(a.understandability)).length;
+    if (s.completed_count !== undefined && s.completed_count !== completed) throw new Error("Checkpoint completed_count does not match its ratings.");
+    const index = Number.isInteger(s.current_index) ? Math.min(Math.max(s.current_index,0),items.length-1) : 0;
+    return {started:!!s.started, paused:true, index, answers};
+  }
+  function localSave() {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify({packet_id:meta.packet_id,source_input_sha256:meta.source_sha256,started:state.started,paused:state.paused,current_index:state.index,answers:items.map(i=>({item_id:i.id,item_sha256:i.sha256,...(state.answers[i.id]||emptyAnswer())}))}));
+      storageOk = true;
+    } catch (_) { storageOk = false; }
+    renderStatus();
+  }
+  function completedCount() { return items.filter(i => {const a=state.answers[i.id]; return a && safeInt(a.grammaticality) && safeInt(a.understandability);}).length; }
+  function renderStatus(message) {
+    const n=completedCount();
+    $("progress-label").textContent=`${n} of ${items.length} rated`;
+    $("progress").style.width=`${(100*n/items.length).toFixed(1)}%`;
+    $("progress-wrap").setAttribute("aria-valuenow",String(n));
+    if(message) $("status").textContent=message;
+    else if(!storageOk) $("status").textContent="Local autosave is unavailable in this browser. Export a checkpoint before leaving.";
+    else if(!state.started) $("status").textContent="Not started. Your answers save on this device.";
+    else if(state.paused) $("status").textContent="Paused. Your latest answers and position are saved locally.";
+    else $("status").textContent="Review in progress. Changes save locally as you make them.";
+    $("start").disabled=state.started && !state.paused;
+    $("pause").disabled=!state.started || state.paused;
+  }
+  function setRating(field,value) {
+    const item=items[state.index], answer=state.answers[item.id]||emptyAnswer();
+    answer[field]=value===null?null:Number(value); state.answers[item.id]=answer; localSave();
+  }
+  function render() {
+    renderStatus();
+    const active=state.started&&!state.paused;
+    $("review").classList.toggle("hidden",!state.started);
+    if(!state.started) return;
+    const item=items[state.index], answer=state.answers[item.id]||emptyAnswer();
+    $("item-count").textContent=`Item ${state.index+1} of ${items.length}`;
+    $("sentence").textContent=item.text;
+    for(const field of ["grammaticality","understandability"]) {
+      const holder=document.querySelector(`[data-field="${field}"]`); holder.replaceChildren();
+      for(let score=1;score<=5;score++) {
+        const label=document.createElement("label"); label.className="choice";
+        const input=document.createElement("input"); input.type="radio"; input.name=field; input.value=String(score); input.checked=answer[field]===score; input.disabled=!active;
+        input.addEventListener("change",()=>setRating(field,score));
+        const text=document.createElement("span"); text.textContent=String(score);
+        label.append(input,text); holder.append(label);
+      }
+      const scale=document.createElement("p"); scale.className="scale-help";
+      scale.textContent=field==="grammaticality"?"1 = not a sentence · 3 = sentence possible, with problems · 5 = natural and well formed":"1 = no coherent meaning · 3 = gist, with uncertainty · 5 = clear and coherent";
+      holder.append(scale);
+    }
+    const para=$("paraphrase"); para.value=answer.paraphrase||""; para.disabled=!active;
+    para.oninput=()=>{const a=state.answers[item.id]||emptyAnswer();a.paraphrase=para.value;state.answers[item.id]=a;localSave();};
+    $("previous").disabled=!active||state.index===0;
+    $("next").disabled=!active||state.index===items.length-1;
+    $("next").textContent=state.index===items.length-1?"End of items":"Next";
+  }
+  function exportAnswers() {
+    const answerRows=items.map(i=>({item_id:i.id,item_sha256:i.sha256,...(state.answers[i.id]||emptyAnswer()),paraphrase:(state.answers[i.id]||emptyAnswer()).paraphrase||null}));
+    const payload={schema_version:"1.0",packet_id:meta.packet_id,source_input_sha256:meta.source_sha256,exported_at_utc:new Date().toISOString(),review_scope:"one_author_first_person_pilot_exploratory_not_confirmatory",item_count:items.length,completed_count:completedCount(),current_index:state.index,started:state.started,paused:state.paused,answers:answerRows};
+    const blob=new Blob([JSON.stringify(payload,null,2)+"\n"],{type:"application/json"});
+    const url=URL.createObjectURL(blob), a=document.createElement("a"); a.href=url; a.download="palindrome-v4-first-person-pilot-answers.json"; document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+    renderStatus("Checkpoint exported. Keep the JSON file with your private review materials.");
+  }
+  $("start").addEventListener("click",()=>{state.started=true;state.paused=false;localSave();render();});
+  $("pause").addEventListener("click",()=>{state.paused=true;localSave();render();});
+  $("previous").addEventListener("click",()=>{if(state.index>0){state.index--;localSave();render();}});
+  $("next").addEventListener("click",()=>{if(state.index<items.length-1){state.index++;localSave();render();}});
+  $("export").addEventListener("click",exportAnswers);
+  $("import").addEventListener("change",async ev=>{
+    const file=ev.target.files&&ev.target.files[0]; if(!file)return;
+    try {const parsed=JSON.parse(await file.text()); const restored=normalizeState(parsed); const hasCurrent=Object.values(state.answers).some(a=>a&&(a.grammaticality!==null||a.understandability!==null||a.paraphrase)); if(hasCurrent&&!confirm("Restore this checkpoint and replace ratings currently saved in this browser?")) return; state=restored; localSave(); render(); renderStatus("Checkpoint restored. The imported answers are saved locally.");}
+    catch(err){alert(`Checkpoint not imported: ${err.message}`);}
+    finally{ev.target.value="";}
+  });
+  try {
+    const saved=localStorage.getItem(storageKey);
+    if(saved) state=normalizeState(JSON.parse(saved));
+  } catch (_) { storageOk=false; state={started:false,paused:true,index:0,answers:{}}; }
+  for(const item of items) if(!state.answers[item.id]) state.answers[item.id]=emptyAnswer();
+  render();
+})();
+</script>
+</body>
+</html>

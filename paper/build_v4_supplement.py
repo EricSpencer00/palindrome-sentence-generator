@@ -16,11 +16,16 @@ FILES = (
     "data/lexicon.txt",
     "experiments/__init__.py",
     "experiments/DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md",
+    "experiments/LOCAL-LLM-READABILITY-AUDIT-20260926.md",
+    "experiments/LOCAL-LLM-SINGLE-SENTENCE-SENSITIVITY-20260926.md",
+    "experiments/LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md",
     "experiments/DIRECTIONAL-SEARCH-BENCHMARK-20260925.md",
     "experiments/analyze_directional_search_resource_sensitivity_20260925.py",
     "experiments/analyze_paired_directional_search_benchmark_20260925.py",
     "experiments/audit_programmatic_readability.py",
     "experiments/infer_deepseek_static_verifier_20260925.py",
+    "experiments/local_llm_readability_audit_20260926.py",
+    "experiments/local_llm_single_sentence_brown_sensitivity_20260926.py",
     "experiments/paired_directional_search_benchmark_20260925.py",
     "experiments/paired_directional_search_resource_sensitivity_20260925.py",
     "experiments/prepare_directional_static_verifier_20260925.py",
@@ -52,6 +57,7 @@ FILES = (
     "paper/naacl2027.tex",
     "paper/readability-requirements.txt",
     "paper/refs.bib",
+    "paper/human_eval_v4_packet/sealed_key.json",
     "runs/directional-search-benchmark-20260925/confirmatory-v3-native-closure.json",
     "runs/directional-search-benchmark-20260925/manifest.json",
     "runs/directional-search-resource-sensitivity-20260925/brown-v4-aws.json",
@@ -62,6 +68,9 @@ FILES = (
     "runs/directional-search-resource-sensitivity-20260925/static-verifier-input-aws.json",
     "runs/directional-search-resource-sensitivity-20260925/static-verifier-summary-v4-aws.json",
     "runs/directional-search-resource-sensitivity-20260925/summary-v4.json",
+    "runs/local-llm-readability-audit-20260926.json",
+    "runs/local-llm-single-sentence-brown-sensitivity-20260926.json",
+    "runs/readability-length-stratified-20260925.json",
     "tests/test_initial_state_search.py",
     "tools/polaris/payload/vocab30k.txt",
 )
@@ -135,6 +144,52 @@ used 11,538 input tokens and 1,410 output tokens. Its estimated cost was USD
 
 The outputs are automatic diagnostics, not readability labels. No human
 ratings are in this archive.
+
+## Qwen 2.5 local-model audit
+
+The archive also contains the frozen Qwen protocols, both runner scripts, the
+two saved result JSON files, and the dated results report. These are
+success-conditioned diagnostics on the 52 selected v4 candidates. The first
+run failed its prespecified Brown-control calibration gate; its candidate
+scores are inconclusive. The follow-up is post-hoc, changes control units, and
+does not rescore candidates. Neither run provides human ratings or generation
+coverage.
+
+The Brown manifest at
+`runs/readability-length-stratified-20260925.json` is a privacy-preserving
+projection: it retains held-out document IDs, sentence indices, token counts,
+and sentence hashes required by the runners, but excludes Brown sentence
+surfaces. The licensed Brown corpus itself is not included. Install the
+specified NLTK version and Brown corpus locally; the runners reconstruct each
+control and verify its text hash before scoring. The sealed candidate key is
+rebound to the anonymized v4 inputs in this archive. The saved Qwen result
+files are preserved as historical records and still identify their original
+input hashes. Therefore a new run from this archive has a new input fingerprint;
+do not try to resume either saved historical run. The exact original and
+projected input hashes are listed in `supplement/QWEN-EXPORT-PROVENANCE.json`.
+
+First validate the archive inputs without contacting a model:
+
+```sh
+python3 experiments/local_llm_readability_audit_20260926.py --prepare-only
+python3 experiments/local_llm_single_sentence_brown_sensitivity_20260926.py --prepare-only
+```
+
+To create fresh result records, use the installed exact Qwen model digest in
+the saved run metadata and an already available local Ollama endpoint. The
+endpoint below is a local forwarded port; configure the SSH destination in
+your environment without adding a machine name to the archive:
+
+```sh
+python3 experiments/local_llm_readability_audit_20260926.py \\
+  --base-url http://127.0.0.1:11435 --output /tmp/qwen-audit-replay.json
+python3 experiments/local_llm_single_sentence_brown_sensitivity_20260926.py \\
+  --base-url http://127.0.0.1:11435 --output /tmp/qwen-brown-sensitivity-replay.json
+```
+
+These commands make new inference requests. The archived JSON files, rather
+than a new inference run, are the exact records underlying the reported
+results.
 """
 
 V3_MANIFEST = "runs/directional-search-benchmark-20260925/manifest.json"
@@ -148,6 +203,15 @@ V4_DEEPSEEK = "runs/directional-search-resource-sensitivity-20260925/deepseek-v4
 V4_STATIC_SUMMARY = "runs/directional-search-resource-sensitivity-20260925/static-verifier-summary-v4-aws.json"
 V4_SUMMARY = "runs/directional-search-resource-sensitivity-20260925/summary-v4.json"
 V4_REPORT = "experiments/DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md"
+QWEN_MAIN_PROTOCOL = "experiments/LOCAL-LLM-READABILITY-AUDIT-20260926.md"
+QWEN_FOLLOWUP_PROTOCOL = "experiments/LOCAL-LLM-SINGLE-SENTENCE-SENSITIVITY-20260926.md"
+QWEN_REPORT = "experiments/LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md"
+QWEN_MAIN_RUNNER = "experiments/local_llm_readability_audit_20260926.py"
+QWEN_FOLLOWUP_RUNNER = "experiments/local_llm_single_sentence_brown_sensitivity_20260926.py"
+QWEN_MAIN_RESULT = "runs/local-llm-readability-audit-20260926.json"
+QWEN_FOLLOWUP_RESULT = "runs/local-llm-single-sentence-brown-sensitivity-20260926.json"
+QWEN_PACKET = "paper/human_eval_v4_packet/sealed_key.json"
+QWEN_BROWN_SOURCE = "runs/readability-length-stratified-20260925.json"
 
 # These fields disclose a specific author machine or repository revision.
 # Model `revision` and content SHA-256 fields are intentionally unaffected.
@@ -338,7 +402,123 @@ def export_anonymized_json(content: dict[str, bytes]) -> None:
                 static_inputs[key] = score_hashes[name]
     store_json(content, V4_SUMMARY, summary)
 
+    export_qwen_inputs(content, v4_manifest_sha, v4_result_sha, v4_input_sha)
     validate_internal_hashes(content)
+
+
+def has_key(value: object, key: str) -> bool:
+    if isinstance(value, dict):
+        return key in value or any(has_key(item, key) for item in value.values())
+    if isinstance(value, list):
+        return any(has_key(item, key) for item in value)
+    return False
+
+
+def project_brown_control_manifest(raw: bytes) -> dict:
+    """Keep only Brown locations and hashes required to reconstruct controls."""
+    source = json.loads(raw.decode("utf-8"))
+    method = source.get("method", {})
+    projected: dict[str, object] = {
+        "export": {
+            "purpose": "Qwen control reconstruction without source-text redistribution",
+            "original_source_sha256": sha256(raw),
+            "excluded": "All Brown sentence surfaces and unrelated scoring rows",
+        },
+        "method": {
+            "heldout_file_count": method.get("heldout_file_count"),
+            "heldout_fileid_manifest_sha256": method.get("heldout_fileid_manifest_sha256"),
+        },
+    }
+    required = ("id", "brown_fileid", "sentence_indices_half_open", "surface_sha256")
+    for group in ("matched_heldout_prose_controls", "length_stratified_heldout_controls"):
+        rows = source.get(group)
+        if not isinstance(rows, list):
+            raise ValueError(f"Brown source manifest lacks {group}")
+        copied = []
+        for row in rows:
+            missing = [key for key in required if key not in row]
+            if missing:
+                raise ValueError(f"Brown control is missing required metadata: {missing}")
+            copied_row = {key: row[key] for key in required}
+            if "source_word_count" in row:
+                copied_row["source_word_count"] = row["source_word_count"]
+            copied.append(copied_row)
+        projected[group] = copied
+    if len(projected["matched_heldout_prose_controls"]) != 11:
+        raise ValueError("expected the frozen 11 matched Brown control locations")
+    if len(projected["length_stratified_heldout_controls"]) != 108:
+        raise ValueError("expected the frozen 108 length-stratified Brown controls")
+    if has_key(projected, "surface"):
+        raise ValueError("Brown projection unexpectedly contains source surfaces")
+    return projected
+
+
+def export_qwen_inputs(
+    content: dict[str, bytes], v4_manifest_sha: str,
+    v4_result_sha: str, v4_input_sha: str,
+) -> None:
+    """Rebind runnable Qwen inputs while preserving historical result records."""
+    original_brown = (ROOT / QWEN_BROWN_SOURCE).read_bytes()
+    original_packet = (ROOT / QWEN_PACKET).read_bytes()
+    original_static = (ROOT / V4_INPUT).read_bytes()
+    original_main_result = (ROOT / QWEN_MAIN_RESULT).read_bytes()
+    original_followup_result = (ROOT / QWEN_FOLLOWUP_RESULT).read_bytes()
+
+    # The Qwen runner reads this same repo-relative path. Its corpus prose is
+    # reconstructed from the user's installed NLTK Brown corpus and hash-checked.
+    brown_projection = project_brown_control_manifest(original_brown)
+    store_json(content, QWEN_BROWN_SOURCE, brown_projection)
+    brown_projection_sha = sha256(content[QWEN_BROWN_SOURCE])
+
+    # Candidate strings are unchanged, but their source packet must point to
+    # the anonymized v4 inputs packed beside it.
+    packet = parse_json(content, QWEN_PACKET)
+    packet["input_manifest_sha256"] = v4_manifest_sha
+    packet["search_result_sha256"] = v4_result_sha
+    packet["source_input_sha256"] = v4_input_sha
+    for candidate in packet.get("candidates", []):
+        for source in candidate.get("source_rows", []):
+            if "search_manifest_sha256" in source:
+                source["search_manifest_sha256"] = v4_manifest_sha
+            if "search_result_sha256" in source:
+                source["search_result_sha256"] = v4_result_sha
+    store_json(content, QWEN_PACKET, packet)
+
+    # These are historical outputs. Their original source hashes and fingerprints
+    # remain untouched, so an archive rerun gets a distinct, honest fingerprint.
+    if content[QWEN_MAIN_RESULT] != original_main_result:
+        raise ValueError("Qwen main result was unexpectedly rewritten during export")
+    if content[QWEN_FOLLOWUP_RESULT] != original_followup_result:
+        raise ValueError("Qwen follow-up result was unexpectedly rewritten during export")
+
+    content["supplement/QWEN-EXPORT-PROVENANCE.json"] = json_bytes({
+        "schema_version": 1,
+        "historical_results_preserved_byte_for_byte": True,
+        "historical_result_sha256": {
+            QWEN_MAIN_RESULT: sha256(original_main_result),
+            QWEN_FOLLOWUP_RESULT: sha256(original_followup_result),
+        },
+        "historical_input_sha256": {
+            "candidate_packet": sha256(original_packet),
+            "static_verifier_input": sha256(original_static),
+            "full_brown_control_manifest": sha256(original_brown),
+        },
+        "archive_input_sha256": {
+            "candidate_packet": sha256(content[QWEN_PACKET]),
+            "static_verifier_input": v4_input_sha,
+            "brown_control_manifest_projection": brown_projection_sha,
+        },
+        "brown_projection": {
+            "repo_relative_path": QWEN_BROWN_SOURCE,
+            "retained": ["Brown file IDs", "sentence indices", "word counts", "surface SHA-256"],
+            "omitted": "Brown sentence text and unrelated scoring rows",
+            "reconstruction": "Requires a local licensed NLTK Brown corpus; runner verifies each reconstructed surface hash.",
+        },
+        "rerun_note": (
+            "A fresh archive run uses projected inputs and therefore receives a new run fingerprint. "
+            "Do not resume the preserved historical result files."
+        ),
+    })
 
 
 def validate_internal_hashes(content: dict[str, bytes]) -> None:
@@ -411,6 +591,85 @@ def validate_internal_hashes(content: dict[str, bytes]) -> None:
             expected = manifest.get("source_sha256", {}).get(source_key)
             if source_path in content and expected:
                 require_hash(sha256(content[source_path]), expected, source_path)
+
+    validate_qwen_archive(content, hashes)
+
+
+def validate_qwen_archive(content: dict[str, bytes], hashes: dict[str, str]) -> None:
+    """Check projected rerun inputs against immutable historical Qwen records."""
+    provenance = parse_json(content, "supplement/QWEN-EXPORT-PROVENANCE.json")
+    packet = parse_json(content, QWEN_PACKET)
+    brown_projection = parse_json(content, QWEN_BROWN_SOURCE)
+    main_result = parse_json(content, QWEN_MAIN_RESULT)
+    followup_result = parse_json(content, QWEN_FOLLOWUP_RESULT)
+    historical_results = provenance.get("historical_result_sha256", {})
+    historical_inputs = provenance.get("historical_input_sha256", {})
+    archive_inputs = provenance.get("archive_input_sha256", {})
+
+    for result_path, result_hash in historical_results.items():
+        require_hash(result_hash, hashes.get(result_path, ""), result_path)
+    require_hash(
+        historical_inputs.get("candidate_packet"),
+        main_result.get("source_artifacts", {}).get("candidate_packet_sha256"),
+        QWEN_MAIN_RESULT,
+    )
+    require_hash(
+        historical_inputs.get("static_verifier_input"),
+        main_result.get("source_artifacts", {}).get("static_verifier_input_sha256"),
+        QWEN_MAIN_RESULT,
+    )
+    require_hash(
+        historical_inputs.get("full_brown_control_manifest"),
+        main_result.get("source_artifacts", {}).get("heldout_brown_control_manifest_sha256"),
+        QWEN_MAIN_RESULT,
+    )
+    require_hash(
+        brown_projection.get("export", {}).get("original_source_sha256"),
+        historical_inputs.get("full_brown_control_manifest"),
+        QWEN_BROWN_SOURCE,
+    )
+    require_hash(
+        followup_result.get("method", {}).get("brown_source", {}).get("length_control_manifest_sha256"),
+        historical_inputs.get("full_brown_control_manifest"),
+        QWEN_FOLLOWUP_RESULT,
+    )
+    require_hash(archive_inputs.get("candidate_packet"), hashes[QWEN_PACKET], QWEN_PACKET)
+    require_hash(archive_inputs.get("static_verifier_input"), hashes[V4_INPUT], V4_INPUT)
+    require_hash(archive_inputs.get("brown_control_manifest_projection"), hashes[QWEN_BROWN_SOURCE], QWEN_BROWN_SOURCE)
+    require_hash(packet.get("input_manifest_sha256"), hashes[V4_MANIFEST], QWEN_PACKET)
+    require_hash(packet.get("search_result_sha256"), hashes[V4_RESULT], QWEN_PACKET)
+    require_hash(packet.get("source_input_sha256"), hashes[V4_INPUT], QWEN_PACKET)
+
+    require_hash(
+        main_result.get("source_artifacts", {}).get("scorer_script_sha256"),
+        hashes[QWEN_MAIN_RUNNER],
+        QWEN_MAIN_RUNNER,
+    )
+    require_hash(
+        followup_result.get("source_artifacts", {}).get("scorer_script_sha256"),
+        hashes[QWEN_FOLLOWUP_RUNNER],
+        QWEN_FOLLOWUP_RUNNER,
+    )
+    require_hash(
+        followup_result.get("method", {}).get("first_run_provenance_hashes", {}).get("first_run_result_sha256"),
+        historical_results.get(QWEN_MAIN_RESULT),
+        QWEN_FOLLOWUP_RESULT,
+    )
+    require_hash(
+        followup_result.get("method", {}).get("first_run_provenance_hashes", {}).get("first_run_scorer_sha256"),
+        hashes[QWEN_MAIN_RUNNER],
+        QWEN_FOLLOWUP_RESULT,
+    )
+    main_digest = main_result.get("model_facts", {}).get("model_digest")
+    require_hash(
+        followup_result.get("model_facts", {}).get("model_digest"),
+        main_digest,
+        QWEN_FOLLOWUP_RESULT,
+    )
+    if has_key(brown_projection, "surface") or has_key(brown_projection, "text"):
+        raise ValueError("Brown archive projection contains source text")
+    if provenance.get("historical_results_preserved_byte_for_byte") is not True:
+        raise ValueError("Qwen historical result preservation is not attested")
 
 
 def require_hash(actual: str | None, expected: str, context: str) -> None:

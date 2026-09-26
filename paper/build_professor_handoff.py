@@ -35,6 +35,8 @@ HANDOFF_FILES = (
     "REVIEWER-BRIEF.md",
     "LOCAL-LLM-READABILITY-AUDIT-RESULTS.md",
     "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md",
+    "READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md",
+    "analyze_readability_length_construction_20260926.py",
     "NAACL-READINESS-PLAN.md",
     "READABILITY-SCORE-AUDIT.md",
     "DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md",
@@ -112,6 +114,7 @@ def build() -> None:
     readiness = (HANDOFF / "NAACL-READINESS-PLAN.md").read_text()
     readiness = readiness.replace("../experiments/DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md", "DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md")
     readiness = readiness.replace("../experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md", "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md")
+    readiness = readiness.replace("../experiments/READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md", "READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md")
     (HANDOFF / "NAACL-READINESS-PLAN.md").write_text(readiness)
     shutil.copyfile(ROOT / "experiments" / "LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md", HANDOFF / "LOCAL-LLM-READABILITY-AUDIT-RESULTS.md")
     qwen3_report = (ROOT / "experiments" / "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md").read_text()
@@ -120,6 +123,8 @@ def build() -> None:
     if archived_run_hash not in qwen3_report:
         raise ValueError("Qwen3 results report does not identify the archived run record hash")
     (HANDOFF / "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md").write_text(qwen3_report)
+    shutil.copyfile(ROOT / "experiments" / "READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md", HANDOFF / "READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md")
+    shutil.copyfile(ROOT / "experiments" / "analyze_readability_length_construction_20260926.py", HANDOFF / "analyze_readability_length_construction_20260926.py")
     shutil.copyfile(ROOT / "experiments" / "DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md", HANDOFF / "DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md")
     shutil.copyfile(PAPER / "READABILITY-SCORE-AUDIT.md", HANDOFF / "READABILITY-SCORE-AUDIT.md")
     for name in ("naacl2027.tex", "refs.bib", "acl.sty", "acl_natbib.bst"):

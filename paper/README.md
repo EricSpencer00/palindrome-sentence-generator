@@ -22,6 +22,9 @@ local-judge results, readiness plan, and a copy of the evidence archive, is
 The AWS Qwen3 run, frozen scorer, price snapshot, offline reanalysis tool, and
 result report are included in `v4-reproducibility.zip`; see
 [`AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md`](../experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md).
+The length-by-construction cross-tab and Diana-frame case analysis are in
+[`READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md`](../experiments/READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md);
+its standard-library analyzer is included in the reproducibility archive.
 
 ## Reproduce v4
 

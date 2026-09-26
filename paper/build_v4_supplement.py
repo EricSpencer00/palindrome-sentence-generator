@@ -21,6 +21,8 @@ FILES = (
     "experiments/LOCAL-LLM-SINGLE-SENTENCE-SENSITIVITY-20260926.md",
     "experiments/LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md",
     "experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md",
+    "experiments/READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md",
+    "experiments/analyze_readability_length_construction_20260926.py",
     "experiments/aws_qwen3_readability_audit_20260926.py",
     "experiments/summarize_aws_qwen3_readability_audit_20260926.py",
     "experiments/pricing_snapshots/aws-bedrock-qwen3-32b-us-east-2-20260926.json",
@@ -77,6 +79,7 @@ FILES = (
     "runs/local-llm-single-sentence-brown-sensitivity-20260926.json",
     "runs/aws-qwen3-32b-readability-audit-20260926.json",
     "runs/readability-length-stratified-20260925.json",
+    "runs/readability-length-stratified-sentence-aware-20260925.json",
     "tests/test_initial_state_search.py",
     "tools/polaris/payload/vocab30k.txt",
 )
@@ -219,6 +222,19 @@ and profile identity block. Input-hash transformations are recorded in
 `supplement/QWEN-EXPORT-PROVENANCE.json`; the archived historical result is
 for offline reanalysis, not for `--resume` or fresh inference. A new Bedrock
 run has no provider seed and can return different ratings.
+
+## Readability, length, and construction cross-tab
+
+`experiments/READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md` reports an
+offline stratification of the frozen Brown, GPT-2, and DeepSeek diagnostics
+for the 66 selected v4 outputs, plus the 38/54-letter Diana-frame case. It is
+descriptive model evidence, not human readability evidence. Recreate the
+report without network access or inference from the extracted archive root:
+
+```sh
+python3 experiments/analyze_readability_length_construction_20260926.py \\
+  --output /tmp/readability-length-construction-rerun.md
+```
 """
 
 V3_MANIFEST = "runs/directional-search-benchmark-20260925/manifest.json"

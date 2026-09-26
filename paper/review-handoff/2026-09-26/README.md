@@ -2,9 +2,12 @@
 
 This bundle contains the anonymous manuscript PDF and source, reviewer brief,
 readiness plan, reproducible diagnostic reports, and a separate first-pass
-rating packet. The paper reports a bundled resource-sensitivity result; it
-does not claim the generated strings are readable. The packet explicitly
-defines letter-level versus word-order palindromes.
+rating packet. The paper is titled *Evaluating Exact Palindrome Generation
+Beyond Character Validity*. It examines how positive shuffle-relative
+likelihood coexists with floor-level absolute model ratings, with construction
+and length providing context. This framing revision uses saved evidence and
+contains no new experiments or model scoring calls. No human ratings have
+been collected. The packet defines letter-level versus word-order palindromes.
 
 ## Read the paper
 

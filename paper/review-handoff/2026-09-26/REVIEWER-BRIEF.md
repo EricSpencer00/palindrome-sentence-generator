@@ -1,23 +1,65 @@
 # Reviewer brief
 
-**Draft:** *Resource Sensitivity in Exact Letter-Level Palindrome Search*
+**Draft:** *Evaluating Exact Palindrome Generation Beyond Character Validity*
 
-## What the paper establishes
+## Central result
 
-On 120 frozen tasks, a larger bundle of search resources returned 66 basic-valid outputs; the original bundle returned none. This is a bundled, adaptive comparison: beam width, candidate limit, branching, and time budget changed together. The result does not identify which setting caused the increase or show that either search implementation is better.
+The manuscript examines how construction success, output length, relative
+likelihood, and absolute model ratings relate on the same exact outputs.
+Brown word-order gain is positive for 40/66 selected outputs and GPT-2 for
+37/66. All 52 distinct candidates nevertheless receive zero grammaticality
+and coherent-meaning scores under a Qwen3 32B rubric. That judge passes a
+small control screen: 11/12 prose spans and 0/12 prose shuffles pass jointly.
+None of the 156 candidate shuffles passes either.
 
-## What the language checks establish
+This is an empirical evaluation case study. Positive gain over deliberately
+disordered text and an absolute rubric score measure different properties.
+Their coexistence shows why the former cannot establish sentence quality in
+this output set. No human ratings validate either interpretation.
 
-The automatic diagnostics are descriptive. Brown word-bigram gain was positive for 40/66 selected outputs, GPT-2 likelihood for 37/66, and DeepSeek V3.2 tied every candidate/shuffle pair. A local Qwen2.5-3B audit assigned floor grammar and meaning scores to all 52 unique candidates but missed its Brown-control gate (1/12; post-hoc individual-sentence check: 4/12). A separate Bedrock Qwen3 32B audit passed its narrow control screen (11/12 Brown spans versus 0/12 shuffles), but all 52 candidates still scored 0/3 on both dimensions; the matched-shuffle joint-pass rate was also zero, so the paired difference was exactly zero. Seven Brown spans contained multiple sentences; 11/12 hidden repeats agreed. These Brown controls were held out from the Brown scorer's fit; Qwen3's Brown pretraining exposure is unknown, and Bedrock exposed no model-weight digest. These model outputs are not human ratings or evidence of improved readability. The paper has no human ratings.
+## Construction and length
 
-All 52 unique strings pass the exact normalized-letter reversal check, but none is a word-order palindrome. This letter-level definition does not make a string a coherent sentence. The output set contains 52 distinct strings; 36 of the 66 selected outputs contain the same phrase, “one poem association.” The paper therefore makes no readability, causal, population, or general-superiority claim.
+The frozen study contains 240 runs: 20 seed clusters, three target length
+bands, two search implementations, and two resource bundles. The original
+bundle returns 0/120 basic-valid outputs and the larger bundle 66/120.
+Four settings change together in an adaptive follow-up. The comparison
+establishes output coverage under those conditions; no original-bundle texts
+exist for comparing language quality. These are project implementations,
+without a same-input reproduction of a published generator.
 
-## Questions for review
+Table 1 presents the existing length and likelihood summaries by search
+implementation. The trends are descriptive and conditional on successful
+search. All 52 distinct strings are letter-level palindromes; none reverses
+the word sequence. Thirty-six of the 66 selected outputs contain the exact
+phrase “one poem association.”
 
-1. Is this bounded resource-sensitivity result a sufficiently substantial contribution for NAACL Findings?
-2. Are the adaptive design and bundled-resource attribution clear enough to avoid a causal overclaim?
-3. What minimum additional comparison or human evidence would materially change your assessment, rather than just increase a diagnostic score?
+The Diana appendix is a separate, retrospective 38/54-letter construction
+pair. It demonstrates a recorded extension with exactness preserved and
+contrasts own-word shuffle scores with prose matched on scorer-token count. It is outside the v4
+study and Qwen audits. Its reference has no established authorship in the
+project record; neither text has project human ratings.
 
-## Current internal estimate
+## Interpretation limits
 
-The final independent internal review estimated 3/5 soundness, 2/5 excitement, 4/5 reproducibility, and 2.5/5 overall. This is an informal prediction, not an ARR decision. The most likely concern is contribution size; the next is that the experiment cannot identify which resource setting produced the gain. Reproducibility is supported by a checksum-manifested archive, including both Qwen protocols, saved responses, and the hosted result's offline reanalysis tool.
+Qwen2.5 fails its control gate, so its candidate scores are inconclusive.
+Qwen3 passes the small screen, but seven prose controls span multiple
+sentences, pretraining exposure to Brown is unknown, and 11/12 hidden repeats
+agree. A passed screen does not make its rubric a validated readability
+scale. DeepSeek ties all 66 candidate–shuffle pairs.
+
+The paper claims neither a readable-generator advance nor superiority over
+prior systems. The September 26 revision changes framing and presentation;
+it includes no new experiments or model scoring calls.
+
+## Questions for the professor
+
+1. Does the abstract make the evaluation contribution clear and proportional
+   to the evidence?
+2. Are the denominators, calibration limits, and descriptive length findings
+   understandable on a first reading?
+3. Which passages need a clearer explanation or a narrower claim?
+
+The prior resource-centered draft received an informal internal estimate of
+2.5/5 overall. That estimate predates this rewrite. The current independent
+AI review checked factual support and framing; it did not assign a new score
+and is not peer review.

@@ -1,12 +1,17 @@
-# Exact palindrome search: paper and evidence
+# Evaluating Exact Palindrome Generation Beyond Character Validity
 
-The active anonymous manuscript is [naacl2027.tex](naacl2027.tex). It reports
-the adaptive v4 comparison of two exact-palindrome search implementations
-under original and escalated resource bundles. The earlier eleven-text Brown
-audit is retrospective supporting evidence; it does not establish readability.
-The additional hosted Qwen3 audit is explicitly a model-scored diagnostic: it
-gave all 52 selected candidates floor scores and found no candidate-versus-
-shuffle improvement under its joint-pass outcome.
+Read the [current anonymous PDF](../output/pdf/palindrome-evaluation/naacl2027.pdf)
+or its [TeX source](naacl2027.tex). The paper is an empirical evaluation case
+study: exact outputs can score above their own word shuffles under Brown and
+GPT-2 while receiving floor-level grammar and meaning ratings from Qwen3.
+Construction yield, output variety, and the existing length analysis explain
+the conditions under which these signals arise.
+
+The September 26 framing revision uses only saved evidence. No new search
+experiments or model scoring calls were run. Main content ends on page 4;
+the PDF has five pages including limitations, references, and the separate
+Diana construction appendix. [FRAMING-REVISION-20260926.md](FRAMING-REVISION-20260926.md)
+records the changes and claim-to-source map.
 
 [NAACL-READINESS-PLAN.md](NAACL-READINESS-PLAN.md) records the claim boundary,
 QA status, and readiness assessment. [READABILITY-SCORE-AUDIT.md](READABILITY-SCORE-AUDIT.md)
@@ -16,9 +21,11 @@ experiment summary and commands are in
 The frozen inputs, raw outputs, source files and checksums are bundled in
 [v4-reproducibility.zip](v4-reproducibility.zip), built with
 [`build_v4_supplement.py`](build_v4_supplement.py).
-The dated professor packet, including a rebuilt anonymous PDF, reviewer brief,
-local-judge results, readiness plan, and a copy of the evidence archive, is
+The dated professor packet, including the current anonymous PDF, reviewer brief,
+diagnostic results, readiness plan, and a separate first-pass rating packet, is
 [`review-handoff/NAACL2027-PROFESSOR-HANDOFF-2026-09-26.zip`](review-handoff/NAACL2027-PROFESSOR-HANDOFF-2026-09-26.zip).
+The full evidence archive is kept separate because it contains the sealed
+mapping from review IDs to method and task provenance.
 The AWS Qwen3 run, frozen scorer, price snapshot, offline reanalysis tool, and
 result report are included in `v4-reproducibility.zip`; see
 [`AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md`](../experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md).

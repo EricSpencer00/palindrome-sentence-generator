@@ -93,6 +93,11 @@ up, all 66 selected texts and their 32 fixed shuffles, model outputs, source
 code, vocabulary/lexicon inputs, and pinned dependency lists. `MANIFEST.sha256`
 records each archived file hash.
 
+The manuscript is titled *Evaluating Exact Palindrome Generation Beyond
+Character Validity*. Its September 26 framing revision relates construction,
+length, relative likelihood, and absolute model ratings using these saved
+records. The revision adds no new search experiments or model scoring calls.
+
 Author-specific machine names and repository commit IDs are omitted from the
 exported run metadata. Source-file hashes, model revisions, and cross-file
 reproduction hashes are retained and checked.

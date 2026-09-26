@@ -13,6 +13,9 @@ experiment summary and commands are in
 The frozen inputs, raw outputs, source files and checksums are bundled in
 [v4-reproducibility.zip](v4-reproducibility.zip), built with
 [`build_v4_supplement.py`](build_v4_supplement.py).
+The dated professor packet, including a rebuilt anonymous PDF, reviewer brief,
+local-judge results, readiness plan, and a copy of the evidence archive, is
+[`review-handoff/NAACL2027-PROFESSOR-HANDOFF-2026-09-26.zip`](review-handoff/NAACL2027-PROFESSOR-HANDOFF-2026-09-26.zip).
 
 ## Reproduce v4
 
@@ -30,8 +33,14 @@ python3 experiments/analyze_directional_search_resource_sensitivity_20260925.py 
 ```
 
 The frozen input contains all 66 selected texts and 32 deterministic same-word
-shuffles for each. Brown and GPT-2 scores can be recomputed with the commands
-in the experiment report and their pinned dependencies. DeepSeek's request,
+shuffles for each. Brown regenerates its own 32 item-keyed permutations;
+GPT-2 scores the archived shuffles, so the two diagnostics do not share the
+same word orders. Both sets and their seed derivations are reproducible. The
+local Qwen judge audit, including its failed control calibration and raw
+structured responses, is documented in
+[`LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md`](../experiments/LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md).
+Brown and GPT-2 scores can be recomputed with the commands in the experiment
+report and their pinned dependencies. DeepSeek's request,
 visible response, usage and hash are archived. Bedrock did not provide a model
 seed; reissuing an API request may return a different response. The reported
 Bedrock charge is estimated at USD 0.00976206 from recorded tokens and
@@ -40,7 +49,9 @@ Bedrock charge is estimated at USD 0.00976206 from recorded tokens and
 The v4 bundle records the full task denominator, source hashes, model
 revisions, exactness checks, output screens, language diagnostics and prior
 protocol history. It does not contain human ratings, and no automatic metric
-is named a readability score.
+is treated as a human readability score. The Qwen candidate scores are
+inconclusive because the local judge did not meet the frozen Brown-control
+calibration criterion.
 
 ## Build the anonymous review PDF
 

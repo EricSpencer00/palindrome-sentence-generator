@@ -1,8 +1,8 @@
 # 24-hour plan for a stronger NAACL draft
 
-Revised: 2026-09-25. Status: proposed plan only; execution remains stopped. The user requires a complete professor-review packet within 24 hours, followed by at least seven full days for professor review. This revision replaces the previous multiweek execution schedule. It does not launch implementation, experiments, recruitment, or spending.
+Revised: 2026-09-26. Status: time-boxed plan partially executed; this document's proposed four-arm study and human-label targets are not collected results. Work started 2026-09-25 22:59 CDT. The handoff deadline is 2026-09-26 22:59 CDT, with seven full professor-review days through 2026-10-03 22:59 CDT. The actual work completed so far is recorded in [NAACL-READINESS-PLAN.md](NAACL-READINESS-PLAN.md). Current experiment: a frozen v4 resource-sensitivity study plus local Qwen calibration audit. It does not include a new external-generator comparison or human ratings. Do not promote the proposed thresholds, sample size, or arms below as results.
 
-H0 means the start of a separately resumed execution run. If work starts September 25, handoff is September 26 at the same time of day; the professor's review window lasts until October 3 at that time. Do not consume that review window by moving the research deadline. No professor message or calendar invitation has been sent.
+H0 is 2026-09-25 22:59 CDT. H24 is 2026-09-26 22:59 CDT; the professor's review window ends 2026-10-03 22:59 CDT. Do not consume that review window by moving the research deadline. No professor message or calendar invitation has been sent.
 
 ## The result the paper needs
 
@@ -88,4 +88,4 @@ The packet includes the PDF, all output examples and failures, anonymized rating
 
 Proposed compute cap remains **$100 total**, with **aggregate AWS below $10/hour**, bounded jobs, and teardown. Use authorized remote capacity for inference; the Mac remains the coordinator. Price the actual configuration before launch. Proposed annotation envelope is **$400–800**, based on $18/hour plus pilot work, controls, and platform fees; replace it with pilot timing and a real recruitment quote before spending.
 
-The hard stops are H4 for scope, H10 for the planned main runs, H16 for the primary annotation cutoff, H20 for result tables, and H24 for handoff. A failed experiment changes the claims, not the clock. No length-record campaign, larger-beam-only headline, model training, or speculative feature work belongs on this schedule. This revision changes only the plan; execution remains stopped.
+The original proposed hard stops were H4 for scope, H10 for planned main runs, H16 for annotation, H20 for results, and H24 for handoff. The actual run did not complete the proposed comparator experiment or independent human evaluation. A failed or unavailable experiment changes the claims, not the clock. No length-record campaign, larger-beam-only headline, model training, or speculative feature work belongs on this schedule. The actual deliverables and remaining limitations are tracked in [NAACL-READINESS-PLAN.md](NAACL-READINESS-PLAN.md).

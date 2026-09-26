@@ -29,7 +29,7 @@ Among the 66 selected escalated outputs, 54 passed every additional mechanical s
 
 ## Language diagnostics
 
-We completed the audit for 66 escalated_v4 outputs; no original_v3 outputs existed. Brown order gain, pinned GPT-2 token likelihood, and one counterbalanced DeepSeek V3.2 comparison against a deterministic same-word shuffle are only computed for selected basic-valid outputs. No model diagnostic is a human rating.
+We completed the audit for 66 escalated_v4 outputs; no original_v3 outputs existed. Brown order gain, pinned GPT-2 token likelihood, and one counterbalanced DeepSeek V3.2 comparison against a deterministic same-word shuffle are only computed for selected basic-valid outputs. Brown regenerates its 32 item-keyed permutations with its scorer RNG; GPT-2 scores the 32 archived permutations generated from task ID and replicate. They preserve the same words and sentence lengths but are different control sets. No model diagnostic is a human rating.
 
 | Diagnostic, computed only among selected valid outputs | Outside-in (n=33) | Center-out (n=33) |
 |---|---:|---:|
@@ -40,6 +40,17 @@ We completed the audit for 66 escalated_v4 outputs; no original_v3 outputs exist
 For the 33 seed-by-band tasks where both methods returned an output, the descriptive paired outside-in-minus-center-out differences were 0.178 Brown nats/transition (seed-cluster 95% interval `[0.041, 0.317]`) and 0.280 GPT-2 nats/token (interval `[0.205, 0.353]`). These are post-run, conditional model diagnostics, not human judgments or population-level method effects. DeepSeek tied all 66 separate candidate-versus-shuffle pairs; it did not directly compare the two algorithms.
 The DeepSeek run used 11,538 input and 1,410 output tokens. Its charge was estimated as USD 0.00976 from recorded token counts and the published [Amazon Bedrock DeepSeek V3.2 rates](https://aws.amazon.com/bedrock/pricing/); the preflight upper bound was USD 0.06293.
 The static verifier summary SHA-256 is `b9efa930ec8ff42c7b05175cb0fdda454028f47be281efdb560a1ae7713a5ed4`; its frozen input SHA-256 is `9229cdfdf761dace9824686bd2f9ed285b30a12c798045995d6fa834e3130bf0`.
+
+## Separate local absolute-rating diagnostic
+
+The reproducible Qwen2.5-3B local audit and its calibration failures are
+reported in [`LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md`](LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md), with raw responses and run
+provenance in `runs/local-llm-readability-audit-20260926.json`. The 52 unique
+candidate strings all received 0/3 for grammar and meaning, but only 1/12
+original Brown spans and 4/12 in a separate post-hoc individual-sentence check
+met the joint threshold. Both checks failed the prespecified 8/12 control
+criterion. The score is therefore inconclusive as a readability measure; it
+does not turn the all-zero candidate outputs into a valid human-quality result.
 
 ## Reproduction
 

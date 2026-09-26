@@ -5,6 +5,12 @@ report of the v4 exact-palindrome search resource experiment. The earlier
 eleven-text local-order audit is supporting retrospective evidence, not the
 main experiment. This plan does not claim submission or acceptance.
 
+**24-hour handoff clock:** work began 2026-09-25 22:59 CDT. The draft and
+evidence packet are due by 2026-09-26 22:59 CDT; the professor then has at
+least seven full days, through 2026-10-03 22:59 CDT. No professor message has
+been sent. The review page is ready for a one-author pilot, but its ratings
+have not been collected and must not be described as study results.
+
 ## Claim boundary
 
 The paper reports that a bundled increase in search resources changed basic-
@@ -22,12 +28,16 @@ output; its 66 ties are not a human study.
 | Verify search coverage | 0/120 original, 66/120 escalated; paired difference 0.550, seed-cluster interval [0.350, 0.750]; zero deadline exits | Complete |
 | Audit output limitations | 54/66 selected outputs passed the stricter mechanical screen; 26 unique strings per arm; the phrase “one poem association” appears in 36/66 | Complete |
 | Run static language diagnostics | Brown and pinned GPT-2 on 66 outputs and 32 same-word shuffles each; one DeepSeek V3.2 comparison per output; requests, responses, settings, hashes and cost preserved | Complete |
-| Archive evidence | Deterministic zip with frozen search/scorer inputs and outputs, sources, checksum list, environment files and replay instructions | Complete |
-| Revise manuscript | Three-page claim-led draft with diagnostic totals, explicit closure rules, short-word allowlist, bundled-resource attribution, adaptive-design disclosure and limits | Complete; independent reviewer QA complete |
-| Reproduce and inspect PDF | Rebuild in a separate output directory, verify three-page count, check extracted text and inspect all rendered pages | Complete; all pages inspected after correcting a TeX percent-sign truncation |
+| Archive evidence | 63-member deterministic zip; 62 per-file hashes; v4 model/search records plus both Qwen protocols, runners, result JSONs and report; export-only Brown control projection contains no Brown text | Complete; privacy and hash-link tests pass; archive SHA-256 `0a72885649c102d87fc8b462a66baf5be11b9748300f4726f757c1759b72bc06` |
+| Local Qwen audit | 244 presentations using the installed Qwen2.5-3B-Instruct model, frozen scoring protocol and duplicate checks | Complete; model calibration failed, so candidate scores are inconclusive |
+| Qwen control sensitivity | Separate 12-sentence/12-shuffle check with unchanged model, prompt, rubric, and gate | Complete; 4/12 sentences and 0/12 shuffles passed; same gate failed |
+| Revise manuscript | Four-page anonymous draft with diagnostic totals, Qwen calibration failure, exact closure rules, bundle attribution, adaptive-design disclosure and limits | Complete; final independent reviewer QA complete |
+| Reproduce and inspect PDF | Rebuilt in an isolated temporary directory; verified four-page count and extracted text; rendered and visually inspected all pages | Complete; bibliography occupies page 4; TeX emitted line-break warnings only |
 | Recompute diagnostics | Recomputed Brown scores from the frozen inputs, joined saved GPT-2 and DeepSeek outputs, and reran the v4 analyzer with candidate-ID and text-hash checks | Complete; 240 tasks and 66 outputs verified |
 | Test implementation | Changed search tests and related palindrome tests | 34 passed; GPT-2 download test needs network; full suite collection is blocked by three historical tests importing absent modules |
-| Rerun DeepSeek to assess provider stability | Dependency was added in a temporary directory; the retry could not resolve the AWS sign-in endpoint because DNS/network access is unavailable. The archived 66 responses remain auditable; rerun stability is unmeasured. | Open, non-blocking |
+| Obtain a stronger local/AWS judge | Mini has only Qwen 3B and Gemma 2B installed; the Mini is swap-heavy. No NUC endpoint or stronger cached model is ready. AWS has no usable credentials in this session. | Blocked by available compute/auth; no extra model was downloaded or billed |
+| One-author packet | 52 unique outputs with separate 1–5 grammar and understandability items; local autosave, pause/resume and JSON export are implemented | Ready; ratings not collected |
+| Custom `espencer.me` review alias | Current private Tailscale `.ts.net` route exists. No separate review hostname/DNS/Cloudflare Access route is configured; preserve the existing `ssh.espencer.me` route. | Unavailable from current host credentials; use the private Tailscale link for now |
 
 ## Evidence and reproduction
 
@@ -47,13 +57,13 @@ zero-yield results stay in the run archive and are not pooled into v4.
 ## Readiness assessment
 
 The current draft is a reproducible, exploratory resource-sensitivity study
-with explicit failure and language diagnostics. An independent subagent
-reviewer estimated Soundness 3/5, Excitement 2/5, Reproducibility 4/5, and
-Overall 2.5 (Borderline Findings); a sympathetic review could assign 3. This
-is an informal estimate, not an ARR decision. The limits behind that estimate
-remain: one vocabulary, an adaptive multi-parameter bundle comparison, no
-human language-quality ratings, and unmeasured provider-response stability.
-The evidence does not support presenting an ARR 5 as a likely result.
+with explicit failure and language diagnostics. The final independent
+subagent review estimated Soundness 3/5, Excitement 2/5, Reproducibility 4/5,
+and Overall 2.5/5 (Borderline Findings). This is an informal estimate, not an
+ARR decision. The rating stays at 2.5 because the study uses one vocabulary,
+changes multiple resource settings together in an adaptive follow-up, and
+contains no human language-quality ratings. It is not credible to present ARR
+5 as a likely outcome on the current evidence.
 
 ## External requirements checked
 

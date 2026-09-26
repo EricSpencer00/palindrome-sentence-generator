@@ -79,6 +79,10 @@ The post-hoc follow-up protocol and runner are
 `experiments/LOCAL-LLM-SINGLE-SENTENCE-SENSITIVITY-20260926.md` and
 `experiments/local_llm_single_sentence_brown_sensitivity_20260926.py`; its
 result is `runs/local-llm-single-sentence-brown-sensitivity-20260926.json`.
+The separate user-punctuation-variant request and raw response are recorded
+in `paper/local-llm-user-example-score-20260926.json` (SHA-256
+`849dd1424f57b095638cea3801990addc1328d4baf0d9bc6f9c54abde2044706`); that
+single request is excluded from the frozen 244-presentation totals.
 Brown source sentences are not copied into result artifacts. Results retain
 document IDs, sentence indices, hashes, model metadata, and all scores so a
 licensed local Brown corpus can reconstruct the selected controls.

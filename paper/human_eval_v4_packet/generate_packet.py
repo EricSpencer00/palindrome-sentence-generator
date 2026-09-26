@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a blinded, offline first-person review packet from frozen v4 input.
+"""Build a method-label-masked, offline first-person review packet.
 
 Only the saved v4 static-verifier input is read. The HTML contains no method,
 seed, band, or control metadata. The key and same-word shuffle controls are
@@ -372,6 +372,7 @@ def build(input_path: Path, output_dir: Path) -> dict[str, Any]:
         f"- Same-word shuffle controls archived separately: {len(controls)} (maximum {MAX_CONTROLS}); each is distinct, is not a candidate, and preserves its source word multiset, punctuation, and separators.",
         "- Reviewer page: single local HTML file with embedded content and code; no third-party assets, server, or network calls.",
         "- Scope: one-author first-person exploratory pilot; no independent-rater or confirmatory claim.",
+        "- Prior-score exposure: the reviewer has already seen aggregate Qwen results and one example score; ratings are not blind to prior model outputs.",
         "- Determinism: packet files omit build timestamps; sample inclusion, opaque IDs, display order, and control selection use frozen hash/seed rules independent of method labels and ratings.",
         "",
         "## Generated-file SHA-256",
@@ -396,6 +397,7 @@ def build(input_path: Path, output_dir: Path) -> dict[str, Any]:
         "packet_version": PACKET_VERSION,
         "packet_id": packet_id,
         "review_scope": "one_author_first_person_pilot_exploratory_not_confirmatory",
+        "prior_model_score_exposure": "reviewer_saw_aggregate_qwen_results_and_one_example_score_before_rating",
         "source_artifact": EXPECTED_INPUT_ARTIFACT_LABEL,
         "source_input_sha256": source_hash,
         "source_input_experiment": data["experiment"],

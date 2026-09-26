@@ -81,6 +81,9 @@ def start_here() -> bytes:
 
 This is one author's exploratory pilot, not independent or confirmatory human
 evidence. The strings are letter-level palindromes; none reverses word order.
+The reviewer has already seen the local judge's aggregate and example scores,
+so this pass is not blind to prior model results. Rate from the displayed
+wording alone; do not treat the ratings as model validation.
 The page works offline and does not send ratings anywhere.
 
 Optional private route for devices on the same Tailscale network:
@@ -149,8 +152,11 @@ custom name `review.espencer.me` is not configured. Use the offline page if
 the reviewer is not on the tailnet.
 
 The ratings are one author's exploratory pilot, not independent or
-confirmatory evidence. Keep the raw export with the packet and do not open the
-sealed provenance key before the first rating pass is complete.
+confirmatory evidence. The intended reviewer has already seen the local
+judge's aggregate and example scores, so these ratings are not blind to prior
+model results. Rate from the displayed wording alone. Keep the raw export with
+the packet and do not open the sealed provenance key before the first rating
+pass is complete.
 
 ## Evidence archive
 

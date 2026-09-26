@@ -30,8 +30,11 @@ custom name `review.espencer.me` is not configured. Use the offline page if
 the reviewer is not on the tailnet.
 
 The ratings are one author's exploratory pilot, not independent or
-confirmatory evidence. Keep the raw export with the packet and do not open the
-sealed provenance key before the first rating pass is complete.
+confirmatory evidence. The intended reviewer has already seen the local
+judge's aggregate and example scores, so these ratings are not blind to prior
+model results. Rate from the displayed wording alone. Keep the raw export with
+the packet and do not open the sealed provenance key before the first rating
+pass is complete.
 
 ## Evidence archive
 

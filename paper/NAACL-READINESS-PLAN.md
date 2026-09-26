@@ -1,6 +1,6 @@
 # NAACL paper readiness plan
 
-**Active manuscript:** [Evaluating Exact Palindrome Generation Beyond Character Validity](../output/pdf/palindrome-evaluation/naacl2027.pdf),
+**Active manuscript:** [Methods of Finding Longer, Readable Palindromes](../output/pdf/methods-of-finding-longer-readable-palindromes.pdf),
 an anonymous evaluation case study using the existing search and diagnostic
 records. The main content ends on page 4; the complete PDF is five pages with
 limitations, references, and a separate Diana construction appendix.
@@ -25,9 +25,9 @@ have not been collected and must not be described as study results.
 The central result is the coexistence of positive shuffle-relative likelihood
 and floor-level absolute model ratings on exact palindrome outputs. Brown
 gain is positive for 40/66 selected outputs and GPT-2 for 37/66; Qwen3 assigns
-all 52 distinct candidates zero on both rubric dimensions while passing a
-small prose-control screen. These diagnostics measure different properties
-and have no human validation here.
+all 52 distinct candidates zero on both rubric dimensions while passing 11/12
+prose controls and 0/12 prose-shuffle controls. These diagnostics measure
+different properties and have no human validation here.
 
 Construction coverage of 0/120 versus 66/120 supplies the evaluated outputs.
 The bundled, adaptive comparison cannot identify the responsible resource

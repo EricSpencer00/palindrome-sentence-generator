@@ -1,6 +1,6 @@
-# Evaluating Exact Palindrome Generation Beyond Character Validity
+# Methods of Finding Longer, Readable Palindromes
 
-Read the [current anonymous PDF](../output/pdf/palindrome-evaluation/naacl2027.pdf)
+Read the [current anonymous PDF](../output/pdf/methods-of-finding-longer-readable-palindromes.pdf)
 or its [TeX source](naacl2027.tex). The paper is an empirical evaluation case
 study: exact outputs can score above their own word shuffles under Brown and
 GPT-2 while receiving floor-level grammar and meaning ratings from Qwen3.

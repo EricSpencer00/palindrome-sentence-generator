@@ -1,9 +1,12 @@
 # NAACL paper readiness plan
 
-**Active manuscript:** [Methods of Finding Longer, Readable Palindromes](../output/pdf/methods-of-finding-longer-readable-palindromes.pdf),
-an anonymous evaluation case study using the existing search and diagnostic
-records. The main content ends on page 4; the complete PDF is five pages with
-limitations, references, and a separate Diana construction appendix.
+**Active manuscript, v1:**
+[Methods of Finding Longer, Readable Palindromes](../output/pdf/methods-of-finding-longer-readable-palindromes-v1.pdf),
+an anonymous evaluation case study using the existing v4 search and diagnostic
+records. Here, v1 identifies the manuscript edition; the underlying study,
+runs, and evidence archive retain their v4 identifiers. The main content ends
+on page 4; the complete PDF is five pages with limitations, references, and a
+separate Diana construction appendix.
 The September 26 framing revision runs no new experiments or model scoring
 calls. This plan does not claim submission or acceptance.
 
@@ -81,12 +84,13 @@ zero-yield results stay in the run archive and are not pooled into v4.
 
 ## Readiness assessment
 
-The last mock ARR assessment of the evaluation draft, before the final
-editorial corrections, recommended Soundness 3.5/5, Excitement 2.5/5,
-Reproducibility 4/5, and Overall 3/5 (Findings). An independent Astra review
-also recommended 3/5 overall. These are internal assessments, not an ARR
-decision; a borderline-Findings assessment remains plausible. The earlier
-resource-centered draft's 2.5/5 estimate is historical.
+The last pre-finalization internal mock ARR assessment of the evaluation draft
+recommended Soundness 3.5/5, Excitement 2.5/5, Reproducibility 4/5, and Overall
+3/5 (Findings). An independent Astra review also recommended 3/5 overall.
+These are historical internal assessments, not ARR decisions. The separate
+current v1 simulated review is in
+[`mock-reviews/naacl2027-v1-arr-review.md`](mock-reviews/naacl2027-v1-arr-review.md).
+The earlier resource-centered draft's 2.5/5 estimate is historical.
 
 The four requested clarifications are now complete. No new score is assigned
 to these corrections. The evidence remains one vocabulary, an adaptive

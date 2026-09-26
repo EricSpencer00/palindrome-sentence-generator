@@ -1,11 +1,18 @@
 # Methods of Finding Longer, Readable Palindromes
 
-Read the [current anonymous PDF](../output/pdf/methods-of-finding-longer-readable-palindromes.pdf)
-or its [TeX source](naacl2027.tex). The paper is an empirical evaluation case
+The current **manuscript version is v1**: read the
+[anonymous PDF](../output/pdf/methods-of-finding-longer-readable-palindromes-v1.pdf)
+or its [TeX source](naacl2027-v1.tex). This manuscript reports the existing
+v4 study and evidence archive; v1 names the paper edition and does not rename
+the underlying runs or data. The paper is an empirical evaluation case
 study: exact outputs can score above their own word shuffles under Brown and
 GPT-2 while receiving floor-level grammar and meaning ratings from Qwen3.
 Construction yield, output variety, and the existing length analysis explain
 the conditions under which these signals arise.
+
+The [simulated ARR-style review](mock-reviews/naacl2027-v1-arr-review.md)
+assesses this v1 manuscript. It is an independent mock review, not a real
+NAACL or ARR decision.
 
 The September 26 framing revision uses only saved evidence. No new search
 experiments or model scoring calls were run. Main content ends on page 4;
@@ -17,8 +24,8 @@ The final editorial revision resolves the last review's four requests:
 contribution positioning, rubric anchors and control limits, seeded search
 mechanics, and descriptive length wording. The supplementary report clearly
 distinguishes the raw GPT-2 likelihood contrast from shuffle-relative gains.
-The manuscript and professor packet are finalized; no further internal
-review or experiment is scheduled.
+The manuscript and professor packet were finalized before the v1 relabeling;
+this versioning pass runs no new experiment or model-scoring call.
 
 [NAACL-READINESS-PLAN.md](NAACL-READINESS-PLAN.md) records the claim boundary,
 QA status, and readiness assessment. [READABILITY-SCORE-AUDIT.md](READABILITY-SCORE-AUDIT.md)

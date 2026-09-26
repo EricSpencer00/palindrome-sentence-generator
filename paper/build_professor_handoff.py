@@ -36,6 +36,10 @@ HANDOFF_FILES = (
     "acl.sty",
     "acl_natbib.bst",
     "REVIEWER-BRIEF.md",
+    "BASELINE-PROVENANCE-AUDIT-V1.md",
+    "audits/historical-search-baselines-v1.md",
+    "audits/historical-construction-evidence-v1.md",
+    "audits/historical-metric-controls-v1.md",
     "LOCAL-LLM-READABILITY-AUDIT-RESULTS.md",
     "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md",
     "READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md",
@@ -159,7 +163,11 @@ def public_packet_contents() -> dict[str, bytes]:
 def build() -> None:
     HANDOFF.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(MANUSCRIPT_PDF, HANDOFF / "naacl2027-v1.pdf")
-    for name in ("REVIEWER-BRIEF.md",):
+    for name in ("REVIEWER-BRIEF.md", "BASELINE-PROVENANCE-AUDIT-V1.md",
+                 "audits/historical-search-baselines-v1.md",
+                 "audits/historical-construction-evidence-v1.md",
+                 "audits/historical-metric-controls-v1.md"):
+        (HANDOFF / name).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(PAPER / name, HANDOFF / name)
     packet_contents = public_packet_contents()
     packet_contents["START-HERE.txt"] = start_here()
@@ -205,8 +213,10 @@ This bundle contains the anonymous manuscript PDF and source, reviewer brief,
 readiness plan, reproducible diagnostic reports, and a separate first-pass
 rating packet. This is the first public release, v1. The paper is titled
 *Methods of Finding Longer, Readable Palindromes*. It examines how positive shuffle-relative
-likelihood coexists with floor-level absolute model ratings, with construction
-and length providing context. This framing revision uses saved evidence and
+likelihood coexists with floor-level absolute model ratings in a collected
+sample. The baseline-provenance audit and its three historical reports are
+included. The task grid is not an established generator benchmark; the paper
+makes no generation-improvement claim. This revision uses saved evidence and
 contains no new experiments or model scoring calls. No human ratings have
 been collected. The packet defines letter-level versus word-order palindromes.
 

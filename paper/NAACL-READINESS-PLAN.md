@@ -1,109 +1,39 @@
 # NAACL paper readiness plan
 
-**Active manuscript, v1:**
-[Methods of Finding Longer, Readable Palindromes](../output/pdf/methods-of-finding-longer-readable-palindromes-v1.pdf),
-an anonymous evaluation case study. All public release artifacts use v1,
-including the paper, supplement, and handoff package. The saved experiment
-identifiers record internal development history. The main content ends
-on page 4; the complete PDF is five pages with limitations, references, and a
-separate Diana construction appendix.
-The September 26 framing revision runs no new experiments or model scoring
-calls. This plan does not claim submission or acceptance.
+**Active public version:** v1, *Methods of Finding Longer, Readable Palindromes*, an anonymous evaluation case study. The manuscript and release materials retain their public v1 names. Internal run identifiers remain as recorded; they are not renamed as public benchmark labels.
 
-**Final editorial status:** all four requests from the last internal review
-are resolved in the manuscript. The contribution is explicit, rubric anchors
-and calibration limits are stated, search randomization and fixed limits are
-specified, and length comparisons are descriptive. The supplementary GPT-2
-endpoint label is also corrected. No further internal review, experiment,
-or editorial task is scheduled.
+**Current editorial status:** baseline-provenance correction complete. The paper must not present raw resource-run counts as a benchmark result, a generator improvement, or a comparison against an established external baseline. The archived v4 runs document sample accounting for this project's frozen configurations. Their resource bundles change four controls together and their algorithms have different native closure rules. Those records cannot establish a method advantage, single-setting effect, or meaningful benchmark gain. See [`BASELINE-PROVENANCE-AUDIT-V1.md`](BASELINE-PROVENANCE-AUDIT-V1.md) for the evidence audit. Historical records remain available with their original IDs and raw outcomes.
 
-**24-hour handoff clock:** work began 2026-09-25 22:59 CDT. The draft and
-evidence packet are due by 2026-09-26 22:59 CDT; the professor then has at
-least seven full days, through 2026-10-03 22:59 CDT. No professor message has
-been sent. The review page is ready for a one-author pilot, but its ratings
-have not been collected and must not be described as study results.
+The manuscript's model diagnostics are not human readability ratings. No human-rating evidence was located for the inherited 38-letter reference sentence either; it must be described only as a fixed construction example, never as a rated baseline or benchmark. No new scores or length ranking/table are part of this readiness assessment. The existing simulated review of public v1 remains dated historical context, with its recorded Overall score of 2.5/5; no replacement score is assigned here.
 
 ## Claim boundary
 
-The central result is the coexistence of positive shuffle-relative likelihood
-and floor-level absolute model ratings on exact palindrome outputs. Brown
-gain is positive for 40/66 selected outputs and GPT-2 for 37/66; Qwen3 assigns
-all 52 distinct candidates zero on both rubric dimensions while passing 11/12
-prose controls and 0/12 prose-shuffle controls. These diagnostics measure
-different properties and have no human validation here.
+The current paper may describe exactly what the archived search and model-evaluation records contain, with denominators, controls, selection rules, and limitations. Search records are sample accounting for project-specific configurations and length strata, not an established benchmark. Reproducibility of an internal run does not itself establish an external baseline or improvement. Do not foreground a 0/120-to-66/120 “improvement,” rank length bands, or infer that palindrome constraints cause poor language.
 
-Construction coverage of 0/120 versus 66/120 supplies the evaluated outputs.
-The bundled, adaptive comparison cannot identify the responsible resource
-setting. Since the original bundle yields no texts, it provides no comparison
-of language quality across bundles. The length table is descriptive; the
-Diana pair is a separate retrospective construction case. No prior-system
-superiority or readable-generation advance is claimed.
+Brown and GPT-2 scores are shuffle-relative likelihood diagnostics. DeepSeek compared candidates with same-word shuffles; Qwen scores are model rubric outputs with the stated control-screen limitations. None is human validation. The separate 38/54-letter construction pair has its own provenance and descriptive scores, but no located human ratings and no comparator establishing a quality gain.
 
 ## Evidence and historical execution record
 
-The rows below preserve earlier execution status. Historical unrun follow-ups,
-optional author ratings, and the custom review-domain request are outside this
-final manuscript revision and are not prerequisites for its handoff.
+The table preserves useful execution history without promoting historical counts into benchmark claims. “Complete” means the listed artifact or accounting check exists; it does not certify a substantive method effect. The corrected manuscript has been rebuilt, and all five rendered pages have been visually inspected. Main content ends on page 4; references and the appendix extend to page 5.
 
-| Step | Evidence/check | Status |
+| Step | Record | Status / interpretation |
 | --- | --- | --- |
-| Freeze v4 study and outputs | 240 runs, 20 fresh seed clusters, three length bands, two algorithms and two resource bundles; manifest and result hashes checked | Complete |
-| Verify search coverage | 0/120 original, 66/120 escalated; paired difference 0.550, seed-cluster interval [0.350, 0.750]; zero deadline exits | Complete |
-| Audit output limitations | 54/66 selected outputs passed the stricter mechanical screen; 26 unique strings per arm; the phrase “one poem association” appears in 36/66 | Complete |
-| Run static language diagnostics | Brown and pinned GPT-2 on 66 outputs and 32 same-word shuffles each; one DeepSeek V3.2 comparison per output; requests, responses, settings, hashes and cost preserved | Complete |
-| Archive evidence | Public v1 deterministic zip with 72 members and 71 per-file hashes; current manuscript, frozen search/model records, protocols, runners, saved responses, and length analysis; export-only Brown control projection contains no Brown text | Complete; privacy and hash-link checks pass; archive SHA-256 `d7ed4b34bc5385b4039c0705df96a218e6043280fecaba201e78b140f0b97f59` |
-| Local Qwen audit | 244 presentations using the installed Qwen2.5-3B-Instruct model, frozen scoring protocol and duplicate checks | Complete; model calibration failed, so candidate scores are inconclusive |
-| Qwen control sensitivity | Separate 12-sentence/12-shuffle check with unchanged model, prompt, rubric, and gate | Complete; 4/12 sentences and 0/12 shuffles passed; same gate failed |
-| Hosted Qwen3 rubric audit | 244 Bedrock presentations; 11/12 Brown spans and 0/12 shuffles passed the control gate; all 52 candidates scored 0/3 on both model dimensions and candidate-minus-shuffle joint-pass difference was zero | Complete; 7/12 Brown controls are multi-sentence, repeats agree on 11/12 pairs, and this remains model-only diagnostic evidence. Exact run, costs, hashes, and offline reanalysis: [`AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md`](../experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md) |
-| Readability × length/construction analysis | Offline reanalysis of 66 v4 outputs by target length and construction strategy, plus the 38/54-letter Diana-frame pair | Complete; descriptive Brown/GPT-2/DeepSeek proxies only, no human or causal claim. Source hashes and script: [`READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md`](../experiments/READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md) |
-| Resource-setting attribution follow-up | Frozen five-condition, 600-task OAT protocol; 20 new seed clusters; one setting changed per arm; manifest SHA-256 `3f10b1e14a7282273d647819d130f64b5ce51fac744ce6a6183ad268ccc18733` | Not run; the remote transfer of internal search source and vocabulary was rejected by automatic review. Existing private ticket #473 requests authorization; the board is currently unreachable, so its current status could not be confirmed. No search tasks started. |
-| User-provided example score | The pasted sentence matches one v4 candidate's normalized letter tape; its question mark is a punctuation variation. The exact variant received Qwen 3B grammar 0/3 and meaning 0/3; the source candidate received the same scores in the frozen audit. Raw request/response, prompt, model digest, decoding settings, and exactness check are recorded in `paper/local-llm-user-example-score-20260926.json` (SHA-256 `849dd1424f57b095638cea3801990addc1328d4baf0d9bc6f9c54abde2044706`). | Diagnostic only and excluded from study totals; it is a letter-level palindrome, not a word-order palindrome. Qwen's failed positive-control gate means neither score is calibrated. |
-| Revise manuscript | Evaluation case study with sourced results, rubric anchors, search randomization and fixed limits, descriptive length analysis, and separate Diana appendix | Complete; all four final-review requests resolved; no additional internal review or experiment scheduled |
-| Reproduce and inspect PDF | Rebuilt from the current source; five pages including references and appendix, with main content ending on page 4 | Current PDF and professor packet synchronized; all pages rendered and visually inspected |
-| Recompute diagnostics | Recomputed Brown scores from the frozen inputs, joined saved GPT-2 and DeepSeek outputs, and reran the v4 analyzer with candidate-ID and text-hash checks | Complete; 240 tasks and 66 outputs verified |
-| Test implementation | Changed search tests and related palindrome tests | 34 passed; GPT-2 download test needs network; full suite collection is blocked by three historical tests importing absent modules |
-| One-author packet | 52 unique outputs with separate 1–5 grammar and understandability items; standalone HTML, local autosave, pause/resume, import/export, and a close-warning confirmation for failed autosave | Ready; ratings not collected. The intended reviewer has already seen both Qwen judges' aggregate scores and one example score, so the ratings will not be blind to prior model results; the packet states this limitation. |
-| Private Tailscale review route | Existing Serve route is `https://erics-mac-mini.taild34f34.ts.net/review`; HEAD returned 200 with certificate verification from the coordinator and Mac mini when resolving the tailnet host to `100.117.97.102` | Private route verified; requires tailnet access; standalone review ZIP is the guaranteed fallback |
-| Custom `review.espencer.me` alias | DNS lookup failed from both checked hosts and no route is configured. Standard [Tailscale Serve](https://tailscale.com/docs/features/tailscale-serve) restricts names to the device's tailnet domain. | Not available as requested; no DNS or proxy settings were changed |
-| Professor handoff bundle | Deterministic handoff builder includes the PDF, review brief, readiness plan, results report, and a separate method-label-masked rating ZIP; it excludes the full archive containing the sealed key | Built and hash-checked; optional live link is private; offline ZIP works without Tailscale |
+| v4 directional search | 240 internal tasks across 20 seed clusters, three project-defined length bands, two implementations, and two resource bundles; manifests and results remain in `runs/directional-search-resource-sensitivity-20260925/` | Complete as historical sample accounting only. Not an established benchmark or method improvement: four resource settings changed together and closure rules differ. See baseline provenance audit. |
+| Earlier directional runs | v1/v2 pilots and v3 runs remain in `runs/directional-search-benchmark-20260925/` | Preserve as protocol history. Do not pool these with v4 or promote their zero counts into general failure claims. |
+| Language diagnostics | Brown, pinned GPT-2, DeepSeek V3.2, and Qwen model records and responses remain in the archived run/release materials | Historical model-only measurements; none supplies a human readability rating. Control-screen failure and model limitations remain material. |
+| POS pruning and traversal records | Controlled paired openings and four later DFS/BFS order studies remain in their original `runs/` paths | Bounded internal search-policy evidence only. The traversal follow-up shows policy sensitivity and does not support a general pruning-efficiency claim; see `audits/historical-search-baselines-v1.md`. |
+| Inherited 38-letter reference | Appears as a fixed construction reference in the historical project record and in the manuscript appendix | No human-rating evidence located. Single example only, not an externally established benchmark or quality baseline. |
+| Current archive build | Public v1 archive rebuilt with current source and four historical-audit documents; 76 members and 75 manifest hashes | Privacy screen, internal hash-link checks, and repeat-build determinism passed. All 75 manifest hashes verified. SHA-256 `a5052bf7a0da2ecc3a62473ea5448357999ee58190fb655a65820918bd7c2c47`. |
+| Rebuild and inspect current PDF | Current v1 source compiled to a fresh temporary directory; five pages rendered and inspected | Complete. Title and PDF metadata identify the requested title and public v1. No clipping, missing glyphs, or table overlap observed. Existing style UTF-8 and underfull-box warnings remain nonfatal. |
+| Current reviewer handoff | v1 PDF and source, audit reports, and the unchanged 52 review items packaged in 27 files | All 26 handoff manifest hashes and nested packet hashes verified; PDF/source match the release, packet metadata and reviewer-facing labels use v1, and sealed keys are excluded. |
+| Claim audit | Three Luna lanes checked search history, construction provenance, and model controls; coordinator reconciled the active paper and summaries | Complete for this correction. No new mock score, human study, or matched generator comparison was added. |
 
-## Evidence and reproduction
+## Evidence handling
 
-The v4 manifest, raw task-level results, model inputs and outputs, source code,
-and a per-file checksum list are bundled in `paper/v1-reproducibility.zip`.
-The Brown and GPT-2 scorers can be rerun from the frozen inputs. The search
-replay checker also verifies that the scorer summary's candidate IDs and text
-hashes match the rerun outputs. A fresh DeepSeek call is not guaranteed to
-reproduce its response because Bedrock supplied no provider seed.
+Use primary manifests, raw result files, and source records for any retained quantitative statement. Preserve raw files and their original internal identifiers. The baseline-provenance audit distinguishes frozen internal controls, post-hoc follow-ups, fixed examples, and sourced external baselines; do not substitute one category for another.
 
-Search and summary reproduction commands are in
-[`DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md`](../experiments/DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md).
-The prior 11-text score audit, split definition and expected-report rerun are
-in [`READABILITY-SCORE-AUDIT.md`](READABILITY-SCORE-AUDIT.md). Historical v1--v3
-zero-yield results stay in the run archive and are not pooled into v4.
+The current manuscript and canonical source are synchronized. Raw run records remain unchanged. The build records above describe the corrected v1 artifacts; the earlier mock review remains a dated snapshot. This local preparation does not represent submission, external publication, or a professor notification.
 
 ## Readiness assessment
 
-The last pre-finalization internal mock ARR assessment of the evaluation draft
-recommended Soundness 3.5/5, Excitement 2.5/5, Reproducibility 4/5, and Overall
-3/5 (Findings). An independent Astra review also recommended 3/5 overall.
-These are historical internal assessments, not ARR decisions. The separate
-current v1 simulated review is in
-[`mock-reviews/naacl2027-v1-arr-review.md`](mock-reviews/naacl2027-v1-arr-review.md).
-The earlier resource-centered draft's 2.5/5 estimate is historical.
-
-The four requested clarifications are now complete. No new score is assigned
-to these corrections. The evidence remains one vocabulary, an adaptive
-resource comparison, dependent outputs, and model-only language judgments.
-
-## External requirements checked
-
-- [NAACL 2027 call](https://2027.naacl.org/calls/main_conference_papers/):
-  short-paper length and conference process.
-- [ARR author guidelines](https://aclrollingreview.org/authors): reviewers
-  assess self-contained submissions and their evidence.
-- [ARR review form](https://aclrollingreview.org/reviewform): overall 5 means
-  “Consider for Award,” up to the top 2.5%; 3 corresponds to Findings.
-- [ARR reviewer guidelines](https://aclrollingreview.org/reviewerguidelines):
-  soundness, excitement, and overall recommendation are distinct; claims,
-  related work, and reproducibility need explicit support.
+The existing public-v1 simulated review records Overall 2.5/5 (Borderline Findings); it is a historical mock assessment, not an ARR decision. Keep it dated and unchanged. No new score is assigned. Baseline framing and PDF QA are complete. The substantive evidence gaps remain: no matched generator baseline and no human evaluation. Editing alone does not establish a 4/5 contribution.

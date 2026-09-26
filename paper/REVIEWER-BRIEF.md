@@ -2,79 +2,24 @@
 
 **Public release v1:** *Methods of Finding Longer, Readable Palindromes*
 
-## Central result
+## Study and sample
 
-The manuscript examines how construction success, output length, relative
-likelihood, and absolute model ratings relate on the same exact outputs.
-Brown word-order gain is positive for 40/66 selected outputs and GPT-2 for
-37/66. All 52 distinct candidates nevertheless receive zero grammaticality
-and coherent-meaning scores under a Qwen3 32B rubric. That judge passes a
-small control screen: 11/12 prose spans and 0/12 prose shuffles pass jointly.
-None of the 156 candidate shuffles passes either.
+The manuscript describes 66 selected output records collected from 240 search runs, with 52 distinct strings. It examines the construction records alongside automatic language diagnostics. The four resource settings change together, and the search implementations have different closure rules. The sample therefore establishes neither a resource effect nor an advantage of one method. The target length bands define the collection; subgroup summaries are not a length ranking or a causal length analysis. No published generator was reproduced under matched conditions, and no human ratings were collected.
 
-This is an empirical evaluation case study. Positive gain over deliberately
-disordered text and an absolute rubric score measure different properties.
-Their coexistence shows why the former cannot establish sentence quality in
-this output set. No human ratings validate either interpretation.
+All 52 distinct strings pass the letter-level reversal check; none reverses word order. Thirty-six of the 66 records contain “one poem association.” Counts refer to output records unless explicitly labeled distinct strings.
 
-The contribution is a reproducible record connecting construction coverage,
-output variety, relative likelihood, and absolute ratings. It shows which
-questions remain unanswered by each favorable result: construction yield
-does not measure diversity, shuffle gains do not establish sentence quality,
-and prose-control separation does not validate distinctions among palindromes.
+## Formal controls and measurements
 
-## Construction and length
+Brown and GPT-2 compare each candidate with 32 permutations of its own words. These are formal word-order perturbation controls: Brown uses an add-0.1 word-bigram mean log probability contrast in nats per word transition; GPT-2 uses a mean causal log probability contrast per predicted token. Brown's null pools and shuffles the item's word tokens, then repartitions them to the original sentence word counts. GPT-2 uses archived fixed-slot word permutations that preserve the word multiset, punctuation, whitespace, and sentence word-slot counts. The scorer orders differ, and the units are not directly comparable.
 
-The frozen study contains 240 runs: 20 seed clusters, three target length
-bands, two search implementations, and two resource bundles. The original
-bundle returns 0/120 basic-valid outputs and the larger bundle 66/120.
-Four settings change together in an adaptive follow-up. The comparison
-establishes output coverage under those conditions; no original-bundle texts
-exist for comparing language quality. These are project implementations,
-without a same-input reproduction of a published generator.
+In the saved 66-record sample, the candidate exceeds its own shuffle mean for 40/66 Brown contrasts and 37/66 GPT-2 contrasts. This says nothing about an absolute quality threshold, human readability, or relative generator performance. The denominator includes repeated strings.
 
-Seeds control uniform perturbations in [0, 0.4) added to child scores for
-beam ranking. These perturbations do not enter the objective used to select
-completed outputs. Both searches cap partial texts at 32 words and residual
-overhang at 24 letters. Bootstrap resampling retains all 12 runs belonging
-to each seed, measuring search-seed variation under a fixed vocabulary.
+The Qwen3 32B rubric rates grammaticality and coherent meaning separately on 0–3 scales. It returns 0/52 candidate joint passes, alongside 11/12 held-out Brown prose controls and 0/12 corresponding shuffles passing jointly. The frozen screen uses chosen thresholds of at least 8/12 prose passes and at most 3/12 shuffle passes. These thresholds are a diagnostic sensitivity screen, not externally validated calibration. Seven Brown controls contain multiple sentences; Brown pretraining exposure and hosted model weights are unknown. Qwen2.5-3B fails its control screen, making its candidate scores inconclusive. Neither model audit is human evaluation.
 
-Table 1 presents the existing length and likelihood summaries by search
-implementation. The trends are descriptive and conditional on successful
-search. All 52 distinct strings are letter-level palindromes; none reverses
-the word sequence. Thirty-six of the 66 selected outputs contain the exact
-phrase “one poem association.”
+DeepSeek ties all 66 candidate–shuffle comparisons. The separate retrospective Diana construction pair is not part of the 52-candidate Qwen audit and has no project human ratings.
 
-The Diana appendix is a separate, retrospective 38/54-letter construction
-pair. It demonstrates a recorded extension with exactness preserved and
-contrasts own-word shuffle scores with prose matched on scorer-token count.
-It is outside the main study and Qwen audits. Its reference has no established authorship in the
-project record; neither text has project human ratings.
+## Prior work and claim boundary
 
-## Interpretation limits
+Norvig documents residual-character palindrome search; Papadopoulos et al. describe generation from n-gram corpora; Bonlarron and Régin address constrained RADNER sentence generation with constraint programming and language-model curation. These are relevant prior-work references, not measured baselines in this study. The paper claims no readable-generator advance, no external superiority, and no human readability result.
 
-Qwen2.5 fails its control gate, so its candidate scores are inconclusive.
-Qwen3 passes the small screen, but seven prose controls span multiple
-sentences, pretraining exposure to Brown is unknown, and 11/12 hidden repeats
-agree. A passed screen does not make its rubric a validated readability
-scale. DeepSeek ties all 66 candidate–shuffle pairs.
-
-The paper claims neither a readable-generator advance nor superiority over
-prior systems. The September 26 revision changes framing and presentation;
-it includes no new experiments or model scoring calls.
-
-## Final revision status
-
-All four requests from the final internal review are incorporated: a more
-explicit contribution, the complete rubric anchors and control-screen
-boundary, search randomization and fixed limits, and descriptive length
-wording. The supplementary report also labels the 0.280 GPT-2 contrast as a
-raw candidate-likelihood difference, distinct from candidate-minus-shuffle
-gains. No search or model scoring was rerun.
-
-The final mock ARR assessment before these corrections recommended 3/5
-overall (Findings), with soundness 3.5/5, excitement 2.5/5, and reproducibility
-4/5. An independent Astra review also recommended 3/5. These are internal
-assessments, not peer-review decisions or acceptance guarantees. The
-manuscript and evidence package are finalized for handoff; no additional
-internal review or experiment is scheduled.
+The historical internal mock review of an earlier resource-centered framing recommended **2.5/5 (Borderline Findings)**. This was an internal assessment of that earlier framing, not peer review and not a score for the current revised manuscript.

@@ -61,6 +61,10 @@ FILES = (
     "paper/acl.sty",
     "paper/acl_natbib.bst",
     "paper/build_v1_supplement.py",
+    "paper/BASELINE-PROVENANCE-AUDIT-V1.md",
+    "paper/audits/historical-search-baselines-v1.md",
+    "paper/audits/historical-construction-evidence-v1.md",
+    "paper/audits/historical-metric-controls-v1.md",
     "paper/naacl2027.tex",
     "paper/naacl2027-v1.tex",
     "paper/readability-requirements.txt",
@@ -95,9 +99,17 @@ code, vocabulary/lexicon inputs, and pinned dependency lists. `MANIFEST.sha256`
 records each archived file hash. Internal experiment identifiers in the saved
 records describe development history, not earlier public releases.
 
-The manuscript is titled *Methods of Finding Longer, Readable Palindromes*. Its September 26 framing revision relates construction,
-length, relative likelihood, and absolute model ratings using these saved
-records. The revision adds no new search experiments or model scoring calls.
+The manuscript is titled *Methods of Finding Longer, Readable Palindromes*.
+The September 26 baseline audit removes unsupported improvement claims.
+The internal task grid supplies 66 output records (52 distinct strings) for
+model diagnostics; its bands and resource limits are not an established
+generator benchmark. Same-word permutations are defined perturbation controls,
+not a competing generator or a human readability standard. The chosen Qwen
+control-screen thresholds have no human calibration.
+
+See `paper/BASELINE-PROVENANCE-AUDIT-V1.md` and its three detailed reports.
+They also audit older repository history; those historical runs are not all
+bundled here. The revision adds no new search or model scoring calls.
 
 Author-specific machine names and repository commit IDs are omitted from the
 exported run metadata. Source-file hashes, model revisions, and cross-file
@@ -229,12 +241,14 @@ and profile identity block. Input-hash transformations are recorded in
 for offline reanalysis, not for `--resume` or fresh inference. A new Bedrock
 run has no provider seed and can return different ratings.
 
-## Readability, length, and construction cross-tab
+## Archived descriptive cross-tab
 
 `experiments/READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md` reports an
 offline stratification of the frozen Brown, GPT-2, and DeepSeek diagnostics
 for the 66 selected outputs, plus the 38/54-letter Diana-frame case. It is
-descriptive model evidence, not human readability evidence. Recreate the
+descriptive model evidence. Its project-selected length groups establish no
+length effect or generation improvement. The 38-letter reference has no
+located primary human-rating records. Recreate the
 report without network access or inference from the extracted archive root:
 
 ```sh

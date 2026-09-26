@@ -1,4 +1,13 @@
-# Resource-sensitivity study v4: results
+# Historical resource-sensitivity study: collection accounting
+
+**Public v1 interpretation (2026-09-26):** v4 below is an internal run ID.
+The project-selected bands and task counts do not form an established
+benchmark. Four limits changed together after earlier null runs, and the
+implementations retain different closure rules. The tables preserve sample
+provenance and recorded arithmetic; they establish no method advantage,
+resource-efficiency gain, readability improvement, or effect of length. The
+current manuscript omits the coverage-gain and length-ranking claims. See
+[the baseline audit](../paper/BASELINE-PROVENANCE-AUDIT-V1.md).
 
 ## Why this follow-up exists
 
@@ -6,7 +15,7 @@ The preregistered v3 comparison produced no eligible closures: 0/90 tasks in eac
 
 The v4 manifest hash is `f97b76d4094bd5f767a11c3f304ae831edc6ac66df30de5690ddd6b9f8d026cc` and the confirmatory result hash is `b7f5c9082030903b3e3c29f2ad6e5de3d5fe44da57186e5fecc5ffdc68e76070`. The frozen manifest retains hashes for v1–v3 results. This confirmatory phase contains 240 method/configuration runs across 60 seed-by-length blocks.
 
-## Primary result
+## Archived configuration outcomes
 
 | Resource configuration | Tasks | Basic-valid outputs | Coverage | Eligible closure tasks | Deadline reached | Median seconds / task |
 |---|---:|---:|---:|---:|---:|---:|
@@ -15,7 +24,7 @@ The v4 manifest hash is `f97b76d4094bd5f767a11c3f304ae831edc6ac66df30de5690ddd6b
 
 The paired coverage difference (escalated minus original) was 0.550, with a descriptive paired seed-cluster bootstrap 95% interval of `[0.350, 0.750]`.
 
-## Method-level coverage
+## Archived outcomes by implementation
 
 | Resource configuration | Algorithm | Tasks | Basic-valid | Eligible closure tasks | Strict-pass / selected | Unique outputs | Median seconds |
 |---|---|---:|---:|---:|---:|---:|---:|

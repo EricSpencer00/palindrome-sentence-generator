@@ -1,5 +1,11 @@
 # Simulated ARR-style review of manuscript v1
 
+**Historical snapshot:** this review predates the September 26
+[baseline-provenance correction](../BASELINE-PROVENANCE-AUDIT-V1.md). The
+manuscript remains public v1, but its coverage-gain headline and length table
+have since been removed. The scores below are the original mock assessment,
+not a new review of the corrected manuscript.
+
 | Field | Assessment |
 | --- | --- |
 | Paper | *Methods of Finding Longer, Readable Palindromes* |

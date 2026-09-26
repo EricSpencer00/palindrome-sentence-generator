@@ -1,5 +1,16 @@
 # Readable palindrome finder: goal record
 
+## Evidence correction (2026-09-26)
+
+The [historical baseline audit](../paper/BASELINE-PROVENANCE-AUDIT-V1.md) found
+no primary human ratings or administered protocol for the inherited 38-letter
+Diana reference. Earlier entries calling it an established human-readability
+benchmark are unsupported. Exactness and length are verified construction
+properties; they do not establish quality improvement. Project-selected
+30–49 / 50–79 / 80–119 bands and 30/60-task counts are not external benchmarks.
+Historical entries and raw runs remain intact; the correction applies to
+current claims and leaves the user-pinned construction parent below in place.
+
 ## Active user-pinned work state (2026-09-23)
 
 For the current continuation, the editable parent is the independently exact

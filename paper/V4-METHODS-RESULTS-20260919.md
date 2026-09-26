@@ -1,13 +1,15 @@
 # v4 construction and evaluation ledger
 
-This note is the current evidence-led core for the paper. The working claim
+This is the historical construction ledger; v4 is its internal identifier.
+The current public paper is [v1](naacl2027-v1.tex), and the
+[baseline audit](BASELINE-PROVENANCE-AUDIT-V1.md) governs its claims. The working claim
 is constructive: choose grammatical lexical paths while satisfying character
 seams during search. Exactness is independently checked; automatic language
 scores and AI feedback only diagnose historical lanes. The repository keeps
 three distinct construction frontiers: the 568-letter causal-scene incumbent,
 the 666-letter comparison lineage, and a meaning-bearing 54-letter NP seed
 used for growth work. Longer exact descendants are construction evidence; no
-output above 38 letters has human-readability evidence.
+audited output has recorded human-readability evidence.
 
 The readability target is broad English: an intact, grammatical, scene-bearing
 line that a blinded reader can understand. “Shakespearean,” where it appears
@@ -15,17 +17,17 @@ in legacy run names or diagnostic fields, is not a diction or imitation
 requirement. Literary vocabulary is neither a shortcut nor a certificate;
 reader ratings decide whether an exact output is readable.
 
-## Current evidence status (2026-09-22)
+## Current evidence status (corrected 2026-09-26)
 
-This ledger keeps exact construction, reader-facing material, and human
-readability separate. The only established human-readability result remains
-the 38-letter reader-facing benchmark, **“An aide rips nine memos; some men
-inspire Diana.”** No candidate longer than 38 letters has human-readability
-evidence, and no candidate may be called a readable world record.
+The inherited 38-letter reference is **“An aide rips nine memos; some men
+inspire Diana.”** Its exactness is verified, but no primary human ratings or
+administered reader protocol were located. Earlier entries calling it an
+established human-readability benchmark are unsupported. The longer
+candidates also lack recorded human evaluation; no readable record is established.
 
 | Lane | Authoritative exact evidence | Reader status |
 |---|---|---|
-| 38 letters | Reader-facing benchmark; the only established human-readability result | Benchmark/control, not a longer-length claim |
+| 38 letters | Inherited exact reference; authorship not established here | No located human ratings or administered protocol |
 | 54 letters | NP cross-role candidate, SHA-256 `2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268`; [`seed artifact`](../runs/seed-np-cross-role-intersection-20260922.json) | Frozen 24-rater packet unrun; promising, not readable evidence. Relative expansions at 78–88 letters and possessive-head relatives at 89–96 letters remain non-exact near misses; [`relative obstruction`](../runs/seed-np-typed-relative-boundary-20260922.json), [`possessive obstruction`](../runs/seed-np-typed-possessive-head-relative-20260922.json) |
 | 568 letters | Working-length incumbent, SHA-256 `6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380`; [`incumbent`](../runs/incumbent-560-outer-causal-scene-20261002.json) | Rough exact construction; no human evidence |
 | 592 letters | Exact 568-lineage child, SHA-256 `60a6d0472449b5a7d6843787118dad99df03ebca0f8f4748ecba2b6bf36917f6`; [`corrected-count seam run`](../runs/incumbent-568-remaining-shell-global-gate-20261002.json) | Construction evidence; no human evidence; inherited prose debt remains |
@@ -40,17 +42,16 @@ itself a palindrome. Later relative and possessive-head experiments produce
 complete near-miss prose and record their first mismatches, but do not close
 the inherited NP residual. The frozen reader packet has not been administered.
 
-The exact mechanical length baselines are separate from the reader lanes:
+The historical mechanical length examples are separate from the reader lanes:
 the repository's [Norvig-v3 artifact](../artifacts/norvig-v3/) is 90,937
 letters; [Norvig's primary page](https://www.norvig.com/palindrome.html)
 reports 90,439 letters and its earlier construction reports 540 words; and
 the [remote dictionary run](../docs/RESULTS-REMOTE-NORVIG-500K-20260920.md)
-reaches 286,561 exact catalogue-like letters. These are unreadable length
-baselines only, not readable results or world records.
+reaches 286,561 exact catalogue-like letters. These use unmatched objectives
+and budgets; their lengths establish no comparative improvement or readable record.
 
-These boundaries do not change the constructive thesis. The paper centers the
-working construction method, exact validation, readable examples and controls,
-and reader evidence as the pending next gate.
+The ledger below preserves construction history. Its subjective descriptions
+and selected length increases are not validated readability or method comparisons.
 
 ## Working 568 result and exact construction children
 

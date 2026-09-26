@@ -128,6 +128,19 @@ def _configurations(source_manifest: dict) -> dict[str, dict[str, Any]]:
     }
 
 
+def _source_inventory(source_manifest: dict) -> dict[str, str]:
+    sources = dict(source_manifest["sources"])
+    included = set(sources.values())
+    for path in sorted((ROOT / "llm_palindrome").glob("*.py")):
+        relative = path.relative_to(ROOT).as_posix()
+        if relative not in included:
+            sources[f"runtime_module_{path.stem}"] = relative
+            included.add(relative)
+    sources["ablation_protocol"] = Path(__file__).resolve().relative_to(ROOT).as_posix()
+    sources["runtime_requirements"] = REQUIREMENTS_PATH.relative_to(ROOT).as_posix()
+    return sources
+
+
 def _jobs(source_manifest: dict) -> list[dict[str, Any]]:
     configurations = _configurations(source_manifest)
     names = tuple(configurations)
@@ -168,9 +181,7 @@ def prepare(source_manifest_path: Path, output_path: Path) -> dict:
     else:
         raise ValueError("source manifest must be inside the repository for portable reproduction")
 
-    sources = dict(source_manifest["sources"])
-    sources["ablation_protocol"] = Path(__file__).resolve().relative_to(ROOT).as_posix()
-    sources["runtime_requirements"] = REQUIREMENTS_PATH.relative_to(ROOT).as_posix()
+    sources = _source_inventory(source_manifest)
     source_hashes = {name: sha256_file(ROOT / path) for name, path in sources.items()}
     dependencies = _pinned_dependencies()
     _verify_dependencies(dependencies)
@@ -255,12 +266,8 @@ def verify_manifest(manifest_path: Path, manifest: dict, *, enforce_target_runti
         raise ValueError("resource settings differ from the validated v4 manifest")
     if manifest.get("vocabulary") != source_manifest.get("vocabulary"):
         raise ValueError("frozen vocabulary differs from the validated v4 manifest")
-    expected_sources = dict(source_manifest["sources"])
-    expected_sources["ablation_protocol"] = Path(__file__).resolve().relative_to(ROOT).as_posix()
-    expected_sources["runtime_requirements"] = REQUIREMENTS_PATH.relative_to(ROOT).as_posix()
-    expected_hashes = dict(source_manifest["source_sha256"])
-    expected_hashes["ablation_protocol"] = sha256_file(Path(__file__).resolve())
-    expected_hashes["runtime_requirements"] = sha256_file(REQUIREMENTS_PATH)
+    expected_sources = _source_inventory(source_manifest)
+    expected_hashes = {name: sha256_file(ROOT / path) for name, path in expected_sources.items()}
     if manifest.get("sources") != expected_sources or manifest.get("source_sha256") != expected_hashes:
         raise ValueError("source inventory differs from the frozen v4 inputs plus this protocol")
     for name, relative in manifest["sources"].items():

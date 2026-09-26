@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,6 +20,10 @@ FILES = (
     "experiments/LOCAL-LLM-READABILITY-AUDIT-20260926.md",
     "experiments/LOCAL-LLM-SINGLE-SENTENCE-SENSITIVITY-20260926.md",
     "experiments/LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md",
+    "experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md",
+    "experiments/aws_qwen3_readability_audit_20260926.py",
+    "experiments/summarize_aws_qwen3_readability_audit_20260926.py",
+    "experiments/pricing_snapshots/aws-bedrock-qwen3-32b-us-east-2-20260926.json",
     "experiments/DIRECTIONAL-SEARCH-BENCHMARK-20260925.md",
     "experiments/analyze_directional_search_resource_sensitivity_20260925.py",
     "experiments/analyze_paired_directional_search_benchmark_20260925.py",
@@ -70,6 +75,7 @@ FILES = (
     "runs/directional-search-resource-sensitivity-20260925/summary-v4.json",
     "runs/local-llm-readability-audit-20260926.json",
     "runs/local-llm-single-sentence-brown-sensitivity-20260926.json",
+    "runs/aws-qwen3-32b-readability-audit-20260926.json",
     "runs/readability-length-stratified-20260925.json",
     "tests/test_initial_state_search.py",
     "tools/polaris/payload/vocab30k.txt",
@@ -190,6 +196,29 @@ python3 experiments/local_llm_single_sentence_brown_sensitivity_20260926.py \\
 These commands make new inference requests. The archived JSON files, rather
 than a new inference run, are the exact records underlying the reported
 results.
+
+## AWS Qwen3 rubric audit
+
+The archive contains the separate Bedrock Qwen3 32B run, source runner,
+offline summarizer, pricing snapshot, and results report. The 244 saved
+responses can be re-aggregated without model calls or Brown text:
+
+```sh
+python3 experiments/summarize_aws_qwen3_readability_audit_20260926.py \\
+  --input runs/aws-qwen3-32b-readability-audit-20260926.json
+```
+
+This model-specific diagnostic rated all 52 candidates 0/3 on both dimensions;
+the candidate and matched-shuffle joint-pass rates were both zero. The small
+Brown screen passed 11/12 intact spans and 0/12 shuffles; 7 Brown spans
+contained multiple sentences. It provides no human readability estimate or
+improvement claim. The archived Brown manifest excludes sentence text; a
+licensed local NLTK corpus is required to reconstruct controls from the
+protocol. The public archive copy removes AWS request IDs and the credential
+and profile identity block. Input-hash transformations are recorded in
+`supplement/QWEN-EXPORT-PROVENANCE.json`; the archived historical result is
+for offline reanalysis, not for `--resume` or fresh inference. A new Bedrock
+run has no provider seed and can return different ratings.
 """
 
 V3_MANIFEST = "runs/directional-search-benchmark-20260925/manifest.json"
@@ -210,6 +239,7 @@ QWEN_MAIN_RUNNER = "experiments/local_llm_readability_audit_20260926.py"
 QWEN_FOLLOWUP_RUNNER = "experiments/local_llm_single_sentence_brown_sensitivity_20260926.py"
 QWEN_MAIN_RESULT = "runs/local-llm-readability-audit-20260926.json"
 QWEN_FOLLOWUP_RESULT = "runs/local-llm-single-sentence-brown-sensitivity-20260926.json"
+AWS_QWEN_RESULT = "runs/aws-qwen3-32b-readability-audit-20260926.json"
 QWEN_PACKET = "paper/human_eval_v4_packet/sealed_key.json"
 QWEN_BROWN_SOURCE = "runs/readability-length-stratified-20260925.json"
 
@@ -463,6 +493,7 @@ def export_qwen_inputs(
     original_static = (ROOT / V4_INPUT).read_bytes()
     original_main_result = (ROOT / QWEN_MAIN_RESULT).read_bytes()
     original_followup_result = (ROOT / QWEN_FOLLOWUP_RESULT).read_bytes()
+    original_aws_result = (ROOT / AWS_QWEN_RESULT).read_bytes()
 
     # The Qwen runner reads this same repo-relative path. Its corpus prose is
     # reconstructed from the user's installed NLTK Brown corpus and hash-checked.
@@ -491,6 +522,29 @@ def export_qwen_inputs(
     if content[QWEN_FOLLOWUP_RESULT] != original_followup_result:
         raise ValueError("Qwen follow-up result was unexpectedly rewritten during export")
 
+    # Keep the hosted result and analysis but remove account/profile and
+    # request IDs from the public archive copy.
+    aws_result = parse_json(content, AWS_QWEN_RESULT)
+    aws_result.pop("runtime_environment", None)
+    aws_result.pop("runtime_environment_checks", None)
+    for response in aws_result.get("responses", []):
+        response.pop("aws_request_id", None)
+        raw = response.get("raw_response", {})
+        metadata = raw.get("response_metadata", {}) if isinstance(raw, dict) else {}
+        if isinstance(metadata, dict):
+            metadata.pop("request_id", None)
+    store_json(content, AWS_QWEN_RESULT, aws_result)
+    aws_archive_result_sha = sha256(content[AWS_QWEN_RESULT])
+
+    qwen3_report = content["experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md"].decode("utf-8")
+    qwen3_report = qwen3_report.replace(sha256(original_aws_result), aws_archive_result_sha)
+    qwen3_report += (
+        "\n\nFor the public archive copy, run the offline summarizer without `--verify-sources`; "
+        "the archived source packet and Brown manifest are projected copies. Their exact "
+        "original-to-archive hashes are recorded in `supplement/QWEN-EXPORT-PROVENANCE.json`.\n"
+    )
+    content["experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md"] = qwen3_report.encode("utf-8")
+
     content["supplement/QWEN-EXPORT-PROVENANCE.json"] = json_bytes({
         "schema_version": 1,
         "historical_results_preserved_byte_for_byte": True,
@@ -518,6 +572,32 @@ def export_qwen_inputs(
             "A fresh archive run uses projected inputs and therefore receives a new run fingerprint. "
             "Do not resume the preserved historical result files."
         ),
+        "aws_qwen3_result": {
+            "repo_relative_path": AWS_QWEN_RESULT,
+            "original_result_sha256": sha256(original_aws_result),
+            "archive_result_sha256": aws_archive_result_sha,
+            "redacted_only_in_archive_copy": [
+                "runtime_environment",
+                "runtime_environment_checks",
+                "responses[].aws_request_id",
+                "responses[].raw_response.response_metadata.request_id",
+            ],
+            "original_source_input_sha256": {
+                key: parse_json({AWS_QWEN_RESULT: original_aws_result}, AWS_QWEN_RESULT)
+                    .get("source_artifacts", {}).get(key)
+                for key in (
+                    "candidate_packet_sha256",
+                    "static_verifier_input_sha256",
+                    "heldout_brown_control_manifest_sha256",
+                )
+            },
+            "archive_source_input_sha256": {
+                QWEN_PACKET: sha256(content[QWEN_PACKET]),
+                V4_INPUT: sha256(content[V4_INPUT]),
+                QWEN_BROWN_SOURCE: brown_projection_sha,
+            },
+            "historical_result_reaggregatable_offline": True,
+        },
     })
 
 
@@ -602,6 +682,7 @@ def validate_qwen_archive(content: dict[str, bytes], hashes: dict[str, str]) -> 
     brown_projection = parse_json(content, QWEN_BROWN_SOURCE)
     main_result = parse_json(content, QWEN_MAIN_RESULT)
     followup_result = parse_json(content, QWEN_FOLLOWUP_RESULT)
+    aws_result = parse_json(content, AWS_QWEN_RESULT)
     historical_results = provenance.get("historical_result_sha256", {})
     historical_inputs = provenance.get("historical_input_sha256", {})
     archive_inputs = provenance.get("archive_input_sha256", {})
@@ -670,6 +751,39 @@ def validate_qwen_archive(content: dict[str, bytes], hashes: dict[str, str]) -> 
         raise ValueError("Brown archive projection contains source text")
     if provenance.get("historical_results_preserved_byte_for_byte") is not True:
         raise ValueError("Qwen historical result preservation is not attested")
+
+    aws_export = provenance.get("aws_qwen3_result", {})
+    require_hash(aws_export.get("archive_result_sha256"), hashes[AWS_QWEN_RESULT], AWS_QWEN_RESULT)
+    if aws_export.get("historical_result_reaggregatable_offline") is not True:
+        raise ValueError("AWS Qwen historical analysis is not attested as reaggregatable")
+    original_sources = aws_export.get("original_source_input_sha256", {})
+    for key in (
+        "candidate_packet_sha256",
+        "static_verifier_input_sha256",
+        "heldout_brown_control_manifest_sha256",
+    ):
+        require_hash(
+            original_sources.get(key),
+            aws_result.get("source_artifacts", {}).get(key),
+            AWS_QWEN_RESULT,
+        )
+    archive_sources = aws_export.get("archive_source_input_sha256", {})
+    for name in (QWEN_PACKET, V4_INPUT, QWEN_BROWN_SOURCE):
+        require_hash(archive_sources.get(name), hashes[name], AWS_QWEN_RESULT)
+    if aws_result.get("status") != "complete" or len(aws_result.get("presentations", [])) != 244:
+        raise ValueError("AWS Qwen archived run is incomplete")
+    if aws_result.get("runtime_environment") or aws_result.get("runtime_environment_checks"):
+        raise ValueError("AWS Qwen archive retained credential/profile identity metadata")
+    for response in aws_result.get("responses", []):
+        if "aws_request_id" in response:
+            raise ValueError("AWS Qwen archive retained an AWS request ID")
+        metadata = response.get("raw_response", {}).get("response_metadata", {})
+        if isinstance(metadata, dict) and "request_id" in metadata:
+            raise ValueError("AWS Qwen archive retained a provider request ID")
+    sys.path.insert(0, str(ROOT / "experiments"))
+    from local_llm_readability_audit_20260926 import compute_analysis
+    if compute_analysis(aws_result["presentations"], aws_result["responses"]) != aws_result.get("analysis"):
+        raise ValueError("AWS Qwen archived analysis does not reproduce from saved responses")
 
 
 def require_hash(actual: str | None, expected: str, context: str) -> None:

@@ -34,6 +34,7 @@ HANDOFF_FILES = (
     "acl_natbib.bst",
     "REVIEWER-BRIEF.md",
     "LOCAL-LLM-READABILITY-AUDIT-RESULTS.md",
+    "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md",
     "NAACL-READINESS-PLAN.md",
     "READABILITY-SCORE-AUDIT.md",
     "DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md",
@@ -81,8 +82,8 @@ def start_here() -> bytes:
 
 This is one author's exploratory pilot, not independent or confirmatory human
 evidence. The strings are letter-level palindromes; none reverses word order.
-The reviewer has already seen the local judge's aggregate and example scores,
-so this pass is not blind to prior model results. Rate from the displayed
+The reviewer has already seen both Qwen judges' aggregate scores and one
+example score, so this pass is not blind to prior model results. Rate from the displayed
 wording alone; do not treat the ratings as model validation.
 The page works offline and does not send ratings anywhere.
 
@@ -110,8 +111,15 @@ def build() -> None:
     shutil.copyfile(PAPER / "NAACL-READINESS-PLAN.md", HANDOFF / "NAACL-READINESS-PLAN.md")
     readiness = (HANDOFF / "NAACL-READINESS-PLAN.md").read_text()
     readiness = readiness.replace("../experiments/DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md", "DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md")
+    readiness = readiness.replace("../experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md", "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md")
     (HANDOFF / "NAACL-READINESS-PLAN.md").write_text(readiness)
     shutil.copyfile(ROOT / "experiments" / "LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md", HANDOFF / "LOCAL-LLM-READABILITY-AUDIT-RESULTS.md")
+    qwen3_report = (ROOT / "experiments" / "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md").read_text()
+    with zipfile.ZipFile(PAPER / "v4-reproducibility.zip") as archive:
+        archived_run_hash = sha256(archive.read("runs/aws-qwen3-32b-readability-audit-20260926.json"))
+    if archived_run_hash not in qwen3_report:
+        raise ValueError("Qwen3 results report does not identify the archived run record hash")
+    (HANDOFF / "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md").write_text(qwen3_report)
     shutil.copyfile(ROOT / "experiments" / "DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md", HANDOFF / "DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md")
     shutil.copyfile(PAPER / "READABILITY-SCORE-AUDIT.md", HANDOFF / "READABILITY-SCORE-AUDIT.md")
     for name in ("naacl2027.tex", "refs.bib", "acl.sty", "acl_natbib.bst"):
@@ -152,8 +160,8 @@ custom name `review.espencer.me` is not configured. Use the offline page if
 the reviewer is not on the tailnet.
 
 The ratings are one author's exploratory pilot, not independent or
-confirmatory evidence. The intended reviewer has already seen the local
-judge's aggregate and example scores, so these ratings are not blind to prior
+confirmatory evidence. The intended reviewer has already seen both Qwen
+judges' aggregate scores and one example score, so these ratings are not blind to prior
 model results. Rate from the displayed wording alone. Keep the raw export with
 the packet and do not open the sealed provenance key before the first rating
 pass is complete.

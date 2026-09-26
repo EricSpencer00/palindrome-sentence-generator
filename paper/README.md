@@ -4,6 +4,9 @@ The active anonymous manuscript is [naacl2027.tex](naacl2027.tex). It reports
 the adaptive v4 comparison of two exact-palindrome search implementations
 under original and escalated resource bundles. The earlier eleven-text Brown
 audit is retrospective supporting evidence; it does not establish readability.
+The additional hosted Qwen3 audit is explicitly a model-scored diagnostic: it
+gave all 52 selected candidates floor scores and found no candidate-versus-
+shuffle improvement under its joint-pass outcome.
 
 [NAACL-READINESS-PLAN.md](NAACL-READINESS-PLAN.md) records the claim boundary,
 QA status, and readiness assessment. [READABILITY-SCORE-AUDIT.md](READABILITY-SCORE-AUDIT.md)
@@ -16,6 +19,9 @@ The frozen inputs, raw outputs, source files and checksums are bundled in
 The dated professor packet, including a rebuilt anonymous PDF, reviewer brief,
 local-judge results, readiness plan, and a copy of the evidence archive, is
 [`review-handoff/NAACL2027-PROFESSOR-HANDOFF-2026-09-26.zip`](review-handoff/NAACL2027-PROFESSOR-HANDOFF-2026-09-26.zip).
+The AWS Qwen3 run, frozen scorer, price snapshot, offline reanalysis tool, and
+result report are included in `v4-reproducibility.zip`; see
+[`AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md`](../experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md).
 
 ## Reproduce v4
 
@@ -39,6 +45,8 @@ same word orders. Both sets and their seed derivations are reproducible. The
 local Qwen judge audit, including its failed control calibration and raw
 structured responses, is documented in
 [`LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md`](../experiments/LOCAL-LLM-READABILITY-AUDIT-RESULTS-20260926.md).
+The hosted Qwen3 run's saved responses can be re-aggregated offline; fresh
+Bedrock calls need credentials and may differ because the API has no seed.
 Brown and GPT-2 scores can be recomputed with the commands in the experiment
 report and their pinned dependencies. DeepSeek's request,
 visible response, usage and hash are archived. Bedrock did not provide a model
@@ -49,9 +57,10 @@ Bedrock charge is estimated at USD 0.00976206 from recorded tokens and
 The v4 bundle records the full task denominator, source hashes, model
 revisions, exactness checks, output screens, language diagnostics and prior
 protocol history. It does not contain human ratings, and no automatic metric
-is treated as a human readability score. The Qwen candidate scores are
-inconclusive because the local judge did not meet the frozen Brown-control
-calibration criterion.
+is treated as a human readability score. Local Qwen2.5 failed its Brown
+control gate; hosted Qwen3 passed a small control screen, but its candidates
+and shuffles both had zero joint passes and its controls include seven
+multi-sentence spans.
 
 ## Build the anonymous review PDF
 

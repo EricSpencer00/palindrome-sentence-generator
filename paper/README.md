@@ -1,58 +1,57 @@
-# Local word order in exact letter-level palindromes
+# Exact palindrome search: paper and evidence
 
-The current anonymous manuscript is [Local Word Order in Exact Letter-Level
-Palindromes: A Reproducible Audit](naacl2027.tex). It reports exactness checks
-and a Brown word-bigram diagnostic on eleven selected texts. The metric
-measures local word order relative to same-word shuffles; it does not measure
-human readability. No human ratings were collected.
+The active anonymous manuscript is [naacl2027.tex](naacl2027.tex). It reports
+the adaptive v4 comparison of two exact-palindrome search implementations
+under original and escalated resource bundles. The earlier eleven-text Brown
+audit is retrospective supporting evidence; it does not establish readability.
 
-[NAACL-READINESS-PLAN.md](NAACL-READINESS-PLAN.md) records the readiness gates.
-[READABILITY-SCORE-AUDIT.md](READABILITY-SCORE-AUDIT.md) records the score
-audit, its sources, limitations, and exact rerun commands. The historic
-[REVIEW-LOG.md](REVIEW-LOG.md) contains earlier review rounds and their
-remaining research gaps.
+[NAACL-READINESS-PLAN.md](NAACL-READINESS-PLAN.md) records the claim boundary,
+QA status, and readiness assessment. [READABILITY-SCORE-AUDIT.md](READABILITY-SCORE-AUDIT.md)
+documents the separate Brown audit and its exact rerun. The complete v4
+experiment summary and commands are in
+[`DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md`](../experiments/DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md).
+The frozen inputs, raw outputs, source files and checksums are bundled in
+[v4-reproducibility.zip](v4-reproducibility.zip), built with
+[`build_v4_supplement.py`](build_v4_supplement.py).
 
-## Reproduce the manuscript results
+## Reproduce v4
 
-From the repository root, using Python 3.10 or newer:
-
-```sh
-python3 paper/audit_week_results.py
-python3 paper/check_seam_invariant.py
-python3 paper/replay_clause_search.py
-python3 -m pip install -r paper/readability-requirements.txt
-python3 -m nltk.downloader brown
-python3 experiments/score_length_stratified_readability.py \
-  --expected-report runs/readability-length-stratified-sentence-aware-20260925.json \
-  --output /tmp/readability-length-stratified-rerun.json
-python3 paper/build_readability_table.py
-python3 paper/export_submission.py
-python3 output/naacl-submission/anonymous-evidence/verify_anonymous_evidence.py
-```
-
-The score rerun uses a deterministic document-level split of the NLTK Brown
-corpus: 401 documents train the bigram model and 99 disjoint documents provide
-the matched and length-stratified controls. The saved report records the
-tokenized-corpus fingerprint, split fingerprints, held-out sentence offsets,
-span hashes, software version, and all scores. `--expected-report` fails if the
-corpus, controls, protocol, or scores differ. The manuscript table is built
-from all eleven audited outputs, including the inherited 38-letter case.
-
-The anonymous archives are written under `output/naacl-submission/`. The
-evidence archive includes source, selected results, the frozen calibration,
-and an exactness verifier. The verifier needs only Python's standard library;
-recomputing Brown scores also needs the packages and corpus above. The
-historical `paper/releases/naacl2027-2026-09-11/` archive is quarantined and
-does not match this manuscript.
-
-To build a review PDF from the repository root:
+From the repository root, run the frozen search and verify its 240 outputs:
 
 ```sh
-mkdir -p output/pdf/naacl-ready-review
-tectonic --keep-logs -o output/pdf/naacl-ready-review paper/naacl2027.tex
+python3 experiments/paired_directional_search_resource_sensitivity_20260925.py run \
+  --manifest runs/directional-search-resource-sensitivity-20260925/manifest.json \
+  --phase confirmatory --output /tmp/replayed-v4.json --workers 6
+python3 experiments/analyze_directional_search_resource_sensitivity_20260925.py \
+  --manifest runs/directional-search-resource-sensitivity-20260925/manifest.json \
+  --results /tmp/replayed-v4.json \
+  --static-verifier-summary runs/directional-search-resource-sensitivity-20260925/static-verifier-summary-v4-aws.json \
+  --json-output /tmp/v4-summary.json --markdown-output /tmp/v4-summary.md
 ```
 
-[The NAACL 2027 call](https://2027.naacl.org/calls/main_conference_papers/)
-sets a four-page short-paper limit. The generated review PDF and anonymous bundles are build artifacts; the LaTeX source,
-scoring code, audit reports, and cited data provenance define the reproducible
-record.
+The frozen input contains all 66 selected texts and 32 deterministic same-word
+shuffles for each. Brown and GPT-2 scores can be recomputed with the commands
+in the experiment report and their pinned dependencies. DeepSeek's request,
+visible response, usage and hash are archived. Bedrock did not provide a model
+seed; reissuing an API request may return a different response. The reported
+Bedrock charge is estimated at USD 0.00976206 from recorded tokens and
+[published Bedrock rates](https://aws.amazon.com/bedrock/pricing/).
+
+The v4 bundle records the full task denominator, source hashes, model
+revisions, exactness checks, output screens, language diagnostics and prior
+protocol history. It does not contain human ratings, and no automatic metric
+is named a readability score.
+
+## Build the anonymous review PDF
+
+Build to a fresh temporary directory so existing PDFs and logs are preserved:
+
+```sh
+NAACL_BUILD_DIR="$(mktemp -d)"
+tectonic --keep-logs -o "$NAACL_BUILD_DIR" paper/naacl2027.tex
+```
+
+The [NAACL 2027 call](https://2027.naacl.org/calls/main_conference_papers/)
+sets the short-paper limit at four pages. Inspect the PDF and all rendered
+pages before submission. The current worktree may contain unrelated PDF build
+artifacts; do not use them as the manuscript output.

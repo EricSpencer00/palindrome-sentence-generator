@@ -1,6 +1,6 @@
 # Reviewer brief
 
-**Revised v1, October 2:** *Fragment Penalties Shift Repetition in Exact Palindrome Search*
+**Revised v1, October 2:** *Finding Longer Palindromes and Evaluating Their Readability*
 
 The current paper reports 360 new paired AWS search jobs. It tests whether penalizing six frequent trigrams from an earlier collection improves output diversity without reducing exact coverage or increasing other failure modes. Penalties 0, 4, and 16 share 20 fresh seeds, three length bands, two native algorithms, vocabulary, admission gates, and resource ceilings. Penalty order is randomized within each seed–band–method block. No job reaches the time limit.
 

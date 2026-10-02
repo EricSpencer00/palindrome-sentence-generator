@@ -1,6 +1,6 @@
 # NAACL paper readiness plan
 
-**Current manuscript, revised October 2, 2026:** *Fragment Penalties Shift Repetition in Exact Palindrome Search*. Read the [anonymous PDF](../output/pdf/naacl2027-v1.pdf) or [source](naacl2027-v1.tex). The version label remains v1; `naacl2027.tex` is a synchronized source alias.
+**Current manuscript, revised October 2, 2026:** *Finding Longer Palindromes and Evaluating Their Readability*. Read the [anonymous PDF](../output/pdf/naacl2027-v1.pdf) or [source](naacl2027-v1.tex). The version label remains v1; `naacl2027.tex` is a synchronized source alias.
 
 ## Scope and venue
 

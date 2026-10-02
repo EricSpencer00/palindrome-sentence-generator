@@ -113,7 +113,7 @@ FILES = tuple(sorted(set(FILES) | set(json.loads((ROOT / FRAGMENT_MANIFEST).read
 
 README = """# v1 supplementary evidence and reproduction
 
-The current manuscript is *Fragment Penalties Shift Repetition in Exact Palindrome Search*.
+The current manuscript is *Finding Longer Palindromes and Evaluating Their Readability*.
 It reports a fresh, frozen 360-job AWS experiment: 20 seeds, three length bands,
 two search implementations, and penalties 0, 4, and 16 for six previously
 identified trigrams. Each arm returns 90/120 exact outputs. Distinct surfaces

@@ -1,4 +1,4 @@
-# Fragment Penalties Shift Repetition in Exact Palindrome Search
+# Finding Longer Palindromes and Evaluating Their Readability
 
 Read the [anonymous paper](../output/pdf/naacl2027-v1.pdf) or [source](naacl2027-v1.tex). The revised v1 now reports a fresh paired AWS experiment, motivated by recurring fragments in the earlier collection.
 

@@ -220,7 +220,7 @@ def build() -> None:
 This bundle contains the anonymous manuscript PDF and source, reviewer brief,
 readiness plan, reproducible diagnostic reports, and a separate first-pass
 rating packet. This is the first public release, v1. The paper is titled
-*Fragment Penalties Shift Repetition in Exact Palindrome Search*. It reports
+*Finding Longer Palindromes and Evaluating Their Readability*. It reports
 360 new matched AWS search jobs and a separate blinded Qwen3 audit. Penalties
 remove six named trigrams and increase distinct outputs, while strict structural
 acceptance decreases and replacement fragments become common. The new plots

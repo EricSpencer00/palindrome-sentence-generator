@@ -9,8 +9,8 @@
 \usepackage{graphicx}
 \usepackage{xurl}
 \newcommand{\code}[1]{\texttt{#1}}
-\title{Fragment Penalties Shift Repetition in Exact Palindrome Search}
-\hypersetup{pdftitle={Fragment Penalties Shift Repetition in Exact Palindrome Search}}
+\title{Finding Longer Palindromes and Evaluating Their Readability}
+\hypersetup{pdftitle={Finding Longer Palindromes and Evaluating Their Readability}}
 \hypersetup{pdfsubject={Public release v1}}
 \author{Anonymous submission}
 
@@ -18,16 +18,16 @@
 \maketitle
 
 \begin{abstract}
-Exact palindrome search often returns distinct strings built from the same fragments. Can penalizing those fragments improve output diversity without reducing exactness or language quality? We freeze six frequent trigrams from an earlier collection and compare two penalty strengths with the original scorer on 360 paired search jobs. Each condition returns 90 exact outputs from 120 tasks. Both penalties remove every targeted trigram, increase distinct texts from 69 to 78, and reduce mean trigram overlap. However, replacement fragments occur in 46/78 distinct outputs, and only 28/120 tasks pass stricter structural checks, compared with 59/120 at baseline. The study measures an intervention within two fixed search implementations, with paired seed-level uncertainty and a separate blinded model rubric, under which no candidate reaches the grammar-and-meaning threshold. It shows that suppressing a fixed fragment list can improve lexical diversity while increasing structural shortcuts; lexical novelty alone does not establish sentence quality.
+Finding a long palindrome is only part of the problem: it should also make sense. We search for palindromes of 30--119 letters and test a simple idea: discourage phrases that the search keeps reusing. Across 360 matched runs, we compare the original scoring rule with two strengths of this penalty. Each setting finds 90 exact palindromes in 120 attempts. Both penalties remove all six targeted phrases and increase distinct outputs from 69 to 78. Yet new phrases take their place, and fewer outputs pass checks for shortcuts such as words and spans that are palindromes on their own: 28/120 attempts, down from 59/120. A separate language model rates the grammar and meaning of each output; none meets its threshold for both. We have not collected human ratings. Our contribution is a controlled comparison showing where this simple change helps and where it falls short, with code and outputs to reproduce the result. More varied text is a useful step, but it does not establish readability.
 \end{abstract}
 
 \section{Introduction}
-A letter-level palindrome reads identically backward after spaces, punctuation, and case are removed. This exact constraint does not require grammatical sentences. Even surface diversity can mislead: different strings may reuse the same word fragments or insert self-palindromic material.
+A palindrome reads the same forward and backward when we ignore spaces, punctuation, and case: \emph{never odd or even} is a short example. The challenge is to find longer examples that also read as coherent English. Passing the reversal check alone tells us little about grammar or meaning.
 
-Our starting collection contains 66 output records and 52 distinct texts, of which 46 contain \emph{no it a}. We use this observation to define an intervention before generating a fresh seed block: subtract a fixed penalty for each occurrence of one of six recurring trigrams. We then measure exact coverage, recurrence of \emph{any} trigram, pairwise lexical overlap, structural shortcuts, and model-rated language quality. This tests whether suppressing known fragments improves the broader output properties it is intended to affect.
+Our starting collection revealed a concrete problem: 46 of 52 distinct outputs contained the same three-word phrase, \emph{no it a}. We tested whether lowering the score of six common phrases would help the search move beyond these repeated patterns. We chose the phrases before the new runs and kept the vocabulary and search limits fixed. We compare the settings on matched tasks and ask three separate questions: does the search still find exact palindromes, do the outputs become more varied, and does the model rate them as readable? This lets us measure progress in one area without assuming progress in the others.
 
 \paragraph{Related work.}
-\citet{norvig2002palindrome} describes residual-character search, and \citet{papadopoulos2015palindromes} generate palindromes using n-gram graphs. \citet{bonlarron-regin-2024} combine constraint programming, linguistic properties, and perplexity-based curation for constrained RADNER sentences. We test a scoring intervention within existing implementations, without reproducing or ranking these published generators. Criterion-specific metric checks \citep{sai-etal-2021-perturbation} and explicit evaluation dimensions \citep{howcroft-etal-2020-twenty} motivate separating lexical diversity, structural admission, and language judgments.
+Earlier approaches find palindromes by matching character sequences \citep{norvig2002palindrome} or searching graphs built from short word sequences \citep{papadopoulos2015palindromes}. \citet{bonlarron-regin-2024} combine constraints and language scores for RADNER sentences. Our focus is the effect of penalizing repeated phrases within two fixed search methods; we do not rank these published generators. Work on testing text-evaluation metrics \citep{sai-etal-2021-perturbation} and defining what an evaluation measures \citep{howcroft-etal-2020-twenty} supports checking correctness, repetition, and language quality separately.
 
 \begin{figure*}[t]
 \centering

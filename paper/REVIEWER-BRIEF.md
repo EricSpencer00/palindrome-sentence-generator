@@ -2,7 +2,7 @@
 
 **Revised v1, October 2:** *Evaluating Exact Palindromes Beyond Word-Order Shuffles*
 
-The current revision frames the work as a focused evaluation case study. Its new retrospective cross-tab shows that 21/66 records, representing 15/52 distinct texts, have positive Brown and GPT-2 likelihood contrasts while receiving zero on both Qwen3 dimensions. The counts reproduce with `python3 paper/audit_diagnostic_overlap.py` from the evidence archive. Every repeated copy agrees on both signs before collapsing by surface-text hash. This adds no inference calls or human ratings. The main text ends on page four; the PDF has five pages including limitations, references, and appendices.
+The current revision centers two figures showing continuous scorer disagreement, all 32 GPT-2 shuffle differences per record, and recurrent fragments. Brown and GPT-2 have opposite contrast signs for 28/52 distinct texts; the candidate score lies within the shuffle range for 63/66 records; “no it a” appears in 46/52 distinct texts. Text-level plots weight each exact text equally after averaging its repeated records. The phrase-group analysis is retrospective and cannot isolate a phrase effect. The all-zero Qwen rubric is supporting context, not the headline. The main content, including both figures, fits four pages; the full PDF has six pages.
 
 ## Study and sample
 

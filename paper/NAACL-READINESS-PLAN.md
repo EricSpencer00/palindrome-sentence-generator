@@ -12,19 +12,21 @@ The [ARR requirements](https://aclrollingreview.org/cfp) require an anonymous AC
 
 ## What changed
 
-The title and abstract now describe the evidence actually available. The introduction states one research question and relates the analysis to criterion-specific evaluation checks. The methods distinguish sample collection from evaluation and separate the two native search closure rules from the bundled resource settings. The discussion explains the relative-score interpretation and gives a bounded reporting recommendation. The conclusion states the finite-sample result.
+The abstract and results now lead with continuous diagnostics and lexical recurrence. Two full-width figures contain five panels: Brown versus GPT-2 contrasts, all 32 candidate-minus-shuffle GPT-2 differences per record, trigram prevalence, and phrase-group score distributions for each scorer. The judge floor remains a brief supporting result, with detailed judge settings in the appendix.
 
-A new retrospective cross-tab joins the saved Brown and GPT-2 scores and the Qwen3 responses by exact text hashes:
+| Descriptive result | Saved-data value |
+| --- | --- |
+| Brown/GPT-2 contrast signs disagree | 28/52 distinct texts |
+| Candidate GPT-2 score falls inside its 32-shuffle range | 63/66 records |
+| Candidate exceeds every shuffle / is below every shuffle | 2/66 / 1/66 records |
+| Distinct texts containing “no it a” | 46/52 (88.5%) |
+| Distinct texts containing “one poem association” | 24/52 |
+| Mean Brown contrast, focal phrase present / absent | +0.201 / -0.003 nats per transition |
+| Mean GPT-2 contrast, focal phrase present / absent | -0.013 / +0.110 per predicted token |
 
-| Brown contrast | GPT-2 contrast | Output records | Distinct texts |
-| --- | --- | ---: | ---: |
-| Positive | Positive | 21 | 15 |
-| Positive | Nonpositive | 19 | 12 |
-| Nonpositive | Positive | 16 | 16 |
-| Nonpositive | Nonpositive | 10 | 9 |
-| Total | | 66 | 52 |
+Each text-level point averages contrasts across that exact text's records. Each record-level range uses its own 32 archived controls. The figures show empirical permutation spreads, not confidence intervals. Phrase groups and overlapping trigrams are retrospective descriptions; length, vocabulary, and construction are confounded with membership.
 
-All 52 distinct texts receive zero on both Qwen3 dimensions. The 15-text overlap shows that the observation survives duplicate collapse. Repeated copies retain item-specific shuffle controls; every copy agrees on both signs before collapsing. These are descriptive counts, not independent trials or a significance test. Run `python3 paper/audit_diagnostic_overlap.py` to reproduce the table and Qwen3 joins without inference, corpus downloads, or network access.
+Run `python3 paper/build_diagnostic_figures.py` with `paper/figure-requirements.txt` installed. The builder validates the existing hash joins and writes both vector figures, previews, and `paper/fig/diagnostic-data.json`. Numerical data can be re-aggregated from a clean extraction of the anonymized archive. No inference is needed. The earlier cross-tab remains available through `paper/audit_diagnostic_overlap.py`.
 
 ## Evidence boundary
 
@@ -36,6 +38,6 @@ The [September baseline audit](BASELINE-PROVENANCE-AUDIT-V1.md) remains applicab
 
 ## Verification
 
-The main text ends on page four. The complete anonymous PDF has five pages, including limitations, references, and appendices, in the existing ACL review style. The full project compiles with Tectonic. The built-in single-file compiler cannot resolve the separate `acl.sty` dependency; the saved source remains available in the editor.
+The main content and both figures fit within four pages. The complete anonymous PDF has six pages, including limitations, references, and appendices, in the existing ACL review style. The full project compiles with Tectonic. The built-in single-file compiler cannot resolve the separate `acl.sty` dependency; the saved source remains available in the editor.
 
-The offline audit verifies candidate exactness, score-input hashes, complete score inventories, duplicate-sign consistency, and candidate/response text joins. Regression checks reject stale likelihood inputs and mismatched Qwen text hashes. The supplementary builder checks archive hashes, anonymity, linked provenance, and deterministic builds. Raw search, model responses, and frozen reader items remain unchanged. No generation or inference was run for this revision.
+The figure regression checks verify saved numerical data, permutation accounting, fragment counts, and equal weighting of distinct texts. The offline audit verifies candidate exactness, score-input hashes, complete score inventories, duplicate-sign consistency, and candidate/response text joins. Regression checks reject stale likelihood inputs and mismatched Qwen text hashes. The supplementary builder checks archive hashes, anonymity, linked provenance, and deterministic builds. Raw search, model responses, and frozen reader items remain unchanged. No generation or inference was run for this revision.

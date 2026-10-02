@@ -6,7 +6,9 @@ Read the revised [anonymous PDF](../output/pdf/naacl2027-v1.pdf) or its [TeX sou
 
 The paper describes a collected sample of 66 selected output records from 240 search runs, containing 52 distinct strings. It reports construction records and automatic diagnostics; it does not claim a generation improvement, a length effect, or superiority over a published generator. No human ratings were collected, and no cited external generator was run under matched conditions.
 
-Brown and GPT-2 compare each output with 32 permutations of its own words. Both contrasts are positive for 21 records representing 15 distinct texts, yet all 15 receive zero on both Qwen3 rubric dimensions. The paper now includes the full cross-tab and checks that repeated copies agree on contrast signs before counting each text once. Brown reports nats per word transition; GPT-2 reports log probability per predicted token. Their controls and units differ. Positive contrasts describe sensitivity to word order, not absolute readability or generator performance.
+The paper now centers two figures with five panels: a Brown/GPT-2 scatterplot, the spread across each record's 32 GPT-2 shuffles, trigram prevalence, and phrase-group distributions for both scorers. Brown and GPT-2 have opposite contrast signs for **28/52 distinct texts**. The original GPT-2 score falls inside its shuffle-score range for **63/66 records**. The trigram **“no it a” appears in 46/52 distinct texts**, showing how much material the outputs share.
+
+Text-level plots average repeated records before giving each distinct text equal weight. Brown uses nats per word transition; GPT-2 uses log probability per predicted token. Their controls and units differ. The phrase groups are descriptive, and the shuffle ranges are permutation spreads, not confidence intervals.
 
 Qwen3 rates grammaticality and coherent meaning on a 0–3 rubric. It gives zero joint passes among 52 candidates; 11/12 held-out Brown prose controls and 0/12 of their shuffles pass jointly. The frozen 8/12 prose and 3/12 shuffle thresholds are chosen diagnostic-screen cutoffs, not externally validated calibration criteria. The separate Qwen2.5 audit fails its control screen. Neither audit is human evaluation.
 
@@ -18,13 +20,13 @@ The [readiness plan](NAACL-READINESS-PLAN.md) records the claim boundary and evi
 
 The v1 professor handoff is [NAACL2027-PROFESSOR-HANDOFF-v1.zip](review-handoff/NAACL2027-PROFESSOR-HANDOFF-v1.zip). The full evidence archive is separate because it includes the sealed mapping from review IDs to method and task provenance.
 
-Recompute the new cross-tab and check its exact-text joins to Qwen3 without downloading a model or calling a service:
+Rebuild the figures and their numerical data offline, using the pinned versions in [figure-requirements.txt](figure-requirements.txt):
 
 ```sh
-python3 paper/audit_diagnostic_overlap.py
+python3 paper/build_diagnostic_figures.py
 ```
 
-This verifies saved scores. It does not regenerate model predictions or add human ratings.
+The [landscape figure](fig/diagnostic-landscape.pdf), [fragment figure](fig/fragment-concentration.pdf), and [plotted data](fig/diagnostic-data.json) are included in the evidence archive. The earlier sign cross-tab remains reproducible with `python3 paper/audit_diagnostic_overlap.py`. These commands use saved scores and add no model calls or human ratings.
 
 From the repository root, replay the frozen search and summarize its 240 outcomes:
 

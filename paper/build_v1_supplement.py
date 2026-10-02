@@ -62,6 +62,11 @@ FILES = (
     "paper/acl_natbib.bst",
     "paper/build_v1_supplement.py",
     "paper/audit_diagnostic_overlap.py",
+    "paper/build_diagnostic_figures.py",
+    "paper/figure-requirements.txt",
+    "paper/fig/diagnostic-landscape.pdf",
+    "paper/fig/fragment-concentration.pdf",
+    "paper/fig/diagnostic-data.json",
     "paper/BASELINE-PROVENANCE-AUDIT-V1.md",
     "paper/audits/historical-search-baselines-v1.md",
     "paper/audits/historical-construction-evidence-v1.md",
@@ -112,17 +117,31 @@ See `paper/BASELINE-PROVENANCE-AUDIT-V1.md` and its three detailed reports.
 They also audit older repository history; those historical runs are not all
 bundled here. The revision adds no new search or model scoring calls.
 
-The October 2 revision adds a retrospective likelihood-sign cross-tab. Reproduce
-it and verify the Qwen3 text joins from the extracted archive root, offline:
+The October 2 revision centers continuous diagnostics and fragment recurrence.
+The two figures show scorer disagreement, all 32 individual GPT-2 shuffle
+differences per record, and recurring trigrams. With the plotting dependencies
+in `paper/figure-requirements.txt`, reproduce them offline:
+
+```sh
+python3 paper/build_diagnostic_figures.py
+```
+
+This writes vector figures and `paper/fig/diagnostic-data.json`, including
+the data and definitions for all five plotted panels. Brown and GPT-2 have
+opposite contrast signs for 28/52 distinct texts; the original GPT-2 score is
+inside its shuffle-score range for 63/66 records. The trigram `no it a` appears
+in 46/52 distinct texts. Phrase groups and permutation ranges are descriptive,
+not causal effects or confidence intervals.
+
+The earlier cross-tab and the Qwen3 text joins can also be verified offline:
 
 ```sh
 python3 paper/audit_diagnostic_overlap.py
 ```
 
-Both contrasts are positive for 21/66 records representing 15/52 distinct
-texts, all rated zero on both Qwen3 dimensions. Duplicate copies have their
-own shuffle controls; their signs agree before collapsing by text hash.
-These are descriptive counts, not independent trials or human labels.
+Duplicate copies have their own shuffle controls; their signs agree before
+collapsing by text hash. Text-level plots average contrasts within a surface
+before weighting each distinct text equally. No inference is needed.
 
 Author-specific machine names and repository commit IDs are omitted from the
 exported run metadata. Source-file hashes, model revisions, and cross-file

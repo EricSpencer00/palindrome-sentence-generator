@@ -35,6 +35,8 @@ HANDOFF_FILES = (
     "refs.bib",
     "acl.sty",
     "acl_natbib.bst",
+    "fig/diagnostic-landscape.pdf",
+    "fig/fragment-concentration.pdf",
     "REVIEWER-BRIEF.md",
     "BASELINE-PROVENANCE-AUDIT-V1.md",
     "audits/historical-search-baselines-v1.md",
@@ -168,7 +170,8 @@ def build() -> None:
                  "audits/historical-search-baselines-v1.md",
                  "audits/historical-construction-evidence-v1.md",
                  "audits/historical-metric-controls-v1.md",
-                 "mock-reviews/naacl2027-v1-arr-review.md"):
+                 "mock-reviews/naacl2027-v1-arr-review.md",
+                 "fig/diagnostic-landscape.pdf", "fig/fragment-concentration.pdf"):
         (HANDOFF / name).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(PAPER / name, HANDOFF / name)
     packet_contents = public_packet_contents()
@@ -214,15 +217,16 @@ def build() -> None:
 This bundle contains the anonymous manuscript PDF and source, reviewer brief,
 readiness plan, reproducible diagnostic reports, and a separate first-pass
 rating packet. This is the first public release, v1. The paper is titled
-*Evaluating Exact Palindromes Beyond Word-Order Shuffles*. It examines how positive shuffle-relative
-likelihood coexists with floor-level absolute model ratings in a collected
-sample. The baseline-provenance audit and its three historical reports are
+*Evaluating Exact Palindromes Beyond Word-Order Shuffles*. Its two figures examine
+continuous score disagreement, individual shuffle-score spreads, and recurring
+fragments across distinct texts. The baseline-provenance audit and its three historical reports are
 included. The task grid is not an established generator benchmark; the paper
 makes no generation-improvement claim. This revision uses saved evidence and
 contains no new experiments or model scoring calls. No human ratings have
 been collected. The packet defines letter-level versus word-order palindromes.
-The October 2 revision adds an offline cross-tab: 15 distinct texts have
-positive Brown and GPT-2 contrasts but zero on both Qwen3 dimensions.
+The October 2 figures show opposite contrast signs for 28/52 distinct texts,
+shuffle ranges crossing zero for 63/66 records, and the trigram `no it a` in
+46/52 distinct texts. The all-zero rubric remains supporting context.
 
 ## Read the paper
 

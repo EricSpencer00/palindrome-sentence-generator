@@ -9,8 +9,8 @@
 \usepackage{graphicx}
 \usepackage{xurl}
 \newcommand{\code}[1]{\texttt{#1}}
-\title{Methods of Finding Longer, Readable Palindromes}
-\hypersetup{pdftitle={Methods of Finding Longer, Readable Palindromes}}
+\title{Evaluating Exact Palindromes Beyond Word-Order Shuffles}
+\hypersetup{pdftitle={Evaluating Exact Palindromes Beyond Word-Order Shuffles}}
 \hypersetup{pdfsubject={Public release v1}}
 \author{Anonymous submission}
 
@@ -18,16 +18,19 @@
 \maketitle
 
 \begin{abstract}
-Exact palindrome generation combines a global character constraint with lexical and sentence-level demands. We describe two search implementations and examine 66 saved output records containing 52 distinct strings. Their collection used project-specific length bands and resource settings; it supplies no established performance baseline. Thirty-six records contain the phrase \emph{one poem association}. Against 32 permutations of each output's own words, Brown and GPT-2 assign higher mean log probability to the original order for 40/66 and 37/66 records. These comparisons measure sensitivity to word order under fixed scorers. DeepSeek V3.2 ties all 66 candidate--shuffle pairs. Qwen3 32B assigns all 52 distinct candidates zero for grammaticality and coherent meaning; 11/12 prose controls and 0/12 shuffled controls pass its joint rubric. Qwen2.5-3B fails the same control screen. The recorded outputs thus have positive likelihood contrasts in some cases and zero absolute rubric scores throughout. No human ratings or matched evaluation of a published generator establish improved readability or generation performance.
+Exact palindrome generation separates a mechanically checkable character constraint from grammaticality and meaning. We examine automatic language diagnostics on 66 saved output records containing 52 distinct strings. Brown bigram and GPT-2 likelihoods favor the original word order over 32 own-word shuffles for 40/66 and 37/66 records, respectively. Both contrasts are positive for 15 distinct texts, yet Qwen3 32B assigns every candidate zero for grammaticality and coherent meaning. The same rubric passes 11/12 prose controls and 0/12 shuffled controls. DeepSeek V3.2 ties every candidate--shuffle pair; Qwen2.5-3B fails the prose-control screen. This case study documents positive shuffle-relative likelihood alongside floor-level absolute model ratings, including after duplicate outputs are collapsed. It supports separate reporting of exactness, relative likelihood, and rubric scores. Without human ratings, these diagnostics establish neither readability nor a validated quality ranking.
 \end{abstract}
 
 \section{Introduction}
 
 A letter-level palindrome has the same sequence of letters when read backward after spaces, punctuation, and case are removed. Word boundaries need not reverse, so a list of words can satisfy exactness without forming grammatical sentences or expressing coherent meaning. Character equality is mechanically checkable; language quality requires separate evaluation.
 
-\citet{norvig2002palindrome} describes residual-character search for long palindromes; \citet{papadopoulos2015palindromes} use n-gram graphs and caution that length alone says little. \citet{bonlarron-regin-2024} combine linguistic constraints with language-model perplexity to select outputs.
+One tempting diagnostic compares an output's language-model likelihood with permutations of its own words. This holds lexical content fixed, but asks a relative question: does the model prefer the original order? It does not ask whether the original is grammatical or conveys a recoverable meaning. Palindromes provide a useful setting for examining this distinction because a text can satisfy the character constraint while leaving both language properties unresolved.
 
-We study 66 saved output records from two project implementations. The central question is what their measured properties establish: exactness, output distinctness, likelihood relative to shuffled controls, and absolute model ratings. We define the comparison underlying each language diagnostic and report its scope. The cited methods provide context; this study contains no reproduction of a published generator under matched conditions and makes no claim of generation improvement.
+We ask whether positive shuffle-relative likelihood co-occurs with positive absolute model ratings in one archived collection. Our contribution is a reproducible case analysis: we define the controls, join diagnostics to exact texts, and cross-tabulate likelihood signs at both record and distinct-text levels. Fifteen distinct texts receive positive contrasts from both likelihood scorers and zero scores from the absolute judge that passes our prose-control screen. This is an observation about the specified diagnostics and sample, not a human assessment of those texts.
+
+\paragraph{Related work.}
+\citet{norvig2002palindrome} describes residual-character palindrome search, and \citet{papadopoulos2015palindromes} generate palindromes using n-gram graphs. In a different constrained-generation task, \citet{bonlarron-regin-2024} combine constraint programming, linguistic properties, and perplexity-based curation for RADNER sentences. We do not reproduce these generators or compare performance with them. Our evaluation focus is closer to criterion-specific metric checks \citep{sai-etal-2021-perturbation} and explicit definitions of human-evaluation dimensions \citep{howcroft-etal-2020-twenty}. Those works motivate specifying what a control tests; our study examines own-word shuffles and absolute model rubrics on exact palindromes, without human calibration.
 
 \section{Construction and evaluation}
 
@@ -36,12 +39,12 @@ Let $T(x)$ retain only lowercase ASCII letters from a rendered text $x$. Exactne
 
 The vocabulary comes from a frozen 30K word list filtered through an English lexicon. Words of at most two letters must belong to a fixed 32-form allowlist. The shared basic gate checks supported ASCII rendering, exact palindrome equality, the target length band, lexicon membership, the short-word rule, and exclusions for listed catalogue items and templates. Repeated words are allowed. An eligible closure is rendered as space-joined words with an initial capital and final period.
 
-Search uses English Zipf frequencies from \code{wordfreq} 3.1.1 \citep{speer-2022-wordfreq}. Its heuristic adds 0.3 per word character and subtracts 2 for each prior use of the word and 4 for an adjacent repetition. A seeded pseudorandom generator adds a fresh uniform perturbation in $[0,0.4)$ to each child's accumulated score for beam ranking. This perturbation is excluded from the score used to select the best eligible closure per normalized letter. Both implementations cap partial texts at 32 words, residual overhang at 24 letters, and text length at the target band's ceiling. Brown, GPT-2, and the prompted judges are applied afterward and do not select outputs.
+Search ranks states using word frequency, character count, repetition penalties, and seeded perturbations. Each run selects the eligible closure with the highest unperturbed heuristic score per normalized letter. Brown, GPT-2, and the prompted judges are applied afterward and do not select outputs. Appendix~\ref{sec:search-details} gives the heuristic and caps.
 
 \paragraph{Output collection.}
 The archive contains 240 runs: 20 seeds (4000--4019), three target bands (30--49, 50--79, and 80--119 normalized letters), two implementations, and two resource configurations. Seeds perturb search trajectories on one vocabulary; they are not independent linguistic tasks. The bands and limits were development choices, not a published benchmark. One configuration uses beam/candidate/per-parent limits of 60/200/8 and a 45-second cooperative budget; the other uses 256/800/32 and 180 seconds. Both have a 400-step ceiling. These settings followed an earlier configuration with no eligible outputs.
 
-Only the second configuration returns texts: 66 selected records from its 120 runs. All 240 outcomes remain in the archive. Four resource settings change together, and the search implementations have different closure rules. These records establish how the diagnostic sample was collected; they do not establish a method advantage, a resource-efficiency gain, or an effect of output length. We do not treat the unsuccessful configuration as an established generation baseline.
+Only the second configuration returns texts: 66 selected records from its 120 runs, 33 per implementation. All 240 outcomes remain in the archive. Four resource settings change together, and the implementations have different closure rules. We use these runs as sample provenance, with no claim of a method advantage, resource-efficiency gain, or length effect.
 
 \paragraph{Defined word-order controls.}
 Let $s_M(x)$ be the mean log probability assigned to text $x$ by scorer $M$. For $K=32$ saved or reproducibly seeded word permutations $\pi_k$, the diagnostic is
@@ -52,7 +55,7 @@ Each permutation retains the item's word multiset and per-sentence word counts. 
 
 For Brown, $s_M$ is the mean add-0.1 word-bigram log probability in nats per word transition, trained on 401 Brown documents with 99 held out \citep{kucera-francis-1967,loper-bird-2002-nltk}. Scoring lowercases alphabetic tokens, maps unseen tokens to \code{<unk>}, and inserts sentence boundaries. Shuffles are generated by an item-keyed deterministic seed.
 
-For GPT-2, $s_M$ is mean causal log probability per predicted token, using \url{openai-community/gpt2} at revision \url{607a30d783dfa663caf39e06633721c8d4cfcd7e}. It scores 32 archived permutations per record. Brown and GPT-2 use different permutation realizations and different scoring units; their contrast magnitudes are not directly comparable. Both are applied after search and do not select the sample.
+For GPT-2, $s_M$ is mean causal log probability per predicted token \citep{radford2019language}, using the pinned model revision in \citet{huggingfacegpt2}. It scores 32 archived permutations per record. Brown and GPT-2 use different permutation realizations and scoring units; their contrast magnitudes are not directly comparable. A positive sign is a descriptive comparison with a finite shuffle mean, not a significance test.
 
 \paragraph{Prompted judgments and controls.}
 DeepSeek V3.2 receives one counterbalanced candidate--shuffle pair per output with condition labels hidden (Bedrock, temperature 0, top-p 1, maximum 256 output tokens) \citep{awsbedrockdeepseekv32}. Its choices are candidate, shuffle, or tie.
@@ -70,13 +73,30 @@ The phrase \emph{one poem association} occurs in 36/66 outputs. The first center
 \begin{quote}\small
 In as if one poem association no it a i cos same open of is an i.
 \end{quote}
-Its 48-letter tape is exact. The example shows that letter equality and word membership leave word order and sentence meaning unconstrained. There are 66 outputs but 52 distinct strings, so both counts are needed to describe variety.
+Its 48-letter tape is exact. It has a positive Brown contrast (0.6788 nats per transition) but a negative GPT-2 contrast ($-0.0712$ log probability per predicted token). Letter equality and lexicon membership alone impose no sentence-level grammar or meaning requirement.
 
 \paragraph{Likelihood relative to shuffled controls.}
-Brown contrasts are positive for 40/66 output records, and GPT-2 contrasts for 37/66. These denominators count selected records, including repeated strings, rather than 66 independent texts. The two scorers need not agree, because their language models, tokenization, scoring units, and shuffle realizations differ. A positive contrast supplies no threshold for grammaticality or meaning. We do not interpret subgroup means over the project-selected length bands as a method ranking or an effect of length.
+Brown contrasts are positive for 40/66 records, and GPT-2 contrasts for 37/66. Table~\ref{tab:overlap} gives their overlap. Both are positive for 21 records representing 15 distinct texts. At least one is positive for 56 records representing 43 distinct texts. Every one of these texts receives zero on both Qwen3 dimensions. The observation therefore persists when duplicate strings are counted once.
+
+Repeated copies have their own item-keyed shuffle controls. We collapse by exact surface-text hash only after checking that every copy agrees on both contrast signs; all do. These are finite-sample counts, not independent trials or estimates over a population of palindromes. The scorers differ in model, tokenization, units, and shuffle realizations, so the cross-tab cannot isolate the reason for their disagreement.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+ & $D_{\mathrm{GPT\mbox{-}2}}>0$ & $D_{\mathrm{GPT\mbox{-}2}}\leq0$ \\
+\midrule
+$D_{\mathrm{Brown}}>0$ & 21 (15) & 19 (12) \\
+$D_{\mathrm{Brown}}\leq0$ & 16 (16) & 10 (9) \\
+\bottomrule
+\end{tabular}
+\caption{Likelihood-sign cross-tab: 66 output records, with 52 distinct-text counts in parentheses. All 52 texts score zero on both Qwen3 rubric dimensions. Signs use each scorer's own 32-shuffle controls.}
+\label{tab:overlap}
+\end{table}
 
 \paragraph{Relative preference and absolute ratings.}
-DeepSeek ties all 66 candidate--shuffle pairs. In 38 responses its feature note is \emph{Both are word salad with no coherent meaning}. Table~\ref{tab:judges} reports the absolute-rating checks. Qwen2.5 assigns all candidates zero on both dimensions but passes only 1/12 prose controls; a separate post-hoc single-sentence sensitivity check passes 4/12. Both fail the control gate, making that judge's candidate scores inconclusive.
+DeepSeek ties all 66 candidate--shuffle pairs. Table~\ref{tab:judges} reports the absolute-rating checks. Qwen2.5 assigns all candidates zero on both dimensions but passes only 1/12 prose controls; a separate post-hoc single-sentence sensitivity check passes 4/12. Both fail the control gate, making that judge's candidate scores inconclusive.
 
 \begin{table}[t]
 \centering
@@ -97,23 +117,32 @@ Qwen3 32B & 0/52 & 11/12 & 0/12 \\
 
 Under Qwen3, 11/12 prose controls and 0/12 prose shuffles pass jointly, satisfying the same screen. It still assigns all 52 candidates zero on both dimensions. None of their 156 matched shuffles passes jointly either, giving a candidate-minus-shuffle pass-rate difference of zero percentage points. Hidden repeats agree on both scores in 11/12 pairs, compared with 12/12 for Qwen2.5. Seven of the Qwen3 prose controls contain multiple sentences; all seven pass, as do 4/5 single-sentence controls. The control results show separation between these 12 prose controls and their shuffled versions under this rubric; the 0/52 candidate result leaves no distinctions among the palindromes.
 
-\section{Discussion}
+\section{Discussion and implications}
 
-Brown and GPT-2 compare each candidate with shuffled versions of its own words; Qwen3 rates grammar and meaning and separates its prose controls from their shuffles. The 11/12 versus 0/12 control result shows separation under this rubric, while the 0/52 candidate result leaves no ranking among the palindromes. Neither result measures how people read the strings. Human ratings are needed to test whether these diagnostics track readers' grammaticality and meaning judgments \citep{howcroft-etal-2020-twenty,khashabi-etal-2022-genie}.
+The likelihood and rubric results answer different questions. By construction, $D_M(x)>0$ is possible even when $x$ has low likelihood: its shuffles need only score lower. Table~\ref{tab:overlap} provides concrete cases where this relative preference coexists with floor-level absolute ratings. It does not establish that the likelihood models are wrong or that Qwen3 is a human-quality oracle. Qwen3 separates the selected prose controls from their shuffles but supplies no ranking among candidate palindromes.
 
-The search heuristic rewards word frequency and character count and penalizes local repetition; it has no sentence-grammar or meaning objective. None of the saved comparisons establishes a generation advance over a published system. Such a claim would require a specified comparator, matched vocabulary and inputs, common acceptance and selection rules, an explicit compute budget, and outcomes measured under that protocol. The present resource configurations and length bands define one output collection. Reproducible internal settings alone do not establish a meaningful benchmark.
+For this task, we recommend reporting exactness and output distinctness alongside the full diagnostic definition, the absolute rubric distribution, and the judge's prose-control results. A failed control screen makes candidate ratings inconclusive; a passed screen establishes sensitivity only to those controls. A claim about readers would require a separately administered human study with explicit dimensions and quality checks \citep{khashabi-etal-2022-genie}. A generation-advance claim would additionally require a specified comparator with matched inputs, acceptance rules, output selection, and compute budget.
 
-\section*{Reproducibility and assistance}
+\paragraph{Reproducibility.}
+The supplement contains manifests, all search outcomes, selected texts and shuffles, scorer source, pinned model revisions, prompts, and saved responses. Hash-checked joins link scores to texts. Its offline audit, \path{paper/audit_diagnostic_overlap.py}, regenerates Table~\ref{tab:overlap} and checks its Qwen3 text joins without inference. Brown and GPT-2 can be rescored with pinned dependencies; fresh hosted-model requests may differ. Brown corpus text is omitted under its terms.
 
-The supplement \url{v1-reproducibility.zip} contains frozen manifests, all requested search outcomes, selected texts and shuffles, scorer source, model revisions, prompts, and saved responses. Hash-checked joins link every score to its generated text. The descriptive archive analysis and rubric totals can be regenerated offline; Brown and GPT-2 can be rescored with the pinned dependencies. Fresh hosted-model requests may differ. Brown corpus text is omitted under its terms. Generative AI assisted implementation, writing, and internal review. No participant data were collected.
+\section{Conclusion}
+On this collection, exact palindrome equality and positive likelihood relative to own-word shuffles coexist with zero absolute model ratings. The overlap includes 15 distinct texts favored by both likelihood scorers. Keeping the three measurements separate makes that outcome visible without treating a relative likelihood gain as evidence of readability.
 
-\section{Limitations}
+\section*{Limitations}
 
-The study uses one vocabulary, three length bands, and 20 seed clusters; seeds vary search trajectories rather than independent semantic tasks. The adaptive resource follow-up changes four settings together and compares implementations with different closure rules, so it cannot attribute coverage to one setting or establish that one generator is superior. Language diagnostics condition on successful search. Of 66 outputs, 52 are distinct and 36 contain the phrase \emph{one poem association}. Brown and GPT-2 are fixed likelihood models; DeepSeek compares one candidate--shuffle pair per output; Qwen3 has 12 prose controls, seven of them multi-sentence. Qwen pretraining exposure to Brown is unknown, and Bedrock exposes neither a model-weight digest nor a provider seed. No human ratings validate the absolute rubric or establish readability. The retrospective construction example in Appendix~\ref{sec:diana} is separate from the 240-run study.
+The study uses one vocabulary, three length bands, and 20 seed clusters; seeds vary search trajectories rather than independent semantic tasks. The adaptive resource follow-up changes four settings together and compares implementations with different closure rules, so it cannot attribute coverage to one setting or establish that one generator is superior. Language diagnostics condition on successful search. Of 66 outputs, 52 are distinct and 36 contain the phrase \emph{one poem association}. Collapsing duplicates does not remove shared phrases or search dependence. The likelihood cross-tab is a retrospective reanalysis, not a preregistered hypothesis test. Brown and GPT-2 use different shuffles; DeepSeek sees one shuffle per output. Qwen3 has only 12 prose controls, and its pretraining exposure to Brown is unknown. Bedrock exposes neither a model-weight digest nor a provider seed. No human ratings validate the absolute rubric or establish readability. The separate construction example in Appendix~\ref{sec:diana} lies outside the 240-run study.
+
+\section*{Ethical considerations}
+No participant data were collected. The ratings reported here are model outputs and must not be presented as human judgments. Generative AI assisted implementation, writing, and internal review.
 
 \bibliography{refs}
 
 \appendix
+\section{Search heuristic and bounds}
+\label{sec:search-details}
+Search uses English Zipf frequencies from \code{wordfreq} 3.1.1 \citep{speer-2022-wordfreq}. Its heuristic adds 0.3 per word character and subtracts 2 for each prior use of the word and 4 for an adjacent repetition. A seeded pseudorandom generator adds a fresh uniform perturbation in $[0,0.4)$ to each child's accumulated score for beam ranking. This perturbation is excluded from the score used to select the best eligible closure per normalized letter. Both implementations cap partial texts at 32 words, residual overhang at 24 letters, and text length at the target band's ceiling. The heuristic has no sentence-grammar or meaning objective.
+
 \section{An existing construction case: the Diana frame}
 \label{sec:diana}
 

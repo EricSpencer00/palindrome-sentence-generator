@@ -1,6 +1,8 @@
 # Reviewer brief
 
-**Public release v1:** *Methods of Finding Longer, Readable Palindromes*
+**Revised v1, October 2:** *Evaluating Exact Palindromes Beyond Word-Order Shuffles*
+
+The current revision frames the work as a focused evaluation case study. Its new retrospective cross-tab shows that 21/66 records, representing 15/52 distinct texts, have positive Brown and GPT-2 likelihood contrasts while receiving zero on both Qwen3 dimensions. The counts reproduce with `python3 paper/audit_diagnostic_overlap.py` from the evidence archive. Every repeated copy agrees on both signs before collapsing by surface-text hash. This adds no inference calls or human ratings. The main text ends on page four; the PDF has five pages including limitations, references, and appendices.
 
 ## Study and sample
 

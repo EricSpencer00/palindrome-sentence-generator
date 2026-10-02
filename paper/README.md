@@ -1,12 +1,12 @@
-# Methods of Finding Longer, Readable Palindromes
+# Evaluating Exact Palindromes Beyond Word-Order Shuffles
 
-The first **public release is v1**: read the [anonymous PDF](../output/pdf/methods-of-finding-longer-readable-palindromes-v1.pdf) or its [TeX source](naacl2027-v1.tex). Paper, supplement, source, and distribution packages use v1 labels. Raw experiment identifiers in saved records remain historical identifiers; they are not public release versions.
+Read the revised [anonymous PDF](../output/pdf/naacl2027-v1.pdf) or its [TeX source](naacl2027-v1.tex). The October 2 revision keeps the **v1** release label and targets the NAACL 2027 short-paper format. The earlier PDF named `methods-of-finding-longer-readable-palindromes-v1.pdf` is a historical snapshot. Raw experiment identifiers remain unchanged.
 
 ## What this study reports
 
 The paper describes a collected sample of 66 selected output records from 240 search runs, containing 52 distinct strings. It reports construction records and automatic diagnostics; it does not claim a generation improvement, a length effect, or superiority over a published generator. No human ratings were collected, and no cited external generator was run under matched conditions.
 
-Brown and GPT-2 compare each output with 32 permutations of its own words. Brown reports candidate-minus-shuffle mean add-0.1 word-bigram log probability in nats per word transition. GPT-2 reports candidate-minus-shuffle mean causal log probability per predicted token at a pinned model revision. The shuffle implementations differ, as do their scoring units. Positive contrasts describe model-specific sensitivity to word order; they are not absolute readability scores or generator comparisons.
+Brown and GPT-2 compare each output with 32 permutations of its own words. Both contrasts are positive for 21 records representing 15 distinct texts, yet all 15 receive zero on both Qwen3 rubric dimensions. The paper now includes the full cross-tab and checks that repeated copies agree on contrast signs before counting each text once. Brown reports nats per word transition; GPT-2 reports log probability per predicted token. Their controls and units differ. Positive contrasts describe sensitivity to word order, not absolute readability or generator performance.
 
 Qwen3 rates grammaticality and coherent meaning on a 0–3 rubric. It gives zero joint passes among 52 candidates; 11/12 held-out Brown prose controls and 0/12 of their shuffles pass jointly. The frozen 8/12 prose and 3/12 shuffle thresholds are chosen diagnostic-screen cutoffs, not externally validated calibration criteria. The separate Qwen2.5 audit fails its control screen. Neither audit is human evaluation.
 
@@ -17,6 +17,14 @@ See the [baseline provenance audit](BASELINE-PROVENANCE-AUDIT-V1.md) for formal 
 The [readiness plan](NAACL-READINESS-PLAN.md) records the claim boundary and evidence status. [READABILITY-SCORE-AUDIT.md](READABILITY-SCORE-AUDIT.md) documents the Brown scorer and rerun. The experiment report, inputs, output records, protocols, and checksums are in [DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md](../experiments/DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md) and [v1-reproducibility.zip](v1-reproducibility.zip), built with [build_v1_supplement.py](build_v1_supplement.py). The [Qwen3 audit report](../experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md) explains the saved rubric responses and offline reanalysis. The separate Diana construction analysis is documented in [READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md](../experiments/READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md); it is retrospective and outside the 52-candidate Qwen audit.
 
 The v1 professor handoff is [NAACL2027-PROFESSOR-HANDOFF-v1.zip](review-handoff/NAACL2027-PROFESSOR-HANDOFF-v1.zip). The full evidence archive is separate because it includes the sealed mapping from review IDs to method and task provenance.
+
+Recompute the new cross-tab and check its exact-text joins to Qwen3 without downloading a model or calling a service:
+
+```sh
+python3 paper/audit_diagnostic_overlap.py
+```
+
+This verifies saved scores. It does not regenerate model predictions or add human ratings.
 
 From the repository root, replay the frozen search and summarize its 240 outcomes:
 

@@ -12,7 +12,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "paper"
-MANUSCRIPT_PDF = ROOT / "output" / "pdf" / "methods-of-finding-longer-readable-palindromes-v1.pdf"
+MANUSCRIPT_PDF = ROOT / "output" / "pdf" / "naacl2027-v1.pdf"
 HANDOFF = PAPER / "review-handoff" / "v1"
 PACKET_SOURCE = PAPER / "human_eval_v4_packet"
 REVIEW_PACKET = HANDOFF / "first-person-review-packet"
@@ -40,6 +40,7 @@ HANDOFF_FILES = (
     "audits/historical-search-baselines-v1.md",
     "audits/historical-construction-evidence-v1.md",
     "audits/historical-metric-controls-v1.md",
+    "mock-reviews/naacl2027-v1-arr-review.md",
     "LOCAL-LLM-READABILITY-AUDIT-RESULTS.md",
     "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md",
     "READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md",
@@ -166,7 +167,8 @@ def build() -> None:
     for name in ("REVIEWER-BRIEF.md", "BASELINE-PROVENANCE-AUDIT-V1.md",
                  "audits/historical-search-baselines-v1.md",
                  "audits/historical-construction-evidence-v1.md",
-                 "audits/historical-metric-controls-v1.md"):
+                 "audits/historical-metric-controls-v1.md",
+                 "mock-reviews/naacl2027-v1-arr-review.md"):
         (HANDOFF / name).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(PAPER / name, HANDOFF / name)
     packet_contents = public_packet_contents()
@@ -185,7 +187,7 @@ def build() -> None:
     (HANDOFF / "START-HERE.txt").write_bytes(start_here())
     shutil.copyfile(PAPER / "NAACL-READINESS-PLAN.md", HANDOFF / "NAACL-READINESS-PLAN.md")
     readiness = (HANDOFF / "NAACL-READINESS-PLAN.md").read_text()
-    readiness = readiness.replace("../output/pdf/methods-of-finding-longer-readable-palindromes-v1.pdf", "naacl2027-v1.pdf")
+    readiness = readiness.replace("../output/pdf/naacl2027-v1.pdf", "naacl2027-v1.pdf")
     readiness = readiness.replace("../experiments/DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md", "DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md")
     readiness = readiness.replace("../experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md", "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md")
     readiness = readiness.replace("../experiments/READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md", "READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md")
@@ -212,13 +214,15 @@ def build() -> None:
 This bundle contains the anonymous manuscript PDF and source, reviewer brief,
 readiness plan, reproducible diagnostic reports, and a separate first-pass
 rating packet. This is the first public release, v1. The paper is titled
-*Methods of Finding Longer, Readable Palindromes*. It examines how positive shuffle-relative
+*Evaluating Exact Palindromes Beyond Word-Order Shuffles*. It examines how positive shuffle-relative
 likelihood coexists with floor-level absolute model ratings in a collected
 sample. The baseline-provenance audit and its three historical reports are
 included. The task grid is not an established generator benchmark; the paper
 makes no generation-improvement claim. This revision uses saved evidence and
 contains no new experiments or model scoring calls. No human ratings have
 been collected. The packet defines letter-level versus word-order palindromes.
+The October 2 revision adds an offline cross-tab: 15 distinct texts have
+positive Brown and GPT-2 contrasts but zero on both Qwen3 dimensions.
 
 ## Read the paper
 

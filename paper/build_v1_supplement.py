@@ -61,6 +61,7 @@ FILES = (
     "paper/acl.sty",
     "paper/acl_natbib.bst",
     "paper/build_v1_supplement.py",
+    "paper/audit_diagnostic_overlap.py",
     "paper/BASELINE-PROVENANCE-AUDIT-V1.md",
     "paper/audits/historical-search-baselines-v1.md",
     "paper/audits/historical-construction-evidence-v1.md",
@@ -99,7 +100,7 @@ code, vocabulary/lexicon inputs, and pinned dependency lists. `MANIFEST.sha256`
 records each archived file hash. Internal experiment identifiers in the saved
 records describe development history, not earlier public releases.
 
-The manuscript is titled *Methods of Finding Longer, Readable Palindromes*.
+The manuscript is titled *Evaluating Exact Palindromes Beyond Word-Order Shuffles*.
 The September 26 baseline audit removes unsupported improvement claims.
 The internal task grid supplies 66 output records (52 distinct strings) for
 model diagnostics; its bands and resource limits are not an established
@@ -110,6 +111,18 @@ control-screen thresholds have no human calibration.
 See `paper/BASELINE-PROVENANCE-AUDIT-V1.md` and its three detailed reports.
 They also audit older repository history; those historical runs are not all
 bundled here. The revision adds no new search or model scoring calls.
+
+The October 2 revision adds a retrospective likelihood-sign cross-tab. Reproduce
+it and verify the Qwen3 text joins from the extracted archive root, offline:
+
+```sh
+python3 paper/audit_diagnostic_overlap.py
+```
+
+Both contrasts are positive for 21/66 records representing 15/52 distinct
+texts, all rated zero on both Qwen3 dimensions. Duplicate copies have their
+own shuffle controls; their signs agree before collapsing by text hash.
+These are descriptive counts, not independent trials or human labels.
 
 Author-specific machine names and repository commit IDs are omitted from the
 exported run metadata. Source-file hashes, model revisions, and cross-file

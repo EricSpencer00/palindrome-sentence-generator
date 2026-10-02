@@ -1,46 +1,28 @@
-# Evaluating Exact Palindromes Beyond Word-Order Shuffles
+# Fragment Penalties Shift Repetition in Exact Palindrome Search
 
-Read the revised [anonymous PDF](../output/pdf/naacl2027-v1.pdf) or its [TeX source](naacl2027-v1.tex). The October 2 revision keeps the **v1** release label and targets the NAACL 2027 short-paper format. The earlier PDF named `methods-of-finding-longer-readable-palindromes-v1.pdf` is a historical snapshot. Raw experiment identifiers remain unchanged.
+Read the [anonymous paper](../output/pdf/naacl2027-v1.pdf) or [source](naacl2027-v1.tex). The revised v1 now reports a fresh paired AWS experiment, motivated by recurring fragments in the earlier collection.
 
-## What this study reports
+Twenty fresh seeds, three length bands, two search implementations, and three penalty strengths produce 360 jobs. The penalty charges for six trigrams chosen before the new runs. It changes the search score; vocabulary, admission rules, and resource ceilings are matched.
 
-The paper describes a collected sample of 66 selected output records from 240 search runs, containing 52 distinct strings. It reports construction records and automatic diagnostics; it does not claim a generation improvement, a length effect, or superiority over a published generator. No human ratings were collected, and no cited external generator was run under matched conditions.
+| Measurement | Baseline | Penalty 4 | Penalty 16 |
+| --- | ---: | ---: | ---: |
+| Basic exact outputs / requested jobs | 90/120 | 90/120 | 90/120 |
+| Distinct surfaces | 69 | 78 | 78 |
+| Strict structural passes / requested jobs | 59/120 | 28/120 | 28/120 |
+| Mean pairwise trigram Jaccard distance | 0.889 | 0.939 | 0.938 |
+| Highest prevalence of any trigram | 57/69 | 46/78 | 46/78 |
+| Selected outputs containing a targeted trigram | 78/90 | 0/90 | 0/90 |
 
-The paper now centers two figures with five panels: a Brown/GPT-2 scatterplot, the spread across each record's 32 GPT-2 shuffles, trigram prevalence, and phrase-group distributions for both scorers. Brown and GPT-2 have opposite contrast signs for **28/52 distinct texts**. The original GPT-2 score falls inside its shuffle-score range for **63/66 records**. The trigram **“no it a” appears in 46/52 distinct texts**, showing how much material the outputs share.
+The intervention improves lexical diversity but leaves concentrated replacement fragments and increases structural shortcuts. The strict checks are mechanical, not a language-quality scale. No human ratings or matched published-generator comparison is provided.
 
-Text-level plots average repeated records before giving each distinct text equal weight. Brown uses nats per word transition; GPT-2 uses log probability per predicted token. Their controls and units differ. The phrase groups are descriptive, and the shuffle ranges are permutation spreads, not confidence intervals.
+The [experiment report](../experiments/FRAGMENT-PENALTY-RESULTS-20261002.md) gives the full results, uncertainty, protocol, and model-audit details. [The readiness plan](NAACL-READINESS-PLAN.md) records venue and claim boundaries. Historical audits and the 52-item reader packet concern the previous collection; that packet is not an evaluation of the new 148 distinct outputs.
 
-Qwen3 rates grammaticality and coherent meaning on a 0–3 rubric. It gives zero joint passes among 52 candidates; 11/12 held-out Brown prose controls and 0/12 of their shuffles pass jointly. The frozen 8/12 prose and 3/12 shuffle thresholds are chosen diagnostic-screen cutoffs, not externally validated calibration criteria. The separate Qwen2.5 audit fails its control screen. Neither audit is human evaluation.
-
-See the [baseline provenance audit](BASELINE-PROVENANCE-AUDIT-V1.md) for formal distinctions among shuffle controls, calibration checks, generation baselines, and external benchmarks. The [simulated ARR-style review](mock-reviews/naacl2027-v1-arr-review.md) is an internal mock review, not a real NAACL or ARR decision.
-
-## Evidence and reproduction
-
-The [readiness plan](NAACL-READINESS-PLAN.md) records the claim boundary and evidence status. [READABILITY-SCORE-AUDIT.md](READABILITY-SCORE-AUDIT.md) documents the Brown scorer and rerun. The experiment report, inputs, output records, protocols, and checksums are in [DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md](../experiments/DIRECTIONAL-SEARCH-RESOURCE-SENSITIVITY-20260925.md) and [v1-reproducibility.zip](v1-reproducibility.zip), built with [build_v1_supplement.py](build_v1_supplement.py). The [Qwen3 audit report](../experiments/AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md) explains the saved rubric responses and offline reanalysis. The separate Diana construction analysis is documented in [READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md](../experiments/READABILITY-LENGTH-CONSTRUCTION-RESULTS-20260926.md); it is retrospective and outside the 52-candidate Qwen audit.
-
-The v1 professor handoff is [NAACL2027-PROFESSOR-HANDOFF-v1.zip](review-handoff/NAACL2027-PROFESSOR-HANDOFF-v1.zip). The full evidence archive is separate because it includes the sealed mapping from review IDs to method and task provenance.
-
-Rebuild the figures and their numerical data offline, using the pinned versions in [figure-requirements.txt](figure-requirements.txt):
+Reproduce the current figures and paired seed-bootstrap analysis from saved data, without AWS or model calls:
 
 ```sh
-python3 paper/build_diagnostic_figures.py
+python3 experiments/analyze_fragment_penalty_20261002.py
 ```
 
-The [landscape figure](fig/diagnostic-landscape.pdf), [fragment figure](fig/fragment-concentration.pdf), and [plotted data](fig/diagnostic-data.json) are included in the evidence archive. The earlier sign cross-tab remains reproducible with `python3 paper/audit_diagnostic_overlap.py`. These commands use saved scores and add no model calls or human ratings.
+Use the versions in [figure-requirements.txt](figure-requirements.txt). The [evidence archive](v1-reproducibility.zip) includes frozen protocols, results, source, prompts, responses, and anonymous hash links. The [professor handoff](review-handoff/NAACL2027-PROFESSOR-HANDOFF-v1.zip) contains the current paper and source. Brown corpus text and account/infrastructure identifiers are excluded from the evidence archive.
 
-From the repository root, replay the frozen search and summarize its 240 outcomes:
-
-```sh
-python3 experiments/paired_directional_search_resource_sensitivity_20260925.py run \
-  --manifest runs/directional-search-resource-sensitivity-20260925/manifest.json \
-  --phase confirmatory --output /tmp/replayed-v1.json --workers 6
-python3 experiments/analyze_directional_search_resource_sensitivity_20260925.py \
-  --manifest runs/directional-search-resource-sensitivity-20260925/manifest.json \
-  --results /tmp/replayed-v1.json \
-  --static-verifier-summary runs/directional-search-resource-sensitivity-20260925/static-verifier-summary-v4-aws.json \
-  --json-output /tmp/v1-summary.json --markdown-output /tmp/v1-summary.md
-```
-
-The archived Brown and GPT-2 scores can be recomputed with the commands and pinned dependencies in the experiment report. Brown regenerates its own deterministic item-keyed permutations; GPT-2 scores the archived permutations, so their controls do not share the same word orders. Saved Qwen3 responses can be re-aggregated offline; fresh Bedrock calls may differ because the service exposes no provider seed. The report's recorded Bedrock usage estimate is USD 0.00976206, derived from recorded tokens and [published rates](https://aws.amazon.com/bedrock/pricing/).
-
-The release contains frozen manifests, saved outcomes, selected texts and controls, scorer sources, model revisions, prompts, and responses. Brown corpus text is omitted under its terms. No automatic metric is treated as a human readability score.
+Earlier diagnostic figures remain reproducible with `python3 paper/build_diagnostic_figures.py`. They motivated the intervention and are not new experimental outcomes. The old PDF named `methods-of-finding-longer-readable-palindromes-v1.pdf` remains a historical snapshot.

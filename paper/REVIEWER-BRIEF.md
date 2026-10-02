@@ -1,27 +1,13 @@
 # Reviewer brief
 
-**Revised v1, October 2:** *Evaluating Exact Palindromes Beyond Word-Order Shuffles*
+**Revised v1, October 2:** *Fragment Penalties Shift Repetition in Exact Palindrome Search*
 
-The current revision centers two figures showing continuous scorer disagreement, all 32 GPT-2 shuffle differences per record, and recurrent fragments. Brown and GPT-2 have opposite contrast signs for 28/52 distinct texts; the candidate score lies within the shuffle range for 63/66 records; “no it a” appears in 46/52 distinct texts. Text-level plots weight each exact text equally after averaging its repeated records. The phrase-group analysis is retrospective and cannot isolate a phrase effect. The all-zero Qwen rubric is supporting context, not the headline. The main content, including both figures, fits four pages; the full PDF has six pages.
+The current paper reports 360 new paired AWS search jobs. It tests whether penalizing six frequent trigrams from an earlier collection improves output diversity without reducing exact coverage or increasing other failure modes. Penalties 0, 4, and 16 share 20 fresh seeds, three length bands, two native algorithms, vocabulary, admission gates, and resource ceilings. Penalty order is randomized within each seed–band–method block. No job reaches the time limit.
 
-## Study and sample
+Each arm produces 90 exact outputs from 120 tasks. Distinct surfaces increase from 69 to 78, mean pairwise trigram distance increases, and the six targets disappear. Replacement trigrams still occur in 46/78 distinct penalized outputs. Strict structural coverage drops from 59/120 to 28/120; this is a separate post-selection mechanical screen, not a grammar score. Two figures show the intervention and recurrence distributions, with paired seed-level uncertainty.
 
-The manuscript describes 66 selected output records collected from 240 search runs, with 52 distinct strings. It examines the construction records alongside automatic language diagnostics. The four resource settings change together, and the search implementations have different closure rules. The sample therefore establishes neither a resource effect nor an advantage of one method. The target length bands define the collection; subgroup summaries are not a length ranking or a causal length analysis. No published generator was reproduced under matched conditions, and no human ratings were collected.
+The blinded Qwen3 audit assesses all 148 distinct outputs using the unchanged 0–3 grammar/meaning rubric and exact historical prose/shuffle controls. It is model evidence, not human evaluation. See the [experiment report](../experiments/FRAGMENT-PENALTY-RESULTS-20261002.md) for completed ratings and consistency checks.
 
-All 52 distinct strings pass the letter-level reversal check; none reverses word order. Thirty-six of the 66 records contain “one poem association.” Counts refer to output records unless explicitly labeled distinct strings.
+The contribution is a measured tradeoff within these implementations. The experiment does not establish superiority over published generators, generalize across vocabularies, or establish human readability. The six targets were selected after inspecting historical data and frozen before the new seed block. Both penalty strengths are reported without selecting a winner.
 
-## Formal controls and measurements
-
-Brown and GPT-2 compare each candidate with 32 permutations of its own words. These are formal word-order perturbation controls: Brown uses an add-0.1 word-bigram mean log probability contrast in nats per word transition; GPT-2 uses a mean causal log probability contrast per predicted token. Brown's null pools and shuffles the item's word tokens, then repartitions them to the original sentence word counts. GPT-2 uses archived fixed-slot word permutations that preserve the word multiset, punctuation, whitespace, and sentence word-slot counts. The scorer orders differ, and the units are not directly comparable.
-
-In the saved 66-record sample, the candidate exceeds its own shuffle mean for 40/66 Brown contrasts and 37/66 GPT-2 contrasts. This says nothing about an absolute quality threshold, human readability, or relative generator performance. The denominator includes repeated strings.
-
-The Qwen3 32B rubric rates grammaticality and coherent meaning separately on 0–3 scales. It returns 0/52 candidate joint passes, alongside 11/12 held-out Brown prose controls and 0/12 corresponding shuffles passing jointly. The frozen screen uses chosen thresholds of at least 8/12 prose passes and at most 3/12 shuffle passes. These thresholds are a diagnostic sensitivity screen, not externally validated calibration. Seven Brown controls contain multiple sentences; Brown pretraining exposure and hosted model weights are unknown. Qwen2.5-3B fails its control screen, making its candidate scores inconclusive. Neither model audit is human evaluation.
-
-DeepSeek ties all 66 candidate–shuffle comparisons. The separate retrospective Diana construction pair is not part of the 52-candidate Qwen audit and has no project human ratings.
-
-## Prior work and claim boundary
-
-Norvig documents residual-character palindrome search; Papadopoulos et al. describe generation from n-gram corpora; Bonlarron and Régin address constrained RADNER sentence generation with constraint programming and language-model curation. These are relevant prior-work references, not measured baselines in this study. The paper claims no readable-generator advance, no external superiority, and no human readability result.
-
-The historical internal mock review of an earlier resource-centered framing recommended **2.5/5 (Borderline Findings)**. This was an internal assessment of that earlier framing, not peer review and not a score for the current revised manuscript.
+The old 52-item reader packet is retained unchanged as a historical pilot, separate from these 148 new outputs. Historical provenance audits and the old simulated ARR review are not reviews of the new intervention.

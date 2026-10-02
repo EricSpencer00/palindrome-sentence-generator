@@ -9,8 +9,8 @@
 \usepackage{graphicx}
 \usepackage{xurl}
 \newcommand{\code}[1]{\texttt{#1}}
-\title{Evaluating Exact Palindromes Beyond Word-Order Shuffles}
-\hypersetup{pdftitle={Evaluating Exact Palindromes Beyond Word-Order Shuffles}}
+\title{Fragment Penalties Shift Repetition in Exact Palindrome Search}
+\hypersetup{pdftitle={Fragment Penalties Shift Repetition in Exact Palindrome Search}}
 \hypersetup{pdfsubject={Public release v1}}
 \author{Anonymous submission}
 
@@ -18,135 +18,108 @@
 \maketitle
 
 \begin{abstract}
-A palindrome can satisfy exact character reversal while leaving sentence structure unresolved. We examine what automatic language diagnostics reveal about 66 saved output records containing 52 distinct texts. Brown bigram and GPT-2 shuffle-relative likelihood contrasts have opposite signs for 28/52 texts. Looking beyond the shuffle mean, 63/66 records score above some of their 32 word permutations and below others. The outputs also share lexical fragments: 46/52 distinct texts contain \emph{no it a}. Grouping by another recurring phrase gives different descriptive patterns under the two scorers. We visualize these continuous scores, permutation spreads, and phrase concentrations, with hash-checked offline reproduction. Prompted judges provide no ranking within the candidate set. This case study shows why exactness, output diversity, and sensitivity to word order need separate reporting; none alone establishes human readability.
+Exact palindrome search often returns distinct strings built from the same fragments. Can penalizing those fragments improve output diversity without reducing exactness or language quality? We freeze six frequent trigrams from an earlier collection and compare two penalty strengths with the original scorer on 360 paired search jobs. Each condition returns 90 exact outputs from 120 tasks. Both penalties remove every targeted trigram, increase distinct texts from 69 to 78, and reduce mean trigram overlap. However, replacement fragments occur in 46/78 distinct outputs, and only 28/120 tasks pass stricter structural checks, compared with 59/120 at baseline. The study measures an intervention within two fixed search implementations, with paired seed-level uncertainty and a separate blinded model rubric, under which no candidate reaches the grammar-and-meaning threshold. It shows that suppressing a fixed fragment list can improve lexical diversity while increasing structural shortcuts; lexical novelty alone does not establish sentence quality.
 \end{abstract}
 
 \section{Introduction}
-A letter-level palindrome reads identically backward after spaces, punctuation, and case are removed. Word boundaries need not reverse. Exactness is mechanically checkable, but the resulting word sequence can still lack grammatical sentences or coherent meaning.
+A letter-level palindrome reads identically backward after spaces, punctuation, and case are removed. This exact constraint does not require grammatical sentences. Even surface diversity can mislead: different strings may reuse the same word fragments or insert self-palindromic material.
 
-Comparing an output's likelihood with permutations of its own words holds lexical content fixed and tests preference for its ordering. The contrast's sign alone discards its magnitude and the spread across permutations. It also hides whether many nominally distinct outputs reuse the same fragments. We therefore ask what becomes visible when a saved palindrome collection is examined through continuous contrasts, individual shuffle scores, and phrase prevalence. The resulting figures expose scorer disagreement and lexical concentration that a pass count cannot describe.
+Our starting collection contains 66 output records and 52 distinct texts, of which 46 contain \emph{no it a}. We use this observation to define an intervention before generating a fresh seed block: subtract a fixed penalty for each occurrence of one of six recurring trigrams. We then measure exact coverage, recurrence of \emph{any} trigram, pairwise lexical overlap, structural shortcuts, and model-rated language quality. This tests whether suppressing known fragments improves the broader output properties it is intended to affect.
 
 \paragraph{Related work.}
-\citet{norvig2002palindrome} describes residual-character search, and \citet{papadopoulos2015palindromes} generate palindromes using n-gram graphs. For constrained RADNER sentences, \citet{bonlarron-regin-2024} combine constraint programming, linguistic properties, and perplexity-based curation. We do not reproduce or rank these generators. Our focus follows criterion-specific metric checks \citep{sai-etal-2021-perturbation} and explicit evaluation dimensions \citep{howcroft-etal-2020-twenty}: we specify what each diagnostic measures and inspect its behavior on one exact-palindrome collection.
+\citet{norvig2002palindrome} describes residual-character search, and \citet{papadopoulos2015palindromes} generate palindromes using n-gram graphs. \citet{bonlarron-regin-2024} combine constraint programming, linguistic properties, and perplexity-based curation for constrained RADNER sentences. We test a scoring intervention within existing implementations, without reproducing or ranking these published generators. Criterion-specific metric checks \citep{sai-etal-2021-perturbation} and explicit evaluation dimensions \citep{howcroft-etal-2020-twenty} motivate separating lexical diversity, structural admission, and language judgments.
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=\textwidth]{fig/diagnostic-landscape.pdf}
-\caption{\textbf{Continuous scores reveal disagreement and variation hidden by pass counts.} (a) One point per distinct text; duplicate records' contrasts are averaged within text. A is the largest Brown contrast; B and C are the largest and smallest GPT-2 contrasts (texts in Appendix~\ref{sec:extremes}). The axes have different units and controls. (b) One row per output record, ordered by mean GPT-2 contrast. Thin lines span all 32 candidate-minus-shuffle differences; thick lines show the interquartile range, and dots the mean. These are empirical permutation spreads, not confidence intervals. Colors identify the same phrase group in both panels.}
-\label{fig:landscape}
+\includegraphics[width=\textwidth]{fig/fragment-penalty-tradeoff.pdf}
+\caption{\textbf{Fragment penalties preserve exact coverage and increase lexical diversity, while fewer outputs pass strict structural checks.} Penalties 0, 4, and 16 each receive 120 tasks: 20 shared seeds, three length bands, and two search implementations. (a) Basic exact coverage is 90/120 in all conditions; strict selected-output coverage is 59/120, 28/120, and 28/120. (b) Distinct surface counts among the 90 successes. (c) Mean Jaccard distance between distinct texts' trigram sets; higher means less overlap. Lines in (a,c) are 95\% paired seed-bootstrap intervals. Distinct counts are finite-collection counts without bootstrap intervals.}
+\label{fig:tradeoff}
 \end{figure*}
 
-\section{Collection and diagnostics}
-\paragraph{Search and sample.}
-Let $T(x)$ retain lowercase ASCII letters from text $x$. Exactness requires $T(x)=\mathrm{reverse}(T(x))$. Two implementations start from empty text with a shared vocabulary filtered from a frozen 30K word list. Outside-in search extends outer word sequences toward their meeting point and closes when the unmatched residual is itself a palindrome. Center-out search grows from the center and closes on empty overhang. Their closure rules differ, so they do not isolate search direction alone.
+\section{Paired intervention}
+\paragraph{Search and admission.}
+Both implementations start from empty text, using the same frozen vocabulary filtered from a 30K word list. Outside-in search extends outer word sequences toward their meeting point and closes when the unmatched character residual is itself a palindrome. Center-out search grows away from the center and closes on empty overhang. These closure rules differ; we compare penalties \emph{within} each method, without attributing differences to direction alone.
 
-The shared gate checks ASCII rendering, exactness, target length, lexicon membership, a fixed 32-form allowlist for words of at most two letters, and listed catalogue/template exclusions. Repetition is allowed. Search ranks states by word frequency, character count, repetition penalties, and seeded perturbations, selecting the eligible closure with highest unperturbed score per normalized letter. Language diagnostics are applied afterward. Appendix~\ref{sec:search-details} gives heuristic details.
+The baseline score adds English Zipf word frequency \citep{speer-2022-wordfreq} and 0.3 per character, subtracts 2 per prior use of a word and 4 for adjacent repetition, and adds seeded perturbations for beam ranking. Selection uses the unperturbed accumulated score per normalized letter. The shared basic gate requires ASCII rendering, exact normalized-letter reversal, the requested length band, lexicon membership, a fixed allowlist for words of at most two letters, and exclusions for listed catalogue examples and templates. Repeated words are permitted.
 
-The archive contains 240 runs: 20 seeds (4000--4019), three bands (30--49, 50--79, 80--119 normalized letters), two implementations, and two resource bundles. Beam/candidate/per-parent limits and cooperative time budgets are 60/200/8 with 45 seconds, or 256/800/32 with 180 seconds; both allow 400 steps. The latter bundle alone supplies 66 outputs, 33 per implementation, containing 52 distinct texts. The settings followed earlier null runs. These project choices provide sample provenance; four limits change together, seeds vary search trajectories, and language diagnostics condition on success. No generation advantage or length effect is claimed.
+A stricter post-selection screen also rejects self-palindromic words and proper multiword spans, repeated multiword units, whole-word reversals, and other mechanical shortcuts. It neither reruns search nor measures grammaticality. We report both basic and strict coverage over \emph{all requested tasks}.
 
-\paragraph{Likelihood contrasts.}
-For scorer $M$, let $s_M(x)$ be mean log probability. With $K=32$ own-word permutations $\pi_k$, define
+\paragraph{Frozen penalty.}
+We select the six most prevalent word trigrams from the prior 52 distinct texts, breaking ties alphabetically: \emph{no it a}, \emph{a i cos}, \emph{it a i}, \emph{cos same open}, \emph{i cos same}, and \emph{one poem association}. Each prior text contributes at most one prevalence vote per trigram. The new search does not update this list.
+
+Let $F(x)$ count occurrences of these trigrams in the current concatenated word sequence, including overlaps. For a parent state $x$ and child $x'$, we replace the baseline score increment $\Delta S$ with
 \begin{equation}
-D_M(x)=s_M(x)-\frac{1}{K}\sum_{k=1}^{K}s_M(\pi_k(x)).
+\Delta S_\lambda=\Delta S-\lambda\bigl[F(x')-F(x)\bigr].
 \end{equation}
-Brown uses add-0.1 word-bigram log probability in nats per transition, trained on 401 Brown documents with 99 held out \citep{kucera-francis-1967,loper-bird-2002-nltk}. It lowercases alphabetic tokens, maps unseen tokens to \code{<unk>}, and inserts sentence boundaries. Item-keyed shuffles pool words and repartition them to the original sentence lengths.
+The changes telescope to a final charge $-\lambda F(x)$. This matters when outside-in growth breaks a temporary join: its penalty is refunded. We test $\lambda\in\{0,4,16\}$, fixed before new outputs or ratings were inspected. The penalty affects beam ranking and final selection; vocabulary and admission gates remain identical.
 
-GPT-2 uses mean causal log probability per predicted token \citep{radford2019language} at the pinned revision in \citet{huggingfacegpt2}. Its archived shuffles reassign words to fixed surface slots, preserving punctuation, whitespace, and per-sentence word counts; subword-token counts can change. Brown and GPT-2 therefore differ in model, units, tokenization, and permutation realizations. A positive contrast describes preference relative to the shuffle mean, without a readability or significance threshold.
+\paragraph{Matched tasks and resources.}
+The experiment crosses 20 fresh seeds (7100--7119), three normalized-letter bands (30--49, 50--79, 80--119), both methods, and three penalty levels: 360 jobs. Each seed--band--method block runs all penalties sequentially on one worker, in seeded random order. All receive beam width 256, candidate limit 800, per-parent limit 32, at most 400 steps, 32 words, 24 residual letters, and a 180-second cooperative wall budget. Thirty-two workers run on one AWS c7i.16xlarge CPU instance. No job reaches its deadline; mean run times are 2.96, 3.04, and 3.03 seconds. Equal limits need not imply equal expansions, so scorer-call counts are retained.
+
+\section{Measurements}
+\paragraph{Coverage and diversity.}
+Coverage includes failures in the denominator. Lexical analyses collapse identical surfaces within each arm and tokenize lowercase ASCII words. For trigram sets $A$ and $B$, distance is $1-|A\cap B|/|A\cup B|$; we average across every unordered pair of distinct texts. We also report the maximum prevalence of \emph{any} trigram, targeted-fragment prevalence, and distinct surface counts. Measuring all trigrams can expose replacement repetition that a targeted-fragment count misses.
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=\textwidth]{fig/fragment-concentration.pdf}
-\caption{\textbf{Distinct palindromes reuse fragments, with different score patterns across models.} (a) The six most frequent trigrams across 52 distinct texts; trigrams may overlap within a text. (b--c) Contrasts for the 24 texts containing \emph{one poem association} and the other 28. Each dot is a distinct text, after averaging duplicate records; vertical jitter separates dots, and diamonds mark group means. Panels retain each scorer's native units. Phrase membership is entangled with length, lexical content, and construction, so this descriptive grouping does not establish a phrase effect.}
-\label{fig:fragments}
+\includegraphics[width=\textwidth]{fig/fragment-penalty-motifs.pdf}
+\caption{\textbf{Removing named fragments leaves new concentrations.} (a) The union of the four most prevalent trigrams at penalties 0 and 4, ordered by descending count with alphabetical tie-breaking within each condition. Each cell is the fraction of distinct texts containing that trigram; overlapping trigrams are counted separately. (b) Prevalence of the 40 highest-ranked trigrams in each arm. The leading concentration falls from 57/69 (82.6\%) to 46/78 (59.0\%), but a majority still share a trigram. All six targeted trigrams are absent from both penalized arms, including targets outside the displayed rows.}
+\label{fig:motifs}
 \end{figure*}
 
-\paragraph{Continuous and lexical analyses.}
-For GPT-2 we also retain each individual difference $d_k(x)=s_M(x)-s_M(\pi_k(x))$, whose mean is $D_M(x)$. Figure~\ref{fig:landscape}b shows its minimum, maximum, and quartiles for every record. Repeated texts have separate item-keyed controls. For text-level plots, we average contrasts across the records with an identical surface hash; every copy agrees on both contrast signs before collapsing. Each of the 52 texts then has equal weight.
+\paragraph{Seed-level uncertainty.}
+We use 20,000 paired percentile bootstrap replicates, resampling the 20 seeds and retaining their methods, bands, and arms together (PRNG seed 20261002). Conditional diversity is recomputed after collapsing duplicate surfaces in each resample. These intervals describe search-seed variability on this vocabulary, not independent semantic tasks. Pairwise text comparisons are not treated as independent trials. We report both strengths against baseline without selecting a winning strength or computing confirmatory $p$-values. Raw distinct counts receive no bootstrap interval because resampling observed strings biases richness downward.
 
-We count lowercase ASCII-word trigrams with at most one occurrence vote per distinct text, retaining the six most frequent (alphabetical tie-breaking). We separately group texts by the previously noted phrase \emph{one poem association}. Both analyses are retrospective descriptions; the overlapping trigrams and phrase groups are not independent treatments.
-
-\paragraph{Supplementary model ratings.}
-DeepSeek V3.2 compares one counterbalanced candidate--shuffle pair per record \citep{awsbedrockdeepseekv32}. Qwen2.5-3B and Qwen3 32B rate grammaticality and coherent meaning from 0 to 3 \citep{qwen25,awsbedrockqwen332b}. A joint pass requires at least 2 on both. Their chosen control screen requires at least 8/12 held-out prose controls and at most 3/12 prose shuffles to pass. This checks sensitivity to those controls, without human calibration. Appendix~\ref{sec:judge-details} gives the rubric and full accounting.
-
-
+\paragraph{Blinded model audit.}
+A separate Qwen3 32B audit on AWS Bedrock \citep{awsbedrockqwen332b} uses the existing 0--3 grammaticality and coherent-meaning rubric. The model sees one exact text, with no method or penalty label. A joint pass requires at least 2 on both scales. The control gate requires at least 8/12 held-out Brown prose controls \citep{kucera-francis-1967} and at most 3/12 corresponding shuffles to pass. All 148 distinct new texts are rated once; shared texts receive the same rating across arms. Twelve hidden repeats test consistency. Appendix~\ref{sec:rubric} specifies the protocol. This is model evidence, without human calibration.
 
 \section{Results}
-\paragraph{Scorer disagreement.}
-All 52 distinct texts pass exact letter reversal; none reverses word order. Brown and GPT-2 contrasts are positive for 40/66 and 37/66 records, respectively. At text level, Figure~\ref{fig:landscape}a has 15 points positive under both scorers, nine nonpositive under both, and 28 with opposite signs. Its off-diagonal cases remain after duplicates are collapsed. For example, B has the largest GPT-2 contrast ($+0.598$ per predicted token) but a negative Brown contrast ($-0.312$ nats per transition). The figure describes disagreement; the differing controls prevent attributing it to the models alone.
+\paragraph{Exact yield is unchanged.}
+Every penalty returns 90 basic-valid outputs from 120 requested tasks, with 15/20 successes in each method--band cell. Success and failure occur on the same paired tasks. The observed paired yield differences and their bootstrap intervals are zero; this does not establish population equivalence.
 
-\paragraph{Variation across permutations.}
-For 63/66 records, the original GPT-2 score lies strictly inside the range of its 32 shuffle scores (Figure~\ref{fig:landscape}b). Two originals exceed all 32 shuffles and one scores below all 32. Thus a positive mean contrast usually coexists with some shuffles that score better than the original. These extrema concern a finite control set and are not significance tests or uncertainty intervals for human quality.
+\paragraph{Lexical diversity increases.}
+At $\lambda=4$, distinct texts increase from 69 to 78 and mean pairwise trigram distance rises from 0.889 to 0.939 (difference $+0.050$, 95\% paired interval $[0.026,0.087]$). Maximum trigram prevalence falls from 82.6\% to 59.0\% (difference $-23.6$ percentage points, interval $[-37.2,-7.9]$). The $\lambda=16$ arm has 78 distinct texts, distance 0.938, and the same maximum prevalence. Its selected text differs from $\lambda=4$ on eight tasks. Figure~\ref{fig:tradeoff} reports the full comparison.
 
-\paragraph{Fragment concentration.}
-The trigram \emph{no it a} occurs in 46/52 distinct texts (88.5\%); \emph{a i cos} and \emph{it a i} each occur in 44/52. Text distinctness therefore overstates lexical variety if considered alone. Figure~\ref{fig:fragments} shows that \emph{one poem association} appears in 24/52 texts, corresponding to 36/66 records. Their mean Brown contrast is $+0.201$, versus $-0.003$ for the other 28 texts; their mean GPT-2 contrast is $-0.013$, versus $+0.110$. This contrast in descriptive group patterns motivates inspecting shared fragments, but cannot identify which words cause a score difference.
+\paragraph{Repetition changes form.}
+Both penalties remove all six targeted trigrams from all 90 selected outputs. Nevertheless, \emph{i tai cos} and \emph{no i tai} each appear in 46/78 distinct texts. Figure~\ref{fig:motifs} shows both their prevalence and the broader recurrence distribution. A zero count for the targeted list would conceal this concentration.
 
-\paragraph{Rubric context.}
-Qwen3 assigns all 52 candidates zero on both dimensions, with 11/12 prose controls and 0/12 prose shuffles passing jointly. Qwen2.5 fails its control screen, and DeepSeek ties every pair. These checks supply no quality ranking within the candidates; the continuous and lexical analyses describe variation the rubric floor leaves unresolved.
+\paragraph{Structural shortcuts increase.}
+Strict coverage decreases from 59/120 to 28/120 for both penalties: $-25.8$ percentage points, paired interval $[-37.5,-15.0]$. Proper self-palindromic multiword spans fail the strict check in 58/90 outputs at $\lambda=4$ and 61/90 at $\lambda=16$; self-palindromic words fail in 16/90 under each. These overlapping failure counts describe structural properties, not sentence quality.
+
+\paragraph{Language-quality check.}
+Qwen3 passes 11/12 prose controls and 0/12 shuffles. None of the 148 distinct candidates reaches the joint threshold: 142 receive $(0,0)$, three $(1,0)$, and three $(1,1)$ for grammar and meaning. All 12 hidden repeats agree exactly. The penalties therefore provide no threshold-passing candidate under this rubric; these near-floor ratings do not establish equivalence or human unreadability.
 
 \section{Discussion and conclusion}
-The useful distinction is between a relative score and the properties of the resulting language. In this collection, two likelihood diagnostics disagree in sign for more than half the distinct texts, the individual shuffle scores usually straddle the original, and most distinct texts share a short fragment. Reporting only exactness, a positive shuffle mean, or a judge pass count would omit these patterns.
+The intervention changes the intended lexical metrics: targeted fragments disappear, overlap decreases, and surface variety increases at the same exact-output yield. It also shifts repetition toward other fragments and selects more outputs rejected by a separate structural screen. The tradeoff would be missed by reporting only exactness and avoidance of a fixed list.
 
-We recommend reporting continuous contrasts with their permutation spreads and inspecting recurrence across distinct outputs. This is a diagnostic workflow, not a validated readability measure. Establishing reader quality requires a separate human study with explicit dimensions and quality checks \citep{khashabi-etal-2022-genie}; a generation-advance claim also requires a matched comparator and compute budget.
+For this search family, fragment penalties warrant evaluation against untargeted recurrence and structural admission as well as their own objective. A human study with explicit dimensions and quality checks \citep{khashabi-etal-2022-genie} remains necessary for a reader-quality claim. The experiment provides a controlled comparison within two implementations, rather than a benchmark advantage over published generators.
 
 \paragraph{Reproducibility.}
-The supplement contains all search outcomes, selected texts and shuffles, scorer sources, model revisions, prompts, and saved responses. The offline figure builder checks exact-text joins and reproduces both figures and their numerical data; Appendix~\ref{sec:figure-reproduction} gives commands. No new search or model inference was run. Brown corpus text is omitted under its terms.
+The supplement contains the frozen protocol, vocabulary, 360 job records, scorer implementation, raw model responses, analysis, and figure source. Input and source hashes are checked before search. The offline analysis reproduces both figures and the paired intervals without new inference. AWS resources were private and temporary; Brown corpus text is omitted from the release.
 
 \section*{Limitations}
-This is one success-conditioned collection from one vocabulary and 20 search seeds, not a sample of independent semantic tasks. Resource settings and native closure rules differ. Duplicate collapse removes repeated surfaces but not shared fragments or search dependence. The plots and phrase groups are retrospective, without prespecified inferential tests. Shuffle ranges depend on the 32 sampled permutations; they are neither exhaustive nor confidence intervals. Brown and GPT-2 use different controls and units. The 12 Qwen prose controls have no human calibration; Qwen pretraining exposure to Brown is unknown. Hosted models expose no provider seed or weight digest. There are no human ratings or matched external-generator results. The Diana construction case in Appendix~\ref{sec:diana} is separate from this collection.
+The intervention was motivated by an inspected historical collection; its six targets and two strengths are not a general diversity objective. Fresh seeds separate development observations from these jobs, but all share one vocabulary and search implementation family. The methods' native closure rules differ. Diversity conditions on successful outputs, and duplicate collapse does not remove shared-fragment dependence. Seed-bootstrap intervals do not measure uncertainty over languages, semantic tasks, or readers; deduplicated diversity is a nonlinear statistic with a small number of clusters. The strict screen is mechanical and may reject readable palindromes. Qwen's small control screen has no human calibration, and possible pretraining exposure to Brown is unknown. Hosted inference has no provider seed or exposed weight digest. There are no human ratings or matched external-generator results.
 
 \section*{Ethical considerations}
 No participant data were collected. Model ratings must not be presented as human judgments. Generative AI assisted implementation, writing, and internal review.
 
 \bibliography{refs}
-
 \appendix
+\section{Search implementation and execution}
+The baseline uses \code{wordfreq} 3.1.1. A seeded uniform perturbation in $[0,0.4)$ is added to child priorities for exploration and excluded from the accumulated score used for closure selection. The fragment penalty is computed as an exact potential difference, including current left--right joins. Exhaustive toy tests over both growth directions verify local increments against full-sequence recounting and verify that broken joins are refunded. At zero strength the wrapper returns the baseline score unchanged.
 
-\section{Search heuristic and bounds}
-\label{sec:search-details}
-Search uses English Zipf frequencies from \code{wordfreq} 3.1.1 \citep{speer-2022-wordfreq}. Its heuristic adds 0.3 per word character and subtracts 2 for each prior use of the word and 4 for an adjacent repetition. A seeded pseudorandom generator adds a fresh uniform perturbation in $[0,0.4)$ to each child's accumulated score for beam ranking. This perturbation is excluded from the score used to select the best eligible closure per normalized letter. Both implementations cap partial texts at 32 words, residual overhang at 24 letters, and text length at the target band's ceiling. The heuristic has no sentence-grammar or meaning objective.
+All 360 jobs completed without execution errors or deadline exits. The search instance used 32 workers on 64 virtual CPUs. Mean scorer-call counts were 56,415, 52,679, and 52,722 for penalties 0, 4, and 16. These counts describe evaluated word extensions, not language-model calls. Both gates, every failed job, and elapsed times are retained. The strict screen is applied to the selected basic-valid output; search is not repeated when that output fails it.
 
-\section{An existing construction case: the Diana frame}
-\label{sec:diana}
+\section{Model rubric and controls}\label{sec:rubric}
+The model is \code{qwen.qwen3-32b-v1:0} on Bedrock in \code{us-east-2}, using temperature 0, top-p 1, maximum 128 output tokens, a no-thinking directive, and a structured JSON response. The prompt asks the judge to assess the exact text without repair or rewards for symmetry.
 
-A separate sentence-aware Brown audit records an inherited 38-letter reference and a 54-letter extension obtained through bounded noun-phrase grammar intersection over its open character frame:
-\begin{quote}\small
-An aide rips nine memos; some men inspire Diana.
+Grammar anchors are: 0, no recoverable sentence parse; 1, isolated grammatical phrases with major sentence breaks; 2, a mostly recoverable but strained parse; 3, natural grammatical connected English. Meaning anchors are: 0, no recoverable proposition or event; 1, word associations with unclear relations; 2, a plausible but incomplete or vague interpretation; 3, clear meaning with understandable relations.
 
-An aide rips nine memo-hero memos. Some more home men inspire Diana.
-\end{quote}
-Both texts are exact letter-level palindromes. The extension preserves the inherited frame while adding noun-phrase material; it has 13 scorer tokens and two sentences, compared with nine tokens and one sentence in the reference. The audit does not establish the reference's authorship.
+The 12 prose and 12 shuffle controls are the same hash-verified Brown spans used in the prior audit; seven prose controls contain multiple sentences. After the control gate, 148 distinct candidates and 12 repeats are presented in a fixed hash-derived order. Repeats comprise six candidates and six prose controls selected by ascending text hash. The full presentation inventory was fixed after generation and before new judge calls; the rubric and decision thresholds predate generation. Only the exact text and rubric enter model messages. Ratings do not influence generation or selection.
 
-Under the Brown diagnostic defined above, the respective contrasts with 32 own-word shuffles are 0.5152 and 0.4071 nats per transition. Two retrospective prose controls matched on scorer-token count have contrasts of 0.0251 and 1.9235; each contains one sentence. Sentence counts and lexical content therefore differ across these comparisons. Neither the reference sentence nor these prose controls establishes a baseline for a readability improvement. The saved pair documents a particular exact construction and its model scores. Neither text was included in the 52-candidate Qwen audits, and neither has project human ratings. Complete surfaces, score records, source hashes, and the offline analysis accompany the supplement.
+\section{Historical development collection}
+The six targets come from 52 distinct texts among 66 outputs in an earlier 240-job resource comparison. In that collection, Brown and GPT-2 shuffle-relative contrasts disagree in sign for 28/52 texts, and 63/66 GPT-2 originals lie inside their 32-shuffle score ranges. Those descriptive findings motivate separate diagnostics but do not serve as inferential evidence for this intervention. The prior outputs, diagnostics, and figure builder remain in the supplement. The new experiment uses disjoint seeds and compares penalties at one fixed resource configuration.
 
-\section{Supplementary judge protocol}
-\label{sec:judge-details}
-DeepSeek V3.2 receives one counterbalanced candidate--shuffle pair per record, with condition labels hidden (Bedrock, temperature 0, top-p 1, maximum 256 output tokens). Its choices are candidate, shuffle, or tie.
-
-Each Qwen audit contains 244 presentations: 52 distinct candidates, three shuffles per candidate, 12 held-out Brown prose spans and their shuffles, and 12 hidden repeats. Labels and item IDs are hidden. Both audits use temperature 0. The prompt asks judges to assess the exact text without repair or rewards for formal symmetry.
-
-The grammar anchors are: 0, no recoverable sentence parse; 1, isolated grammatical phrases with major sentence breaks; 2, a mostly recoverable but strained parse; 3, natural grammatical connected English. The meaning anchors are: 0, no recoverable proposition or event; 1, word associations with unclear relations; 2, a plausible but incomplete or vague interpretation; 3, clear meaning with understandable relations.
-
-Qwen2.5 passes 1/12 prose controls and 0/12 shuffles; its separate post-hoc single-sentence check passes 4/12 and 0/12. Both fail the chosen screen, making its candidate ratings inconclusive. Under Qwen3, no candidate or its 156 matched shuffles passes jointly. Seven prose controls contain multiple sentences; all seven pass, as do 4/5 single-sentence controls. Hidden repeats agree on both scores in 11/12 Qwen3 pairs and 12/12 Qwen2.5 pairs.
-
-\section{Diagnostic extremes}
-\label{sec:extremes}
-Figure~\ref{fig:landscape}a labels extrema chosen on the plotted contrasts, rather than representative or readable examples. A maximizes the mean Brown contrast; B and C maximize and minimize the mean GPT-2 contrast. Repeated records of A are averaged, as in every text-level plot.
-
-\paragraph{A: largest Brown contrast.}
-\begin{quote}\small
-No it a i cos same open of is an i a in as if one poem association.
-\end{quote}
-\paragraph{B: largest GPT-2 contrast.}
-\begin{quote}\small
-All item i that i definitely national lab to of football a no it any let in if edit ah time till a.
-\end{quote}
-\paragraph{C: smallest GPT-2 contrast.}
-\begin{quote}\small
-Sides opposite go that never off one poem association no it a i cos same open of for event ah to get is opposed is.
-\end{quote}
-
-\section{Figure reproduction}
-\label{sec:figure-reproduction}
-From the extracted supplement root, run the Python script \path{paper/build_diagnostic_figures.py}, using the versions in \path{paper/figure-requirements.txt}. It writes vector PDFs, PNG previews, and \path{paper/fig/diagnostic-data.json}, containing all plotted contrasts, individual GPT-2 shuffle differences, per-text aggregation, extrema, and fragment counts. The script calls the existing overlap audit to verify input and text hashes, exactness, score inventories, and Qwen3 joins before analysis. It requires no corpus download, model weights, or network access. The data JSON includes a checksum of its numerical payload; the archive manifest checks every file.
-
+\section{Offline reproduction}
+Install the versions in \path{paper/figure-requirements.txt}, then run \path{experiments/analyze_fragment_penalty_20261002.py} from the extracted supplement root. It verifies the new result-to-protocol and text-hash joins, recomputes all endpoints and paired intervals, and writes the vector figures, PNG previews, and \path{runs/fragment-penalty-20261002/analysis.json}. No corpus download, model weights, or AWS account is needed for this analysis. Fresh search or hosted inference is a separate operation; the archived responses are the evidence underlying this paper.
 \end{document}

@@ -95,59 +95,74 @@ FILES = (
     "tools/polaris/payload/vocab30k.txt",
 )
 
+FRAGMENT_DIR = "runs/fragment-penalty-20261002/"
+FRAGMENT_MANIFEST = FRAGMENT_DIR + "manifest.json"
+FRAGMENT_RESULT = FRAGMENT_DIR + "results.json"
+FRAGMENT_QUALITY_MANIFEST = FRAGMENT_DIR + "quality-manifest.json"
+FRAGMENT_QUALITY_RESULT = FRAGMENT_DIR + "quality-results.json"
+FRAGMENT_ANALYSIS = FRAGMENT_DIR + "analysis.json"
+FRAGMENT_JUDGE = "experiments/judge_fragment_penalty_20261002.py"
+FRAGMENT_ANALYZER = "experiments/analyze_fragment_penalty_20261002.py"
+FILES = tuple(sorted(set(FILES) | set(json.loads((ROOT / FRAGMENT_MANIFEST).read_text())["source_sha256"]) | {
+    FRAGMENT_MANIFEST, FRAGMENT_RESULT, FRAGMENT_QUALITY_MANIFEST,
+    FRAGMENT_QUALITY_RESULT, FRAGMENT_ANALYSIS, FRAGMENT_JUDGE, FRAGMENT_ANALYZER,
+    "experiments/FRAGMENT-PENALTY-RESULTS-20261002.md",
+    "tests/test_fragment_experiment_analysis.py",
+    "paper/fig/fragment-penalty-tradeoff.pdf", "paper/fig/fragment-penalty-motifs.pdf",
+}))
+
 README = """# v1 supplementary evidence and reproduction
 
-This is the first public release, v1. It accompanies `paper/naacl2027-v1.tex`.
-Extract it at a clean checkout of the repository root, preserving its paths.
-It contains the frozen study manifest and raw results, the earlier comparison
-used to motivate the adaptive follow-up, all 66 selected texts and their 32 fixed shuffles, model outputs, source
-code, vocabulary/lexicon inputs, and pinned dependency lists. `MANIFEST.sha256`
-records each archived file hash. Internal experiment identifiers in the saved
-records describe development history, not earlier public releases.
+The current manuscript is *Fragment Penalties Shift Repetition in Exact Palindrome Search*.
+It reports a fresh, frozen 360-job AWS experiment: 20 seeds, three length bands,
+two search implementations, and penalties 0, 4, and 16 for six previously
+identified trigrams. Each arm returns 90/120 exact outputs. Distinct surfaces
+increase from 69 to 78, but strict structural acceptance falls from 59/120 to
+28/120 and replacement fragments appear in 46/78 distinct penalized texts.
 
-The manuscript is titled *Evaluating Exact Palindromes Beyond Word-Order Shuffles*.
-The September 26 baseline audit removes unsupported improvement claims.
-The internal task grid supplies 66 output records (52 distinct strings) for
-model diagnostics; its bands and resource limits are not an established
-generator benchmark. Same-word permutations are defined perturbation controls,
-not a competing generator or a human readability standard. The chosen Qwen
-control-screen thresholds have no human calibration.
+The new protocol, results, quality inventory and responses, and analysis are in
+`runs/fragment-penalty-20261002/`. The readable report is
+`experiments/FRAGMENT-PENALTY-RESULTS-20261002.md`. Reproduce the new figures
+and 20,000 paired seed-bootstrap replicates offline:
 
-See `paper/BASELINE-PROVENANCE-AUDIT-V1.md` and its three detailed reports.
-They also audit older repository history; those historical runs are not all
-bundled here. The revision adds no new search or model scoring calls.
+```sh
+python3 experiments/analyze_fragment_penalty_20261002.py
+```
 
-The October 2 revision centers continuous diagnostics and fragment recurrence.
-The two figures show scorer disagreement, all 32 individual GPT-2 shuffle
-differences per record, and recurring trigrams. With the plotting dependencies
-in `paper/figure-requirements.txt`, reproduce them offline:
+Install the plotting versions in `paper/figure-requirements.txt`. This analysis
+needs no AWS account, model weights, or Brown corpus. The figures describe
+seed variability within this vocabulary and search family, not human quality.
+All 148 distinct candidates receive a separate blinded Qwen3 model rating.
+No human ratings or matched published-generator benchmark is provided.
+
+For fresh search on an authorized Linux worker, use
+`experiments/fragment-penalty-requirements.txt`. In a separate copied extraction,
+move `runs/fragment-penalty-20261002/results.json` to an archival filename,
+then run `python3 experiments/fragment_penalty_20261002.py run --workers 32`.
+The runner refuses to overwrite results and verifies its source/vocabulary
+hashes. Keep original evidence intact. A new hosted audit additionally needs
+an explicitly configured private AWS budget and account binding; do not resume
+the archived quality result. Exact prompts, model ID, settings, and requests'
+hashes are recorded, but the provider does not expose a random seed.
+
+The older 240-job resource collection and its 52 distinct outputs are retained
+as development evidence. They supplied the six target fragments, not new test
+outcomes. Their figures and score-sign audit remain reproducible:
 
 ```sh
 python3 paper/build_diagnostic_figures.py
-```
-
-This writes vector figures and `paper/fig/diagnostic-data.json`, including
-the data and definitions for all five plotted panels. Brown and GPT-2 have
-opposite contrast signs for 28/52 distinct texts; the original GPT-2 score is
-inside its shuffle-score range for 63/66 records. The trigram `no it a` appears
-in 46/52 distinct texts. Phrase groups and permutation ranges are descriptive,
-not causal effects or confidence intervals.
-
-The earlier cross-tab and the Qwen3 text joins can also be verified offline:
-
-```sh
 python3 paper/audit_diagnostic_overlap.py
 ```
 
-Duplicate copies have their own shuffle controls; their signs agree before
-collapsing by text hash. Text-level plots average contrasts within a surface
-before weighting each distinct text equally. No inference is needed.
+The separate 52-item first-person packet concerns that historical collection,
+not the 148 distinct outputs in the new intervention. The baseline-provenance
+audits also concern historical claims; they are not reviews of this new experiment.
 
 Author-specific machine names and repository commit IDs are omitted from the
 exported run metadata. Source-file hashes, model revisions, and cross-file
 reproduction hashes are retained and checked.
 
-## Search replay
+## Historical resource-comparison replay
 
 Use Python 3.10+ and install the package versions recorded in the requirements
 files. From the repository root, run:
@@ -917,6 +932,7 @@ def build(output: Path = DEFAULT_OUTPUT) -> dict:
 
     content = {name: (ROOT / name).read_bytes() for name in FILES}
     export_anonymized_json(content)
+    export_fragment_experiment(content)
     validate_privacy(content)
     content["supplement/README.md"] = README.encode("utf-8")
     hashes = "".join(
@@ -969,7 +985,77 @@ def verify_archive(path: Path) -> dict:
                 raise ValueError(f"supplement member checksum mismatch: {name}")
         validate_privacy(payloads)
         validate_internal_hashes(payloads)
+        validate_fragment_experiment(payloads)
     return {"member_count": len(names), "checksum_count": len(expected)}
+
+
+def export_fragment_experiment(content: dict[str, bytes]) -> None:
+    """Anonymous derivative, preserving every experimental outcome and rating."""
+    original_hashes = {name: sha256(content[name]) for name in (
+        FRAGMENT_MANIFEST, FRAGMENT_RESULT, FRAGMENT_QUALITY_MANIFEST,
+        FRAGMENT_QUALITY_RESULT, FRAGMENT_ANALYSIS, FRAGMENT_JUDGE,
+    )}
+    # Make the exported runner portable without changing the raw frozen source.
+    content[FRAGMENT_JUDGE] = re.sub(
+        rb'^AWS = "/Users/[^"\n]+/aws"$', b'AWS = os.environ.get("AWS_CLI", "aws")',
+        content[FRAGMENT_JUDGE], flags=re.MULTILINE)
+    report = "experiments/FRAGMENT-PENALTY-RESULTS-20261002.md"
+    content[report] = re.sub(rb'committed as `[0-9a-f]{8,40}`', b'frozen', content[report])
+    manifest = parse_json(content, FRAGMENT_MANIFEST)
+    manifest["source_sha256"] = {path: sha256(content[path]) for path in manifest["source_sha256"]}
+    store_json(content, FRAGMENT_MANIFEST, manifest)
+    result = parse_json(content, FRAGMENT_RESULT)
+    result["manifest_sha256"] = sha256(content[FRAGMENT_MANIFEST])
+    store_json(content, FRAGMENT_RESULT, result)
+    quality_manifest = parse_json(content, FRAGMENT_QUALITY_MANIFEST)
+    for key, path in (("search_manifest_sha256", FRAGMENT_MANIFEST),
+                      ("search_results_sha256", FRAGMENT_RESULT),
+                      ("prior_audit_sha256", AWS_QWEN_RESULT),
+                      ("script_sha256", FRAGMENT_JUDGE)):
+        quality_manifest[key] = sha256(content[path])
+    store_json(content, FRAGMENT_QUALITY_MANIFEST, quality_manifest)
+    quality = parse_json(content, FRAGMENT_QUALITY_RESULT)
+    quality["manifest_sha256"] = sha256(content[FRAGMENT_QUALITY_MANIFEST])
+    for response in quality["responses"]:
+        response.get("response", {}).pop("ResponseMetadata", None)
+    store_json(content, FRAGMENT_QUALITY_RESULT, quality)
+    analysis = parse_json(content, FRAGMENT_ANALYSIS)
+    analysis["manifest_sha256"] = sha256(content[FRAGMENT_MANIFEST])
+    analysis["search_results_sha256"] = sha256(content[FRAGMENT_RESULT])
+    analysis["quality"]["source_sha256"] = sha256(content[FRAGMENT_QUALITY_RESULT])
+    store_json(content, FRAGMENT_ANALYSIS, analysis)
+    provenance = parse_json(content, "supplement/QWEN-EXPORT-PROVENANCE.json")
+    provenance["fragment_experiment"] = {
+        "original_sha256": original_hashes,
+        "export_sha256": {name: sha256(content[name]) for name in original_hashes},
+        "changes": "Portable AWS executable lookup; rebind hashes to anonymized inputs; omit response transport metadata if present. Search outcomes, candidate texts, model output, usage and ratings are unchanged. Account and infrastructure records and Brown corpus text are not included.",
+        "fresh_inference": "Saved records are for offline reanalysis. A new run requires a separate authorized AWS budget and fresh result paths; do not resume the archived audit.",
+    }
+    store_json(content, "supplement/QWEN-EXPORT-PROVENANCE.json", provenance)
+    validate_fragment_experiment(content)
+
+
+def validate_fragment_experiment(content: dict[str, bytes]) -> None:
+    manifest = parse_json(content, FRAGMENT_MANIFEST)
+    result = parse_json(content, FRAGMENT_RESULT)
+    qm = parse_json(content, FRAGMENT_QUALITY_MANIFEST)
+    q = parse_json(content, FRAGMENT_QUALITY_RESULT)
+    analysis = parse_json(content, FRAGMENT_ANALYSIS)
+    for path, expected in manifest["source_sha256"].items():
+        require_hash(expected, sha256(content[path]), path)
+    for obj, key, path in ((result,"manifest_sha256",FRAGMENT_MANIFEST),
+                           (qm,"search_manifest_sha256",FRAGMENT_MANIFEST),
+                           (qm,"search_results_sha256",FRAGMENT_RESULT),
+                           (qm,"script_sha256",FRAGMENT_JUDGE),
+                           (q,"manifest_sha256",FRAGMENT_QUALITY_MANIFEST),
+                           (analysis,"search_results_sha256",FRAGMENT_RESULT),
+                           (analysis,"manifest_sha256",FRAGMENT_MANIFEST),
+                           (analysis["quality"],"source_sha256",FRAGMENT_QUALITY_RESULT)):
+        require_hash(obj[key], sha256(content[path]), path)
+    if result['status'] != 'complete' or len(result['results']) != 360:
+        raise ValueError('incomplete fragment experiment')
+    if q['status'] != 'complete' or len(q['responses']) != 184:
+        raise ValueError('incomplete fragment quality audit')
 
 
 def main() -> None:

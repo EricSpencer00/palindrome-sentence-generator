@@ -954,6 +954,29 @@ def build(output: Path = DEFAULT_OUTPUT) -> dict:
     content = {name: (ROOT / name).read_bytes() for name in FILES}
     export_anonymized_json(content)
     export_fragment_experiment(content)
+    # The public copy removes execution-host metadata. Keep the original
+    # frozen protocol intact and explicitly map raw hashes to archive hashes.
+    tuning_prefix = "runs/fragment-penalty-tuning-20261008/"
+    tuning_result = tuning_prefix + "results-v3.json"
+    original_result_hash = sha256((ROOT / tuning_result).read_bytes())
+    archive_result_hash = sha256(content[tuning_result])
+    tuning_summary = tuning_prefix + "summary-v3.json"
+    summary = json.loads(content[tuning_summary])
+    summary["original_results_sha256"] = original_result_hash
+    summary["results_sha256"] = archive_result_hash
+    content[tuning_summary] = json_bytes(summary)
+    report_path = tuning_prefix + "REPORT.md"
+    report = content[report_path].decode().replace(original_result_hash, archive_result_hash)
+    report += "\nThe public archive removes execution-host metadata. Original frozen setup references are retained; `archive-hash-map.json` maps original files to their anonymous archive copies.\n"
+    content[report_path] = report.encode()
+    tuning_dependencies = set(json.loads(content[tuning_prefix + "manifest-v4.json"])["source_sha256"])
+    hash_map = {
+        name: {"original_sha256": sha256((ROOT / name).read_bytes()),
+               "archive_sha256": sha256(payload)}
+        for name, payload in content.items()
+        if name.startswith(tuning_prefix) or name in tuning_dependencies
+    }
+    content[tuning_prefix + "archive-hash-map.json"] = json_bytes(hash_map)
     validate_privacy(content)
     content["supplement/README.md"] = README.encode("utf-8")
     hashes = "".join(

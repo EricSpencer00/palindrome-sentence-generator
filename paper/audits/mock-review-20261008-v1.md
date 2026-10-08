@@ -8,7 +8,7 @@ venue scoring rubric. It assesses the evidence currently available.
 A defensible 4/5 recommendation is not established. The current study is a
 reproducible negative result: a fixed fragment penalty increases surface
 variation while reducing mechanical admission and failing to produce an
-output that clears the independent model rubric. The new804-letter exact
+output that clears the independent model rubric. The new804- and824-letter exact
 outputs do not improve the linguistic contribution.
 
 Strengths: explicit within-implementation baseline, matched fresh seeds,

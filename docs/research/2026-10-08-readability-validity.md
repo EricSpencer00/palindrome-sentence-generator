@@ -124,8 +124,8 @@ not a causal penalty of palindromy or a population estimate.
 
 ## Frozen tuning and validation design
 
-This is the recommended next study. It is a design, not an authorization to
-run compute or collect participants. Keep the current canonical paper and
+This is the recommended next study. It is a design, not a completed
+reader evaluation. Keep the current canonical paper and
 historical artifacts unchanged until a completed result supports a revision.
 
 ### 1. Freeze the decision and outcome hierarchy
@@ -256,7 +256,7 @@ diagnostics, exclusions, intervals, code/configuration hashes, and deviations.
 Label all estimates as finite-sample and family-specific unless the sampling
 design supports broader inference.
 
-## Bottom line
+## Conclusion
 
 Brown is methodologically reasonable for what it measures: whether local word
 order beats deterministic same-word permutations under a held-out Brown

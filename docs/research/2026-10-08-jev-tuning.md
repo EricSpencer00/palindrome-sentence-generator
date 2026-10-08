@@ -23,3 +23,14 @@ seeds. Its outcomes cannot validate reader quality. Jev is a structured-choice
 advisor, not an optimizer that executed a search.
 
 Official request contract: https://docs.typesafe.ai/primitives/choice
+
+## Executed development follow-up
+
+The32-job paired sweep completed on the NUC with fresh seeds9100/9101 and
+feasible cap256. Every strength returned4/8 exact outputs; all16 selected
+texts failed the strict screen. The longest observed candidate has824 letters
+at strength1, but this tiny, selected set does not justify changing defaults
+or calling that strength optimal. Full evidence and separately archived setup
+failures: `runs/fragment-penalty-tuning-20261008/REPORT.md`. Root independently
+reproduced every selected tape reversal and complete admission map. No Brown,
+grammar-model or human evaluation was used in this sweep.

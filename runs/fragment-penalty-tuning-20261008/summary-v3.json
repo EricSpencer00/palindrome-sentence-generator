@@ -1,0 +1,79 @@
+{
+  "aggregate_by_penalty": {
+    "0": {
+      "basic_valid_exact_outputs": 4,
+      "deadline_jobs": 1,
+      "execution_errors": 0,
+      "requested": 8,
+      "status_counts": {
+        "deadline_best_so_far_output": 1,
+        "no_basic_valid_output": 4,
+        "selected_basic_valid_output": 3
+      },
+      "strict_admitted_selected_outputs": 0,
+      "strict_failed_check_counts_on_selected_outputs": {
+        "no_self_palindromic_proper_multiword_span": 4,
+        "no_self_palindromic_word": 2
+      }
+    },
+    "1": {
+      "basic_valid_exact_outputs": 4,
+      "deadline_jobs": 1,
+      "execution_errors": 0,
+      "requested": 8,
+      "status_counts": {
+        "deadline_best_so_far_output": 1,
+        "no_basic_valid_output": 4,
+        "selected_basic_valid_output": 3
+      },
+      "strict_admitted_selected_outputs": 0,
+      "strict_failed_check_counts_on_selected_outputs": {
+        "distinct_words": 4,
+        "no_self_palindromic_proper_multiword_span": 2,
+        "no_self_palindromic_word": 4
+      }
+    },
+    "2": {
+      "basic_valid_exact_outputs": 4,
+      "deadline_jobs": 1,
+      "execution_errors": 0,
+      "requested": 8,
+      "status_counts": {
+        "deadline_best_so_far_output": 1,
+        "no_basic_valid_output": 4,
+        "selected_basic_valid_output": 3
+      },
+      "strict_admitted_selected_outputs": 0,
+      "strict_failed_check_counts_on_selected_outputs": {
+        "no_self_palindromic_word": 4
+      }
+    },
+    "4": {
+      "basic_valid_exact_outputs": 4,
+      "deadline_jobs": 1,
+      "execution_errors": 0,
+      "requested": 8,
+      "status_counts": {
+        "deadline_best_so_far_output": 1,
+        "no_basic_valid_output": 4,
+        "selected_basic_valid_output": 3
+      },
+      "strict_admitted_selected_outputs": 0,
+      "strict_failed_check_counts_on_selected_outputs": {
+        "distinct_words": 2,
+        "no_self_palindromic_proper_multiword_span": 2,
+        "no_self_palindromic_word": 4
+      }
+    }
+  },
+  "caveat": "Small adaptive development probe for parameter tuning. It does not establish readability, human preference, or generalization. No human ratings or language-model selection are included.",
+  "experiment": "fragment-penalty-tuning-20261008",
+  "manifest_sha256": "621200d3799fc2a50aaca07cfe483293658cc0d5d421e5f32e394ec9c3703e0c",
+  "objective_order": [
+    "maximize basic-valid exact-output feasibility per penalty",
+    "describe mechanical strict-gate residuals among selected outputs",
+    "retain all failures and per-closure failure counters"
+  ],
+  "results_sha256": "62fde404b60d18d1c41c42928abd9eecf9bf76ce2148a7969ede28240c25bb9e",
+  "status": "complete"
+}

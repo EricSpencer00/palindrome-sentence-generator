@@ -116,7 +116,11 @@ FILES = tuple(sorted(set(FILES) | {
     "experiments/resume_length_cap_probe_20261008.py",
     "experiments/verify_length_cap_probe_20261008.py",
     "experiments/LENGTH-CAP-PROBE-RESULTS-20261008.md",
-} | {p.relative_to(ROOT).as_posix() for p in (ROOT / "runs/length-cap-probe-20261008").glob("*") if p.is_file()}))
+    "experiments/tune_fragment_penalty_20261008.py",
+    "experiments/verify_parameter_probe_20261008.py",
+    "docs/research/2026-10-08-readability-validity.md",
+    "docs/research/2026-10-08-jev-tuning.md",
+} | {p.relative_to(ROOT).as_posix() for p in (ROOT / "runs/length-cap-probe-20261008").glob("*") if p.is_file()} | {p.relative_to(ROOT).as_posix() for p in (ROOT / "runs/fragment-penalty-tuning-20261008").rglob("*") if p.is_file()}))
 
 README = """# v1 supplementary evidence and reproduction
 
@@ -157,7 +161,10 @@ A separate 16-job development length-cap probe is retained in
 screen and are not readability successes. The cap32 arm cannot reach 800
 letters; its zero yield is not a method-performance baseline. Verify offline
 with `python3 experiments/verify_length_cap_probe_20261008.py`. The interrupted
-checkpoint and unknown uncheckpointed outcomes are preserved.
+checkpoint and unknown uncheckpointed outcomes are preserved. The separate
+32-job development sweep is in `runs/fragment-penalty-tuning-20261008/REPORT.md`.
+Its longest exact output has824 letters; none of its16 selected texts passes
+the strict screen. No optimal setting or readability gain is established.
 
 The older 240-job resource collection and its 52 distinct outputs are retained
 as development evidence. They supplied the six target fragments, not new test

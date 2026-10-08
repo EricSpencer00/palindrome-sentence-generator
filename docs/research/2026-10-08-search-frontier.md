@@ -15,7 +15,8 @@ the longest exact string or readable prose. Some Oct. 2 run metadata calls the
 
 The650/666 figures below concern the specific inspected lineages, not the
 repository-wide longest construction. Older residual-edit artifacts reach752
-letters. The October8 cap probe adds804-letter exact outputs that fail strict
+letters. The October8 cap probe adds804-letter exact outputs, and the subsequent
+paired development sweep reaches824 letters. These outputs fail strict
 screens and are word salad. A new774-letter center insertion is retained as a
 rejected shortcut diagnostic; a punctuation-only752-letter repair fixes one
 local fragment without changing the tape. None has blinded reader validation.

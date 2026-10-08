@@ -35,3 +35,6 @@ Offline verification: `python3 experiments/verify_length_cap_probe_20261008.py`.
 It checks protocol/result joins, vocabulary and text hashes, full reversal,
 length, word cap, strict flags and the interrupted checkpoint. It requires
 neither inference nor a corpus download.
+
+A separate local verification reproduced the complete mechanical check map
+for all9 selected outputs against the frozen admission implementation.

@@ -23,3 +23,15 @@ Use the transferable research practices: independent certificates, explicit clai
 The local paper/evidence audit, endpoint certificate, and NUC cap probe are separate evidence sources. The cap probe is in `runs/length-cap-probe-20261008/`; its result interpretation must include the continuation record. The exact 568-letter user-pinned parent remains preserved. The 650- and 752-letter descendants remain separate construction lineages, not silently substituted readability baselines.
 
 No Astra session or paid AWS resource was started for this work. Three Luna workers audited paper claims, experiment analysis, and the construction frontier; the MacBook coordinates and the NUC performs search.
+
+## Resource disposition
+
+Both NUC runs completed; evidence was retrieved and independently checked.
+The task-created `/tmp/palindrome-oct08-01a0df50` and
+`/tmp/palindrome-tuning-oct08` workspaces were removed after their runners
+finished. Argonne Polaris authentication and scheduler access were confirmed,
+but no task job was submitted and the pre-existing held job was untouched.
+No AWS resource or inference was created this turn. Local compiled artifacts
+and review bundles are retained as deliverables. Live Overleaf remains older
+than the local v1 source because browser controls disconnected; see
+`paper/OVERLEAF-SYNC-STATUS-20261008.md`.

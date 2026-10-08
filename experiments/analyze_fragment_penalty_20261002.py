@@ -14,6 +14,32 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from experiments.fragment_penalty_20261002 import OUT, SEEDS, STRENGTHS, sha, tokens, trigrams, write
+from experiments.paired_directional_search_resource_sensitivity_20260925 import STRUCTURAL_CHECKS
+
+
+def validate_saved_row(row, expected_job):
+    """Check internal agreement in frozen output records without rerunning admission."""
+    assert all(row[k] == v for k, v in expected_job.items())
+    assert row['status'] in {'selected_basic_valid_output', 'no_basic_valid_output'}
+    has_text = bool(row.get('text'))
+    assert has_text == (row['status'] == 'selected_basic_valid_output')
+
+    basic = row['basic_structural_checks']
+    assert set(basic) == set(STRUCTURAL_CHECKS)
+    assert all(isinstance(value, bool) for value in basic.values())
+    strict = row['strict_admission_checks']
+    if has_text:
+        assert row['letters'] == len(''.join(tokens(row['text'])))
+        assert row['word_count'] == len(tokens(row['text']))
+        assert strict and all(isinstance(value, bool) for value in strict.values())
+        assert all(name in strict and basic[name] == strict[name] for name in STRUCTURAL_CHECKS)
+        assert isinstance(row['strict_admitted_selected_output'], bool)
+        assert row['strict_admitted_selected_output'] == all(strict.values())
+    else:
+        assert row['letters'] == 0 and row['word_count'] == 0
+        assert strict == {}
+        assert row['strict_admitted_selected_output'] is None
+        assert not any(basic.values())
 
 
 def analyze(replicates=20000):
@@ -22,19 +48,24 @@ def analyze(replicates=20000):
     result=json.loads((OUT/'results.json').read_text())
     assert result['manifest_sha256']==sha(OUT/'manifest.json')
     assert result['status']=='complete'
+    assert tuple(protocol['seeds'])==SEEDS
+    assert tuple(protocol['strengths'])==STRENGTHS
     rows=result['results']
     assert len(rows)==len(protocol['jobs'])==360
     expected={r['id']:r for r in protocol['jobs']}
     assert len({r['id'] for r in rows})==360
+    expected_blocks={}
+    for job in protocol['jobs']:
+        expected_blocks.setdefault(job['block'],set()).add(job['penalty'])
+    assert len(expected_blocks)==len(SEEDS)*3*2
+    assert all(penalties==set(STRENGTHS) for penalties in expected_blocks.values())
     for row in rows:
-        assert all(row[k]==v for k,v in expected[row['id']].items())
-        assert row['status']!='execution_error'
+        validate_saved_row(row, expected[row['id']])
         if row.get('text'):
             import hashlib
             text=row['text']; tape=''.join(tokens(text))
             assert tape==tape[::-1] and row['min_letters']<=len(tape)<=row['max_letters']
             assert hashlib.sha256(text.encode()).hexdigest()==row['text_sha256']
-            assert all(row['basic_structural_checks'].values())
     seed_index={s:i for i,s in enumerate(SEEDS)}
     draws=np.random.default_rng(20261002).integers(0,len(SEEDS),size=(replicates,len(SEEDS)))
     counts=np.stack([(draws==i).sum(axis=1) for i in range(len(SEEDS))],axis=1)

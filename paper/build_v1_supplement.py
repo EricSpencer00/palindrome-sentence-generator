@@ -111,9 +111,16 @@ FILES = tuple(sorted(set(FILES) | set(json.loads((ROOT / FRAGMENT_MANIFEST).read
     "paper/fig/fragment-penalty-tradeoff.pdf", "paper/fig/fragment-penalty-motifs.pdf",
 }))
 
+FILES = tuple(sorted(set(FILES) | {
+    "experiments/length_cap_probe_20261008.py",
+    "experiments/resume_length_cap_probe_20261008.py",
+    "experiments/verify_length_cap_probe_20261008.py",
+    "experiments/LENGTH-CAP-PROBE-RESULTS-20261008.md",
+} | {p.relative_to(ROOT).as_posix() for p in (ROOT / "runs/length-cap-probe-20261008").glob("*") if p.is_file()}))
+
 README = """# v1 supplementary evidence and reproduction
 
-The current manuscript is *Finding Longer Palindromes and Evaluating Their Readability*.
+The current manuscript is *Methods of Finding Longer, Readable Palindromes*.
 It reports a fresh, frozen 360-job AWS experiment: 20 seeds, three length bands,
 two search implementations, and penalties 0, 4, and 16 for six previously
 identified trigrams. Each arm returns 90/120 exact outputs. Distinct surfaces
@@ -144,6 +151,13 @@ hashes. Keep original evidence intact. A new hosted audit additionally needs
 an explicitly configured private AWS budget and account binding; do not resume
 the archived quality result. Exact prompts, model ID, settings, and requests'
 hashes are recorded, but the provider does not expose a random seed.
+
+A separate 16-job development length-cap probe is retained in
+`runs/length-cap-probe-20261008/`. Its two 804-letter outputs fail the strict
+screen and are not readability successes. The cap32 arm cannot reach 800
+letters; its zero yield is not a method-performance baseline. Verify offline
+with `python3 experiments/verify_length_cap_probe_20261008.py`. The interrupted
+checkpoint and unknown uncheckpointed outcomes are preserved.
 
 The older 240-job resource collection and its 52 distinct outputs are retained
 as development evidence. They supplied the six target fragments, not new test

@@ -44,6 +44,7 @@ HANDOFF_FILES = (
     "audits/historical-search-baselines-v1.md",
     "audits/historical-construction-evidence-v1.md",
     "audits/historical-metric-controls-v1.md",
+    "audits/mock-review-20261008-v1.md",
     "mock-reviews/naacl2027-v1-arr-review.md",
     "LOCAL-LLM-READABILITY-AUDIT-RESULTS.md",
     "AWS-QWEN3-READABILITY-AUDIT-RESULTS-20260926.md",
@@ -172,6 +173,7 @@ def build() -> None:
                  "audits/historical-search-baselines-v1.md",
                  "audits/historical-construction-evidence-v1.md",
                  "audits/historical-metric-controls-v1.md",
+                 "audits/mock-review-20261008-v1.md",
                  "mock-reviews/naacl2027-v1-arr-review.md",
                  "fig/diagnostic-landscape.pdf", "fig/fragment-concentration.pdf",
                  "fig/fragment-penalty-tradeoff.pdf", "fig/fragment-penalty-motifs.pdf"):
@@ -220,7 +222,7 @@ def build() -> None:
 This bundle contains the anonymous manuscript PDF and source, reviewer brief,
 readiness plan, reproducible diagnostic reports, and a separate first-pass
 rating packet. This is the first public release, v1. The paper is titled
-*Finding Longer Palindromes and Evaluating Their Readability*. It reports
+*Methods of Finding Longer, Readable Palindromes*. It reports
 360 new matched AWS search jobs and a separate blinded Qwen3 audit. Penalties
 remove six named trigrams and increase distinct outputs, while strict structural
 acceptance decreases and replacement fragments become common. The new plots
@@ -229,7 +231,9 @@ show those intervention results, with paired seed-bootstrap intervals.
 No human ratings have been collected. The first-pass 52-item reader packet is
 retained unchanged as a historical pilot; it does not contain the 148 distinct
 outputs of the new experiment. The old mock review and baseline-provenance
-audits are historical context, not assessments of the new results.
+audits are historical context, not assessments of the new results. The current
+simulated assessment is `audits/mock-review-20261008-v1.md`; it does not
+establish a 4/5 recommendation.
 
 ## Read the paper
 

@@ -9,8 +9,8 @@
 \usepackage{graphicx}
 \usepackage{xurl}
 \newcommand{\code}[1]{\texttt{#1}}
-\title{Finding Longer Palindromes and Evaluating Their Readability}
-\hypersetup{pdftitle={Finding Longer Palindromes and Evaluating Their Readability}}
+\title{Methods of Finding Longer, Readable Palindromes}
+\hypersetup{pdftitle={Methods of Finding Longer, Readable Palindromes}}
 \hypersetup{pdfsubject={Public release v1}}
 \author{Anonymous submission}
 
@@ -18,7 +18,7 @@
 \maketitle
 
 \begin{abstract}
-Finding a long palindrome is only part of the problem: it should also make sense. We search for palindromes of 30--119 letters and test a simple idea: discourage phrases that the search keeps reusing. Across 360 matched runs, we compare the original scoring rule with two strengths of this penalty. Each setting finds 90 exact palindromes in 120 attempts. Both penalties remove all six targeted phrases and increase distinct outputs from 69 to 78. Yet new phrases take their place, and fewer outputs pass checks for shortcuts such as words and spans that are palindromes on their own: 28/120 attempts, down from 59/120. A separate language model rates the grammar and meaning of each output; none meets its threshold for both. We have not collected human ratings. Our contribution is a controlled comparison showing where this simple change helps and where it falls short, with code and outputs to reproduce the result. More varied text is a useful step, but it does not establish readability.
+Finding a long palindrome is only part of the problem: it should also make sense. We search for palindromes of 30--119 letters and test a simple idea: discourage phrases that the search keeps reusing. Across 360 matched runs, we compare the original scoring rule with two strengths of this penalty. Each setting returns 90 exact outputs from 120 attempts. Both penalties remove all six targeted phrases and increase distinct outputs from 69 to 78. Yet new phrases take their place, and fewer outputs pass checks for shortcuts such as words and spans that are palindromes on their own: 28/120 attempts, down from 59/120. A separate language model rates the grammar and meaning of each output; none meets its threshold for both. We have not collected human ratings. Our contribution is a controlled comparison showing where this simple change helps and where it falls short, with code and outputs to reproduce the result. More varied text is a useful step, but it does not establish readability.
 \end{abstract}
 
 \section{Introduction}
@@ -71,7 +71,7 @@ Coverage includes failures in the denominator. Lexical analyses collapse identic
 We use 20,000 paired percentile bootstrap replicates, resampling the 20 seeds and retaining their methods, bands, and arms together (PRNG seed 20261002). Conditional diversity is recomputed after collapsing duplicate surfaces in each resample. These intervals describe search-seed variability on this vocabulary, not independent semantic tasks. Pairwise text comparisons are not treated as independent trials. We report both strengths against baseline without selecting a winning strength or computing confirmatory $p$-values. Raw distinct counts receive no bootstrap interval because resampling observed strings biases richness downward.
 
 \paragraph{Blinded model audit.}
-A separate Qwen3 32B audit on AWS Bedrock \citep{awsbedrockqwen332b} uses the existing 0--3 grammaticality and coherent-meaning rubric. The model sees one exact text, with no method or penalty label. A joint pass requires at least 2 on both scales. The control gate requires at least 8/12 held-out Brown prose controls \citep{kucera-francis-1967} and at most 3/12 corresponding shuffles to pass. All 148 distinct new texts are rated once; shared texts receive the same rating across arms. Twelve hidden repeats test consistency. Appendix~\ref{sec:rubric} specifies the protocol. This is model evidence, without human calibration.
+A separate Qwen3 32B audit on AWS Bedrock \citep{awsbedrockqwen332b} uses the existing 0--3 grammaticality and coherent-meaning rubric. The model sees one exact text, with no method or penalty label. A joint pass requires at least 2 on both scales. The control gate requires at least 8/12 held-out Brown prose controls \citep{kucera-francis-1967} and at most 3/12 corresponding shuffles to pass. All 148 distinct new texts are rated once; shared texts receive the same rating across arms. Twelve hidden repeats test consistency. Appendix~\ref{sec:rubric} specifies the protocol. The control gate tests coarse prose detection, not palindrome-domain calibration. These are model ratings, without human validation.
 
 \section{Results}
 \paragraph{Exact yield is unchanged.}
@@ -120,6 +120,9 @@ The 12 prose and 12 shuffle controls are the same hash-verified Brown spans used
 \section{Historical development collection}
 The six targets come from 52 distinct texts among 66 outputs in an earlier 240-job resource comparison. In that collection, Brown and GPT-2 shuffle-relative contrasts disagree in sign for 28/52 texts, and 63/66 GPT-2 originals lie inside their 32-shuffle score ranges. Those descriptive findings motivate separate diagnostics but do not serve as inferential evidence for this intervention. The prior outputs, diagnostics, and figure builder remain in the supplement. The new experiment uses disjoint seeds and compares penalties at one fixed resource configuration.
 
+\section{Exploratory long-output probe}
+A separate development probe used two seeds, both search implementations, letter bands 120--159 and 800--999, and word caps 32 and 256 (16 jobs). With cap 256, two of four long-band jobs returned exact 804-letter, 184-word outputs; neither passed the strict screen. The two outputs share a word multiset and have no readability ratings. The longest vocabulary word has 18 letters, so cap 32 cannot exceed 576 letters. This bound was noticed after execution: the infeasible arm is not a performance baseline. An interrupted execution retained four checkpoints and restarted the remaining twelve jobs; uncheckpointed outcomes are unknown. The supplement retains the protocol, all recorded outcomes, renderings, and an independent reversal verifier. These exploratory results are separate from the 360-job intervention.
+
 \section{Offline reproduction}
-Install the versions in \path{paper/figure-requirements.txt}, then run \path{experiments/analyze_fragment_penalty_20261002.py} from the extracted supplement root. It verifies the new result-to-protocol and text-hash joins, recomputes all endpoints and paired intervals, and writes the vector figures, PNG previews, and \path{runs/fragment-penalty-20261002/analysis.json}. No corpus download, model weights, or AWS account is needed for this analysis. Fresh search or hosted inference is a separate operation; the archived responses are the evidence underlying this paper.
+Install \path{paper/figure-requirements.txt} and run \path{experiments/analyze_fragment_penalty_20261002.py} from the supplement root. It verifies protocol and text hashes, recomputes endpoints and intervals, and rebuilds figures. The archived responses support the model audit. Offline analysis needs no corpus download, model weights, or AWS account.
 \end{document}

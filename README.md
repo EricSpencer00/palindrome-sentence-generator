@@ -39,6 +39,15 @@ The active acceptance standard is documented in
 independently constructed exact palindrome must clear the shared mechanical
 gate and then pass a blinded study with intact-prose and shuffled controls.
 
+## Reader feedback — October 9
+
+[Eric’s 183 development ratings](data/reader-feedback/2026-10-09/README.md)
+are preserved. Most score 1 for meaning: word associations with unclear
+relations. The export lacks passage texts, so exactness and length comparisons
+remain unresolved. The new audit importer separates verified palindromes,
+non-palindromes, and missing texts before training.
+[The tuning explained in 30 lines](docs/TUNING-30-LINES.md).
+
 ## Recent generations
 
 These are the generations I actually want a reader to see before opening the

@@ -82,6 +82,15 @@ retain failures and separate mechanical length from whole-text meaning.
 
 ## Recent generations
 
+The [runnable corpus chunk constructor](tools/realtime_chunk_construct.py)
+restores the existing `A B C B A` and `A B C B′ A′` construction paths outside
+the retired service API. It keeps complete chunks, explicit return slots and
+all source credits. [The Argonne replay](runs/argonne-realtime-chunks-20261009/README.md)
+records 22 exact compositions and 200 warm requests, with the ABCBA path taking
+4.24 ms at the median. The [construction notes](docs/research/2026-10-09-realtime-chunk-construction.md)
+explain the algorithm and the distinction between themed refrains and generated
+paired material.
+
 These are the generations I actually want a reader to see before opening the
 experiment directory. The lengths are normalized letters; punctuation and
 casing are presentation choices.

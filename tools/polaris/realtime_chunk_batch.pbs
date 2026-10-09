@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -N pal-realtime-chunks
+#PBS -A EVITA
+#PBS -q debug
+#PBS -l select=1:ncpus=32:mpiprocs=1:system=polaris
+#PBS -l walltime=00:05:00
+#PBS -l filesystems=home:eagle
+#PBS -j oe
+set -euo pipefail
+cd "$PBS_O_WORKDIR"
+export OMP_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+mkdir -p results
+hostname > results/compute-host.txt
+/usr/bin/python3.11 tools/polaris/realtime_chunk_batch.py --out results/constructions.json

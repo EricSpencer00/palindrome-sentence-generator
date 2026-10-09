@@ -64,6 +64,14 @@ chooses words by the quality of their forced opposite continuation, requires
 expressed relationships, and grows short successes only while meaning survives.
 It builds on the existing exact solvers; its readability gains remain to be tested.
 
+The [October 9 Argonne evaluation](runs/argonne-length-readability-20261009/README.md)
+completed 72 comparisons on one Polaris node in 99 seconds. It found 43 exact
+selected outputs and a longest observed closure of 447 letters. A separate
+blinded machine screen found no whole-text grammar/meaning result above the
+association level. The [length and readability plan](docs/research/2026-10-09-argonne-evaluation-plan.md)
+targets connected 1,000+ letter paragraphs with flexible phrases, boundaries
+and overhangs. That readable-length goal remains unachieved.
+
 ## Recent generations
 
 These are the generations I actually want a reader to see before opening the

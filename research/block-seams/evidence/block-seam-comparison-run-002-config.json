@@ -1,0 +1,4506 @@
+{
+  "schema_version": 2,
+  "scope": "prospectively reserved development paragraph pilot; not final held-out evidence",
+  "grammar_production_count": 9,
+  "diversity": 0.4,
+  "scorer": "WordAdditiveScorer over dependency-free FreqScorer; uniform frozen lexical counts",
+  "baseline": "unchanged llm_palindrome.search.beam_search with existing initial_state and allow_state APIs",
+  "block_arm": "same beam_search; multi-word inventory plus compositional paragraph frontier and lexical lookahead; provenance independent",
+  "attribution_policy": "Any unresolved gap explicitly retained; no affected candidate promoted as original. Source-anchored word-internal fragments are not ordinary complete lexemes.",
+  "deadline_policy": "Cooperative beam checkpoints plus single-worker POSIX callback deadline; report interruptions and actual elapsed.",
+  "index_seconds": 0.9429517079843208,
+  "cells": [
+    {
+      "id": "paragraph-s921-60-baseline",
+      "seed": 921,
+      "arm": "baseline",
+      "left": "",
+      "right": "",
+      "band": [
+        60,
+        119
+      ]
+    },
+    {
+      "id": "paragraph-s921-60-block_seam",
+      "seed": 921,
+      "arm": "block_seam",
+      "left": "",
+      "right": "",
+      "band": [
+        60,
+        119
+      ]
+    },
+    {
+      "id": "paragraph-s921-120-baseline",
+      "seed": 921,
+      "arm": "baseline",
+      "left": "",
+      "right": "",
+      "band": [
+        120,
+        239
+      ]
+    },
+    {
+      "id": "paragraph-s921-120-block_seam",
+      "seed": 921,
+      "arm": "block_seam",
+      "left": "",
+      "right": "",
+      "band": [
+        120,
+        239
+      ]
+    },
+    {
+      "id": "paragraph-s922-60-baseline",
+      "seed": 922,
+      "arm": "baseline",
+      "left": "",
+      "right": "",
+      "band": [
+        60,
+        119
+      ]
+    },
+    {
+      "id": "paragraph-s922-60-block_seam",
+      "seed": 922,
+      "arm": "block_seam",
+      "left": "",
+      "right": "",
+      "band": [
+        60,
+        119
+      ]
+    },
+    {
+      "id": "paragraph-s922-120-baseline",
+      "seed": 922,
+      "arm": "baseline",
+      "left": "",
+      "right": "",
+      "band": [
+        120,
+        239
+      ]
+    },
+    {
+      "id": "paragraph-s922-120-block_seam",
+      "seed": 922,
+      "arm": "block_seam",
+      "left": "",
+      "right": "",
+      "band": [
+        120,
+        239
+      ]
+    },
+    {
+      "id": "paragraph-s923-60-baseline",
+      "seed": 923,
+      "arm": "baseline",
+      "left": "",
+      "right": "",
+      "band": [
+        60,
+        119
+      ]
+    },
+    {
+      "id": "paragraph-s923-60-block_seam",
+      "seed": 923,
+      "arm": "block_seam",
+      "left": "",
+      "right": "",
+      "band": [
+        60,
+        119
+      ]
+    },
+    {
+      "id": "paragraph-s923-120-baseline",
+      "seed": 923,
+      "arm": "baseline",
+      "left": "",
+      "right": "",
+      "band": [
+        120,
+        239
+      ]
+    },
+    {
+      "id": "paragraph-s923-120-block_seam",
+      "seed": 923,
+      "arm": "block_seam",
+      "left": "",
+      "right": "",
+      "band": [
+        120,
+        239
+      ]
+    }
+  ],
+  "words": [
+    "a",
+    "ate",
+    "baker",
+    "basil",
+    "bees",
+    "can",
+    "carries",
+    "cave",
+    "dennis",
+    "eva",
+    "gardener",
+    "holds",
+    "i",
+    "in",
+    "is",
+    "it",
+    "lisa",
+    "map",
+    "moves",
+    "no",
+    "now",
+    "on",
+    "pets",
+    "pilot",
+    "pot",
+    "rat",
+    "reads",
+    "saw",
+    "see",
+    "sin",
+    "sinned",
+    "sir",
+    "step",
+    "the",
+    "tray",
+    "war",
+    "was",
+    "won"
+  ],
+  "blocks": [
+    "a",
+    "a baker",
+    "a pot",
+    "a tray",
+    "ate",
+    "baker",
+    "basil",
+    "bees",
+    "can",
+    "carries",
+    "cave",
+    "dennis",
+    "dennis sin",
+    "dennis sinned",
+    "eva",
+    "eva can i see bees",
+    "eva can i see bees in a cave",
+    "gardener",
+    "holds",
+    "i",
+    "i see bees",
+    "in",
+    "is",
+    "it",
+    "lisa",
+    "map",
+    "moves",
+    "no",
+    "now",
+    "now sir a war",
+    "now sir a war is won",
+    "on",
+    "pets",
+    "pilot",
+    "pot",
+    "rat",
+    "reads",
+    "saw",
+    "see",
+    "sinned",
+    "sir",
+    "step",
+    "step on no",
+    "step on no pets",
+    "the",
+    "the gardener",
+    "the map",
+    "the pilot",
+    "tray",
+    "war",
+    "was",
+    "was it a rat",
+    "was it a rat i saw",
+    "won"
+  ],
+  "unit_provenance": {
+    "a": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-3",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "moves",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "moves",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-3",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "moves",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "moves",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-4",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "holds",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "holds",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-4",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "holds",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "holds",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-5",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "carries",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "carries",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-5",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "carries",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "carries",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-6",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "moves",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "moves",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-7",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "holds",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "holds",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-8",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "carries",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "carries",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#eva",
+          "known_control": true,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees",
+            "in",
+            "a",
+            "cave"
+          ],
+          "parts": [
+            "eva can i see bees in a cave"
+          ]
+        },
+        "word_span": [
+          6,
+          7
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#rat",
+          "known_control": true,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat",
+            "i",
+            "saw"
+          ],
+          "parts": [
+            "was it a rat i saw"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#war",
+          "known_control": true,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war",
+            "is",
+            "won"
+          ],
+          "parts": [
+            "now sir a war is won"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat-prefix",
+          "known_control": true,
+          "partial_grammar": "copular interrogative clause",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat"
+          ],
+          "parts": [
+            "Was it a rat"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#rat",
+            "parent_text": "Was it a rat I saw?",
+            "parent_text_sha256": "936758db15dc984f7850fcccd1d4107e16c2aef71752aca8cca344321414db57",
+            "parent_normalized_sha256": "521605467a22cea839ed7458341ef6f996340f80e823fbeea864033a8bf19e95",
+            "surface_span": [
+              0,
+              12
+            ],
+            "normalized_span": [
+              0,
+              9
+            ]
+          },
+          "completion_requirements": [
+            "object-relative I saw attaches to rat"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war-prefix",
+          "known_control": true,
+          "partial_grammar": "adjunct + vocative + subject NP; incomplete finite clause",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war"
+          ],
+          "parts": [
+            "Now, sir, a war"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#war",
+            "parent_text": "Now, sir, a war is won.",
+            "parent_text_sha256": "b6a031ac56eb41dee8b2a789f34283264b63fabd59d93344c65e7f8f5bed9159",
+            "parent_normalized_sha256": "7b47821d7d56fc8eddcade336c202e4b8bf987aedc6eeaff26ea86ab26edc1a6",
+            "surface_span": [
+              0,
+              15
+            ],
+            "normalized_span": [
+              0,
+              10
+            ]
+          },
+          "completion_requirements": [
+            "finite passive is won"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      }
+    ],
+    "a baker": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-3",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "moves",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "moves",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          0,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-4",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "holds",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "holds",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          0,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-5",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "carries",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "carries",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          0,
+          2
+        ]
+      }
+    ],
+    "a pot": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-6",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "moves",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "moves",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-7",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "holds",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "holds",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-8",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "carries",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "carries",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          3,
+          5
+        ]
+      }
+    ],
+    "a tray": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-3",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "moves",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "moves",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-4",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "holds",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "holds",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-5",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "carries",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "carries",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          3,
+          5
+        ]
+      }
+    ],
+    "ate": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "basil",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#basil",
+          "known_control": true,
+          "words": [
+            "lisa",
+            "bonet",
+            "ate",
+            "no",
+            "basil"
+          ],
+          "parts": [
+            "lisa bonet ate no basil"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "basil-prefix",
+          "known_control": true,
+          "partial_grammar": "subject + past eating predicate",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "lisa",
+            "bonet",
+            "ate"
+          ],
+          "parts": [
+            "Lisa Bonet ate"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#basil",
+            "parent_text": "Lisa Bonet ate no basil.",
+            "parent_text_sha256": "52359c330a66b4412831d20f9cf8b845d38e5d58ae4ade09fa6def140adfe9cb",
+            "parent_normalized_sha256": "3921bad6ba4eda430a95ce0b1c36309fbcecfbd8133660bd42dc8b28e76e9d4e",
+            "surface_span": [
+              0,
+              14
+            ],
+            "normalized_span": [
+              0,
+              12
+            ]
+          },
+          "completion_requirements": [
+            "source patient no basil; source-indexed completion"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      }
+    ],
+    "baker": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-3",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "moves",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "moves",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-4",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "holds",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "holds",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-5",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "carries",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "carries",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      }
+    ],
+    "basil": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "basil",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#basil",
+          "known_control": true,
+          "words": [
+            "lisa",
+            "bonet",
+            "ate",
+            "no",
+            "basil"
+          ],
+          "parts": [
+            "lisa bonet ate no basil"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      }
+    ],
+    "bees": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#eva",
+          "known_control": true,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees",
+            "in",
+            "a",
+            "cave"
+          ],
+          "parts": [
+            "eva can i see bees in a cave"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva-prefix",
+          "known_control": true,
+          "partial_grammar": "modal question parse; optional location pending",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees"
+          ],
+          "parts": [
+            "Eva, can I see bees"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#eva",
+            "parent_text": "Eva, can I see bees in a cave?",
+            "parent_text_sha256": "8da5ed7275eba9a7981588a63589b9e9a9a0efe6b8b546835ac4fe1ed8f901af",
+            "parent_normalized_sha256": "2b7b9ad8a6c5672194b90ae0612c1423daa0a99f83e15d035c788034a6585969",
+            "surface_span": [
+              0,
+              19
+            ],
+            "normalized_span": [
+              0,
+              14
+            ]
+          },
+          "completion_requirements": [
+            "attach PP in a cave"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva-clause",
+          "known_control": true,
+          "partial_grammar": "complete subject + transitive predicate + plural patient",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "i",
+            "see",
+            "bees"
+          ],
+          "parts": [
+            "I see bees"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#eva",
+            "parent_text": "Eva, can I see bees in a cave?",
+            "parent_text_sha256": "8da5ed7275eba9a7981588a63589b9e9a9a0efe6b8b546835ac4fe1ed8f901af",
+            "parent_normalized_sha256": "2b7b9ad8a6c5672194b90ae0612c1423daa0a99f83e15d035c788034a6585969",
+            "surface_span": [
+              9,
+              19
+            ],
+            "normalized_span": [
+              6,
+              14
+            ]
+          },
+          "completion_requirements": [
+            "source-anchored mirror needs i on right; adding bare I is not grammar-certified"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      }
+    ],
+    "can": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#eva",
+          "known_control": true,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees",
+            "in",
+            "a",
+            "cave"
+          ],
+          "parts": [
+            "eva can i see bees in a cave"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva-prefix",
+          "known_control": true,
+          "partial_grammar": "modal question parse; optional location pending",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees"
+          ],
+          "parts": [
+            "Eva, can I see bees"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#eva",
+            "parent_text": "Eva, can I see bees in a cave?",
+            "parent_text_sha256": "8da5ed7275eba9a7981588a63589b9e9a9a0efe6b8b546835ac4fe1ed8f901af",
+            "parent_normalized_sha256": "2b7b9ad8a6c5672194b90ae0612c1423daa0a99f83e15d035c788034a6585969",
+            "surface_span": [
+              0,
+              19
+            ],
+            "normalized_span": [
+              0,
+              14
+            ]
+          },
+          "completion_requirements": [
+            "attach PP in a cave"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      }
+    ],
+    "carries": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-2",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "carries",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "carries",
+            "the map"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-5",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "carries",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "carries",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-8",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "carries",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "carries",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      }
+    ],
+    "cave": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#eva",
+          "known_control": true,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees",
+            "in",
+            "a",
+            "cave"
+          ],
+          "parts": [
+            "eva can i see bees in a cave"
+          ]
+        },
+        "word_span": [
+          7,
+          8
+        ]
+      }
+    ],
+    "dennis": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "dennis",
+          "human_validated": false,
+          "source": "data/known_palindromes.json#dennissinned",
+          "known_control": true,
+          "words": [
+            "dennis",
+            "sinned"
+          ],
+          "parts": [
+            "dennis sinned"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "dennis-verb-fragment",
+          "known_control": true,
+          "partial_grammar": "subject + incomplete source past-verb lexeme",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "dennis",
+            "sin"
+          ],
+          "parts": [
+            "Dennis sin"
+          ],
+          "source": {
+            "locator": "data/known_palindromes.json#dennissinned",
+            "parent_text": "Dennis sinned.",
+            "parent_text_sha256": "ed21e98e32394311bbfb7e6b4ff658284695633b5b965553fb68be2f14bf5c7c",
+            "parent_normalized_sha256": "bf43742de9be3fa8ff32bc2589cd96c6498b60a05a65eda1c91e03ddcc5b2dae",
+            "surface_span": [
+              0,
+              10
+            ],
+            "normalized_span": [
+              0,
+              9
+            ]
+          },
+          "completion_requirements": [
+            "finish source verb sinned with letters ned"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      }
+    ],
+    "dennis sin": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "dennis-verb-fragment",
+          "known_control": true,
+          "partial_grammar": "subject + incomplete source past-verb lexeme",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "dennis",
+            "sin"
+          ],
+          "parts": [
+            "Dennis sin"
+          ],
+          "source": {
+            "locator": "data/known_palindromes.json#dennissinned",
+            "parent_text": "Dennis sinned.",
+            "parent_text_sha256": "ed21e98e32394311bbfb7e6b4ff658284695633b5b965553fb68be2f14bf5c7c",
+            "parent_normalized_sha256": "bf43742de9be3fa8ff32bc2589cd96c6498b60a05a65eda1c91e03ddcc5b2dae",
+            "surface_span": [
+              0,
+              10
+            ],
+            "normalized_span": [
+              0,
+              9
+            ]
+          },
+          "completion_requirements": [
+            "finish source verb sinned with letters ned"
+          ]
+        },
+        "word_span": [
+          0,
+          2
+        ]
+      }
+    ],
+    "dennis sinned": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "dennis",
+          "human_validated": false,
+          "source": "data/known_palindromes.json#dennissinned",
+          "known_control": true,
+          "words": [
+            "dennis",
+            "sinned"
+          ],
+          "parts": [
+            "dennis sinned"
+          ]
+        },
+        "word_span": [
+          0,
+          2
+        ]
+      }
+    ],
+    "eva": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#eva",
+          "known_control": true,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees",
+            "in",
+            "a",
+            "cave"
+          ],
+          "parts": [
+            "eva can i see bees in a cave"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva-prefix",
+          "known_control": true,
+          "partial_grammar": "modal question parse; optional location pending",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees"
+          ],
+          "parts": [
+            "Eva, can I see bees"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#eva",
+            "parent_text": "Eva, can I see bees in a cave?",
+            "parent_text_sha256": "8da5ed7275eba9a7981588a63589b9e9a9a0efe6b8b546835ac4fe1ed8f901af",
+            "parent_normalized_sha256": "2b7b9ad8a6c5672194b90ae0612c1423daa0a99f83e15d035c788034a6585969",
+            "surface_span": [
+              0,
+              19
+            ],
+            "normalized_span": [
+              0,
+              14
+            ]
+          },
+          "completion_requirements": [
+            "attach PP in a cave"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      }
+    ],
+    "eva can i see bees": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#eva",
+          "known_control": true,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees",
+            "in",
+            "a",
+            "cave"
+          ],
+          "parts": [
+            "eva can i see bees in a cave"
+          ]
+        },
+        "word_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva-prefix",
+          "known_control": true,
+          "partial_grammar": "modal question parse; optional location pending",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees"
+          ],
+          "parts": [
+            "Eva, can I see bees"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#eva",
+            "parent_text": "Eva, can I see bees in a cave?",
+            "parent_text_sha256": "8da5ed7275eba9a7981588a63589b9e9a9a0efe6b8b546835ac4fe1ed8f901af",
+            "parent_normalized_sha256": "2b7b9ad8a6c5672194b90ae0612c1423daa0a99f83e15d035c788034a6585969",
+            "surface_span": [
+              0,
+              19
+            ],
+            "normalized_span": [
+              0,
+              14
+            ]
+          },
+          "completion_requirements": [
+            "attach PP in a cave"
+          ]
+        },
+        "word_span": [
+          0,
+          5
+        ]
+      }
+    ],
+    "eva can i see bees in a cave": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#eva",
+          "known_control": true,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees",
+            "in",
+            "a",
+            "cave"
+          ],
+          "parts": [
+            "eva can i see bees in a cave"
+          ]
+        },
+        "word_span": [
+          0,
+          8
+        ]
+      }
+    ],
+    "gardener": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-6",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "moves",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "moves",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-7",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "holds",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "holds",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-8",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "carries",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "carries",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      }
+    ],
+    "holds": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-1",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "holds",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "holds",
+            "the map"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-4",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "holds",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "holds",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-7",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "holds",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "holds",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      }
+    ],
+    "i": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#eva",
+          "known_control": true,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees",
+            "in",
+            "a",
+            "cave"
+          ],
+          "parts": [
+            "eva can i see bees in a cave"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#rat",
+          "known_control": true,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat",
+            "i",
+            "saw"
+          ],
+          "parts": [
+            "was it a rat i saw"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva-prefix",
+          "known_control": true,
+          "partial_grammar": "modal question parse; optional location pending",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees"
+          ],
+          "parts": [
+            "Eva, can I see bees"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#eva",
+            "parent_text": "Eva, can I see bees in a cave?",
+            "parent_text_sha256": "8da5ed7275eba9a7981588a63589b9e9a9a0efe6b8b546835ac4fe1ed8f901af",
+            "parent_normalized_sha256": "2b7b9ad8a6c5672194b90ae0612c1423daa0a99f83e15d035c788034a6585969",
+            "surface_span": [
+              0,
+              19
+            ],
+            "normalized_span": [
+              0,
+              14
+            ]
+          },
+          "completion_requirements": [
+            "attach PP in a cave"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva-clause",
+          "known_control": true,
+          "partial_grammar": "complete subject + transitive predicate + plural patient",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "i",
+            "see",
+            "bees"
+          ],
+          "parts": [
+            "I see bees"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#eva",
+            "parent_text": "Eva, can I see bees in a cave?",
+            "parent_text_sha256": "8da5ed7275eba9a7981588a63589b9e9a9a0efe6b8b546835ac4fe1ed8f901af",
+            "parent_normalized_sha256": "2b7b9ad8a6c5672194b90ae0612c1423daa0a99f83e15d035c788034a6585969",
+            "surface_span": [
+              9,
+              19
+            ],
+            "normalized_span": [
+              6,
+              14
+            ]
+          },
+          "completion_requirements": [
+            "source-anchored mirror needs i on right; adding bare I is not grammar-certified"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      }
+    ],
+    "i see bees": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#eva",
+          "known_control": true,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees",
+            "in",
+            "a",
+            "cave"
+          ],
+          "parts": [
+            "eva can i see bees in a cave"
+          ]
+        },
+        "word_span": [
+          2,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva-prefix",
+          "known_control": true,
+          "partial_grammar": "modal question parse; optional location pending",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees"
+          ],
+          "parts": [
+            "Eva, can I see bees"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#eva",
+            "parent_text": "Eva, can I see bees in a cave?",
+            "parent_text_sha256": "8da5ed7275eba9a7981588a63589b9e9a9a0efe6b8b546835ac4fe1ed8f901af",
+            "parent_normalized_sha256": "2b7b9ad8a6c5672194b90ae0612c1423daa0a99f83e15d035c788034a6585969",
+            "surface_span": [
+              0,
+              19
+            ],
+            "normalized_span": [
+              0,
+              14
+            ]
+          },
+          "completion_requirements": [
+            "attach PP in a cave"
+          ]
+        },
+        "word_span": [
+          2,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva-clause",
+          "known_control": true,
+          "partial_grammar": "complete subject + transitive predicate + plural patient",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "i",
+            "see",
+            "bees"
+          ],
+          "parts": [
+            "I see bees"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#eva",
+            "parent_text": "Eva, can I see bees in a cave?",
+            "parent_text_sha256": "8da5ed7275eba9a7981588a63589b9e9a9a0efe6b8b546835ac4fe1ed8f901af",
+            "parent_normalized_sha256": "2b7b9ad8a6c5672194b90ae0612c1423daa0a99f83e15d035c788034a6585969",
+            "surface_span": [
+              9,
+              19
+            ],
+            "normalized_span": [
+              6,
+              14
+            ]
+          },
+          "completion_requirements": [
+            "source-anchored mirror needs i on right; adding bare I is not grammar-certified"
+          ]
+        },
+        "word_span": [
+          0,
+          3
+        ]
+      }
+    ],
+    "in": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#eva",
+          "known_control": true,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees",
+            "in",
+            "a",
+            "cave"
+          ],
+          "parts": [
+            "eva can i see bees in a cave"
+          ]
+        },
+        "word_span": [
+          5,
+          6
+        ]
+      }
+    ],
+    "is": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#war",
+          "known_control": true,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war",
+            "is",
+            "won"
+          ],
+          "parts": [
+            "now sir a war is won"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      }
+    ],
+    "it": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#rat",
+          "known_control": true,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat",
+            "i",
+            "saw"
+          ],
+          "parts": [
+            "was it a rat i saw"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat-prefix",
+          "known_control": true,
+          "partial_grammar": "copular interrogative clause",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat"
+          ],
+          "parts": [
+            "Was it a rat"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#rat",
+            "parent_text": "Was it a rat I saw?",
+            "parent_text_sha256": "936758db15dc984f7850fcccd1d4107e16c2aef71752aca8cca344321414db57",
+            "parent_normalized_sha256": "521605467a22cea839ed7458341ef6f996340f80e823fbeea864033a8bf19e95",
+            "surface_span": [
+              0,
+              12
+            ],
+            "normalized_span": [
+              0,
+              9
+            ]
+          },
+          "completion_requirements": [
+            "object-relative I saw attaches to rat"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      }
+    ],
+    "lisa": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "basil",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#basil",
+          "known_control": true,
+          "words": [
+            "lisa",
+            "bonet",
+            "ate",
+            "no",
+            "basil"
+          ],
+          "parts": [
+            "lisa bonet ate no basil"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "basil-prefix",
+          "known_control": true,
+          "partial_grammar": "subject + past eating predicate",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "lisa",
+            "bonet",
+            "ate"
+          ],
+          "parts": [
+            "Lisa Bonet ate"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#basil",
+            "parent_text": "Lisa Bonet ate no basil.",
+            "parent_text_sha256": "52359c330a66b4412831d20f9cf8b845d38e5d58ae4ade09fa6def140adfe9cb",
+            "parent_normalized_sha256": "3921bad6ba4eda430a95ce0b1c36309fbcecfbd8133660bd42dc8b28e76e9d4e",
+            "surface_span": [
+              0,
+              14
+            ],
+            "normalized_span": [
+              0,
+              12
+            ]
+          },
+          "completion_requirements": [
+            "source patient no basil; source-indexed completion"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      }
+    ],
+    "map": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-0",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "reads",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "reads",
+            "the map"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-1",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "holds",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "holds",
+            "the map"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-2",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "carries",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "carries",
+            "the map"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      }
+    ],
+    "moves": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-3",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "moves",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "moves",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-6",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "moves",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "moves",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      }
+    ],
+    "no": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "basil",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#basil",
+          "known_control": true,
+          "words": [
+            "lisa",
+            "bonet",
+            "ate",
+            "no",
+            "basil"
+          ],
+          "parts": [
+            "lisa bonet ate no basil"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "step",
+          "human_validated": false,
+          "source": "data/known_palindromes.json#steponnopets",
+          "known_control": true,
+          "words": [
+            "step",
+            "on",
+            "no",
+            "pets"
+          ],
+          "parts": [
+            "step on no pets"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "step-prefix",
+          "known_control": true,
+          "partial_grammar": "imperative + PP with incomplete quantified NP",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "step",
+            "on",
+            "no"
+          ],
+          "parts": [
+            "Step on no"
+          ],
+          "source": {
+            "locator": "data/known_palindromes.json#steponnopets",
+            "parent_text": "Step on no pets.",
+            "parent_text_sha256": "8f5149edb33522bf8ac820b30e282c79e4402160c38001f9aee37072d24c896a",
+            "parent_normalized_sha256": "5f5f6a5c7880a65678fcda6cf365ffe9ed45f367eb63720a9f26accb939d2073",
+            "surface_span": [
+              0,
+              10
+            ],
+            "normalized_span": [
+              0,
+              8
+            ]
+          },
+          "completion_requirements": [
+            "plural noun pets completes on no pets"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      }
+    ],
+    "now": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#war",
+          "known_control": true,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war",
+            "is",
+            "won"
+          ],
+          "parts": [
+            "now sir a war is won"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war-prefix",
+          "known_control": true,
+          "partial_grammar": "adjunct + vocative + subject NP; incomplete finite clause",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war"
+          ],
+          "parts": [
+            "Now, sir, a war"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#war",
+            "parent_text": "Now, sir, a war is won.",
+            "parent_text_sha256": "b6a031ac56eb41dee8b2a789f34283264b63fabd59d93344c65e7f8f5bed9159",
+            "parent_normalized_sha256": "7b47821d7d56fc8eddcade336c202e4b8bf987aedc6eeaff26ea86ab26edc1a6",
+            "surface_span": [
+              0,
+              15
+            ],
+            "normalized_span": [
+              0,
+              10
+            ]
+          },
+          "completion_requirements": [
+            "finite passive is won"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      }
+    ],
+    "now sir a war": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#war",
+          "known_control": true,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war",
+            "is",
+            "won"
+          ],
+          "parts": [
+            "now sir a war is won"
+          ]
+        },
+        "word_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war-prefix",
+          "known_control": true,
+          "partial_grammar": "adjunct + vocative + subject NP; incomplete finite clause",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war"
+          ],
+          "parts": [
+            "Now, sir, a war"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#war",
+            "parent_text": "Now, sir, a war is won.",
+            "parent_text_sha256": "b6a031ac56eb41dee8b2a789f34283264b63fabd59d93344c65e7f8f5bed9159",
+            "parent_normalized_sha256": "7b47821d7d56fc8eddcade336c202e4b8bf987aedc6eeaff26ea86ab26edc1a6",
+            "surface_span": [
+              0,
+              15
+            ],
+            "normalized_span": [
+              0,
+              10
+            ]
+          },
+          "completion_requirements": [
+            "finite passive is won"
+          ]
+        },
+        "word_span": [
+          0,
+          4
+        ]
+      }
+    ],
+    "now sir a war is won": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#war",
+          "known_control": true,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war",
+            "is",
+            "won"
+          ],
+          "parts": [
+            "now sir a war is won"
+          ]
+        },
+        "word_span": [
+          0,
+          6
+        ]
+      }
+    ],
+    "on": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "step",
+          "human_validated": false,
+          "source": "data/known_palindromes.json#steponnopets",
+          "known_control": true,
+          "words": [
+            "step",
+            "on",
+            "no",
+            "pets"
+          ],
+          "parts": [
+            "step on no pets"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "step-prefix",
+          "known_control": true,
+          "partial_grammar": "imperative + PP with incomplete quantified NP",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "step",
+            "on",
+            "no"
+          ],
+          "parts": [
+            "Step on no"
+          ],
+          "source": {
+            "locator": "data/known_palindromes.json#steponnopets",
+            "parent_text": "Step on no pets.",
+            "parent_text_sha256": "8f5149edb33522bf8ac820b30e282c79e4402160c38001f9aee37072d24c896a",
+            "parent_normalized_sha256": "5f5f6a5c7880a65678fcda6cf365ffe9ed45f367eb63720a9f26accb939d2073",
+            "surface_span": [
+              0,
+              10
+            ],
+            "normalized_span": [
+              0,
+              8
+            ]
+          },
+          "completion_requirements": [
+            "plural noun pets completes on no pets"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      }
+    ],
+    "pets": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "step",
+          "human_validated": false,
+          "source": "data/known_palindromes.json#steponnopets",
+          "known_control": true,
+          "words": [
+            "step",
+            "on",
+            "no",
+            "pets"
+          ],
+          "parts": [
+            "step on no pets"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      }
+    ],
+    "pilot": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-0",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "reads",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "reads",
+            "the map"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-1",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "holds",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "holds",
+            "the map"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-2",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "carries",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "carries",
+            "the map"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      }
+    ],
+    "pot": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-6",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "moves",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "moves",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-7",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "holds",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "holds",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-8",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "carries",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "carries",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      }
+    ],
+    "rat": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#rat",
+          "known_control": true,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat",
+            "i",
+            "saw"
+          ],
+          "parts": [
+            "was it a rat i saw"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat-prefix",
+          "known_control": true,
+          "partial_grammar": "copular interrogative clause",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat"
+          ],
+          "parts": [
+            "Was it a rat"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#rat",
+            "parent_text": "Was it a rat I saw?",
+            "parent_text_sha256": "936758db15dc984f7850fcccd1d4107e16c2aef71752aca8cca344321414db57",
+            "parent_normalized_sha256": "521605467a22cea839ed7458341ef6f996340f80e823fbeea864033a8bf19e95",
+            "surface_span": [
+              0,
+              12
+            ],
+            "normalized_span": [
+              0,
+              9
+            ]
+          },
+          "completion_requirements": [
+            "object-relative I saw attaches to rat"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      }
+    ],
+    "reads": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-0",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "reads",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "reads",
+            "the map"
+          ]
+        },
+        "word_span": [
+          2,
+          3
+        ]
+      }
+    ],
+    "saw": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#rat",
+          "known_control": true,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat",
+            "i",
+            "saw"
+          ],
+          "parts": [
+            "was it a rat i saw"
+          ]
+        },
+        "word_span": [
+          5,
+          6
+        ]
+      }
+    ],
+    "see": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#eva",
+          "known_control": true,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees",
+            "in",
+            "a",
+            "cave"
+          ],
+          "parts": [
+            "eva can i see bees in a cave"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva-prefix",
+          "known_control": true,
+          "partial_grammar": "modal question parse; optional location pending",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "eva",
+            "can",
+            "i",
+            "see",
+            "bees"
+          ],
+          "parts": [
+            "Eva, can I see bees"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#eva",
+            "parent_text": "Eva, can I see bees in a cave?",
+            "parent_text_sha256": "8da5ed7275eba9a7981588a63589b9e9a9a0efe6b8b546835ac4fe1ed8f901af",
+            "parent_normalized_sha256": "2b7b9ad8a6c5672194b90ae0612c1423daa0a99f83e15d035c788034a6585969",
+            "surface_span": [
+              0,
+              19
+            ],
+            "normalized_span": [
+              0,
+              14
+            ]
+          },
+          "completion_requirements": [
+            "attach PP in a cave"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "eva-clause",
+          "known_control": true,
+          "partial_grammar": "complete subject + transitive predicate + plural patient",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "i",
+            "see",
+            "bees"
+          ],
+          "parts": [
+            "I see bees"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#eva",
+            "parent_text": "Eva, can I see bees in a cave?",
+            "parent_text_sha256": "8da5ed7275eba9a7981588a63589b9e9a9a0efe6b8b546835ac4fe1ed8f901af",
+            "parent_normalized_sha256": "2b7b9ad8a6c5672194b90ae0612c1423daa0a99f83e15d035c788034a6585969",
+            "surface_span": [
+              9,
+              19
+            ],
+            "normalized_span": [
+              6,
+              14
+            ]
+          },
+          "completion_requirements": [
+            "source-anchored mirror needs i on right; adding bare I is not grammar-certified"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      }
+    ],
+    "sinned": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "dennis",
+          "human_validated": false,
+          "source": "data/known_palindromes.json#dennissinned",
+          "known_control": true,
+          "words": [
+            "dennis",
+            "sinned"
+          ],
+          "parts": [
+            "dennis sinned"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      }
+    ],
+    "sir": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#war",
+          "known_control": true,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war",
+            "is",
+            "won"
+          ],
+          "parts": [
+            "now sir a war is won"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war-prefix",
+          "known_control": true,
+          "partial_grammar": "adjunct + vocative + subject NP; incomplete finite clause",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war"
+          ],
+          "parts": [
+            "Now, sir, a war"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#war",
+            "parent_text": "Now, sir, a war is won.",
+            "parent_text_sha256": "b6a031ac56eb41dee8b2a789f34283264b63fabd59d93344c65e7f8f5bed9159",
+            "parent_normalized_sha256": "7b47821d7d56fc8eddcade336c202e4b8bf987aedc6eeaff26ea86ab26edc1a6",
+            "surface_span": [
+              0,
+              15
+            ],
+            "normalized_span": [
+              0,
+              10
+            ]
+          },
+          "completion_requirements": [
+            "finite passive is won"
+          ]
+        },
+        "word_span": [
+          1,
+          2
+        ]
+      }
+    ],
+    "step": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "step",
+          "human_validated": false,
+          "source": "data/known_palindromes.json#steponnopets",
+          "known_control": true,
+          "words": [
+            "step",
+            "on",
+            "no",
+            "pets"
+          ],
+          "parts": [
+            "step on no pets"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "step-prefix",
+          "known_control": true,
+          "partial_grammar": "imperative + PP with incomplete quantified NP",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "step",
+            "on",
+            "no"
+          ],
+          "parts": [
+            "Step on no"
+          ],
+          "source": {
+            "locator": "data/known_palindromes.json#steponnopets",
+            "parent_text": "Step on no pets.",
+            "parent_text_sha256": "8f5149edb33522bf8ac820b30e282c79e4402160c38001f9aee37072d24c896a",
+            "parent_normalized_sha256": "5f5f6a5c7880a65678fcda6cf365ffe9ed45f367eb63720a9f26accb939d2073",
+            "surface_span": [
+              0,
+              10
+            ],
+            "normalized_span": [
+              0,
+              8
+            ]
+          },
+          "completion_requirements": [
+            "plural noun pets completes on no pets"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      }
+    ],
+    "step on no": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "step",
+          "human_validated": false,
+          "source": "data/known_palindromes.json#steponnopets",
+          "known_control": true,
+          "words": [
+            "step",
+            "on",
+            "no",
+            "pets"
+          ],
+          "parts": [
+            "step on no pets"
+          ]
+        },
+        "word_span": [
+          0,
+          3
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "step-prefix",
+          "known_control": true,
+          "partial_grammar": "imperative + PP with incomplete quantified NP",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "step",
+            "on",
+            "no"
+          ],
+          "parts": [
+            "Step on no"
+          ],
+          "source": {
+            "locator": "data/known_palindromes.json#steponnopets",
+            "parent_text": "Step on no pets.",
+            "parent_text_sha256": "8f5149edb33522bf8ac820b30e282c79e4402160c38001f9aee37072d24c896a",
+            "parent_normalized_sha256": "5f5f6a5c7880a65678fcda6cf365ffe9ed45f367eb63720a9f26accb939d2073",
+            "surface_span": [
+              0,
+              10
+            ],
+            "normalized_span": [
+              0,
+              8
+            ]
+          },
+          "completion_requirements": [
+            "plural noun pets completes on no pets"
+          ]
+        },
+        "word_span": [
+          0,
+          3
+        ]
+      }
+    ],
+    "step on no pets": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "step",
+          "human_validated": false,
+          "source": "data/known_palindromes.json#steponnopets",
+          "known_control": true,
+          "words": [
+            "step",
+            "on",
+            "no",
+            "pets"
+          ],
+          "parts": [
+            "step on no pets"
+          ]
+        },
+        "word_span": [
+          0,
+          4
+        ]
+      }
+    ],
+    "the": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-0",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "reads",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "reads",
+            "the map"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-0",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "reads",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "reads",
+            "the map"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-1",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "holds",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "holds",
+            "the map"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-1",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "holds",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "holds",
+            "the map"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-2",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "carries",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "carries",
+            "the map"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-2",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "carries",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "carries",
+            "the map"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-6",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "moves",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "moves",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-7",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "holds",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "holds",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-8",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "carries",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "carries",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      }
+    ],
+    "the gardener": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-6",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "moves",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "moves",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          0,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-7",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "holds",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "holds",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          0,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-8",
+          "human_validated": false,
+          "words": [
+            "the",
+            "gardener",
+            "carries",
+            "a",
+            "pot"
+          ],
+          "parts": [
+            "the gardener",
+            "carries",
+            "a pot"
+          ]
+        },
+        "word_span": [
+          0,
+          2
+        ]
+      }
+    ],
+    "the map": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-0",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "reads",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "reads",
+            "the map"
+          ]
+        },
+        "word_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-1",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "holds",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "holds",
+            "the map"
+          ]
+        },
+        "word_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-2",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "carries",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "carries",
+            "the map"
+          ]
+        },
+        "word_span": [
+          3,
+          5
+        ]
+      }
+    ],
+    "the pilot": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-0",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "reads",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "reads",
+            "the map"
+          ]
+        },
+        "word_span": [
+          0,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-1",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "holds",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "holds",
+            "the map"
+          ]
+        },
+        "word_span": [
+          0,
+          2
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-2",
+          "human_validated": false,
+          "words": [
+            "the",
+            "pilot",
+            "carries",
+            "the",
+            "map"
+          ],
+          "parts": [
+            "the pilot",
+            "carries",
+            "the map"
+          ]
+        },
+        "word_span": [
+          0,
+          2
+        ]
+      }
+    ],
+    "tray": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-3",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "moves",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "moves",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-4",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "holds",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "holds",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "scene-draft-5",
+          "human_validated": false,
+          "words": [
+            "a",
+            "baker",
+            "carries",
+            "a",
+            "tray"
+          ],
+          "parts": [
+            "a baker",
+            "carries",
+            "a tray"
+          ]
+        },
+        "word_span": [
+          4,
+          5
+        ]
+      }
+    ],
+    "war": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#war",
+          "known_control": true,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war",
+            "is",
+            "won"
+          ],
+          "parts": [
+            "now sir a war is won"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war-prefix",
+          "known_control": true,
+          "partial_grammar": "adjunct + vocative + subject NP; incomplete finite clause",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war"
+          ],
+          "parts": [
+            "Now, sir, a war"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#war",
+            "parent_text": "Now, sir, a war is won.",
+            "parent_text_sha256": "b6a031ac56eb41dee8b2a789f34283264b63fabd59d93344c65e7f8f5bed9159",
+            "parent_normalized_sha256": "7b47821d7d56fc8eddcade336c202e4b8bf987aedc6eeaff26ea86ab26edc1a6",
+            "surface_span": [
+              0,
+              15
+            ],
+            "normalized_span": [
+              0,
+              10
+            ]
+          },
+          "completion_requirements": [
+            "finite passive is won"
+          ]
+        },
+        "word_span": [
+          3,
+          4
+        ]
+      }
+    ],
+    "was": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#rat",
+          "known_control": true,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat",
+            "i",
+            "saw"
+          ],
+          "parts": [
+            "was it a rat i saw"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat-prefix",
+          "known_control": true,
+          "partial_grammar": "copular interrogative clause",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat"
+          ],
+          "parts": [
+            "Was it a rat"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#rat",
+            "parent_text": "Was it a rat I saw?",
+            "parent_text_sha256": "936758db15dc984f7850fcccd1d4107e16c2aef71752aca8cca344321414db57",
+            "parent_normalized_sha256": "521605467a22cea839ed7458341ef6f996340f80e823fbeea864033a8bf19e95",
+            "surface_span": [
+              0,
+              12
+            ],
+            "normalized_span": [
+              0,
+              9
+            ]
+          },
+          "completion_requirements": [
+            "object-relative I saw attaches to rat"
+          ]
+        },
+        "word_span": [
+          0,
+          1
+        ]
+      }
+    ],
+    "was it a rat": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#rat",
+          "known_control": true,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat",
+            "i",
+            "saw"
+          ],
+          "parts": [
+            "was it a rat i saw"
+          ]
+        },
+        "word_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat-prefix",
+          "known_control": true,
+          "partial_grammar": "copular interrogative clause",
+          "attribution_type": "source-anchored partial; may contain unfinished lexeme",
+          "human_validated": false,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat"
+          ],
+          "parts": [
+            "Was it a rat"
+          ],
+          "source": {
+            "locator": "data/readable_palindrome_centres.json#rat",
+            "parent_text": "Was it a rat I saw?",
+            "parent_text_sha256": "936758db15dc984f7850fcccd1d4107e16c2aef71752aca8cca344321414db57",
+            "parent_normalized_sha256": "521605467a22cea839ed7458341ef6f996340f80e823fbeea864033a8bf19e95",
+            "surface_span": [
+              0,
+              12
+            ],
+            "normalized_span": [
+              0,
+              9
+            ]
+          },
+          "completion_requirements": [
+            "object-relative I saw attaches to rat"
+          ]
+        },
+        "word_span": [
+          0,
+          4
+        ]
+      }
+    ],
+    "was it a rat i saw": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "rat",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#rat",
+          "known_control": true,
+          "words": [
+            "was",
+            "it",
+            "a",
+            "rat",
+            "i",
+            "saw"
+          ],
+          "parts": [
+            "was it a rat i saw"
+          ]
+        },
+        "word_span": [
+          0,
+          6
+        ]
+      }
+    ],
+    "won": [
+      {
+        "attribution": "possible retained occurrence; not selected authorship",
+        "source_record": {
+          "lineage": "war",
+          "human_validated": false,
+          "source": "data/readable_palindrome_centres.json#war",
+          "known_control": true,
+          "words": [
+            "now",
+            "sir",
+            "a",
+            "war",
+            "is",
+            "won"
+          ],
+          "parts": [
+            "now sir a war is won"
+          ]
+        },
+        "word_span": [
+          5,
+          6
+        ]
+      }
+    ]
+  },
+  "scene_records": [
+    {
+      "lineage": "scene-draft-0",
+      "human_validated": false,
+      "words": [
+        "the",
+        "pilot",
+        "reads",
+        "the",
+        "map"
+      ],
+      "parts": [
+        "the pilot",
+        "reads",
+        "the map"
+      ]
+    },
+    {
+      "lineage": "scene-draft-1",
+      "human_validated": false,
+      "words": [
+        "the",
+        "pilot",
+        "holds",
+        "the",
+        "map"
+      ],
+      "parts": [
+        "the pilot",
+        "holds",
+        "the map"
+      ]
+    },
+    {
+      "lineage": "scene-draft-2",
+      "human_validated": false,
+      "words": [
+        "the",
+        "pilot",
+        "carries",
+        "the",
+        "map"
+      ],
+      "parts": [
+        "the pilot",
+        "carries",
+        "the map"
+      ]
+    },
+    {
+      "lineage": "scene-draft-3",
+      "human_validated": false,
+      "words": [
+        "a",
+        "baker",
+        "moves",
+        "a",
+        "tray"
+      ],
+      "parts": [
+        "a baker",
+        "moves",
+        "a tray"
+      ]
+    },
+    {
+      "lineage": "scene-draft-4",
+      "human_validated": false,
+      "words": [
+        "a",
+        "baker",
+        "holds",
+        "a",
+        "tray"
+      ],
+      "parts": [
+        "a baker",
+        "holds",
+        "a tray"
+      ]
+    },
+    {
+      "lineage": "scene-draft-5",
+      "human_validated": false,
+      "words": [
+        "a",
+        "baker",
+        "carries",
+        "a",
+        "tray"
+      ],
+      "parts": [
+        "a baker",
+        "carries",
+        "a tray"
+      ]
+    },
+    {
+      "lineage": "scene-draft-6",
+      "human_validated": false,
+      "words": [
+        "the",
+        "gardener",
+        "moves",
+        "a",
+        "pot"
+      ],
+      "parts": [
+        "the gardener",
+        "moves",
+        "a pot"
+      ]
+    },
+    {
+      "lineage": "scene-draft-7",
+      "human_validated": false,
+      "words": [
+        "the",
+        "gardener",
+        "holds",
+        "a",
+        "pot"
+      ],
+      "parts": [
+        "the gardener",
+        "holds",
+        "a pot"
+      ]
+    },
+    {
+      "lineage": "scene-draft-8",
+      "human_validated": false,
+      "words": [
+        "the",
+        "gardener",
+        "carries",
+        "a",
+        "pot"
+      ],
+      "parts": [
+        "the gardener",
+        "carries",
+        "a pot"
+      ]
+    },
+    {
+      "lineage": "eva",
+      "human_validated": false,
+      "source": "data/readable_palindrome_centres.json#eva",
+      "known_control": true,
+      "words": [
+        "eva",
+        "can",
+        "i",
+        "see",
+        "bees",
+        "in",
+        "a",
+        "cave"
+      ],
+      "parts": [
+        "eva can i see bees in a cave"
+      ]
+    },
+    {
+      "lineage": "rat",
+      "human_validated": false,
+      "source": "data/readable_palindrome_centres.json#rat",
+      "known_control": true,
+      "words": [
+        "was",
+        "it",
+        "a",
+        "rat",
+        "i",
+        "saw"
+      ],
+      "parts": [
+        "was it a rat i saw"
+      ]
+    },
+    {
+      "lineage": "war",
+      "human_validated": false,
+      "source": "data/readable_palindrome_centres.json#war",
+      "known_control": true,
+      "words": [
+        "now",
+        "sir",
+        "a",
+        "war",
+        "is",
+        "won"
+      ],
+      "parts": [
+        "now sir a war is won"
+      ]
+    },
+    {
+      "lineage": "dennis",
+      "human_validated": false,
+      "source": "data/known_palindromes.json#dennissinned",
+      "known_control": true,
+      "words": [
+        "dennis",
+        "sinned"
+      ],
+      "parts": [
+        "dennis sinned"
+      ]
+    },
+    {
+      "lineage": "step",
+      "human_validated": false,
+      "source": "data/known_palindromes.json#steponnopets",
+      "known_control": true,
+      "words": [
+        "step",
+        "on",
+        "no",
+        "pets"
+      ],
+      "parts": [
+        "step on no pets"
+      ]
+    }
+  ],
+  "seeds": [
+    921,
+    922,
+    923
+  ],
+  "budget": {
+    "aggregate_seconds": 60,
+    "maximum_cell_seconds": 5,
+    "workers": 1,
+    "cells": 12,
+    "beam_width": 32,
+    "max_expansions": 2000,
+    "max_added_words": 64,
+    "minimum_clauses": 2,
+    "maximum_clauses": 4,
+    "distinct_clauses": true,
+    "shared_overhead_reserve_seconds": 0.25,
+    "allocated_cell_seconds": 4.900587357667973,
+    "letter_bands": [
+      [
+        60,
+        119
+      ],
+      [
+        120,
+        239
+      ]
+    ]
+  },
+  "preflight": {
+    "vocabulary_verified": true,
+    "grammar_source": "source-independent finite NP/predicate/complement productions with agreement and article selection; no human meaning certification",
+    "start_overlap": [],
+    "unavailable_lexemes_excluded": [
+      "bonet"
+    ],
+    "vocabulary_sources": {
+      "a": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "ate": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "baker": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "basil": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "bees": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "can": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "carries": [
+        "tools/polaris/payload/vocab30k.txt"
+      ],
+      "cave": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "dennis": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "eva": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "gardener": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "holds": [
+        "tools/polaris/payload/vocab30k.txt"
+      ],
+      "i": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "in": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "is": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "it": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "lisa": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "map": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "moves": [
+        "tools/polaris/payload/vocab30k.txt"
+      ],
+      "no": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "now": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "on": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "pets": [
+        "tools/polaris/payload/vocab30k.txt"
+      ],
+      "pilot": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "pot": [
+        "data/lexicon.txt"
+      ],
+      "rat": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "reads": [
+        "tools/polaris/payload/vocab30k.txt"
+      ],
+      "saw": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "see": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "sin": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "sinned": [
+        "tools/polaris/payload/vocab30k.txt"
+      ],
+      "sir": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "step": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "the": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "tray": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "war": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "was": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ],
+      "won": [
+        "tools/polaris/payload/vocab30k.txt",
+        "data/lexicon.txt"
+      ]
+    }
+  },
+  "source_hashes": {
+    "llm_palindrome/search.py": "ca2a236e7a0bcfef74a47df72ad21e2d449e32c779c6f42f241d2222c2bd23a1",
+    "llm_palindrome/scoring.py": "9019333c4ae55bcdfff4874be33702df1eefcc8e8dc2bda0c7d396921d6fd261",
+    "experiments/block_seam_comparison_20261009.py": "290ee8272ae939a5bd2b8575efd2a1f20f53cb4362c83eb06993fc677177bae3",
+    "llm_palindrome/typed_constituents.py": "772bf7ff735dbd5c84b413187c6faa2a9bc9bd41d12fc27851367590ae355daf",
+    "feedback/development/palindrome-island-bank-001.json": "f05bf07533ef5acf943663f5a755ec030223d26f92388230e14e60ad93791a36",
+    "tools/polaris/payload/vocab30k.txt": "6e24f122e2857271de834900c708c7adaab806923b3e45f6e363c4bedbcbdab5",
+    "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6",
+    "feedback/development/heldout-block-seam-comparison-001.json": "c446d2679cbed82921a2187f89310dfc5dba98d323759561f266135836204fe8"
+  },
+  "excluded_normalized": [
+    "ablewasiereisawelba",
+    "acaramanamaraca",
+    "adam",
+    "adogapanicinapagoda",
+    "adogaplanacanalpagoda",
+    "ahsatanseesnatasha",
+    "amanaplanacanalpanama",
+    "amanaprisoneracageirondidnoriegacarenosirpanama",
+    "amoreroma",
+    "ananababanana",
+    "anna",
+    "anutforajaroftuna",
+    "arewenotdrawnonwardwefewdrawnonwardtonewera",
+    "asantadoglivedasadevilgodatnasa",
+    "asantalivedasadevilatnasa",
+    "asipeesiriseepisa",
+    "aslutnixessexintulsa",
+    "atinmugforajarofgumnita",
+    "atoyota",
+    "atoyotasatoyota",
+    "aviddiva",
+    "basil",
+    "borroworrob",
+    "campusmottobottomsupmac",
+    "carton",
+    "cigartossitinacanitissotragic",
+    "dammitimmad",
+    "dan",
+    "deliasawiwasailed",
+    "dennisandednasinned",
+    "dennissinned",
+    "desserts",
+    "dessertsistressed",
+    "docnoteidissentafastneverpreventsafatnessidietoncod",
+    "dogeeseseegod",
+    "dogmaiamgod",
+    "doninemeninterpretninemeninod",
+    "dontnod",
+    "drabasafoolaloofasabard",
+    "drabasafoolasaloofasabard",
+    "drawkward",
+    "drawocoward",
+    "drawpupilslipupward",
+    "egadabasetonedenotesabadage",
+    "egadanadage",
+    "emilpeeddeeplime",
+    "eva",
+    "evacaniseebeesinacave",
+    "evacanistabbatsinacave",
+    "evademedave",
+    "evargotograve",
+    "evilididdwelllewddidilive",
+    "evilisanameofafoemanasilive",
+    "evilolive",
+    "evilratsonnostarlive",
+    "fleetomeremoteelf",
+    "gatemanseesnamegaragemanseesnametag",
+    "godarednuggetafateggunderadog",
+    "godeliveradareviledog",
+    "godog",
+    "godsaveevasdog",
+    "godsawiwasdog",
+    "gohangasalamiimalasagnahog",
+    "golfnosirpreferprisonflog",
+    "ididdidi",
+    "ifihadahifi",
+    "imanamregalagermanami",
+    "lepersrepel",
+    "lewddidiliveevilididdwel",
+    "liamseesmail",
+    "lidoffadaffodil",
+    "lisabonetatenobasil",
+    "livedondecaffacednodevil",
+    "livenotonevil",
+    "liveontimeemitnoevil",
+    "lonelytylenol",
+    "madamimadam",
+    "madaminedenimadam",
+    "mahasaham",
+    "maisanunasiam",
+    "maisasselflessasiam",
+    "mayamoodybabydoomayam",
+    "mrowlatemymetalworm",
+    "murderforajarofredrum",
+    "mustsellattallestsum",
+    "namenooneman",
+    "namenotoneman",
+    "namenowoneman",
+    "naomididimoan",
+    "naomiimoan",
+    "naomisexatnoontaxesimoan",
+    "natebitatibetan",
+    "neverafoottoofareven",
+    "neveroddoreven",
+    "niagaraoroaragain",
+    "nodevillivedon",
+    "noevildidliveon",
+    "noevilshahsliveon",
+    "noitcanassessanaction",
+    "noitisopposition",
+    "nolemonnomelon",
+    "nolemonsnomelon",
+    "nomelonnolemon",
+    "noonemadekillerapparellikedamenoon",
+    "nopetsotragicasacigartostepon",
+    "noriderseesrediron",
+    "normaisasselflessasiamron",
+    "nosirawayapapayawarison",
+    "notabananabaton",
+    "notracenotonecarton",
+    "nowiseebeesiwon",
+    "nowsirawariswon",
+    "noxinmrrmnixon",
+    "noxinnixon",
+    "nurseispygypsiesrun",
+    "ogeronimonominorego",
+    "ohnodonho",
+    "oozyratinasanitaryzoo",
+    "ostonebenotso",
+    "pasasap",
+    "poordanisinadroop",
+    "pullupifipullup",
+    "putitup",
+    "racecar",
+    "racefastsafecar",
+    "racenotonecar",
+    "rat",
+    "ratsliveonnoevilstar",
+    "redrumsirismurder",
+    "risetovotesir",
+    "satanoscillatemymetallicsonatas",
+    "senilefelines",
+    "sexatnoontaxes",
+    "siridemandiamamaidnamediris",
+    "sirimiris",
+    "sirrodneysyendorris",
+    "sitonapotatopanotis",
+    "somanydynamos",
+    "somemeninterpretninememos",
+    "stackcats",
+    "starcomedybydemocrats",
+    "stellawonnowallets",
+    "steponnopets",
+    "stopninemyriadflowiwolfdairymeninpots",
+    "stoppots",
+    "strawnotoostupidafadiputsootonwarts",
+    "stressedwasiereisawdesserts",
+    "sumsarenotsetasatestonerasmus",
+    "sunatnoontanus",
+    "swapgodforajanitorrotinajarofdogpaws",
+    "tacocat",
+    "tenanimalsislaminanet",
+    "toobadihidaboot",
+    "toohottohoot",
+    "topspot",
+    "tradeyenomeremoneyedart",
+    "ufotofu",
+    "war",
+    "warsawwasraw",
+    "wasitabarorabatisaw",
+    "wasitacaroracatisaw",
+    "wasitacatisaw",
+    "wasitaratisaw",
+    "wasiteliotstoiletisaw",
+    "wepanicinapew",
+    "wontipanicinapitnow",
+    "wontloversrevoltnow",
+    "wontonnotnow",
+    "yam",
+    "yawnamoreromanway",
+    "yobananaboy",
+    "yrekabakery",
+    "zeussawtwassuez",
+    "zeusseessuez"
+  ],
+  "attribution_gaps": []
+}

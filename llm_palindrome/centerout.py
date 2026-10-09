@@ -177,15 +177,21 @@ def centerout_search(
         closed: list[COState] = []
         parent_limit = _parent_width(beam_width, len(beam), per_parent)
         for state in beam:
+            if deadline is not None and time.monotonic() >= deadline:
+                break
             # Center-out closes only on an exactly empty overhang.
-            closed_ok = (not state.overhang
-                         and (allow_closed is None
-                              or allow_closed(state.left, state.right)))
+            exact_closure = not state.overhang
+            meets_length_floor = state.letters >= min_letters
+            closed_ok = (
+                exact_closure
+                and (not meets_length_floor or allow_closed is None
+                     or allow_closed(state.left, state.right))
+            )
             if closed_ok:
                 closed.append(state)
                 if on_closed is not None and commit_every is None:
                     on_closed(assemble(state))
-                if state.letters >= min_letters:
+                if meets_length_floor:
                     key = (state.letters if maximize == "letters"
                            else state.score / max(1, state.letters))
                     if best is None or key > best[0]:
@@ -193,6 +199,8 @@ def centerout_search(
             child_specs = []
             choices = []
             for placement, w, new_over, new_owner in _expand(state, tries, candidate_limit):
+                if deadline is not None and time.monotonic() >= deadline:
+                    break
                 if len(new_over) > max_overhang:
                     continue
                 if allow_word is not None and not allow_word(placement, w, state):

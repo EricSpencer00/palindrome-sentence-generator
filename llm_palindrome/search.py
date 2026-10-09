@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import heapq
 import random
+import time
 from dataclasses import dataclass, field
 from typing import Optional, Sequence
 
@@ -269,6 +270,7 @@ def beam_search(
     initial_state: Optional[State] = None,
     allow_state=None,
     allow_closed=None,
+    deadline: Optional[float] = None,
 ) -> list[str]:
     """Beam search for a word sequence whose letters form a palindrome.
 
@@ -285,6 +287,10 @@ def beam_search(
     character debt is itself palindromic, so callers can require a complete
     clause shape before a short accidental closure becomes the incumbent.
 
+    `deadline` is an optional `time.monotonic()` cutoff. Search stops at the
+    next state or expansion checkpoint and returns the best eligible closure
+    found so far.
+
     `prune(states) -> states` is called every `prune_every` steps; a language
     model uses it to drop branches that are letter-valid but not fluent. It may
     reorder or filter but must not fabricate states, so correctness is unaffected.
@@ -295,7 +301,7 @@ def beam_search(
     best: Optional[tuple[float, list[str]]] = None
 
     for step in range(max_steps):
-        if not beam:
+        if not beam or (deadline is not None and time.monotonic() >= deadline):
             break
         # A scorer may prepare state-level caches.  Candidate-level scorers get
         # the complete legal menu for each parent below.
@@ -304,17 +310,23 @@ def beam_search(
         pool: list[State] = []
         parent_limit = _parent_width(beam_width, len(beam), per_parent)
         for state in beam:
+            if deadline is not None and time.monotonic() >= deadline:
+                break
             over = state.overhang
             closable = over == over[::-1]
-            closed_ok = allow_closed is None or allow_closed(state.left, state.right)
-            if closable and closed_ok and state.letters >= min_letters:
-                words = list(state.left) + list(state.right)
-                per_letter = state.score / max(1, state.letters)
-                if best is None or per_letter > best[0]:
-                    best = (per_letter, words)
+            if closable and state.letters >= min_letters:
+                closed_ok = (allow_closed is None
+                             or allow_closed(state.left, state.right))
+                if closed_ok:
+                    words = list(state.left) + list(state.right)
+                    per_letter = state.score / max(1, state.letters)
+                    if best is None or per_letter > best[0]:
+                        best = (per_letter, words)
             child_specs = []
             choices = []
             for placement, w, new_over, new_side in _expand(state, tries, candidate_limit):
+                if deadline is not None and time.monotonic() >= deadline:
+                    break
                 if len(new_over) > 24:  # unmatchable overhangs stall the search
                     continue
                 if (opening_words is not None and placement == "L"
@@ -349,6 +361,8 @@ def beam_search(
                 children.append(State(sort_key=-priority, left=left, right=right,
                                       overhang=new_over, side=new_side, score=semantic))
             pool.extend(heapq.nsmallest(parent_limit, children))
+            if deadline is not None and time.monotonic() >= deadline:
+                break
         if best is not None and not pool:
             break
         beam = heapq.nsmallest(beam_width, pool)

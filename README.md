@@ -72,6 +72,14 @@ association level. The [length and readability plan](docs/research/2026-10-09-ar
 targets connected 1,000+ letter paragraphs with flexible phrases, boundaries
 and overhangs. That readable-length goal remains unachieved.
 
+The [meaning and reuse rules](docs/research/2026-10-09-meaning-and-reuse.md)
+allow repeated words that serve a useful role, including references and a
+question followed by an answer. Repeated assertions and stock phrases do not
+count as progress. Search limits now support wider beams, longer overhangs and
+fresh constructions without a frozen center. The
+[additional Argonne experiments](runs/argonne-length-meaning-20261009/README.md)
+retain failures and separate mechanical length from whole-text meaning.
+
 ## Recent generations
 
 These are the generations I actually want a reader to see before opening the

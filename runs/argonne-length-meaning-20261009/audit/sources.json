@@ -1,0 +1,973 @@
+{
+  "sources": [
+    {
+      "file": "expanded/batch.json",
+      "sha256": "1f5c0cd619c2d32de166e178151265a479f0d2c211ca3607464e8990f2282f6e",
+      "bytes": 11181,
+      "lane": "unrecognized",
+      "status": "recorded_without_candidate_adapter",
+      "source_accounting": {
+        "status": "completed_bounded_batch",
+        "experiment": "argonne-length-meaning-20261009"
+      },
+      "candidate_observations_enumerated": 0
+    },
+    {
+      "file": "expanded/connected-events-20261009.json",
+      "sha256": "13be0fe6d74df445b13aec802405bc6b74fdb5d76018495286669d562ed11465",
+      "bytes": 362842,
+      "lane": "connected_events",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_bounded_probe",
+        "scenes_planned": 21,
+        "scenes_attempted": 21,
+        "scene_termination_counts": {
+          "frontier_exhausted": 21
+        },
+        "overall_termination": "all_planned_scenes_attempted",
+        "exact_candidates": 0
+      },
+      "candidate_observations_enumerated": 0
+    },
+    {
+      "file": "expanded/connected-events-20261010.json",
+      "sha256": "cb8405f8ae66dcbafb2effb2c7e0fa68a89565d55c82e2afc524fae8bf996b6f",
+      "bytes": 362887,
+      "lane": "connected_events",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_bounded_probe",
+        "scenes_planned": 21,
+        "scenes_attempted": 21,
+        "scene_termination_counts": {
+          "frontier_exhausted": 21
+        },
+        "overall_termination": "all_planned_scenes_attempted",
+        "exact_candidates": 0
+      },
+      "candidate_observations_enumerated": 0
+    },
+    {
+      "file": "expanded/connected-events-20261011.json",
+      "sha256": "8524c4e82235cd19341ce4b77a33ba82e0f5de184d6ec5e6845247b7ded90776",
+      "bytes": 362904,
+      "lane": "connected_events",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_bounded_probe",
+        "scenes_planned": 21,
+        "scenes_attempted": 21,
+        "scene_termination_counts": {
+          "frontier_exhausted": 21
+        },
+        "overall_termination": "all_planned_scenes_attempted",
+        "exact_candidates": 0
+      },
+      "candidate_observations_enumerated": 0
+    },
+    {
+      "file": "expanded/model-meaning-proposals.json",
+      "sha256": "6f66921e3f3d0577f9e22740ce7963e4e95cff751c0430acf7910298b575b99e",
+      "bytes": 241355,
+      "lane": "model_proposal",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed",
+        "planned_attempts": 24,
+        "recorded_attempts": 24,
+        "parsed_candidate_observations": 23,
+        "unparsed_attempts": [
+          {
+            "json_pointer": "/rows/12",
+            "state": "parse_failure",
+            "source_claims": {
+              "attempt": 12,
+              "case_id": "phrase-overhang-short",
+              "arm": "phrase_overhang",
+              "proposal_stage": "initial_proposal",
+              "feedback_parent_attempt": null,
+              "intended_plot": "A person discovers a concrete problem, acts on it, and explains the result in one connected short scene.",
+              "prompt": "Return only a JSON object with exactly two string fields: text (the complete proposed passage) and plot (your description of its intended event).\n\nPropose an exact whole-passage letter palindrome in natural connected English. Ignoring nonletters and case, its full ASCII letter stream must equal its reversal. Use ASCII alphabetic characters. Spaces, punctuation, case and digits do not contribute letters.\n\nAim for 96 normalized ASCII letters; use 40 to 160 without filler.\n\nIntended plot: A person discovers a concrete problem, acts on it, and explains the result in one connected short scene.\n\nExpress who did what to whom and how the events relate. Avoid unrelated lists, names as filler, invented words, repeated palindromic blocks, and famous copied palindromes. Do not explain or list alternative passages. Your plot field is a proposal claim, not an evaluation.\n\nIndependent proposal variant: 6.\n\nPhrase/overhang demonstration: opposite word and sentence boundaries can differ. Design the forced opposite phrase in its actual sentence context, carry unmatched letters across boundaries, and produce one complete exact short passage.\n\nCredited public demonstration by u/catinore (https://www.reddit.com/r/palindromes/comments/1uphsc9/put_it_up_is_a_noose_so_meg_never_idle_i_yet_saw/): “Put it up, is a noose. So Meg, never idle, I yet saw sad losses. O, my master fails evals forever of slaves,” Lia frets, “Amy, Moses — sold as waste yield. I revenge Mose soon as I put it up.”\n\nDo not copy the demonstration. This arm is demonstration-conditioned; any adaptation must retain its credit and cannot claim independent novelty.",
+              "prompt_sha256": "117c63c28ff4fc1c2035342ff934f1adf5a209333018e304e8d9fdf3b2965fec",
+              "seed": 2026100912,
+              "raw_response": "{\n  \"text\": \"He saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw",
+              "candidate": null,
+              "audit": null,
+              "parse_error": "invalid_json",
+              "generated_tokens": 768,
+              "token_limit_reached": true,
+              "elapsed_seconds": 22.27463214704767,
+              "independent_novelty_claim": false,
+              "lineage": {
+                "text": "“Put it up, is a noose. So Meg, never idle, I yet saw sad losses. O, my master fails evals forever of slaves,” Lia frets, “Amy, Moses — sold as waste yield. I revenge Mose soon as I put it up.”",
+                "author": "u/catinore",
+                "author_url": "https://www.reddit.com/user/catinore/",
+                "source_url": "https://www.reddit.com/r/palindromes/comments/1uphsc9/put_it_up_is_a_noose_so_meg_never_idle_i_yet_saw/",
+                "post_id": "t3_1uphsc9",
+                "letters": 137,
+                "normalized_sha256": "eb2d18c193145ed4c5c3b0f2e224603d1cac966aa04532f4577cd7a7ae96b873",
+                "source_path": "data/reddit-palindromes/2026-10-09/posts.json",
+                "credit_limit": "Credit identifies the Reddit poster; original authorship and meaning ratings are not established.",
+                "lineage": "credited demonstration; conditioning/adaptation is not independent discovery"
+              },
+              "meaning_measurement": "not_measured"
+            }
+          }
+        ],
+        "unparsed_state_counts": {
+          "parse_failure": 1
+        },
+        "arm_counts": {
+          "direct": 12,
+          "reconstruction": 10,
+          "phrase_overhang": 2
+        },
+        "stage_counts": {
+          "initial_proposal": 12,
+          "verifier_feedback_retry": 12
+        },
+        "source_stats": {
+          "responses": 24,
+          "parsed_candidates": 23,
+          "invalid_responses": 1,
+          "feedback_retries": 12,
+          "whole_text_exact": 0,
+          "eligible_exact_proposals": 0,
+          "longest_eligible_exact_letters": 0,
+          "meaning_measurements": 0
+        },
+        "config": {
+          "model": "Qwen/Qwen3-8B",
+          "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+          "attempts": 24,
+          "max_new_tokens": 768,
+          "seconds": 900.0,
+          "temperature": 0.7,
+          "top_p": 0.8,
+          "top_k": 20,
+          "enable_thinking": false,
+          "trust_remote_code": false,
+          "implicit_authentication": false,
+          "explicit_hf_token": false,
+          "cache": "/lus/eagle/projects/EVITA/eric-spencer/palindrome/meaning-20261009-v1/results/proposal-hf-cache-0l4djvx3",
+          "cache_reused": true,
+          "cache_policy": "supplied_existing_task_cache",
+          "cuda_only": true,
+          "schedule": "initial + at most one immediate feedback retry; seven cases cycle across pairs",
+          "budget_includes_model_loading": true
+        },
+        "runtime": {
+          "torch": "2.14.0",
+          "transformers": "5.10.4",
+          "cuda": "13.0",
+          "device": "NVIDIA A100-SXM4-40GB",
+          "dtype": "torch.bfloat16",
+          "resolved_model_revision": "b968826d9c46dd6066d109eabc6255188de91218"
+        },
+        "public_sources": [
+          {
+            "id": "568-public",
+            "path": "runs/incumbent-560-outer-causal-scene-20261002.json",
+            "row_id": "outer-causal-scene-568-working-incumbent",
+            "letters": 568,
+            "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+            "text": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+            "file_sha256": "c2d520dd84f17164da62f691aab95cba57d351cd660ed611ac444fdb6679dc13",
+            "lineage": "existing exact construction; no human meaning validation"
+          },
+          {
+            "id": "666-public",
+            "path": "runs/incumbent-666-comparison-alternative-20260922.json",
+            "row_id": "comparison-alternative-nora-sees-666",
+            "letters": 666,
+            "sha256": "cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297",
+            "text": "Leon won. Wolf spots Nora. Nora sees Nadia. Nadia sees Ira. Sara saw God. Ari saw Dog. Mara stops rats. Nora spots a ram. Mara sees rats. Nora stops rats. Nora sees Aram. Mara sees Nadia. Nadia saw Noel live. Mara stops Nadia. Nora sees Aram. Sara saw Noel live. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia sees Mara. Aidan spots Ira. Ari sees God. Dog sees Ira. Ari stops Nadia. Aram sees Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Evil Leon was Aras. Mara sees Aron. Aidan spots Aram. Evil Leon was Aidan. Aidan sees Aram. Mara sees Aron; star spots Aron. Star sees Aram. Mara stops Aron. Star spots Aram. God was Ira. Dog was Aras. Ari sees Aidan. Aidan sees Aron. Aron stops flow now, Noel.",
+            "file_sha256": "b2c3f7c71b264100e91bdb8270fb23ab9d936fdb9d7732eab46aacc61990820f",
+            "lineage": "existing exact construction; no human meaning validation"
+          },
+          {
+            "id": "752-public",
+            "path": "runs/repair-736-center-lexical-event-path-20260923.json",
+            "row_id": null,
+            "letters": 752,
+            "sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c",
+            "text": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+            "file_sha256": "424d9d5fa3a4f8a450f149e3feb2d239f6116b4fe99c60e3328df58fda367a2d",
+            "lineage": "existing exact construction; no human meaning validation"
+          }
+        ],
+        "credited_demonstration": {
+          "text": "“Put it up, is a noose. So Meg, never idle, I yet saw sad losses. O, my master fails evals forever of slaves,” Lia frets, “Amy, Moses — sold as waste yield. I revenge Mose soon as I put it up.”",
+          "author": "u/catinore",
+          "author_url": "https://www.reddit.com/user/catinore/",
+          "source_url": "https://www.reddit.com/r/palindromes/comments/1uphsc9/put_it_up_is_a_noose_so_meg_never_idle_i_yet_saw/",
+          "post_id": "t3_1uphsc9",
+          "letters": 137,
+          "normalized_sha256": "eb2d18c193145ed4c5c3b0f2e224603d1cac966aa04532f4577cd7a7ae96b873",
+          "source_path": "data/reddit-palindromes/2026-10-09/posts.json",
+          "credit_limit": "Credit identifies the Reddit poster; original authorship and meaning ratings are not established.",
+          "lineage": "credited demonstration; conditioning/adaptation is not independent discovery"
+        }
+      },
+      "candidate_observations_enumerated": 23
+    },
+    {
+      "file": "expanded/typed-overhang-20261009.json",
+      "sha256": "836c8759267c4f3bf75d2c824803cabc64f95633b5f432206438b6a6780d88d5",
+      "bytes": 18176,
+      "lane": "typed_overhang",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_diagnostic",
+        "planned_jobs": 4,
+        "recorded_jobs": 4,
+        "terminal_status_counts": {
+          "search_exhausted_no_output": 4
+        },
+        "source_summary": {
+          "planned_jobs": 4,
+          "recorded_jobs": 4,
+          "jobs_with_selected_output": 0,
+          "jobs_with_whole_text_grammar_selected": 0,
+          "human_meaning_evidence": "not_evaluated; no output promoted as readable",
+          "execution_errors": 0
+        }
+      },
+      "candidate_observations_enumerated": 2
+    },
+    {
+      "file": "expanded/typed-overhang-20261010.json",
+      "sha256": "46fee162502be08982bbc24812f07dc41c19f51289cc4e5e75d592351c69bb32",
+      "bytes": 18175,
+      "lane": "typed_overhang",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_diagnostic",
+        "planned_jobs": 4,
+        "recorded_jobs": 4,
+        "terminal_status_counts": {
+          "search_exhausted_no_output": 4
+        },
+        "source_summary": {
+          "planned_jobs": 4,
+          "recorded_jobs": 4,
+          "jobs_with_selected_output": 0,
+          "jobs_with_whole_text_grammar_selected": 0,
+          "human_meaning_evidence": "not_evaluated; no output promoted as readable",
+          "execution_errors": 0
+        }
+      },
+      "candidate_observations_enumerated": 2
+    },
+    {
+      "file": "expanded/typed-overhang-20261011.json",
+      "sha256": "acd4b3c9f9ecdfa52f9f8bb737dc811f9de3e428ffd0cc676d14f35f357b9941",
+      "bytes": 18175,
+      "lane": "typed_overhang",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_diagnostic",
+        "planned_jobs": 4,
+        "recorded_jobs": 4,
+        "terminal_status_counts": {
+          "search_exhausted_no_output": 4
+        },
+        "source_summary": {
+          "planned_jobs": 4,
+          "recorded_jobs": 4,
+          "jobs_with_selected_output": 0,
+          "jobs_with_whole_text_grammar_selected": 0,
+          "human_meaning_evidence": "not_evaluated; no output promoted as readable",
+          "execution_errors": 0
+        }
+      },
+      "candidate_observations_enumerated": 2
+    },
+    {
+      "file": "free/free-typed-20261009.json",
+      "sha256": "8bbfc3c091e4c883f40afdac2fa4ac4a2f85108a2927e33c15ee7e62e318846f",
+      "bytes": 7139,
+      "lane": "free_typed_clauses",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_diagnostic",
+        "planned_jobs": 4,
+        "recorded_jobs": 4,
+        "config": {
+          "seconds": 120.0,
+          "seed": 20261009,
+          "beam_width": 384,
+          "max_letters": 2500,
+          "max_steps": 1500,
+          "max_overhang": 96
+        },
+        "jobs": [
+          {
+            "json_pointer": "/results/0",
+            "min_letters": 30,
+            "max_letters": 2500,
+            "seed": 20261009,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "unique_exact_closures_checked": 26,
+              "closure_disconnected_fact_graph": 2,
+              "closure_incomplete_grammar": 20,
+              "closure_repeated_fact": 4,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.014133566059172153,
+            "error": null,
+            "sampled_candidate_records": 0
+          },
+          {
+            "json_pointer": "/results/1",
+            "min_letters": 80,
+            "max_letters": 2500,
+            "seed": 20261009,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.014814671594649553,
+            "error": null,
+            "sampled_candidate_records": 0
+          },
+          {
+            "json_pointer": "/results/2",
+            "min_letters": 160,
+            "max_letters": 2500,
+            "seed": 20261009,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.01804749993607402,
+            "error": null,
+            "sampled_candidate_records": 0
+          },
+          {
+            "json_pointer": "/results/3",
+            "min_letters": 320,
+            "max_letters": 2500,
+            "seed": 20261009,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.015091309789568186,
+            "error": null,
+            "sampled_candidate_records": 0
+          }
+        ],
+        "terminal_status_counts": {
+          "engine_returned": 4
+        }
+      },
+      "candidate_observations_enumerated": 0
+    },
+    {
+      "file": "free/free-typed-20261010.json",
+      "sha256": "b3800e4600f7bbd1d09d810d6fd9cf2af7f9a0011de5bdf13b6530bb028a3a63",
+      "bytes": 7139,
+      "lane": "free_typed_clauses",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_diagnostic",
+        "planned_jobs": 4,
+        "recorded_jobs": 4,
+        "config": {
+          "seconds": 120.0,
+          "seed": 20261010,
+          "beam_width": 384,
+          "max_letters": 2500,
+          "max_steps": 1500,
+          "max_overhang": 96
+        },
+        "jobs": [
+          {
+            "json_pointer": "/results/0",
+            "min_letters": 30,
+            "max_letters": 2500,
+            "seed": 20261010,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "unique_exact_closures_checked": 26,
+              "closure_disconnected_fact_graph": 2,
+              "closure_incomplete_grammar": 20,
+              "closure_repeated_fact": 4,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.014229655731469393,
+            "error": null,
+            "sampled_candidate_records": 0
+          },
+          {
+            "json_pointer": "/results/1",
+            "min_letters": 80,
+            "max_letters": 2500,
+            "seed": 20261010,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.014942371752113104,
+            "error": null,
+            "sampled_candidate_records": 0
+          },
+          {
+            "json_pointer": "/results/2",
+            "min_letters": 160,
+            "max_letters": 2500,
+            "seed": 20261010,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.018389851786196232,
+            "error": null,
+            "sampled_candidate_records": 0
+          },
+          {
+            "json_pointer": "/results/3",
+            "min_letters": 320,
+            "max_letters": 2500,
+            "seed": 20261010,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.01515407906845212,
+            "error": null,
+            "sampled_candidate_records": 0
+          }
+        ],
+        "terminal_status_counts": {
+          "engine_returned": 4
+        }
+      },
+      "candidate_observations_enumerated": 0
+    },
+    {
+      "file": "free/free-typed-20261011.json",
+      "sha256": "5185be049f1aa8e3a2c62bfc51aa84c8b80fbca3a259f65331bfc4cdc8f9d44b",
+      "bytes": 7138,
+      "lane": "free_typed_clauses",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_diagnostic",
+        "planned_jobs": 4,
+        "recorded_jobs": 4,
+        "config": {
+          "seconds": 120.0,
+          "seed": 20261011,
+          "beam_width": 384,
+          "max_letters": 2500,
+          "max_steps": 1500,
+          "max_overhang": 96
+        },
+        "jobs": [
+          {
+            "json_pointer": "/results/0",
+            "min_letters": 30,
+            "max_letters": 2500,
+            "seed": 20261011,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "unique_exact_closures_checked": 26,
+              "closure_disconnected_fact_graph": 2,
+              "closure_incomplete_grammar": 20,
+              "closure_repeated_fact": 4,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.01420610211789608,
+            "error": null,
+            "sampled_candidate_records": 0
+          },
+          {
+            "json_pointer": "/results/1",
+            "min_letters": 80,
+            "max_letters": 2500,
+            "seed": 20261011,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.014954033773392439,
+            "error": null,
+            "sampled_candidate_records": 0
+          },
+          {
+            "json_pointer": "/results/2",
+            "min_letters": 160,
+            "max_letters": 2500,
+            "seed": 20261011,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.01840535132214427,
+            "error": null,
+            "sampled_candidate_records": 0
+          },
+          {
+            "json_pointer": "/results/3",
+            "min_letters": 320,
+            "max_letters": 2500,
+            "seed": 20261011,
+            "status": "engine_returned",
+            "max_overhang": 96,
+            "closed_stop_factor": null,
+            "counters": {
+              "candidate_states": 1179,
+              "prefix_or_suffix_grammar_rejections": 905,
+              "grammar_supported_states": 240,
+              "cross_frontier_completed_fact_rejections": 34
+            },
+            "sample_policy": "all admitted until100, then deterministic reservoir; all unique admissions counted",
+            "seconds_budget": 120.0,
+            "elapsed_seconds": 0.015248676296323538,
+            "error": null,
+            "sampled_candidate_records": 0
+          }
+        ],
+        "terminal_status_counts": {
+          "engine_returned": 4
+        }
+      },
+      "candidate_observations_enumerated": 0
+    },
+    {
+      "file": "initial/batch.json",
+      "sha256": "0165c41b50374945b918b223869f232cb462d34a14495a84215f2634f22e1834",
+      "bytes": 9652,
+      "lane": "unrecognized",
+      "status": "recorded_without_candidate_adapter",
+      "source_accounting": {
+        "status": "completed_bounded_batch",
+        "experiment": "argonne-length-meaning-20261009"
+      },
+      "candidate_observations_enumerated": 0
+    },
+    {
+      "file": "initial/connected-events-20261009.json",
+      "sha256": "af7e5f871586acdab3890752178a8bef2c2a9589466c634702485f0557113a6a",
+      "bytes": 362551,
+      "lane": "connected_events",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_bounded_probe",
+        "scenes_planned": 21,
+        "scenes_attempted": 21,
+        "scene_termination_counts": {
+          "frontier_exhausted": 21
+        },
+        "overall_termination": "all_planned_scenes_attempted",
+        "exact_candidates": 0
+      },
+      "candidate_observations_enumerated": 0
+    },
+    {
+      "file": "initial/connected-events-20261010.json",
+      "sha256": "c0d47880d9c977f29d1e990882fb960a28fab881799b0ae62338ca53786da51a",
+      "bytes": 362596,
+      "lane": "connected_events",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_bounded_probe",
+        "scenes_planned": 21,
+        "scenes_attempted": 21,
+        "scene_termination_counts": {
+          "frontier_exhausted": 21
+        },
+        "overall_termination": "all_planned_scenes_attempted",
+        "exact_candidates": 0
+      },
+      "candidate_observations_enumerated": 0
+    },
+    {
+      "file": "initial/connected-events-20261011.json",
+      "sha256": "8b35efa6d9dce0f93810395836eb5fe53b586e85c3d3c2ef0d15c922fae7559f",
+      "bytes": 362613,
+      "lane": "connected_events",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_bounded_probe",
+        "scenes_planned": 21,
+        "scenes_attempted": 21,
+        "scene_termination_counts": {
+          "frontier_exhausted": 21
+        },
+        "overall_termination": "all_planned_scenes_attempted",
+        "exact_candidates": 0
+      },
+      "candidate_observations_enumerated": 0
+    },
+    {
+      "file": "initial/model-meaning-proposals.json",
+      "sha256": "72e4a4ad269f8460b6687b1dcfee974ae3eadb499fa8254adb7dd0f23417be32",
+      "bytes": 208168,
+      "lane": "model_proposal",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed",
+        "planned_attempts": 24,
+        "recorded_attempts": 24,
+        "parsed_candidate_observations": 21,
+        "unparsed_attempts": [
+          {
+            "json_pointer": "/rows/10",
+            "state": "parse_failure",
+            "source_claims": {
+              "attempt": 10,
+              "case_id": "reconstruct-752",
+              "arm": "reconstruction",
+              "proposal_stage": "initial_proposal",
+              "feedback_parent_attempt": null,
+              "intended_plot": "Nora supplies a map to Aron; he uses it to stop dangerous water flow, with help from the others. Tell this single connected plot with stable participants.",
+              "prompt": "Return only a JSON object with exactly two string fields: text (the complete proposed passage) and plot (your description of its intended event).\n\nPropose an exact whole-passage letter palindrome in natural connected English. Ignoring nonletters and case, its full ASCII letter stream must equal its reversal. Use ASCII alphabetic characters. Spaces, punctuation, case and digits do not contribute letters.\n\nUse exactly 752 normalized ASCII letters.\n\nIntended plot: Nora supplies a map to Aron; he uses it to stop dangerous water flow, with help from the others. Tell this single connected plot with stable participants.\n\nExpress who did what to whom and how the events relate. Avoid unrelated lists, names as filler, invented words, repeated palindromic blocks, and famous copied palindromes. Do not explain or list alternative passages. Your plot field is a proposal claim, not an evaluation.\n\nIndependent proposal variant: 5.\n\nThe following public source is exact but has disconnected and awkward discourse. Fully reconstruct its wording and boundaries around the intended plot; retaining its letters or sentence list is unnecessary. The intended plot above is an experimental hypothesis, not a claim that this source already expresses it.\n\nPublic source passage: Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+              "prompt_sha256": "3df88de92f026127861f8cc5dd4ce7d803493e8633680fb63537342384c700da",
+              "seed": 2026100910,
+              "raw_response": "{\n  \"text\": \"Nora supplies a map to Aron; he uses it to stop dangerous water flow, with help from the others. Nora delivers maps. Aidan delivers maps. Nora sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Leon sees Sara. Sara sees Nora. Nora sees Noel. Noel sees Nora. Nora sees Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel. Noel sees Nora. Nora stops Aidan. Aidan stops Noel",
+              "candidate": null,
+              "audit": null,
+              "parse_error": "invalid_json",
+              "generated_tokens": 768,
+              "token_limit_reached": true,
+              "elapsed_seconds": 22.826869782060385,
+              "independent_novelty_claim": false,
+              "lineage": {
+                "id": "752-public",
+                "path": "runs/repair-736-center-lexical-event-path-20260923.json",
+                "row_id": null,
+                "letters": 752,
+                "sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c",
+                "text": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+                "file_sha256": "424d9d5fa3a4f8a450f149e3feb2d239f6116b4fe99c60e3328df58fda367a2d",
+                "lineage": "existing exact construction; no human meaning validation"
+              },
+              "meaning_measurement": "not_measured"
+            }
+          },
+          {
+            "json_pointer": "/rows/12",
+            "state": "parse_failure",
+            "source_claims": {
+              "attempt": 12,
+              "case_id": "phrase-overhang-short",
+              "arm": "phrase_overhang",
+              "proposal_stage": "initial_proposal",
+              "feedback_parent_attempt": null,
+              "intended_plot": "A person discovers a concrete problem, acts on it, and explains the result in one connected short scene.",
+              "prompt": "Return only a JSON object with exactly two string fields: text (the complete proposed passage) and plot (your description of its intended event).\n\nPropose an exact whole-passage letter palindrome in natural connected English. Ignoring nonletters and case, its full ASCII letter stream must equal its reversal. Use ASCII alphabetic characters. Spaces, punctuation, case and digits do not contribute letters.\n\nAim for 96 normalized ASCII letters; use 40 to 160.\n\nIntended plot: A person discovers a concrete problem, acts on it, and explains the result in one connected short scene.\n\nExpress who did what to whom and how the events relate. Avoid unrelated lists, names as filler, invented words, repeated palindromic blocks, and famous copied palindromes. Do not explain or list alternative passages. Your plot field is a proposal claim, not an evaluation.\n\nIndependent proposal variant: 6.\n\nPhrase/overhang demonstration: opposite word and sentence boundaries can differ. Design the forced opposite phrase in its actual sentence context, carry unmatched letters across boundaries, and produce one complete exact short passage.\n\nCredited public demonstration by u/catinore (https://www.reddit.com/r/palindromes/comments/1uphsc9/put_it_up_is_a_noose_so_meg_never_idle_i_yet_saw/): “Put it up, is a noose. So Meg, never idle, I yet saw sad losses. O, my master fails evals forever of slaves,” Lia frets, “Amy, Moses — sold as waste yield. I revenge Mose soon as I put it up.”\n\nDo not copy the demonstration. This arm is demonstration-conditioned; any adaptation must retain its credit and cannot claim independent novelty.",
+              "prompt_sha256": "8b78b0605670e5cc4a4722c2d8245b6f168f8ff311e5495655e80ae6b6aff0ac",
+              "seed": 2026100912,
+              "raw_response": "{\n  \"text\": \"He saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw a saw, he saw",
+              "candidate": null,
+              "audit": null,
+              "parse_error": "invalid_json",
+              "generated_tokens": 768,
+              "token_limit_reached": true,
+              "elapsed_seconds": 23.074574276339263,
+              "independent_novelty_claim": false,
+              "lineage": {
+                "text": "“Put it up, is a noose. So Meg, never idle, I yet saw sad losses. O, my master fails evals forever of slaves,” Lia frets, “Amy, Moses — sold as waste yield. I revenge Mose soon as I put it up.”",
+                "author": "u/catinore",
+                "author_url": "https://www.reddit.com/user/catinore/",
+                "source_url": "https://www.reddit.com/r/palindromes/comments/1uphsc9/put_it_up_is_a_noose_so_meg_never_idle_i_yet_saw/",
+                "post_id": "t3_1uphsc9",
+                "letters": 137,
+                "normalized_sha256": "eb2d18c193145ed4c5c3b0f2e224603d1cac966aa04532f4577cd7a7ae96b873",
+                "source_path": "data/reddit-palindromes/2026-10-09/posts.json",
+                "credit_limit": "Credit identifies the Reddit poster; original authorship and meaning ratings are not established.",
+                "lineage": "credited demonstration; conditioning/adaptation is not independent discovery"
+              },
+              "meaning_measurement": "not_measured"
+            }
+          },
+          {
+            "json_pointer": "/rows/13",
+            "state": "parse_failure",
+            "source_claims": {
+              "attempt": 13,
+              "case_id": "phrase-overhang-short",
+              "arm": "phrase_overhang",
+              "proposal_stage": "verifier_feedback_retry",
+              "feedback_parent_attempt": 12,
+              "intended_plot": "A person discovers a concrete problem, acts on it, and explains the result in one connected short scene.",
+              "prompt": "Return only a JSON object with exactly two string fields: text (the complete proposed passage) and plot (your description of its intended event).\n\nPropose an exact whole-passage letter palindrome in natural connected English. Ignoring nonletters and case, its full ASCII letter stream must equal its reversal. Use ASCII alphabetic characters. Spaces, punctuation, case and digits do not contribute letters.\n\nAim for 96 normalized ASCII letters; use 40 to 160.\n\nIntended plot: A person discovers a concrete problem, acts on it, and explains the result in one connected short scene.\n\nExpress who did what to whom and how the events relate. Avoid unrelated lists, names as filler, invented words, repeated palindromic blocks, and famous copied palindromes. Do not explain or list alternative passages. Your plot field is a proposal claim, not an evaluation.\n\nIndependent proposal variant: 6.\n\nPhrase/overhang demonstration: opposite word and sentence boundaries can differ. Design the forced opposite phrase in its actual sentence context, carry unmatched letters across boundaries, and produce one complete exact short passage.\n\nCredited public demonstration by u/catinore (https://www.reddit.com/r/palindromes/comments/1uphsc9/put_it_up_is_a_noose_so_meg_never_idle_i_yet_saw/): “Put it up, is a noose. So Meg, never idle, I yet saw sad losses. O, my master fails evals forever of slaves,” Lia frets, “Amy, Moses — sold as waste yield. I revenge Mose soon as I put it up.”\n\nDo not copy the demonstration. This arm is demonstration-conditioned; any adaptation must retain its credit and cannot claim independent novelty.\n\nVERIFIER FEEDBACK: revise the previous proposed surface, fixing the measured constraints while preserving the SAME intended plot. This is one bounded feedback retry, not a constrained decoder.\n\nThe previous response was invalid: invalid_json. Return the required complete JSON object.",
+              "prompt_sha256": "44b3a4044703bca4760f68a0967a97ea9bda841ea9a8f743e8d69427a35f1c6b",
+              "seed": 2026100913,
+              "raw_response": "{\n  \"text\": \"She found a crack in the wall, then fixed it with glue. The glue held, and the wall was whole again.\",\n  \"plot\": \"A person discovers a concrete problem, acts on it, and explains the result in one connected short scene.\"",
+              "candidate": null,
+              "audit": null,
+              "parse_error": "invalid_json",
+              "generated_tokens": 58,
+              "token_limit_reached": false,
+              "elapsed_seconds": 1.7484325869008899,
+              "independent_novelty_claim": false,
+              "lineage": {
+                "text": "“Put it up, is a noose. So Meg, never idle, I yet saw sad losses. O, my master fails evals forever of slaves,” Lia frets, “Amy, Moses — sold as waste yield. I revenge Mose soon as I put it up.”",
+                "author": "u/catinore",
+                "author_url": "https://www.reddit.com/user/catinore/",
+                "source_url": "https://www.reddit.com/r/palindromes/comments/1uphsc9/put_it_up_is_a_noose_so_meg_never_idle_i_yet_saw/",
+                "post_id": "t3_1uphsc9",
+                "letters": 137,
+                "normalized_sha256": "eb2d18c193145ed4c5c3b0f2e224603d1cac966aa04532f4577cd7a7ae96b873",
+                "source_path": "data/reddit-palindromes/2026-10-09/posts.json",
+                "credit_limit": "Credit identifies the Reddit poster; original authorship and meaning ratings are not established.",
+                "lineage": "credited demonstration; conditioning/adaptation is not independent discovery"
+              },
+              "meaning_measurement": "not_measured"
+            }
+          }
+        ],
+        "unparsed_state_counts": {
+          "parse_failure": 3
+        },
+        "arm_counts": {
+          "direct": 12,
+          "reconstruction": 10,
+          "phrase_overhang": 2
+        },
+        "stage_counts": {
+          "initial_proposal": 12,
+          "verifier_feedback_retry": 12
+        },
+        "source_stats": {
+          "responses": 24,
+          "parsed_candidates": 21,
+          "invalid_responses": 3,
+          "feedback_retries": 12,
+          "whole_text_exact": 0,
+          "eligible_exact_proposals": 0,
+          "longest_eligible_exact_letters": 0,
+          "meaning_measurements": 0
+        },
+        "config": {
+          "model": "Qwen/Qwen3-8B",
+          "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+          "attempts": 24,
+          "max_new_tokens": 768,
+          "seconds": 900.0,
+          "temperature": 0.7,
+          "top_p": 0.8,
+          "top_k": 20,
+          "enable_thinking": false,
+          "trust_remote_code": false,
+          "implicit_authentication": false,
+          "explicit_hf_token": false,
+          "cache": "/lus/eagle/projects/EVITA/eric-spencer/palindrome/meaning-20261009-v1/results/proposal-hf-cache-0l4djvx3",
+          "cuda_only": true,
+          "schedule": "initial + at most one immediate feedback retry; seven cases cycle across pairs",
+          "budget_includes_model_loading": true
+        },
+        "runtime": {
+          "torch": "2.14.0",
+          "transformers": "5.10.4",
+          "cuda": "13.0",
+          "device": "NVIDIA A100-SXM4-40GB",
+          "dtype": "torch.bfloat16",
+          "resolved_model_revision": "b968826d9c46dd6066d109eabc6255188de91218"
+        },
+        "public_sources": [
+          {
+            "id": "568-public",
+            "path": "runs/incumbent-560-outer-causal-scene-20261002.json",
+            "row_id": "outer-causal-scene-568-working-incumbent",
+            "letters": 568,
+            "sha256": "6647fe46becb64b0841785f0bd9865070254888b449be228d22cfbedeb1e0380",
+            "text": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Mara stops rats. A tub? He maps Aron. Aidan delivers maps. Mara stops rats. A tub? He maps Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari delivers maps. Spam's reviled, Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron, spam. Eh, but a star spots Aram. Spam's reviled, Nadia. Nora, spam. Eh, but a star spots Aram. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+            "file_sha256": "c2d520dd84f17164da62f691aab95cba57d351cd660ed611ac444fdb6679dc13",
+            "lineage": "existing exact construction; no human meaning validation"
+          },
+          {
+            "id": "666-public",
+            "path": "runs/incumbent-666-comparison-alternative-20260922.json",
+            "row_id": "comparison-alternative-nora-sees-666",
+            "letters": 666,
+            "sha256": "cafd77235f82d9ff4f68814dc7e03d196bf719bf1ec5d541e172073502e12297",
+            "text": "Leon won. Wolf spots Nora. Nora sees Nadia. Nadia sees Ira. Sara saw God. Ari saw Dog. Mara stops rats. Nora spots a ram. Mara sees rats. Nora stops rats. Nora sees Aram. Mara sees Nadia. Nadia saw Noel live. Mara stops Nadia. Nora sees Aram. Sara saw Noel live. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia sees Mara. Aidan spots Ira. Ari sees God. Dog sees Ira. Ari stops Nadia. Aram sees Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Evil Leon was Aras. Mara sees Aron. Aidan spots Aram. Evil Leon was Aidan. Aidan sees Aram. Mara sees Aron; star spots Aron. Star sees Aram. Mara stops Aron. Star spots Aram. God was Ira. Dog was Aras. Ari sees Aidan. Aidan sees Aron. Aron stops flow now, Noel.",
+            "file_sha256": "b2c3f7c71b264100e91bdb8270fb23ab9d936fdb9d7732eab46aacc61990820f",
+            "lineage": "existing exact construction; no human meaning validation"
+          },
+          {
+            "id": "752-public",
+            "path": "runs/repair-736-center-lexical-event-path-20260923.json",
+            "row_id": null,
+            "letters": 752,
+            "sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c",
+            "text": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+            "file_sha256": "424d9d5fa3a4f8a450f149e3feb2d239f6116b4fe99c60e3328df58fda367a2d",
+            "lineage": "existing exact construction; no human meaning validation"
+          }
+        ],
+        "credited_demonstration": {
+          "text": "“Put it up, is a noose. So Meg, never idle, I yet saw sad losses. O, my master fails evals forever of slaves,” Lia frets, “Amy, Moses — sold as waste yield. I revenge Mose soon as I put it up.”",
+          "author": "u/catinore",
+          "author_url": "https://www.reddit.com/user/catinore/",
+          "source_url": "https://www.reddit.com/r/palindromes/comments/1uphsc9/put_it_up_is_a_noose_so_meg_never_idle_i_yet_saw/",
+          "post_id": "t3_1uphsc9",
+          "letters": 137,
+          "normalized_sha256": "eb2d18c193145ed4c5c3b0f2e224603d1cac966aa04532f4577cd7a7ae96b873",
+          "source_path": "data/reddit-palindromes/2026-10-09/posts.json",
+          "credit_limit": "Credit identifies the Reddit poster; original authorship and meaning ratings are not established.",
+          "lineage": "credited demonstration; conditioning/adaptation is not independent discovery"
+        }
+      },
+      "candidate_observations_enumerated": 21
+    },
+    {
+      "file": "initial/typed-overhang-20261009.json",
+      "sha256": "3bd084e0d1ff25fe7f32417aed3abaaa3ce1a2df3fe8fb8858b9868a6ecf8528",
+      "bytes": 30164,
+      "lane": "typed_overhang",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_diagnostic",
+        "planned_jobs": 4,
+        "recorded_jobs": 4,
+        "terminal_status_counts": {
+          "search_exhausted_no_output": 2,
+          "search_exhausted_with_output": 2
+        },
+        "source_summary": {
+          "planned_jobs": 4,
+          "recorded_jobs": 4,
+          "jobs_with_selected_output": 2,
+          "jobs_with_whole_text_grammar_selected": 1,
+          "human_meaning_evidence": "not_evaluated; no output promoted as readable",
+          "execution_errors": 0
+        }
+      },
+      "candidate_observations_enumerated": 7
+    },
+    {
+      "file": "initial/typed-overhang-20261010.json",
+      "sha256": "5a72eab342d65041eecf550ca804905d588d90c1efa1461ef8ff550737240dc4",
+      "bytes": 30162,
+      "lane": "typed_overhang",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_diagnostic",
+        "planned_jobs": 4,
+        "recorded_jobs": 4,
+        "terminal_status_counts": {
+          "search_exhausted_with_output": 2,
+          "search_exhausted_no_output": 2
+        },
+        "source_summary": {
+          "planned_jobs": 4,
+          "recorded_jobs": 4,
+          "jobs_with_selected_output": 2,
+          "jobs_with_whole_text_grammar_selected": 1,
+          "human_meaning_evidence": "not_evaluated; no output promoted as readable",
+          "execution_errors": 0
+        }
+      },
+      "candidate_observations_enumerated": 7
+    },
+    {
+      "file": "initial/typed-overhang-20261011.json",
+      "sha256": "256a42cb5539f2e35d0dbe32682644f5aa0a4f59b3c8f6f6be35113f619f434c",
+      "bytes": 30164,
+      "lane": "typed_overhang",
+      "status": "enumerated",
+      "source_accounting": {
+        "status": "completed_diagnostic",
+        "planned_jobs": 4,
+        "recorded_jobs": 4,
+        "terminal_status_counts": {
+          "search_exhausted_no_output": 2,
+          "search_exhausted_with_output": 2
+        },
+        "source_summary": {
+          "planned_jobs": 4,
+          "recorded_jobs": 4,
+          "jobs_with_selected_output": 2,
+          "jobs_with_whole_text_grammar_selected": 1,
+          "human_meaning_evidence": "not_evaluated; no output promoted as readable",
+          "execution_errors": 0
+        }
+      },
+      "candidate_observations_enumerated": 7
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+#!/bin/bash -l
+#PBS -N pal-length-meaning
+#PBS -q debug
+#PBS -A EVITA
+#PBS -l select=1:ncpus=32:ngpus=4:mpiprocs=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:30:00
+#PBS -l filesystems=home:eagle
+#PBS -j oe
+
+set -euo pipefail
+umask 077
+cd "$PBS_O_WORKDIR"
+module use /soft/modulefiles
+module load conda/2026-10-01
+conda activate base
+export PYTHONPATH="$PBS_O_WORKDIR"
+export PYTHONUNBUFFERED=1
+export OMP_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export HF_HOME="$PBS_O_WORKDIR/public-model-cache"
+export HF_HUB_DISABLE_IMPLICIT_TOKEN=1
+export HF_HUB_DISABLE_XET=1
+export TOKENIZERS_PARALLELISM=false
+export HTTP_PROXY=http://proxy.alcf.anl.gov:3128
+export HTTPS_PROXY=http://proxy.alcf.anl.gov:3128
+export http_proxy="$HTTP_PROXY"
+export https_proxy="$HTTPS_PROXY"
+export CUDA_VISIBLE_DEVICES=0
+pal_cache_args=()
+if [ -n "${PAL_PUBLIC_MODEL_CACHE:-}" ]; then
+  pal_cache_args=(--model-cache "$PAL_PUBLIC_MODEL_CACHE")
+fi
+python -c 'import sys,importlib.metadata as m; print(sys.version); print({n:m.version(n) for n in ["torch","transformers","huggingface-hub"]})' > runtime.txt
+/usr/bin/python3.11 tools/polaris/meaning_search_batch.py \
+  --gpu-python "$(command -v python)" --out "$PBS_O_WORKDIR/results" \
+  --profile expanded "${pal_cache_args[@]}"

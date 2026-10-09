@@ -5,8 +5,8 @@
 - Vocabulary size sets available words.
 - Frequency weight favors common words.
 - Length weight favors longer words.
-- Reuse penalties discourage repeated words.
-- Neighbor penalties discourage immediate repeats.
+- Reuse checks reject padding.
+- Repeated words can keep a scene connected.
 - Bigram weight rewards familiar word pairs.
 - Forward models score what comes next.
 - Backward models score what comes before.
@@ -22,9 +22,9 @@
 - Word caps limit output length.
 - Diversity keeps competing paths different.
 - Overhang limits unmatched letters.
-- Fragment penalties discourage recurring bad phrases.
-- The latest probe tested penalties 0, 1, 2, 4.
-- Exact output counts tied; readability remains unproved.
+- Reused phrases need a different useful role.
+- Bigger limits allow more search.
+- More letters must preserve meaning.
 - Your ratings separate grammar from meaning.
 - Clear statements matter more than word associations.
 - Verify texts, compare lengths, then test fresh readers.

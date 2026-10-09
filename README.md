@@ -48,6 +48,22 @@ remain unresolved. The new audit importer separates verified palindromes,
 non-palindromes, and missing texts before training.
 [The tuning explained in 30 lines](docs/TUNING-30-LINES.md).
 
+The literal word **“association” occurs in 44 of the 52 frozen review texts**.
+That is a separate cohort from the 183 ratings; the earlier rubric-only
+interpretation missed this repetition. The revised feedback notes distinguish
+the two and retain the original ratings.
+
+[The credited Reddit collection](data/reddit-palindromes/2026-10-09/README.md)
+contains **196 distinct posts**, including **189 distinct exact palindromes**.
+Every title keeps its poster and permalink, including excluded titles.
+The audit also maps each word onto the words its reversed letters constrain.
+These are reference examples, not newly generated results or human-quality labels.
+
+[The proposed search](docs/research/2026-10-09-readable-search-design.md)
+chooses words by the quality of their forced opposite continuation, requires
+expressed relationships, and grows short successes only while meaning survives.
+It builds on the existing exact solvers; its readability gains remain to be tested.
+
 ## Recent generations
 
 These are the generations I actually want a reader to see before opening the

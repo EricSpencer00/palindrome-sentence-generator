@@ -1,0 +1,188 @@
+[
+  {
+    "method": "phrase_center",
+    "radius": 0,
+    "candidate_tape": "somemenifeditorssussrotidefinememos",
+    "replacement_center": "sus",
+    "text": "Some men, if editors suss roti, define memos.",
+    "derivation": "NP(plural), if NP(plural) V(base suss) NP(food), V(base define) NP(document).",
+    "bindings": {
+      "main_agent": "men1",
+      "condition_agent": "editors1",
+      "food": "roti1",
+      "document": "memos1"
+    },
+    "seed_control": true,
+    "new_seams": false,
+    "repetition_cost": 0.0,
+    "human_label": "positive",
+    "quality_review_pending": true
+  },
+  {
+    "method": "phrase_center",
+    "radius": 0,
+    "candidate_tape": "somemenifeditorsdrawawardsrotidefinememos",
+    "replacement_center": "drawaward",
+    "text": "Some men, if editors draw awards, rot; I define memos.",
+    "derivation": "NP(plural), if NP(plural) V(base draw) NP(plural awards), V(base intransitive rot); NP(I) V(base define) NP(memos).",
+    "bindings": {
+      "main_agent": "men1",
+      "condition_agent": "editors1",
+      "speaker": "speaker1",
+      "document": "memos1"
+    },
+    "seed_control": false,
+    "new_seams": true,
+    "seam_roles": [
+      "borrowed right s finishes awards/evils plural",
+      "roti is resegmented as rot + I"
+    ],
+    "semantic_scope": "depict awards; separate rot/define clauses; deliberately separate from food-documentation plan and separately quality-scored.",
+    "repetition_cost": 0.0,
+    "human_label": null,
+    "quality_review_pending": true
+  },
+  {
+    "method": "phrase_center",
+    "radius": 0,
+    "candidate_tape": "somemenifeditorsliveonnoevilsrotidefinememos",
+    "replacement_center": "liveonnoevil",
+    "text": "Some men, if editors live on no evils, rot; I define memos.",
+    "derivation": "NP(plural), if NP(plural) V(base live) PP(on NP(no evils)), V(base intransitive rot); NP(I) V(base define) NP(memos).",
+    "bindings": {
+      "main_agent": "men1",
+      "condition_agent": "editors1",
+      "speaker": "speaker1",
+      "document": "memos1"
+    },
+    "seed_control": false,
+    "new_seams": true,
+    "seam_roles": [
+      "borrowed right s finishes awards/evils plural",
+      "roti is resegmented as rot + I"
+    ],
+    "semantic_scope": "figurative moral subsistence; separate rot/define clauses; deliberately separate from food-documentation plan and separately quality-scored.",
+    "repetition_cost": 0.0,
+    "human_label": null,
+    "quality_review_pending": true
+  },
+  {
+    "method": "phrase_center",
+    "radius": 5,
+    "candidate_tape": "somemenifedseesdefinememos",
+    "replacement_center": "sees",
+    "text": "Some men, if Ed sees, define memos.",
+    "derivation": "NP(plural), if NP(named Ed singular) V(third-singular sees, intransitive visual ability), V(base define) NP(memos).",
+    "bindings": {
+      "main_agent": "men1",
+      "condition_agent": "Ed1",
+      "document": "memos1"
+    },
+    "seed_control": false,
+    "new_seams": true,
+    "shortening_diagnostic": true,
+    "repetition_cost": 0.0,
+    "human_label": null,
+    "quality_review_pending": true
+  },
+  {
+    "method": "nested_word_pair",
+    "radius": 1,
+    "candidate_tape": "somemenifeditorstappatsrotidefinememos",
+    "replacement_center": "stappats",
+    "text": "Some men, if editors tap Pat's roti, define memos.",
+    "derivation": "NP(plural), if NP(plural) V(base transitive) [NP(owner person) POSS NP(food)], V(base define) NP(document).",
+    "bindings": {
+      "main_agent": "men1",
+      "condition_agent": "editors1",
+      "owner": "pat1",
+      "food": "roti1",
+      "document": "memos1"
+    },
+    "seed_control": false,
+    "new_seams": true,
+    "seam_roles": [
+      "center initial s realizes editors plural",
+      "center final s realizes possessive morphology"
+    ],
+    "semantic_scope": "Conditional physical depiction/handling/checking of the same roti precedes memo definition. Relation is a declared documentation scenario, not entailed by wording.",
+    "repetition_cost": 0.0,
+    "human_label": null,
+    "quality_review_pending": true
+  },
+  {
+    "method": "nested_word_pair",
+    "radius": 1,
+    "candidate_tape": "somemenifeditorstoppotsrotidefinememos",
+    "replacement_center": "stoppots",
+    "text": "Some men, if editors top pots' roti, define memos.",
+    "derivation": "NP(plural), if NP(plural) V(base transitive) [NP(owner container) POSS NP(food)], V(base define) NP(document).",
+    "bindings": {
+      "main_agent": "men1",
+      "condition_agent": "editors1",
+      "owner": "pot1",
+      "food": "roti1",
+      "document": "memos1"
+    },
+    "seed_control": false,
+    "new_seams": true,
+    "seam_roles": [
+      "center initial s realizes editors plural",
+      "center final s realizes possessive morphology"
+    ],
+    "semantic_scope": "Conditional physical depiction/handling/checking of the same roti precedes memo definition. Relation is a declared documentation scenario, not entailed by wording.",
+    "repetition_cost": 0.0,
+    "human_label": null,
+    "quality_review_pending": true
+  },
+  {
+    "method": "nested_word_pair",
+    "radius": 1,
+    "candidate_tape": "somemenifeditorstippitsrotidefinememos",
+    "replacement_center": "stippits",
+    "text": "Some men, if editors tip pits' roti, define memos.",
+    "derivation": "NP(plural), if NP(plural) V(base transitive) [NP(owner location) POSS NP(food)], V(base define) NP(document).",
+    "bindings": {
+      "main_agent": "men1",
+      "condition_agent": "editors1",
+      "owner": "pit1",
+      "food": "roti1",
+      "document": "memos1"
+    },
+    "seed_control": false,
+    "new_seams": true,
+    "seam_roles": [
+      "center initial s realizes editors plural",
+      "center final s realizes possessive morphology"
+    ],
+    "semantic_scope": "Conditional physical depiction/handling/checking of the same roti precedes memo definition. Relation is a declared documentation scenario, not entailed by wording.",
+    "repetition_cost": 0.0,
+    "human_label": null,
+    "quality_review_pending": true
+  },
+  {
+    "method": "nested_word_pair",
+    "radius": 1,
+    "candidate_tape": "somemenifeditorsdrawwardsrotidefinememos",
+    "replacement_center": "sdrawwards",
+    "text": "Some men, if editors draw wards' roti, define memos.",
+    "derivation": "NP(plural), if NP(plural) V(base transitive) [NP(owner institution) POSS NP(food)], V(base define) NP(document).",
+    "bindings": {
+      "main_agent": "men1",
+      "condition_agent": "editors1",
+      "owner": "ward1",
+      "food": "roti1",
+      "document": "memos1"
+    },
+    "seed_control": false,
+    "new_seams": true,
+    "seam_roles": [
+      "center initial s realizes editors plural",
+      "center final s realizes possessive morphology"
+    ],
+    "semantic_scope": "Conditional physical depiction/handling/checking of the same roti precedes memo definition. Relation is a declared documentation scenario, not entailed by wording.",
+    "repetition_cost": 0.0,
+    "human_label": null,
+    "quality_review_pending": true
+  }
+]

@@ -17,9 +17,9 @@ def test_nonpalindromic_debt_can_be_completed():
  t=norm(l.text+'dark '+r.text);assert t==t[::-1]
 
 def test_payoff_is_not_admission_gate_and_actor_binding_is():
- l=chunk('l','abc');r=chunk('r','')
+ l=chunk('l','abc');r=[]
  # Free growth pays nothing yet is compatible and may later close.
- g=screen_fixed_endpoints([l],[r],previous=debt('',''),extension_side='left',extension_text='abc')
+ g=screen_fixed_endpoints([l],r,previous=debt('',''),extension_side='left',extension_text='abc')
  assert g['admitted'] and g['payoff_utility']==0
  l=chunk('l','a',(('agent','Eve'),));r=chunk('r','a',(('agent','Noel'),))
  assert screen_fixed_endpoints([l],[r])['reason']=='actor_conflict'

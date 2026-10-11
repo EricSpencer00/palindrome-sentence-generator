@@ -1,0 +1,1723 @@
+[
+  {
+    "arm": "geese_compound",
+    "method": "whole_chunk_centers",
+    "original_chunks": 108,
+    "retained_chunks": 4,
+    "original_receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 440,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 443,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 11290,
+      "pending_states": 0,
+      "elapsed_seconds": 1.362544042058289
+    },
+    "outputs": [
+      {
+        "id": "bilateral-1d81d434b3637e44",
+        "text": "Do geese on a cedar trade canoe see God?",
+        "tape": "dogeeseonacedartradecanoeseegod",
+        "letters": 31,
+        "left_ids": [
+          "L",
+          "P-on-cedar"
+        ],
+        "right_ids": [
+          "R"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "P-on-cedar",
+              "text": "on a cedar ",
+              "entry": "PP",
+              "exit": "NP",
+              "role": "locative preposition, determiner, attributive modifier",
+              "source": "Authored finite continuation 020; lexical compounds are grammatical proposals, not independently attested semantic claims.",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 8,
+              "side": "right",
+              "letters": "e",
+              "closure_exact": false,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 8,
+              "added": 8,
+              "ratio": 1.0,
+              "debt_before": 9,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "signature": [
+              "PP",
+              "VP",
+              "right",
+              "e"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "L",
+              "text": "Do geese ",
+              "entry": "START",
+              "exit": "PP",
+              "role": "question subject; optional locative modifier",
+              "source": "Authored finite continuation 020; lexical compounds are grammatical proposals, not independently attested semantic claims.",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 9,
+              "side": "left",
+              "letters": "seegod",
+              "closure_exact": false,
+              "palindromic_residual": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 7,
+              "ratio": 0.14285714285714285,
+              "debt_before": 1,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "signature": [
+              "START",
+              "VP",
+              "left",
+              "seegod"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "R",
+              "text": "see God?",
+              "entry": "VP",
+              "exit": "END",
+              "role": "base VP under do",
+              "source": "Authored finite continuation 020; lexical compounds are grammatical proposals, not independently attested semantic claims.",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 15,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "N-trade-canoe"
+        ],
+        "center_offset": [
+          0,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "N-trade-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "r",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "N-trade-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "r",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "N-trade-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "N-trade-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "o",
+          "mirrored_right": "e"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 17,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 20,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 12,
+      "pending_states": 0,
+      "elapsed_seconds": 0.005333499982953072
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "arm": "geese_compound",
+    "method": "owed_outside_in",
+    "original_chunks": 108,
+    "retained_chunks": 4,
+    "original_receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 26,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 1339,
+      "pending_states": 0,
+      "elapsed_seconds": 0.01085987500846386
+    },
+    "outputs": [
+      {
+        "id": "bilateral-1d81d434b3637e44",
+        "text": "Do geese on a cedar trade canoe see God?",
+        "tape": "dogeeseonacedartradecanoeseegod",
+        "letters": 31,
+        "left_ids": [
+          "L",
+          "P-on-cedar"
+        ],
+        "right_ids": [
+          "N-trade-canoe",
+          "R"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "R",
+              "text": "see God?",
+              "entry": "VP",
+              "exit": "END",
+              "role": "base VP under do",
+              "source": "Authored finite continuation 020; lexical compounds are grammatical proposals, not independently attested semantic claims.",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "dogees",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 6,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "VP",
+              "right",
+              "dogees"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "L",
+              "text": "Do geese ",
+              "entry": "START",
+              "exit": "PP",
+              "role": "question subject; optional locative modifier",
+              "source": "Authored finite continuation 020; lexical compounds are grammatical proposals, not independently attested semantic claims.",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "left",
+              "letters": "e",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 7,
+              "ratio": 0.8571428571428571,
+              "debt_before": 6,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "PP",
+              "VP",
+              "left",
+              "e"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "N-trade-canoe",
+              "text": "trade canoe ",
+              "entry": "NP",
+              "exit": "VP",
+              "role": "noun compound completing locative object",
+              "source": "Authored finite continuation 020; lexical compounds are grammatical proposals, not independently attested semantic claims.",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 7,
+              "side": "right",
+              "letters": "onacedart",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 10,
+              "ratio": 0.1,
+              "debt_before": 1,
+              "debt_after": 9,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "PP",
+              "NP",
+              "right",
+              "onacedart"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "P-on-cedar",
+              "text": "on a cedar ",
+              "entry": "PP",
+              "exit": "NP",
+              "role": "locative preposition, determiner, attributive modifier",
+              "source": "Authored finite continuation 020; lexical compounds are grammatical proposals, not independently attested semantic claims.",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 15,
+              "side": "right",
+              "letters": "t",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 8,
+              "added": 8,
+              "ratio": 1.0,
+              "debt_before": 9,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "NP",
+              "NP",
+              "right",
+              "t"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00018700002692639828
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "arm": "geese_ordinary",
+    "method": "whole_chunk_centers",
+    "original_chunks": 71,
+    "retained_chunks": 7,
+    "original_receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 292,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 292,
+      "duplicate_states": 0,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 1411,
+      "pending_states": 0,
+      "elapsed_seconds": 0.5397898328956217
+    },
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-carved",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-clear",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cargo",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cold",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-carved",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-clear",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cargo",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cold",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-carved",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-clear",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cargo",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "P-on-cold",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "r",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "r",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "P-on-carved",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "P-on-clear",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "r",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "P-on-cargo",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "P-on-cold",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "r",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "P-on-carved",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "P-on-clear",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "r",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "P-on-cargo",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "P-on-cold",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "r",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "g",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "L",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "R-canoe",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "l",
+          "mirrored_right": "c"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 29,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 29,
+      "duplicate_states": 0,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 45,
+      "pending_states": 0,
+      "elapsed_seconds": 0.004990207962691784
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "arm": "geese_ordinary",
+    "method": "owed_outside_in",
+    "original_chunks": 71,
+    "retained_chunks": 7,
+    "original_receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 15,
+      "duplicate_states": 2,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 461,
+      "pending_states": 0,
+      "elapsed_seconds": 0.003718458116054535
+    },
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [
+          "L",
+          "P-on-cold"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "o",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cold"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-carved",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "o",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cold"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-clear",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "o",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cold"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cargo",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 12,
+          "left": "l",
+          "mirrored_right": "g"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cold"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cold",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "o",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cargo"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "a",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cargo"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-carved",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "a",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cargo"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-clear",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "a",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cargo"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cargo",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "a",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cargo"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cold",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "a",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cedar"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "e",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cedar"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-carved",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "e",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cedar"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-clear",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "e",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cedar"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cargo",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-cedar"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cold",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "e",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-clear"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "l",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-clear"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-carved",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "l",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-clear"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-clear",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "l",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-clear"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cargo",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "l",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-clear"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cold",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "l",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-carved"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cedar",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "a",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-carved"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-carved",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "a",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-carved"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-clear",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "a",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-carved"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cargo",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "a",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [
+          "L",
+          "P-on-carved"
+        ],
+        "right_ids": [
+          "R-canoe"
+        ],
+        "side": "right",
+        "chunk": "P-on-cold",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 11,
+          "left": "a",
+          "mirrored_right": "d"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 10,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 25,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00041020801290869713
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "arm": "panic_nonsees",
+    "method": "whole_chunk_centers",
+    "original_chunks": 136,
+    "retained_chunks": 0,
+    "original_receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 548,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 646,
+      "duplicate_states": 0,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 4304,
+      "pending_states": 0,
+      "elapsed_seconds": 1.6836578329093754
+    },
+    "outputs": [],
+    "failures": [],
+    "receipt": {
+      "status": "skipped_no_compatible_endpoints",
+      "states_visited": 0,
+      "failures": 0,
+      "pending_states": 0
+    }
+  },
+  {
+    "arm": "panic_nonsees",
+    "method": "owed_outside_in",
+    "original_chunks": 136,
+    "retained_chunks": 0,
+    "original_receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 5,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 120,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0007621250115334988
+    },
+    "outputs": [],
+    "failures": [],
+    "receipt": {
+      "status": "skipped_no_compatible_endpoints",
+      "states_visited": 0,
+      "failures": 0,
+      "pending_states": 0
+    }
+  }
+]

@@ -217,3 +217,24 @@ class AllChunkCentersGrammar(CenterOutGrammar):
       if str(e)!='anchor conflicts across its own center':raise
       continue
      yield g.initial()
+
+def screen_fixed_endpoints(left,right,*,previous=None,extension_side=None,extension_text=''):
+ """Reject immutable outer-prefix mismatches before expanding the interior.
+ The caller must supply nonoverlapping fixed prefix/suffix chunks. Admission
+ is necessary, never sufficient: nonpalindromic debt may still be completed.
+ Payoff is diagnostic/ranking only; no threshold or repetition veto applies.
+ """
+ l=''.join(c.text for c in left);r=''.join(c.text for c in right)
+ bindings={}
+ for c in tuple(left)+tuple(right):
+  for k,v in c.bindings:
+   if k in bindings and bindings[k]!=v:return dict(admitted=False,reason='actor_conflict',variable=k)
+   bindings[k]=v
+ d=debt(l,r)
+ if not d['compatible']:return dict(admitted=False,reason='immutable_endpoint_mismatch',debt=d)
+ score=None;utility=None
+ if previous is not None:
+  if extension_side not in ('left','right'):raise ValueError('extension_side required for payoff')
+  score=payoff(previous,extension_side,len(norm(extension_text)),d)
+  utility=phrase_payoff_utility(score,extension_text)
+ return dict(admitted=True,debt=d,payoff=score,payoff_utility=utility,bindings=bindings,closure_claim=False)

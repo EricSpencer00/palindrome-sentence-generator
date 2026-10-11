@@ -1,0 +1,58 @@
+{
+  "version": "phrase-api-loop-011",
+  "normalization": "lowercase ASCII letters a-z only; delete all other characters for palindrome tape. Reject unsupported rendering characters separately; no Unicode lookalikes, numbers or unsupported symbols.",
+  "exactness": "nonempty normalize(text)==normalize(text)[::-1]; punctuation/capitalization ignored only for exactness, remain important for reading",
+  "candidate_required": [
+    "proposal_id",
+    "method",
+    "text",
+    "construction_blocks",
+    "block_roles",
+    "seams",
+    "intended_scene",
+    "copied_sources"
+  ],
+  "methods": [
+    "phrase_ABCBA",
+    "phrase_bridge_overhang",
+    "non_ABCBA_role_scene"
+  ],
+  "generation_budget": {
+    "proposals_per_method": 8,
+    "total_proposals": 24,
+    "native_headless_luna_only": true,
+    "paid_api_calls": 0,
+    "iterations": 1
+  },
+  "candidate_rules": [
+    "Aim for one intelligible scene or contrast, consistent actors and action progression.",
+    "Use grammatical phrases/clauses as construction units; do not just concatenate independently palindromic sentences.",
+    "ABCBA is an allowed arm, not the only pattern or a mandatory template.",
+    "Repetition is allowed and measured continuously; do not discard a good reading solely for repetition.",
+    "Target60-180letters when language supports it; shorter meaningful cases remain useful and must not be padded.",
+    "Record failed exact attempts; never hide or silently repair rejected proposals.",
+    "Avoid name-swapped deliver/revile filler; use existing fragments only if they serve a scene.",
+    "Known/copy sources disclosed separately; no novelty claim."
+  ],
+  "evaluation_required": [
+    "blind_id",
+    "grammar",
+    "readability",
+    "coherence",
+    "repetition_burden",
+    "meaningful_progression",
+    "padding_or_loop",
+    "rationale"
+  ],
+  "scale": "grammar/readability/coherence0-4; repetition_burden0-4(higher worse); meaningful_progression boolean; padding_or_loop boolean",
+  "blinding": "Evaluator receives only shuffled blind_id/text, not source method, prior human labels, exactness outcome, model scores or rank. Score readability before any length objective.",
+  "batch_checkpoint": "Save each generation/evaluation batch raw outputs and receipt to Library before starting another; no scores inferred from missing batches.",
+  "ranking": "Keep raw dimensions and Pareto frontier. Optional utility: readability +0.5*coherence +0.5*grammar +0.5*min(letters,180)/180 -0.5*repetition_burden; mark padding/loop, do not count length bonus on flagged text. No repetition veto.",
+  "comparison": "Fixed12baseline versus up to24proposals from three declared methods; exactness failures retained but excluded from valid palindrome performance. This is a small pilot, not broad population evidence.",
+  "seam_schema": {
+    "left_block": "zero-based integer",
+    "right_block": "next integer",
+    "grammar_relation": "nonempty description; annotation is not independent grammar verification"
+  },
+  "ABCBA_rule": "Exactly5block tapes: first==reverse(last), second==reverse(fourth), center is exact palindrome. Blocks can span partial words; all block tapes together must exactly reconstruct global text."
+}

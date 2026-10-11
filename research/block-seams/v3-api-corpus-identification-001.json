@@ -1,0 +1,94 @@
+{
+  "version_identification": "Actual legacy API v3, server/v3.py and data/v3_bank.json; not paper/revision/evidence/probe-results-v3.json, whose v3 denotes a research probe receipt version",
+  "bank_path": "data/v3_bank.json",
+  "bank_sha256": "f5ef16a8b594e4da72c19a62a0758ebc7dc75b33c42f80a718a2fb6539993676",
+  "bank_rows": 540,
+  "source_counts": {
+    "catalogue": 41,
+    "generated": 499
+  },
+  "origin_counts": {
+    "canon_spelled": 41,
+    "polaris-2026-08-23": 499
+  },
+  "exact_bank_rows": 540,
+  "live_receipt_path": "runs/api-v3-provenance-readability-audit-20260921.json",
+  "live_receipt_sha256": "c1cd94547f65c2af63e2ad6a75be9b9fea6d3181cdbaf14da49b85df26136270",
+  "saved_live_health": {
+    "ok": true,
+    "version": 3,
+    "bank": 540,
+    "generated": 499,
+    "catalogue": 41,
+    "capacity": {
+      "novel": {
+        "pairs": 499,
+        "max_letters": 14500
+      },
+      "all": {
+        "pairs": 501,
+        "max_letters": 14538
+      }
+    },
+    "error": null
+  },
+  "current_repo_gating": "server/v3.py _load_bank evaluates mechanical exclusions then returns []; tests/test_v3_api.py requires legacy routes503. No current live service queried or changed.",
+  "review_examples_for_parent_context_only": [
+    {
+      "id": "data/v3_bank.json#262",
+      "original_text": "wonder item angel leg name tired now",
+      "source": "generated",
+      "origin": "polaris-2026-08-23",
+      "exact": true,
+      "letters": 30,
+      "current_repository_disposition": "All v3 output routes retired pending blinded reader evidence; legacy loader always returns empty",
+      "reason_for_parent_context": "Borderline generated wording: coherent lexical pieces but missing articles/syntax; user judgment remains open.",
+      "human_label": null
+    },
+    {
+      "id": "data/v3_bank.json#419",
+      "original_text": "name unit no care era continue man",
+      "source": "generated",
+      "origin": "polaris-2026-08-23",
+      "exact": true,
+      "letters": 28,
+      "current_repository_disposition": "All v3 output routes retired pending blinded reader evidence; legacy loader always returns empty",
+      "reason_for_parent_context": "Borderline generated wording: phrase fragments with potential reinterpretation; no reader approval recorded.",
+      "human_label": null
+    },
+    {
+      "id": "data/v3_bank.json#518",
+      "original_text": "eva can i see bees in a cave",
+      "source": "catalogue",
+      "origin": "canon_spelled",
+      "exact": true,
+      "letters": 21,
+      "current_repository_disposition": "All v3 output routes retired pending blinded reader evidence; legacy loader always returns empty",
+      "reason_for_parent_context": "Readable catalogue control: excluded from novel generation by origin, not established poor quality.",
+      "human_label": null
+    },
+    {
+      "id": "data/v3_bank.json#507",
+      "original_text": "sir i demand i am a maid named iris",
+      "source": "catalogue",
+      "origin": "canon_spelled",
+      "exact": true,
+      "letters": 27,
+      "current_repository_disposition": "All v3 output routes retired pending blinded reader evidence; legacy loader always returns empty",
+      "reason_for_parent_context": "Readable catalogue control: excluded from novel generation by origin, not established poor quality.",
+      "human_label": null
+    },
+    {
+      "id": "runs/api-v3-provenance-readability-audit-20260921.json#composition",
+      "original_text": "Dirt I hired. Root pro cat: estimates a spot. Snow order ill. Ace estimates stop. Set at seat. Set reed spite, us sit level. May a plan. If, level man a. Men if a, pop maria permit. Set is levels. Sam mass level. Sites tim repair. Am pop a. Fine man am. Level final pay. Am level tissue. Tips, deer test a. Estate spots set. Am it see. Call I red, row on stops. A set am. It set a. Corp to order. I hit rid.",
+      "source": "Saved live API v3 composition, generated chunks",
+      "request": "https://palindrome.ericspencer.us/api/v3/composition?letters=300&seed=3",
+      "letters": 292,
+      "exact": true,
+      "historical_readability_status": "not_run",
+      "human_label": null
+    }
+  ],
+  "pending_user_batch": "Parent already sent5items from initial frozen sample, not v3. Do not send a second batch or replace it. Human labels remain unset.",
+  "feedback_policy": "No new quality filter validated by user; keep known grammatical controls as controls, provenance separate from readability."
+}

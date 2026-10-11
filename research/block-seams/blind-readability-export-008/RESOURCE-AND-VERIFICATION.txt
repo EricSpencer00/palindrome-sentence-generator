@@ -1,0 +1,28 @@
+Exact resource and denominator interpretation
+
+This artifact preparation performed no fresh search or model call. Original runs005 and006 each had three sequential arms: original enumerated bank, expanded enumerated grammar, and expanded bidirectional grammar.
+
+Each arm had a cumulative20,000,000 instrumented-operation cap,30-second search deadline and20,000 accepted-derivation cap across clause counts1,2,3 and4 combined. These were per arm, not per clause-count stratum, and were not one global30-second allowance for the entire research. A new allowance applied to the next arm and then the next run. No arm truncated. The operation guard may detect exhaustion on the first over-limit check; no such overshoot occurred in these runs. The product's intermediate cached-path count also shares the remaining path guard. Full outputs and repeats were retained.
+
+For six arms, the sum of configured limits is120,000,000 operations,180 arm-seconds and120,000 accepted derivations. Actual cumulative counters are14,922,086 operations,7.040221084 measured arm-seconds and43,816 accepted derivations. Summed arm durations are not full task wall time: setup, full grammar enumeration before arm start, export/scoring/sampling, Library saving, testing and commits fall outside the search-arm allowance. Character graph construction and serialization are inside the product arm's measured duration; accepted-path materialization is measured but its final batch has no new deadline checks. The operation counters measure different algorithmic actions, exclude some surrounding work, and cannot establish a general speedup or equal-compute cost.
+
+005 original:995,968 operations,0.293786s,12 derivations.
+005 expanded enumeration:5,404,797 operations,1.778506s,7,636 derivations.
+005 expanded bidirectional:79,320 operations,0.773169s,7,636 derivations.
+006 original:995,968 operations,0.289613s,12 derivations.
+006 expanded enumeration:7,336,141 operations,2.368425s,14,260 derivations.
+006 expanded bidirectional:109,892 operations,1.536722s,14,260 derivations.
+
+Both expanded representations return identical normalized output sets within each run. There is no bidirectional search-yield advantage over matched expanded enumeration. The gain over the116-sentence original bank comes from expanded vocabulary and grammatical coverage.
+
+43,816 is the sum of all six method-level output populations, including duplicate texts across methods and runs;14,260 is their distinct normalized-text union. Fixed per-stratum ceil10% sampling selected4,412 method/seed occurrences,10.069381% of43,816. These reduce to3,949 unique rendered texts for independent rating labor. The mapping retains every occurrence and its method, seed and opaque stratum ID. Full source/stratum provenance is stored separately from reviewer inputs.
+
+Verification, run from the isolated repository root:
+python3 experiments/verify_blind_readability_export_20261009.py
+
+This standard-library script rebuilds every sample from the authoritative frozen result populations, verifies deterministic seed selection, ceil rounding, all duplicate mappings and all62 chunks, and checks expanded output-set equality and budget receipts. It uses no searches or quality scoring.
+
+After all unique-text judgments have been collected as JSONL:
+python3 experiments/verify_blind_readability_export_20261009.py --ratings /absolute/path/unique-judgments.jsonl --mapped-output /absolute/path/all-4412-judgments.jsonl
+
+The mapping refuses missing, duplicate, unknown, out-of-range or blank-explanation ratings. It produces exactly4,412 occurrence judgments only when all3,949 independent text ratings are present. No current independent ratings are claimed.

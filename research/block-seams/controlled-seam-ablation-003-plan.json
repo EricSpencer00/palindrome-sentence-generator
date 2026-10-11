@@ -1,0 +1,49 @@
+{
+  "seeds": [
+    921,
+    922,
+    923
+  ],
+  "band": [
+    60,
+    119
+  ],
+  "workers": 1,
+  "aggregate_search_quota_seconds": 60,
+  "same_seconds_per_arm_seed": 4,
+  "same_actions_per_arm_seed": 20000,
+  "same_steps": 16,
+  "same_beam": 1,
+  "arms": [
+    {
+      "name": "full_constituents",
+      "units": 35,
+      "roots": 17
+    },
+    {
+      "name": "full_plus_partial",
+      "units": 71,
+      "roots": 20
+    },
+    {
+      "name": "without_boundary",
+      "units": 71,
+      "roots": 59
+    },
+    {
+      "name": "without_composition",
+      "units": 71,
+      "roots": 20
+    },
+    {
+      "name": "cache_disabled",
+      "units": 71,
+      "roots": 20
+    }
+  ],
+  "inventory_sha256": "e362f954480f53097d47ec25b71fc988a809bbdc3b28370b1455dbddeea88fa8",
+  "scorer": "unchanged WordAdditiveScorer",
+  "partial_definition": "Full means complete licensed grammar-slot alternatives in existing inventory; plus-partial adds all historical blocks including partial source seams. This is not a general full-sentence vs fragment comparison.",
+  "comparison_limit": "Equal arm/seed time budget 4 seconds and action allowance 20000, divided across every viable root. Root-level quotas differ with root count. Inventory sizes mean action denominators differ; no linguistic conclusion from time-limited censored outputs. Wall-time truncation limits causal quality inference; caching equivalence separately tested on action-limited fixtures.",
+  "root_policy": "All viable roots per arm retained; same seed applied to every root within each seed cell; no target whitelist."
+}

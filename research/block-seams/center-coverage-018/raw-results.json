@@ -1,0 +1,7138 @@
+[
+  {
+    "stratum": "known_controls",
+    "case": "panic",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-3a2c7342c0198b03",
+        "text": "We panic in a pew.",
+        "tape": "wepanicinapew",
+        "letters": 13,
+        "left_ids": [],
+        "right_ids": [
+          "panic-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "panic-1",
+              "text": "in a pew.",
+              "entry": "LOC_PP",
+              "exit": "END",
+              "role": "licensed diagnostic seam LOC_PP to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "panic-0"
+        ],
+        "center_offset": [
+          6,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "panic-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "c",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "panic-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "c",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "panic-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "c",
+          "mirrored_right": "n"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 8,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 3,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0051562918815761805
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "panic",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-3a2c7342c0198b03",
+        "text": "We panic in a pew.",
+        "tape": "wepanicinapew",
+        "letters": 13,
+        "left_ids": [
+          "panic-0"
+        ],
+        "right_ids": [
+          "panic-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "panic-1",
+              "text": "in a pew.",
+              "entry": "LOC_PP",
+              "exit": "END",
+              "role": "licensed diagnostic seam LOC_PP to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "wepani",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 6,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "LOC_PP",
+              "right",
+              "wepani"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "panic-0",
+              "text": "We panic ",
+              "entry": "START",
+              "exit": "LOC_PP",
+              "role": "licensed diagnostic seam START to LOC_PP",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "left",
+              "letters": "c",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 7,
+              "ratio": 0.8571428571428571,
+              "debt_before": 6,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "LOC_PP",
+              "LOC_PP",
+              "left",
+              "c"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00021116691641509533
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "geese",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-aeaccfb6dcadb7ec",
+        "text": "Do geese see God?",
+        "tape": "dogeeseseegod",
+        "letters": 13,
+        "left_ids": [],
+        "right_ids": [
+          "geese-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "geese-1",
+              "text": "see God?",
+              "entry": "BARE_VP",
+              "exit": "END",
+              "role": "licensed diagnostic seam BARE_VP to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "geese-0"
+        ],
+        "center_offset": [
+          6,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "geese-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "geese-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "e",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "geese-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "geese-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "s",
+          "mirrored_right": "e"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 9,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 10,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 4,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0009087498765438795
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "geese",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-aeaccfb6dcadb7ec",
+        "text": "Do geese see God?",
+        "tape": "dogeeseseegod",
+        "letters": 13,
+        "left_ids": [
+          "geese-0"
+        ],
+        "right_ids": [
+          "geese-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "geese-1",
+              "text": "see God?",
+              "entry": "BARE_VP",
+              "exit": "END",
+              "role": "licensed diagnostic seam BARE_VP to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "dogees",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 6,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "BARE_VP",
+              "right",
+              "dogees"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "geese-0",
+              "text": "Do geese ",
+              "entry": "START",
+              "exit": "BARE_VP",
+              "role": "licensed diagnostic seam START to BARE_VP",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "left",
+              "letters": "e",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 7,
+              "ratio": 0.8571428571428571,
+              "debt_before": 6,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "BARE_VP",
+              "BARE_VP",
+              "left",
+              "e"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00019408296793699265
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "live",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-346bbdc9f2a6562c",
+        "text": "Live not on evil.",
+        "tape": "livenotonevil",
+        "letters": 13,
+        "left_ids": [],
+        "right_ids": [
+          "live-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "live-1",
+              "text": "on evil.",
+              "entry": "ON_COMPLEMENT",
+              "exit": "END",
+              "role": "licensed diagnostic seam ON_COMPLEMENT to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "live-0"
+        ],
+        "center_offset": [
+          6,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "live-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "live-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "live-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "n"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 8,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 3,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0006540832109749317
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "live",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-346bbdc9f2a6562c",
+        "text": "Live not on evil.",
+        "tape": "livenotonevil",
+        "letters": 13,
+        "left_ids": [
+          "live-0"
+        ],
+        "right_ids": [
+          "live-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "live-1",
+              "text": "on evil.",
+              "entry": "ON_COMPLEMENT",
+              "exit": "END",
+              "role": "licensed diagnostic seam ON_COMPLEMENT to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "liveno",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 6,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "ON_COMPLEMENT",
+              "right",
+              "liveno"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "live-0",
+              "text": "Live not ",
+              "entry": "START",
+              "exit": "ON_COMPLEMENT",
+              "role": "licensed diagnostic seam START to ON_COMPLEMENT",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "left",
+              "letters": "t",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 7,
+              "ratio": 0.8571428571428571,
+              "debt_before": 6,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "ON_COMPLEMENT",
+              "ON_COMPLEMENT",
+              "left",
+              "t"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00018937489949166775
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "cat",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-c24fc34ac9f8a5bd",
+        "text": "Was it a cat I saw?",
+        "tape": "wasitacatisaw",
+        "letters": 13,
+        "left_ids": [
+          "cat-0"
+        ],
+        "right_ids": [],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "cat-0",
+              "text": "Was it a ",
+              "entry": "START",
+              "exit": "NOMINAL_RELATIVE",
+              "role": "licensed diagnostic seam START to NOMINAL_RELATIVE",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "cat-1"
+        ],
+        "center_offset": [
+          0,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "cat-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "cat-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "cat-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "c"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 8,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 3,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0007179589010775089
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "cat",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-c24fc34ac9f8a5bd",
+        "text": "Was it a cat I saw?",
+        "tape": "wasitacatisaw",
+        "letters": 13,
+        "left_ids": [
+          "cat-0"
+        ],
+        "right_ids": [
+          "cat-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "cat-0",
+              "text": "Was it a ",
+              "entry": "START",
+              "exit": "NOMINAL_RELATIVE",
+              "role": "licensed diagnostic seam START to NOMINAL_RELATIVE",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "left",
+              "letters": "wasita",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 6,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "NOMINAL_RELATIVE",
+              "END",
+              "left",
+              "wasita"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "cat-1",
+              "text": "cat I saw?",
+              "entry": "NOMINAL_RELATIVE",
+              "exit": "END",
+              "role": "licensed diagnostic seam NOMINAL_RELATIVE to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "right",
+              "letters": "c",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 7,
+              "ratio": 0.8571428571428571,
+              "debt_before": 6,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "NOMINAL_RELATIVE",
+              "NOMINAL_RELATIVE",
+              "right",
+              "c"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00020004203543066978
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "boot",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-3a714c02664af6f9",
+        "text": "Too bad I hid a boot.",
+        "tape": "toobadihidaboot",
+        "letters": 15,
+        "left_ids": [
+          "boot-0"
+        ],
+        "right_ids": [
+          "boot-2"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "boot-0",
+              "text": "Too bad ",
+              "entry": "START",
+              "exit": "CONTENT_CLAUSE",
+              "role": "licensed diagnostic seam START to CONTENT_CLAUSE",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 2,
+              "side": "left",
+              "letters": "aboot",
+              "closure_exact": false,
+              "palindromic_residual": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 6,
+              "ratio": 0.16666666666666666,
+              "debt_before": 1,
+              "debt_after": 5,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "signature": [
+              "START",
+              "OBJECT",
+              "left",
+              "aboot"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "boot-2",
+              "text": "a boot.",
+              "entry": "OBJECT",
+              "exit": "END",
+              "role": "licensed diagnostic seam OBJECT to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 7,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 5,
+              "added": 5,
+              "ratio": 1.0,
+              "debt_before": 5,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "boot-1"
+        ],
+        "center_offset": [
+          1,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "boot-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "boot-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "boot-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "boot-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "boot-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "h"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "boot-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "i",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "boot-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "boot-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "b"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 13,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 15,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 8,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0009959160815924406
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "boot",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-3a714c02664af6f9",
+        "text": "Too bad I hid a boot.",
+        "tape": "toobadihidaboot",
+        "letters": 15,
+        "left_ids": [
+          "boot-0"
+        ],
+        "right_ids": [
+          "boot-1",
+          "boot-2"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "boot-2",
+              "text": "a boot.",
+              "entry": "OBJECT",
+              "exit": "END",
+              "role": "licensed diagnostic seam OBJECT to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "tooba",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 5,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 5,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "OBJECT",
+              "right",
+              "tooba"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "boot-0",
+              "text": "Too bad ",
+              "entry": "START",
+              "exit": "CONTENT_CLAUSE",
+              "role": "licensed diagnostic seam START to CONTENT_CLAUSE",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 5,
+              "side": "left",
+              "letters": "d",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 5,
+              "added": 6,
+              "ratio": 0.8333333333333334,
+              "debt_before": 5,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "CONTENT_CLAUSE",
+              "OBJECT",
+              "left",
+              "d"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "boot-1",
+              "text": "I hid ",
+              "entry": "CONTENT_CLAUSE",
+              "exit": "OBJECT",
+              "role": "licensed diagnostic seam CONTENT_CLAUSE to OBJECT",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "right",
+              "letters": "ihi",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 4,
+              "ratio": 0.25,
+              "debt_before": 1,
+              "debt_after": 3,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "CONTENT_CLAUSE",
+              "CONTENT_CLAUSE",
+              "right",
+              "ihi"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0002522498834878206
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "sinned",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-e9d0691f55c828b5",
+        "text": "Dennis and Edna sinned.",
+        "tape": "dennisandednasinned",
+        "letters": 19,
+        "left_ids": [
+          "sinned-0"
+        ],
+        "right_ids": [],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "sinned-0",
+              "text": "Dennis and ",
+              "entry": "START",
+              "exit": "COORDINATE_SUBJECT_VP",
+              "role": "licensed diagnostic seam START to COORDINATE_SUBJECT_VP",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 9,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 9,
+              "added": 9,
+              "ratio": 1.0,
+              "debt_before": 9,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "sinned-1"
+        ],
+        "center_offset": [
+          0,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "sinned-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "e"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "sinned-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "e"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "sinned-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "e"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 8,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 3,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0008791249711066484
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "sinned",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-e9d0691f55c828b5",
+        "text": "Dennis and Edna sinned.",
+        "tape": "dennisandednasinned",
+        "letters": 19,
+        "left_ids": [
+          "sinned-0"
+        ],
+        "right_ids": [
+          "sinned-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "sinned-0",
+              "text": "Dennis and ",
+              "entry": "START",
+              "exit": "COORDINATE_SUBJECT_VP",
+              "role": "licensed diagnostic seam START to COORDINATE_SUBJECT_VP",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "left",
+              "letters": "dennisand",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 9,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 9,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "COORDINATE_SUBJECT_VP",
+              "END",
+              "left",
+              "dennisand"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "sinned-1",
+              "text": "Edna sinned.",
+              "entry": "COORDINATE_SUBJECT_VP",
+              "exit": "END",
+              "role": "licensed diagnostic seam COORDINATE_SUBJECT_VP to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 9,
+              "side": "right",
+              "letters": "e",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 9,
+              "added": 10,
+              "ratio": 0.9,
+              "debt_before": 9,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "COORDINATE_SUBJECT_VP",
+              "COORDINATE_SUBJECT_VP",
+              "right",
+              "e"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00019295793026685715
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "animals",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-bb1779085aff4e8e",
+        "text": "Ten animals slam in a net.",
+        "tape": "tenanimalsslaminanet",
+        "letters": 20,
+        "left_ids": [],
+        "right_ids": [
+          "animals-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "animals-1",
+              "text": "slam in a net.",
+              "entry": "PLURAL_FINITE_VP",
+              "exit": "END",
+              "role": "licensed diagnostic seam PLURAL_FINITE_VP to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 10,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 10,
+              "added": 10,
+              "ratio": 1.0,
+              "debt_before": 10,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "animals-0"
+        ],
+        "center_offset": [
+          10,
+          0
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "animals-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "l",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "animals-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "l"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 8,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 10,
+      "duplicate_states": 0,
+      "cycle_signatures": 2,
+      "outputs": 1,
+      "failures": 2,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0010127080604434013
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "animals",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-bb1779085aff4e8e",
+        "text": "Ten animals slam in a net.",
+        "tape": "tenanimalsslaminanet",
+        "letters": 20,
+        "left_ids": [
+          "animals-0"
+        ],
+        "right_ids": [
+          "animals-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "animals-1",
+              "text": "slam in a net.",
+              "entry": "PLURAL_FINITE_VP",
+              "exit": "END",
+              "role": "licensed diagnostic seam PLURAL_FINITE_VP to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "tenanimals",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 10,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 10,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "PLURAL_FINITE_VP",
+              "right",
+              "tenanimals"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "animals-0",
+              "text": "Ten animals ",
+              "entry": "START",
+              "exit": "PLURAL_FINITE_VP",
+              "role": "licensed diagnostic seam START to PLURAL_FINITE_VP",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 10,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 10,
+              "added": 10,
+              "ratio": 1.0,
+              "debt_before": 10,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "PLURAL_FINITE_VP",
+              "PLURAL_FINITE_VP",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 2,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00027658301405608654
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "onward",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-01fe861c10cb285d",
+        "text": "Are we not drawn onward, we few, drawn onward to new era?",
+        "tape": "arewenotdrawnonwardwefewdrawnonwardtonewera",
+        "letters": 43,
+        "left_ids": [
+          "onward-0",
+          "onward-1",
+          "onward-2"
+        ],
+        "right_ids": [
+          "onward-4",
+          "onward-5"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "onward-2",
+              "text": "onward, we ",
+              "entry": "DIRECTIONAL_ADJUNCT",
+              "exit": "APPOSITIVE_QUANTIFIER",
+              "role": "licensed diagnostic seam DIRECTIONAL_ADJUNCT to APPOSITIVE_QUANTIFIER",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 7,
+              "side": "left",
+              "letters": "o",
+              "closure_exact": false,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 7,
+              "added": 8,
+              "ratio": 0.875,
+              "debt_before": 7,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "signature": [
+              "DIRECTIONAL_ADJUNCT",
+              "DIRECTIONAL_PP",
+              "left",
+              "o"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "onward-4",
+              "text": "onward to ",
+              "entry": "DIRECTIONAL_PP",
+              "exit": "BARE_NP_ERA",
+              "role": "licensed diagnostic seam DIRECTIONAL_PP to BARE_NP_ERA",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 8,
+              "side": "right",
+              "letters": "nwardto",
+              "closure_exact": false,
+              "palindromic_residual": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 8,
+              "ratio": 0.125,
+              "debt_before": 1,
+              "debt_after": 7,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "signature": [
+              "DIRECTIONAL_ADJUNCT",
+              "BARE_NP_ERA",
+              "right",
+              "nwardto"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "onward-1",
+              "text": "not drawn ",
+              "entry": "PASSIVE_VP",
+              "exit": "DIRECTIONAL_ADJUNCT",
+              "role": "licensed diagnostic seam PASSIVE_VP to DIRECTIONAL_ADJUNCT",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 15,
+              "side": "left",
+              "letters": "n",
+              "closure_exact": false,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 7,
+              "added": 8,
+              "ratio": 0.875,
+              "debt_before": 7,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "signature": [
+              "PASSIVE_VP",
+              "BARE_NP_ERA",
+              "left",
+              "n"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "onward-5",
+              "text": "new era?",
+              "entry": "BARE_NP_ERA",
+              "exit": "END",
+              "role": "licensed diagnostic seam BARE_NP_ERA to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 16,
+              "side": "right",
+              "letters": "ewera",
+              "closure_exact": false,
+              "palindromic_residual": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 6,
+              "ratio": 0.16666666666666666,
+              "debt_before": 1,
+              "debt_after": 5,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "signature": [
+              "PASSIVE_VP",
+              "END",
+              "right",
+              "ewera"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "onward-0",
+              "text": "Are we ",
+              "entry": "START",
+              "exit": "PASSIVE_VP",
+              "role": "licensed diagnostic seam START to PASSIVE_VP",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 21,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 5,
+              "added": 5,
+              "ratio": 1.0,
+              "debt_before": 5,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "onward-3"
+        ],
+        "center_offset": [
+          0,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {
+            "we": 2,
+            "drawn": 2,
+            "onward": 2
+          },
+          "token_repeat_excess": 3,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "onward-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "onward-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "r",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "onward-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "w",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "onward-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "onward-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "onward-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "onward-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "w",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "onward-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "onward-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "f"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "onward-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 5,
+          "left": "t",
+          "mirrored_right": "w"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "onward-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "w",
+          "mirrored_right": "f"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "onward-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "f"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "onward-4",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "onward-4",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "w",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "onward-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "onward-5",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "onward-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 5,
+          "left": "w",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "onward-5",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "onward-4",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "onward-4",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "e"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 25,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 30,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 20,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00455062510445714
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "known_controls",
+    "case": "onward",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-01fe861c10cb285d",
+        "text": "Are we not drawn onward, we few, drawn onward to new era?",
+        "tape": "arewenotdrawnonwardwefewdrawnonwardtonewera",
+        "letters": 43,
+        "left_ids": [
+          "onward-0",
+          "onward-1",
+          "onward-2"
+        ],
+        "right_ids": [
+          "onward-3",
+          "onward-4",
+          "onward-5"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "onward-0",
+              "text": "Are we ",
+              "entry": "START",
+              "exit": "PASSIVE_VP",
+              "role": "licensed diagnostic seam START to PASSIVE_VP",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "left",
+              "letters": "arewe",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 5,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 5,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "PASSIVE_VP",
+              "END",
+              "left",
+              "arewe"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "onward-5",
+              "text": "new era?",
+              "entry": "BARE_NP_ERA",
+              "exit": "END",
+              "role": "licensed diagnostic seam BARE_NP_ERA to END",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 5,
+              "side": "right",
+              "letters": "n",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 5,
+              "added": 6,
+              "ratio": 0.8333333333333334,
+              "debt_before": 5,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "PASSIVE_VP",
+              "BARE_NP_ERA",
+              "right",
+              "n"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "onward-1",
+              "text": "not drawn ",
+              "entry": "PASSIVE_VP",
+              "exit": "DIRECTIONAL_ADJUNCT",
+              "role": "licensed diagnostic seam PASSIVE_VP to DIRECTIONAL_ADJUNCT",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "left",
+              "letters": "otdrawn",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 8,
+              "ratio": 0.125,
+              "debt_before": 1,
+              "debt_after": 7,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "DIRECTIONAL_ADJUNCT",
+              "BARE_NP_ERA",
+              "left",
+              "otdrawn"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "onward-4",
+              "text": "onward to ",
+              "entry": "DIRECTIONAL_PP",
+              "exit": "BARE_NP_ERA",
+              "role": "licensed diagnostic seam DIRECTIONAL_PP to BARE_NP_ERA",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 13,
+              "side": "right",
+              "letters": "o",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 7,
+              "added": 8,
+              "ratio": 0.875,
+              "debt_before": 7,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "DIRECTIONAL_ADJUNCT",
+              "DIRECTIONAL_PP",
+              "right",
+              "o"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "onward-2",
+              "text": "onward, we ",
+              "entry": "DIRECTIONAL_ADJUNCT",
+              "exit": "APPOSITIVE_QUANTIFIER",
+              "role": "licensed diagnostic seam DIRECTIONAL_ADJUNCT to APPOSITIVE_QUANTIFIER",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 14,
+              "side": "left",
+              "letters": "nwardwe",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 8,
+              "ratio": 0.125,
+              "debt_before": 1,
+              "debt_after": 7,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "APPOSITIVE_QUANTIFIER",
+              "DIRECTIONAL_PP",
+              "left",
+              "nwardwe"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "onward-3",
+              "text": "few, drawn ",
+              "entry": "APPOSITIVE_QUANTIFIER",
+              "exit": "DIRECTIONAL_PP",
+              "role": "licensed diagnostic seam APPOSITIVE_QUANTIFIER to DIRECTIONAL_PP",
+              "source": "explicit control; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 21,
+              "side": "right",
+              "letters": "f",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 7,
+              "added": 8,
+              "ratio": 0.875,
+              "debt_before": 7,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "APPOSITIVE_QUANTIFIER",
+              "APPOSITIVE_QUANTIFIER",
+              "right",
+              "f"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {
+            "we": 2,
+            "drawn": 2,
+            "onward": 2
+          },
+          "token_repeat_excess": 3,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0003222499508410692
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-00-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-6eab13f666368d3e",
+        "text": "Do not step on no pets to nod.",
+        "tape": "donotsteponnopetstonod",
+        "letters": 22,
+        "left_ids": [
+          "pair-00-0-0"
+        ],
+        "right_ids": [
+          "pair-00-0-2",
+          "pair-00-0-3"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-00-0-2",
+              "text": "no pets ",
+              "entry": "pair-00-0-slot-1",
+              "exit": "pair-00-0-slot-2",
+              "role": "licensed continuation of imperative VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "signature": [
+              "pair-00-0-slot-0",
+              "pair-00-0-slot-2",
+              "none",
+              ""
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-00-0-3",
+              "text": "to nod.",
+              "entry": "pair-00-0-slot-2",
+              "exit": "END",
+              "role": "infinitival purpose complement",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "right",
+              "letters": "tonod",
+              "closure_exact": false,
+              "palindromic_residual": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 5,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 5,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "signature": [
+              "pair-00-0-slot-0",
+              "END",
+              "right",
+              "tonod"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-00-0-0",
+              "text": "Do not ",
+              "entry": "START",
+              "exit": "pair-00-0-slot-0",
+              "role": "imperative VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 11,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 5,
+              "added": 5,
+              "ratio": 1.0,
+              "debt_before": 5,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "pair-00-0-1"
+        ],
+        "center_offset": [
+          6,
+          0
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-00-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-00-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-00-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-00-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "o",
+          "mirrored_right": "e"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-00-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-00-0-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-00-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-00-0-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-00-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-00-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "o"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 16,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 26,
+      "duplicate_states": 2,
+      "cycle_signatures": 4,
+      "outputs": 1,
+      "failures": 10,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0019149589352309704
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-00-v0",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-6eab13f666368d3e",
+        "text": "Do not step on no pets to nod.",
+        "tape": "donotsteponnopetstonod",
+        "letters": 22,
+        "left_ids": [
+          "pair-00-0-0",
+          "pair-00-0-1"
+        ],
+        "right_ids": [
+          "pair-00-0-2",
+          "pair-00-0-3"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-00-0-3",
+              "text": "to nod.",
+              "entry": "pair-00-0-slot-2",
+              "exit": "END",
+              "role": "infinitival purpose complement",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "donot",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 5,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 5,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "pair-00-0-slot-2",
+              "right",
+              "donot"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-00-0-0",
+              "text": "Do not ",
+              "entry": "START",
+              "exit": "pair-00-0-slot-0",
+              "role": "imperative VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 5,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 5,
+              "added": 5,
+              "ratio": 1.0,
+              "debt_before": 5,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-00-0-slot-0",
+              "pair-00-0-slot-2",
+              "none",
+              ""
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-00-0-2",
+              "text": "no pets ",
+              "entry": "pair-00-0-slot-1",
+              "exit": "pair-00-0-slot-2",
+              "role": "licensed continuation of imperative VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 5,
+              "side": "right",
+              "letters": "stepon",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 6,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-00-0-slot-0",
+              "pair-00-0-slot-1",
+              "right",
+              "stepon"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-00-0-1",
+              "text": "step on ",
+              "entry": "pair-00-0-slot-0",
+              "exit": "pair-00-0-slot-1",
+              "role": "licensed continuation of imperative VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 11,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-00-0-slot-1",
+              "pair-00-0-slot-1",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 13,
+      "duplicate_states": 3,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00041204201988875866
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-00-v1",
+    "method": "whole_chunk_centers",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-00-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-00-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-00-1-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-00-1-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "m"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-00-1-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "e"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-00-1-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "m"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-00-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "m"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-00-1-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-00-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "y"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-00-1-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-00-1-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-00-1-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "o"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 16,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 16,
+      "duplicate_states": 0,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 12,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0016670001205056906
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-00-v1",
+    "method": "owed_outside_in",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [
+          "pair-00-1-0"
+        ],
+        "right_ids": [
+          "pair-00-1-2",
+          "pair-00-1-3"
+        ],
+        "side": "left",
+        "chunk": "pair-00-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 5,
+          "left": "r",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [
+          "pair-00-1-0",
+          "pair-00-1-1"
+        ],
+        "right_ids": [
+          "pair-00-1-3"
+        ],
+        "side": "right",
+        "chunk": "pair-00-1-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 5,
+          "left": "r",
+          "mirrored_right": "s"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 2,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00020462507382035255
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-01-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-01-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "i",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-01-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "w",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-01-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "i",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-01-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-01-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "i",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-01-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-01-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-01-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "w"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 12,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 12,
+      "duplicate_states": 0,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 8,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0008755829185247421
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-01-v0",
+    "method": "owed_outside_in",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [
+          "pair-01-0-0"
+        ],
+        "right_ids": [
+          "pair-01-0-1",
+          "pair-01-0-2"
+        ],
+        "side": "left",
+        "chunk": "pair-01-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 4,
+          "left": "s",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [
+          "pair-01-0-0",
+          "pair-01-0-1"
+        ],
+        "right_ids": [
+          "pair-01-0-2"
+        ],
+        "side": "right",
+        "chunk": "pair-01-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 4,
+          "left": "s",
+          "mirrored_right": "t"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 2,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00018708407878875732
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-01-v1",
+    "method": "whole_chunk_centers",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-01-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "i",
+          "mirrored_right": "k"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-01-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "w",
+          "mirrored_right": "k"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-01-1-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "i",
+          "mirrored_right": "k"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-01-1-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-01-1-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "i",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-01-1-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-01-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-01-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "w"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 12,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 12,
+      "duplicate_states": 0,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 8,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0009232920128852129
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-01-v1",
+    "method": "owed_outside_in",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [
+          "pair-01-1-0"
+        ],
+        "right_ids": [
+          "pair-01-1-1",
+          "pair-01-1-2"
+        ],
+        "side": "left",
+        "chunk": "pair-01-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 4,
+          "left": "k",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [
+          "pair-01-1-0",
+          "pair-01-1-1"
+        ],
+        "right_ids": [
+          "pair-01-1-2"
+        ],
+        "side": "right",
+        "chunk": "pair-01-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 4,
+          "left": "k",
+          "mirrored_right": "t"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 2,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0001841250341385603
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-02-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-02-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-02-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "i",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-02-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-02-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-02-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-02-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "c",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-02-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-02-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "s"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 12,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 12,
+      "duplicate_states": 0,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 8,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0016264580190181732
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-02-v0",
+    "method": "owed_outside_in",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [
+          "pair-02-0-0"
+        ],
+        "right_ids": [
+          "pair-02-0-1",
+          "pair-02-0-2"
+        ],
+        "side": "left",
+        "chunk": "pair-02-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 7,
+          "left": "s",
+          "mirrored_right": "e"
+        }
+      },
+      {
+        "left_ids": [
+          "pair-02-0-0",
+          "pair-02-0-1"
+        ],
+        "right_ids": [
+          "pair-02-0-2"
+        ],
+        "side": "right",
+        "chunk": "pair-02-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 7,
+          "left": "s",
+          "mirrored_right": "e"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 2,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0002090411726385355
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-02-v1",
+    "method": "whole_chunk_centers",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-02-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-02-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-02-1-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-02-1-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "r",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-02-1-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "s",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-02-1-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-02-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "r",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-02-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "r",
+          "mirrored_right": "s"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 12,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 12,
+      "duplicate_states": 0,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 8,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0014014579355716705
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-02-v1",
+    "method": "owed_outside_in",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [
+          "pair-02-1-0"
+        ],
+        "right_ids": [
+          "pair-02-1-1",
+          "pair-02-1-2"
+        ],
+        "side": "left",
+        "chunk": "pair-02-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 7,
+          "left": "d",
+          "mirrored_right": "r"
+        }
+      },
+      {
+        "left_ids": [
+          "pair-02-1-0",
+          "pair-02-1-1"
+        ],
+        "right_ids": [
+          "pair-02-1-2"
+        ],
+        "side": "right",
+        "chunk": "pair-02-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 7,
+          "left": "d",
+          "mirrored_right": "r"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 2,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00020045810379087925
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-03-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-c24fc34ac9f8a5bd",
+        "text": "Was it a cat I saw?",
+        "tape": "wasitacatisaw",
+        "letters": 13,
+        "left_ids": [
+          "pair-03-0-0"
+        ],
+        "right_ids": [],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-03-0-0",
+              "text": "Was it a ",
+              "entry": "START",
+              "exit": "pair-03-0-slot-0",
+              "role": "nominal question complement",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "pair-03-0-1"
+        ],
+        "center_offset": [
+          0,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-03-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-03-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "c"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-03-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "c"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 8,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 3,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0006947079673409462
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-03-v0",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-c24fc34ac9f8a5bd",
+        "text": "Was it a cat I saw?",
+        "tape": "wasitacatisaw",
+        "letters": 13,
+        "left_ids": [
+          "pair-03-0-0"
+        ],
+        "right_ids": [
+          "pair-03-0-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-03-0-0",
+              "text": "Was it a ",
+              "entry": "START",
+              "exit": "pair-03-0-slot-0",
+              "role": "nominal question complement",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "left",
+              "letters": "wasita",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 6,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-03-0-slot-0",
+              "END",
+              "left",
+              "wasita"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-03-0-1",
+              "text": "cat I saw?",
+              "entry": "pair-03-0-slot-0",
+              "exit": "END",
+              "role": "nominal plus relative clause",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "right",
+              "letters": "c",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 7,
+              "ratio": 0.8571428571428571,
+              "debt_before": 6,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-03-0-slot-0",
+              "pair-03-0-slot-0",
+              "right",
+              "c"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0002412500325590372
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-04-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-3a714c02664af6f9",
+        "text": "Too bad I hid a boot.",
+        "tape": "toobadihidaboot",
+        "letters": 15,
+        "left_ids": [
+          "pair-04-0-0"
+        ],
+        "right_ids": [
+          "pair-04-0-2"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-04-0-0",
+              "text": "Too bad ",
+              "entry": "START",
+              "exit": "pair-04-0-slot-0",
+              "role": "finite content clause required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 2,
+              "side": "left",
+              "letters": "aboot",
+              "closure_exact": false,
+              "palindromic_residual": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 6,
+              "ratio": 0.16666666666666666,
+              "debt_before": 1,
+              "debt_after": 5,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "signature": [
+              "START",
+              "pair-04-0-slot-1",
+              "left",
+              "aboot"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-04-0-2",
+              "text": "a boot.",
+              "entry": "pair-04-0-slot-1",
+              "exit": "END",
+              "role": "nominal object",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 7,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 5,
+              "added": 5,
+              "ratio": 1.0,
+              "debt_before": 5,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "pair-04-0-1"
+        ],
+        "center_offset": [
+          1,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-04-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-04-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-04-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-04-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-04-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "h"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-04-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "i",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-04-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-04-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "b"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 13,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 15,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 8,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0018100000452250242
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-04-v0",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-3a714c02664af6f9",
+        "text": "Too bad I hid a boot.",
+        "tape": "toobadihidaboot",
+        "letters": 15,
+        "left_ids": [
+          "pair-04-0-0"
+        ],
+        "right_ids": [
+          "pair-04-0-1",
+          "pair-04-0-2"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-04-0-2",
+              "text": "a boot.",
+              "entry": "pair-04-0-slot-1",
+              "exit": "END",
+              "role": "nominal object",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "tooba",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 5,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 5,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "pair-04-0-slot-1",
+              "right",
+              "tooba"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-04-0-0",
+              "text": "Too bad ",
+              "entry": "START",
+              "exit": "pair-04-0-slot-0",
+              "role": "finite content clause required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 5,
+              "side": "left",
+              "letters": "d",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 5,
+              "added": 6,
+              "ratio": 0.8333333333333334,
+              "debt_before": 5,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-04-0-slot-0",
+              "pair-04-0-slot-1",
+              "left",
+              "d"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-04-0-1",
+              "text": "I hid ",
+              "entry": "pair-04-0-slot-0",
+              "exit": "pair-04-0-slot-1",
+              "role": "licensed continuation of finite content clause required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "right",
+              "letters": "ihi",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 4,
+              "ratio": 0.25,
+              "debt_before": 1,
+              "debt_after": 3,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-04-0-slot-0",
+              "pair-04-0-slot-0",
+              "right",
+              "ihi"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.000292791984975338
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-04-v1",
+    "method": "whole_chunk_centers",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-04-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-04-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "a",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-04-1-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-04-1-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-04-1-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "l"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-04-1-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-04-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "a"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-04-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "b"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 12,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 12,
+      "duplicate_states": 0,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 8,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0009162910282611847
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-04-v1",
+    "method": "owed_outside_in",
+    "outputs": [],
+    "failures": [
+      {
+        "left_ids": [
+          "pair-04-1-0"
+        ],
+        "right_ids": [
+          "pair-04-1-2"
+        ],
+        "side": "right",
+        "chunk": "pair-04-1-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 5,
+          "left": "d",
+          "mirrored_right": "t"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 5,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 0,
+      "failures": 1,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00011658389121294022
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-05-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-dd5cd93b87e28595",
+        "text": "No evil did live on.",
+        "tape": "noevildidliveon",
+        "letters": 15,
+        "left_ids": [
+          "pair-05-0-0"
+        ],
+        "right_ids": [],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-05-0-0",
+              "text": "No evil ",
+              "entry": "START",
+              "exit": "pair-05-0-slot-0",
+              "role": "singular finite VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 7,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "pair-05-0-1"
+        ],
+        "center_offset": [
+          1,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-05-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "l",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-05-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "i",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-05-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "l",
+          "mirrored_right": "d"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-05-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "l",
+          "mirrored_right": "i"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 9,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 10,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 4,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0007869158871471882
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-05-v0",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-dd5cd93b87e28595",
+        "text": "No evil did live on.",
+        "tape": "noevildidliveon",
+        "letters": 15,
+        "left_ids": [
+          "pair-05-0-0"
+        ],
+        "right_ids": [
+          "pair-05-0-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-05-0-0",
+              "text": "No evil ",
+              "entry": "START",
+              "exit": "pair-05-0-slot-0",
+              "role": "singular finite VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "left",
+              "letters": "noevil",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 6,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-05-0-slot-0",
+              "END",
+              "left",
+              "noevil"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-05-0-1",
+              "text": "did live on.",
+              "entry": "pair-05-0-slot-0",
+              "exit": "END",
+              "role": "finite VP",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "right",
+              "letters": "did",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 9,
+              "ratio": 0.6666666666666666,
+              "debt_before": 6,
+              "debt_after": 3,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-05-0-slot-0",
+              "pair-05-0-slot-0",
+              "right",
+              "did"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00021374993957579136
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-06-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-c5a3d86c5f299ef7",
+        "text": "No evils live on.",
+        "tape": "noevilsliveon",
+        "letters": 13,
+        "left_ids": [],
+        "right_ids": [
+          "pair-06-0-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-06-0-1",
+              "text": "live on.",
+              "entry": "pair-06-0-slot-0",
+              "exit": "END",
+              "role": "finite VP",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "pair-06-0-0"
+        ],
+        "center_offset": [
+          6,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-06-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "l"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-06-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "l"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-06-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "i"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 8,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 3,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0006408749613910913
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-06-v0",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-c5a3d86c5f299ef7",
+        "text": "No evils live on.",
+        "tape": "noevilsliveon",
+        "letters": 13,
+        "left_ids": [
+          "pair-06-0-0"
+        ],
+        "right_ids": [
+          "pair-06-0-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-06-0-1",
+              "text": "live on.",
+              "entry": "pair-06-0-slot-0",
+              "exit": "END",
+              "role": "finite VP",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "noevil",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 6,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "pair-06-0-slot-0",
+              "right",
+              "noevil"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-06-0-0",
+              "text": "No evils ",
+              "entry": "START",
+              "exit": "pair-06-0-slot-0",
+              "role": "plural finite VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "left",
+              "letters": "s",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 7,
+              "ratio": 0.8571428571428571,
+              "debt_before": 6,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-06-0-slot-0",
+              "pair-06-0-slot-0",
+              "left",
+              "s"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0001979160588234663
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-07-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-dfa635aa7f834feb",
+        "text": "No devil lived on.",
+        "tape": "nodevillivedon",
+        "letters": 14,
+        "left_ids": [],
+        "right_ids": [
+          "pair-07-0-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-07-0-1",
+              "text": "lived on.",
+              "entry": "pair-07-0-slot-0",
+              "exit": "END",
+              "role": "past finite VP",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 7,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 7,
+              "added": 7,
+              "ratio": 1.0,
+              "debt_before": 7,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "pair-07-0-0"
+        ],
+        "center_offset": [
+          7,
+          0
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-07-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "i",
+          "mirrored_right": "l"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-07-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "l",
+          "mirrored_right": "i"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 8,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 10,
+      "duplicate_states": 0,
+      "cycle_signatures": 2,
+      "outputs": 1,
+      "failures": 2,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0007249170448631048
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-07-v0",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-dfa635aa7f834feb",
+        "text": "No devil lived on.",
+        "tape": "nodevillivedon",
+        "letters": 14,
+        "left_ids": [
+          "pair-07-0-0"
+        ],
+        "right_ids": [
+          "pair-07-0-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-07-0-1",
+              "text": "lived on.",
+              "entry": "pair-07-0-slot-0",
+              "exit": "END",
+              "role": "past finite VP",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "nodevil",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 7,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 7,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "pair-07-0-slot-0",
+              "right",
+              "nodevil"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-07-0-0",
+              "text": "No devil ",
+              "entry": "START",
+              "exit": "pair-07-0-slot-0",
+              "role": "singular finite VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 7,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 7,
+              "added": 7,
+              "ratio": 1.0,
+              "debt_before": 7,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-07-0-slot-0",
+              "pair-07-0-slot-0",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 2,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00023674988187849522
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-08-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-bb1779085aff4e8e",
+        "text": "Ten animals slam in a net.",
+        "tape": "tenanimalsslaminanet",
+        "letters": 20,
+        "left_ids": [],
+        "right_ids": [
+          "pair-08-0-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-08-0-1",
+              "text": "slam in a net.",
+              "entry": "pair-08-0-slot-0",
+              "exit": "END",
+              "role": "finite VP with location",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 10,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 10,
+              "added": 10,
+              "ratio": 1.0,
+              "debt_before": 10,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "pair-08-0-0"
+        ],
+        "center_offset": [
+          10,
+          0
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-08-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "l",
+          "mirrored_right": "s"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-08-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "s",
+          "mirrored_right": "l"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 8,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 10,
+      "duplicate_states": 0,
+      "cycle_signatures": 2,
+      "outputs": 1,
+      "failures": 2,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0020617498084902763
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-08-v0",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-bb1779085aff4e8e",
+        "text": "Ten animals slam in a net.",
+        "tape": "tenanimalsslaminanet",
+        "letters": 20,
+        "left_ids": [
+          "pair-08-0-0"
+        ],
+        "right_ids": [
+          "pair-08-0-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-08-0-1",
+              "text": "slam in a net.",
+              "entry": "pair-08-0-slot-0",
+              "exit": "END",
+              "role": "finite VP with location",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "tenanimals",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 10,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 10,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "pair-08-0-slot-0",
+              "right",
+              "tenanimals"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-08-0-0",
+              "text": "Ten animals ",
+              "entry": "START",
+              "exit": "pair-08-0-slot-0",
+              "role": "plural finite VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 10,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 10,
+              "added": 10,
+              "ratio": 1.0,
+              "debt_before": 10,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-08-0-slot-0",
+              "pair-08-0-slot-0",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 2,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0002758749760687351
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-09-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-3a2c7342c0198b03",
+        "text": "We panic in a pew.",
+        "tape": "wepanicinapew",
+        "letters": 13,
+        "left_ids": [],
+        "right_ids": [
+          "pair-09-0-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-09-0-1",
+              "text": "in a pew.",
+              "entry": "pair-09-0-slot-0",
+              "exit": "END",
+              "role": "locative PP",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "pair-09-0-0"
+        ],
+        "center_offset": [
+          6,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-09-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "c",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-09-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "c",
+          "mirrored_right": "i"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-09-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "c",
+          "mirrored_right": "n"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 8,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 3,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0006274580955505371
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-09-v0",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-3a2c7342c0198b03",
+        "text": "We panic in a pew.",
+        "tape": "wepanicinapew",
+        "letters": 13,
+        "left_ids": [
+          "pair-09-0-0"
+        ],
+        "right_ids": [
+          "pair-09-0-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-09-0-1",
+              "text": "in a pew.",
+              "entry": "pair-09-0-slot-0",
+              "exit": "END",
+              "role": "locative PP",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "wepani",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 6,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "pair-09-0-slot-0",
+              "right",
+              "wepani"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-09-0-0",
+              "text": "We panic ",
+              "entry": "START",
+              "exit": "pair-09-0-slot-0",
+              "role": "locative adjunct permitted",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "left",
+              "letters": "c",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 7,
+              "ratio": 0.8571428571428571,
+              "debt_before": 6,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-09-0-slot-0",
+              "pair-09-0-slot-0",
+              "left",
+              "c"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00018320884555578232
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-11-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-e9d0691f55c828b5",
+        "text": "Dennis and Edna sinned.",
+        "tape": "dennisandednasinned",
+        "letters": 19,
+        "left_ids": [
+          "pair-11-0-0"
+        ],
+        "right_ids": [],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-11-0-0",
+              "text": "Dennis and ",
+              "entry": "START",
+              "exit": "pair-11-0-slot-0",
+              "role": "second conjunct plus finite VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 9,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 9,
+              "added": 9,
+              "ratio": 1.0,
+              "debt_before": 9,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "pair-11-0-1"
+        ],
+        "center_offset": [
+          0,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-11-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "e"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-11-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "e"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-11-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "d",
+          "mirrored_right": "e"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 8,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 3,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0010219579562544823
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-11-v0",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-e9d0691f55c828b5",
+        "text": "Dennis and Edna sinned.",
+        "tape": "dennisandednasinned",
+        "letters": 19,
+        "left_ids": [
+          "pair-11-0-0"
+        ],
+        "right_ids": [
+          "pair-11-0-1"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-11-0-0",
+              "text": "Dennis and ",
+              "entry": "START",
+              "exit": "pair-11-0-slot-0",
+              "role": "second conjunct plus finite VP required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "left",
+              "letters": "dennisand",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 9,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 9,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-11-0-slot-0",
+              "END",
+              "left",
+              "dennisand"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-11-0-1",
+              "text": "Edna sinned.",
+              "entry": "pair-11-0-slot-0",
+              "exit": "END",
+              "role": "conjunct plus finite VP",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 9,
+              "side": "right",
+              "letters": "e",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 9,
+              "added": 10,
+              "ratio": 0.9,
+              "debt_before": 9,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-11-0-slot-0",
+              "pair-11-0-slot-0",
+              "right",
+              "e"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 7,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.000292791984975338
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-12-v0",
+    "method": "whole_chunk_centers",
+    "outputs": [
+      {
+        "id": "bilateral-01fe861c10cb285d",
+        "text": "Are we not drawn onward, we few, drawn onward to new era?",
+        "tape": "arewenotdrawnonwardwefewdrawnonwardtonewera",
+        "letters": 43,
+        "left_ids": [
+          "pair-12-0-0",
+          "pair-12-0-1",
+          "pair-12-0-2"
+        ],
+        "right_ids": [
+          "pair-12-0-4",
+          "pair-12-0-5"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-12-0-2",
+              "text": "onward, we ",
+              "entry": "pair-12-0-slot-1",
+              "exit": "pair-12-0-slot-2",
+              "role": "licensed continuation of passive predicate required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 7,
+              "side": "left",
+              "letters": "o",
+              "closure_exact": false,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 7,
+              "added": 8,
+              "ratio": 0.875,
+              "debt_before": 7,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "signature": [
+              "pair-12-0-slot-1",
+              "pair-12-0-slot-3",
+              "left",
+              "o"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-12-0-4",
+              "text": "onward to ",
+              "entry": "pair-12-0-slot-3",
+              "exit": "pair-12-0-slot-4",
+              "role": "licensed continuation of passive predicate required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 8,
+              "side": "right",
+              "letters": "nwardto",
+              "closure_exact": false,
+              "palindromic_residual": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 8,
+              "ratio": 0.125,
+              "debt_before": 1,
+              "debt_after": 7,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "signature": [
+              "pair-12-0-slot-1",
+              "pair-12-0-slot-4",
+              "right",
+              "nwardto"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-12-0-1",
+              "text": "not drawn ",
+              "entry": "pair-12-0-slot-0",
+              "exit": "pair-12-0-slot-1",
+              "role": "licensed continuation of passive predicate required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 15,
+              "side": "left",
+              "letters": "n",
+              "closure_exact": false,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 7,
+              "added": 8,
+              "ratio": 0.875,
+              "debt_before": 7,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "signature": [
+              "pair-12-0-slot-0",
+              "pair-12-0-slot-4",
+              "left",
+              "n"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-12-0-5",
+              "text": "new era?",
+              "entry": "pair-12-0-slot-4",
+              "exit": "END",
+              "role": "bare NP after directional to",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 16,
+              "side": "right",
+              "letters": "ewera",
+              "closure_exact": false,
+              "palindromic_residual": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 6,
+              "ratio": 0.16666666666666666,
+              "debt_before": 1,
+              "debt_after": 5,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "signature": [
+              "pair-12-0-slot-0",
+              "END",
+              "right",
+              "ewera"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-12-0-0",
+              "text": "Are we ",
+              "entry": "START",
+              "exit": "pair-12-0-slot-0",
+              "role": "passive predicate required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 21,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 5,
+              "added": 5,
+              "ratio": 1.0,
+              "debt_before": 5,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "pair-12-0-3"
+        ],
+        "center_offset": [
+          0,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {
+            "we": 2,
+            "drawn": 2,
+            "onward": 2
+          },
+          "token_repeat_excess": 3,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-12-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-12-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 1,
+          "left": "r",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-12-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "w",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-12-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-12-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-12-0-0",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-12-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "w",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-12-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-12-0-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "f"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-12-0-1",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 5,
+          "left": "t",
+          "mirrored_right": "w"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-12-0-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "w",
+          "mirrored_right": "f"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-12-0-2",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "e",
+          "mirrored_right": "f"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-12-0-4",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-12-0-4",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "w",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-12-0-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "n",
+          "mirrored_right": "o"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-12-0-5",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-12-0-3",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 5,
+          "left": "w",
+          "mirrored_right": "t"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "right",
+        "chunk": "pair-12-0-5",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "t",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-12-0-4",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "n"
+        }
+      },
+      {
+        "left_ids": [],
+        "right_ids": [],
+        "side": "left",
+        "chunk": "pair-12-0-4",
+        "reason": "letter_mismatch",
+        "mismatch": {
+          "compatible": false,
+          "offset": 0,
+          "left": "o",
+          "mirrored_right": "e"
+        }
+      }
+    ],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 25,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 30,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 20,
+      "pending_states": 0,
+      "elapsed_seconds": 0.004243666073307395
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  },
+  {
+    "stratum": "conditioned_paths",
+    "case": "pair-12-v0",
+    "method": "owed_outside_in",
+    "outputs": [
+      {
+        "id": "bilateral-01fe861c10cb285d",
+        "text": "Are we not drawn onward, we few, drawn onward to new era?",
+        "tape": "arewenotdrawnonwardwefewdrawnonwardtonewera",
+        "letters": 43,
+        "left_ids": [
+          "pair-12-0-0",
+          "pair-12-0-1",
+          "pair-12-0-2"
+        ],
+        "right_ids": [
+          "pair-12-0-3",
+          "pair-12-0-4",
+          "pair-12-0-5"
+        ],
+        "bindings": {},
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-12-0-0",
+              "text": "Are we ",
+              "entry": "START",
+              "exit": "pair-12-0-slot-0",
+              "role": "passive predicate required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "left",
+              "letters": "arewe",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 5,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 5,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-12-0-slot-0",
+              "END",
+              "left",
+              "arewe"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-12-0-5",
+              "text": "new era?",
+              "entry": "pair-12-0-slot-4",
+              "exit": "END",
+              "role": "bare NP after directional to",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 5,
+              "side": "right",
+              "letters": "n",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 5,
+              "added": 6,
+              "ratio": 0.8333333333333334,
+              "debt_before": 5,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-12-0-slot-0",
+              "pair-12-0-slot-4",
+              "right",
+              "n"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-12-0-1",
+              "text": "not drawn ",
+              "entry": "pair-12-0-slot-0",
+              "exit": "pair-12-0-slot-1",
+              "role": "licensed continuation of passive predicate required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "left",
+              "letters": "otdrawn",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 8,
+              "ratio": 0.125,
+              "debt_before": 1,
+              "debt_after": 7,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-12-0-slot-1",
+              "pair-12-0-slot-4",
+              "left",
+              "otdrawn"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-12-0-4",
+              "text": "onward to ",
+              "entry": "pair-12-0-slot-3",
+              "exit": "pair-12-0-slot-4",
+              "role": "licensed continuation of passive predicate required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 13,
+              "side": "right",
+              "letters": "o",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 7,
+              "added": 8,
+              "ratio": 0.875,
+              "debt_before": 7,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-12-0-slot-1",
+              "pair-12-0-slot-3",
+              "right",
+              "o"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "pair-12-0-2",
+              "text": "onward, we ",
+              "entry": "pair-12-0-slot-1",
+              "exit": "pair-12-0-slot-2",
+              "role": "licensed continuation of passive predicate required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 14,
+              "side": "left",
+              "letters": "nwardwe",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 8,
+              "ratio": 0.125,
+              "debt_before": 1,
+              "debt_after": 7,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-12-0-slot-2",
+              "pair-12-0-slot-3",
+              "left",
+              "nwardwe"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "pair-12-0-3",
+              "text": "few, drawn ",
+              "entry": "pair-12-0-slot-2",
+              "exit": "pair-12-0-slot-3",
+              "role": "licensed continuation of passive predicate required",
+              "source": "audit-conditioned authored phrase inventory; no novelty claim",
+              "bindings": []
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 21,
+              "side": "right",
+              "letters": "f",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 7,
+              "added": 8,
+              "ratio": 0.875,
+              "debt_before": 7,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "pair-12-0-slot-2",
+              "pair-12-0-slot-2",
+              "right",
+              "f"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {
+            "we": 2,
+            "drawn": 2,
+            "onward": 2
+          },
+          "token_repeat_excess": 3,
+          "repeated_phrases": {}
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 6,
+      "max_states": 10000,
+      "max_outputs": 1000,
+      "seconds_cap": 1,
+      "states_visited": 9,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 0,
+      "pending_states": 0,
+      "elapsed_seconds": 0.00026937504298985004
+    },
+    "infinite_claim": "No infinite coherent/nonrepeating claim; productive unbounded family requires a separate cycle certificate."
+  }
+]

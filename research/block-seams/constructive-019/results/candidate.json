@@ -1,0 +1,186 @@
+{
+  "target": "Do geese on a cedar trade canoe see God?",
+  "letters": 31,
+  "words": 9,
+  "distinct_words": 9,
+  "repeated_words": {},
+  "whole_word_chunks": [
+    "Do geese",
+    "on a cedar",
+    "trade canoe",
+    "see God?"
+  ],
+  "source": "Known question scaffold: Do geese see God? New authored continuation: on a cedar trade canoe.",
+  "inherited_scaffold_letters": 13,
+  "added_letters": 18,
+  "phrase_is_itself_palindromic": false,
+  "construction": "The frontier leaves debt e. The new PP is onacedartradecanoe; e+PP is palindromic. Its t center lies inside the intact phrase trade canoe.",
+  "parse": "Do [SUBJECT geese [PP on [NP a [MOD cedar] [N-COMPOUND trade canoe]]]] [VP see God]?",
+  "meaning": "A whimsical question about geese perched on a cedar-built canoe used for trade.",
+  "quality_caution": "The compound cedar trade canoe is interpretable but marked and uncommon; no claim that this exact term is conventional or that readers prefer this to the short control. Philosophical whimsy is inherited from the scaffold.",
+  "novelty_caution": "This is a known-scaffold extension, not a new independent palindrome family. No world-originality claim. No unseen full-corpus claim.",
+  "lexical_evidence": [
+    {
+      "url": "https://repository.si.edu/bitstream/10088/9991/1/USNMB_2301964_unit.pdf",
+      "support": "Smithsonian historical monograph documents trade canoes and cedar in canoe construction. This supports the component concepts, not attestation of the exact compound."
+    }
+  ],
+  "experiment": {
+    "kind": "one bounded authored grid",
+    "path_count": 36,
+    "inventory_chunks": 14,
+    "exact_paths": 1,
+    "all_words_intact": true,
+    "paid_calls": 0,
+    "scoring_note": "Authored around a found candidate; not an unbiased yield estimate or a readability evaluation."
+  },
+  "reference_comparison": {
+    "reference": "research/block-seams/center-coverage-018/raw-results.json",
+    "prior_unique_tapes": 12,
+    "target_present": false,
+    "scope": "Supplied 018 outputs only. Owner must check the full local corpus before a broader new-to-corpus claim."
+  },
+  "center_trace": [
+    {
+      "chunk": "R2-trade",
+      "text": "trade canoe ",
+      "side": "anchor",
+      "center_offset": [
+        0,
+        1
+      ],
+      "center_letter": "t",
+      "debt": {
+        "compatible": true,
+        "matched": 0,
+        "side": "right",
+        "letters": "radecanoe",
+        "closure_exact": false
+      }
+    },
+    {
+      "side": "left",
+      "chunk": {
+        "id": "L2-cedar",
+        "text": "on a cedar ",
+        "entry": "SUBJECT_PP",
+        "exit": "CANOE_HEAD",
+        "role": "locative PP opener: preposition on + singular determiner a + material noun or shape adjective",
+        "source": "Authored debt-conditioned extension of the existing Do geese / see God? control; no world-originality claim.",
+        "bindings": []
+      },
+      "debt": {
+        "compatible": true,
+        "matched": 8,
+        "side": "right",
+        "letters": "e",
+        "closure_exact": false,
+        "palindromic_residual": true
+      },
+      "payoff": {
+        "paid": 8,
+        "added": 8,
+        "ratio": 1.0,
+        "debt_before": 9,
+        "debt_after": 1,
+        "valid": true
+      },
+      "repeat_increment": 0,
+      "growth": "prepend_L"
+    },
+    {
+      "side": "left",
+      "chunk": {
+        "id": "L1",
+        "text": "Do geese ",
+        "entry": "START",
+        "exit": "SUBJECT_PP",
+        "role": "plural subject under question auxiliary do; optional locative PP follows",
+        "source": "Authored debt-conditioned extension of the existing Do geese / see God? control; no world-originality claim.",
+        "bindings": []
+      },
+      "debt": {
+        "compatible": true,
+        "matched": 9,
+        "side": "left",
+        "letters": "seegod",
+        "closure_exact": false,
+        "palindromic_residual": false
+      },
+      "payoff": {
+        "paid": 1,
+        "added": 7,
+        "ratio": 0.14285714285714285,
+        "debt_before": 1,
+        "debt_after": 6,
+        "valid": true
+      },
+      "repeat_increment": 0,
+      "growth": "prepend_L"
+    },
+    {
+      "side": "right",
+      "chunk": {
+        "id": "R1",
+        "text": "see God?",
+        "entry": "BARE_VP",
+        "exit": "END",
+        "role": "base-form transitive VP under do; object God",
+        "source": "Authored debt-conditioned extension of the existing Do geese / see God? control; no world-originality claim.",
+        "bindings": []
+      },
+      "debt": {
+        "compatible": true,
+        "matched": 15,
+        "side": "none",
+        "letters": "",
+        "closure_exact": true,
+        "palindromic_residual": true
+      },
+      "payoff": {
+        "paid": 6,
+        "added": 6,
+        "ratio": 1.0,
+        "debt_before": 6,
+        "debt_after": 0,
+        "valid": true
+      },
+      "repeat_increment": 0,
+      "growth": "append_R"
+    }
+  ],
+  "receipts": {
+    "whole_chunk_centers": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 58,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 61,
+      "duplicate_states": 0,
+      "cycle_signatures": 1,
+      "outputs": 1,
+      "failures": 203,
+      "pending_states": 0,
+      "elapsed_seconds": 0.036316958954557776
+    },
+    "owed_outside_in": {
+      "status": "complete_bounded_depth",
+      "seed_status": "complete_bounded_depth",
+      "seeds": 1,
+      "max_steps": 4,
+      "max_states": 10000,
+      "max_outputs": 100,
+      "seconds_cap": 2,
+      "states_visited": 12,
+      "duplicate_states": 1,
+      "cycle_signatures": 0,
+      "outputs": 1,
+      "failures": 35,
+      "pending_states": 0,
+      "elapsed_seconds": 0.0006505830679088831
+    }
+  }
+}

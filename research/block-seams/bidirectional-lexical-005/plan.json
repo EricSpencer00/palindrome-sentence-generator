@@ -1,0 +1,47 @@
+{
+  "seed": "bidirectional-lexical-005",
+  "methods": [
+    "enumerated_original_bank",
+    "enumerated_expanded_grammar",
+    "bidirectional_expanded_grammar"
+  ],
+  "max_work_per_arm": 20000000,
+  "max_seconds_per_arm": 30,
+  "max_accepted_derivations_per_arm": 20000,
+  "clause_counts": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "cpu_only": true,
+  "model_calls": 0,
+  "fragment_bank_sentences": 116,
+  "expanded_sentence_language_count": 248,
+  "frames": [
+    "celebrity_revile",
+    "comparative",
+    "copula",
+    "delivery_request",
+    "delivery_statement",
+    "let_in",
+    "open",
+    "past_revile",
+    "person_delivery_request",
+    "pets",
+    "recipient_delivery_request",
+    "reference_request",
+    "say",
+    "step",
+    "stopping_request"
+  ],
+  "sampling": "ceil10% per method \u00d7 clause count \u00d7 letter band \u00d7 classic-scaffold feature; sample deduplicated exact texts; report derivation distribution separately",
+  "comparison": "original vs expanded enumerated arm measures vocabulary/grammar coverage; expanded enumerated vs bidirectional arm isolates representation on identical language",
+  "search_pruning": "character inequality and exact graph reachability only; no semantic/repetition/quality pruning",
+  "human_calibration": {
+    "five_prior_outputs": "BAD; distinct earlier feedback",
+    "pending_v3_fragment_salvage-0332715fe9d2f50e": "18:16UTC readability-positive, repetition concern; no numeric rating or unqualified novel-paragraph approval",
+    "selection": "broad finite diverse pool then select; repetition is ranking feature"
+  },
+  "stopping": "complete finite matched-budget comparison or recorded resource truncation"
+}

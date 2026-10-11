@@ -1,0 +1,1207 @@
+{
+  "version": "root-quotas-v1",
+  "root_count": 20,
+  "family_count": 23,
+  "families_with_viable_root": [
+    "boundary-0",
+    "boundary-1",
+    "boundary-10",
+    "boundary-11",
+    "boundary-12",
+    "boundary-13",
+    "boundary-14",
+    "boundary-15",
+    "boundary-16",
+    "boundary-17",
+    "boundary-18",
+    "boundary-19",
+    "boundary-2",
+    "boundary-20",
+    "boundary-21",
+    "boundary-22",
+    "boundary-3",
+    "boundary-4",
+    "boundary-5",
+    "boundary-6",
+    "boundary-7",
+    "boundary-8",
+    "boundary-9"
+  ],
+  "families_with_started_root": [
+    "boundary-0",
+    "boundary-1",
+    "boundary-10",
+    "boundary-11",
+    "boundary-12",
+    "boundary-13",
+    "boundary-14",
+    "boundary-15",
+    "boundary-16",
+    "boundary-17",
+    "boundary-18",
+    "boundary-19",
+    "boundary-2",
+    "boundary-20",
+    "boundary-21",
+    "boundary-22",
+    "boundary-3",
+    "boundary-4",
+    "boundary-5",
+    "boundary-6",
+    "boundary-7",
+    "boundary-8",
+    "boundary-9"
+  ],
+  "families_without_inventory_root": [],
+  "root_order": "lexicographic (side, text, ID), independent of score",
+  "seed_assignment": "seeds[root_number modulo len(seeds)]",
+  "score_policy": "Original scorer and diversity ranking within each lane. All root actions retained. Root score is a lane-constant omitted by native seeded search and restored when reporting total terminal scores.",
+  "coverage_policy": "One fixed-width beam per viable root action; equal bounded time/action quotas. Narrow-lane beam pruning and partial-frontier loss remain logged.",
+  "grammar_scope": "Boundary feasibility is necessary for the declared finite grammar, not a corpus-match or general-English completeness claim.",
+  "schema_version": 1,
+  "plan_sha256": "d4545a90d4e62a5c93f74fdf1099d5cea4213a94238df64c8bd6c29c5336a5b1",
+  "preparation_seconds": 0.9801976250018924,
+  "elapsed_before_artifact_write": 41.23806712497026,
+  "boundary_index": {
+    "version": "finite-grammar-boundaries-v1",
+    "scope": "Necessary outer-character condition for the declared compiled grammar only",
+    "grammar_paths": 14,
+    "prefixes": 776,
+    "suffixes": 335,
+    "families": [
+      {
+        "family_id": "boundary-0",
+        "prefix": "evilis",
+        "suffix": "ilive",
+        "reversed_suffix": "evili",
+        "prefix_records": [
+          {
+            "path_id": 9,
+            "label": "copular-np",
+            "text": "evil is"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 11,
+            "label": "intransitive:live",
+            "text": "i live"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-1",
+        "prefix": "leonsees",
+        "suffix": "seesnoel",
+        "reversed_suffix": "leonsees",
+        "prefix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "leon sees"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "sees noel"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-2",
+        "prefix": "leonwas",
+        "suffix": "sawnoel",
+        "reversed_suffix": "leonwas",
+        "prefix_records": [
+          {
+            "path_id": 10,
+            "label": "copular-np",
+            "text": "leon was"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 2,
+            "label": "transitive:see",
+            "text": "saw noel"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-3",
+        "prefix": "liamsees",
+        "suffix": "seesmail",
+        "reversed_suffix": "liamsees",
+        "prefix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "liam sees"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "sees mail"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-4",
+        "prefix": "liamwas",
+        "suffix": "sawmail",
+        "reversed_suffix": "liamwas",
+        "prefix_records": [
+          {
+            "path_id": 10,
+            "label": "copular-np",
+            "text": "liam was"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 2,
+            "label": "transitive:see",
+            "text": "saw mail"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-5",
+        "prefix": "mailsees",
+        "suffix": "seesliam",
+        "reversed_suffix": "mailsees",
+        "prefix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "mail sees"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "sees liam"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-6",
+        "prefix": "mailwas",
+        "suffix": "sawliam",
+        "reversed_suffix": "mailwas",
+        "prefix_records": [
+          {
+            "path_id": 10,
+            "label": "copular-np",
+            "text": "mail was"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 2,
+            "label": "transitive:see",
+            "text": "saw liam"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-7",
+        "prefix": "noelsees",
+        "suffix": "seesleon",
+        "reversed_suffix": "noelsees",
+        "prefix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "noel sees"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "sees leon"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-8",
+        "prefix": "noelwas",
+        "suffix": "sawleon",
+        "reversed_suffix": "noelwas",
+        "prefix_records": [
+          {
+            "path_id": 10,
+            "label": "copular-np",
+            "text": "noel was"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 2,
+            "label": "transitive:see",
+            "text": "saw leon"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-9",
+        "prefix": "noevilcan",
+        "suffix": "liveon",
+        "reversed_suffix": "noevil",
+        "prefix_records": [
+          {
+            "path_id": 3,
+            "label": "modal:see",
+            "text": "no evil can"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 12,
+            "label": "particle:live",
+            "text": "live on"
+          },
+          {
+            "path_id": 13,
+            "label": "emphatic-particle:live",
+            "text": "live on"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-10",
+        "prefix": "noevilcarries",
+        "suffix": "liveon",
+        "reversed_suffix": "noevil",
+        "prefix_records": [
+          {
+            "path_id": 6,
+            "label": "transitive:carry",
+            "text": "no evil carries"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 12,
+            "label": "particle:live",
+            "text": "live on"
+          },
+          {
+            "path_id": 13,
+            "label": "emphatic-particle:live",
+            "text": "live on"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-11",
+        "prefix": "noevildid",
+        "suffix": "liveon",
+        "reversed_suffix": "noevil",
+        "prefix_records": [
+          {
+            "path_id": 4,
+            "label": "emphatic:see",
+            "text": "no evil did"
+          },
+          {
+            "path_id": 13,
+            "label": "emphatic-particle:live",
+            "text": "no evil did"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 12,
+            "label": "particle:live",
+            "text": "live on"
+          },
+          {
+            "path_id": 13,
+            "label": "emphatic-particle:live",
+            "text": "live on"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-12",
+        "prefix": "noevilholds",
+        "suffix": "liveon",
+        "reversed_suffix": "noevil",
+        "prefix_records": [
+          {
+            "path_id": 7,
+            "label": "transitive:hold",
+            "text": "no evil holds"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 12,
+            "label": "particle:live",
+            "text": "live on"
+          },
+          {
+            "path_id": 13,
+            "label": "emphatic-particle:live",
+            "text": "live on"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-13",
+        "prefix": "noevilis",
+        "suffix": "liveon",
+        "reversed_suffix": "noevil",
+        "prefix_records": [
+          {
+            "path_id": 9,
+            "label": "copular-np",
+            "text": "no evil is"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 12,
+            "label": "particle:live",
+            "text": "live on"
+          },
+          {
+            "path_id": 13,
+            "label": "emphatic-particle:live",
+            "text": "live on"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-14",
+        "prefix": "noevilmoves",
+        "suffix": "liveon",
+        "reversed_suffix": "noevil",
+        "prefix_records": [
+          {
+            "path_id": 8,
+            "label": "transitive:move",
+            "text": "no evil moves"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 12,
+            "label": "particle:live",
+            "text": "live on"
+          },
+          {
+            "path_id": 13,
+            "label": "emphatic-particle:live",
+            "text": "live on"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-15",
+        "prefix": "noevilreads",
+        "suffix": "liveon",
+        "reversed_suffix": "noevil",
+        "prefix_records": [
+          {
+            "path_id": 5,
+            "label": "transitive:read",
+            "text": "no evil reads"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 12,
+            "label": "particle:live",
+            "text": "live on"
+          },
+          {
+            "path_id": 13,
+            "label": "emphatic-particle:live",
+            "text": "live on"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-16",
+        "prefix": "noevilsaw",
+        "suffix": "liveon",
+        "reversed_suffix": "noevil",
+        "prefix_records": [
+          {
+            "path_id": 2,
+            "label": "transitive:see",
+            "text": "no evil saw"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 12,
+            "label": "particle:live",
+            "text": "live on"
+          },
+          {
+            "path_id": 13,
+            "label": "emphatic-particle:live",
+            "text": "live on"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-17",
+        "prefix": "noevilsees",
+        "suffix": "liveon",
+        "reversed_suffix": "noevil",
+        "prefix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "no evil sees"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 12,
+            "label": "particle:live",
+            "text": "live on"
+          },
+          {
+            "path_id": 13,
+            "label": "emphatic-particle:live",
+            "text": "live on"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-18",
+        "prefix": "noevilwas",
+        "suffix": "liveon",
+        "reversed_suffix": "noevil",
+        "prefix_records": [
+          {
+            "path_id": 10,
+            "label": "copular-np",
+            "text": "no evil was"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 12,
+            "label": "particle:live",
+            "text": "live on"
+          },
+          {
+            "path_id": 13,
+            "label": "emphatic-particle:live",
+            "text": "live on"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-19",
+        "prefix": "noridersees",
+        "suffix": "seesrediron",
+        "reversed_suffix": "noridersees",
+        "prefix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "no rider sees"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "sees red iron"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-20",
+        "prefix": "noriderwas",
+        "suffix": "sawrediron",
+        "reversed_suffix": "noriderwas",
+        "prefix_records": [
+          {
+            "path_id": 10,
+            "label": "copular-np",
+            "text": "no rider was"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 2,
+            "label": "transitive:see",
+            "text": "saw red iron"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-21",
+        "prefix": "redironsees",
+        "suffix": "seesnorider",
+        "reversed_suffix": "redironsees",
+        "prefix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "red iron sees"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 0,
+            "label": "transitive:see",
+            "text": "sees no rider"
+          }
+        ]
+      },
+      {
+        "family_id": "boundary-22",
+        "prefix": "redironwas",
+        "suffix": "sawnorider",
+        "reversed_suffix": "redironwas",
+        "prefix_records": [
+          {
+            "path_id": 10,
+            "label": "copular-np",
+            "text": "red iron was"
+          }
+        ],
+        "suffix_records": [
+          {
+            "path_id": 2,
+            "label": "transitive:see",
+            "text": "saw no rider"
+          }
+        ]
+      }
+    ]
+  },
+  "roots": [
+    {
+      "root_number": 0,
+      "root_side": "left",
+      "root_unit": "evil",
+      "boundary_families": [
+        "boundary-0"
+      ],
+      "seed": 921,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.010211959015578,
+      "attempted_actions": 530,
+      "visited_states": 4,
+      "maximum_expanded_depth": 4,
+      "fully_completed_maximum_expansion_depth": 3,
+      "max_visited_letters": 25,
+      "max_retained_proposal_letters": 32,
+      "rejections": {
+        "finite_grammar_boundary": 68,
+        "unlicensed_grammar_frontier": 174,
+        "letter_mismatch": 242,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 32,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 1,
+      "root_side": "left",
+      "root_unit": "leon",
+      "boundary_families": [
+        "boundary-1",
+        "boundary-2"
+      ],
+      "seed": 922,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.0084959999658167,
+      "attempted_actions": 439,
+      "visited_states": 4,
+      "maximum_expanded_depth": 4,
+      "fully_completed_maximum_expansion_depth": 3,
+      "max_visited_letters": 23,
+      "max_retained_proposal_letters": 29,
+      "rejections": {
+        "finite_grammar_boundary": 200,
+        "unlicensed_grammar_frontier": 59,
+        "letter_mismatch": 140,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 30,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 2,
+      "root_side": "left",
+      "root_unit": "liam",
+      "boundary_families": [
+        "boundary-3",
+        "boundary-4"
+      ],
+      "seed": 923,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.0081036660121754,
+      "attempted_actions": 349,
+      "visited_states": 3,
+      "maximum_expanded_depth": 3,
+      "fully_completed_maximum_expansion_depth": 2,
+      "max_visited_letters": 19,
+      "max_retained_proposal_letters": 30,
+      "rejections": {
+        "finite_grammar_boundary": 66,
+        "unlicensed_grammar_frontier": 87,
+        "letter_mismatch": 140,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 27,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 3,
+      "root_side": "left",
+      "root_unit": "mail",
+      "boundary_families": [
+        "boundary-5",
+        "boundary-6"
+      ],
+      "seed": 921,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.0083686250727624,
+      "attempted_actions": 347,
+      "visited_states": 3,
+      "maximum_expanded_depth": 3,
+      "fully_completed_maximum_expansion_depth": 2,
+      "max_visited_letters": 19,
+      "max_retained_proposal_letters": 27,
+      "rejections": {
+        "finite_grammar_boundary": 66,
+        "unlicensed_grammar_frontier": 87,
+        "letter_mismatch": 140,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 27,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 4,
+      "root_side": "left",
+      "root_unit": "no",
+      "boundary_families": [
+        "boundary-7",
+        "boundary-8",
+        "boundary-9",
+        "boundary-10",
+        "boundary-11",
+        "boundary-12",
+        "boundary-13",
+        "boundary-14",
+        "boundary-15",
+        "boundary-16",
+        "boundary-17",
+        "boundary-18",
+        "boundary-19",
+        "boundary-20"
+      ],
+      "seed": 922,
+      "status": "deadline",
+      "elapsed_seconds": 2.002280665910803,
+      "attempted_actions": 581,
+      "visited_states": 5,
+      "maximum_expanded_depth": 5,
+      "fully_completed_maximum_expansion_depth": 4,
+      "max_visited_letters": 26,
+      "max_retained_proposal_letters": 32,
+      "rejections": {
+        "finite_grammar_boundary": 203,
+        "letter_mismatch": 273,
+        "unlicensed_grammar_frontier": 58,
+        "deadline": 1
+      },
+      "pruned_proposals": 36,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 5,
+      "root_side": "left",
+      "root_unit": "no evil",
+      "boundary_families": [
+        "boundary-9",
+        "boundary-10",
+        "boundary-11",
+        "boundary-12",
+        "boundary-13",
+        "boundary-14",
+        "boundary-15",
+        "boundary-16",
+        "boundary-17",
+        "boundary-18"
+      ],
+      "seed": 923,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.0093864580849186,
+      "attempted_actions": 569,
+      "visited_states": 5,
+      "maximum_expanded_depth": 5,
+      "fully_completed_maximum_expansion_depth": 4,
+      "max_visited_letters": 27,
+      "max_retained_proposal_letters": 28,
+      "rejections": {
+        "finite_grammar_boundary": 56,
+        "unlicensed_grammar_frontier": 180,
+        "letter_mismatch": 280,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 48,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 6,
+      "root_side": "left",
+      "root_unit": "no rider",
+      "boundary_families": [
+        "boundary-19",
+        "boundary-20"
+      ],
+      "seed": 921,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.007050124928355,
+      "attempted_actions": 335,
+      "visited_states": 3,
+      "maximum_expanded_depth": 3,
+      "fully_completed_maximum_expansion_depth": 2,
+      "max_visited_letters": 22,
+      "max_retained_proposal_letters": 30,
+      "rejections": {
+        "finite_grammar_boundary": 66,
+        "unlicensed_grammar_frontier": 78,
+        "letter_mismatch": 136,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 31,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 7,
+      "root_side": "left",
+      "root_unit": "noel",
+      "boundary_families": [
+        "boundary-7",
+        "boundary-8"
+      ],
+      "seed": 922,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.009606209001504,
+      "attempted_actions": 502,
+      "visited_states": 4,
+      "maximum_expanded_depth": 4,
+      "fully_completed_maximum_expansion_depth": 3,
+      "max_visited_letters": 18,
+      "max_retained_proposal_letters": 24,
+      "rejections": {
+        "finite_grammar_boundary": 200,
+        "unlicensed_grammar_frontier": 55,
+        "letter_mismatch": 207,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 32,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 8,
+      "root_side": "left",
+      "root_unit": "red",
+      "boundary_families": [
+        "boundary-21",
+        "boundary-22"
+      ],
+      "seed": 923,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.0070382080739364,
+      "attempted_actions": 646,
+      "visited_states": 5,
+      "maximum_expanded_depth": 5,
+      "fully_completed_maximum_expansion_depth": 4,
+      "max_visited_letters": 29,
+      "max_retained_proposal_letters": 35,
+      "rejections": {
+        "finite_grammar_boundary": 269,
+        "unlicensed_grammar_frontier": 57,
+        "letter_mismatch": 276,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 34,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 9,
+      "root_side": "left",
+      "root_unit": "red iron",
+      "boundary_families": [
+        "boundary-21",
+        "boundary-22"
+      ],
+      "seed": 921,
+      "status": "deadline",
+      "elapsed_seconds": 2.0094587090425193,
+      "attempted_actions": 435,
+      "visited_states": 4,
+      "maximum_expanded_depth": 4,
+      "fully_completed_maximum_expansion_depth": 3,
+      "max_visited_letters": 25,
+      "max_retained_proposal_letters": 31,
+      "rejections": {
+        "finite_grammar_boundary": 66,
+        "unlicensed_grammar_frontier": 98,
+        "letter_mismatch": 208,
+        "deadline": 1
+      },
+      "pruned_proposals": 54,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 10,
+      "root_side": "right",
+      "root_unit": "iron",
+      "boundary_families": [
+        "boundary-19",
+        "boundary-20"
+      ],
+      "seed": 922,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.0071879170136526,
+      "attempted_actions": 447,
+      "visited_states": 4,
+      "maximum_expanded_depth": 4,
+      "fully_completed_maximum_expansion_depth": 3,
+      "max_visited_letters": 26,
+      "max_retained_proposal_letters": 32,
+      "rejections": {
+        "letter_mismatch": 209,
+        "finite_grammar_boundary": 136,
+        "unlicensed_grammar_frontier": 61,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 29,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 11,
+      "root_side": "right",
+      "root_unit": "leon",
+      "boundary_families": [
+        "boundary-7",
+        "boundary-8"
+      ],
+      "seed": 923,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.009644708945416,
+      "attempted_actions": 400,
+      "visited_states": 3,
+      "maximum_expanded_depth": 3,
+      "fully_completed_maximum_expansion_depth": 2,
+      "max_visited_letters": 16,
+      "max_retained_proposal_letters": 24,
+      "rejections": {
+        "letter_mismatch": 207,
+        "finite_grammar_boundary": 68,
+        "unlicensed_grammar_frontier": 68,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 30,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 12,
+      "root_side": "right",
+      "root_unit": "liam",
+      "boundary_families": [
+        "boundary-5",
+        "boundary-6"
+      ],
+      "seed": 921,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.009124750038609,
+      "attempted_actions": 506,
+      "visited_states": 4,
+      "maximum_expanded_depth": 4,
+      "fully_completed_maximum_expansion_depth": 3,
+      "max_visited_letters": 23,
+      "max_retained_proposal_letters": 29,
+      "rejections": {
+        "letter_mismatch": 208,
+        "finite_grammar_boundary": 202,
+        "unlicensed_grammar_frontier": 55,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 31,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 13,
+      "root_side": "right",
+      "root_unit": "live",
+      "boundary_families": [
+        "boundary-0"
+      ],
+      "seed": 922,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.0075630829669535,
+      "attempted_actions": 642,
+      "visited_states": 5,
+      "maximum_expanded_depth": 5,
+      "fully_completed_maximum_expansion_depth": 4,
+      "max_visited_letters": 19,
+      "max_retained_proposal_letters": 25,
+      "rejections": {
+        "letter_mismatch": 350,
+        "finite_grammar_boundary": 70,
+        "unlicensed_grammar_frontier": 175,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 40,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 14,
+      "root_side": "right",
+      "root_unit": "mail",
+      "boundary_families": [
+        "boundary-3",
+        "boundary-4"
+      ],
+      "seed": 923,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.009320708923042,
+      "attempted_actions": 506,
+      "visited_states": 4,
+      "maximum_expanded_depth": 4,
+      "fully_completed_maximum_expansion_depth": 3,
+      "max_visited_letters": 23,
+      "max_retained_proposal_letters": 29,
+      "rejections": {
+        "letter_mismatch": 208,
+        "finite_grammar_boundary": 202,
+        "unlicensed_grammar_frontier": 55,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 31,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 15,
+      "root_side": "right",
+      "root_unit": "no rider",
+      "boundary_families": [
+        "boundary-21",
+        "boundary-22"
+      ],
+      "seed": 921,
+      "status": "deadline",
+      "elapsed_seconds": 2.0048844169359654,
+      "attempted_actions": 506,
+      "visited_states": 4,
+      "maximum_expanded_depth": 4,
+      "fully_completed_maximum_expansion_depth": 3,
+      "max_visited_letters": 25,
+      "max_retained_proposal_letters": 31,
+      "rejections": {
+        "letter_mismatch": 276,
+        "finite_grammar_boundary": 136,
+        "unlicensed_grammar_frontier": 53,
+        "deadline": 1
+      },
+      "pruned_proposals": 31,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 16,
+      "root_side": "right",
+      "root_unit": "noel",
+      "boundary_families": [
+        "boundary-1",
+        "boundary-2"
+      ],
+      "seed": 922,
+      "status": "deadline",
+      "elapsed_seconds": 2.0022823329782113,
+      "attempted_actions": 538,
+      "visited_states": 4,
+      "maximum_expanded_depth": 4,
+      "fully_completed_maximum_expansion_depth": 3,
+      "max_visited_letters": 19,
+      "max_retained_proposal_letters": 27,
+      "rejections": {
+        "letter_mismatch": 280,
+        "finite_grammar_boundary": 68,
+        "unlicensed_grammar_frontier": 132,
+        "deadline": 1
+      },
+      "pruned_proposals": 32,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 17,
+      "root_side": "right",
+      "root_unit": "on",
+      "boundary_families": [
+        "boundary-7",
+        "boundary-8",
+        "boundary-9",
+        "boundary-10",
+        "boundary-11",
+        "boundary-12",
+        "boundary-13",
+        "boundary-14",
+        "boundary-15",
+        "boundary-16",
+        "boundary-17",
+        "boundary-18",
+        "boundary-19",
+        "boundary-20"
+      ],
+      "seed": 923,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.008816165965982,
+      "attempted_actions": 592,
+      "visited_states": 5,
+      "maximum_expanded_depth": 5,
+      "fully_completed_maximum_expansion_depth": 4,
+      "max_visited_letters": 25,
+      "max_retained_proposal_letters": 31,
+      "rejections": {
+        "letter_mismatch": 203,
+        "finite_grammar_boundary": 130,
+        "unlicensed_grammar_frontier": 216,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 29,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 18,
+      "root_side": "right",
+      "root_unit": "red iron",
+      "boundary_families": [
+        "boundary-19",
+        "boundary-20"
+      ],
+      "seed": 921,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.0101022500311956,
+      "attempted_actions": 504,
+      "visited_states": 4,
+      "maximum_expanded_depth": 4,
+      "fully_completed_maximum_expansion_depth": 3,
+      "max_visited_letters": 29,
+      "max_retained_proposal_letters": 35,
+      "rejections": {
+        "letter_mismatch": 207,
+        "finite_grammar_boundary": 202,
+        "unlicensed_grammar_frontier": 54,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 32,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    },
+    {
+      "root_number": 19,
+      "root_side": "right",
+      "root_unit": "rider",
+      "boundary_families": [
+        "boundary-21",
+        "boundary-22"
+      ],
+      "seed": 922,
+      "status": "hard_deadline",
+      "elapsed_seconds": 2.010109542054124,
+      "attempted_actions": 444,
+      "visited_states": 4,
+      "maximum_expanded_depth": 4,
+      "fully_completed_maximum_expansion_depth": 3,
+      "max_visited_letters": 27,
+      "max_retained_proposal_letters": 33,
+      "rejections": {
+        "letter_mismatch": 208,
+        "finite_grammar_boundary": 137,
+        "unlicensed_grammar_frontier": 59,
+        "hard_deadline": 1
+      },
+      "pruned_proposals": 29,
+      "raw_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "reported_terminal_total_scores": []
+    }
+  ],
+  "closures": [],
+  "raw_closure_presentations": 0,
+  "unique_rendered_complete_exact_texts": 0,
+  "unique_eligible_texts": 0,
+  "independent_readability_acceptances": 0,
+  "originality_claim": false
+}

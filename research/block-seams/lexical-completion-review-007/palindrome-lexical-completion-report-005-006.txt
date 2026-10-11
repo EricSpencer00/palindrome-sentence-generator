@@ -1,0 +1,50 @@
+Bidirectional lexical completion: finite research runs 005 and 006
+
+Outcome
+A role-factored bidirectional character grammar now completes words absent from the original fragment bank, without requiring its resulting sentence to occur in that bank. It carries grammatical slots and partial-word offsets throughout the whole palindrome search. Exactness does not rely on individually palindromic sentences. No human-approved new paragraph is claimed.
+
+Implementation and falsifiable checks
+The grammar is an acyclic graph of alternative lexical slots. Character arcs carry word, role, offset, grammatical frame and sentence index. Outside-in matching enforces equal mirrored letters; exact graph reachability prunes pairs that cannot bound a grammatical path. These are the only search pruning rules. Token/slot validation and a separate whole-stream exactness check run for every accepted derivation. Full sentences are enumerated only for the comparator, not to admit a product path.
+
+Adversarial tests recover reviled from role-specific prefix re and suffix iled, filling v. Reviled is absent from the original fragment bank and licensed by existing lemma revile plus explicit past/adjectival d. A wrong role rejects the same completion. A wrong final name preserves grammaticality but prevents global palindrome closure. Stressed is completed from str and ssed, filling e, and is licensed by stress+ed. A recipient-food request and affected-human subject can then meet across desserts/stressed. Tests compare the grammar product with exhaustive small fixtures, retain duplicate derivations, include odd centers inside words, and ensure budget exhaustion is never labeled complete.
+
+The concrete new whole-stream fixture is: Noel, deliver mail. Liam reviled Leon. It is30 letters exact; each sentence individually is non-palindromic. This is a grammatical seam, not a cohesive long-paragraph claim. Another fixture is: Noel, deliver Anna desserts. Stressed Anna reviled Leon. It is46 letters exact, with the same Anna as food recipient and affected subject.
+
+Finite controlled results
+Every arm had the same limits:20 million method operations,30 seconds,20,000 accepted derivations, and one through four sentences. These operation counters have different costs and cannot establish a broad speedup. All arms completed, with no truncation, no running process, and no input wait. All work was local CPU; no models, paid APIs, remote compute, GPU, publication, merge or paper changes.
+
+005: original116-sentence bank yields12 unique exact texts (3 at60+letters). The expanded248-sentence grammar yields7,636 (3,481 at60+letters). Expanded enumeration and the bidirectional product return identical sets. Enumeration used5,404,797 operations/1.779s; product used79,320/0.773s.
+006 adds32 recipient-food and affected-human paths, for280 sentences. Both expanded methods yield14,260 unique exact texts (9,913 at60+letters), again identical. Enumeration used7,336,141 operations/2.368s; product used109,892/1.537s. Original baseline remains12. The largest graph has3,893 nodes.
+
+The yield gain is a vocabulary/grammar coverage effect: the expanded enumerated comparator finds it too. The product removes the prototype's dependency on a full-sentence bank; it does not outperform the same grammar in output quality. All exact outputs remain available, including repeats and copied controls. Deduplication retains derivation counts and raw paths. In these deterministic finite runs each within-arm normalized output has one derivation; duplicates across methods/runs are retained separately. Initial starts/seeds do not randomly prune the search; seeds control sampling only.
+
+Coverage and diversity
+The006 vocabulary has50 explicitly typed surface forms, sourced from the shipped lexicon, existing typed names/v3 tokens, and declared morphology. Twelve surface forms are absent from the original donor bank. This is a small declared vocabulary, not a claim to cover English. Omitted vocabulary is a coverage limitation, distinct from sound character/reachability pruning.
+
+Seventeen declared grammatical families produce exact closures in nine families: delivery requests, person delivery, food delivery, reference, stopping, past criticism, stressed criticism, and the two old control families. Open/pets/say/let-in and other declared families still yield no exact outputs in this finite space. Masking human names leaves208 structural patterns in the final14,260-text pool;005 had154. Thus many outputs are name variants, not14,260 genuinely independent paragraph constructions. Of the final pool11,762 have no identical sentence repeat, but lexical/predicate repetition and weak narrative connections remain common.
+
+Existing deliver/reviled and desserts/stressed reversed word pairs appeared in earlier material. Their provenance is retained; the rejected word-salad bodies were not preserved. Comparative and Step on no pets controls remain clearly labeled. New relative to the original fragment bank is not a broad literary novelty claim.
+
+Sampling and quality evidence
+The fixed policy samples ceil10% of deduplicated exact texts in every method × sentence-count × length-band × classic-scaffold stratum. Zero populations yield no sample.005 samples1,543 method occurrences (10.0955%);006 samples2,869 (10.0554%). Combined:4,412 of43,816 method-level output occurrences,10.0694%, representing3,949 unique sampled texts. Rounding is explicit in every manifest. Every sampled occurrence has its own text, event/role analysis, numeric automatic diagnostic and explanation; there are no missing diagnostics.
+
+Those automatic scores describe licensed syntax, context dependencies, shared participants, repeated sentences/bigrams and source provenance. They are not independent model or human readability ratings. For the006 bidirectional sample of1,432: readability scores2/3/4 are603/828/1; coherence0/1/2/3 is21/736/673/2; repetition0/1/2/3/4 is38/204/68/836/286. Every sample has role-path syntax score4, which certifies its grammar path only. The independent-review export preserves all3,949 unique sample texts and their occurrence IDs; no independent review has been inferred.
+
+Selected prospective review batch: three items, with separate sole-owner model self-review and no human labels. Selection is posthoc and must not estimate the fixed sample's quality distribution.
+
+70 letters: Noel, deliver Anna desserts. Noel, refer Eve. Eve, refer Leon. Stressed Anna reviled Leon.
+Readable commands and a shared Anna/Leon thread; referral destinations and the reason for criticism are implicit. Refer repeats, though no sentence repeats.
+
+60 letters: Noel, deliver mail. Anna reviled Leon. Noel, deliver Anna. Liam reviled Leon.
+Readable clauses, but the transport destination and mail/criticism relationship are unstated. Deliver and reviled repeat twice.
+
+46 letters: Noel, deliver Anna desserts. Stressed Anna reviled Leon.
+A shorter recipient-food/affected-subject seam. Anna ties the sentences together, with no explicit causal link. It is not a long-paragraph result.
+
+Verification and continuity
+Twelve targeted tests passed in0.55s. Separate replay verified all43,816 raw output occurrences for exactness, slot licensing, rendering and derivation counts. All eight product-state traces replayed with matching character-mismatch, reachability, partial-word and matched-pair counters. Every rejection state is retained; omitted unequal-character combinations are recoverable from the recorded transitions and graph. All111 prior modified/untracked source files and183 tracked paper files verified unchanged in the original checkout.
+
+The18:16UTC human feedback on v3_fragment_salvage-0332715fe9d2f50e is recorded as readability-positive with repetition concern, without inventing a numeric rating or unqualified novelty approval. It is separate from the earlier five BAD whole-output judgments. Earlier40/42 recovered model ratings remain unchanged; the cancelled transfer was not retried. Two attempted progress messages to the parent returned Transport closed and were not confirmed. A full local resumable checkpoint records completed counters and no running job.
+
+Remaining limits and next action
+Independent readability review is still outstanding; it is not replaced by the automatic diagnostics. The new samples and three selected texts are reviewable now. Further research should add finite role/lexical families that can close other predicates, rather than extend the present pool only with name permutations. Preserve exactness and evaluate coherence explicitly; the present output count alone does not establish the user's long cohesive paragraph goal.

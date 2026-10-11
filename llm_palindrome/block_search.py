@@ -61,15 +61,16 @@ def units(inventory):
     return tuple(result)
 
 
-def _action(state,side,unit,grammar_accept):
+def _action(state,side,unit,grammar_accept,boundary_accept=None):
     seq=state.left if side=='left' else state.right
     child=state.add(side,Piece(unit.id,len(seq),unit.text))
     if child is None:return None,'letter_mismatch'
+    if boundary_accept is not None and not boundary_accept(child):return None,'finite_grammar_boundary'
     if grammar_accept is not None and not grammar_accept(child):return None,'unlicensed_grammar_frontier'
     return BlockAction(side,unit,child),None
 
 
-def compatible_actions(state,inventory,*,grammar_accept=None,deadline=None,max_letters=None,max_words=None):
+def compatible_actions(state,inventory,*,grammar_accept=None,boundary_accept=None,deadline=None,max_letters=None,max_words=None):
     """Actual two-sided search menu, including grammar-safe debt growth."""
     result=[]
     for side in ('left','right'):
@@ -77,13 +78,13 @@ def compatible_actions(state,inventory,*,grammar_accept=None,deadline=None,max_l
             if deadline is not None and time.monotonic()>=deadline:return result
             if max_letters is not None and len(normalize_letters(state.text()))+len(normalize_letters(unit.text))>max_letters:continue
             if max_words is not None and sum(len(p.text.split()) for p in state.left+state.right)+len(unit.text.split())>max_words:continue
-            action,_=_action(state,side,unit,grammar_accept)
+            action,_=_action(state,side,unit,grammar_accept,boundary_accept)
             if action is not None:result.append(action)
     return result
 
 
 def block_beam_search(inventory,scorer,*,initial_state=None,grammar_accept=None,
-                      allow_closed=None,beam_width=32,max_steps=64,max_actions=2000,
+                      allow_closed=None,boundary_accept=None,beam_width=32,max_steps=64,max_actions=2000,
                       min_letters=1,max_letters=239,max_words=64,seed=921,diversity=.4,
                       deadline=None,frontier_key=None):
     if beam_width<1 or max_steps<0 or max_actions<0 or min_letters<1 or max_letters<min_letters or max_words<1:
@@ -96,6 +97,8 @@ def block_beam_search(inventory,scorer,*,initial_state=None,grammar_accept=None,
         raise ValueError('initial state exceeds word cap')
     if len(normalize_letters(start.text()))>max_letters:
         raise ValueError('initial state exceeds letter cap')
+    if boundary_accept is not None and not boundary_accept(start):
+        raise ValueError('initial state excluded by finite grammar boundary')
     rng=random.Random(seed);beam=[(0.0,start)];log=[];terminals=[];attempted=0
     status='completed';truncated=False;visited=0
     def expired():return deadline is not None and time.monotonic()>=deadline
@@ -135,7 +138,7 @@ def block_beam_search(inventory,scorer,*,initial_state=None,grammar_accept=None,
                             new_words=sum(len(p.text.split()) for p in state.left+state.right)+len(unit.text.split())
                             if new_letters>max_letters:entry.update(status='rejected',reason='letter_cap');continue
                             if new_words>max_words:entry.update(status='rejected',reason='word_cap');continue
-                            action,reason=_action(state,side,unit,grammar_accept)
+                            action,reason=_action(state,side,unit,grammar_accept,boundary_accept)
                             if action is None:entry.update(status='rejected',reason=reason);continue
                             if expired():entry.update(status='interrupted',reason='deadline');status='deadline';truncated=True;stop=True;break
                             child=action.child

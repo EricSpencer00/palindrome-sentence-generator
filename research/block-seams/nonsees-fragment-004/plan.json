@@ -1,0 +1,31 @@
+{
+  "seed": "nonsees-fragment-004",
+  "cpu_only": true,
+  "paid_calls": 0,
+  "frames": [
+    "comparative",
+    "copula",
+    "let_in",
+    "open",
+    "pets",
+    "say",
+    "step"
+  ],
+  "licensed_sentences": 116,
+  "max_splice_attempts_per_method": 2000000,
+  "max_join_work_per_method": 20000000,
+  "wall_seconds_per_phase": 30,
+  "methods": [
+    "whole_sentence_baseline",
+    "word_boundary",
+    "partial_word"
+  ],
+  "paragraph_clause_counts": [
+    1,
+    2,
+    3
+  ],
+  "sampling": "ceil(10% of exact outputs) independently per method/clause-count/length-band; zero yields zero samples; report aggregate rounding",
+  "quality": "individual self-review scores 0-4; human labels null; repetition and copied controls are features, not vetoes",
+  "stopping": "complete finite diagnostic or explicit truncation; no publication; no claim of novel readable paragraphs"
+}

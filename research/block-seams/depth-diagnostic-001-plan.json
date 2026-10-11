@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "base_commit": "d3d92dc132eeb9181e7f5f059b8aa572322ea090",
+  "purpose": "Measure depth and target-band reachability at fixed action cap",
+  "widths": [
+    1,
+    2,
+    4
+  ],
+  "run_ids": [
+    "004",
+    "005",
+    "006"
+  ],
+  "seeds": [
+    921,
+    922,
+    923
+  ],
+  "band": [
+    60,
+    119
+  ],
+  "arm": "typed-two-sided-block-beam-v1",
+  "aggregate_outer_seconds": 60,
+  "maximum_cell_seconds": 5,
+  "workers": 1,
+  "max_actions": 2000,
+  "max_steps": 64,
+  "max_words": 64,
+  "diversity": 0.4,
+  "branch_cap": null,
+  "enumeration": "All 54 units on both sides; 108 attempts per parent",
+  "closure": "Unchanged global exactness, 2\u20134 distinct rendered clauses, known-control exclusion",
+  "comparison": "Width alone varies. Reference measurements remain frozen in pilot 003.",
+  "coverage_tradeoff": "Narrow beams prune more compatible proposals; cap discards partial next frontier.",
+  "settings_order": [
+    1,
+    2,
+    4
+  ],
+  "outcome_tuning": false,
+  "source_hashes": {
+    "experiments/block_depth_diagnostic_20261009.py": "96eac34ed96d602169c9dde11b811d442ccdf5e3b0cb3e15d04287f4b32815eb",
+    "experiments/block_seam_comparison_20261009.py": "7c8f2060aec699bba0f141144884e731711f562f67c17daf344b4bfa2c20fd4c",
+    "llm_palindrome/block_search.py": "a9e7429cf17d3de5006dfff58f59df19bb52b9aaf6cebe13a3edeaee29a1889b",
+    "llm_palindrome/typed_constituents.py": "772bf7ff735dbd5c84b413187c6faa2a9bc9bd41d12fc27851367590ae355daf"
+  }
+}

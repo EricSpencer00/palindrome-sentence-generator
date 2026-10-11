@@ -1,0 +1,1411 @@
+{
+  "schema_version": 1,
+  "mode": "baseline",
+  "scope": "Six fixed seam states; one-step menus, four identical passes. No beam search, scorer, model, or candidate search invoked.",
+  "fixture_sources": "Four declared root actions and parent-provided construction states at depths 6 and 11.",
+  "inventory_sha256": "e362f954480f53097d47ec25b71fc988a809bbdc3b28370b1455dbddeea88fa8",
+  "source_trace_sha256": "1f9e25994767fc85be0f272f28efc8d925ecac9524307066f27417bd164cda16",
+  "source_hashes": {
+    "experiments/profile_cold_positions_20261009.py": "20cfd1c509d7b5e6ca46442b877d8cbcb34371718559b5ba200d22227712910e",
+    "llm_palindrome/typed_constituents.py": "3ceb8390c14c26644c3c7a411208468730ac15f2d2f126e2d2e9845278be28d3",
+    "llm_palindrome/grammar_boundaries.py": "1815b3cd70c849acb2f13913d3158703bf0f8181419ace44b83993df5d8b2355",
+    "llm_palindrome/block_search.py": "f9a0e0cdb2c70d60745ad14a6ae8eda330aa94433114d6153871b10619284882"
+  },
+  "fixtures": [
+    {
+      "left": [
+        "no rider"
+      ],
+      "right": []
+    },
+    {
+      "left": [
+        "liam"
+      ],
+      "right": []
+    },
+    {
+      "left": [
+        "no evil"
+      ],
+      "right": []
+    },
+    {
+      "left": [],
+      "right": [
+        "red iron"
+      ]
+    },
+    {
+      "left": [
+        "no rider",
+        "sees",
+        "mail"
+      ],
+      "right": [
+        "liam",
+        "sees",
+        "red iron"
+      ]
+    },
+    {
+      "left": [
+        "no rider",
+        "sees",
+        "mail",
+        "leon",
+        "sees",
+        "red iron"
+      ],
+      "right": [
+        "sees",
+        "noel",
+        "liam",
+        "sees",
+        "red iron"
+      ]
+    }
+  ],
+  "passes": 4,
+  "pass_seconds": [
+    1.452608208055608,
+    0.10610445810016245,
+    0.10635575000196695,
+    0.10651120904367417
+  ],
+  "total_seconds": 1.7715796252014115,
+  "frontier_invocations": 1024,
+  "unique_frontier_keys": 255,
+  "repeated_frontier_invocations": 769,
+  "menu_signatures": [
+    "6a820dd27432d70533c90e376b2a9c9aa0e46447ca6485a453243aff6ee1321f",
+    "6a820dd27432d70533c90e376b2a9c9aa0e46447ca6485a453243aff6ee1321f",
+    "6a820dd27432d70533c90e376b2a9c9aa0e46447ca6485a453243aff6ee1321f",
+    "6a820dd27432d70533c90e376b2a9c9aa0e46447ca6485a453243aff6ee1321f"
+  ],
+  "last_fixture_result": [
+    {
+      "left": [
+        "no rider"
+      ],
+      "right": [],
+      "frontier": true,
+      "menu": [
+        {
+          "side": "left",
+          "unit": "sees",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noridersees",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "left",
+          "unit": "was",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noriderwas",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "right",
+          "unit": "iron",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "der",
+            "common_prefix": "nori"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "on",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "rider",
+            "common_prefix": "no"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "red iron",
+          "debt": {
+            "viable": true,
+            "owner": null,
+            "residual": "",
+            "common_prefix": "norider"
+          }
+        }
+      ]
+    },
+    {
+      "left": [
+        "liam"
+      ],
+      "right": [],
+      "frontier": true,
+      "menu": [
+        {
+          "side": "left",
+          "unit": "sees",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "liamsees",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "left",
+          "unit": "was",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "liamwas",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "right",
+          "unit": "mail",
+          "debt": {
+            "viable": true,
+            "owner": null,
+            "residual": "",
+            "common_prefix": "liam"
+          }
+        }
+      ]
+    },
+    {
+      "left": [
+        "no evil"
+      ],
+      "right": [],
+      "frontier": true,
+      "menu": [
+        {
+          "side": "left",
+          "unit": "can",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noevilcan",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "left",
+          "unit": "carries",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noevilcarries",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "left",
+          "unit": "did",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noevildid",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "left",
+          "unit": "holds",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noevilholds",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "left",
+          "unit": "is",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noevilis",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "left",
+          "unit": "moves",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noevilmoves",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "left",
+          "unit": "reads",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noevilreads",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "left",
+          "unit": "saw",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noevilsaw",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "left",
+          "unit": "sees",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noevilsees",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "left",
+          "unit": "was",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noevilwas",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "right",
+          "unit": "on",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "evil",
+            "common_prefix": "no"
+          }
+        }
+      ]
+    },
+    {
+      "left": [],
+      "right": [
+        "red iron"
+      ],
+      "frontier": true,
+      "menu": [
+        {
+          "side": "left",
+          "unit": "no",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "rider",
+            "common_prefix": "no"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "no rider",
+          "debt": {
+            "viable": true,
+            "owner": null,
+            "residual": "",
+            "common_prefix": "norider"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "saw",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "noriderwas",
+            "common_prefix": ""
+          }
+        },
+        {
+          "side": "right",
+          "unit": "sees",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "noridersees",
+            "common_prefix": ""
+          }
+        }
+      ]
+    },
+    {
+      "left": [
+        "no rider",
+        "sees",
+        "mail"
+      ],
+      "right": [
+        "liam",
+        "sees",
+        "red iron"
+      ],
+      "frontier": true,
+      "menu": [
+        {
+          "side": "left",
+          "unit": "a",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "a",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "a baker",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "abaker",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "a cave",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "acave",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "a pot",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "apot",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "a tray",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "atray",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "bees",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "bees",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "dan",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "dan",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "eva",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "eva",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "evil",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "evil",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "i",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "i",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "i see bees",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "iseebees",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "iron",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "iron",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "leon",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "leon",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "liam",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "liam",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "mail",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "mail",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "no",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "no",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "no evil",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noevil",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "no pets",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "nopets",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "no rider",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "norider",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "noel",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "noel",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "pets",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "pets",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "red",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "red",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "red iron",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "rediron",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "the",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "the",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "the gardener",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "thegardener",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "the map",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "themap",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "the pilot",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "thepilot",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "a baker",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "rekaba",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "a cave",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "evaca",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "a pot",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "topa",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "a tray",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "yarta",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "baker",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "rekab",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "bees",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "seeb",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "cave",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "evac",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "dan",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "nad",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "eva",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "ave",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "evil",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "live",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "gardener",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "renedrag",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "i see bees",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "seebeesi",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "iron",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "nori",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "leon",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "noel",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "liam",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "mail",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "live",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "evil",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "mail",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "liam",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "map",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "pam",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "no evil",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "liveon",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "no pets",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "stepon",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "no rider",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "rediron",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "noel",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "leon",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "on",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "no",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "pets",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "step",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "pilot",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "tolip",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "pot",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "top",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "red iron",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "norider",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "rider",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "redir",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "the gardener",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "renedrageht",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "the map",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "pameht",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "the pilot",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "tolipeht",
+            "common_prefix": "noriderseesmail"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "tray",
+          "debt": {
+            "viable": true,
+            "owner": "right",
+            "residual": "yart",
+            "common_prefix": "noriderseesmail"
+          }
+        }
+      ]
+    },
+    {
+      "left": [
+        "no rider",
+        "sees",
+        "mail",
+        "leon",
+        "sees",
+        "red iron"
+      ],
+      "right": [
+        "sees",
+        "noel",
+        "liam",
+        "sees",
+        "red iron"
+      ],
+      "frontier": true,
+      "menu": [
+        {
+          "side": "left",
+          "unit": "a",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redirona",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "a baker",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironabaker",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "a cave",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironacave",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "a pot",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironapot",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "a tray",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironatray",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "dan",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redirondan",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "eva",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironeva",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "evil",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironevil",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "iron",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironiron",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "leon",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironleon",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "liam",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironliam",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "mail",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironmail",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "no",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironno",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "no evil",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironnoevil",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "no rider",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironnorider",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "noel",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironnoel",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "red",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironred",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "red iron",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironrediron",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "the",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironthe",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "the gardener",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironthegardener",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "the map",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironthemap",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "left",
+          "unit": "the pilot",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "redironthepilot",
+            "common_prefix": "noriderseesmailleonsees"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "no rider",
+          "debt": {
+            "viable": true,
+            "owner": null,
+            "residual": "",
+            "common_prefix": "noriderseesmailleonseesrediron"
+          }
+        },
+        {
+          "side": "right",
+          "unit": "rider",
+          "debt": {
+            "viable": true,
+            "owner": "left",
+            "residual": "on",
+            "common_prefix": "noriderseesmailleonseesredir"
+          }
+        }
+      ]
+    }
+  ],
+  "frontier_cache_info": {
+    "hits": 769,
+    "misses": 255,
+    "maxsize": 4096,
+    "currsize": 255
+  },
+  "position_cache_info": null,
+  "profile_top": [
+    {
+      "function": "evaluate",
+      "module": "profile_cold_positions_20261009.py",
+      "line": 51,
+      "primitive_calls": 4,
+      "total_calls": 4,
+      "self_seconds": 0.000486366,
+      "cumulative_seconds": 1.771534208
+    },
+    {
+      "function": "compatible_actions",
+      "module": "block_search.py",
+      "line": 73,
+      "primitive_calls": 24,
+      "total_calls": 24,
+      "self_seconds": 0.0068732310000000005,
+      "cumulative_seconds": 1.735033461
+    },
+    {
+      "function": "_action",
+      "module": "block_search.py",
+      "line": 64,
+      "primitive_calls": 3408,
+      "total_calls": 3408,
+      "self_seconds": 0.0040209650000000005,
+      "cumulative_seconds": 1.616889022
+    },
+    {
+      "function": "frontier",
+      "module": "profile_cold_positions_20261009.py",
+      "line": 46,
+      "primitive_calls": 1024,
+      "total_calls": 1024,
+      "self_seconds": 0.0016586200000000002,
+      "cumulative_seconds": 1.4520434210000002
+    },
+    {
+      "function": "paragraph_frontier",
+      "module": "typed_constituents.py",
+      "line": 165,
+      "primitive_calls": 1024,
+      "total_calls": 1024,
+      "self_seconds": 0.001559264,
+      "cumulative_seconds": 1.3437779360000002
+    },
+    {
+      "function": "_cached_paragraph_frontier",
+      "module": "typed_constituents.py",
+      "line": 158,
+      "primitive_calls": 255,
+      "total_calls": 255,
+      "self_seconds": 0.00015725300000000002,
+      "cumulative_seconds": 1.342218672
+    },
+    {
+      "function": "_paragraph_frontier_uncached",
+      "module": "typed_constituents.py",
+      "line": 170,
+      "primitive_calls": 255,
+      "total_calls": 255,
+      "self_seconds": 0.001811892,
+      "cumulative_seconds": 1.342061419
+    },
+    {
+      "function": "_positions",
+      "module": "typed_constituents.py",
+      "line": 104,
+      "primitive_calls": 40586,
+      "total_calls": 40586,
+      "self_seconds": 0.8666620100000001,
+      "cumulative_seconds": 1.321174539
+    },
+    {
+      "function": "compatible",
+      "module": "typed_constituents.py",
+      "line": 128,
+      "primitive_calls": 1196,
+      "total_calls": 1196,
+      "self_seconds": 0.009518160000000001,
+      "cumulative_seconds": 1.020327298
+    },
+    {
+      "function": "splits",
+      "module": "typed_constituents.py",
+      "line": 172,
+      "primitive_calls": 766,
+      "total_calls": 766,
+      "self_seconds": 0.003334652,
+      "cumulative_seconds": 0.319922229
+    },
+    {
+      "function": "complete",
+      "module": "typed_constituents.py",
+      "line": 123,
+      "primitive_calls": 507,
+      "total_calls": 507,
+      "self_seconds": 0.00041227600000000005,
+      "cumulative_seconds": 0.31623703000000003
+    },
+    {
+      "function": "<genexpr>",
+      "module": "typed_constituents.py",
+      "line": 125,
+      "primitive_calls": 513,
+      "total_calls": 513,
+      "self_seconds": 0.004303424,
+      "cumulative_seconds": 0.31582475400000004
+    },
+    {
+      "function": "normalize_letters",
+      "module": "admission.py",
+      "line": 53,
+      "primitive_calls": 43344,
+      "total_calls": 43344,
+      "self_seconds": 0.071532977,
+      "cumulative_seconds": 0.31109948600000004
+    },
+    {
+      "function": "<built-in method builtins.len>",
+      "module": "~",
+      "line": 0,
+      "primitive_calls": 4027388,
+      "total_calls": 4027388,
+      "self_seconds": 0.28374873300000003,
+      "cumulative_seconds": 0.28374873300000003
+    },
+    {
+      "function": "<genexpr>",
+      "module": "admission.py",
+      "line": 55,
+      "primitive_calls": 411840,
+      "total_calls": 411840,
+      "self_seconds": 0.108464192,
+      "cumulative_seconds": 0.168006588
+    },
+    {
+      "function": "<built-in method builtins.min>",
+      "module": "~",
+      "line": 0,
+      "primitive_calls": 1925382,
+      "total_calls": 1925382,
+      "self_seconds": 0.164257027,
+      "cumulative_seconds": 0.164257027
+    },
+    {
+      "function": "words",
+      "module": "typed_constituents.py",
+      "line": 13,
+      "primitive_calls": 2048,
+      "total_calls": 2048,
+      "self_seconds": 0.002874521,
+      "cumulative_seconds": 0.10325799000000001
+    },
+    {
+      "function": "debt",
+      "module": "block_seams.py",
+      "line": 30,
+      "primitive_calls": 3832,
+      "total_calls": 3832,
+      "self_seconds": 0.006625863,
+      "cumulative_seconds": 0.10227702200000001
+    },
+    {
+      "function": "<genexpr>",
+      "module": "typed_constituents.py",
+      "line": 14,
+      "primitive_calls": 12752,
+      "total_calls": 12752,
+      "self_seconds": 0.004642798,
+      "cumulative_seconds": 0.099772463
+    },
+    {
+      "function": "tapes",
+      "module": "block_seams.py",
+      "line": 27,
+      "primitive_calls": 3832,
+      "total_calls": 3832,
+      "self_seconds": 0.004160777,
+      "cumulative_seconds": 0.09429106100000001
+    }
+  ],
+  "search_invocations": 0,
+  "model_calls": 0,
+  "paid_resources": 0
+}

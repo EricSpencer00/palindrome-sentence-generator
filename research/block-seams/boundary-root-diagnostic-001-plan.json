@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "base_commit": "d3d92dc132eeb9181e7f5f059b8aa572322ea090",
+  "inventory_version": "licensed-control-components-v2",
+  "inventory_sha256": "e362f954480f53097d47ec25b71fc988a809bbdc3b28370b1455dbddeea88fa8",
+  "workers": 1,
+  "aggregate_outer_seconds": 60,
+  "search_deadline_seconds": 58,
+  "max_seconds_per_root": 2,
+  "beam_width_per_root": 1,
+  "max_actions_per_root": 2000,
+  "max_total_steps_including_root": 64,
+  "seeds_cycle": [
+    921,
+    922,
+    923
+  ],
+  "diversity": 0.4,
+  "letter_band": [
+    60,
+    119
+  ],
+  "max_words": 64,
+  "clause_count": [
+    2,
+    4
+  ],
+  "distinct_clauses": true,
+  "root_policy": "Every actual viable root action retained, lexicographic side/text/ID order, one bounded quota each.",
+  "within_root_policy": "Unchanged word-additive scorer, native diversity ranking and pruning; roots are not compared by score.",
+  "feasibility": "Necessary character prefix/suffix condition from compiled grammar; partial lexical seams are compared as letters.",
+  "target_whitelist": false,
+  "source_hashes": {
+    "experiments/boundary_root_diagnostic_20261009.py": "c50063bc5c310d4afc5fa711e507f77e2ec027406810a07fe7768b2fbb222a1e",
+    "llm_palindrome/block_search.py": "f9a0e0cdb2c70d60745ad14a6ae8eda330aa94433114d6153871b10619284882",
+    "llm_palindrome/grammar_boundaries.py": "1815b3cd70c849acb2f13913d3158703bf0f8181419ace44b83993df5d8b2355",
+    "llm_palindrome/root_partition_search.py": "0a2b0ba2f82ea39b84715d9b060e34ba7bff12176c53bb86cd1d49c01f842ae8",
+    "llm_palindrome/typed_constituents.py": "772bf7ff735dbd5c84b413187c6faa2a9bc9bd41d12fc27851367590ae355daf",
+    "llm_palindrome/scoring.py": "9019333c4ae55bcdfff4874be33702df1eefcc8e8dc2bda0c7d396921d6fd261",
+    "llm_palindrome/search.py": "ca2a236e7a0bcfef74a47df72ad21e2d449e32c779c6f42f241d2222c2bd23a1"
+  }
+}

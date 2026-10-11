@@ -1,0 +1,621 @@
+{
+  "outputs": [
+    {
+      "text": "Was it a car or a cat I saw?",
+      "tape": "wasitacaroracatisaw",
+      "letters": 19,
+      "plan": "single_question",
+      "method": "phrase_bridge_overhang",
+      "phrase_ids": [
+        "f000",
+        "f001",
+        "f009",
+        "f011",
+        "f018"
+      ],
+      "phrases": [
+        {
+          "id": "f000",
+          "text": "Was it ",
+          "role": "question_subject_copula",
+          "entry": "START",
+          "exit": "Q",
+          "source": "native scene003/abcba008 partial phrase",
+          "bindings": []
+        },
+        {
+          "id": "f001",
+          "text": "a car",
+          "role": "question_predicate_nominal",
+          "entry": "Q",
+          "exit": "NP",
+          "source": "mixed existing native vocabulary; finite authored role alternatives",
+          "bindings": []
+        },
+        {
+          "id": "f009",
+          "text": " or ",
+          "role": "alternative_connector",
+          "entry": "NP",
+          "exit": "ALT",
+          "source": "native car/cat question fragment",
+          "bindings": []
+        },
+        {
+          "id": "f011",
+          "text": "a cat",
+          "role": "second_predicate_nominal",
+          "entry": "ALT",
+          "exit": "REL",
+          "source": "same finite authored role alternatives",
+          "bindings": []
+        },
+        {
+          "id": "f018",
+          "text": " I saw?",
+          "role": "postposed_relative_observation",
+          "entry": "REL",
+          "exit": "END",
+          "source": "native scene003 final relative phrase",
+          "bindings": [
+            [
+              "observer",
+              "I"
+            ]
+          ]
+        }
+      ],
+      "actor_bindings": {
+        "observer": "I"
+      },
+      "binding_conflicts": [],
+      "role_consistent": true,
+      "source_claim": "finite authored grammar states; no independent readability certificate",
+      "center": {
+        "phrase_id": "f009",
+        "offset": 0
+      },
+      "character_arc_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        45,
+        46,
+        51,
+        52,
+        53,
+        54,
+        87,
+        88,
+        89,
+        90
+      ]
+    },
+    {
+      "text": "Was it a car or a cat I saw?",
+      "tape": "wasitacaroracatisaw",
+      "letters": 19,
+      "plan": "partial_word_question",
+      "method": "phrase_bridge_overhang",
+      "phrase_ids": [
+        "f019",
+        "f020",
+        "f023"
+      ],
+      "phrases": [
+        {
+          "id": "f019",
+          "text": "Was it a ca",
+          "role": "question_partial_nominal",
+          "entry": "START",
+          "exit": "PARTIAL_CA",
+          "source": "native scene003 word-level derivation",
+          "bindings": []
+        },
+        {
+          "id": "f020",
+          "text": "r or a ca",
+          "role": "noun_completion_and_alternative",
+          "entry": "PARTIAL_CA",
+          "exit": "PARTIAL_CA_2",
+          "source": "car/cat lexical alternatives; copied control structure",
+          "bindings": []
+        },
+        {
+          "id": "f023",
+          "text": "t I saw?",
+          "role": "noun_completion_and_relative",
+          "entry": "PARTIAL_CA_2",
+          "exit": "END",
+          "source": "car/cat lexical alternatives; copied control structure",
+          "bindings": [
+            [
+              "observer",
+              "I"
+            ]
+          ]
+        }
+      ],
+      "actor_bindings": {
+        "observer": "I"
+      },
+      "binding_conflicts": [],
+      "role_consistent": true,
+      "source_claim": "finite authored grammar states; no independent readability certificate",
+      "center": {
+        "phrase_id": "f020",
+        "offset": 1
+      },
+      "character_arc_ids": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        116,
+        117,
+        118,
+        119,
+        120
+      ]
+    },
+    {
+      "text": "I saw desserts; stressed was I.",
+      "tape": "isawdessertsstressedwasi",
+      "letters": 24,
+      "plan": "observation_reaction",
+      "method": "non_ABCBA_role_scene",
+      "phrase_ids": [
+        "f024",
+        "f025",
+        "f030",
+        "f033"
+      ],
+      "phrases": [
+        {
+          "id": "f024",
+          "text": "I saw ",
+          "role": "observation_subject_verb",
+          "entry": "START",
+          "exit": "OBS",
+          "source": "supplement004-006",
+          "bindings": [
+            [
+              "observer",
+              "I"
+            ]
+          ]
+        },
+        {
+          "id": "f025",
+          "text": "desserts",
+          "role": "observation_theme",
+          "entry": "OBS",
+          "exit": "REACTION",
+          "source": "supplement004-006 plus native scene003 objects",
+          "bindings": []
+        },
+        {
+          "id": "f030",
+          "text": "; stressed was ",
+          "role": "reaction_predicate_inversion",
+          "entry": "REACTION",
+          "exit": "PRED",
+          "source": "supplement004-006; inversion is quality concern",
+          "bindings": []
+        },
+        {
+          "id": "f033",
+          "text": "I.",
+          "role": "reaction_subject",
+          "entry": "PRED",
+          "exit": "END",
+          "source": "I from supplement; Mom mismatch diagnostic",
+          "bindings": [
+            [
+              "observer",
+              "I"
+            ]
+          ]
+        }
+      ],
+      "actor_bindings": {
+        "observer": "I"
+      },
+      "binding_conflicts": [],
+      "role_consistent": true,
+      "source_claim": "finite authored grammar states; no independent readability certificate",
+      "center": {
+        "phrase_id": "f030",
+        "offset": 0
+      },
+      "character_arc_ids": [
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        172
+      ]
+    },
+    {
+      "text": "I saw evil; live was I.",
+      "tape": "isawevillivewasi",
+      "letters": 16,
+      "plan": "observation_reaction",
+      "method": "non_ABCBA_role_scene",
+      "phrase_ids": [
+        "f024",
+        "f026",
+        "f031",
+        "f033"
+      ],
+      "phrases": [
+        {
+          "id": "f024",
+          "text": "I saw ",
+          "role": "observation_subject_verb",
+          "entry": "START",
+          "exit": "OBS",
+          "source": "supplement004-006",
+          "bindings": [
+            [
+              "observer",
+              "I"
+            ]
+          ]
+        },
+        {
+          "id": "f026",
+          "text": "evil",
+          "role": "observation_theme",
+          "entry": "OBS",
+          "exit": "REACTION",
+          "source": "supplement004-006 plus native scene003 objects",
+          "bindings": []
+        },
+        {
+          "id": "f031",
+          "text": "; live was ",
+          "role": "reaction_predicate_inversion",
+          "entry": "REACTION",
+          "exit": "PRED",
+          "source": "supplement004-006; inversion is quality concern",
+          "bindings": []
+        },
+        {
+          "id": "f033",
+          "text": "I.",
+          "role": "reaction_subject",
+          "entry": "PRED",
+          "exit": "END",
+          "source": "I from supplement; Mom mismatch diagnostic",
+          "bindings": [
+            [
+              "observer",
+              "I"
+            ]
+          ]
+        }
+      ],
+      "actor_bindings": {
+        "observer": "I"
+      },
+      "binding_conflicts": [],
+      "role_consistent": true,
+      "source_claim": "finite authored grammar states; no independent readability certificate",
+      "center": {
+        "phrase_id": "f031",
+        "offset": 0
+      },
+      "character_arc_ids": [
+        121,
+        122,
+        123,
+        124,
+        133,
+        134,
+        135,
+        136,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        172
+      ]
+    },
+    {
+      "text": "I saw war; raw was I.",
+      "tape": "isawwarrawwasi",
+      "letters": 14,
+      "plan": "observation_reaction",
+      "method": "non_ABCBA_role_scene",
+      "phrase_ids": [
+        "f024",
+        "f027",
+        "f032",
+        "f033"
+      ],
+      "phrases": [
+        {
+          "id": "f024",
+          "text": "I saw ",
+          "role": "observation_subject_verb",
+          "entry": "START",
+          "exit": "OBS",
+          "source": "supplement004-006",
+          "bindings": [
+            [
+              "observer",
+              "I"
+            ]
+          ]
+        },
+        {
+          "id": "f027",
+          "text": "war",
+          "role": "observation_theme",
+          "entry": "OBS",
+          "exit": "REACTION",
+          "source": "supplement004-006 plus native scene003 objects",
+          "bindings": []
+        },
+        {
+          "id": "f032",
+          "text": "; raw was ",
+          "role": "reaction_predicate_inversion",
+          "entry": "REACTION",
+          "exit": "PRED",
+          "source": "supplement004-006; inversion is quality concern",
+          "bindings": []
+        },
+        {
+          "id": "f033",
+          "text": "I.",
+          "role": "reaction_subject",
+          "entry": "PRED",
+          "exit": "END",
+          "source": "I from supplement; Mom mismatch diagnostic",
+          "bindings": [
+            [
+              "observer",
+              "I"
+            ]
+          ]
+        }
+      ],
+      "actor_bindings": {
+        "observer": "I"
+      },
+      "binding_conflicts": [],
+      "role_consistent": true,
+      "source_claim": "finite authored grammar states; no independent readability certificate",
+      "center": {
+        "phrase_id": "f032",
+        "offset": 0
+      },
+      "character_arc_ids": [
+        121,
+        122,
+        123,
+        124,
+        137,
+        138,
+        139,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172
+      ]
+    },
+    {
+      "text": "Ma is as selfless as I am.",
+      "tape": "maisasselflessasiam",
+      "letters": 19,
+      "plan": "comparative",
+      "method": "non_ABCBA_role_scene",
+      "phrase_ids": [
+        "f036",
+        "f037",
+        "f042"
+      ],
+      "phrases": [
+        {
+          "id": "f036",
+          "text": "Ma is as ",
+          "role": "comparative_subject",
+          "entry": "START",
+          "exit": "COMP",
+          "source": "frozen009 grammar",
+          "bindings": []
+        },
+        {
+          "id": "f037",
+          "text": "selfless",
+          "role": "adjective_predicate",
+          "entry": "COMP",
+          "exit": "DEG",
+          "source": "existing grammar/native vocabulary",
+          "bindings": []
+        },
+        {
+          "id": "f042",
+          "text": " as I am.",
+          "role": "degree_comparison",
+          "entry": "DEG",
+          "exit": "END",
+          "source": "frozen009 grammar",
+          "bindings": []
+        }
+      ],
+      "actor_bindings": {},
+      "binding_conflicts": [],
+      "role_consistent": true,
+      "source_claim": "finite authored grammar states; no independent readability certificate",
+      "center": {
+        "phrase_id": "f037",
+        "offset": 3
+      },
+      "character_arc_ids": [
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        209,
+        210,
+        211,
+        212,
+        213
+      ]
+    },
+    {
+      "text": "Eve, refer Eve.",
+      "tape": "everefereve",
+      "letters": 11,
+      "plan": "phrase_ABCBA_referral",
+      "method": "phrase_ABCBA",
+      "phrase_ids": [
+        "f043",
+        "f044",
+        "f045",
+        "f046",
+        "f047"
+      ],
+      "phrases": [
+        {
+          "id": "f043",
+          "text": "Eve, ",
+          "role": "human_topic",
+          "entry": "START",
+          "exit": "REFER_PREFIX",
+          "source": "existing typed vocabulary",
+          "bindings": []
+        },
+        {
+          "id": "f044",
+          "text": "re",
+          "role": "partial_referral_verb",
+          "entry": "REFER_PREFIX",
+          "exit": "VERB_MID",
+          "source": "existing refer lemma",
+          "bindings": []
+        },
+        {
+          "id": "f045",
+          "text": "f",
+          "role": "partial_referral_center",
+          "entry": "VERB_MID",
+          "exit": "VERB_SUFFIX",
+          "source": "existing refer lemma",
+          "bindings": []
+        },
+        {
+          "id": "f046",
+          "text": "er ",
+          "role": "referral_verb_completion",
+          "entry": "VERB_SUFFIX",
+          "exit": "THEME",
+          "source": "existing refer lemma",
+          "bindings": []
+        },
+        {
+          "id": "f047",
+          "text": "Eve.",
+          "role": "human_theme",
+          "entry": "THEME",
+          "exit": "END",
+          "source": "existing typed vocabulary",
+          "bindings": []
+        }
+      ],
+      "actor_bindings": {},
+      "binding_conflicts": [],
+      "role_consistent": true,
+      "source_claim": "finite authored grammar states; no independent readability certificate",
+      "center": {
+        "phrase_id": "f045",
+        "offset": 0
+      },
+      "character_arc_ids": [
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224
+      ]
+    }
+  ],
+  "receipt": {
+    "work": 199,
+    "states": 96,
+    "reachability_rejects": 14,
+    "matched_arc_pairs": 103,
+    "char_mismatch_pairs": 108,
+    "partial_word_states": 80,
+    "complete": true,
+    "elapsed_seconds": 0.0010159160010516644,
+    "accepted_derivations": 7,
+    "cached_states": 96,
+    "nodes": 252,
+    "character_arcs": 225
+  },
+  "model_quality_scores": 0,
+  "grammar_claim": "annotated finite state grammar only",
+  "role_conflicts": 0,
+  "quality_unrated": true
+}

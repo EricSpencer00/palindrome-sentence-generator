@@ -1,0 +1,27 @@
+Non-sees fragment recomposition: bounded diagnostic 004
+
+Result: no new promising paragraph. Partial-word splicing produced exactly the same eight texts as the whole-sentence baseline. All are repetitions or symmetric combinations of the familiar controls “Ma is as selfless as I am.” and “Step on no pets.” No human acceptance is claimed. No new examples are sent for human review.
+
+Scope and bounds
+116 licensed sentences in seven families: open, pets, say, let-in, simple copula, comparative copula, and step. Agreement and object-role constraints are explicit. These are authored grammar templates with source-labeled v3 lexical hooks, rather than grammaticality inferred from v3 word-salad bodies. Comparative and step scaffolds are flagged as known controls. Finite banks and generated attempts are retained. Every method allows one, two or three sentences, without excluding repetitions by an invented quality gate. Per splice method: two million attempts and 30 seconds. Per join method: 20 million residual operations and 30 seconds. Local CPU only; no paid models, GPU, remote jobs, desktop UI, merge or publication.
+
+Complete results
+Whole-sentence baseline: 116 licensed sentences, eight exact outputs.
+Word-boundary splice: 25,277 attempts, 12,204 accepted derivations, 13,073 failed complete grammar paths. All 116 licensed sentences recovered; eight exact outputs.
+Partial-word splice: 112,985 attempts, 12,907 accepted derivations, 100,078 failed complete grammar paths. All 116 sentences recovered; eight exact outputs.
+Each method used 339,404 residual join operations. No budget truncated a frontier. All attempts, including self-splices, duplicate derivations and failures, are preserved as donor IDs plus character offsets; bank.json reconstructs their text. The output stage canonicalizes the sentence bank explicitly, rather than multiplying paragraphs by duplicate donor derivations. It preserves repeated-sentence texts and method duplicates. 24 method-level output occurrences represent eight unique normalized texts; 100% exactness was checked.
+
+What the fragment offsets actually accomplished
+Word-boundary splices made 5,473 accepted sentences different from both donors; partial-word splices made 3,924. Those are recombinations within the enumerated grammar. Neither yielded a completed seam word different from both donor words. Thus the prototype provides licensed-prefix bookkeeping, but this experiment does not demonstrate new lexical completion. For example, the partial method can combine “Ma is red.” with “Anna is as red as I am.” to recover “Ma is as red as I am.” That does not make the sentence an exact palindrome or a new grammatical frame.
+
+Sampling and individual evaluation
+Strata are method × clause count × under-60/60-plus letters. Each has ceil(10% of its output count), with zero outputs contributing zero samples. Three sampled occurrences per method, nine overall, are 37.5% of the 24 method-level outputs due to small-stratum rounding. Each occurrence has an explicit grammar/readability/coherence/repetition/provenance score and explanation in sample-ratings.json. Scores are sole-owner research diagnostics, not human labels or independent model ratings. Single controls are ordinary readable sentences. Repeating them adds no narrative development. Mixed sequences jump between selflessness and pet instructions without a coherent scene. Known construction provenance prevents any novel-paragraph claim; it is a reported feature, not a hard presentation veto.
+
+Prototype repair and verification
+The recognizer now rejects malformed licensed records with missing roles, empty lexical tokens or mismatched rendering. Six targeted tests passed in 0.40 seconds, including subject agreement, animate pet objects, partial-word role preservation, malformed-path rejection, and residual joins checked against exhaustive fixtures. Separate self-review replayed every splice attempt and verified failure totals, donor recombinations and all exact outputs. No broad timing or speedup claim follows from this fixture.
+
+Continuity
+All 111 modified/untracked source files were copied with SHA256 manifests into an isolated local branch. The original source checkout, merged paper and prior evidence are unchanged. Prior five human BAD judgments remain in the copied evidence. The pending 60-letter sees candidate has no acceptance inferred. The cancelled earlier review transfer was not retried; its two missing ratings remain missing.
+
+Next concrete research step
+Replace lookup into a complete sentence bank with a bidirectional lexical completion grammar that can introduce new licensed words and grammatical clauses at a seam. The present negative result settles this bounded bank; expanding its donor recombinations alone cannot improve paragraph yield. New predicates need compatible reversed lexical material plus argument structure, rather than the rejected association/as repair.

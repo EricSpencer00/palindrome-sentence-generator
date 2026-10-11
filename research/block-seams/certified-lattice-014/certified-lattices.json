@@ -1,0 +1,1731 @@
+[
+  {
+    "frontier": {
+      "plan_id": "single_question",
+      "selected_left": [],
+      "selected_right": [],
+      "remaining_slots": 5,
+      "left_grammar_state": "START",
+      "right_grammar_state": "END",
+      "current": {
+        "left_text": "",
+        "right_text": "",
+        "letter_debt": {
+          "compatible": true,
+          "matched_outer_letters": 0,
+          "inner_required_prefix": "",
+          "inner_required_suffix": "",
+          "remaining_debt_letters": 0,
+          "grammar_verified": false
+        },
+        "actor_bindings": {},
+        "binding_conflicts": []
+      },
+      "alternatives": {
+        "left": [
+          {
+            "fragment_id": "f000",
+            "text": "Was it ",
+            "entry": "START",
+            "exit": "Q",
+            "role": "question_subject_copula",
+            "source": "native scene003/abcba008 partial phrase",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "Was it ",
+            "right_text": "",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_suffix": "tisaw",
+              "inner_required_prefix": "",
+              "remaining_debt_letters": 5,
+              "grammar_verified": false
+            },
+            "actor_bindings": {},
+            "binding_conflicts": []
+          }
+        ],
+        "right": [
+          {
+            "fragment_id": "f018",
+            "text": " I saw?",
+            "entry": "REL",
+            "exit": "END",
+            "role": "postposed_relative_observation",
+            "source": "native scene003 final relative phrase",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "",
+            "right_text": " I saw?",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_prefix": "wasi",
+              "inner_required_suffix": "",
+              "remaining_debt_letters": 4,
+              "grammar_verified": false
+            },
+            "actor_bindings": {
+              "observer": "I"
+            },
+            "binding_conflicts": []
+          }
+        ]
+      },
+      "paired_endpoint_alternatives": [
+        {
+          "left_fragment": "f000",
+          "right_fragment": "f018",
+          "compatible": true,
+          "left_text": "Was it ",
+          "right_text": " I saw?",
+          "letter_debt": {
+            "compatible": true,
+            "matched_outer_letters": 4,
+            "inner_required_suffix": "t",
+            "inner_required_prefix": "",
+            "remaining_debt_letters": 1,
+            "grammar_verified": false
+          },
+          "actor_bindings": {
+            "observer": "I"
+          },
+          "binding_conflicts": []
+        }
+      ],
+      "immediate_rejection": false,
+      "complete_exact": false,
+      "viability_scope": "finite supplied phrase choices, local reverse-debt and binding checks; full product search still verifies closure",
+      "generation_instruction": "Propose alternative partial grammatical phrases for these open states and exact prefix/suffix debt. Preserve actor identity and a coherent premise. Do not append filler or an independently mirrored sentence; grammar/meaning still require review."
+    },
+    "outputs": [
+      {
+        "text": "Was it a car or a cat I saw?",
+        "tape": "wasitacaroracatisaw",
+        "letters": 19,
+        "plan": "single_question",
+        "method": "phrase_bridge_overhang",
+        "phrase_ids": [
+          "f000",
+          "f001",
+          "f009",
+          "f011",
+          "f018"
+        ],
+        "phrases": [
+          {
+            "id": "f000",
+            "text": "Was it ",
+            "role": "question_subject_copula",
+            "entry": "START",
+            "exit": "Q",
+            "source": "native scene003/abcba008 partial phrase",
+            "bindings": []
+          },
+          {
+            "id": "f001",
+            "text": "a car",
+            "role": "question_predicate_nominal",
+            "entry": "Q",
+            "exit": "NP",
+            "source": "mixed existing native vocabulary; finite authored role alternatives",
+            "bindings": []
+          },
+          {
+            "id": "f009",
+            "text": " or ",
+            "role": "alternative_connector",
+            "entry": "NP",
+            "exit": "ALT",
+            "source": "native car/cat question fragment",
+            "bindings": []
+          },
+          {
+            "id": "f011",
+            "text": "a cat",
+            "role": "second_predicate_nominal",
+            "entry": "ALT",
+            "exit": "REL",
+            "source": "same finite authored role alternatives",
+            "bindings": []
+          },
+          {
+            "id": "f018",
+            "text": " I saw?",
+            "role": "postposed_relative_observation",
+            "entry": "REL",
+            "exit": "END",
+            "source": "native scene003 final relative phrase",
+            "bindings": [
+              [
+                "observer",
+                "I"
+              ]
+            ]
+          }
+        ],
+        "actor_bindings": {
+          "observer": "I"
+        },
+        "binding_conflicts": [],
+        "role_consistent": true,
+        "source_claim": "finite authored grammar states; no independent readability certificate",
+        "center": {
+          "phrase_id": "f009",
+          "offset": 0
+        },
+        "character_arc_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          45,
+          46,
+          51,
+          52,
+          53,
+          54,
+          87,
+          88,
+          89,
+          90
+        ]
+      }
+    ],
+    "continuation_slots": [
+      {
+        "slot": 0,
+        "entry": "START",
+        "exit": "Q",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f000",
+              "text": "Was it ",
+              "entry": "START",
+              "exit": "Q",
+              "role": "question_subject_copula",
+              "source": "native scene003/abcba008 partial phrase",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 1,
+        "entry": "Q",
+        "exit": "NP",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f001",
+              "text": "a car",
+              "entry": "Q",
+              "exit": "NP",
+              "role": "question_predicate_nominal",
+              "source": "mixed existing native vocabulary; finite authored role alternatives",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 2,
+        "entry": "NP",
+        "exit": "ALT",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f009",
+              "text": " or ",
+              "entry": "NP",
+              "exit": "ALT",
+              "role": "alternative_connector",
+              "source": "native car/cat question fragment",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 3,
+        "entry": "ALT",
+        "exit": "REL",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f011",
+              "text": "a cat",
+              "entry": "ALT",
+              "exit": "REL",
+              "role": "second_predicate_nominal",
+              "source": "same finite authored role alternatives",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 4,
+        "entry": "REL",
+        "exit": "END",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f018",
+              "text": " I saw?",
+              "entry": "REL",
+              "exit": "END",
+              "role": "postposed_relative_observation",
+              "source": "native scene003 final relative phrase",
+              "bindings": {
+                "observer": "I"
+              }
+            },
+            "witness_count": 1
+          }
+        ]
+      }
+    ],
+    "exact_witnesses": 1,
+    "status": "complete",
+    "receipt": {
+      "work": 55,
+      "states": 28,
+      "reachability_rejects": 1,
+      "matched_arc_pairs": 27,
+      "char_mismatch_pairs": 28,
+      "partial_word_states": 26,
+      "complete": true,
+      "elapsed_seconds": 0.00018370896577835083,
+      "accepted_derivations": 1,
+      "cached_states": 28,
+      "nodes": 99,
+      "character_arcs": 91
+    },
+    "semantic_selection": "Luna chooses among exact witness paths; no independent grammar/coherence claim"
+  },
+  {
+    "frontier": {
+      "plan_id": "partial_word_question",
+      "selected_left": [],
+      "selected_right": [],
+      "remaining_slots": 3,
+      "left_grammar_state": "START",
+      "right_grammar_state": "END",
+      "current": {
+        "left_text": "",
+        "right_text": "",
+        "letter_debt": {
+          "compatible": true,
+          "matched_outer_letters": 0,
+          "inner_required_prefix": "",
+          "inner_required_suffix": "",
+          "remaining_debt_letters": 0,
+          "grammar_verified": false
+        },
+        "actor_bindings": {},
+        "binding_conflicts": []
+      },
+      "alternatives": {
+        "left": [
+          {
+            "fragment_id": "f019",
+            "text": "Was it a ca",
+            "entry": "START",
+            "exit": "PARTIAL_CA",
+            "role": "question_partial_nominal",
+            "source": "native scene003 word-level derivation",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "Was it a ca",
+            "right_text": "",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_suffix": "acatisaw",
+              "inner_required_prefix": "",
+              "remaining_debt_letters": 8,
+              "grammar_verified": false
+            },
+            "actor_bindings": {},
+            "binding_conflicts": []
+          }
+        ],
+        "right": [
+          {
+            "fragment_id": "f022",
+            "text": "r I saw?",
+            "entry": "PARTIAL_CA_2",
+            "exit": "END",
+            "role": "noun_completion_and_relative",
+            "source": "car/cat lexical alternatives; copied control structure",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "",
+            "right_text": "r I saw?",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_prefix": "wasir",
+              "inner_required_suffix": "",
+              "remaining_debt_letters": 5,
+              "grammar_verified": false
+            },
+            "actor_bindings": {
+              "observer": "I"
+            },
+            "binding_conflicts": []
+          },
+          {
+            "fragment_id": "f023",
+            "text": "t I saw?",
+            "entry": "PARTIAL_CA_2",
+            "exit": "END",
+            "role": "noun_completion_and_relative",
+            "source": "car/cat lexical alternatives; copied control structure",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "",
+            "right_text": "t I saw?",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_prefix": "wasit",
+              "inner_required_suffix": "",
+              "remaining_debt_letters": 5,
+              "grammar_verified": false
+            },
+            "actor_bindings": {
+              "observer": "I"
+            },
+            "binding_conflicts": []
+          }
+        ]
+      },
+      "paired_endpoint_alternatives": [
+        {
+          "left_fragment": "f019",
+          "right_fragment": "f022",
+          "compatible": false,
+          "left_text": "Was it a ca",
+          "right_text": "r I saw?",
+          "letter_debt": {
+            "compatible": false,
+            "first_mismatch": 4,
+            "left_char": "t",
+            "mirrored_right_char": "r",
+            "completion_possible_by_middle_only": false
+          },
+          "actor_bindings": {
+            "observer": "I"
+          },
+          "binding_conflicts": []
+        },
+        {
+          "left_fragment": "f019",
+          "right_fragment": "f023",
+          "compatible": true,
+          "left_text": "Was it a ca",
+          "right_text": "t I saw?",
+          "letter_debt": {
+            "compatible": true,
+            "matched_outer_letters": 5,
+            "inner_required_suffix": "aca",
+            "inner_required_prefix": "",
+            "remaining_debt_letters": 3,
+            "grammar_verified": false
+          },
+          "actor_bindings": {
+            "observer": "I"
+          },
+          "binding_conflicts": []
+        }
+      ],
+      "immediate_rejection": false,
+      "complete_exact": false,
+      "viability_scope": "finite supplied phrase choices, local reverse-debt and binding checks; full product search still verifies closure",
+      "generation_instruction": "Propose alternative partial grammatical phrases for these open states and exact prefix/suffix debt. Preserve actor identity and a coherent premise. Do not append filler or an independently mirrored sentence; grammar/meaning still require review."
+    },
+    "outputs": [
+      {
+        "text": "Was it a car or a cat I saw?",
+        "tape": "wasitacaroracatisaw",
+        "letters": 19,
+        "plan": "partial_word_question",
+        "method": "phrase_bridge_overhang",
+        "phrase_ids": [
+          "f019",
+          "f020",
+          "f023"
+        ],
+        "phrases": [
+          {
+            "id": "f019",
+            "text": "Was it a ca",
+            "role": "question_partial_nominal",
+            "entry": "START",
+            "exit": "PARTIAL_CA",
+            "source": "native scene003 word-level derivation",
+            "bindings": []
+          },
+          {
+            "id": "f020",
+            "text": "r or a ca",
+            "role": "noun_completion_and_alternative",
+            "entry": "PARTIAL_CA",
+            "exit": "PARTIAL_CA_2",
+            "source": "car/cat lexical alternatives; copied control structure",
+            "bindings": []
+          },
+          {
+            "id": "f023",
+            "text": "t I saw?",
+            "role": "noun_completion_and_relative",
+            "entry": "PARTIAL_CA_2",
+            "exit": "END",
+            "source": "car/cat lexical alternatives; copied control structure",
+            "bindings": [
+              [
+                "observer",
+                "I"
+              ]
+            ]
+          }
+        ],
+        "actor_bindings": {
+          "observer": "I"
+        },
+        "binding_conflicts": [],
+        "role_consistent": true,
+        "source_claim": "finite authored grammar states; no independent readability certificate",
+        "center": {
+          "phrase_id": "f020",
+          "offset": 1
+        },
+        "character_arc_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          25,
+          26,
+          27,
+          28,
+          29
+        ]
+      }
+    ],
+    "continuation_slots": [
+      {
+        "slot": 0,
+        "entry": "START",
+        "exit": "PARTIAL_CA",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f019",
+              "text": "Was it a ca",
+              "entry": "START",
+              "exit": "PARTIAL_CA",
+              "role": "question_partial_nominal",
+              "source": "native scene003 word-level derivation",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 1,
+        "entry": "PARTIAL_CA",
+        "exit": "PARTIAL_CA_2",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f020",
+              "text": "r or a ca",
+              "entry": "PARTIAL_CA",
+              "exit": "PARTIAL_CA_2",
+              "role": "noun_completion_and_alternative",
+              "source": "car/cat lexical alternatives; copied control structure",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 2,
+        "entry": "PARTIAL_CA_2",
+        "exit": "END",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f023",
+              "text": "t I saw?",
+              "entry": "PARTIAL_CA_2",
+              "exit": "END",
+              "role": "noun_completion_and_relative",
+              "source": "car/cat lexical alternatives; copied control structure",
+              "bindings": {
+                "observer": "I"
+              }
+            },
+            "witness_count": 1
+          }
+        ]
+      }
+    ],
+    "exact_witnesses": 1,
+    "status": "complete",
+    "receipt": {
+      "work": 37,
+      "states": 19,
+      "reachability_rejects": 2,
+      "matched_arc_pairs": 18,
+      "char_mismatch_pairs": 3,
+      "partial_word_states": 17,
+      "complete": true,
+      "elapsed_seconds": 8.708285167813301e-05,
+      "accepted_derivations": 1,
+      "cached_states": 19,
+      "nodes": 36,
+      "character_arcs": 30
+    },
+    "semantic_selection": "Luna chooses among exact witness paths; no independent grammar/coherence claim"
+  },
+  {
+    "frontier": {
+      "plan_id": "observation_reaction",
+      "selected_left": [],
+      "selected_right": [],
+      "remaining_slots": 4,
+      "left_grammar_state": "START",
+      "right_grammar_state": "END",
+      "current": {
+        "left_text": "",
+        "right_text": "",
+        "letter_debt": {
+          "compatible": true,
+          "matched_outer_letters": 0,
+          "inner_required_prefix": "",
+          "inner_required_suffix": "",
+          "remaining_debt_letters": 0,
+          "grammar_verified": false
+        },
+        "actor_bindings": {},
+        "binding_conflicts": []
+      },
+      "alternatives": {
+        "left": [
+          {
+            "fragment_id": "f024",
+            "text": "I saw ",
+            "entry": "START",
+            "exit": "OBS",
+            "role": "observation_subject_verb",
+            "source": "supplement004-006",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "I saw ",
+            "right_text": "",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_suffix": "wasi",
+              "inner_required_prefix": "",
+              "remaining_debt_letters": 4,
+              "grammar_verified": false
+            },
+            "actor_bindings": {
+              "observer": "I"
+            },
+            "binding_conflicts": []
+          }
+        ],
+        "right": [
+          {
+            "fragment_id": "f033",
+            "text": "I.",
+            "entry": "PRED",
+            "exit": "END",
+            "role": "reaction_subject",
+            "source": "I from supplement; Mom mismatch diagnostic",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "",
+            "right_text": "I.",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_prefix": "i",
+              "inner_required_suffix": "",
+              "remaining_debt_letters": 1,
+              "grammar_verified": false
+            },
+            "actor_bindings": {
+              "observer": "I"
+            },
+            "binding_conflicts": []
+          },
+          {
+            "fragment_id": "f035",
+            "text": "Mom.",
+            "entry": "PRED",
+            "exit": "END",
+            "role": "reaction_subject",
+            "source": "native Mom vocabulary; deliberately conflicting observer",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "",
+            "right_text": "Mom.",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_prefix": "mom",
+              "inner_required_suffix": "",
+              "remaining_debt_letters": 3,
+              "grammar_verified": false
+            },
+            "actor_bindings": {
+              "observer": "Mom"
+            },
+            "binding_conflicts": []
+          }
+        ]
+      },
+      "paired_endpoint_alternatives": [
+        {
+          "left_fragment": "f024",
+          "right_fragment": "f033",
+          "compatible": true,
+          "left_text": "I saw ",
+          "right_text": "I.",
+          "letter_debt": {
+            "compatible": true,
+            "matched_outer_letters": 1,
+            "inner_required_suffix": "was",
+            "inner_required_prefix": "",
+            "remaining_debt_letters": 3,
+            "grammar_verified": false
+          },
+          "actor_bindings": {
+            "observer": "I"
+          },
+          "binding_conflicts": []
+        },
+        {
+          "left_fragment": "f024",
+          "right_fragment": "f035",
+          "compatible": false,
+          "left_text": "I saw ",
+          "right_text": "Mom.",
+          "letter_debt": {
+            "compatible": false,
+            "first_mismatch": 0,
+            "left_char": "i",
+            "mirrored_right_char": "m",
+            "completion_possible_by_middle_only": false
+          },
+          "actor_bindings": {
+            "observer": "Mom"
+          },
+          "binding_conflicts": [
+            {
+              "variable": "observer",
+              "previous": "I",
+              "proposed": "Mom"
+            }
+          ]
+        }
+      ],
+      "immediate_rejection": false,
+      "complete_exact": false,
+      "viability_scope": "finite supplied phrase choices, local reverse-debt and binding checks; full product search still verifies closure",
+      "generation_instruction": "Propose alternative partial grammatical phrases for these open states and exact prefix/suffix debt. Preserve actor identity and a coherent premise. Do not append filler or an independently mirrored sentence; grammar/meaning still require review."
+    },
+    "outputs": [
+      {
+        "text": "I saw desserts; stressed was I.",
+        "tape": "isawdessertsstressedwasi",
+        "letters": 24,
+        "plan": "observation_reaction",
+        "method": "non_ABCBA_role_scene",
+        "phrase_ids": [
+          "f024",
+          "f025",
+          "f030",
+          "f033"
+        ],
+        "phrases": [
+          {
+            "id": "f024",
+            "text": "I saw ",
+            "role": "observation_subject_verb",
+            "entry": "START",
+            "exit": "OBS",
+            "source": "supplement004-006",
+            "bindings": [
+              [
+                "observer",
+                "I"
+              ]
+            ]
+          },
+          {
+            "id": "f025",
+            "text": "desserts",
+            "role": "observation_theme",
+            "entry": "OBS",
+            "exit": "REACTION",
+            "source": "supplement004-006 plus native scene003 objects",
+            "bindings": []
+          },
+          {
+            "id": "f030",
+            "text": "; stressed was ",
+            "role": "reaction_predicate_inversion",
+            "entry": "REACTION",
+            "exit": "PRED",
+            "source": "supplement004-006; inversion is quality concern",
+            "bindings": []
+          },
+          {
+            "id": "f033",
+            "text": "I.",
+            "role": "reaction_subject",
+            "entry": "PRED",
+            "exit": "END",
+            "source": "I from supplement; Mom mismatch diagnostic",
+            "bindings": [
+              [
+                "observer",
+                "I"
+              ]
+            ]
+          }
+        ],
+        "actor_bindings": {
+          "observer": "I"
+        },
+        "binding_conflicts": [],
+        "role_consistent": true,
+        "source_claim": "finite authored grammar states; no independent readability certificate",
+        "center": {
+          "phrase_id": "f030",
+          "offset": 0
+        },
+        "character_arc_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          51
+        ]
+      },
+      {
+        "text": "I saw evil; live was I.",
+        "tape": "isawevillivewasi",
+        "letters": 16,
+        "plan": "observation_reaction",
+        "method": "non_ABCBA_role_scene",
+        "phrase_ids": [
+          "f024",
+          "f026",
+          "f031",
+          "f033"
+        ],
+        "phrases": [
+          {
+            "id": "f024",
+            "text": "I saw ",
+            "role": "observation_subject_verb",
+            "entry": "START",
+            "exit": "OBS",
+            "source": "supplement004-006",
+            "bindings": [
+              [
+                "observer",
+                "I"
+              ]
+            ]
+          },
+          {
+            "id": "f026",
+            "text": "evil",
+            "role": "observation_theme",
+            "entry": "OBS",
+            "exit": "REACTION",
+            "source": "supplement004-006 plus native scene003 objects",
+            "bindings": []
+          },
+          {
+            "id": "f031",
+            "text": "; live was ",
+            "role": "reaction_predicate_inversion",
+            "entry": "REACTION",
+            "exit": "PRED",
+            "source": "supplement004-006; inversion is quality concern",
+            "bindings": []
+          },
+          {
+            "id": "f033",
+            "text": "I.",
+            "role": "reaction_subject",
+            "entry": "PRED",
+            "exit": "END",
+            "source": "I from supplement; Mom mismatch diagnostic",
+            "bindings": [
+              [
+                "observer",
+                "I"
+              ]
+            ]
+          }
+        ],
+        "actor_bindings": {
+          "observer": "I"
+        },
+        "binding_conflicts": [],
+        "role_consistent": true,
+        "source_claim": "finite authored grammar states; no independent readability certificate",
+        "center": {
+          "phrase_id": "f031",
+          "offset": 0
+        },
+        "character_arc_ids": [
+          0,
+          1,
+          2,
+          3,
+          12,
+          13,
+          14,
+          15,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          51
+        ]
+      },
+      {
+        "text": "I saw war; raw was I.",
+        "tape": "isawwarrawwasi",
+        "letters": 14,
+        "plan": "observation_reaction",
+        "method": "non_ABCBA_role_scene",
+        "phrase_ids": [
+          "f024",
+          "f027",
+          "f032",
+          "f033"
+        ],
+        "phrases": [
+          {
+            "id": "f024",
+            "text": "I saw ",
+            "role": "observation_subject_verb",
+            "entry": "START",
+            "exit": "OBS",
+            "source": "supplement004-006",
+            "bindings": [
+              [
+                "observer",
+                "I"
+              ]
+            ]
+          },
+          {
+            "id": "f027",
+            "text": "war",
+            "role": "observation_theme",
+            "entry": "OBS",
+            "exit": "REACTION",
+            "source": "supplement004-006 plus native scene003 objects",
+            "bindings": []
+          },
+          {
+            "id": "f032",
+            "text": "; raw was ",
+            "role": "reaction_predicate_inversion",
+            "entry": "REACTION",
+            "exit": "PRED",
+            "source": "supplement004-006; inversion is quality concern",
+            "bindings": []
+          },
+          {
+            "id": "f033",
+            "text": "I.",
+            "role": "reaction_subject",
+            "entry": "PRED",
+            "exit": "END",
+            "source": "I from supplement; Mom mismatch diagnostic",
+            "bindings": [
+              [
+                "observer",
+                "I"
+              ]
+            ]
+          }
+        ],
+        "actor_bindings": {
+          "observer": "I"
+        },
+        "binding_conflicts": [],
+        "role_consistent": true,
+        "source_claim": "finite authored grammar states; no independent readability certificate",
+        "center": {
+          "phrase_id": "f032",
+          "offset": 0
+        },
+        "character_arc_ids": [
+          0,
+          1,
+          2,
+          3,
+          16,
+          17,
+          18,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51
+        ]
+      }
+    ],
+    "continuation_slots": [
+      {
+        "slot": 0,
+        "entry": "START",
+        "exit": "OBS",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f024",
+              "text": "I saw ",
+              "entry": "START",
+              "exit": "OBS",
+              "role": "observation_subject_verb",
+              "source": "supplement004-006",
+              "bindings": {
+                "observer": "I"
+              }
+            },
+            "witness_count": 3
+          }
+        ]
+      },
+      {
+        "slot": 1,
+        "entry": "OBS",
+        "exit": "REACTION",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f025",
+              "text": "desserts",
+              "entry": "OBS",
+              "exit": "REACTION",
+              "role": "observation_theme",
+              "source": "supplement004-006 plus native scene003 objects",
+              "bindings": {}
+            },
+            "witness_count": 1
+          },
+          {
+            "fragment": {
+              "id": "f026",
+              "text": "evil",
+              "entry": "OBS",
+              "exit": "REACTION",
+              "role": "observation_theme",
+              "source": "supplement004-006 plus native scene003 objects",
+              "bindings": {}
+            },
+            "witness_count": 1
+          },
+          {
+            "fragment": {
+              "id": "f027",
+              "text": "war",
+              "entry": "OBS",
+              "exit": "REACTION",
+              "role": "observation_theme",
+              "source": "supplement004-006 plus native scene003 objects",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 2,
+        "entry": "REACTION",
+        "exit": "PRED",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f030",
+              "text": "; stressed was ",
+              "entry": "REACTION",
+              "exit": "PRED",
+              "role": "reaction_predicate_inversion",
+              "source": "supplement004-006; inversion is quality concern",
+              "bindings": {}
+            },
+            "witness_count": 1
+          },
+          {
+            "fragment": {
+              "id": "f031",
+              "text": "; live was ",
+              "entry": "REACTION",
+              "exit": "PRED",
+              "role": "reaction_predicate_inversion",
+              "source": "supplement004-006; inversion is quality concern",
+              "bindings": {}
+            },
+            "witness_count": 1
+          },
+          {
+            "fragment": {
+              "id": "f032",
+              "text": "; raw was ",
+              "entry": "REACTION",
+              "exit": "PRED",
+              "role": "reaction_predicate_inversion",
+              "source": "supplement004-006; inversion is quality concern",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 3,
+        "entry": "PRED",
+        "exit": "END",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f033",
+              "text": "I.",
+              "entry": "PRED",
+              "exit": "END",
+              "role": "reaction_subject",
+              "source": "I from supplement; Mom mismatch diagnostic",
+              "bindings": {
+                "observer": "I"
+              }
+            },
+            "witness_count": 3
+          }
+        ]
+      }
+    ],
+    "exact_witnesses": 3,
+    "status": "complete",
+    "receipt": {
+      "work": 67,
+      "states": 30,
+      "reachability_rejects": 4,
+      "matched_arc_pairs": 37,
+      "char_mismatch_pairs": 46,
+      "partial_word_states": 26,
+      "complete": true,
+      "elapsed_seconds": 0.00015666685067117214,
+      "accepted_derivations": 3,
+      "cached_states": 30,
+      "nodes": 62,
+      "character_arcs": 55
+    },
+    "semantic_selection": "Luna chooses among exact witness paths; no independent grammar/coherence claim"
+  },
+  {
+    "frontier": {
+      "plan_id": "comparative",
+      "selected_left": [],
+      "selected_right": [],
+      "remaining_slots": 3,
+      "left_grammar_state": "START",
+      "right_grammar_state": "END",
+      "current": {
+        "left_text": "",
+        "right_text": "",
+        "letter_debt": {
+          "compatible": true,
+          "matched_outer_letters": 0,
+          "inner_required_prefix": "",
+          "inner_required_suffix": "",
+          "remaining_debt_letters": 0,
+          "grammar_verified": false
+        },
+        "actor_bindings": {},
+        "binding_conflicts": []
+      },
+      "alternatives": {
+        "left": [
+          {
+            "fragment_id": "f036",
+            "text": "Ma is as ",
+            "entry": "START",
+            "exit": "COMP",
+            "role": "comparative_subject",
+            "source": "frozen009 grammar",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "Ma is as ",
+            "right_text": "",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_suffix": "sasiam",
+              "inner_required_prefix": "",
+              "remaining_debt_letters": 6,
+              "grammar_verified": false
+            },
+            "actor_bindings": {},
+            "binding_conflicts": []
+          }
+        ],
+        "right": [
+          {
+            "fragment_id": "f042",
+            "text": " as I am.",
+            "entry": "DEG",
+            "exit": "END",
+            "role": "degree_comparison",
+            "source": "frozen009 grammar",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "",
+            "right_text": " as I am.",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_prefix": "maisa",
+              "inner_required_suffix": "",
+              "remaining_debt_letters": 5,
+              "grammar_verified": false
+            },
+            "actor_bindings": {},
+            "binding_conflicts": []
+          }
+        ]
+      },
+      "paired_endpoint_alternatives": [
+        {
+          "left_fragment": "f036",
+          "right_fragment": "f042",
+          "compatible": true,
+          "left_text": "Ma is as ",
+          "right_text": " as I am.",
+          "letter_debt": {
+            "compatible": true,
+            "matched_outer_letters": 5,
+            "inner_required_suffix": "s",
+            "inner_required_prefix": "",
+            "remaining_debt_letters": 1,
+            "grammar_verified": false
+          },
+          "actor_bindings": {},
+          "binding_conflicts": []
+        }
+      ],
+      "immediate_rejection": false,
+      "complete_exact": false,
+      "viability_scope": "finite supplied phrase choices, local reverse-debt and binding checks; full product search still verifies closure",
+      "generation_instruction": "Propose alternative partial grammatical phrases for these open states and exact prefix/suffix debt. Preserve actor identity and a coherent premise. Do not append filler or an independently mirrored sentence; grammar/meaning still require review."
+    },
+    "outputs": [
+      {
+        "text": "Ma is as selfless as I am.",
+        "tape": "maisasselflessasiam",
+        "letters": 19,
+        "plan": "comparative",
+        "method": "non_ABCBA_role_scene",
+        "phrase_ids": [
+          "f036",
+          "f037",
+          "f042"
+        ],
+        "phrases": [
+          {
+            "id": "f036",
+            "text": "Ma is as ",
+            "role": "comparative_subject",
+            "entry": "START",
+            "exit": "COMP",
+            "source": "frozen009 grammar",
+            "bindings": []
+          },
+          {
+            "id": "f037",
+            "text": "selfless",
+            "role": "adjective_predicate",
+            "entry": "COMP",
+            "exit": "DEG",
+            "source": "existing grammar/native vocabulary",
+            "bindings": []
+          },
+          {
+            "id": "f042",
+            "text": " as I am.",
+            "role": "degree_comparison",
+            "entry": "DEG",
+            "exit": "END",
+            "source": "frozen009 grammar",
+            "bindings": []
+          }
+        ],
+        "actor_bindings": {},
+        "binding_conflicts": [],
+        "role_consistent": true,
+        "source_claim": "finite authored grammar states; no independent readability certificate",
+        "center": {
+          "phrase_id": "f037",
+          "offset": 3
+        },
+        "character_arc_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          33,
+          34,
+          35,
+          36,
+          37
+        ]
+      }
+    ],
+    "continuation_slots": [
+      {
+        "slot": 0,
+        "entry": "START",
+        "exit": "COMP",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f036",
+              "text": "Ma is as ",
+              "entry": "START",
+              "exit": "COMP",
+              "role": "comparative_subject",
+              "source": "frozen009 grammar",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 1,
+        "entry": "COMP",
+        "exit": "DEG",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f037",
+              "text": "selfless",
+              "entry": "COMP",
+              "exit": "DEG",
+              "role": "adjective_predicate",
+              "source": "existing grammar/native vocabulary",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 2,
+        "entry": "DEG",
+        "exit": "END",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f042",
+              "text": " as I am.",
+              "entry": "DEG",
+              "exit": "END",
+              "role": "degree_comparison",
+              "source": "frozen009 grammar",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      }
+    ],
+    "exact_witnesses": 1,
+    "status": "complete",
+    "receipt": {
+      "work": 23,
+      "states": 12,
+      "reachability_rejects": 2,
+      "matched_arc_pairs": 11,
+      "char_mismatch_pairs": 7,
+      "partial_word_states": 10,
+      "complete": true,
+      "elapsed_seconds": 6.574997678399086e-05,
+      "accepted_derivations": 1,
+      "cached_states": 12,
+      "nodes": 44,
+      "character_arcs": 38
+    },
+    "semantic_selection": "Luna chooses among exact witness paths; no independent grammar/coherence claim"
+  },
+  {
+    "frontier": {
+      "plan_id": "phrase_ABCBA_referral",
+      "selected_left": [],
+      "selected_right": [],
+      "remaining_slots": 5,
+      "left_grammar_state": "START",
+      "right_grammar_state": "END",
+      "current": {
+        "left_text": "",
+        "right_text": "",
+        "letter_debt": {
+          "compatible": true,
+          "matched_outer_letters": 0,
+          "inner_required_prefix": "",
+          "inner_required_suffix": "",
+          "remaining_debt_letters": 0,
+          "grammar_verified": false
+        },
+        "actor_bindings": {},
+        "binding_conflicts": []
+      },
+      "alternatives": {
+        "left": [
+          {
+            "fragment_id": "f043",
+            "text": "Eve, ",
+            "entry": "START",
+            "exit": "REFER_PREFIX",
+            "role": "human_topic",
+            "source": "existing typed vocabulary",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "Eve, ",
+            "right_text": "",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_suffix": "eve",
+              "inner_required_prefix": "",
+              "remaining_debt_letters": 3,
+              "grammar_verified": false
+            },
+            "actor_bindings": {},
+            "binding_conflicts": []
+          }
+        ],
+        "right": [
+          {
+            "fragment_id": "f047",
+            "text": "Eve.",
+            "entry": "THEME",
+            "exit": "END",
+            "role": "human_theme",
+            "source": "existing typed vocabulary",
+            "compatible": true,
+            "complete_exact": false,
+            "left_text": "",
+            "right_text": "Eve.",
+            "letter_debt": {
+              "compatible": true,
+              "matched_outer_letters": 0,
+              "inner_required_prefix": "eve",
+              "inner_required_suffix": "",
+              "remaining_debt_letters": 3,
+              "grammar_verified": false
+            },
+            "actor_bindings": {},
+            "binding_conflicts": []
+          }
+        ]
+      },
+      "paired_endpoint_alternatives": [
+        {
+          "left_fragment": "f043",
+          "right_fragment": "f047",
+          "compatible": true,
+          "left_text": "Eve, ",
+          "right_text": "Eve.",
+          "letter_debt": {
+            "compatible": true,
+            "matched_outer_letters": 3,
+            "inner_required_prefix": "",
+            "inner_required_suffix": "",
+            "remaining_debt_letters": 0,
+            "grammar_verified": false
+          },
+          "actor_bindings": {},
+          "binding_conflicts": []
+        }
+      ],
+      "immediate_rejection": false,
+      "complete_exact": false,
+      "viability_scope": "finite supplied phrase choices, local reverse-debt and binding checks; full product search still verifies closure",
+      "generation_instruction": "Propose alternative partial grammatical phrases for these open states and exact prefix/suffix debt. Preserve actor identity and a coherent premise. Do not append filler or an independently mirrored sentence; grammar/meaning still require review."
+    },
+    "outputs": [
+      {
+        "text": "Eve, refer Eve.",
+        "tape": "everefereve",
+        "letters": 11,
+        "plan": "phrase_ABCBA_referral",
+        "method": "phrase_ABCBA",
+        "phrase_ids": [
+          "f043",
+          "f044",
+          "f045",
+          "f046",
+          "f047"
+        ],
+        "phrases": [
+          {
+            "id": "f043",
+            "text": "Eve, ",
+            "role": "human_topic",
+            "entry": "START",
+            "exit": "REFER_PREFIX",
+            "source": "existing typed vocabulary",
+            "bindings": []
+          },
+          {
+            "id": "f044",
+            "text": "re",
+            "role": "partial_referral_verb",
+            "entry": "REFER_PREFIX",
+            "exit": "VERB_MID",
+            "source": "existing refer lemma",
+            "bindings": []
+          },
+          {
+            "id": "f045",
+            "text": "f",
+            "role": "partial_referral_center",
+            "entry": "VERB_MID",
+            "exit": "VERB_SUFFIX",
+            "source": "existing refer lemma",
+            "bindings": []
+          },
+          {
+            "id": "f046",
+            "text": "er ",
+            "role": "referral_verb_completion",
+            "entry": "VERB_SUFFIX",
+            "exit": "THEME",
+            "source": "existing refer lemma",
+            "bindings": []
+          },
+          {
+            "id": "f047",
+            "text": "Eve.",
+            "role": "human_theme",
+            "entry": "THEME",
+            "exit": "END",
+            "source": "existing typed vocabulary",
+            "bindings": []
+          }
+        ],
+        "actor_bindings": {},
+        "binding_conflicts": [],
+        "role_consistent": true,
+        "source_claim": "finite authored grammar states; no independent readability certificate",
+        "center": {
+          "phrase_id": "f045",
+          "offset": 0
+        },
+        "character_arc_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    ],
+    "continuation_slots": [
+      {
+        "slot": 0,
+        "entry": "START",
+        "exit": "REFER_PREFIX",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f043",
+              "text": "Eve, ",
+              "entry": "START",
+              "exit": "REFER_PREFIX",
+              "role": "human_topic",
+              "source": "existing typed vocabulary",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 1,
+        "entry": "REFER_PREFIX",
+        "exit": "VERB_MID",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f044",
+              "text": "re",
+              "entry": "REFER_PREFIX",
+              "exit": "VERB_MID",
+              "role": "partial_referral_verb",
+              "source": "existing refer lemma",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 2,
+        "entry": "VERB_MID",
+        "exit": "VERB_SUFFIX",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f045",
+              "text": "f",
+              "entry": "VERB_MID",
+              "exit": "VERB_SUFFIX",
+              "role": "partial_referral_center",
+              "source": "existing refer lemma",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 3,
+        "entry": "VERB_SUFFIX",
+        "exit": "THEME",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f046",
+              "text": "er ",
+              "entry": "VERB_SUFFIX",
+              "exit": "THEME",
+              "role": "referral_verb_completion",
+              "source": "existing refer lemma",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      },
+      {
+        "slot": 4,
+        "entry": "THEME",
+        "exit": "END",
+        "fragments": [
+          {
+            "fragment": {
+              "id": "f047",
+              "text": "Eve.",
+              "entry": "THEME",
+              "exit": "END",
+              "role": "human_theme",
+              "source": "existing typed vocabulary",
+              "bindings": {}
+            },
+            "witness_count": 1
+          }
+        ]
+      }
+    ],
+    "exact_witnesses": 1,
+    "status": "complete",
+    "receipt": {
+      "work": 13,
+      "states": 7,
+      "reachability_rejects": 1,
+      "matched_arc_pairs": 6,
+      "char_mismatch_pairs": 0,
+      "partial_word_states": 5,
+      "complete": true,
+      "elapsed_seconds": 3.8624973967671394e-05,
+      "accepted_derivations": 1,
+      "cached_states": 7,
+      "nodes": 19,
+      "character_arcs": 11
+    },
+    "semantic_selection": "Luna chooses among exact witness paths; no independent grammar/coherence claim"
+  }
+]

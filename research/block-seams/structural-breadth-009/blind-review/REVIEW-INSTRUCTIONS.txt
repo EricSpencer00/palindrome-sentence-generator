@@ -1,0 +1,5 @@
+Independent text review for separately versioned run009
+
+Read only chunks/*.jsonl. Each line contains rating_id, normalized_text_key and text, with no scores, ranks, source judgments or provenance. Assess every text individually for grammar, readability, coherence and repetition. Score each dimension0..4;4 means best quality/least repetition,0 means severe failure. Give a specific brief explanation. Copy rating_id exactly. Return one record per line with rating_id,grammar,readability,coherence,repetition,explanation. Do not skip or invent a missing judgment.
+
+There are42 chunks:41 of64 texts and one of62, totaling2,686 unique texts. Their order is a deterministic hash order, not the pool's diagnostic rank. No new independent ratings are currently claimed. The old4,412-occurrence review remains separate. A private mapping identifies413 identical texts in its3,949-text sample; actual old judgments may be reused only after their records are available and validated. This kit does not infer or supply those judgments.

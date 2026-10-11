@@ -103,6 +103,20 @@ class TypedGrammar:
 
     @staticmethod
     def _positions(slots, tape, reverse=False):
+        # Return a fresh list: callers cannot mutate the cached result.
+        return list(TypedGrammar._cached_positions(slots,tape,reverse))
+
+    @staticmethod
+    def positions_cache_info():
+        return TypedGrammar._cached_positions.cache_info()
+
+    @staticmethod
+    @lru_cache(maxsize=8192, typed=True)
+    def _cached_positions(slots,tape,reverse):
+        return tuple(TypedGrammar._positions_uncached(slots,tape,reverse))
+
+    @staticmethod
+    def _positions_uncached(slots, tape, reverse=False):
         ss=slots[::-1] if reverse else slots
         remaining=tape[::-1] if reverse else tape
         states={(0,remaining)};results=[]
@@ -155,7 +169,19 @@ class TypedGrammar:
             return None
         return visit(0,max_sentences) if tape else None
 
+    @lru_cache(maxsize=4096, typed=True)
+    def _cached_paragraph_frontier(self,left,right,max_sentences):
+        return self._paragraph_frontier_uncached(left,right,max_sentences)
+
+    def frontier_cache_info(self):
+        return self._cached_paragraph_frontier.cache_info()
+
     def paragraph_frontier(self,left,right,max_sentences=3):
+        # Exact word tapes, side order, budget and grammar identity are keys.
+        # Compiled paths are immutable, as for complete/compatible caches.
+        return self._cached_paragraph_frontier(left,right,max_sentences)
+
+    def _paragraph_frontier_uncached(self,left,right,max_sentences=3):
         """Possible completion across sentence boundaries; no whole-block gate."""
         def splits(tape,reverse=False):
             # Strip any number of complete outer clauses, retaining one partial.

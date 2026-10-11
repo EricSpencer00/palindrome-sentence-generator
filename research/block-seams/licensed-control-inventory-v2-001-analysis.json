@@ -1,0 +1,902 @@
+{
+  "schema_version": 1,
+  "inventory_version": "licensed-control-components-v2",
+  "words": 50,
+  "blocks": 71,
+  "added_words": [
+    "dan",
+    "did",
+    "evil",
+    "iron",
+    "leon",
+    "liam",
+    "live",
+    "mail",
+    "noel",
+    "red",
+    "rider",
+    "sees"
+  ],
+  "grammar_rule_changes": [],
+  "grammar_productions": 14,
+  "compatible_boundary_pairs": 23,
+  "supplied_regression": {
+    "scope": "Predeclared parent-supplied path under a stronger path-membership gate; representation only.",
+    "rendered_text": "No rider sees mail. Leon sees red iron. No rider sees Noel. Liam sees red iron.",
+    "global_exact": true,
+    "distinct_complete_clauses": 4,
+    "novelty_eligible": false,
+    "inventory_units": 71,
+    "path_steps": 12,
+    "trace": [
+      {
+        "depth": 1,
+        "side": "left",
+        "unit": "no rider",
+        "debt": {
+          "viable": true,
+          "owner": "left",
+          "residual": "norider",
+          "common_prefix": ""
+        },
+        "source_records": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              0,
+              2
+            ],
+            "text": "no rider",
+            "component_kind": "licensed constituent",
+            "known_control_source": true
+          }
+        ]
+      },
+      {
+        "depth": 2,
+        "side": "right",
+        "unit": "red iron",
+        "debt": {
+          "viable": true,
+          "owner": null,
+          "residual": "",
+          "common_prefix": "norider"
+        },
+        "source_records": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              3,
+              5
+            ],
+            "text": "red iron",
+            "component_kind": "licensed constituent",
+            "known_control_source": true
+          }
+        ]
+      },
+      {
+        "depth": 3,
+        "side": "left",
+        "unit": "sees",
+        "debt": {
+          "viable": true,
+          "owner": "left",
+          "residual": "sees",
+          "common_prefix": "norider"
+        },
+        "source_records": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ]
+      },
+      {
+        "depth": 4,
+        "side": "right",
+        "unit": "sees",
+        "debt": {
+          "viable": true,
+          "owner": null,
+          "residual": "",
+          "common_prefix": "noridersees"
+        },
+        "source_records": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ]
+      },
+      {
+        "depth": 5,
+        "side": "left",
+        "unit": "mail",
+        "debt": {
+          "viable": true,
+          "owner": "left",
+          "residual": "mail",
+          "common_prefix": "noridersees"
+        },
+        "source_records": [
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "mail",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ]
+      },
+      {
+        "depth": 6,
+        "side": "right",
+        "unit": "liam",
+        "debt": {
+          "viable": true,
+          "owner": null,
+          "residual": "",
+          "common_prefix": "noriderseesmail"
+        },
+        "source_records": [
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              0,
+              1
+            ],
+            "text": "liam",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ]
+      },
+      {
+        "depth": 7,
+        "side": "left",
+        "unit": "leon",
+        "debt": {
+          "viable": true,
+          "owner": "left",
+          "residual": "leon",
+          "common_prefix": "noriderseesmail"
+        },
+        "source_records": [
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              0,
+              1
+            ],
+            "text": "leon",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ]
+      },
+      {
+        "depth": 8,
+        "side": "right",
+        "unit": "noel",
+        "debt": {
+          "viable": true,
+          "owner": null,
+          "residual": "",
+          "common_prefix": "noriderseesmailleon"
+        },
+        "source_records": [
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "noel",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ]
+      },
+      {
+        "depth": 9,
+        "side": "left",
+        "unit": "sees",
+        "debt": {
+          "viable": true,
+          "owner": "left",
+          "residual": "sees",
+          "common_prefix": "noriderseesmailleon"
+        },
+        "source_records": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ]
+      },
+      {
+        "depth": 10,
+        "side": "right",
+        "unit": "sees",
+        "debt": {
+          "viable": true,
+          "owner": null,
+          "residual": "",
+          "common_prefix": "noriderseesmailleonsees"
+        },
+        "source_records": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ]
+      },
+      {
+        "depth": 11,
+        "side": "left",
+        "unit": "red iron",
+        "debt": {
+          "viable": true,
+          "owner": "left",
+          "residual": "rediron",
+          "common_prefix": "noriderseesmailleonsees"
+        },
+        "source_records": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              3,
+              5
+            ],
+            "text": "red iron",
+            "component_kind": "licensed constituent",
+            "known_control_source": true
+          }
+        ]
+      },
+      {
+        "depth": 12,
+        "side": "right",
+        "unit": "no rider",
+        "debt": {
+          "viable": true,
+          "owner": null,
+          "residual": "",
+          "common_prefix": "noriderseesmailleonseesrediron"
+        },
+        "source_records": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              0,
+              2
+            ],
+            "text": "no rider",
+            "component_kind": "licensed constituent",
+            "known_control_source": true
+          }
+        ]
+      }
+    ],
+    "max_actions": 10000,
+    "attempted_actions": 1704,
+    "truncated": false,
+    "coherence": "unreviewed; repetitive seeing predicates"
+  },
+  "unguided_assembly_test": [
+    {
+      "seed": 921,
+      "status": "timeout",
+      "native_status": "deadline",
+      "elapsed_seconds": 5.000833124970086,
+      "attempted_side_unit_actions": 1031,
+      "grammar_callbacks": 605,
+      "visited_states": 8,
+      "fully_completed_maximum_expansion_depth": 6,
+      "max_visited_letters": 45,
+      "max_retained_proposal_letters": 53,
+      "raw_exact_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "pruned_proposals": 113,
+      "selected_root_actions": [
+        {
+          "side": "left",
+          "unit": "the gardener",
+          "score": 0.5900000000000001,
+          "priority": 0.9111465101236484,
+          "finite_boundary_viable": false
+        }
+      ],
+      "pruned_globally_boundary_viable_root_actions": [
+        {
+          "side": "left",
+          "unit": "evil",
+          "score": 0.22,
+          "priority": 0.23784030492081992
+        },
+        {
+          "side": "left",
+          "unit": "leon",
+          "score": 0.22,
+          "priority": 0.35377614311167294
+        },
+        {
+          "side": "left",
+          "unit": "liam",
+          "score": 0.22,
+          "priority": 0.5058206711945692
+        },
+        {
+          "side": "left",
+          "unit": "mail",
+          "score": 0.22,
+          "priority": 0.529160932076886
+        },
+        {
+          "side": "left",
+          "unit": "no",
+          "score": 0.12000000000000001,
+          "priority": 0.28960683658486985
+        },
+        {
+          "side": "left",
+          "unit": "no evil",
+          "score": 0.34,
+          "priority": 0.5067035135287724
+        },
+        {
+          "side": "left",
+          "unit": "no rider",
+          "score": 0.39,
+          "priority": 0.4305342254658818
+        },
+        {
+          "side": "left",
+          "unit": "noel",
+          "score": 0.22,
+          "priority": 0.4282207107319058
+        },
+        {
+          "side": "left",
+          "unit": "red",
+          "score": 0.17,
+          "priority": 0.2758029263171201
+        },
+        {
+          "side": "left",
+          "unit": "red iron",
+          "score": 0.39,
+          "priority": 0.6634165484127206
+        },
+        {
+          "side": "right",
+          "unit": "iron",
+          "score": 0.22,
+          "priority": 0.3836879031269715
+        },
+        {
+          "side": "right",
+          "unit": "leon",
+          "score": 0.22,
+          "priority": 0.5768426666848097
+        },
+        {
+          "side": "right",
+          "unit": "liam",
+          "score": 0.22,
+          "priority": 0.5927667589190506
+        },
+        {
+          "side": "right",
+          "unit": "live",
+          "score": 0.22,
+          "priority": 0.5413513629269968
+        },
+        {
+          "side": "right",
+          "unit": "mail",
+          "score": 0.22,
+          "priority": 0.5569689376224556
+        },
+        {
+          "side": "right",
+          "unit": "no rider",
+          "score": 0.39,
+          "priority": 0.44990672143939503
+        },
+        {
+          "side": "right",
+          "unit": "noel",
+          "score": 0.22,
+          "priority": 0.22687251260060617
+        },
+        {
+          "side": "right",
+          "unit": "on",
+          "score": 0.12000000000000001,
+          "priority": 0.2473231761028153
+        },
+        {
+          "side": "right",
+          "unit": "red iron",
+          "score": 0.39,
+          "priority": 0.4022486098288874
+        },
+        {
+          "side": "right",
+          "unit": "rider",
+          "score": 0.27,
+          "priority": 0.4411572276618266
+        }
+      ],
+      "closures": []
+    },
+    {
+      "seed": 922,
+      "status": "timeout",
+      "native_status": "deadline",
+      "elapsed_seconds": 5.0006558750756085,
+      "attempted_side_unit_actions": 877,
+      "grammar_callbacks": 522,
+      "visited_states": 7,
+      "fully_completed_maximum_expansion_depth": 5,
+      "max_visited_letters": 48,
+      "max_retained_proposal_letters": 54,
+      "raw_exact_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "pruned_proposals": 131,
+      "selected_root_actions": [
+        {
+          "side": "left",
+          "unit": "the gardener",
+          "score": 0.5900000000000001,
+          "priority": 0.9739525288334238,
+          "finite_boundary_viable": false
+        }
+      ],
+      "pruned_globally_boundary_viable_root_actions": [
+        {
+          "side": "left",
+          "unit": "evil",
+          "score": 0.22,
+          "priority": 0.6122065505798338
+        },
+        {
+          "side": "left",
+          "unit": "leon",
+          "score": 0.22,
+          "priority": 0.34808319693931555
+        },
+        {
+          "side": "left",
+          "unit": "liam",
+          "score": 0.22,
+          "priority": 0.597286490364623
+        },
+        {
+          "side": "left",
+          "unit": "mail",
+          "score": 0.22,
+          "priority": 0.5162127546023387
+        },
+        {
+          "side": "left",
+          "unit": "no",
+          "score": 0.12000000000000001,
+          "priority": 0.2932517119623559
+        },
+        {
+          "side": "left",
+          "unit": "no evil",
+          "score": 0.34,
+          "priority": 0.6848659871433722
+        },
+        {
+          "side": "left",
+          "unit": "no rider",
+          "score": 0.39,
+          "priority": 0.679989258738709
+        },
+        {
+          "side": "left",
+          "unit": "noel",
+          "score": 0.22,
+          "priority": 0.5717496530671118
+        },
+        {
+          "side": "left",
+          "unit": "red",
+          "score": 0.17,
+          "priority": 0.47294488447889427
+        },
+        {
+          "side": "left",
+          "unit": "red iron",
+          "score": 0.39,
+          "priority": 0.7482330213684786
+        },
+        {
+          "side": "right",
+          "unit": "iron",
+          "score": 0.22,
+          "priority": 0.314979723219328
+        },
+        {
+          "side": "right",
+          "unit": "leon",
+          "score": 0.22,
+          "priority": 0.2209084162350693
+        },
+        {
+          "side": "right",
+          "unit": "liam",
+          "score": 0.22,
+          "priority": 0.509873507659561
+        },
+        {
+          "side": "right",
+          "unit": "live",
+          "score": 0.22,
+          "priority": 0.5390156147950029
+        },
+        {
+          "side": "right",
+          "unit": "mail",
+          "score": 0.22,
+          "priority": 0.4895360996027782
+        },
+        {
+          "side": "right",
+          "unit": "no rider",
+          "score": 0.39,
+          "priority": 0.4506978023700565
+        },
+        {
+          "side": "right",
+          "unit": "noel",
+          "score": 0.22,
+          "priority": 0.25004946362647684
+        },
+        {
+          "side": "right",
+          "unit": "on",
+          "score": 0.12000000000000001,
+          "priority": 0.4852950247717457
+        },
+        {
+          "side": "right",
+          "unit": "red iron",
+          "score": 0.39,
+          "priority": 0.5829327758690954
+        },
+        {
+          "side": "right",
+          "unit": "rider",
+          "score": 0.27,
+          "priority": 0.3986435941560194
+        }
+      ],
+      "closures": []
+    },
+    {
+      "seed": 923,
+      "status": "timeout",
+      "native_status": "deadline",
+      "elapsed_seconds": 5.000862832996063,
+      "attempted_side_unit_actions": 935,
+      "grammar_callbacks": 509,
+      "visited_states": 7,
+      "fully_completed_maximum_expansion_depth": 5,
+      "max_visited_letters": 36,
+      "max_retained_proposal_letters": 42,
+      "raw_exact_closures": 0,
+      "eligible_closures": 0,
+      "truncated": true,
+      "pruned_proposals": 123,
+      "selected_root_actions": [
+        {
+          "side": "right",
+          "unit": "gardener",
+          "score": 0.42000000000000004,
+          "priority": 0.799772432426173,
+          "finite_boundary_viable": false
+        }
+      ],
+      "pruned_globally_boundary_viable_root_actions": [
+        {
+          "side": "left",
+          "unit": "evil",
+          "score": 0.22,
+          "priority": 0.2523706570105312
+        },
+        {
+          "side": "left",
+          "unit": "leon",
+          "score": 0.22,
+          "priority": 0.5728421057511011
+        },
+        {
+          "side": "left",
+          "unit": "liam",
+          "score": 0.22,
+          "priority": 0.5630832958098255
+        },
+        {
+          "side": "left",
+          "unit": "mail",
+          "score": 0.22,
+          "priority": 0.40102742622408705
+        },
+        {
+          "side": "left",
+          "unit": "no",
+          "score": 0.12000000000000001,
+          "priority": 0.21311841679744942
+        },
+        {
+          "side": "left",
+          "unit": "no evil",
+          "score": 0.34,
+          "priority": 0.6709286313568664
+        },
+        {
+          "side": "left",
+          "unit": "no rider",
+          "score": 0.39,
+          "priority": 0.6424898422906071
+        },
+        {
+          "side": "left",
+          "unit": "noel",
+          "score": 0.22,
+          "priority": 0.4187407638005364
+        },
+        {
+          "side": "left",
+          "unit": "red",
+          "score": 0.17,
+          "priority": 0.18185015458859247
+        },
+        {
+          "side": "left",
+          "unit": "red iron",
+          "score": 0.39,
+          "priority": 0.6118045729003609
+        },
+        {
+          "side": "right",
+          "unit": "iron",
+          "score": 0.22,
+          "priority": 0.4488263017959857
+        },
+        {
+          "side": "right",
+          "unit": "leon",
+          "score": 0.22,
+          "priority": 0.4486370263793793
+        },
+        {
+          "side": "right",
+          "unit": "liam",
+          "score": 0.22,
+          "priority": 0.36691211863440903
+        },
+        {
+          "side": "right",
+          "unit": "live",
+          "score": 0.22,
+          "priority": 0.2575734527634097
+        },
+        {
+          "side": "right",
+          "unit": "mail",
+          "score": 0.22,
+          "priority": 0.5975525720419074
+        },
+        {
+          "side": "right",
+          "unit": "no rider",
+          "score": 0.39,
+          "priority": 0.41439503622493046
+        },
+        {
+          "side": "right",
+          "unit": "noel",
+          "score": 0.22,
+          "priority": 0.6105092666858765
+        },
+        {
+          "side": "right",
+          "unit": "on",
+          "score": 0.12000000000000001,
+          "priority": 0.2607598002678535
+        },
+        {
+          "side": "right",
+          "unit": "red iron",
+          "score": 0.39,
+          "priority": 0.4030600732315968
+        },
+        {
+          "side": "right",
+          "unit": "rider",
+          "score": 0.27,
+          "priority": 0.29620610328262054
+        }
+      ],
+      "closures": []
+    }
+  ],
+  "timing": {
+    "execution_elapsed_including_first_artifact_write": 15.095196083071642,
+    "search_index_and_cell_overhead_seconds": 15.005034416099079,
+    "aggregate_search_overrun_seconds": 0,
+    "maximum_cell_overrun_seconds": 0.0008628329960629344,
+    "index_seconds": 0.0014194580726325512,
+    "allocated_cell_seconds": 5.0
+  },
+  "interpretation": "Systematic inventory expansion restores representation of the supplied exact four-clause control. Unguided width-1 trials time out before reaching 60 letters and produce no closures. Each selected initial branch already fails the finite global prefix/suffix feasibility test, while feasible roots are pruned by the unchanged scorer/diversity selection. This isolates a global grammar/letter coupling coverage limitation plus callback cost, rather than a parser rejection of the supplied constructions.",
+  "coherence": "Supplied paragraph remains repetitive and has no independent human acceptance. No unguided paragraph was produced.",
+  "novelty": "Known restorations and supplied derived controls excluded. No new originality claim.",
+  "preservation": "Original receipts and public main/paper unchanged; no public push.",
+  "source_hashes": {
+    "research/block-seams/fixtures/palindrome-island-bank-001.json": "130acf48f74bbcd3836f3df4dd05891fb1627627e3a2ba012ea3ef835c452d07",
+    "data/readable_palindrome_centres.json": "1c52afd1889a022b151d2ed0505c51cab8274fb73295783738598cdd7dd517b5",
+    "research/block-seams/human-calibration.json": "5f16a097a1ee38e5341b9fc8e661918481d171a745f2c28928d5637512b444be",
+    "experiments/licensed_control_inventory_v2_20261009.py": "068f3e84148fe49b268d23e5be250b054d0ec750a464d65f08a79422825c6b16",
+    "llm_palindrome/typed_constituents.py": "772bf7ff735dbd5c84b413187c6faa2a9bc9bd41d12fc27851367590ae355daf",
+    "llm_palindrome/block_search.py": "a9e7429cf17d3de5006dfff58f59df19bb52b9aaf6cebe13a3edeaee29a1889b",
+    "data/known_palindromes.json": "0afb7ead0f12c55a265b3e9029161916b843199581877188702c5ab1486767fa"
+  },
+  "validation": "Two source-provenance and no-success-text-inventory-dependency tests passed."
+}

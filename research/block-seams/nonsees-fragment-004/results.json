@@ -1,0 +1,1389 @@
+{
+  "plan": {
+    "seed": "nonsees-fragment-004",
+    "cpu_only": true,
+    "paid_calls": 0,
+    "frames": [
+      "comparative",
+      "copula",
+      "let_in",
+      "open",
+      "pets",
+      "say",
+      "step"
+    ],
+    "licensed_sentences": 116,
+    "max_splice_attempts_per_method": 2000000,
+    "max_join_work_per_method": 20000000,
+    "wall_seconds_per_phase": 30,
+    "methods": [
+      "whole_sentence_baseline",
+      "word_boundary",
+      "partial_word"
+    ],
+    "paragraph_clause_counts": [
+      1,
+      2,
+      3
+    ],
+    "sampling": "ceil(10% of exact outputs) independently per method/clause-count/length-band; zero yields zero samples; report aggregate rounding",
+    "quality": "individual self-review scores 0-4; human labels null; repetition and copied controls are features, not vetoes",
+    "stopping": "complete finite diagnostic or explicit truncation; no publication; no claim of novel readable paragraphs"
+  },
+  "results": [
+    {
+      "method": "whole_sentence_baseline",
+      "complete": true,
+      "splice_counts": {},
+      "splice_elapsed_seconds": 1.6000005416572094e-05,
+      "representative_attempts": {},
+      "sentence_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115
+      ],
+      "join_receipts": [
+        {
+          "clauses": 1,
+          "denominator": 116,
+          "work": 116,
+          "complete": true
+        },
+        {
+          "clauses": 2,
+          "denominator": 13456,
+          "work": 2890,
+          "left_occurrences": 116,
+          "right_occurrences": 116,
+          "pairs": 2,
+          "complete": true
+        },
+        {
+          "clauses": 3,
+          "denominator": 1560896,
+          "work": 336398,
+          "left_occurrences": 116,
+          "right_occurrences": 13456,
+          "pairs": 4,
+          "complete": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "whole_sentence_baseline-991d2957fac5f5a9",
+          "text": "Ma is as selfless as I am.",
+          "letters": 19,
+          "clauses": 1,
+          "sentence_ids": [
+            66
+          ],
+          "frames": [
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 0,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "whole_sentence_baseline-8f5149edb33522bf",
+          "text": "Step on no pets.",
+          "letters": 12,
+          "clauses": 1,
+          "sentence_ids": [
+            113
+          ],
+          "frames": [
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 0,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "whole_sentence_baseline-8161d5502c8f9142",
+          "text": "Ma is as selfless as I am. Ma is as selfless as I am.",
+          "letters": 38,
+          "clauses": 2,
+          "sentence_ids": [
+            66,
+            66
+          ],
+          "frames": [
+            "comparative",
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "whole_sentence_baseline-2b019dab0c8d374d",
+          "text": "Step on no pets. Step on no pets.",
+          "letters": 24,
+          "clauses": 2,
+          "sentence_ids": [
+            113,
+            113
+          ],
+          "frames": [
+            "step",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "whole_sentence_baseline-63f3ed9521890257",
+          "text": "Ma is as selfless as I am. Ma is as selfless as I am. Ma is as selfless as I am.",
+          "letters": 57,
+          "clauses": 3,
+          "sentence_ids": [
+            66,
+            66,
+            66
+          ],
+          "frames": [
+            "comparative",
+            "comparative",
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 2,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "whole_sentence_baseline-cd6bdc718efe7484",
+          "text": "Ma is as selfless as I am. Step on no pets. Ma is as selfless as I am.",
+          "letters": 50,
+          "clauses": 3,
+          "sentence_ids": [
+            66,
+            113,
+            66
+          ],
+          "frames": [
+            "comparative",
+            "step",
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored imperative; step token v3#265; no pets known control",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "whole_sentence_baseline-0b3a7e872c153b4a",
+          "text": "Step on no pets. Ma is as selfless as I am. Step on no pets.",
+          "letters": 43,
+          "clauses": 3,
+          "sentence_ids": [
+            113,
+            66,
+            113
+          ],
+          "frames": [
+            "step",
+            "comparative",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "whole_sentence_baseline-abfc40885bb00a47",
+          "text": "Step on no pets. Step on no pets. Step on no pets.",
+          "letters": 36,
+          "clauses": 3,
+          "sentence_ids": [
+            113,
+            113,
+            113
+          ],
+          "frames": [
+            "step",
+            "step",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 2,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        }
+      ],
+      "sample": [
+        {
+          "id": "whole_sentence_baseline-991d2957fac5f5a9",
+          "text": "Ma is as selfless as I am.",
+          "letters": 19,
+          "clauses": 1,
+          "sentence_ids": [
+            66
+          ],
+          "frames": [
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 0,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "whole_sentence_baseline-2b019dab0c8d374d",
+          "text": "Step on no pets. Step on no pets.",
+          "letters": 24,
+          "clauses": 2,
+          "sentence_ids": [
+            113,
+            113
+          ],
+          "frames": [
+            "step",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "whole_sentence_baseline-cd6bdc718efe7484",
+          "text": "Ma is as selfless as I am. Step on no pets. Ma is as selfless as I am.",
+          "letters": 50,
+          "clauses": 3,
+          "sentence_ids": [
+            66,
+            113,
+            66
+          ],
+          "frames": [
+            "comparative",
+            "step",
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored imperative; step token v3#265; no pets known control",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        }
+      ],
+      "sampling_manifest": [
+        {
+          "clauses": 1,
+          "length_band": "under60",
+          "denominator": 2,
+          "sample_count": 1,
+          "ids": [
+            "whole_sentence_baseline-991d2957fac5f5a9"
+          ]
+        },
+        {
+          "clauses": 2,
+          "length_band": "under60",
+          "denominator": 2,
+          "sample_count": 1,
+          "ids": [
+            "whole_sentence_baseline-2b019dab0c8d374d"
+          ]
+        },
+        {
+          "clauses": 3,
+          "length_band": "under60",
+          "denominator": 4,
+          "sample_count": 1,
+          "ids": [
+            "whole_sentence_baseline-cd6bdc718efe7484"
+          ]
+        }
+      ]
+    },
+    {
+      "method": "word_boundary",
+      "complete": true,
+      "splice_counts": {
+        "attempts": 25277,
+        "licensed": 12204,
+        "no_complete_grammar_path": 13073,
+        "declared_denominator": 25277
+      },
+      "splice_elapsed_seconds": 0.17017166689038277,
+      "representative_attempts": {
+        "licensed": {
+          "left": 15,
+          "left_offset": 8,
+          "right": 15,
+          "right_offset": 8,
+          "role": "animate_theme",
+          "result": 15,
+          "reason": "licensed",
+          "proposed_tape": "annapetsacat"
+        },
+        "no_complete_grammar_path": {
+          "left": 15,
+          "left_offset": 8,
+          "right": 15,
+          "right_offset": 9,
+          "role": "animate_theme",
+          "result": null,
+          "reason": "no_complete_grammar_path",
+          "proposed_tape": "annapetscat"
+        }
+      },
+      "sentence_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115
+      ],
+      "join_receipts": [
+        {
+          "clauses": 1,
+          "denominator": 116,
+          "work": 116,
+          "complete": true
+        },
+        {
+          "clauses": 2,
+          "denominator": 13456,
+          "work": 2890,
+          "left_occurrences": 116,
+          "right_occurrences": 116,
+          "pairs": 2,
+          "complete": true
+        },
+        {
+          "clauses": 3,
+          "denominator": 1560896,
+          "work": 336398,
+          "left_occurrences": 116,
+          "right_occurrences": 13456,
+          "pairs": 4,
+          "complete": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "word_boundary-991d2957fac5f5a9",
+          "text": "Ma is as selfless as I am.",
+          "letters": 19,
+          "clauses": 1,
+          "sentence_ids": [
+            66
+          ],
+          "frames": [
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 0,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "word_boundary-8f5149edb33522bf",
+          "text": "Step on no pets.",
+          "letters": 12,
+          "clauses": 1,
+          "sentence_ids": [
+            113
+          ],
+          "frames": [
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 0,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "word_boundary-8161d5502c8f9142",
+          "text": "Ma is as selfless as I am. Ma is as selfless as I am.",
+          "letters": 38,
+          "clauses": 2,
+          "sentence_ids": [
+            66,
+            66
+          ],
+          "frames": [
+            "comparative",
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "word_boundary-2b019dab0c8d374d",
+          "text": "Step on no pets. Step on no pets.",
+          "letters": 24,
+          "clauses": 2,
+          "sentence_ids": [
+            113,
+            113
+          ],
+          "frames": [
+            "step",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "word_boundary-63f3ed9521890257",
+          "text": "Ma is as selfless as I am. Ma is as selfless as I am. Ma is as selfless as I am.",
+          "letters": 57,
+          "clauses": 3,
+          "sentence_ids": [
+            66,
+            66,
+            66
+          ],
+          "frames": [
+            "comparative",
+            "comparative",
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 2,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "word_boundary-cd6bdc718efe7484",
+          "text": "Ma is as selfless as I am. Step on no pets. Ma is as selfless as I am.",
+          "letters": 50,
+          "clauses": 3,
+          "sentence_ids": [
+            66,
+            113,
+            66
+          ],
+          "frames": [
+            "comparative",
+            "step",
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored imperative; step token v3#265; no pets known control",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "word_boundary-0b3a7e872c153b4a",
+          "text": "Step on no pets. Ma is as selfless as I am. Step on no pets.",
+          "letters": 43,
+          "clauses": 3,
+          "sentence_ids": [
+            113,
+            66,
+            113
+          ],
+          "frames": [
+            "step",
+            "comparative",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "word_boundary-abfc40885bb00a47",
+          "text": "Step on no pets. Step on no pets. Step on no pets.",
+          "letters": 36,
+          "clauses": 3,
+          "sentence_ids": [
+            113,
+            113,
+            113
+          ],
+          "frames": [
+            "step",
+            "step",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 2,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        }
+      ],
+      "sample": [
+        {
+          "id": "word_boundary-991d2957fac5f5a9",
+          "text": "Ma is as selfless as I am.",
+          "letters": 19,
+          "clauses": 1,
+          "sentence_ids": [
+            66
+          ],
+          "frames": [
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 0,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "word_boundary-2b019dab0c8d374d",
+          "text": "Step on no pets. Step on no pets.",
+          "letters": 24,
+          "clauses": 2,
+          "sentence_ids": [
+            113,
+            113
+          ],
+          "frames": [
+            "step",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "word_boundary-0b3a7e872c153b4a",
+          "text": "Step on no pets. Ma is as selfless as I am. Step on no pets.",
+          "letters": 43,
+          "clauses": 3,
+          "sentence_ids": [
+            113,
+            66,
+            113
+          ],
+          "frames": [
+            "step",
+            "comparative",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        }
+      ],
+      "sampling_manifest": [
+        {
+          "clauses": 1,
+          "length_band": "under60",
+          "denominator": 2,
+          "sample_count": 1,
+          "ids": [
+            "word_boundary-991d2957fac5f5a9"
+          ]
+        },
+        {
+          "clauses": 2,
+          "length_band": "under60",
+          "denominator": 2,
+          "sample_count": 1,
+          "ids": [
+            "word_boundary-2b019dab0c8d374d"
+          ]
+        },
+        {
+          "clauses": 3,
+          "length_band": "under60",
+          "denominator": 4,
+          "sample_count": 1,
+          "ids": [
+            "word_boundary-0b3a7e872c153b4a"
+          ]
+        }
+      ]
+    },
+    {
+      "method": "partial_word",
+      "complete": true,
+      "splice_counts": {
+        "attempts": 112985,
+        "licensed": 12907,
+        "no_complete_grammar_path": 100078,
+        "declared_denominator": 112985
+      },
+      "splice_elapsed_seconds": 0.866620667045936,
+      "representative_attempts": {
+        "licensed": {
+          "left": 3,
+          "left_offset": 1,
+          "right": 3,
+          "right_offset": 1,
+          "role": "agent",
+          "result": 3,
+          "reason": "licensed",
+          "proposed_tape": "weopenmail"
+        },
+        "no_complete_grammar_path": {
+          "left": 3,
+          "left_offset": 1,
+          "right": 6,
+          "right_offset": 1,
+          "role": "agent",
+          "result": null,
+          "reason": "no_complete_grammar_path",
+          "proposed_tape": "wnnaopensmail"
+        }
+      },
+      "sentence_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115
+      ],
+      "join_receipts": [
+        {
+          "clauses": 1,
+          "denominator": 116,
+          "work": 116,
+          "complete": true
+        },
+        {
+          "clauses": 2,
+          "denominator": 13456,
+          "work": 2890,
+          "left_occurrences": 116,
+          "right_occurrences": 116,
+          "pairs": 2,
+          "complete": true
+        },
+        {
+          "clauses": 3,
+          "denominator": 1560896,
+          "work": 336398,
+          "left_occurrences": 116,
+          "right_occurrences": 13456,
+          "pairs": 4,
+          "complete": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "partial_word-991d2957fac5f5a9",
+          "text": "Ma is as selfless as I am.",
+          "letters": 19,
+          "clauses": 1,
+          "sentence_ids": [
+            66
+          ],
+          "frames": [
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 0,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "partial_word-8f5149edb33522bf",
+          "text": "Step on no pets.",
+          "letters": 12,
+          "clauses": 1,
+          "sentence_ids": [
+            113
+          ],
+          "frames": [
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 0,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "partial_word-8161d5502c8f9142",
+          "text": "Ma is as selfless as I am. Ma is as selfless as I am.",
+          "letters": 38,
+          "clauses": 2,
+          "sentence_ids": [
+            66,
+            66
+          ],
+          "frames": [
+            "comparative",
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "partial_word-2b019dab0c8d374d",
+          "text": "Step on no pets. Step on no pets.",
+          "letters": 24,
+          "clauses": 2,
+          "sentence_ids": [
+            113,
+            113
+          ],
+          "frames": [
+            "step",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "partial_word-63f3ed9521890257",
+          "text": "Ma is as selfless as I am. Ma is as selfless as I am. Ma is as selfless as I am.",
+          "letters": 57,
+          "clauses": 3,
+          "sentence_ids": [
+            66,
+            66,
+            66
+          ],
+          "frames": [
+            "comparative",
+            "comparative",
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 2,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "partial_word-cd6bdc718efe7484",
+          "text": "Ma is as selfless as I am. Step on no pets. Ma is as selfless as I am.",
+          "letters": 50,
+          "clauses": 3,
+          "sentence_ids": [
+            66,
+            113,
+            66
+          ],
+          "frames": [
+            "comparative",
+            "step",
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored imperative; step token v3#265; no pets known control",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "partial_word-0b3a7e872c153b4a",
+          "text": "Step on no pets. Ma is as selfless as I am. Step on no pets.",
+          "letters": 43,
+          "clauses": 3,
+          "sentence_ids": [
+            113,
+            66,
+            113
+          ],
+          "frames": [
+            "step",
+            "comparative",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "partial_word-abfc40885bb00a47",
+          "text": "Step on no pets. Step on no pets. Step on no pets.",
+          "letters": 36,
+          "clauses": 3,
+          "sentence_ids": [
+            113,
+            113,
+            113
+          ],
+          "frames": [
+            "step",
+            "step",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 2,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        }
+      ],
+      "sample": [
+        {
+          "id": "partial_word-8f5149edb33522bf",
+          "text": "Step on no pets.",
+          "letters": 12,
+          "clauses": 1,
+          "sentence_ids": [
+            113
+          ],
+          "frames": [
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 0,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "partial_word-2b019dab0c8d374d",
+          "text": "Step on no pets. Step on no pets.",
+          "letters": 24,
+          "clauses": 2,
+          "sentence_ids": [
+            113,
+            113
+          ],
+          "frames": [
+            "step",
+            "step"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored imperative; step token v3#265; no pets known control",
+            "authored imperative; step token v3#265; no pets known control"
+          ],
+          "human_label": null
+        },
+        {
+          "id": "partial_word-cd6bdc718efe7484",
+          "text": "Ma is as selfless as I am. Step on no pets. Ma is as selfless as I am.",
+          "letters": 50,
+          "clauses": 3,
+          "sentence_ids": [
+            66,
+            113,
+            66
+          ],
+          "frames": [
+            "comparative",
+            "step",
+            "comparative"
+          ],
+          "exact": true,
+          "repeated_clauses": 1,
+          "known_scaffold": true,
+          "provenance": [
+            "authored substitutions in catalogue v3#526; copied scaffold flagged",
+            "authored imperative; step token v3#265; no pets known control",
+            "authored substitutions in catalogue v3#526; copied scaffold flagged"
+          ],
+          "human_label": null
+        }
+      ],
+      "sampling_manifest": [
+        {
+          "clauses": 1,
+          "length_band": "under60",
+          "denominator": 2,
+          "sample_count": 1,
+          "ids": [
+            "partial_word-8f5149edb33522bf"
+          ]
+        },
+        {
+          "clauses": 2,
+          "length_band": "under60",
+          "denominator": 2,
+          "sample_count": 1,
+          "ids": [
+            "partial_word-2b019dab0c8d374d"
+          ]
+        },
+        {
+          "clauses": 3,
+          "length_band": "under60",
+          "denominator": 4,
+          "sample_count": 1,
+          "ids": [
+            "partial_word-cd6bdc718efe7484"
+          ]
+        }
+      ]
+    }
+  ],
+  "sample_count": 9,
+  "exact_output_occurrences": 24,
+  "all_output_exact": true,
+  "all_methods_same_output_text_set": true,
+  "review_queue": [],
+  "overall_sample_percent": 37.5
+}

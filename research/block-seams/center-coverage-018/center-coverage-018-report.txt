@@ -1,0 +1,22 @@
+Center coverage repair 018
+
+The previous center-out search silently excluded centers inside non-palindromic licensed chunks. The repair enumerates valid letter/boundary offsets within each whole chunk, carries the unmatched letters internally, and renders the anchor intact. All seeds share a queue and aggregate resource budget; the anchor counts toward depth. Center-out closes only on empty debt. A separate owed-side outside-in search supplies an oracle. Payoff and token/phrase repetition affect priority, never admission.
+
+48 tests passed. On 40 deterministic finite grammars, both production methods matched exhaustive enumeration of 2,994 tapes containing 68 exact palindromes. This is finite test evidence, not a universal empirical proof.
+
+The frozen 017 inventory has zero compatible endpoint pairs among 12,300 tested and zero exact single-chunk paths. Therefore it has no exact path at any depth. This inventory failure is distinct from the center-coverage bug. All prior records are preserved.
+
+The new bounded audit-conditioned inventory comprises eight known controls and sixteen conditioned paths from twelve of the thirteen supplied endpoint pairs. The sees pair is excluded from the NON-SEES arm and retained as a diagnostic control. Each chunk is at least two whole words. Bounds were fixed before running: six chunks, 10,000 visited states, 1,000 outputs and one second per method/case; thirty seconds aggregate. All 48 method/case runs completed their finite depth bounds. Both methods recovered eight controls and ten conditioned paths: 36 retained outputs including duplicates, 12 unique normalized texts, 100% exact. Six conditioned paths failed and remain in the raw records. The old boundary-only search missed seven of eight controls.
+
+Four sampled outputs were individually reviewed: ceil(10% of 8) and ceil(10% of 10) for each method, giving 4/36 = 11.11%. Sampling retains duplicates, so these four records contain three distinct texts. Grammar/readability/coherence use a 0–5 scale; repetition and provenance are reported separately. These are sole-owner model ratings, not human feedback.
+  We panic in a pew. — 5/5/4; clear short clause, no narrative progression. Appears twice in the sample by design.
+  Ten animals slam in a net. — 4/3/2; awkward verb/location combination.
+  Was it a cat I saw? — 4/4/3; readable question, no paragraph-level development.
+
+Constructive mechanism examples (all inherited controls or authored diagnostic recombinations; no originality claim):
+  We panic / in a pew.
+  Too bad / I hid / a boot.
+  Are we / not drawn / onward, we / few, drawn / onward to / new era?
+The third has 43 letters, 12 words and six intact chunks. It is exact, but repeats we/drawn/onward and omits an article before new era; it should not be promoted as a coherent grammatical paragraph. The low-payoff steps in its independent audit trace show why payoff may rank candidates but cannot safely veto them.
+
+This is a verified completeness repair and conditioned-search diagnostic. It does not establish new long readable prose. Originality remains unverified, and no new human quality judgment is inferred. The remaining task is to find semantic continuations for reverse-compatible endpoints with actual agreement, valency, article and discourse constraints. No large generic inventory scan, paid models, remote jobs, publication or paper edits occurred.

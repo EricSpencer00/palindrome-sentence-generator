@@ -1,0 +1,784 @@
+{
+  "title": "Eligible borderline texts and concrete salvage seam diagnosis",
+  "for_parent_only": true,
+  "new_user_batch_sent": false,
+  "eligible_outputs_inspected": 23,
+  "selected_texts": [
+    {
+      "id": "v3_fragment_salvage-0332715fe9d2f50e",
+      "original_text": "No rider sees Leon. Leon sees red iron. No rider sees Noel. Noel sees red iron.",
+      "source": "research/block-seams/fragment-salvage-recomposition-001.json#results[2].outputs",
+      "source_sha256": "fe3d5058433b01b8ca9fe990361120b3b8ea2c67247ca8f35088229f7fad9308",
+      "exact": true,
+      "normalization": "Lowercase ASCII letters; ignore spacing and punctuation",
+      "letters": 60,
+      "normalized_sha256": "b43b6b1c37c7c10f34c448a1bb030cd1ee830e608e7a6ddb7bd2e098e15bbe55",
+      "clause_readings": [
+        {
+          "text": "no rider sees leon",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Negative quantified animate subject",
+          "predicate": "sees",
+          "object": "leon"
+        },
+        {
+          "text": "leon sees red iron",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Named animate subject",
+          "predicate": "sees",
+          "object": "red iron"
+        },
+        {
+          "text": "no rider sees noel",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Negative quantified animate subject",
+          "predicate": "sees",
+          "object": "noel"
+        },
+        {
+          "text": "noel sees red iron",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Named animate subject",
+          "predicate": "sees",
+          "object": "red iron"
+        }
+      ],
+      "assistant_reading": "Two parallel named-observer cases: Leon and Noel see red iron while no rider sees either person. The clauses have an interpretable shared subject matter, although no explicit narrative connection.",
+      "limitations": {
+        "repetition": "sees appears four times, no rider twice, red iron twice; these are disclosed and not automatic human rejection",
+        "known_control_derivation": "Source-derived No rider/red iron, Liam/mail and Leon/Noel reversibility families. Whole text not in exclusions is not evidence of originality.",
+        "api_v3_attribution": "Generated in the local recomposition experiment, also present in semantic core. No newly added v3 component appears; not a claim that the historical API emitted this text.",
+        "human_label": null,
+        "novel_paragraph_claim": false
+      },
+      "component_provenance": {
+        "no rider": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              0,
+              2
+            ],
+            "text": "no rider",
+            "component_kind": "licensed constituent",
+            "known_control_source": true
+          }
+        ],
+        "sees": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ],
+        "red iron": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              3,
+              5
+            ],
+            "text": "red iron",
+            "component_kind": "licensed constituent",
+            "known_control_source": true
+          }
+        ],
+        "leon": [
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              0,
+              1
+            ],
+            "text": "leon",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ],
+        "noel": [
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "noel",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "v3_fragment_salvage-82aa166418f68e59",
+      "original_text": "Leon sees red iron. Liam sees red iron. No rider sees mail. No rider sees Noel.",
+      "source": "research/block-seams/fragment-salvage-recomposition-001.json#results[2].outputs",
+      "source_sha256": "fe3d5058433b01b8ca9fe990361120b3b8ea2c67247ca8f35088229f7fad9308",
+      "exact": true,
+      "normalization": "Lowercase ASCII letters; ignore spacing and punctuation",
+      "letters": 60,
+      "normalized_sha256": "643fc8cb86d8297f8a958ca451a6224f55cd2f9b7a1af0098eb749051f49cb40",
+      "clause_readings": [
+        {
+          "text": "leon sees red iron",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Named animate subject",
+          "predicate": "sees",
+          "object": "red iron"
+        },
+        {
+          "text": "liam sees red iron",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Named animate subject",
+          "predicate": "sees",
+          "object": "red iron"
+        },
+        {
+          "text": "no rider sees mail",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Negative quantified animate subject",
+          "predicate": "sees",
+          "object": "mail"
+        },
+        {
+          "text": "no rider sees noel",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Negative quantified animate subject",
+          "predicate": "sees",
+          "object": "noel"
+        }
+      ],
+      "assistant_reading": "Leon and Liam are parallel observers of the same material. The mail/Noel exclusions are locally grammatical but add a weaker relation to the shared observation.",
+      "limitations": {
+        "repetition": "sees appears four times, no rider twice, red iron twice; these are disclosed and not automatic human rejection",
+        "known_control_derivation": "Source-derived No rider/red iron, Liam/mail and Leon/Noel reversibility families. Whole text not in exclusions is not evidence of originality.",
+        "api_v3_attribution": "Generated in the local recomposition experiment, also present in semantic core. No newly added v3 component appears; not a claim that the historical API emitted this text.",
+        "human_label": null,
+        "novel_paragraph_claim": false
+      },
+      "component_provenance": {
+        "no rider": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              0,
+              2
+            ],
+            "text": "no rider",
+            "component_kind": "licensed constituent",
+            "known_control_source": true
+          }
+        ],
+        "sees": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ],
+        "red iron": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              3,
+              5
+            ],
+            "text": "red iron",
+            "component_kind": "licensed constituent",
+            "known_control_source": true
+          }
+        ],
+        "leon": [
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              0,
+              1
+            ],
+            "text": "leon",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ],
+        "liam": [
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              0,
+              1
+            ],
+            "text": "liam",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ],
+        "noel": [
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "noel",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ],
+        "mail": [
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "mail",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "v3_fragment_salvage-4410f921000418cb",
+      "original_text": "No rider sees Leon. Liam sees red iron. No rider sees mail. Noel sees red iron.",
+      "source": "research/block-seams/fragment-salvage-recomposition-001.json#results[2].outputs",
+      "source_sha256": "fe3d5058433b01b8ca9fe990361120b3b8ea2c67247ca8f35088229f7fad9308",
+      "exact": true,
+      "normalization": "Lowercase ASCII letters; ignore spacing and punctuation",
+      "letters": 60,
+      "normalized_sha256": "938b0be6e480c160579c7f961c11ce5cd13f0ae18115f3d318107b5a96e94d51",
+      "clause_readings": [
+        {
+          "text": "no rider sees leon",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Negative quantified animate subject",
+          "predicate": "sees",
+          "object": "leon"
+        },
+        {
+          "text": "liam sees red iron",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Named animate subject",
+          "predicate": "sees",
+          "object": "red iron"
+        },
+        {
+          "text": "no rider sees mail",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Negative quantified animate subject",
+          "predicate": "sees",
+          "object": "mail"
+        },
+        {
+          "text": "noel sees red iron",
+          "licensed_grammar": [
+            "transitive:see"
+          ],
+          "reading": "Named animate subject",
+          "predicate": "sees",
+          "object": "red iron"
+        }
+      ],
+      "assistant_reading": "All four clauses have clear subjects and objects; mail and the named observers give some repeated subject matter. This is the weaker borderline item because the clause-to-clause relation is not explicit.",
+      "limitations": {
+        "repetition": "sees appears four times, no rider twice, red iron twice; these are disclosed and not automatic human rejection",
+        "known_control_derivation": "Source-derived No rider/red iron, Liam/mail and Leon/Noel reversibility families. Whole text not in exclusions is not evidence of originality.",
+        "api_v3_attribution": "Generated in the local recomposition experiment, also present in semantic core. No newly added v3 component appears; not a claim that the historical API emitted this text.",
+        "human_label": null,
+        "novel_paragraph_claim": false
+      },
+      "component_provenance": {
+        "no rider": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              0,
+              2
+            ],
+            "text": "no rider",
+            "component_kind": "licensed constituent",
+            "known_control_source": true
+          }
+        ],
+        "sees": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          },
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              1,
+              2
+            ],
+            "text": "sees",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ],
+        "red iron": [
+          {
+            "source_id": "calibration:0",
+            "source": "research/block-seams/human-calibration.json#ratings/0",
+            "source_text_sha256": "1163e8406348fa3126e7f769ad7387ed6179c250cf0d07ab8d4b45d12da742d9",
+            "word_span": [
+              3,
+              5
+            ],
+            "text": "red iron",
+            "component_kind": "licensed constituent",
+            "known_control_source": true
+          }
+        ],
+        "leon": [
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              0,
+              1
+            ],
+            "text": "leon",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ],
+        "liam": [
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              0,
+              1
+            ],
+            "text": "liam",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ],
+        "noel": [
+          {
+            "source_id": "known:leon-noel",
+            "source": "https://mockok.com/i-l/",
+            "source_text_sha256": "4e204d6e611bebe60d670930e5408085c2aa3af2869ade1097aba46d17401a15",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "noel",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ],
+        "mail": [
+          {
+            "source_id": "calibration:1",
+            "source": "research/block-seams/human-calibration.json#ratings/1",
+            "source_text_sha256": "1c1fa259f3559613dbd5457a48209d9cc085b27ce24a57e3b3806103b4091f6e",
+            "word_span": [
+              2,
+              3
+            ],
+            "text": "mail",
+            "component_kind": "licensed word",
+            "known_control_source": true
+          }
+        ]
+      }
+    }
+  ],
+  "withholding_rule": {
+    "code": "experiments/fragment_salvage_recomposition_20261009.py: promising requires len(predicate_types)>=2",
+    "user_origin": false,
+    "heuristic_origin": "Assistant-authored human-review queue heuristic; not part of unchanged exactness/grammar gate and not a user judgment",
+    "effect": "All23 eligible texts use only sees, so the queue was empty. This is not proof they are poor; the heuristic is withdrawn for parent candidate review.",
+    "other_filters": "mechanically_eligible, no inanimate-sees clauses, unique whole normalized text. Repetition/provenance limitations disclosed separately from human quality judgments."
+  },
+  "useful_rejected_text_fragments": {
+    "human_feedback_message": "Sentinel_6941976ff08c8191a463ed1c0f24349c",
+    "audit_type": "Post-run source-span audit, not retroactive alteration of experiment provenance or sampling",
+    "rows": [
+      {
+        "source_output_id": "paper/revision/evidence/results.json#s7114-b1-center-p0#output-0",
+        "human_whole_label": "BAD",
+        "automatic_fragment_candidates": [
+          {
+            "text": "i",
+            "word_span": [
+              7,
+              8
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": true
+          },
+          {
+            "text": "open",
+            "word_span": [
+              9,
+              10
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": false
+          },
+          {
+            "text": "is",
+            "word_span": [
+              13,
+              14
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": false
+          }
+        ]
+      },
+      {
+        "source_output_id": "paper/revision/evidence/results.json#s7106-b3-center-p0#output-0",
+        "human_whole_label": "BAD",
+        "automatic_fragment_candidates": [
+          {
+            "text": "were",
+            "word_span": [
+              1,
+              2
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": false
+          },
+          {
+            "text": "are",
+            "word_span": [
+              4,
+              5
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": false
+          },
+          {
+            "text": "open",
+            "word_span": [
+              15,
+              16
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": false
+          }
+        ]
+      },
+      {
+        "source_output_id": "paper/revision/evidence/results.json#s7115-b1-center-p4#output-0",
+        "human_whole_label": "BAD",
+        "automatic_fragment_candidates": [
+          {
+            "text": "is",
+            "word_span": [
+              1,
+              2
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": false
+          },
+          {
+            "text": "i",
+            "word_span": [
+              11,
+              12
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": true
+          },
+          {
+            "text": "in",
+            "word_span": [
+              13,
+              14
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": false
+          }
+        ]
+      },
+      {
+        "source_output_id": "paper/revision/evidence/results.json#s7105-b2-out-p0#output-0",
+        "human_whole_label": "BAD",
+        "automatic_fragment_candidates": [
+          {
+            "text": "i",
+            "word_span": [
+              3,
+              4
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": true
+          },
+          {
+            "text": "in",
+            "word_span": [
+              7,
+              8
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": false
+          }
+        ]
+      },
+      {
+        "source_output_id": "research/block-seams/evidence/block-seam-comparison-run-002-results.json.gz#paragraph-s921-60-baseline#output-6",
+        "human_whole_label": "BAD",
+        "automatic_fragment_candidates": [
+          {
+            "text": "pets",
+            "word_span": [
+              2,
+              3
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": false
+          },
+          {
+            "text": "is",
+            "word_span": [
+              6,
+              7
+            ],
+            "licensed_as": "Complete finite-grammar slot alternative; not an approved fragment",
+            "was_used_in_salvage_component_slice": false
+          }
+        ]
+      }
+    ],
+    "finding": "The existing typed grammar licenses only a narrow portion of these five rejected texts. The salvage slice reuses i, also supported independently by v3; other recovered function/predicate fragments need compatible new complements. No lexical padding or rejected whole sentence is retained as a quality-approved unit.",
+    "fragment_human_approvals": []
+  },
+  "additional_lexical_candidates": {
+    "say": "Source fourth BAD output: ordinary reporting verb needing a subject/content complement; absent from current TypedGrammar verb inventory",
+    "let in": "Source fourth BAD output: contiguous phrasal-verb words needing an agent and admitted theme; current grammar has no let-frame",
+    "status": "Proposed lexical-role hypotheses only; no individual fragment approved and none used in this diagnostic as a new generator input.",
+    "event": "Appears literally in first/fourth BAD outputs; ordinary noun needing an article/number and a compatible event relation. Current finite noun inventory omits event."
+  },
+  "precise_deletion_trace": {
+    "source_output_id": "paper/revision/evidence/results.json#s7105-b2-out-p0#output-0",
+    "whole_output_human_label": "BAD",
+    "removed_prefix_whole_tokens": "No it a i cos",
+    "removed_suffix_word": "association",
+    "association_letters": 11,
+    "association_reverse": "noitaicossa",
+    "mirror_boundary": "The mirrored prefix consumes No it a i cos plus sa inside say; deleting both11-letter ends leaves an incomplete first lexeme beginning y.",
+    "whole_token_trimmed_original": "say let in if eden of or event ah to day by a do that never of one definitely",
+    "whole_token_trimmed_letters": 59,
+    "exact_after_trim": false,
+    "residual": "sa",
+    "residual_owner": "left of symmetric remaining centre",
+    "naive_exact_closure_suffix": "as",
+    "naive_closure_exact": true,
+    "naive_closure_ending": "definitely as",
+    "why_not_a_meaningful_recomposition": "The final as lacks its grammatical continuation, and the retained body remains rejected fragmented prose. This is only a diagnostic; it is not a candidate or approved salvage."
+  },
+  "fragment_frontier_debts": [
+    {
+      "left": "Pets",
+      "right": "step",
+      "debt": {
+        "viable": true,
+        "owner": null,
+        "residual": "",
+        "common_prefix": "pets"
+      },
+      "scope": "Character/grammar diagnostic only; not generated candidate or human-approved fragment"
+    },
+    {
+      "left": "Pets are",
+      "right": "step",
+      "debt": {
+        "viable": true,
+        "owner": "left",
+        "residual": "are",
+        "common_prefix": "pets"
+      },
+      "scope": "Character/grammar diagnostic only; not generated candidate or human-approved fragment"
+    },
+    {
+      "left": "Pets are",
+      "right": "a step",
+      "debt": {
+        "viable": true,
+        "owner": "left",
+        "residual": "re",
+        "common_prefix": "petsa"
+      },
+      "scope": "Character/grammar diagnostic only; not generated candidate or human-approved fragment"
+    },
+    {
+      "left": "Tim",
+      "right": "permit",
+      "debt": {
+        "viable": true,
+        "owner": "right",
+        "residual": "rep",
+        "common_prefix": "tim"
+      },
+      "scope": "Character/grammar diagnostic only; not generated candidate or human-approved fragment"
+    },
+    {
+      "left": "Tim repairs",
+      "right": "a permit",
+      "debt": {
+        "viable": true,
+        "owner": "left",
+        "residual": "irs",
+        "common_prefix": "timrepa"
+      },
+      "scope": "Character/grammar diagnostic only; not generated candidate or human-approved fragment"
+    }
+  ],
+  "next_mechanism": {
+    "name": "Lexical seam completion under verb/argument frames",
+    "steps": [
+      "Store source token offsets and partial-word obligations, so the sa boundary inside say is explicit rather than treated as a complete word.",
+      "Select a licensed non-see event frame from salvaged open, copular is/are/were, pets, or reporting say/let-in hypotheses; require appropriate agent, object/complement and a simple shared discourse state.",
+      "Index provenance-backed endpoint words and all lexical prefixes/suffixes; query each residual across word boundaries. Pets/step matches letters but is not a sentence. Pets are/a step leaves re. Pets are/step leaves are; raw era step cancels that debt but Pets are era step is not a well-formed sentence.",
+      "Extend both sides by full ordinary lexical alternatives that satisfy argument roles; keep residual ownership and lexical completion constraints. Recheck every new whole text with unchanged ASCII exactness; never repair by appending a dangling as or by treating rejected body as approved."
+    ],
+    "why_new": "It adds argument/complement choices and lexical seam completion around recovered fragments; it does not expand the same sees combinations.",
+    "current_inventory_limit": "Only i among the rejected-source recovered fragments was in the completed salvage slice. open,is,are,were,in,pets and plausible say/let-in frames were omitted or lack suitable complements. Therefore they were not exhaustively shown impossible."
+  },
+  "native_review_status": {
+    "occurrences_retained": 42,
+    "unique_normalized_texts": 39,
+    "complete_item_ratings": 40,
+    "missing_ids": [
+      "paper/revision/evidence/results.json#s7115-b1-center-p4#output-0",
+      "paper/revision/evidence/results.json#s7116-b1-center-p4#output-0"
+    ],
+    "cancelled_chunk1_retried": false
+  }
+}

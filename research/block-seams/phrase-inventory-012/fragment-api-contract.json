@@ -1,0 +1,20 @@
+{
+  "task": "Propose useful partial grammatical phrases rather than whole palindromes; deterministic solver handles reverse tape debt.",
+  "required": [
+    "id",
+    "text",
+    "entry",
+    "exit",
+    "role",
+    "source",
+    "bindings"
+  ],
+  "max_fragments": 48,
+  "forbidden_input": "Do not supply completed paragraphs or mirrored sentence pairs as one fragment.",
+  "states": "Use named obligations START/Q/NP/ALT/REL/END or propose explicit plan transitions; every phrase entry/exit must match a plan slot.",
+  "bindings": "Actor/discourse variables name exact entity values; solver reports conflicts. Do not infer progression from shared noun.",
+  "partial_words": "Provide lexical lemma, consumed offset, and completion obligation for split-word fragments; no filler debt repair.",
+  "source": "Disclose stock or copied fragments; whole-copy match remains an outcome feature.",
+  "objective": "Meaningful phrase syntax and consistent scene; soft repetition and progression costs, not quality guarantees.",
+  "budget": "One native parent batch<=48fragments,<=8plans; CPU compilation enforces finite input and resource limits; no paidAPI."
+}

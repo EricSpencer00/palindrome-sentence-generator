@@ -1,0 +1,9 @@
+Independent readability review instructions
+
+Read only the JSONL files under chunks/. Each line is one unique rendered text, with rating_id and normalized_text_key. The chunks contain no prior judgments, automatic diagnostics, quality ranks, method labels or provenance. Their order is a deterministic hash order, not a quality order. Do not use other audit files to assess quality.
+
+Assess each rendered text individually for grammar, readability, coherence and repetition. Use integer scores0 through4, where4 means ordinary complete grammar, easy reading, a coherent statement or scene, and least repetition respectively;0 means severe failure in the relevant dimension. A short text can be coherent. Literal repetition can be visible and intelligible; evaluate it without a blanket veto. Evaluate the whole text, not just separate clauses. Supply a specific explanation of at most30 words. This is an independent textual judgment, not an exactness test.
+
+Return one JSONL object for every input line, with exactly these required fields: rating_id, grammar, readability, coherence, repetition, explanation. Copy rating_id exactly. No score has been supplied. Never infer a missing score. State any inability to complete a chunk explicitly; do not silently skip lines.
+
+There are62 chunks:61 of64 unique texts, and the last of45, for3,949 independent readings. The occurrence map links them to all4,412 original sampled occurrences. One independent text rating is reused only through that explicit mapping. All equal normalized tapes in this export have identical rendering; no punctuation or segmentation differences were silently merged.

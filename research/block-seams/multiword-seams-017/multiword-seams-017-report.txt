@@ -1,0 +1,16 @@
+Multiword phrase seams 017: bounded search found no new output
+
+The inventory contains 424 chunks, each 2–5 whole words, mined from the first 2,000 Brown corpus lines (19,896 tokens). Grammar states distinguish human subjects, predicates, nominal objects and location phrases. A derivative inventory binds each subject to an actor. POS spans alone do not establish agreement, valency or coherence.
+
+The initial scan allowed either side to grow. Its six-second aggregate search budget ended with three arms run, pending states and 322,114 rejected placements; the fourth arm never started. Zero outputs were found. This truncated result is not exhaustive. An earlier invalid parser attempt treated lowercase Brown tags incorrectly and mined zero corpus chunks; its receipt is retained separately.
+
+A controlled follow-up on the same frozen inventory used the recovered paper’s center-out rule: extend the side that owes letters. Overflow may flip the debt; an empty frontier can start from either end. The subject frontier exhausted 242 states with 16,400 rejections in 0.185 seconds. The object frontier exhausted 264 states with 29,880 rejections in 0.296 seconds. Both found zero closures within the ten-step bound. Actor-binding verification also found zero. This finite inventory result does not establish that grammatical phrase composition is impossible. Comparing a truncated run with bounded exhaustion does not support a broad speedup claim.
+
+Priority now uses paid/(added+4) * min(wordcount,3)/3. A fully paid single letter scores 0.0667, while an eight-letter, two-word phrase scores 0.4444; the old ratios were both 1. This heuristic reduces preference for microscopic units. Exact compatibility remains independent of priority. Repetition remains a reported soft cost.
+
+Separate known controls verify actual grammatical multiword seams:
+  “No lemon” / “, no melon.” → “No lemon, no melon.”
+  “A Santa lived” / “as a” / “devil at NASA.” → “A Santa lived as a devil at NASA.”
+Both are exact and use whole words. Neither is new. The latter is a single whimsical clause, inherited from an earlier native proposal; it supplies no new paragraph-quality evidence. Chunk repetition is zero, and token repetition is retained in the review record.
+
+44 tests passed. The evidence contains source, provenance, all failures, actor checks, controls and a resumable checkpoint. There were no paid models, external jobs or paper changes. No new output means there is no generated-output distribution to sample in this run. The remaining bottleneck is reverse-compatible semantic phrase coverage.

@@ -1,0 +1,76 @@
+{
+  "run": "structural-breadth-009",
+  "seed": "structural-breadth-009",
+  "cpu_only": true,
+  "model_calls": 0,
+  "clause_counts": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "partitions": {
+    "01-person-transport": [
+      "addressed_person_delivery_report",
+      "person_delivery_request"
+    ],
+    "02-criticism": [
+      "evil_criticism",
+      "iris_criticism",
+      "past_revile"
+    ],
+    "03-referral-movement": [
+      "addressed_reference_report",
+      "existential_request",
+      "reference_request",
+      "stopping_request",
+      "tail_stepping_request"
+    ],
+    "04-food-affect": [
+      "addressed_food_delivery_report",
+      "food_delivery_request",
+      "iris_stressed_criticism",
+      "stressed_criticism"
+    ],
+    "05-delivery-material": [
+      "addressed_delivery_report",
+      "addressed_material_delivery_report",
+      "animal_delivery_statement",
+      "celebrity_revile",
+      "delivery_request",
+      "delivery_statement",
+      "iris_celebrity_criticism",
+      "material_delivery_request",
+      "no_rider_criticism",
+      "recipient_delivery_request"
+    ],
+    "06-other-structure": [
+      "animal_pet_statement",
+      "causal_delivery_report",
+      "comparative",
+      "coordinated_delivery_request",
+      "copula",
+      "drawing_request",
+      "let_in",
+      "linked_past_scene",
+      "open",
+      "pets",
+      "purpose_delivery_report",
+      "relative_delivery_request",
+      "reward_request",
+      "say",
+      "step"
+    ]
+  },
+  "max_work_per_partition": 20000000,
+  "max_seconds_per_partition": 30,
+  "max_accepted_derivations_per_partition": 20000,
+  "aggregate_max_operations": 120000000,
+  "aggregate_max_arm_seconds": 180,
+  "aggregate_max_derivations": 120000,
+  "expanded_sentence_language_count": 409,
+  "grammar_families": 39,
+  "sampling": "ceil10% per first-family partition \u00d7 clause count \u00d7 under60/60-119/120plus \u00d7 new-to-frozen006 feature; retain raw duplicate derivations; no quality/repetition pruning",
+  "baseline": "frozen006 14,260-text set; no rerun of old search or old samples",
+  "stopping": "stop after six partitions and complete saved yield/coverage checkpoint; truncation explicitly reported before any further batch"
+}

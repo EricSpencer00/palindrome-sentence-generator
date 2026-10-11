@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "status": "one predeclared diagnostic sweep completed; finite grammar boundary obstruction identified",
+  "elapsed_seconds_including_imports_index_search_writes_summary": 22.57437537505757,
+  "settings": [
+    {
+      "beam_width": 1,
+      "seeds": [
+        921,
+        922,
+        923
+      ],
+      "statuses": [
+        "completed",
+        "completed",
+        "completed"
+      ],
+      "fully_completed_maximum_expansion_depths": [
+        13,
+        10,
+        13
+      ],
+      "max_visited_letters": [
+        75,
+        76,
+        90
+      ],
+      "max_retained_proposal_letters": [
+        76,
+        79,
+        90
+      ],
+      "target_band_distinct_complete_clause_states": 3,
+      "raw_exact_closures": 0,
+      "eligible_paragraphs": 0,
+      "beam_pruned_proposals": 333,
+      "discarded_partial_next_frontier_proposals": 0
+    },
+    {
+      "beam_width": 2,
+      "seeds": [
+        921,
+        922,
+        923
+      ],
+      "statuses": [
+        "action_cap",
+        "action_cap",
+        "action_cap"
+      ],
+      "fully_completed_maximum_expansion_depths": [
+        8,
+        8,
+        8
+      ],
+      "max_visited_letters": [
+        66,
+        70,
+        67
+      ],
+      "max_retained_proposal_letters": [
+        77,
+        81,
+        78
+      ],
+      "target_band_distinct_complete_clause_states": 3,
+      "raw_exact_closures": 0,
+      "eligible_paragraphs": 0,
+      "beam_pruned_proposals": 397,
+      "discarded_partial_next_frontier_proposals": 62
+    },
+    {
+      "beam_width": 4,
+      "seeds": [
+        921,
+        922,
+        923
+      ],
+      "statuses": [
+        "action_cap",
+        "action_cap",
+        "action_cap"
+      ],
+      "fully_completed_maximum_expansion_depths": [
+        4,
+        4,
+        4
+      ],
+      "max_visited_letters": [
+        40,
+        43,
+        43
+      ],
+      "max_retained_proposal_letters": [
+        46,
+        49,
+        52
+      ],
+      "target_band_distinct_complete_clause_states": 0,
+      "raw_exact_closures": 0,
+      "eligible_paragraphs": 0,
+      "beam_pruned_proposals": 457,
+      "discarded_partial_next_frontier_proposals": 38
+    }
+  ],
+  "fixed_controls": {
+    "max_actions": 2000,
+    "max_steps": 64,
+    "branch_cap": null,
+    "units": 54,
+    "sides": 2,
+    "attempts_per_fully_enumerated_parent": 108,
+    "band": [
+      60,
+      119
+    ],
+    "clause_minimum": 2,
+    "clause_maximum": 4,
+    "distinct_clauses": true,
+    "diversity": 0.4
+  },
+  "depth_allocation": "Width 32 in pilot 003 stopped during depth 1. Width 1 completed depths 10\u201313; width 2 completed depth 8; width 4 completed depth 4. Smaller width sacrifices compatible branches explicitly recorded as pruned.",
+  "boundary_certificate": {
+    "grammar_productions": 9,
+    "distinct_prefixes": 198,
+    "distinct_suffixes": 89,
+    "pairs_checked": 17622,
+    "compatible_pairs": [],
+    "positive_controls": [
+      {
+        "text": "Liam sees mail.",
+        "compatible_pairs": 2
+      },
+      {
+        "text": "No rider sees red iron.",
+        "compatible_pairs": 2
+      }
+    ],
+    "proof": "Every complete paragraph begins with a first-clause prefix and ends with a last-clause suffix in these catalogues. A global palindrome requires equality of their normalized streams over their common length. Zero compatible pairs excludes every complete paragraph in this finite compiled grammar, for any number of middle clauses.",
+    "scope": "The declared 38-word, nine-production grammar only; no statement about general English or expanded lexicons."
+  },
+  "qualitative_assessment": "Some visited states have 3\u20134 complete distinct clauses in the target band, but none is globally palindromic. Other long states repeat clauses. These are diagnostic states, not candidate paragraphs; no human readability or novelty claims.",
+  "next_gate": "Introduce a prospectively justified finite grammar/inventory with compatible licensed prefix/suffix boundaries before another search. Increasing the unchanged search budget cannot overcome an empty boundary compatibility set.",
+  "preservation": "Public main, delivered paper, core search and grammar gates unchanged; original pilot and sweep receipt hashes verified; no public push.",
+  "deliverable_hashes": {
+    "depth-diagnostic-001-plan.json": "96106bf8b476eaffc90e385474eec7f4f7a808f1188236cc05afc64aa8695141",
+    "depth-diagnostic-001-reviewed-summary.json": "9a667c50407352ba6f3772be3068c78e9629f8bc4fdd4dd28e409d6e4887bcc1",
+    "depth-diagnostic-001-boundary-gate.json": "92ff62f4f6e289d7b0597cb4f65a6c2e63cd40ae70a6b4d1c324ba33742670f4"
+  }
+}

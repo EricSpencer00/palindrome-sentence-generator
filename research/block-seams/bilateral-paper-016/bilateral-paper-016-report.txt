@@ -1,0 +1,20 @@
+Recovered paper and bilateral phrase-seam implementation016
+
+Primary recovered paper:Sound POS-Constraint Pruning for Two-Ended Palindrome Search,6pages,Librarylibfile_01b44d1a73688191a3c5256d9264bd89,output(1).pdf,Sept12. Source locally materialized unchanged as imports/Sound POS-Constraint Pruning.pdf. EarlierSept11precursor:Palindrome Search with Brown POS-Shape Filtering,Librarylibfile_3df6308bf5c88191bd121fab5587f4ef,locally imports/Pasted text(5).txt. Corresponding historicalGitcommit could not be established by localhistorysearch;do not invent provenance. Currentdifferentpaper Methods of Finding Longer,Readable Palindromes is paper/naacl2027-v1.tex,lastcommit83f56a9f;unchanged.
+
+PaperSection2:grows from middle,prependingwords/chunks onL andappendingonR;maintains owedletters;placement canpaypartialdebt oroverrunandflipowedside;trie suppliescompatibleunits;emptyoverhangcloses.PaperAppendixB Eq3:L1...Lk C Rk...R1,nestingseam means two joins. Historicalhierarchy.py/server/v3.py nestalreadyclosed mirrorpairs,eachcomponentownsentenceboundary,onepasscaps/no backtracking,compositionunevaluated. That sentence-composer is not a solution to currentphrase/discourse request. Historical Brown/POS restrictions neither provegrammar norreadability.
+
+Existingvalid engine reused:llm_palindrome/search.py consume + phrase-capable WordTries;centerout.py consume_suffix/_expand/centerout_search. Newbilateral_seams.py adds chunk grammar/actor frontiers,semantic roles,arbitrary iterativestepbounds,softrepeatcost anddebtdiagnostics. CenterOutGrammar matches paperdirectionandempty-debtclosure,reusinglegacyconsume for payingplacements. Separateoutside-inmode is explicit andcloses on palindromicresidual;rules neverinterchanged. Centers are actual licensedchunkpaths,not randomletterfixups.
+
+ASCIIletter normalization:rejectunsupportedalphabetic/renderinginput; n(text)retainsonlylowercasea-z. Outside-in invariant:n(L)andreverse(n(R))agreeuntiloneoverhangremains. Center-out comparesreverse(n(L))withn(R)frommiddleoutward;closure requires emptydebt plus completedgrammarstates. Globaltwo-pointerexactnessalwayscheckedafterclosure. Grammarentry/exitandactorbindingsstayliveonbothends.
+
+REAL asymmetricphrase trace(existingcontrol,not newparagraph):
+L1='Was it ';L2='a ca';L3='r ';C='o';R3='r a ';R2='cat';R1=' I saw?'.
+Readingorder L1L2L3 C R3R2R1 ->Was it a car or a cat I saw?
+Outwardgrowth L3,R3,L2,R2,L1,R1 givesoverhangs r,a,ca,t,isaw,empty,withowedsidealternating. Payoffratios0,.5,1/3,2/3,.2,1. Phraseboundarycuts carandor;roleobligationsvalidlycompletewordsratherthan appendfiller. CompletedobserverI retained. All chunks have distinctIDs,repeatcost0;templateis inheritedcalibration,no noveltyclaim.
+
+Payoffratio=paidletters/addedletters is NEWheuristic,not recoveredpaperresultorcorrectnesscondition. Validgrowthwithratio0remainsallowed. Existingpaper/EVIDENCE.md withdrawstheoldconstant1.09 signedreductionclaim;d-next=|d-m|and signedreductions telescope. No universalpositivepayoffor speed claim.
+
+Cycle/novelty diagnostic:formalgrammar a-loop produces20distinct a^n tapes in boundedtest;loop supports arbitraryn mathematically. It is explicitlynotEnglish/coherent/nonrepeatingevidence. Histories/phraseIDs retained in state keys;differenttextsover samegrammar/debt signature are not collapsed.Repeatsgraded,nohardban.Depth/state/output/timeboundsprotectrun.Maximumdepth configurable beyond oldfixedphraseplans.
+
+41regressiontests passed;finaltargeted5passed afteraligningcenterclosuremetadata/historykey. Tests coverleft/rightoverhang,cancellation,overrun,payoffscore,exactclosure,grammarmatters,actorconflict,productivecycles anddifferenttape lengths. Realcontrolplusformaldiagnostics saved with alltrace/failures;no paidspend,newmodelcalls orcandidatequality claims. Wholepaper untouched. Nextdiscovery is coherentphrase inventory with compatiblegrammaroverhangs,not more mirrored sentences or unsupportedinfinite prose claims.

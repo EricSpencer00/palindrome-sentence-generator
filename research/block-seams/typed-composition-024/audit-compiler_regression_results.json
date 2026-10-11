@@ -1,0 +1,476 @@
+{
+  "control_only": true,
+  "new_quality_claim": false,
+  "input_complete_donors": 2,
+  "private_chunks": 8,
+  "shared_chunks": 6,
+  "known_target_generated_from_unenumerated_combination": true,
+  "no_new_words_or_phrases": true,
+  "entity_conflict_rejected": true,
+  "number_conflict_rejected": true,
+  "repetition_penalized_not_blocked": true,
+  "methods": {
+    "outside_in": {
+      "private": {
+        "status": "complete_bounded_depth",
+        "seed_status": "complete_bounded_depth",
+        "seeds": 1,
+        "max_steps": 4,
+        "max_states": 1000,
+        "max_outputs": 100,
+        "seconds_cap": 2,
+        "states_visited": 18,
+        "duplicate_states": 4,
+        "cycle_signatures": 0,
+        "outputs": 0,
+        "failures": 3,
+        "pending_states": 0,
+        "elapsed_seconds": 0.0006466380000347272
+      },
+      "shared": {
+        "status": "complete_bounded_depth",
+        "seed_status": "complete_bounded_depth",
+        "seeds": 1,
+        "max_steps": 4,
+        "max_states": 1000,
+        "max_outputs": 100,
+        "seconds_cap": 2,
+        "states_visited": 8,
+        "duplicate_states": 1,
+        "cycle_signatures": 0,
+        "outputs": 1,
+        "failures": 3,
+        "pending_states": 0,
+        "elapsed_seconds": 0.00022463999994215555
+      },
+      "output": {
+        "id": "bilateral-1d81d434b3637e44",
+        "text": "Do geese on a cedar trade canoe see God?",
+        "tape": "dogeeseonacedartradecanoeseegod",
+        "letters": 31,
+        "left_ids": [
+          "rule-f0123f93d4922322",
+          "rule-29b9d3ff2cc08b92"
+        ],
+        "right_ids": [
+          "rule-3bf4182a2d4a7ccf",
+          "rule-4eb6a30624badd3e"
+        ],
+        "bindings": {
+          "observer": "geese",
+          "subject_number": "plural",
+          "perceived": "God",
+          "boat_entity": "boat1",
+          "use": "trade",
+          "material": "cedar"
+        },
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "right",
+            "chunk": {
+              "id": "rule-4eb6a30624badd3e",
+              "text": "see God?",
+              "entry": "observe-geese:BARE_VP",
+              "exit": "END",
+              "role": "base-form VP licensed by question do",
+              "source": "019-derived compiler control",
+              "bindings": [
+                [
+                  "observer",
+                  "geese"
+                ],
+                [
+                  "subject_number",
+                  "plural"
+                ],
+                [
+                  "perceived",
+                  "God"
+                ]
+              ]
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 0,
+              "side": "right",
+              "letters": "dogees",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 0,
+              "added": 6,
+              "ratio": 0.0,
+              "debt_before": 0,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "START",
+              "observe-geese:BARE_VP",
+              "right",
+              "dogees"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "rule-f0123f93d4922322",
+              "text": "Do geese ",
+              "entry": "START",
+              "exit": "observe-geese:SUBJECT_PP",
+              "role": "plural auxiliary question subject",
+              "source": "019-derived compiler control",
+              "bindings": [
+                [
+                  "observer",
+                  "geese"
+                ],
+                [
+                  "subject_number",
+                  "plural"
+                ],
+                [
+                  "perceived",
+                  "God"
+                ]
+              ]
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 6,
+              "side": "left",
+              "letters": "e",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 7,
+              "ratio": 0.8571428571428571,
+              "debt_before": 6,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "observe-geese:SUBJECT_PP",
+              "observe-geese:BARE_VP",
+              "left",
+              "e"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "rule-3bf4182a2d4a7ccf",
+              "text": "trade canoe ",
+              "entry": "observe-geese:CANOE_HEAD",
+              "exit": "observe-geese:BARE_VP",
+              "role": "canoe noun compound completes the PP",
+              "source": "independent donor",
+              "bindings": [
+                [
+                  "boat_entity",
+                  "boat1"
+                ],
+                [
+                  "use",
+                  "trade"
+                ]
+              ]
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 7,
+              "side": "right",
+              "letters": "onacedart",
+              "closure_exact": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 10,
+              "ratio": 0.1,
+              "debt_before": 1,
+              "debt_after": 9,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "observe-geese:SUBJECT_PP",
+              "observe-geese:CANOE_HEAD",
+              "right",
+              "onacedart"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "rule-29b9d3ff2cc08b92",
+              "text": "on a cedar ",
+              "entry": "observe-geese:SUBJECT_PP",
+              "exit": "observe-geese:CANOE_HEAD",
+              "role": "locative PP determiner and material modifier",
+              "source": "independent donor",
+              "bindings": [
+                [
+                  "boat_entity",
+                  "boat1"
+                ],
+                [
+                  "material",
+                  "cedar"
+                ]
+              ]
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 15,
+              "side": "right",
+              "letters": "t",
+              "closure_exact": true
+            },
+            "payoff": {
+              "paid": 8,
+              "added": 8,
+              "ratio": 1.0,
+              "debt_before": 9,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "signature": [
+              "observe-geese:CANOE_HEAD",
+              "observe-geese:CANOE_HEAD",
+              "right",
+              "t"
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [],
+        "center_offset": null,
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    },
+    "center_out": {
+      "private": {
+        "status": "complete_bounded_depth",
+        "seed_status": "complete_bounded_depth",
+        "seeds": 34,
+        "max_steps": 4,
+        "max_states": 1000,
+        "max_outputs": 100,
+        "seconds_cap": 2,
+        "states_visited": 34,
+        "duplicate_states": 0,
+        "cycle_signatures": 0,
+        "outputs": 0,
+        "failures": 26,
+        "pending_states": 0,
+        "elapsed_seconds": 0.012135871998907533
+      },
+      "shared": {
+        "status": "complete_bounded_depth",
+        "seed_status": "complete_bounded_depth",
+        "seeds": 25,
+        "max_steps": 4,
+        "max_states": 1000,
+        "max_outputs": 100,
+        "seconds_cap": 2,
+        "states_visited": 28,
+        "duplicate_states": 0,
+        "cycle_signatures": 1,
+        "outputs": 1,
+        "failures": 33,
+        "pending_states": 0,
+        "elapsed_seconds": 0.004195010002149502
+      },
+      "output": {
+        "id": "bilateral-1d81d434b3637e44",
+        "text": "Do geese on a cedar trade canoe see God?",
+        "tape": "dogeeseonacedartradecanoeseegod",
+        "letters": 31,
+        "left_ids": [
+          "rule-f0123f93d4922322",
+          "rule-29b9d3ff2cc08b92"
+        ],
+        "right_ids": [
+          "rule-4eb6a30624badd3e"
+        ],
+        "bindings": {
+          "boat_entity": "boat1",
+          "use": "trade",
+          "material": "cedar",
+          "observer": "geese",
+          "subject_number": "plural",
+          "perceived": "God"
+        },
+        "repeat_cost": 0,
+        "trace": [
+          {
+            "side": "left",
+            "chunk": {
+              "id": "rule-29b9d3ff2cc08b92",
+              "text": "on a cedar ",
+              "entry": "observe-geese:SUBJECT_PP",
+              "exit": "observe-geese:CANOE_HEAD",
+              "role": "locative PP determiner and material modifier",
+              "source": "independent donor",
+              "bindings": [
+                [
+                  "boat_entity",
+                  "boat1"
+                ],
+                [
+                  "material",
+                  "cedar"
+                ]
+              ]
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 8,
+              "side": "right",
+              "letters": "e",
+              "closure_exact": false,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 8,
+              "added": 8,
+              "ratio": 1.0,
+              "debt_before": 9,
+              "debt_after": 1,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "signature": [
+              "observe-geese:SUBJECT_PP",
+              "observe-geese:BARE_VP",
+              "right",
+              "e"
+            ]
+          },
+          {
+            "side": "left",
+            "chunk": {
+              "id": "rule-f0123f93d4922322",
+              "text": "Do geese ",
+              "entry": "START",
+              "exit": "observe-geese:SUBJECT_PP",
+              "role": "plural auxiliary question subject",
+              "source": "019-derived compiler control",
+              "bindings": [
+                [
+                  "observer",
+                  "geese"
+                ],
+                [
+                  "subject_number",
+                  "plural"
+                ],
+                [
+                  "perceived",
+                  "God"
+                ]
+              ]
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 9,
+              "side": "left",
+              "letters": "seegod",
+              "closure_exact": false,
+              "palindromic_residual": false
+            },
+            "payoff": {
+              "paid": 1,
+              "added": 7,
+              "ratio": 0.14285714285714285,
+              "debt_before": 1,
+              "debt_after": 6,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "prepend_L",
+            "signature": [
+              "START",
+              "observe-geese:BARE_VP",
+              "left",
+              "seegod"
+            ]
+          },
+          {
+            "side": "right",
+            "chunk": {
+              "id": "rule-4eb6a30624badd3e",
+              "text": "see God?",
+              "entry": "observe-geese:BARE_VP",
+              "exit": "END",
+              "role": "base-form VP licensed by question do",
+              "source": "019-derived compiler control",
+              "bindings": [
+                [
+                  "observer",
+                  "geese"
+                ],
+                [
+                  "subject_number",
+                  "plural"
+                ],
+                [
+                  "perceived",
+                  "God"
+                ]
+              ]
+            },
+            "debt": {
+              "compatible": true,
+              "matched": 15,
+              "side": "none",
+              "letters": "",
+              "closure_exact": true,
+              "palindromic_residual": true
+            },
+            "payoff": {
+              "paid": 6,
+              "added": 6,
+              "ratio": 1.0,
+              "debt_before": 6,
+              "debt_after": 0,
+              "valid": true
+            },
+            "repeat_increment": 0,
+            "growth": "append_R",
+            "cycle_signature_revisited": true,
+            "signature": [
+              "START",
+              "END",
+              "none",
+              ""
+            ]
+          }
+        ],
+        "quality_unrated": true,
+        "center_ids": [
+          "rule-3bf4182a2d4a7ccf"
+        ],
+        "center_offset": [
+          0,
+          1
+        ],
+        "repetition": {
+          "repeated_tokens": {},
+          "token_repeat_excess": 0,
+          "repeated_phrases": {}
+        }
+      }
+    }
+  }
+}

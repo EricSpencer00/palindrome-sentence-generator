@@ -1,0 +1,40 @@
+One substantive change: replace complete-proposal compilation with independently licensed phrase-production compilation. Do not begin another synonym grid.
+
+What is wrong in 023
+- joint_semantic_plans_023.py:18-20 assigns every complete proposal private intermediate states. Lines 45-48 and 62-66 screen the fully rendered text before any chunk is admitted. The engine therefore verifies prewritten paths; it cannot invent a new continuation.
+- All 12 interior states in the surviving inventory have one incoming and one outgoing edge. The only four compiled paths were fully authored before search.
+- 20/24 editing proposals mismatch at the first letter. Of 7,676 drawing failures, 6,120 mismatch at offset four, immediately after draw/ward. This is a surface-language bottleneck, not a runtime or center-coverage problem.
+- Merely factoring 023 into shared states is NOT sufficient. The supplied factorization audit reconstructs exactly the same 7,296 unique drawing texts and the same two exact outputs across 128 semantic contexts. Adding passive/fronted templates without productive phrase composition would remain another finite template expansion.
+
+Minimal compiler replacement
+1. Accept a semantic plan with entity IDs and independently licensed phrase rules. Bind referents (boat1/document1) separately from material, number, tense, action and surface reference form. Do not use a whole surface proposal name or wording as a grammar state or referent ID.
+2. Retain local phrase rules even when their donor full sentence is not palindromic. Full-donor endpoint screening must not delete those reusable rules.
+3. Connect rules through shared grammatical interfaces scoped to the plan and explicit argument/agreement requirements. The supplied compile_phrase_rules function does this. Rules with a different argument, number or grammar obligation must not share a usable seam unless feature unification permits it.
+4. Query/extend those local rules using the existing letter-debt engine. Screen only genuinely committed prefix/suffix letters. Do not render and screen all complete candidates first. No partial-word proposal mechanism is needed for this patch; existing whole-chunk center anchoring already handles an internal letter center.
+5. Keep current center-out empty-debt closure and the independent outside-in oracle. Payoff is guidance only. Use token and repeated-phrase costs as finite penalties, not vetoes. For the finite compiler pilot enumerate all exact completions, then apply the unchanged quality rubric plus length and repetition features; do not claim that local phrase tags establish discourse quality.
+
+Required regression, implemented here
+Two complete donors:
+  Do geese on a cedar fishing canoe see God?
+  Do geese on a wooden trade canoe see God?
+Both are nonpalindromic. Keeping their paths private gives zero outputs. Compiling the SAME six unique phrases with independent material/use features yields the previously unenumerated composition:
+  Do geese on a cedar trade canoe see God?
+Both current 023 engines recover exactly that target. This is the already-known 019 control, NOT a new quality result. No word or phrase is added. Changing the boat referent or subject agreement rejects the same exact character tape. A repeated-palindrome diagnostic still passes exactness but receives a positive repetition penalty.
+
+Bounded falsifier
+- Gate 1: pass this held-out composition regression, feature-conflict cases and exactness oracle. If complete donor texts still have to be enumerated or the target is only copied from a full candidate input, the proposed lattice has not been implemented.
+- Gate 2: run ONE new abstract meaning plan, with at most 32 independently licensed phrase rules, 8 chunks, 10,000 states, 100 outputs and 30 CPU seconds. Its phrase and construction inventory must be identical in donor-private and compositional arms. Document all semantic interface licensing before searching. Keep overall endpoint realizations open until actual phrases are selected.
+- Any seed/state/time/output truncation must be labeled incomplete, not exhaustive failure.
+- Compare distinct exact outputs absent from the donor list, unchanged grammar/readability/coherence review, meaningful length and finite repeat cost. Count the known regression only as a test. A useful result must add meaning and improve reviewed quality, not merely concatenate repeated whole clauses.
+- If the language/reachable outputs are unchanged, the change was only representation. If no new acceptable >=30-letter composition appears, report the finite negative result and the precise residual/semantic interface obstruction; do not launch another near-identical vocabulary grid.
+
+Files
+- typed_phrase_compiler.py: small compiler plus explicit finite repetition cost.
+- test_unenumerated_composition.py: actual-engine regression and semantic-conflict tests.
+- compiler_regression_results.json: receipts and full traces.
+- factorization_audit.py/results.json: proves shared-state compaction alone does not improve 023.
+- validation_engine: source snapshot for cloud replay only; DO NOT overwrite current owner code with it. bilateral_seams.py is from the supplied 023 packet; admission/search dependencies are from the supplied 019 packet because 023 omits them. Rerun against current owner dependencies before adoption.
+
+Owner run: PYTHONPATH=<current-repository>:<this-proof-directory> python <this-proof-directory>/test_unenumerated_composition.py
+Cloud replay: PYTHONPATH=proof:proof/validation_engine python proof/test_unenumerated_composition.py
+No paid API or local-computer operation was used for this audit. No speedup or new-quality claim is made.

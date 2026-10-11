@@ -1,0 +1,39 @@
+{
+  "frozen_resource_paths": [
+    "tools/polaris/payload/brown.json.gz",
+    "llm_palindrome/typed_constituents.py",
+    "llm_palindrome/agreement_morphology.py",
+    "data/lexicon.txt"
+  ],
+  "semantic_classes": {
+    "haste": [
+      "rush",
+      "answer",
+      "respond",
+      "speak"
+    ],
+    "deliberate": [
+      "consider",
+      "decide",
+      "think"
+    ],
+    "acknowledge": [
+      "nod",
+      "answer",
+      "respond"
+    ],
+    "perceive": [
+      "see"
+    ]
+  },
+  "license_source": "Owner-authored limited valency, semantic classes, named-entity and function-word roles; Brown POS and dictionary do not establish those relations.",
+  "forms": "Current completion recipes use dictionary-supported base forms. Existing typed_constituents.VERBS third/past forms and agreement_morphology regular realizations are supported by the realizer but are not searched in this run. No third/past generation claim.",
+  "constructor_obligations": "Local recipes: negative action + controlled second imperative; direct question object with temporal subordinate clause; purpose imperative; modal pause/wait with purpose. No global complement_type binding.",
+  "word_bound": [
+    2,
+    6
+  ],
+  "letter_selection": "Partial lexical states are compared before a full phrase is rendered; main search adds whole parsed chunks only.",
+  "surface_endpoint_lists_supplied": false,
+  "coverage": "Finite authored grammar/semantic support over existing frozen lexical resources, not a general English phrase parser."
+}

@@ -1,0 +1,23 @@
+{
+  "meaning": "In an already identified room, the recipient should take care and deliberate about responding to the identified question; prohibit haste, directly consider the question, take time, or pause/wait under a modal. Optional location phrases refer to that same room.",
+  "max_constructions": 4,
+  "completion_requests": 128,
+  "phrases_per_request": 16,
+  "phrase_words": [
+    2,
+    6
+  ],
+  "seed": 19036,
+  "aggregate_cpu_seconds": 30,
+  "max_chunks": 8,
+  "max_states": 10000,
+  "max_outputs": 100,
+  "max_seeds": 5000,
+  "seconds_per_search": 7,
+  "gate": "Require a parsed opening/ending pair plus two licensed whole-chunk extensions each paying at least one owed letter. If empty, do not invoke interior search.",
+  "repetition": "Finite cost, never veto; payoff guides only; center-out closure requires empty debt.",
+  "quality_rubric": "Frozen 019 dimensions 0-5, holistic 0-10, actual human preference labels separately preserved.",
+  "training_preferences": "The ten positively labeled examples are preferences/controls, not held-out evaluation.",
+  "lexical_scope": "Frozen Brown POS + existing dictionary and morphology, plus explicitly authored finite semantic classes and constructions. No general-English coverage or phrase-attestation claim.",
+  "paid_calls": 0
+}

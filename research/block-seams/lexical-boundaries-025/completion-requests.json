@@ -1,0 +1,2491 @@
+[
+  {
+    "debt": {
+      "compatible": true,
+      "matched": 0,
+      "side": "left",
+      "letters": "dogeese",
+      "closure_exact": false
+    },
+    "direction": "right",
+    "role": "perception_vp",
+    "arguments": {
+      "predicate": "perceive",
+      "patient_surface": "God",
+      "construction": "question_do",
+      "bindings": {
+        "observer": "geese1",
+        "patient": "God1",
+        "subject_number": "plural"
+      },
+      "required_bindings": {
+        "observer": "geese1",
+        "patient": "God1",
+        "subject_number": "plural"
+      }
+    },
+    "phrases": [
+      {
+        "text": "see God",
+        "derivation": "VP -> V(base) NP(named)",
+        "lexical_parse": [
+          {
+            "lemma": "see",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "see"
+          },
+          {
+            "lemma": "God",
+            "pos": "NOUN",
+            "form": "base",
+            "surface": "God"
+          }
+        ],
+        "bindings": {
+          "observer": "geese1",
+          "patient": "God1",
+          "subject_number": "plural"
+        },
+        "local_obligations": {
+          "construction": "question_do",
+          "role": "perception_vp"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "e"
+        },
+        "paid_letters": 6,
+        "trace": [
+          {
+            "word": "God",
+            "direction": "right",
+            "before": {
+              "side": "left",
+              "letters": "dogeese"
+            },
+            "after": {
+              "side": "left",
+              "letters": "eese"
+            },
+            "paid": 3
+          },
+          {
+            "word": "see",
+            "direction": "right",
+            "before": {
+              "side": "left",
+              "letters": "eese"
+            },
+            "after": {
+              "side": "left",
+              "letters": "e"
+            },
+            "paid": 3
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 3,
+      "outputs": 1,
+      "failures": 0
+    }
+  },
+  {
+    "debt": {
+      "compatible": true,
+      "matched": 0,
+      "side": "left",
+      "letters": "dogeese",
+      "closure_exact": false
+    },
+    "direction": "right",
+    "role": "perception_vp",
+    "arguments": {
+      "predicate": "perceive",
+      "patient_surface": "God",
+      "construction": "question_do",
+      "bindings": {
+        "observer": "geese1",
+        "patient": "other1",
+        "subject_number": "plural"
+      },
+      "required_bindings": {
+        "observer": "geese1",
+        "patient": "God1",
+        "subject_number": "plural"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "reason": "semantic_or_agreement_conflict",
+        "feature": "patient",
+        "expected": "God1",
+        "actual": "other1"
+      }
+    ],
+    "receipt": {
+      "status": "complete_rejected_bindings",
+      "lexical_states": 0
+    }
+  },
+  {
+    "debt": {
+      "compatible": true,
+      "matched": 0,
+      "side": "left",
+      "letters": "dogeese",
+      "closure_exact": false
+    },
+    "direction": "right",
+    "role": "perception_vp",
+    "arguments": {
+      "predicate": "perceive",
+      "patient_surface": "God",
+      "construction": "question_do",
+      "bindings": {
+        "observer": "geese1",
+        "patient": "God1",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "observer": "geese1",
+        "patient": "God1",
+        "subject_number": "plural"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "reason": "semantic_or_agreement_conflict",
+        "feature": "subject_number",
+        "expected": "plural",
+        "actual": "singular"
+      }
+    ],
+    "receipt": {
+      "status": "complete_rejected_bindings",
+      "lexical_states": 0
+    }
+  },
+  {
+    "debt": {
+      "side": "none",
+      "letters": ""
+    },
+    "direction": "left",
+    "role": "opening",
+    "arguments": {
+      "construction": "negative_advice",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [
+      {
+        "text": "Do not rush",
+        "derivation": "S1 -> AUX(Do) NEG V(base)",
+        "lexical_parse": [
+          {
+            "lemma": "Do",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "Do"
+          },
+          {
+            "lemma": "not",
+            "pos": "ADV",
+            "form": "base",
+            "surface": "not"
+          },
+          {
+            "lemma": "rush",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "rush"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "negative_advice",
+          "role": "opening"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "donotrush"
+        },
+        "paid_letters": 0,
+        "trace": [
+          {
+            "word": "Do",
+            "direction": "left",
+            "before": {
+              "side": "none",
+              "letters": ""
+            },
+            "after": {
+              "side": "left",
+              "letters": "do"
+            },
+            "paid": 0
+          },
+          {
+            "word": "not",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "do"
+            },
+            "after": {
+              "side": "left",
+              "letters": "donot"
+            },
+            "paid": 0
+          },
+          {
+            "word": "rush",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "donot"
+            },
+            "after": {
+              "side": "left",
+              "letters": "donotrush"
+            },
+            "paid": 0
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      },
+      {
+        "text": "Do not answer",
+        "derivation": "S1 -> AUX(Do) NEG V(base)",
+        "lexical_parse": [
+          {
+            "lemma": "Do",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "Do"
+          },
+          {
+            "lemma": "not",
+            "pos": "ADV",
+            "form": "base",
+            "surface": "not"
+          },
+          {
+            "lemma": "answer",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "answer"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "negative_advice",
+          "role": "opening"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "donotanswer"
+        },
+        "paid_letters": 0,
+        "trace": [
+          {
+            "word": "Do",
+            "direction": "left",
+            "before": {
+              "side": "none",
+              "letters": ""
+            },
+            "after": {
+              "side": "left",
+              "letters": "do"
+            },
+            "paid": 0
+          },
+          {
+            "word": "not",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "do"
+            },
+            "after": {
+              "side": "left",
+              "letters": "donot"
+            },
+            "paid": 0
+          },
+          {
+            "word": "answer",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "donot"
+            },
+            "after": {
+              "side": "left",
+              "letters": "donotanswer"
+            },
+            "paid": 0
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      },
+      {
+        "text": "Do not respond",
+        "derivation": "S1 -> AUX(Do) NEG V(base)",
+        "lexical_parse": [
+          {
+            "lemma": "Do",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "Do"
+          },
+          {
+            "lemma": "not",
+            "pos": "ADV",
+            "form": "base",
+            "surface": "not"
+          },
+          {
+            "lemma": "respond",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "respond"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "negative_advice",
+          "role": "opening"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "donotrespond"
+        },
+        "paid_letters": 0,
+        "trace": [
+          {
+            "word": "Do",
+            "direction": "left",
+            "before": {
+              "side": "none",
+              "letters": ""
+            },
+            "after": {
+              "side": "left",
+              "letters": "do"
+            },
+            "paid": 0
+          },
+          {
+            "word": "not",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "do"
+            },
+            "after": {
+              "side": "left",
+              "letters": "donot"
+            },
+            "paid": 0
+          },
+          {
+            "word": "respond",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "donot"
+            },
+            "after": {
+              "side": "left",
+              "letters": "donotrespond"
+            },
+            "paid": 0
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      },
+      {
+        "text": "Do not speak",
+        "derivation": "S1 -> AUX(Do) NEG V(base)",
+        "lexical_parse": [
+          {
+            "lemma": "Do",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "Do"
+          },
+          {
+            "lemma": "not",
+            "pos": "ADV",
+            "form": "base",
+            "surface": "not"
+          },
+          {
+            "lemma": "speak",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "speak"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "negative_advice",
+          "role": "opening"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "donotspeak"
+        },
+        "paid_letters": 0,
+        "trace": [
+          {
+            "word": "Do",
+            "direction": "left",
+            "before": {
+              "side": "none",
+              "letters": ""
+            },
+            "after": {
+              "side": "left",
+              "letters": "do"
+            },
+            "paid": 0
+          },
+          {
+            "word": "not",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "do"
+            },
+            "after": {
+              "side": "left",
+              "letters": "donot"
+            },
+            "paid": 0
+          },
+          {
+            "word": "speak",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "donot"
+            },
+            "after": {
+              "side": "left",
+              "letters": "donotspeak"
+            },
+            "paid": 0
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 7,
+      "outputs": 4,
+      "failures": 0
+    }
+  },
+  {
+    "debt": {
+      "side": "left",
+      "letters": "donotrush"
+    },
+    "direction": "right",
+    "role": "ending",
+    "arguments": {
+      "construction": "negative_advice",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [
+      {
+        "text": "to nod",
+        "derivation": "RESPONSE -> TO V(base)",
+        "lexical_parse": [
+          {
+            "lemma": "to",
+            "pos": "PRT",
+            "form": "base",
+            "surface": "to"
+          },
+          {
+            "lemma": "nod",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "nod"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "negative_advice",
+          "role": "ending"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "rush"
+        },
+        "paid_letters": 5,
+        "trace": [
+          {
+            "word": "nod",
+            "direction": "right",
+            "before": {
+              "side": "left",
+              "letters": "donotrush"
+            },
+            "after": {
+              "side": "left",
+              "letters": "otrush"
+            },
+            "paid": 3
+          },
+          {
+            "word": "to",
+            "direction": "right",
+            "before": {
+              "side": "left",
+              "letters": "otrush"
+            },
+            "after": {
+              "side": "left",
+              "letters": "rush"
+            },
+            "paid": 2
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      }
+    ],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "donotrush"
+        },
+        "word": "answer",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "d",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "donotrush"
+        },
+        "word": "respond",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 1,
+        "owed": "o",
+        "exposed": "n"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 3,
+      "outputs": 1,
+      "failures": 2
+    }
+  },
+  {
+    "debt": {
+      "compatible": true,
+      "matched": 5,
+      "side": "left",
+      "letters": "rush",
+      "closure_exact": false
+    },
+    "direction": "right",
+    "role": "cognitive_link",
+    "arguments": {
+      "construction": "negative_advice",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "rush"
+        },
+        "word": "whether",
+        "derivation": "PURPOSE -> TO V(cognitive) WH",
+        "reason": "letter_mismatch",
+        "offset": 1,
+        "owed": "u",
+        "exposed": "e"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "rush"
+        },
+        "word": "how",
+        "derivation": "PURPOSE -> TO V(cognitive) WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "r",
+        "exposed": "w"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "rush"
+        },
+        "word": "whether",
+        "derivation": "PURPOSE -> TO V(think) ADP WH",
+        "reason": "letter_mismatch",
+        "offset": 1,
+        "owed": "u",
+        "exposed": "e"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "rush"
+        },
+        "word": "how",
+        "derivation": "PURPOSE -> TO V(think) ADP WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "r",
+        "exposed": "w"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 2,
+      "outputs": 0,
+      "failures": 4
+    }
+  },
+  {
+    "debt": {
+      "side": "left",
+      "letters": "donotanswer"
+    },
+    "direction": "right",
+    "role": "ending",
+    "arguments": {
+      "construction": "negative_advice",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [
+      {
+        "text": "to nod",
+        "derivation": "RESPONSE -> TO V(base)",
+        "lexical_parse": [
+          {
+            "lemma": "to",
+            "pos": "PRT",
+            "form": "base",
+            "surface": "to"
+          },
+          {
+            "lemma": "nod",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "nod"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "negative_advice",
+          "role": "ending"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "answer"
+        },
+        "paid_letters": 5,
+        "trace": [
+          {
+            "word": "nod",
+            "direction": "right",
+            "before": {
+              "side": "left",
+              "letters": "donotanswer"
+            },
+            "after": {
+              "side": "left",
+              "letters": "otanswer"
+            },
+            "paid": 3
+          },
+          {
+            "word": "to",
+            "direction": "right",
+            "before": {
+              "side": "left",
+              "letters": "otanswer"
+            },
+            "after": {
+              "side": "left",
+              "letters": "answer"
+            },
+            "paid": 2
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      }
+    ],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "donotanswer"
+        },
+        "word": "answer",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "d",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "donotanswer"
+        },
+        "word": "respond",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 1,
+        "owed": "o",
+        "exposed": "n"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 3,
+      "outputs": 1,
+      "failures": 2
+    }
+  },
+  {
+    "debt": {
+      "compatible": true,
+      "matched": 5,
+      "side": "left",
+      "letters": "answer",
+      "closure_exact": false
+    },
+    "direction": "right",
+    "role": "cognitive_link",
+    "arguments": {
+      "construction": "negative_advice",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "answer"
+        },
+        "word": "whether",
+        "derivation": "PURPOSE -> TO V(cognitive) WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "a",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "answer"
+        },
+        "word": "how",
+        "derivation": "PURPOSE -> TO V(cognitive) WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "a",
+        "exposed": "w"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "answer"
+        },
+        "word": "whether",
+        "derivation": "PURPOSE -> TO V(think) ADP WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "a",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "answer"
+        },
+        "word": "how",
+        "derivation": "PURPOSE -> TO V(think) ADP WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "a",
+        "exposed": "w"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 2,
+      "outputs": 0,
+      "failures": 4
+    }
+  },
+  {
+    "debt": {
+      "side": "left",
+      "letters": "donotrespond"
+    },
+    "direction": "right",
+    "role": "ending",
+    "arguments": {
+      "construction": "negative_advice",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [
+      {
+        "text": "to nod",
+        "derivation": "RESPONSE -> TO V(base)",
+        "lexical_parse": [
+          {
+            "lemma": "to",
+            "pos": "PRT",
+            "form": "base",
+            "surface": "to"
+          },
+          {
+            "lemma": "nod",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "nod"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "negative_advice",
+          "role": "ending"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "respond"
+        },
+        "paid_letters": 5,
+        "trace": [
+          {
+            "word": "nod",
+            "direction": "right",
+            "before": {
+              "side": "left",
+              "letters": "donotrespond"
+            },
+            "after": {
+              "side": "left",
+              "letters": "otrespond"
+            },
+            "paid": 3
+          },
+          {
+            "word": "to",
+            "direction": "right",
+            "before": {
+              "side": "left",
+              "letters": "otrespond"
+            },
+            "after": {
+              "side": "left",
+              "letters": "respond"
+            },
+            "paid": 2
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      }
+    ],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "donotrespond"
+        },
+        "word": "answer",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "d",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "donotrespond"
+        },
+        "word": "respond",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 1,
+        "owed": "o",
+        "exposed": "n"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 3,
+      "outputs": 1,
+      "failures": 2
+    }
+  },
+  {
+    "debt": {
+      "compatible": true,
+      "matched": 5,
+      "side": "left",
+      "letters": "respond",
+      "closure_exact": false
+    },
+    "direction": "right",
+    "role": "cognitive_link",
+    "arguments": {
+      "construction": "negative_advice",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "respond"
+        },
+        "word": "whether",
+        "derivation": "PURPOSE -> TO V(cognitive) WH",
+        "reason": "letter_mismatch",
+        "offset": 2,
+        "owed": "s",
+        "exposed": "h"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "respond"
+        },
+        "word": "how",
+        "derivation": "PURPOSE -> TO V(cognitive) WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "r",
+        "exposed": "w"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "respond"
+        },
+        "word": "whether",
+        "derivation": "PURPOSE -> TO V(think) ADP WH",
+        "reason": "letter_mismatch",
+        "offset": 2,
+        "owed": "s",
+        "exposed": "h"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "respond"
+        },
+        "word": "how",
+        "derivation": "PURPOSE -> TO V(think) ADP WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "r",
+        "exposed": "w"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 2,
+      "outputs": 0,
+      "failures": 4
+    }
+  },
+  {
+    "debt": {
+      "side": "left",
+      "letters": "donotspeak"
+    },
+    "direction": "right",
+    "role": "ending",
+    "arguments": {
+      "construction": "negative_advice",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [
+      {
+        "text": "to nod",
+        "derivation": "RESPONSE -> TO V(base)",
+        "lexical_parse": [
+          {
+            "lemma": "to",
+            "pos": "PRT",
+            "form": "base",
+            "surface": "to"
+          },
+          {
+            "lemma": "nod",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "nod"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "negative_advice",
+          "role": "ending"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "speak"
+        },
+        "paid_letters": 5,
+        "trace": [
+          {
+            "word": "nod",
+            "direction": "right",
+            "before": {
+              "side": "left",
+              "letters": "donotspeak"
+            },
+            "after": {
+              "side": "left",
+              "letters": "otspeak"
+            },
+            "paid": 3
+          },
+          {
+            "word": "to",
+            "direction": "right",
+            "before": {
+              "side": "left",
+              "letters": "otspeak"
+            },
+            "after": {
+              "side": "left",
+              "letters": "speak"
+            },
+            "paid": 2
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      }
+    ],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "donotspeak"
+        },
+        "word": "answer",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "d",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "donotspeak"
+        },
+        "word": "respond",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 1,
+        "owed": "o",
+        "exposed": "n"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 3,
+      "outputs": 1,
+      "failures": 2
+    }
+  },
+  {
+    "debt": {
+      "compatible": true,
+      "matched": 5,
+      "side": "left",
+      "letters": "speak",
+      "closure_exact": false
+    },
+    "direction": "right",
+    "role": "cognitive_link",
+    "arguments": {
+      "construction": "negative_advice",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "speak"
+        },
+        "word": "whether",
+        "derivation": "PURPOSE -> TO V(cognitive) WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "s",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "speak"
+        },
+        "word": "how",
+        "derivation": "PURPOSE -> TO V(cognitive) WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "s",
+        "exposed": "w"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "speak"
+        },
+        "word": "whether",
+        "derivation": "PURPOSE -> TO V(think) ADP WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "s",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "speak"
+        },
+        "word": "how",
+        "derivation": "PURPOSE -> TO V(think) ADP WH",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "s",
+        "exposed": "w"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 2,
+      "outputs": 0,
+      "failures": 4
+    }
+  },
+  {
+    "debt": {
+      "side": "none",
+      "letters": ""
+    },
+    "direction": "left",
+    "role": "opening",
+    "arguments": {
+      "construction": "direct_deliberation",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [
+      {
+        "text": "consider the question",
+        "derivation": "IMP -> V(transitive) DET N(question)",
+        "lexical_parse": [
+          {
+            "lemma": "consider",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "consider"
+          },
+          {
+            "lemma": "the",
+            "pos": "DET",
+            "form": "base",
+            "surface": "the"
+          },
+          {
+            "lemma": "question",
+            "pos": "NOUN",
+            "form": "base",
+            "surface": "question"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "direct_deliberation",
+          "role": "opening"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "considerthequestion"
+        },
+        "paid_letters": 0,
+        "trace": [
+          {
+            "word": "consider",
+            "direction": "left",
+            "before": {
+              "side": "none",
+              "letters": ""
+            },
+            "after": {
+              "side": "left",
+              "letters": "consider"
+            },
+            "paid": 0
+          },
+          {
+            "word": "the",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "consider"
+            },
+            "after": {
+              "side": "left",
+              "letters": "considerthe"
+            },
+            "paid": 0
+          },
+          {
+            "word": "question",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "considerthe"
+            },
+            "after": {
+              "side": "left",
+              "letters": "considerthequestion"
+            },
+            "paid": 0
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      },
+      {
+        "text": "decide the question",
+        "derivation": "IMP -> V(transitive) DET N(question)",
+        "lexical_parse": [
+          {
+            "lemma": "decide",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "decide"
+          },
+          {
+            "lemma": "the",
+            "pos": "DET",
+            "form": "base",
+            "surface": "the"
+          },
+          {
+            "lemma": "question",
+            "pos": "NOUN",
+            "form": "base",
+            "surface": "question"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "direct_deliberation",
+          "role": "opening"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "decidethequestion"
+        },
+        "paid_letters": 0,
+        "trace": [
+          {
+            "word": "decide",
+            "direction": "left",
+            "before": {
+              "side": "none",
+              "letters": ""
+            },
+            "after": {
+              "side": "left",
+              "letters": "decide"
+            },
+            "paid": 0
+          },
+          {
+            "word": "the",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "decide"
+            },
+            "after": {
+              "side": "left",
+              "letters": "decidethe"
+            },
+            "paid": 0
+          },
+          {
+            "word": "question",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "decidethe"
+            },
+            "after": {
+              "side": "left",
+              "letters": "decidethequestion"
+            },
+            "paid": 0
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      },
+      {
+        "text": "Think about the question",
+        "derivation": "IMP -> V(think) ADP DET N(question)",
+        "lexical_parse": [
+          {
+            "lemma": "Think",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "Think"
+          },
+          {
+            "lemma": "about",
+            "pos": "ADP",
+            "form": "base",
+            "surface": "about"
+          },
+          {
+            "lemma": "the",
+            "pos": "DET",
+            "form": "base",
+            "surface": "the"
+          },
+          {
+            "lemma": "question",
+            "pos": "NOUN",
+            "form": "base",
+            "surface": "question"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "direct_deliberation",
+          "role": "opening"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "thinkaboutthequestion"
+        },
+        "paid_letters": 0,
+        "trace": [
+          {
+            "word": "Think",
+            "direction": "left",
+            "before": {
+              "side": "none",
+              "letters": ""
+            },
+            "after": {
+              "side": "left",
+              "letters": "think"
+            },
+            "paid": 0
+          },
+          {
+            "word": "about",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "think"
+            },
+            "after": {
+              "side": "left",
+              "letters": "thinkabout"
+            },
+            "paid": 0
+          },
+          {
+            "word": "the",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "thinkabout"
+            },
+            "after": {
+              "side": "left",
+              "letters": "thinkaboutthe"
+            },
+            "paid": 0
+          },
+          {
+            "word": "question",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "thinkaboutthe"
+            },
+            "after": {
+              "side": "left",
+              "letters": "thinkaboutthequestion"
+            },
+            "paid": 0
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 12,
+      "outputs": 3,
+      "failures": 0
+    }
+  },
+  {
+    "debt": {
+      "side": "left",
+      "letters": "considerthequestion"
+    },
+    "direction": "right",
+    "role": "ending",
+    "arguments": {
+      "construction": "direct_deliberation",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "considerthequestion"
+        },
+        "word": "nod",
+        "derivation": "TEMPORAL -> before PRON V(base,second person)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "c",
+        "exposed": "d"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "considerthequestion"
+        },
+        "word": "answer",
+        "derivation": "TEMPORAL -> before PRON V(base,second person)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "c",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "considerthequestion"
+        },
+        "word": "respond",
+        "derivation": "TEMPORAL -> before PRON V(base,second person)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "c",
+        "exposed": "d"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 1,
+      "outputs": 0,
+      "failures": 3
+    }
+  },
+  {
+    "debt": {
+      "side": "left",
+      "letters": "decidethequestion"
+    },
+    "direction": "right",
+    "role": "ending",
+    "arguments": {
+      "construction": "direct_deliberation",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "decidethequestion"
+        },
+        "word": "nod",
+        "derivation": "TEMPORAL -> before PRON V(base,second person)",
+        "reason": "letter_mismatch",
+        "offset": 1,
+        "owed": "e",
+        "exposed": "o"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "decidethequestion"
+        },
+        "word": "answer",
+        "derivation": "TEMPORAL -> before PRON V(base,second person)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "d",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "decidethequestion"
+        },
+        "word": "respond",
+        "derivation": "TEMPORAL -> before PRON V(base,second person)",
+        "reason": "letter_mismatch",
+        "offset": 1,
+        "owed": "e",
+        "exposed": "n"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 1,
+      "outputs": 0,
+      "failures": 3
+    }
+  },
+  {
+    "debt": {
+      "side": "left",
+      "letters": "thinkaboutthequestion"
+    },
+    "direction": "right",
+    "role": "ending",
+    "arguments": {
+      "construction": "direct_deliberation",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "thinkaboutthequestion"
+        },
+        "word": "nod",
+        "derivation": "TEMPORAL -> before PRON V(base,second person)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "t",
+        "exposed": "d"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "thinkaboutthequestion"
+        },
+        "word": "answer",
+        "derivation": "TEMPORAL -> before PRON V(base,second person)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "t",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "thinkaboutthequestion"
+        },
+        "word": "respond",
+        "derivation": "TEMPORAL -> before PRON V(base,second person)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "t",
+        "exposed": "d"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 1,
+      "outputs": 0,
+      "failures": 3
+    }
+  },
+  {
+    "debt": {
+      "side": "none",
+      "letters": ""
+    },
+    "direction": "left",
+    "role": "opening",
+    "arguments": {
+      "construction": "purpose_advice",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [
+      {
+        "text": "Take time",
+        "derivation": "IMP -> V(take) N(time)",
+        "lexical_parse": [
+          {
+            "lemma": "Take",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "Take"
+          },
+          {
+            "lemma": "time",
+            "pos": "NOUN",
+            "form": "base",
+            "surface": "time"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "purpose_advice",
+          "role": "opening"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "taketime"
+        },
+        "paid_letters": 0,
+        "trace": [
+          {
+            "word": "Take",
+            "direction": "left",
+            "before": {
+              "side": "none",
+              "letters": ""
+            },
+            "after": {
+              "side": "left",
+              "letters": "take"
+            },
+            "paid": 0
+          },
+          {
+            "word": "time",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "take"
+            },
+            "after": {
+              "side": "left",
+              "letters": "taketime"
+            },
+            "paid": 0
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 3,
+      "outputs": 1,
+      "failures": 0
+    }
+  },
+  {
+    "debt": {
+      "side": "left",
+      "letters": "taketime"
+    },
+    "direction": "right",
+    "role": "ending",
+    "arguments": {
+      "construction": "purpose_advice",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "taketime"
+        },
+        "word": "nod",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "t",
+        "exposed": "d"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "taketime"
+        },
+        "word": "answer",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "t",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "taketime"
+        },
+        "word": "respond",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "t",
+        "exposed": "d"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 1,
+      "outputs": 0,
+      "failures": 3
+    }
+  },
+  {
+    "debt": {
+      "side": "none",
+      "letters": ""
+    },
+    "direction": "left",
+    "role": "opening",
+    "arguments": {
+      "construction": "modal_deliberation",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [
+      {
+        "text": "You should pause",
+        "derivation": "S -> PRON MODAL V(pause/wait)",
+        "lexical_parse": [
+          {
+            "lemma": "You",
+            "pos": "PRON",
+            "form": "base",
+            "surface": "You"
+          },
+          {
+            "lemma": "should",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "should"
+          },
+          {
+            "lemma": "pause",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "pause"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "modal_deliberation",
+          "role": "opening"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "youshouldpause"
+        },
+        "paid_letters": 0,
+        "trace": [
+          {
+            "word": "You",
+            "direction": "left",
+            "before": {
+              "side": "none",
+              "letters": ""
+            },
+            "after": {
+              "side": "left",
+              "letters": "you"
+            },
+            "paid": 0
+          },
+          {
+            "word": "should",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "you"
+            },
+            "after": {
+              "side": "left",
+              "letters": "youshould"
+            },
+            "paid": 0
+          },
+          {
+            "word": "pause",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "youshould"
+            },
+            "after": {
+              "side": "left",
+              "letters": "youshouldpause"
+            },
+            "paid": 0
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      },
+      {
+        "text": "You should wait",
+        "derivation": "S -> PRON MODAL V(pause/wait)",
+        "lexical_parse": [
+          {
+            "lemma": "You",
+            "pos": "PRON",
+            "form": "base",
+            "surface": "You"
+          },
+          {
+            "lemma": "should",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "should"
+          },
+          {
+            "lemma": "wait",
+            "pos": "VERB",
+            "form": "base",
+            "surface": "wait"
+          }
+        ],
+        "bindings": {
+          "responder": "reader1",
+          "question": "question1",
+          "location": "room1",
+          "subject_person": "second",
+          "subject_number": "singular"
+        },
+        "local_obligations": {
+          "construction": "modal_deliberation",
+          "role": "opening"
+        },
+        "debt": {
+          "side": "left",
+          "letters": "youshouldwait"
+        },
+        "paid_letters": 0,
+        "trace": [
+          {
+            "word": "You",
+            "direction": "left",
+            "before": {
+              "side": "none",
+              "letters": ""
+            },
+            "after": {
+              "side": "left",
+              "letters": "you"
+            },
+            "paid": 0
+          },
+          {
+            "word": "should",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "you"
+            },
+            "after": {
+              "side": "left",
+              "letters": "youshould"
+            },
+            "paid": 0
+          },
+          {
+            "word": "wait",
+            "direction": "left",
+            "before": {
+              "side": "left",
+              "letters": "youshould"
+            },
+            "after": {
+              "side": "left",
+              "letters": "youshouldwait"
+            },
+            "paid": 0
+          }
+        ],
+        "resource_hashes": {
+          "tools/polaris/payload/brown.json.gz": "14a81b69751dbb9e54251071a97b84fe3aef9b5532a308028810103acb478419",
+          "llm_palindrome/typed_constituents.py": "7e8112bfb594dc7bded2e239a0026f129e5db9959320a7a93d2b2af75532ad19",
+          "llm_palindrome/agreement_morphology.py": "b89060f47d8a7e343460fd0149bec1dd8ab5e2c675f58601219513b8ab0dad79",
+          "data/lexicon.txt": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6"
+        }
+      }
+    ],
+    "failures": [],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 5,
+      "outputs": 2,
+      "failures": 0
+    }
+  },
+  {
+    "debt": {
+      "side": "left",
+      "letters": "youshouldpause"
+    },
+    "direction": "right",
+    "role": "ending",
+    "arguments": {
+      "construction": "modal_deliberation",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "youshouldpause"
+        },
+        "word": "nod",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "y",
+        "exposed": "d"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "youshouldpause"
+        },
+        "word": "answer",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "y",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "youshouldpause"
+        },
+        "word": "respond",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "y",
+        "exposed": "d"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 1,
+      "outputs": 0,
+      "failures": 3
+    }
+  },
+  {
+    "debt": {
+      "side": "left",
+      "letters": "youshouldwait"
+    },
+    "direction": "right",
+    "role": "ending",
+    "arguments": {
+      "construction": "modal_deliberation",
+      "patient_surface": "question",
+      "location_surface": "room",
+      "bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      },
+      "required_bindings": {
+        "responder": "reader1",
+        "question": "question1",
+        "location": "room1",
+        "subject_person": "second",
+        "subject_number": "singular"
+      }
+    },
+    "phrases": [],
+    "failures": [
+      {
+        "debt": {
+          "side": "left",
+          "letters": "youshouldwait"
+        },
+        "word": "nod",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "y",
+        "exposed": "d"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "youshouldwait"
+        },
+        "word": "answer",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "y",
+        "exposed": "r"
+      },
+      {
+        "debt": {
+          "side": "left",
+          "letters": "youshouldwait"
+        },
+        "word": "respond",
+        "derivation": "RESPONSE -> TO V(base)",
+        "reason": "letter_mismatch",
+        "offset": 0,
+        "owed": "y",
+        "exposed": "d"
+      }
+    ],
+    "receipt": {
+      "status": "complete_finite_grammar",
+      "lexical_states": 1,
+      "outputs": 0,
+      "failures": 3
+    }
+  }
+]

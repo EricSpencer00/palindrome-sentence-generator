@@ -1,0 +1,540 @@
+{
+  "samples": [
+    {
+      "arm": "historical_reference",
+      "method": "whole_chunk_centers",
+      "id": "bilateral-ce71723a3eab3861",
+      "text": "An aide rips nine memos; some men inspire Diana.",
+      "tape": "anaideripsninememossomemeninspirediana",
+      "letters": 38,
+      "left_ids": [
+        "reference-L"
+      ],
+      "right_ids": [
+        "reference-R"
+      ],
+      "bindings": {},
+      "repeat_cost": 0,
+      "trace": [
+        {
+          "side": "left",
+          "chunk": {
+            "id": "reference-L",
+            "text": "An aide rips nine ",
+            "entry": "START",
+            "exit": "reference-OBJ",
+            "role": "subject, action, numeric object determiner",
+            "source": "022 authored finite shared-document narrative; Diana fixed as recipient, no name-variant search.",
+            "bindings": []
+          },
+          "debt": {
+            "compatible": true,
+            "matched": 7,
+            "side": "left",
+            "letters": "inspirediana",
+            "closure_exact": false,
+            "palindromic_residual": false
+          },
+          "payoff": {
+            "paid": 2,
+            "added": 14,
+            "ratio": 0.14285714285714285,
+            "debt_before": 2,
+            "debt_after": 12,
+            "valid": true
+          },
+          "repeat_increment": 0,
+          "growth": "prepend_L",
+          "signature": [
+            "START",
+            "reference-VP",
+            "left",
+            "inspirediana"
+          ]
+        },
+        {
+          "side": "right",
+          "chunk": {
+            "id": "reference-R",
+            "text": "inspire Diana.",
+            "entry": "reference-VP",
+            "exit": "END",
+            "role": "plural finite predicate and recipient",
+            "source": "022 authored finite shared-document narrative; Diana fixed as recipient, no name-variant search.",
+            "bindings": []
+          },
+          "debt": {
+            "compatible": true,
+            "matched": 19,
+            "side": "none",
+            "letters": "",
+            "closure_exact": true,
+            "palindromic_residual": true
+          },
+          "payoff": {
+            "paid": 12,
+            "added": 12,
+            "ratio": 1.0,
+            "debt_before": 12,
+            "debt_after": 0,
+            "valid": true
+          },
+          "repeat_increment": 0,
+          "growth": "append_R",
+          "cycle_signature_revisited": true,
+          "signature": [
+            "START",
+            "END",
+            "none",
+            ""
+          ]
+        }
+      ],
+      "quality_unrated": true,
+      "center_ids": [
+        "reference-M"
+      ],
+      "center_offset": [
+        5,
+        0
+      ],
+      "repetition": {
+        "repeated_tokens": {},
+        "token_repeat_excess": 0,
+        "repeated_phrases": {}
+      },
+      "human_label": null,
+      "review_pending": false,
+      "review": {
+        "text": "An aide rips nine memos; some men inspire Diana.",
+        "letters": 38,
+        "words": 9,
+        "grammar": 5,
+        "readability": 4,
+        "coherence": 2.5,
+        "overall_10": 5.0,
+        "repetition": "No repeated tokens",
+        "provenance": "Historical checkpoint control; not a new paragraph or current human approval",
+        "note": "Both clauses parse, but the memo destruction and the men inspiring Diana have no explicit shared-document link or motive.",
+        "proposal_disposition": "diagnostic_reference_only",
+        "human_label": null
+      }
+    },
+    {
+      "arm": "historical_reference",
+      "method": "owed_outside_in",
+      "id": "bilateral-ce71723a3eab3861",
+      "text": "An aide rips nine memos; some men inspire Diana.",
+      "tape": "anaideripsninememossomemeninspirediana",
+      "letters": 38,
+      "left_ids": [
+        "reference-L"
+      ],
+      "right_ids": [
+        "reference-M",
+        "reference-R"
+      ],
+      "bindings": {},
+      "repeat_cost": 0,
+      "trace": [
+        {
+          "side": "right",
+          "chunk": {
+            "id": "reference-R",
+            "text": "inspire Diana.",
+            "entry": "reference-VP",
+            "exit": "END",
+            "role": "plural finite predicate and recipient",
+            "source": "022 authored finite shared-document narrative; Diana fixed as recipient, no name-variant search.",
+            "bindings": []
+          },
+          "debt": {
+            "compatible": true,
+            "matched": 0,
+            "side": "right",
+            "letters": "anaideripsni",
+            "closure_exact": false
+          },
+          "payoff": {
+            "paid": 0,
+            "added": 12,
+            "ratio": 0.0,
+            "debt_before": 0,
+            "debt_after": 12,
+            "valid": true
+          },
+          "repeat_increment": 0,
+          "signature": [
+            "START",
+            "reference-VP",
+            "right",
+            "anaideripsni"
+          ]
+        },
+        {
+          "side": "left",
+          "chunk": {
+            "id": "reference-L",
+            "text": "An aide rips nine ",
+            "entry": "START",
+            "exit": "reference-OBJ",
+            "role": "subject, action, numeric object determiner",
+            "source": "022 authored finite shared-document narrative; Diana fixed as recipient, no name-variant search.",
+            "bindings": []
+          },
+          "debt": {
+            "compatible": true,
+            "matched": 12,
+            "side": "left",
+            "letters": "ne",
+            "closure_exact": false
+          },
+          "payoff": {
+            "paid": 12,
+            "added": 14,
+            "ratio": 0.8571428571428571,
+            "debt_before": 12,
+            "debt_after": 2,
+            "valid": true
+          },
+          "repeat_increment": 0,
+          "signature": [
+            "reference-OBJ",
+            "reference-VP",
+            "left",
+            "ne"
+          ]
+        },
+        {
+          "side": "right",
+          "chunk": {
+            "id": "reference-M",
+            "text": "memos; some men ",
+            "entry": "reference-OBJ",
+            "exit": "reference-VP",
+            "role": "object and second human subject; no explicit document anaphor",
+            "source": "022 authored finite shared-document narrative; Diana fixed as recipient, no name-variant search.",
+            "bindings": []
+          },
+          "debt": {
+            "compatible": true,
+            "matched": 14,
+            "side": "right",
+            "letters": "memossomem",
+            "closure_exact": true
+          },
+          "payoff": {
+            "paid": 2,
+            "added": 12,
+            "ratio": 0.16666666666666666,
+            "debt_before": 2,
+            "debt_after": 10,
+            "valid": true
+          },
+          "repeat_increment": 0,
+          "signature": [
+            "reference-OBJ",
+            "reference-OBJ",
+            "right",
+            "memossomem"
+          ]
+        }
+      ],
+      "quality_unrated": true,
+      "center_ids": [],
+      "center_offset": null,
+      "repetition": {
+        "repeated_tokens": {},
+        "token_repeat_excess": 0,
+        "repeated_phrases": {}
+      },
+      "human_label": null,
+      "review_pending": false,
+      "review": {
+        "text": "An aide rips nine memos; some men inspire Diana.",
+        "letters": 38,
+        "words": 9,
+        "grammar": 5,
+        "readability": 4,
+        "coherence": 2.5,
+        "overall_10": 5.0,
+        "repetition": "No repeated tokens",
+        "provenance": "Historical checkpoint control; not a new paragraph or current human approval",
+        "note": "Both clauses parse, but the memo destruction and the men inspiring Diana have no explicit shared-document link or motive.",
+        "proposal_disposition": "diagnostic_reference_only",
+        "human_label": null
+      }
+    },
+    {
+      "arm": "editor_condition",
+      "method": "whole_chunk_centers",
+      "id": "bilateral-81b63e0f99042a72",
+      "text": "Some men, if editors suss roti, define memos.",
+      "tape": "somemenifeditorssussrotidefinememos",
+      "letters": 35,
+      "left_ids": [
+        "editor-suss-roti-0"
+      ],
+      "right_ids": [
+        "editor-suss-roti-2"
+      ],
+      "bindings": {},
+      "repeat_cost": 0,
+      "trace": [
+        {
+          "side": "left",
+          "chunk": {
+            "id": "editor-suss-roti-0",
+            "text": "Some men, if editors ",
+            "entry": "START",
+            "exit": "editor-suss-roti-S0",
+            "role": "main subject and conditional editor subject",
+            "source": "022 posthoc conditional office frame; primary repeats memos explicitly. Weakened condition is a semantic diagnostic only.",
+            "bindings": []
+          },
+          "debt": {
+            "compatible": true,
+            "matched": 2,
+            "side": "left",
+            "letters": "rotidefinememos",
+            "closure_exact": false,
+            "palindromic_residual": false
+          },
+          "payoff": {
+            "paid": 1,
+            "added": 16,
+            "ratio": 0.0625,
+            "debt_before": 1,
+            "debt_after": 15,
+            "valid": true
+          },
+          "repeat_increment": 0,
+          "growth": "prepend_L",
+          "signature": [
+            "START",
+            "editor-suss-roti-S1",
+            "left",
+            "rotidefinememos"
+          ]
+        },
+        {
+          "side": "right",
+          "chunk": {
+            "id": "editor-suss-roti-2",
+            "text": "roti, define memos.",
+            "entry": "editor-suss-roti-S1",
+            "exit": "END",
+            "role": "conditional object, clause boundary, main finite predicate and memos object",
+            "source": "022 posthoc conditional office frame; primary repeats memos explicitly. Weakened condition is a semantic diagnostic only.",
+            "bindings": []
+          },
+          "debt": {
+            "compatible": true,
+            "matched": 17,
+            "side": "none",
+            "letters": "",
+            "closure_exact": true,
+            "palindromic_residual": true
+          },
+          "payoff": {
+            "paid": 15,
+            "added": 15,
+            "ratio": 1.0,
+            "debt_before": 15,
+            "debt_after": 0,
+            "valid": true
+          },
+          "repeat_increment": 0,
+          "growth": "append_R",
+          "cycle_signature_revisited": true,
+          "signature": [
+            "START",
+            "END",
+            "none",
+            ""
+          ]
+        }
+      ],
+      "quality_unrated": true,
+      "center_ids": [
+        "editor-suss-roti-1"
+      ],
+      "center_offset": [
+        1,
+        1
+      ],
+      "repetition": {
+        "repeated_tokens": {},
+        "token_repeat_excess": 0,
+        "repeated_phrases": {}
+      },
+      "review_pending": false,
+      "human_label": null,
+      "review": {
+        "text": "Some men, if editors suss roti, define memos.",
+        "letters": 35,
+        "words": 8,
+        "grammar": 4,
+        "readability": 2.5,
+        "coherence": 1.5,
+        "overall_10": 3.0,
+        "repetition": "No repeated tokens",
+        "provenance": "Debt-conditioned posthoc conditional diagnostic, authored around lexical completion; originality unverified",
+        "note": "Conditional syntax is intact. The word pair suss roti and the action define memos are marked; there is no clear office/food relation. It fails the explicit shared-document objective and is not a useful readable paragraph.",
+        "proposal_disposition": "rejected_by_owner_model_for_quality",
+        "human_label": null
+      }
+    },
+    {
+      "arm": "editor_condition",
+      "method": "owed_outside_in",
+      "id": "bilateral-81b63e0f99042a72",
+      "text": "Some men, if editors suss roti, define memos.",
+      "tape": "somemenifeditorssussrotidefinememos",
+      "letters": 35,
+      "left_ids": [
+        "editor-suss-roti-0"
+      ],
+      "right_ids": [
+        "editor-suss-roti-1",
+        "editor-suss-roti-2"
+      ],
+      "bindings": {},
+      "repeat_cost": 0,
+      "trace": [
+        {
+          "side": "right",
+          "chunk": {
+            "id": "editor-suss-roti-2",
+            "text": "roti, define memos.",
+            "entry": "editor-suss-roti-S1",
+            "exit": "END",
+            "role": "conditional object, clause boundary, main finite predicate and memos object",
+            "source": "022 posthoc conditional office frame; primary repeats memos explicitly. Weakened condition is a semantic diagnostic only.",
+            "bindings": []
+          },
+          "debt": {
+            "compatible": true,
+            "matched": 0,
+            "side": "right",
+            "letters": "somemenifeditor",
+            "closure_exact": false
+          },
+          "payoff": {
+            "paid": 0,
+            "added": 15,
+            "ratio": 0.0,
+            "debt_before": 0,
+            "debt_after": 15,
+            "valid": true
+          },
+          "repeat_increment": 0,
+          "signature": [
+            "START",
+            "editor-suss-roti-S1",
+            "right",
+            "somemenifeditor"
+          ]
+        },
+        {
+          "side": "left",
+          "chunk": {
+            "id": "editor-suss-roti-0",
+            "text": "Some men, if editors ",
+            "entry": "START",
+            "exit": "editor-suss-roti-S0",
+            "role": "main subject and conditional editor subject",
+            "source": "022 posthoc conditional office frame; primary repeats memos explicitly. Weakened condition is a semantic diagnostic only.",
+            "bindings": []
+          },
+          "debt": {
+            "compatible": true,
+            "matched": 15,
+            "side": "left",
+            "letters": "s",
+            "closure_exact": true
+          },
+          "payoff": {
+            "paid": 15,
+            "added": 16,
+            "ratio": 0.9375,
+            "debt_before": 15,
+            "debt_after": 1,
+            "valid": true
+          },
+          "repeat_increment": 0,
+          "signature": [
+            "editor-suss-roti-S0",
+            "editor-suss-roti-S1",
+            "left",
+            "s"
+          ]
+        },
+        {
+          "side": "right",
+          "chunk": {
+            "id": "editor-suss-roti-1",
+            "text": "suss ",
+            "entry": "editor-suss-roti-S0",
+            "exit": "editor-suss-roti-S1",
+            "role": "complete lexical transitive verb in conditional clause",
+            "source": "022 posthoc conditional office frame; primary repeats memos explicitly. Weakened condition is a semantic diagnostic only.",
+            "bindings": []
+          },
+          "debt": {
+            "compatible": true,
+            "matched": 16,
+            "side": "right",
+            "letters": "sus",
+            "closure_exact": true
+          },
+          "payoff": {
+            "paid": 1,
+            "added": 4,
+            "ratio": 0.25,
+            "debt_before": 1,
+            "debt_after": 3,
+            "valid": true
+          },
+          "repeat_increment": 0,
+          "signature": [
+            "editor-suss-roti-S0",
+            "editor-suss-roti-S0",
+            "right",
+            "sus"
+          ]
+        }
+      ],
+      "quality_unrated": true,
+      "center_ids": [],
+      "center_offset": null,
+      "repetition": {
+        "repeated_tokens": {},
+        "token_repeat_excess": 0,
+        "repeated_phrases": {}
+      },
+      "review_pending": false,
+      "human_label": null,
+      "review": {
+        "text": "Some men, if editors suss roti, define memos.",
+        "letters": 35,
+        "words": 8,
+        "grammar": 4,
+        "readability": 2.5,
+        "coherence": 1.5,
+        "overall_10": 3.0,
+        "repetition": "No repeated tokens",
+        "provenance": "Debt-conditioned posthoc conditional diagnostic, authored around lexical completion; originality unverified",
+        "note": "Conditional syntax is intact. The word pair suss roti and the action define memos are marked; there is no clear office/food relation. It fails the explicit shared-document objective and is not a useful readable paragraph.",
+        "proposal_disposition": "rejected_by_owner_model_for_quality",
+        "human_label": null
+      }
+    }
+  ],
+  "output_occurrences": 4,
+  "sampled_occurrences": 4,
+  "unique_sampled_texts": 2,
+  "rounding": "ceil(10% per method/stratum); each nonempty group has one output, so 4/4 occurrences=100%; method duplicates retained",
+  "primary_empty_samples": true,
+  "human_feedback": null
+}

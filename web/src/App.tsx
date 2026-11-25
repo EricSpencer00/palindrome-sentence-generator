@@ -139,6 +139,7 @@ const FONT_PX = 42          // one unit of the block's own coordinate system
 const LINE = 1.42           // line height, in those units
 const TOP_CHROME = 108      // space kept clear for the prompt
 const BOTTOM_CHROME = 132   // and for the hint, the buttons and the credits
+const BOTTOM_CHROME_NARROW = 184  // the same below 640px, where the credits wrap
 const MAX_SCALE = 3         // scaling a large block UP is what strains the rasteriser
 const EXPECT_LETTERS = 1200 // fallback if the search does not announce its size
 const CHARS_PER_LETTER = 1.3  // what the spaces between words add
@@ -237,6 +238,9 @@ function Bar({ x, y }: { x: number; y: number }) {
 
 /* Which letter each printed character is, so that a centre echoed with the
    visitor's own spacing still pairs up letter for letter. */
+/** Letters only: a word's punctuation takes space on screen but no place in the mirror. */
+const letterCount = (w: string) => (w.match(/[a-z]/gi) ?? []).length
+
 function letterAt(text: string): number[] {
   const out: number[] = []
   let n = 0
@@ -261,7 +265,7 @@ function place(s: Shape, cols: number): Grid {
 
   /* The centre word is the palindromic core, so it sits symmetrically across the
      mirror: its C letters run from −C to +C in half-letters, whatever C is. */
-  const core = s.center.length
+  const core = letterCount(s.center)
   const center: Cell | null = display
     ? { text: display, row: 0, col: cStart, rel: -core }
     : null
@@ -280,7 +284,7 @@ function place(s: Shape, cols: number): Grid {
     right.push({ text: w, row, col, rel })
     rightExt.push(stretch(rightExt[rightExt.length - 1], row, col, w.length))
     col += w.length + 1
-    rel += 2 * w.length
+    rel += 2 * letterCount(w)
   }
 
   // Left half: prepended, so it fills leftward and wraps UPWARD, each line
@@ -296,7 +300,7 @@ function place(s: Shape, cols: number): Grid {
     const w = s.left[i]
     if (end - w.length + 1 < 0) { row -= 1; end = cols - 1 }
     const at = Math.max(0, end - w.length + 1)
-    rel -= 2 * w.length
+    rel -= 2 * letterCount(w)
     left.push({ text: w, row, col: at, rel })
     leftExt.push(stretch(leftExt[leftExt.length - 1], row, at, w.length))
     end = at - 2
@@ -442,7 +446,9 @@ export default function App() {
      gap, not the space between the two bars: subtracting the bars' combined
      height would let the taller side's overhang run under the credits. */
   const availW = vp.w - 32
-  const availH = Math.max(160, vp.h - 2 * Math.max(TOP_CHROME, BOTTOM_CHROME))
+  // On a phone the credits wrap to two or three lines, so the bottom cluster is taller.
+  const bottomChrome = vp.w < 640 ? BOTTOM_CHROME_NARROW : BOTTOM_CHROME
+  const availH = Math.max(160, vp.h - 2 * Math.max(TOP_CHROME, bottomChrome))
 
   /* The advance of a monospace cell, read once. Every position on the poster is
      arithmetic on this number, so it is the only thing measured — and measuring
@@ -876,7 +882,7 @@ export default function App() {
                 <Word
                   text={c.text} rel={c.rel} pick={pick} mirror={mirror}
                   onPick={() => setPick((p) =>
-                    p && p[0] === c.rel ? null : [c.rel, c.rel + 2 * c.text.length])}
+                    p && p[0] === c.rel ? null : [c.rel, c.rel + 2 * letterCount(c.text)])}
                 />
               </span>
             ))}

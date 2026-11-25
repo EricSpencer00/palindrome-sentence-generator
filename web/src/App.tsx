@@ -404,9 +404,8 @@ export default function App() {
   const [converged, setConverged] = useState(false)
   const deadline = useRef(0)
   const scroller = useRef<HTMLDivElement>(null)
-  /* Saved outputs of the retired versions, and which one is on the poster. */
+  /* Saved outputs of the retired versions, replayed in a box under the essay. */
   const [archives, setArchives] = useState<Record<string, Result[]>>({})
-  const [archive, setArchive] = useState<string | null>(null)
 
   /* v3's two extra controls. `cap` is the bank's own ceiling, asked for rather
      than assumed, so the dial cannot promise a length the material cannot
@@ -638,7 +637,6 @@ export default function App() {
     setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }; pace.current.acc = 1
     finished.current = false
     setPhase("searching"); setRunId((n) => n + 1); setConverged(false); setCardOpen(false)
-    setArchive(null)
     // A selection left on the page paints every word the pen writes into it.
     window.getSelection?.()?.removeAllRanges()
   }, [])
@@ -655,16 +653,6 @@ export default function App() {
     setResult(pick); setConverged(true)
     write(pick.left.length, pick.right.length)
   }, [availW, availH, advance, write])
-
-  const replayVersion = useCallback((v: string) => {
-    const list = archives[v]
-    const pick = list?.[Math.floor(Math.random() * list.length)]
-    if (!pick) return
-    reset()
-    setArchive(v)
-    scroller.current?.scrollTo?.({ top: 0, behavior: "smooth" })
-    play(pick)
-  }, [archives, reset, play])
 
   const generate = useCallback(() => {
     reset()
@@ -1092,14 +1080,10 @@ export default function App() {
       </div>
       )}
 
-      {archive && grid && (
-        <p className="label pointer-events-none absolute inset-x-0 top-6 z-30 text-center sm:top-10">{archive}</p>
-      )}
-
       {done && result && <Tutorial onOpenChange={setCardOpen} />}
     </div>
     {!IS_V3 && (
-      <About versions={VERSIONS.filter((v) => archives[v])} onReplay={replayVersion} />
+      <About archives={archives} />
     )}
     </div>
   )

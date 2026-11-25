@@ -107,26 +107,29 @@
   }
   /* ---- debt per step ------------------------------------------------- */
   ;(() => {
-    const W = 640, H = 176, left = 30, top = 40, base = 134, max = Math.max(...STEPS.map((s) => s.owed ? s.owed[1].length : 0))
+    // Diverging: the right half's debt rises above the centre line, the left's hangs below it.
+    const W = 640, H = 230, left = 70, mid = 100, reach = 70, max = Math.max(...STEPS.map((s) => s.owed ? s.owed[1].length : 0))
     const bw = (W - left) / STEPS.length
-    const svg = svgOf(W, H, "Letters owed after each step of the walkthrough, by side.")
-    svg.appendChild(el("line", { x1: left, x2: W, y1: base, y2: base, stroke: "var(--ink)" }))
+    const svg = svgOf(W, H, "Letters owed after each step of the walkthrough: above the line when the right half owes, below when the left does.")
+    svg.appendChild(el("line", { x1: left, x2: W, y1: mid, y2: mid, stroke: "var(--ink)" }))
+    svg.appendChild(el("text", { x: left - 10, y: mid - reach / 2, "text-anchor": "end" }, "right owes"))
+    svg.appendChild(el("text", { x: left - 10, y: mid + reach / 2 + 4, "text-anchor": "end" }, "left owes"))
     const groups = STEPS.map((s, i) => {
-      const n = s.owed ? s.owed[1].length : 0, h = ((base - top) * n) / max, x = left + i * bw + bw * 0.3
+      const n = s.owed ? s.owed[1].length : 0, h = (reach * n) / max, x = left + i * bw + bw * 0.3
+      const up = !s.owed || s.owed[0] === "right"
       const g = svg.appendChild(el("g", {}))
-      g.appendChild(el("rect", { x, y: base - Math.max(h, 1.5), width: bw * 0.4, height: Math.max(h, 1.5), rx: 3,
-        fill: s.owed && s.owed[0] === "right" ? "var(--signal)" : "var(--grey)" }))
-      g.appendChild(el("text", { x: x + bw * 0.2, y: base - h - 6, "text-anchor": "middle", class: "val" }, n))
-      g.appendChild(el("text", { x: x + bw * 0.2, y: base + 18, "text-anchor": "middle" }, `step ${i + 1}`))
+      g.appendChild(el("rect", { x, y: up ? mid - Math.max(h, 1.5) : mid, width: bw * 0.4, height: Math.max(h, 1.5), rx: 3,
+        fill: up ? "var(--signal)" : "var(--ink)" }))
+      g.appendChild(el("text", { x: x + bw * 0.2, y: up ? mid - h - 6 : mid + h + 14, "text-anchor": "middle", class: "val" }, n))
+      g.appendChild(el("text", { x: x + bw * 0.2, y: H - 8, "text-anchor": "middle" }, `step ${i + 1}`))
       const hit = svg.appendChild(el("rect", { x: left + i * bw, y: 0, width: bw, height: H, fill: "transparent" }))
       hit.style.cursor = "pointer"
       hover(hit, () => s.owed ? `<b>Step ${i + 1}</b><br>${s.owed[0]} owes “${s.owed[1]}”` : `<b>Step ${i + 1}</b><br>nothing owed`)
       hit.addEventListener("click", () => { at = i; draw() })
       return g
     })
-    svg.appendChild(el("text", { x: left, y: 12 }, "letters owed"))
     onStep.push((k) => groups.forEach((g, i) => g.setAttribute("opacity", i === k ? 1 : 0.35)))
-    mount("debt", null, svg, "The debt across the walkthrough: blue while the right half owes, grey while the left does. It shrinks, flips sides on an overpayment, and closes at zero. Click a step to show it above.")
+    mount("debt", null, svg, "Letters owed at each step of the walkthrough. Every overpayment flips the debt across the line to the other half; it closes at zero. Click a step to show it above.")
   })()
 
   document.getElementById("w-back").onclick = () => { at = Math.max(0, at - 1); draw() }
@@ -175,15 +178,20 @@
     svg.appendChild(el("path", { d: d + `L${x1},${base}L${x0},${base}Z`, fill: "var(--signal-soft)" }))
     svg.appendChild(el("path", { d, fill: "none", stroke: "var(--signal)", "stroke-width": 2 }))
     svg.appendChild(el("line", { x1: x0, x2: x1, y1: base, y2: base, stroke: "var(--ink)", "stroke-width": 1 }))
-    svg.appendChild(el("text", { x: x0, y: base + 24, class: "val" }, "no it a no it a"))
-    svg.appendChild(el("text", { x: x1, y: base + 24, "text-anchor": "end", class: "val" }, "Ere he met a hill."))
+    // Two real sentences from the live generator, placed at the probability the verifier gave them.
+    for (const [p, s] of [[0.242, "Still act on did I wonder."], [0.908, "So help me to stay a lion, till I know."]]) {
+      const t = 0.5 + Math.log(p / (1 - p)) / 12, x = x0 + t * (x1 - x0), y = base - p * 80
+      svg.appendChild(el("circle", { cx: x, cy: y, r: 5, fill: "var(--paper)", stroke: "var(--signal)", "stroke-width": 2 }))
+      svg.appendChild(el("text", { x, y: base + 24, "text-anchor": "middle", class: "val" }, s))
+      svg.appendChild(el("text", { x: x + 10, y: y + 4 }, p.toFixed(2)))
+    }
     svg.appendChild(el("text", { x: x0, y: base + 46 }, "repetitive garbage"))
     svg.appendChild(el("text", { x: x1, y: base + 46, "text-anchor": "end" }, "readable English"))
     svg.appendChild(el("text", { x: x0, y: 18 }, "probability readable"))
     const fig = document.getElementById("spectrum")
     fig.appendChild(svg)
     fig.appendChild(Object.assign(document.createElement("figcaption"), {
-      textContent: "Schematic. The verifier turns counts into a probability that a sentence is readable; the beam pays for sentences on the right and punishes those on the left." }))
+      textContent: "The verifier turns counts into a probability that a sentence is readable. Both sentences come from the live generator; the beam rewards the second and punishes the first." }))
   })()
 
   /* ---- nested shells ---------------------------------------------------- */

@@ -158,7 +158,9 @@
     corpus and the share of filler words, then penalises repeated content words and non-words.
     The result is a probability that the sentence is readable English, fitted to separate human
     palindromes from machine word salad. Sentences that fall below the line drag their whole
-    paragraph down the beam. A counting model is the better tool here than a neural judge: it
+    paragraph down the beam. The verifier reads one side at a time: it judges each sentence on
+    the half where that sentence closes and never compares it with its mirror, whose letters are
+    already fixed by the debt. The mirror half gets judged when its own sentences close. A counting model is the better tool here than a neural judge: it
     runs in a fraction of a millisecond, so it can score every candidate instead of only the
     finalists, and every penalty it gives can be traced to a count.
   </p>

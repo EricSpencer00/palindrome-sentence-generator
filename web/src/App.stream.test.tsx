@@ -225,22 +225,17 @@ describe("the stream", () => {
     expect(screen.queryByRole("button", { name: /what is this/i })).not.toBe(null)
   })
 
-  test("replays a saved output of an earlier version, labelled with it", async () => {
+  test("replays an earlier version in its own box, leaving the poster alone", async () => {
     await draw(0)
     // Only versions whose file loaded get a button.
     expect(screen.queryByRole("button", { name: "v1" })).toBe(null)
     fireEvent.click(screen.getByRole("button", { name: "v2" }))
-    await drawAll()
+    await draw(4000)
 
-    expect([shown("old"), shown("dlo")]).toEqual([true, true])
-    expect(document.querySelector("p.label.absolute")?.textContent).toBe("v2")
-  })
-
-  test("labels nothing on a normal run", async () => {
-    start()
-    stream().send(answer(LEFT, RIGHT))
-    await drawAll()
-    expect(document.querySelector("p.label.absolute")).toBe(null)
+    const box = screen.getByText(/v2 ·/).parentElement as HTMLElement
+    expect(box.textContent).toMatch(/old/)
+    expect(box.textContent).toMatch(/dlo/)
+    expect(FakeStream.last).toBe(null)   // no run started; the poster is untouched
   })
 
   test("writes fresh words in plain ink", async () => {

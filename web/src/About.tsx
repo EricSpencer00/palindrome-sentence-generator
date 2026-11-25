@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react"
+
 const A = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a href={href} target="_blank" rel="noopener noreferrer"
      className="underline decoration-from-font underline-offset-2 hover:text-signal">{children}</a>
@@ -14,10 +16,41 @@ const U = ({ children }: { children: React.ReactNode }) => (
 
 const P = ({ children }: { children: React.ReactNode }) => <p className="mt-4 first:mt-0">{children}</p>
 
+type Saved = { left: string[]; center?: string; centerDisplay?: string; right: string[]; letters: number }
+
+/* A saved paragraph from a retired version, written out from its mirror in a
+   small box of its own, so the poster above stays where it is. */
+function Replay({ version, item }: { version: string; item: Saved }) {
+  const mid = item.centerDisplay || item.center || ""
+  const [k, setK] = useState(0)
+  useEffect(() => {
+    setK(0)
+    const total = Math.max(item.left.length, item.right.length)
+    const step = Math.max(12, 3000 / Math.max(1, total))
+    const t = window.setInterval(() => setK((n) => (n >= total ? (window.clearInterval(t), n) : n + 1)), step)
+    return () => window.clearInterval(t)
+  }, [item])
+  const left = item.left.slice(Math.max(0, item.left.length - k))
+  const right = item.right.slice(0, k)
+  return (
+    <div className="tut-in mt-4 rounded-2xl border border-haze p-4">
+      <div className="label mb-2">{version} · {item.letters} letters</div>
+      <p className="break-words font-mono text-[13px] leading-relaxed">
+        {[...left, ...(mid ? [mid] : []), ...right].join(" ")}
+      </p>
+    </div>
+  )
+}
+
 /* Below the poster: why it exists, how it works, and what failed first. */
-export default function About({
-  versions = [], onReplay,
-}: { versions?: string[]; onReplay?: (v: string) => void }) {
+export default function About({ archives = {} }: { archives?: Record<string, Saved[]> }) {
+  const versions = Object.keys(archives).sort()
+  const [shown, setShown] = useState<{ v: string; item: Saved } | null>(null)
+  const replay = (v: string) => {
+    const list = archives[v]
+    const item = list[Math.floor(Math.random() * list.length)]
+    if (item) setShown({ v, item })
+  }
   return (
     <article id="about" className="mx-auto max-w-[38rem] px-5 pb-24 pt-16 font-display text-[15px] leading-relaxed text-ink">
       <h1 className="sr-only">Palindrome Paragraph Generator</h1>
@@ -123,13 +156,14 @@ export default function About({
         <div className="mt-10 flex flex-wrap items-center gap-2">
           <span className="label mr-1">Earlier versions</span>
           {versions.map((v) => (
-            <button key={v} onClick={() => onReplay?.(v)}
+            <button key={v} onClick={() => replay(v)}
                     className="rounded-[3px] bg-haze px-2 py-0.5 font-mono text-xs text-ink hover:bg-signal hover:text-paper">
               {v}
             </button>
           ))}
         </div>
       )}
+      {shown && <Replay version={shown.v} item={shown.item} />}
 
       <p className="label mt-16">
         <A href="https://github.com/EricSpencer00/palindrome-sentence-generator">source</A> ·{" "}

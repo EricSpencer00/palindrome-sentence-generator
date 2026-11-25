@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>How to Write a Palindrome Paragraph: The Letter-Debt Algorithm</title>
+<title>How the Palindrome Paragraph Generator Works</title>
 <meta name="description" content="How a palindrome paragraph generator works: letter debts between two halves, beam search, a trigram model and a counting verifier for readability, with measurements against v1 and real English.">
 <link rel="canonical" href="https://palindrome.ericspencer.us/how/">
 <meta property="og:title" content="How to Write a Palindrome Paragraph">
@@ -18,7 +18,7 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "How to Write a Palindrome Paragraph: The Letter-Debt Algorithm",
+  "headline": "How the Palindrome Paragraph Generator Works",
   "description": "How a palindrome paragraph generator works: letter debts, beam search, a trigram model and a counting readability verifier, with measurements.",
   "url": "https://palindrome.ericspencer.us/how/",
   "author": {"@type": "Person", "name": "Eric Spencer", "url": "https://ericspencer.us"},
@@ -81,24 +81,28 @@
 <body>
 <main>
   <a class="label" href="/">← Palindrome Paragraph Generator</a>
-  <h1>How to write a palindrome paragraph</h1>
+  <h1>How the palindrome paragraph generator works</h1>
   <p class="lede">
-    A palindrome reads the same backwards, letter by letter. Seven words of one is a party trick.
-    Three hundred letters of one that still reads like prose is an engineering problem, and this
-    is how the generator solves it.
+    This page explains how the generator builds paragraphs that read the same backwards, how
+    their sentences are scored, and how the output compares with earlier versions and with real
+    English. The short version: it writes grammatical sentences, and it still leans too hard on
+    two-letter words.
   </p>
 
-  <h2 id="rule">The rule: every letter is owed</h2>
+  <h2 id="rule">Definition of a palindrome paragraph</h2>
   <p>
-    Ignore spaces, punctuation and capitals, and a palindrome is a string of letters that equals
-    its own reverse. <i>Step on no pets</i> is <i>steponnopets</i>, and so is its reversal. Word
-    boundaries are free; letters are not. That asymmetry is the whole game. A word on the left
-    never needs a matching word on the right. It needs matching <em>letters</em>, and those
-    letters can be split across as many words as the right side likes.
+    A palindrome paragraph is a paragraph whose letters read the same in both directions once
+    spaces, punctuation and capitals are removed. <i>Step on no pets</i> becomes
+    <i>steponnopets</i>, which reverses to itself. Only the letters have to match. Words, spaces
+    and punctuation don’t, so <i>No, will I hate me here?</i> on the left is answered by
+    <i>Ere he met a hill. I won.</i> on the right, although no word on one side matches a word
+    on the other. That freedom is what makes long palindromes possible, and it is also why most
+    long palindromes read badly: letters can be cut into words almost any way at all.
   </p>
   <figure class="chart" id="tape"></figure>
+  <h2 id="debts">How the generator pays letter debts</h2>
   <p>
-    The generator therefore treats a palindrome as a ledger. It writes from the middle out. Each
+    The generator treats a palindrome as a ledger. It writes from the middle out. Each
     word added to one half creates a debt: the other half owes those letters, reversed. Whichever
     half owes adds words to pay. A word that overpays turns its surplus into a debt for the other
     side. The paragraph is finished when nothing is owed.
@@ -120,34 +124,33 @@
   </figure>
   <figure class="chart" id="debt"></figure>
 
-  <h2 id="moves">Why most moves are bad</h2>
+  <h2 id="moves">Why most valid moves produce gibberish</h2>
   <p>
-    Every debt can be paid many ways, and almost all of them are gibberish. <i>Hate me here</i>
-    reverses to <i>ereh em etah</i>. Split differently, the same letters give <i>ere he met
-    ah</i>, and with a little more, <i>ere he met a hill</i>. The trouble is that the search is
-    blind to meaning. Left alone, it discovers that tiny words are the cheapest way to settle a
-    debt: <i>a</i>, <i>I</i>, <i>no</i>, <i>it</i>, <i>on</i>. An unguided palindrome search
-    converges on a slurry of two-letter words, and every search that cares about grammar has to
-    pay for it in short words.
+    Each debt can be paid in many ways, and most of them are nonsense. <i>Hate me here</i>
+    reverses to <i>ereh em etah</i>. Cut differently, the same letters give <i>ere he met
+    ah</i>, and with a little more, <i>ere he met a hill</i>. A search that only cares about
+    matching letters can’t tell these apart, and it quickly learns that tiny words are the
+    cheapest payment: <i>a</i>, <i>I</i>, <i>no</i>, <i>it</i>, <i>on</i>. Keeping that habit in
+    check is the main job of the scoring described below.
   </p>
 
-  <h2 id="search">Search: keep hundreds, keep the best</h2>
+  <h2 id="search">Beam search: hundreds of drafts at once</h2>
   <p>
     A depth-first search commits to one path and dies in its first dead end. The generator runs
     a <strong>beam search</strong>: it holds a few hundred half-built paragraphs at once, extends
     every one of them by every legal word, scores the results and keeps only the best few hundred
-    for the next round. Bad branches die early; promising ones get room to grow. A debt is only
+    for the next round. A debt is only
     allowed if some sequence of dictionary words can still pay it, so the beam never wastes a slot
     on a hopeless paragraph.
   </p>
   <figure class="chart" id="beam" aria-label="Diagram of a beam search keeping the best candidates each round"></figure>
 
-  <h2 id="scoring">Scoring: grammar, counted</h2>
+  <h2 id="scoring">How each sentence is scored</h2>
   <p>
     Two scorers decide what "best" means. The first is a <strong>trigram language model</strong>
     trained on 3.8 million words of the Brown corpus and Project Gutenberg. It rewards sequences
-    English actually uses. Commas and full stops are tokens to it but cost no letters, so the
-    search can end a sentence wherever grammar wants a break, for free.
+    English actually uses. Commas, full stops and question marks are tokens to it but cost no
+    letters, so the search can end a sentence wherever the grammar wants a break.
   </p>
   <p>
     The second is a <strong>counting verifier</strong> that judges each sentence the moment its
@@ -155,12 +158,13 @@
     corpus and the share of filler words, then penalises repeated content words and non-words.
     The result is a probability that the sentence is readable English, fitted to separate human
     palindromes from machine word salad. Sentences that fall below the line drag their whole
-    paragraph down the beam. It runs in a fraction of a millisecond, so it judges every candidate
-    rather than only the survivor.
+    paragraph down the beam. A counting model is the better tool here than a neural judge: it
+    runs in a fraction of a millisecond, so it can score every candidate instead of only the
+    finalists, and every penalty it gives can be traced to a count.
   </p>
   <figure class="chart" id="spectrum" aria-label="The verifier’s readability scale from garbage to readable"></figure>
 
-  <h2 id="results">Results</h2>
+  <h2 id="results">Results compared with v1 and English</h2>
   <p>
     Every paragraph the generator returns is an exact palindrome; that is checked mechanically
     before anything is shown. The harder question is whether it reads. The measurements below
@@ -176,31 +180,33 @@
   <figure class="chart" id="d-letters"></figure>
   <details><summary>All measurements as a table</summary><div id="table"></div></details>
 
-  <h2 id="limits">What the numbers do and do not show</h2>
+  <h2 id="limits">What the results don’t prove</h2>
   <p>
-    The verifier’s verdict, two thirds of sentences readable and level with real English, is
-    not independent evidence: the search was optimised against that verifier, so of course it
-    passes. GPT-2 is the honest witness, because the search never consulted it. By that measure
-    the generator cuts v1’s perplexity more than sixfold, 205 against 1,273, and remains roughly
-    four times further from ordinary English, at 55. v1 is close to deterministic: 50 runs
-    gave 6 distinct paragraphs, so its row carries less weight than its count suggests. The verifier also scores how stock a sentence is, and the generator’s
-    sentences sit near that end, closer than real prose does; the search does not yet push back
-    against familiar phrasing. Short words are the price: 45% of the generator’s words have one
-    or two letters, against 30% for v1 and 21% for English. Grammar is bought with <i>a</i>,
-    <i>I</i>, <i>no</i> and <i>it</i>. The generator writes sentences; it has not yet escaped
-    the economics of the palindrome. No blinded human reader study has been run on this version.
+    The readability score flatters the generator. The search was optimised against it, so two
+    thirds of sentences rated readable, level with real English, says little on its own. GPT-2 is
+    a fairer judge because the search never consults it, and it puts the generator at a median
+    perplexity of 205: more than six times better than v1 at 1,273, and still about four times
+    worse than ordinary English at 55. v1’s row is thinner than it looks, because 50 runs gave
+    only 6 distinct paragraphs.
+  </p>
+  <p>
+    Short words are the weakest number. 45% of the generator’s words have one or two letters,
+    against 30% for v1 and 21% for English. The grammar is paid for with <i>a</i>, <i>I</i>,
+    <i>no</i> and <i>it</i>, and fixing that is the most important open problem. The sentences
+    also lean on familiar phrasing, because nothing in the search penalises it yet. No blinded
+    human reader study has been run on this version, and none of these numbers replace one.
   </p>
 
-  <h2 id="history">Where the idea comes from</h2>
+  <h2 id="history">Prior work: Hoey and Norvig</h2>
   <p>
     In 1984 Dan Hoey wrote a program that extended <i>A man, a plan, a canal: Panama</i> to
     hundreds of words by tracking the letters one side owed the other. In 2002 Peter Norvig
     rebuilt the idea as a search and <a href="https://norvig.com/pal-alg.html">documented it</a>.
-    Their palindromes are records, not reading: exact, enormous lists of names and nouns. This
-    generator keeps their bookkeeping and changes the objective, from length to prose.
+    Their palindromes are impressive and unreadable: exact, enormous lists of names and nouns.
+    This generator keeps their bookkeeping and aims for prose instead of length.
   </p>
 
-  <h2 id="versions">Four versions that failed</h2>
+  <h2 id="versions">Versions 1 to 4 and why they failed</h2>
   <figure class="chart" id="timeline"></figure>
   <ol class="versions">
     <li><strong>v1</strong> searched word by word, scored by a bigram model and reranked by GPT-2. Exact at any length, word salad at every length. A blinded judge rejected all 25 of its sentences.</li>
@@ -210,10 +216,11 @@
   </ol>
   <figure class="chart" id="shells"></figure>
   <p>
-    The lesson of all four: exactness is easy and readability cannot be bolted on at the end. It
-    has to be rewarded at every step of the search. Penalising bad phrases is not enough either.
-    In a controlled study of 360 matched runs, banning the six most reused phrases removed them
-    and raised lexical diversity, and the search found new ruts to replace them.
+    Two conclusions came out of these failures. Readability has to be scored during the search;
+    checking it at the end is too late, because by then every candidate is already gibberish.
+    And banning bad phrases doesn’t work: in a controlled study of 360 matched runs, banning the
+    six most reused phrases removed them and raised lexical diversity, and the search settled
+    into new repeated phrases instead.
   </p>
 
   <a class="cta" href="/">Generate a paragraph</a>

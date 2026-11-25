@@ -304,7 +304,7 @@
       (v) => Math.round(v).toLocaleString(),
       "An independent check: GPT-2 never takes part in the search, so the generator cannot have been tuned against it.", data)
     bars("c-short", "Words of one or two letters", "short_share", pct,
-      "The price of exactness. Short words are the cheapest way to pay a letter debt, and every palindrome method leans on them.", data)
+      "Short words are the cheapest way to pay a letter debt. This generator uses more of them than v1, which is its worst result.", data)
     bars("c-sentence", "Words per sentence", "sentence_words", (v) => v.toFixed(1),
       "Free punctuation lets the generator end sentences; v1 wrote each paragraph as one run-on.", data)
     const cols = [["readable_share", "readable", pct], ["gpt2_ppl_median", "GPT-2 ppl", (v) => Math.round(v)],

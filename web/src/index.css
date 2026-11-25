@@ -221,7 +221,16 @@ body {
 @keyframes tut-in { from { opacity: 0; transform: translateY(6px) scale(.98) } to { opacity: 1; transform: none } }
 .tut-in { animation: tut-in 220ms cubic-bezier(.22,1,.36,1); }
 
+/* The waiting word: the old one lifts away as the next rises into its place. */
+.wait-word { opacity: 0; transform: translateY(5px); filter: blur(3px);
+  transition: opacity 380ms ease, transform 520ms cubic-bezier(.22,1,.36,1), filter 380ms ease; }
+.wait-word[data-s="on"] { opacity: 1; transform: none; filter: none; }
+.wait-word[data-s="out"] { transform: translateY(-5px); }
+.wait-dot { opacity: 0; transition: opacity 220ms ease; }
+.wait-dot[data-on="true"] { opacity: 1; }
+
 @media (prefers-reduced-motion: reduce) {
+  .wait-word, .wait-dot { transition: none; transform: none; filter: none; }
   .shimmer span, .shimmer::after, .tut-in, .pen { animation: none; }
   .pen { display: none; }
 }

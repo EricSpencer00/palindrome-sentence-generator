@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import type { MouseEvent } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -377,18 +377,41 @@ function progress(t: number) {
 
 const WAIT_WORDS = ["loading", "thinking", "pondering", "mirroring", "balancing"]
 
-/* Under the pens while the search runs. The word ends at the mirror and the
-   dots start there, in a fixed box, so neither moves when the word changes. */
+/* Under the pens while the search runs. Every word ends on one fixed line and
+   the dots start there, so nothing moves when the word changes. The line sits
+   right of centre by half the average word, so the phrase reads as centred. */
 function Waiting() {
   const [n, setN] = useState(0)
+  const [shift, setShift] = useState(0)
+  const words = useRef<HTMLSpanElement>(null)
+  const dots = useRef<HTMLSpanElement>(null)
+  useLayoutEffect(() => {
+    const measure = () => {
+      if (!words.current || !dots.current) return
+      const ws = [...words.current.children].map((c) => c.getBoundingClientRect().width)
+      setShift((ws.reduce((a, b) => a + b, 0) / ws.length - dots.current.getBoundingClientRect().width) / 2)
+    }
+    measure()
+    document.fonts?.ready.then(measure)
+  }, [])
   useEffect(() => {
     const t = window.setInterval(() => setN((k) => k + 1), 450)
     return () => window.clearInterval(t)
   }, [])
+  const cur = Math.floor(n / 3) % WAIT_WORDS.length
+  const prev = (cur + WAIT_WORDS.length - 1) % WAIT_WORDS.length
   return (
-    <div aria-hidden="true" className="label absolute inset-x-0 top-1/2 mt-8 grid grid-cols-2">
-      <span className="text-right">{WAIT_WORDS[Math.floor(n / 3) % WAIT_WORDS.length]}</span>
-      <span className="w-[3ch] text-left">{".".repeat((n % 3) + 1)}</span>
+    <div aria-hidden="true" className="label absolute inset-x-0 top-1/2 mt-8 grid"
+         style={{ gridTemplateColumns: `calc(50% + ${shift}px) 1fr` }}>
+      <span ref={words} className="grid justify-items-end">
+        {WAIT_WORDS.map((w, i) => (
+          <span key={w} className="wait-word col-start-1 row-start-1"
+                data-s={i === cur ? "on" : i === prev && n >= 3 ? "out" : "off"}>{w}</span>
+        ))}
+      </span>
+      <span ref={dots} className="flex justify-self-start">
+        {[0, 1, 2].map((i) => <span key={i} className="wait-dot" data-on={i <= n % 3}>.</span>)}
+      </span>
     </div>
   )
 }

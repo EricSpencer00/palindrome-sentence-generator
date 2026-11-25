@@ -43,8 +43,11 @@ class Lexicon:
 
     def __init__(self, lm: ProseLM, t: Tables, min_count: int = 3):
         from .shortwords import REAL_SHORT_WORDS
+        # Stems the tokenizer cut from contractions: "didn" of "didn't".
+        stubs = {"didn", "doesn", "don", "isn", "wasn", "weren", "hasn", "haven", "hadn",
+                 "couldn", "wouldn", "shouldn", "mustn", "aren", "ain", "shan", "needn", "ll", "ve", "re"}
         self.words = {w for w, n in lm.uni.items()
-                      if n >= min_count and w.isalpha() and t.is_word(w)
+                      if n >= min_count and w.isalpha() and t.is_word(w) and w not in stubs
                       and (len(w) > 2 or w in REAL_SHORT_WORDS)}
         self.freq = {w: lm.uni[w] for w in self.words}
         self.prefix, self.suffix = collections.defaultdict(list), collections.defaultdict(list)
@@ -134,7 +137,9 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
          spectrum=None, sent_w: float = 1.5, comma_pen: float = 1.0,
          theme: dict | None = None, theme_w: float = 6.0,
          runon: int = 18, runon_pen: float = 2.0,
-         neural=None, refresh: int = 3, neural_w: float = 1.0) -> list[State]:
+         neural=None, refresh: int = 3, neural_w: float = 1.0,
+         recall: int = 40, far_pen: float = 0.5, slack: int = 80,
+         start_noise: float = 0.3, start_steps: int = 8) -> list[State]:
     rng = random.Random(seed)
     pals = [p for p in PALINDROMES if p in lex.words and len(p) > 1]
     start = State(centre, "R", "", 0.0, sum(map(len, centre)), 0, None, tuple(centre)).settle()
@@ -164,6 +169,22 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
     def priority(s):
         return s.score + s.adj + letter_w * s.n - owed_w * len(s.owed)
 
+    def quality(k) -> float:
+        """Mean per-token value of a closed paragraph, penalties included."""
+        return (k.score + k.adj) / len(k.seq)
+
+    def finish(sq) -> float:
+        """A closed paragraph: its first word starts a sentence, its last ends
+        one, and its two outer sentences are judged whole like the rest."""
+        d = lm.fwd(None, BOS, sq[0]) - fterm(sq, 0)
+        if len(sq) > 1:
+            d += lm.fwd(BOS, sq[0], sq[1]) - fterm(sq, 1)
+        d += lm.fwd(sq[-2] if len(sq) > 1 else BOS, sq[-1], BOS)
+        if "." in sq:
+            d += sentence(sq[:sq.index(".")])
+            d += sentence(sq[len(sq) - sq[::-1].index("."):])
+        return d
+
     def tri_total(sq) -> float:
         return sum(fterm(sq, i) for i in range(len(sq)))
 
@@ -187,12 +208,15 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
                 pen = 0.0
                 left_side = new_seq[:1] != seq[:1] or not seq
                 near = [x for x in (new_seq[:9] if left_side else new_seq[-9:]) if x not in (",", ".")]
+                recent = new_seq[:recall] if left_side else new_seq[-recall:]
                 for i, w in enumerate(new_words):
                     n = uses[w] + 1 + new_words[:i].count(w)
                     if _content(w):
-                        pen += repeat_pen * (n - 1) - content_bonus - theme_w * topic.get(w, 0.0)
+                        local = recent.count(w) - 1
+                        pen += (repeat_pen * local + far_pen * max(0, n - 1 - local)
+                                - content_bonus - theme_w * topic.get(w, 0.0))
                     else:
-                        pen += 0.6 * max(0, n - 4)
+                        pen += 0.6 * max(0, recent.count(w) - 3)
                     if near.count(w) > 1:
                         pen += window_pen
                 # An edge that has gone too long without a full stop is a run-on.
@@ -299,18 +323,19 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
 
         for k in pool:
             if not k.owed and k.n >= target and k.seq[0] not in (",", ".") and k.seq[-1] != ",":
+                k.adj += finish(k.seq)
                 closed.append(k)
-        if len(closed) >= 200:
-            break
+        if len(closed) > 2000:
+            closed = heapq.nlargest(500, closed, key=quality)
         # Diversity: one state per (outer context, owed); a little noise.
         best = {}
         for k in pool:
             key = (k.seq[:3], k.seq[-3:], k.owner, k.owed)
-            pk = priority(k) + rng.random() * 0.3
+            pk = priority(k) + rng.random() * (start_noise if step < start_steps else 0.3)
             if key not in best or pk > best[key][0]:
                 best[key] = (pk, k)
         states = [k for _, k in heapq.nlargest(beam, best.values(), key=lambda x: x[0])]
-        states = [k.settle() for k in states if k.n < target + 60]
+        states = [k.settle() for k in states if k.n < target + slack]
         step += 1
         if neural is not None and states and step % refresh == 0:
             reanchor(states)
@@ -318,7 +343,7 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
         if debug and states:
             top = states[0]
             print(len(pool), len(states), len(closed), top.n, top.owner, repr(top.owed), render(top.seq), flush=True)
-    return closed
+    return sorted(closed, key=quality, reverse=True)
 
 
 def render(seq) -> str:
@@ -353,7 +378,7 @@ def main() -> None:
     closed = grow(lm, lex, args.letters, beam=args.beam, seed=args.seed, spectrum=Spectrum(t), theme=theme,
                   sent_w=2.0, content_bonus=1.6,
                   centre=tuple(args.centre.lower().split()))
-    ranked = sorted(closed, key=lambda s: -lm.score([x for x in s.seq]))
+    ranked = closed
     seen = set()
     for s in ranked:
         text = render(s.seq)

@@ -83,36 +83,29 @@
       textContent: "Beam search, schematic. Every kept candidate (filled) is extended by every legal word; all of them are scored and only the best survive to the next round. The real beam holds hundreds per round." }))
   })()
 
-  /* ---- spectrum diagram ----------------------------------------------- */
+  /* ---- readability scale ------------------------------------------- */
   ;(() => {
     const W = 640, H = 170
     const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img",
-      "aria-label": "Reward is highest in the middle of the spectrum, between repetitive garbage and stock phrases." })
+      "aria-label": "The verifier's readable probability rises from repetitive garbage to readable sentences." })
     const x0 = 30, x1 = W - 30, base = 110
     let d = ""
     for (let i = 0; i <= 100; i++) {
-      const t = i / 100, v = Math.exp(-(((t - 0.5) / 0.17) ** 2))
+      const t = i / 100, v = 1 / (1 + Math.exp(-(t - 0.5) * 12))
       d += `${i ? "L" : "M"}${x0 + t * (x1 - x0)},${base - v * 80}`
     }
     svg.appendChild(el("path", { d: d + `L${x1},${base}L${x0},${base}Z`, fill: "var(--signal-soft)" }))
     svg.appendChild(el("path", { d, fill: "none", stroke: "var(--signal)", "stroke-width": 2 }))
     svg.appendChild(el("line", { x1: x0, x2: x1, y1: base, y2: base, stroke: "var(--ink)", "stroke-width": 1 }))
-    const ex = [
-      [0.05, "start", "no it a no it a"],
-      [0.5, "middle", "Ere he met a hill."],
-      [0.95, "end", "Was it a car or a cat I saw?"],
-    ]
-    for (const [t, anchor, s] of ex) {
-      svg.appendChild(el("text", { x: x0 + t * (x1 - x0), y: base + 24, "text-anchor": anchor, class: "val" }, s))
-    }
+    svg.appendChild(el("text", { x: x0, y: base + 24, class: "val" }, "no it a no it a"))
+    svg.appendChild(el("text", { x: x1, y: base + 24, "text-anchor": "end", class: "val" }, "Ere he met a hill."))
     svg.appendChild(el("text", { x: x0, y: base + 46 }, "repetitive garbage"))
-    svg.appendChild(el("text", { x: (x0 + x1) / 2, y: base + 46, "text-anchor": "middle" }, "readable and fresh"))
-    svg.appendChild(el("text", { x: x1, y: base + 46, "text-anchor": "end" }, "stock phrase"))
-    svg.appendChild(el("text", { x: (x0 + x1) / 2, y: 18, "text-anchor": "middle" }, "reward"))
+    svg.appendChild(el("text", { x: x1, y: base + 46, "text-anchor": "end" }, "readable English"))
+    svg.appendChild(el("text", { x: x0, y: 18 }, "probability readable"))
     const fig = document.getElementById("spectrum")
     fig.appendChild(svg)
     fig.appendChild(Object.assign(document.createElement("figcaption"), {
-      textContent: "The verifier rewards the middle. Garbage fails because nobody can read it; famous palindromes fail because they are already written." }))
+      textContent: "Schematic. The verifier turns counts into a probability that a sentence is readable; the beam pays for sentences on the right and punishes those on the left." }))
   })()
 
   /* ---- measurement charts --------------------------------------------- */

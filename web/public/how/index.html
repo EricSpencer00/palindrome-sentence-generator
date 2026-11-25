@@ -136,7 +136,7 @@
   </p>
   <figure class="chart" id="beam" aria-label="Diagram of a beam search keeping the best candidates each round"></figure>
 
-  <h2>Scoring: fluent, but not a cliché</h2>
+  <h2>Scoring: grammar, counted</h2>
   <p>
     Two scorers decide what "best" means. The first is a <strong>trigram language model</strong>
     trained on 3.8 million words of the Brown corpus and Project Gutenberg. It rewards sequences
@@ -146,13 +146,13 @@
   <p>
     The second is a <strong>counting verifier</strong> that judges each sentence the moment its
     full stop lands. It uses no neural network: it counts part-of-speech patterns from the Brown
-    corpus, the share of filler words, repetition and word rarity, and places the sentence on a
-    line that runs from repetitive garbage to stock phrase. Both ends lose. Garbage is unreadable;
-    stock phrases are the palindrome world's clichés. The verifier rewards the middle, where a
-    sentence is readable and still surprising. It runs in a fraction of a millisecond, so it
-    judges every candidate rather than only the survivor.
+    corpus and the share of filler words, then penalises repeated content words and non-words.
+    The result is a probability that the sentence is readable English, fitted to separate human
+    palindromes from machine word salad. Sentences that fall below the line drag their whole
+    paragraph down the beam. It runs in a fraction of a millisecond, so it judges every candidate
+    rather than only the survivor.
   </p>
-  <figure class="chart" id="spectrum" aria-label="The readability spectrum from garbage to stock phrase"></figure>
+  <figure class="chart" id="spectrum" aria-label="The verifier’s readability scale from garbage to readable"></figure>
 
   <h2>Results</h2>
   <p>
@@ -173,7 +173,9 @@
     not independent evidence: the search was optimised against that verifier, so of course it
     passes. GPT-2 is the honest witness, because the search never consulted it. By that measure
     the generator more than halves v1’s perplexity, 205 against 457, and remains roughly four
-    times further from ordinary English, at 55. Short words tell the same story from the other
+    times further from ordinary English, at 55. The verifier also scores how stock a sentence is, and the generator’s
+    sentences sit near that end, closer than real prose does; the search does not yet push back
+    against familiar phrasing. Short words tell the same story from the other
     side: 45% of the generator’s words have one or two letters, no better than v1 and double
     English. The generator writes sentences; it has not yet escaped the economics of the
     palindrome. No blinded human reader study has been run on this version.

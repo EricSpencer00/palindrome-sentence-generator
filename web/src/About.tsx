@@ -53,8 +53,9 @@ export default function About() {
       <P>
         Promise is measured twice. A trigram language model, trained on 3.8 million words of the
         Brown corpus and Project Gutenberg, scores how naturally each step reads. When a sentence
-        closes, a counting verifier grades it, with no neural network in the loop: repetitive
-        garbage loses, stock phrases lose, and the readable middle wins. It runs in a fraction of a
+        closes, a counting verifier grades it, with no neural network in the loop: it reads the
+        sentence’s grammar off part-of-speech patterns and punishes filler, repetition and
+        non-words, so garbage dies in the beam. It runs in a fraction of a
         millisecond, so every candidate is judged, not just the survivor. Commas and full stops
         cost no letters, so a sentence ends wherever the grammar wants it to.
       </P>

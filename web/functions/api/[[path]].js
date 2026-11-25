@@ -4,6 +4,8 @@
 // detail. The upstream response is returned as-is so the SSE body keeps
 // streaming rather than being buffered.
 const ORIGIN = "https://palindrome-api.ericspencer.us"
+// dev.* hosts talk to the v5 engine, routed by the tunnel under /v5.
+const DEV_PREFIX = "/v5"
 
 // The upstream service still contains historical generators.  Keep the
 // public API honest at the Pages boundary: health and other diagnostic
@@ -26,7 +28,8 @@ export async function onRequest(context) {
     })
   }
 
-  const upstream = new URL(url.pathname + url.search, ORIGIN)
+  const prefix = url.hostname.startsWith("dev.") ? DEV_PREFIX : ""
+  const upstream = new URL(prefix + url.pathname + url.search, ORIGIN)
 
   const res = await fetch(upstream, {
     method: context.request.method,

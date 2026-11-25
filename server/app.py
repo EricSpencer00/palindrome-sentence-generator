@@ -89,6 +89,15 @@ _lm = None
 _lm_error: Optional[str] = None
 
 
+@app.middleware("http")
+async def strip_v5_prefix(request: Request, call_next):
+    """The tunnel routes palindrome-api.../v5/* to the v5 instance as-is."""
+    path = request.scope["path"]
+    if path == "/v5" or path.startswith("/v5/"):
+        request.scope["path"] = path[3:] or "/"
+    return await call_next(request)  # declared last: runs before the retirement check
+
+
 def _warm() -> None:
     """Vocabulary and model load once, off the request path."""
     global _tries, _bigrams, _lm, _lm_error

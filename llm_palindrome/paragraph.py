@@ -213,8 +213,9 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
                     n = uses[w] + 1 + new_words[:i].count(w)
                     if _content(w):
                         local = recent.count(w) - 1
+                        # The theme pays for a word once; after that it is ordinary repetition.
                         pen += (repeat_pen * local + far_pen * max(0, n - 1 - local)
-                                - content_bonus - theme_w * topic.get(w, 0.0))
+                                - content_bonus - (theme_w * topic.get(w, 0.0) if n == 1 else 0.0))
                     else:
                         pen += 0.6 * max(0, recent.count(w) - 3)
                     if near.count(w) > 1:

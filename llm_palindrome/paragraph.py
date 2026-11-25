@@ -139,7 +139,7 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
          runon: int = 18, runon_pen: float = 2.0,
          neural=None, refresh: int = 3, neural_w: float = 1.0,
          recall: int = 40, far_pen: float = 0.5, slack: int = 80,
-         start_noise: float = 0.3, start_steps: int = 8) -> list[State]:
+         start_noise: float = 0.3, start_steps: int = 8, on_step=None) -> list[State]:
     rng = random.Random(seed)
     pals = [p for p in PALINDROMES if p in lex.words and len(p) > 1]
     start = State(centre, "R", "", 0.0, sum(map(len, centre)), 0, None, tuple(centre)).settle()
@@ -337,6 +337,8 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
         states = [k for _, k in heapq.nlargest(beam, best.values(), key=lambda x: x[0])]
         states = [k.settle() for k in states if k.n < target + slack]
         step += 1
+        if on_step is not None and states and step % 4 == 0:
+            on_step(states[0])
         if neural is not None and states and step % refresh == 0:
             reanchor(states)
             states.sort(key=priority, reverse=True)

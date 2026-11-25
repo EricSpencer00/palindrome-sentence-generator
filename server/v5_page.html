@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Palindrome Paragraph Generator: long palindromes that read both ways</title>
+<meta name="description" content="Generate whole palindrome paragraphs, hundreds of words long, that read the same forwards and backwards letter by letter. Pick a theme and a length; every result is checked exact.">
+<link rel="canonical" href="{{SITE}}/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Palindrome Paragraph Generator">
+<meta property="og:description" content="Whole paragraphs that read the same backwards, letter by letter.">
+<meta property="og:url" content="{{SITE}}/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=JetBrains+Mono:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">{{LD_JSON}}</script>
+<style>
+:root{--bg:#fff;--ink:#16131f;--mute:#6b6680;--line:#e7e3f2;--accent:#5b3fd9;--accent-soft:#efeafe;--twin:#ffd84d;--card:#fbfaff}
+@media (prefers-color-scheme:dark){:root{--bg:#0f0d16;--ink:#ece9f7;--mute:#9a94b3;--line:#2a2540;--accent:#9d87ff;--accent-soft:#1f1838;--twin:#806a00;--card:#15121f}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Archivo,system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:56px 16px 96px}
+h1{font-weight:800;font-size:clamp(34px,6vw,56px);line-height:1.02;letter-spacing:-.02em;margin:0 0 28px}
+h1 em{font-style:normal;color:var(--accent)}
+h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:64px 0 18px;font-weight:600}
+.prose{font-family:Newsreader,Georgia,serif;font-size:clamp(19px,2.4vw,23px);line-height:1.6}
+.prose .l{transition:background .12s}
+.prose .l.on{background:var(--twin);border-radius:2px}
+.prose .mid{box-shadow:inset 0 -3px 0 var(--accent)}
+.meta{font:13px/1.4 "JetBrains Mono",monospace;color:var(--mute);margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.meta b{color:var(--ink);font-weight:600}
+.ok{color:var(--accent)}
+form{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:end;margin:0 0 26px}
+label{display:flex;flex-direction:column;gap:6px;font:12px "JetBrains Mono",monospace;color:var(--mute)}
+input[type=text]{font:inherit;font-size:17px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);min-width:0}
+input[type=range]{accent-color:var(--accent);width:150px}
+input:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button{font:600 16px Archivo,sans-serif;padding:13px 22px;border:0;border-radius:10px;background:var(--accent);color:#fff;cursor:pointer}
+button:disabled{opacity:.55;cursor:progress}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.ghost{background:var(--accent-soft);color:var(--accent);padding:9px 14px;font-size:14px}
+#out{min-height:120px;border:1.5px solid var(--line);border-radius:16px;padding:26px 24px;background:var(--card)}
+#out.wait .prose{color:var(--mute)}
+.ex{border-top:1px solid var(--line);padding:26px 0}
+.ex h3{font-size:15px;margin:0 0 10px;font-weight:600}
+.ex h3 span{font:12px "JetBrains Mono",monospace;color:var(--mute);font-weight:400;margin-left:8px}
+.ex p{margin:0}
+.how{font-size:17px;max-width:680px}
+.how code{font:14px "JetBrains Mono",monospace;background:var(--accent-soft);padding:1px 5px;border-radius:4px}
+footer{margin-top:72px;font-size:13px;color:var(--mute)}
+footer a{color:var(--mute)}
+@media (max-width:640px){form{grid-template-columns:1fr 1fr}form label:first-child{grid-column:1/-1}input[type=range]{width:100%}}
+</style>
+</head>
+<body>
+<main>
+<h1>Paragraphs that read the same <em>backwards</em>.</h1>
+
+<form id="f">
+  <label>Theme<input type="text" id="theme" value="love, heart, tears" autocomplete="off" maxlength="80"></label>
+  <label>Length <span id="lv">300 letters</span><input type="range" id="len" min="150" max="800" step="50" value="300"></label>
+  <button id="go">Generate</button>
+</form>
+
+<section id="out" aria-live="polite">
+  <div class="prose" id="text">{{HERO_TEXT}}</div>
+  <div class="meta" id="meta">{{HERO_META}}</div>
+  <div class="row" id="actions">
+    <button class="ghost" type="button" id="rev">Read it backwards</button>
+    <button class="ghost" type="button" id="copy">Copy</button>
+  </div>
+</section>
+
+<h2>Generated paragraphs</h2>
+<div id="examples">
+{{EXAMPLES}}
+</div>
+
+<h2>How it works</h2>
+<div class="how">
+<p>Strip the spaces and punctuation from any paragraph here and the letters read the same in both directions. The text is not edited into shape afterwards; it is a palindrome at every step of its construction.</p>
+<p>The generator writes from the middle outward. Each half owes the other a run of letters, its <em>debt</em>. A word added on the right must spell the debt; a word that overshoots flips the leftover letters into a new debt for the left. Words straddle the mirror freely: <code>walk</code> at the start pairs with <code>…k law</code> at the end. Wherever nothing is owed, a palindrome such as <code>racecar</code> can sit in both halves at once.</p>
+<p>Punctuation is free, so sentences end where they read best. A literary language model scores every word, a syntax check judges every finished sentence, and repetition and run-ons are priced in. The search keeps the paragraph that reads best of the thousands that close exactly.</p>
+</div>
+
+<footer>Built on Peter Norvig's and Dan Hoey's palindrome search. <a href="https://github.com/EricSpencer00/palindrome-sentence-generator">Source</a> · <a href="/api/v5/paragraph?theme=sea&amp;letters=400">API</a></footer>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const len = $("len"), lv = $("lv");
+len.oninput = () => lv.textContent = len.value + " letters";
+
+function paint(target, text) {
+  // Every letter gets an index; hovering one lights its mirror twin.
+  target.textContent = "";
+  const letters = [];
+  for (const ch of text) {
+    if (/[a-z]/i.test(ch)) {
+      const s = document.createElement("span");
+      s.className = "l"; s.textContent = ch; s.dataset.i = letters.length;
+      letters.push(s); target.appendChild(s);
+    } else target.appendChild(document.createTextNode(ch));
+  }
+  const n = letters.length;
+  letters.forEach((s, i) => {
+    s.dataset.j = n - 1 - i;
+    if (i === Math.floor((n - 1) / 2) || i === Math.ceil((n - 1) / 2)) s.classList.add("mid");
+  });
+  target.onmouseover = e => {
+    const s = e.target.closest(".l"); if (!s) return;
+    target.querySelectorAll(".on").forEach(x => x.classList.remove("on"));
+    s.classList.add("on"); letters[+s.dataset.j].classList.add("on");
+  };
+  target.onmouseleave = () => target.querySelectorAll(".on").forEach(x => x.classList.remove("on"));
+  return n;
+}
+
+document.querySelectorAll(".ex p").forEach(p => paint(p, p.textContent));
+
+let current = $("text").textContent.trim();
+if (current) paint($("text"), current);
+function show(d) {
+  current = d.text;
+  $("out").classList.remove("wait");
+  paint($("text"), d.text);
+  $("meta").innerHTML = `<span><b>${d.letters}</b> letters</span><span><b>${d.words}</b> words</span>` +
+    `<span><b>${d.seconds}</b> s</span><span class="ok">reads the same backwards ✓</span>`;
+  $("actions").hidden = false;
+}
+
+$("f").onsubmit = e => {
+  e.preventDefault();
+  const go = $("go"); go.disabled = true;
+  $("out").classList.add("wait"); $("actions").hidden = true;
+  $("text").textContent = "Writing from the middle outward…"; $("meta").textContent = "";
+  const q = new URLSearchParams({theme: $("theme").value, letters: len.value, seed: Math.floor(Math.random() * 1000)});
+  let drafted = 0;
+  const es = new EventSource("/api/v5/stream?" + q);
+  es.onmessage = m => {
+    const d = JSON.parse(m.data);
+    if (d.type === "status") $("meta").textContent = (d.phase === "warming" ? "warming up · " : drafted ? drafted + " letters so far · " : "") + d.elapsed + " s";
+    else if (d.type === "draft") { drafted = d.letters; $("text").textContent = d.text; $("meta").textContent = `${d.letters} letters so far · ${d.elapsed} s`; }
+    else { es.close(); go.disabled = false;
+      if (d.type === "result") show(d); else $("text").textContent = d.message || "Nothing closed; try again."; }
+  };
+  es.onerror = () => { es.close(); go.disabled = false; $("text").textContent = "Connection lost; try again."; };
+};
+
+$("rev").onclick = () => {
+  // Reverse the letters, keep every space and mark where it was: same text.
+  const letters = [...current].filter(c => /[a-z]/i.test(c)).reverse();
+  let k = 0, out = "";
+  for (const ch of current) out += /[a-z]/i.test(ch) ? (ch === ch.toUpperCase() ? letters[k++].toUpperCase() : letters[k++].toLowerCase()) : ch;
+  paint($("text"), out);
+  $("rev").textContent = out === current ? "Backwards: identical" : "Read it backwards";
+};
+$("copy").onclick = () => navigator.clipboard.writeText(current);
+</script>
+</body>
+</html>

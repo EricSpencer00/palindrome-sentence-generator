@@ -367,6 +367,7 @@ function Word({
 
 /* Log-shaped: 90% by 3s, the last 10% across 3–20s, then the run times out. */
 const TIMEOUT_MS = 20000
+const REPLAY = "/replay.json"   // paragraphs written earlier, for when the generator is down
 function progress(t: number) {
   return t <= 3
     ? 0.9 * Math.log1p(3 * t) / Math.log1p(9)
@@ -631,18 +632,37 @@ export default function App() {
     finished.current = false
     setPhase("searching"); setRunId((n) => n + 1); setConverged(false); setCardOpen(false)
 
-    window.clearTimeout(deadline.current)
-    deadline.current = window.setTimeout(() => {
+    /* When the generator is down or too busy to answer in time, play one of the
+       paragraphs it wrote earlier instead of showing an error. */
+    const fail = (message: string) => {
+      es.close()
       if (finished.current) return
-      es.close(); setError("timed out"); setResult(null); setPhase("error")
-    }, TIMEOUT_MS)
+      finished.current = true
+      window.clearTimeout(tick.current); tick.current = 0
+      fetch(REPLAY)
+        .then((r) => (r.ok ? r.json() : Promise.reject()))
+        .then((list: Result[]) => {
+          const pick = list[Math.floor(Math.random() * list.length)]
+          if (!pick) throw new Error()
+          setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }; pace.current.acc = 1
+          const n = pickCols(pick.letters, availW, availH, advance)
+          setCols(n)
+          setEndRows(Math.max(1, Math.ceil((pick.letters * CHARS_PER_LETTER) / n)))
+          setResult(pick); setConverged(true)
+          write(pick.left.length, pick.right.length)
+        })
+        .catch(() => { setError(message); setResult(null); setPhase("error") })
+    }
+
+    window.clearTimeout(deadline.current)
+    deadline.current = window.setTimeout(() => fail("timed out"), TIMEOUT_MS)
     const es = new EventSource(`${API}?prompt=${encodeURIComponent(prompt)}&budget=16`)
     esRef.current = es
     es.onmessage = (ev) => {
       const msg = JSON.parse(ev.data)
       if (msg.type === "status") { setElapsed(msg.elapsed ?? 0); return }
       if (msg.type === "plan") { expectRef.current = msg.expectLetters ?? EXPECT_LETTERS; return }
-      if (msg.type === "error") { setError(msg.message); setPhase("error"); es.close(); return }
+      if (msg.type === "error") { fail(msg.message); return }
 
       /* Drafts and the final answer are the same object at different lengths:
          the search only ever sends text that extends what it has already sent,
@@ -663,13 +683,7 @@ export default function App() {
         write(shape.left.length, shape.right.length)
       }
     }
-    es.onerror = () => {
-      setPhase((cur) => {
-        if (cur === "searching") { setError("could not reach the generator"); return "error" }
-        return cur
-      })
-      es.close()
-    }
+    es.onerror = () => fail("could not reach the generator")
   }, [prompt, availW, availH, advance, write, cols])
 
   /* v3, which arrives whole and is written out anyway.

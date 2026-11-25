@@ -7,74 +7,102 @@ const H = ({ children }: { children: React.ReactNode }) => (
   <h2 className="label mb-3 mt-14 first:mt-0">{children}</h2>
 )
 
-/* Below the poster: how it works, where it comes from, and what failed first. */
+const P = ({ children }: { children: React.ReactNode }) => <p className="mt-4 first:mt-0">{children}</p>
+
+/* Below the poster: why it exists, how it works, and what failed first. */
 export default function About() {
   return (
     <article id="about" className="mx-auto max-w-[38rem] px-5 pb-24 pt-16 font-display text-[15px] leading-relaxed text-ink">
+      <H>Why a paragraph</H>
+      <P>
+        Palindromes are words or phrases that mirror themselves halfway. One side’s letters
+        reverse into the other side. However, I always thought the existing palindromes out there
+        were too short or had exploited a trick that made them unimpressive to me.
+      </P>
+
       <H>How it works</H>
-      <p>
-        A palindrome is a ledger that has to balance. Start in the middle and write outward, and
-        every word placed on one side runs up a debt: the other side must eventually spell the same
-        letters backward. Lay down <i>rats live on</i> on the left and the right is already in
-        arrears, owing <i>no evil star</i>. Whichever side owes goes shopping for words that pay it
-        off. A word that overpays is not wasted; the surplus becomes the other side's debt. And when
-        the books come out even, the generator can slip a small palindrome such as <i>racecar</i> or{" "}
-        <i>noon</i> into the seam, on both sides at once.
-      </p>
-      <p className="mt-4">
-        One paragraph is hopeless, so a beam search keeps a few hundred half-built ones alive and
-        lets them compete. Commas and full stops cost no letters, which means a sentence can end
-        almost anywhere it pleases. A trigram language model, schooled on 3.8 million words of the
-        Brown corpus and Project Gutenberg prose, scores every step. Then comes the censor: a
-        counting verifier, no neural network, that judges each sentence the moment it closes. It
-        sorts text along a spectrum from repetitive garbage to stock phrases, and it rewards the
-        middle, where prose is readable without being cliché. It takes a fraction of a millisecond
-        per sentence, so it sits in judgment over every candidate, not just the survivor.
-      </p>
+      <P>
+        Imagine writing a balance sheet for a financial firm. As you add up one side of the
+        ledger, you must reconcile the other side. My intuition on what a palindromic paragraph
+        generator would look like was similar to this idea. As you grow from the middle of the
+        palindrome, you have no idea what either side is going to end with. So, you can play
+        around in a depth-first search kind of way.
+      </P>
+      <P>
+        Click on a longer word above. Longer words usually mean a few small words on the other
+        side. But what happens when the word does not flip into another word easily? You can see
+        how it must pay the debt that it has created for itself by using other letters from the
+        starts or ends of other words. <i>Hate me here</i> flips into <i>ereh em etah</i>, but
+        this is uninteresting and gibberish. Instead, split the second part into <i>ere he met
+        ah</i> via Brown-corpus sentence construction. Then, further add letters onto the second
+        part to create more interesting phrases such as <i>ere he met a hill</i>. But wait, that
+        means we need to add more letters to the first phrase. <i>Illi hate me here</i> doesn’t
+        work, but <i>Will I hate me here?</i> does. That also means adding a <i>w</i> to the
+        second phrase, and you can easily see how small additions can pile onto each other,
+        creating coherent phrases one on top of another.
+      </P>
+
+      <H>Choosing among millions</H>
+      <P>
+        Each step offers dozens of legal moves, so the number of possible paragraphs explodes
+        within a few words. A depth-first search commits to one path and dies in its first dead
+        end. This generator runs a beam search instead: it keeps the few hundred most promising
+        half-built paragraphs, extends every one of them, and throws the rest away.
+      </P>
+      <P>
+        Promise is measured twice. A trigram language model, trained on 3.8 million words of the
+        Brown corpus and Project Gutenberg, scores how naturally each step reads. When a sentence
+        closes, a counting verifier grades it, with no neural network in the loop: repetitive
+        garbage loses, stock phrases lose, and the readable middle wins. It runs in a fraction of a
+        millisecond, so every candidate is judged, not just the survivor. Commas and full stops
+        cost no letters, so a sentence ends wherever the grammar wants it to.
+      </P>
 
       <H>Where it comes from</H>
-      <p>
-        In 1984, Dan Hoey wrote a program that took <i>A man, a plan, a canal: Panama</i> and kept
-        going, matching the letters one side owed the other until the palindrome ran hundreds of
-        words. In 2002, Peter Norvig rebuilt the idea as a search over those leftovers and{" "}
-        <A href="https://norvig.com/pal-alg.html">wrote it up</A>. Both were astonishing feats. Both
-        produced text nobody could read aloud without embarrassment: long, exact, breathless lists
-        of names and nouns. This generator keeps their debt and asks for something harder, which
-        is sentences.
-      </p>
+      <P>
+        In 1984, Dan Hoey wrote a program that stretched <i>A man, a plan, a canal: Panama</i> to
+        hundreds of words by tracking exactly this kind of letter debt. In 2002, Peter Norvig
+        rebuilt it as a search and <A href="https://norvig.com/pal-alg.html">wrote it up</A>. Their
+        palindromes are records, not reading: exact, enormous lists of names and nouns. This
+        generator keeps their bookkeeping and demands sentences.
+      </P>
 
-      <H>What didn't work</H>
+      <H>What didn’t work</H>
       <ol className="list-none space-y-4">
         <li>
-          <b>v1</b> searched word by word with a bigram model and GPT-2 reranking. It was a
-          failure, and an instructive one. The palindromes were exact at any length and word salad
-          at every length. Of its words, 52.6% had one or two letters, against 18.5% in ordinary
-          English; the search had discovered that tiny words are cheap. A blinded judge rejected
-          all 25 of its sentences.
+          <b>v1</b> searched word by word, scored by a bigram model and reranked by GPT-2. It made
+          exact palindromes at any length and word salad at every length. The search learned that
+          tiny words are the cheapest way to pay a debt: 52.6% of its words had one or two letters,
+          against 18.5% in ordinary English. A blinded judge rejected all 25 of its sentences.
         </li>
         <li>
-          <b>v2</b> placed whole sentences mined from Wikipedia, about 1,300 of them. It read
-          better for a dishonest reason: it quoted instead of writing.
+          <b>v2</b> stopped generating and started quoting, placing about 1,300 whole sentences
+          mined from Wikipedia into the mirror. It read better because it was borrowing, not
+          writing.
         </li>
         <li>
-          <b>v3</b> nested 540 verified palindromes from an offline bank. It stalled near a
-          thousand letters, when the bank ran dry, and blind readers preferred the shorter,
-          ungrown version in 20 of 20 pairs. Growth made it worse.
+          <b>v3</b> built paragraphs from a bank of 540 verified palindromes, nesting short ones
+          inside longer ones. The bank ran dry near a thousand letters, and readers preferred the
+          shorter original over the grown paragraph in 20 of 20 pairs. Longer was worse.
         </li>
         <li>
-          <b>v4</b> searched grammatical paths while matching letters at the seams. Its best, a
-          650-letter result, still repeated names and broke clauses mid-thought.
+          <b>v4</b> searched for grammatical paths while matching letters at the seams. Its best
+          reached 650 letters and still repeated names and broke clauses mid-thought.
         </li>
       </ol>
+      <P>
+        Each failure narrowed the problem. Exactness is easy. Readability has to be rewarded at
+        every step, not checked at the end.
+      </P>
 
       <H>Research</H>
-      <p>
-        Long searches fall into ruts, and the ruts are deep: 46 of 52 earlier outputs contained
-        the phrase <i>no it a</i>. In a controlled study across 360 matched runs,
-        penalising the six most reused phrases wiped them out entirely and raised lexical
-        diversity. The search shrugged and found new ruts. Banning bad phrases does not produce
-        good ones, which is why the current generator rewards good sentences instead.
-      </p>
+      <P>
+        Long searches fall into ruts: 46 of 52 earlier outputs contained <i>no it a</i>. In a
+        controlled study of 360 matched runs, penalizing the six most reused phrases removed them
+        and raised lexical diversity, and the search found new ruts to replace them. Banning bad
+        phrases doesn’t produce good ones. That is why this generator rewards good sentences
+        instead of punishing bad ones.
+      </P>
 
       <p className="label mt-16">
         <A href="https://github.com/EricSpencer00/palindrome-sentence-generator">source</A> ·{" "}

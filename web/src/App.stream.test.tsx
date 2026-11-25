@@ -72,6 +72,8 @@ const drawAll = () => draw(8 * WORD_MS + STEP)
 
 const start = () => fireEvent.click(screen.getByRole("button", { name: /generate/i }))
 const shown = (word: string) => screen.queryByText(word) !== null
+let replay: unknown[] | null = null
+
 const bar = () => document.querySelector('[role="progressbar"]')
 
 beforeEach(() => {
@@ -82,6 +84,10 @@ beforeEach(() => {
   vi.advanceTimersByTime(1)
   FakeStream.last = null
   vi.stubGlobal("EventSource", FakeStream)
+  replay = null
+  vi.stubGlobal("fetch", () => replay
+    ? Promise.resolve({ ok: true, json: async () => replay })
+    : Promise.reject(new Error("offline")))
   render(<App />)
 })
 
@@ -173,9 +179,10 @@ describe("the stream", () => {
     expect(screen.queryByRole("button", { name: /what is this/i })).not.toBe(null)
   })
 
-  test("reports an error frame and stops", () => {
+  test("reports an error frame and stops", async () => {
     start()
     stream().send({ type: "error", message: "the bank is empty" })
+    await draw(0)
 
     expect(screen.getByText("the bank is empty")).not.toBe(null)
     expect(stream().closed).toBe(true)
@@ -183,9 +190,10 @@ describe("the stream", () => {
     expect(button.disabled).toBe(false)
   })
 
-  test("reports a transport failure while searching", () => {
+  test("reports a transport failure while searching", async () => {
     start()
     stream().fail()
+    await draw(0)
 
     expect(screen.getByText("could not reach the generator")).not.toBe(null)
     expect(stream().closed).toBe(true)
@@ -202,4 +210,15 @@ describe("the stream", () => {
     expect(screen.queryByText("could not reach the generator")).toBe(null)
   })
 
+
+  test("plays a cached paragraph when the generator is down", async () => {
+    replay = [answer(LEFT, RIGHT)]
+    start()
+    stream().fail()
+    await drawAll()
+
+    expect([shown("one"), shown("eight")]).toEqual([true, true])
+    expect(screen.queryByText("could not reach the generator")).toBe(null)
+    expect(screen.queryByRole("button", { name: /what is this/i })).not.toBe(null)
+  })
 })

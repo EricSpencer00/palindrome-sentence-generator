@@ -126,15 +126,6 @@ describe("the composed poster", () => {
     expect(status()).toBe("30 letters · 9 words · yours at the centre")
   })
 
-  test("reads out the written form, not the bare letters", async () => {
-    await mount()
-    start()
-    await drawAll()
-
-    fireEvent.click(screen.getByRole("button", { name: /read it/i }))
-    expect(shown("One two three four level five six seven eight.")).toBe(true)
-  })
-
   test("reports what the composer said when it refuses", async () => {
     failure = { status: 422, detail: "no centre matches that" }
     await mount()

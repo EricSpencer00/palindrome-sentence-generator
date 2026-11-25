@@ -2,6 +2,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import type { MouseEvent } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import About from "./About"
+import Tutorial from "./Tutorial"
 
 /* THE POSTER, in one paragraph.
  *
@@ -133,13 +135,11 @@ type Paragraph = {
 }
 
 type Phase = "idle" | "searching" | "done" | "error"
-type View = "poster" | "read"
 
 const FONT_PX = 42          // one unit of the block's own coordinate system
 const LINE = 1.42           // line height, in those units
 const TOP_CHROME = 108      // space kept clear for the prompt
-const BOTTOM_CHROME = 132   // and for the hint, the buttons and the credits
-const BOTTOM_CHROME_NARROW = 184  // the same below 640px, where the credits wrap
+const CARD_CHROME = 260     // the open "What is this?" card, so it covers no words
 const MAX_SCALE = 3         // scaling a large block UP is what strains the rasteriser
 const EXPECT_LETTERS = 1200 // fallback if the search does not announce its size
 const CHARS_PER_LETTER = 1.3  // what the spaces between words add
@@ -394,8 +394,7 @@ export default function App() {
   const [result, setResult] = useState<Result | null>(null)
   const [elapsed, setElapsed] = useState(0)
   const [error, setError] = useState("")
-  const [view, setView] = useState<View>("poster")
-  const [copied, setCopied] = useState(false)
+  const [cardOpen, setCardOpen] = useState(false)
   const [vp, setVp] = useState(() => ({ w: window.innerWidth, h: window.innerHeight }))
   const [advance, setAdvance] = useState(0.6)   // character width, in font sizes
   const [cols, setCols] = useState(0)
@@ -473,9 +472,7 @@ export default function App() {
      gap, not the space between the two bars: subtracting the bars' combined
      height would let the taller side's overhang run under the credits. */
   const availW = vp.w - 32
-  // On a phone the credits wrap to two or three lines, so the bottom cluster is taller.
-  const bottomChrome = vp.w < 640 ? BOTTOM_CHROME_NARROW : BOTTOM_CHROME
-  const availH = Math.max(160, vp.h - 2 * Math.max(TOP_CHROME, bottomChrome))
+  const availH = Math.max(160, vp.h - 2 * (cardOpen ? CARD_CHROME : TOP_CHROME))
 
   /* The advance of a monospace cell, read once. Every position on the poster is
      arithmetic on this number, so it is the only thing measured — and measuring
@@ -619,16 +616,6 @@ export default function App() {
   }, [grid, written, drawn, cols, endRows, done, anchorX, anchorY, charW, lineH,
       availW, availH])
 
-  const fullText = useMemo(() => {
-    if (!result) return ""
-    // v3 has a written form, and it is the one worth carrying away: the poster
-    // draws the letters, and the letters are what the page is FOR, but nobody
-    // pastes a lowercase run of 300 words into anything.
-    if (result.written) return result.written
-    return [...result.left, result.centerDisplay || result.center, ...result.right]
-      .filter(Boolean).join(" ")
-  }, [result])
-
   /* Click a word and its mirror image lights up. Measured from the mirror, the
      image of a span is just its negation — and because the pairing runs by
      letter while the text is cut into words, the answer almost never lines up
@@ -651,11 +638,11 @@ export default function App() {
   const generate = useCallback(() => {
     esRef.current?.close()
     window.clearTimeout(tick.current); tick.current = 0
-    setResult(null); setError(""); setElapsed(0); setCopied(false); setPick(null)
+    setResult(null); setError(""); setElapsed(0); setPick(null)
     setCols(0); setEndRows(1); expectRef.current = EXPECT_LETTERS
     setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }
     lastFrame.current = performance.now(); finished.current = false
-    setView("poster"); setPhase("searching"); setRunId((n) => n + 1); setConverged(false)
+    setPhase("searching"); setRunId((n) => n + 1); setConverged(false); setCardOpen(false)
 
     window.clearTimeout(deadline.current)
     deadline.current = window.setTimeout(() => {
@@ -712,11 +699,11 @@ export default function App() {
     v3Timers.current.forEach(window.clearTimeout)
     v3Timers.current = []
     window.clearTimeout(tick.current); tick.current = 0
-    setResult(null); setError(""); setElapsed(0); setCopied(false); setPick(null)
+    setResult(null); setError(""); setElapsed(0); setPick(null)
     setCols(0); setEndRows(1)
     setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }
     lastFrame.current = performance.now(); finished.current = false
-    setView("poster"); setPhase("searching")
+    setPhase("searching")
 
     const q = new URLSearchParams({
       letters: String(target),
@@ -787,14 +774,6 @@ export default function App() {
   /* One button, whichever generator is behind it. */
   const run = IS_V3 ? runV3 : generate
 
-  const copy = useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(fullText)
-      setCopied(true)
-      window.setTimeout(() => setCopied(false), 1600)
-    } catch { /* clipboard unavailable; read view is selectable */ }
-  }, [fullText])
-
   const status =
     // v3 is composed, not searched, so there is no elapsed time to report and
     // reporting one would be a fiction. What it has instead is the length that
@@ -810,6 +789,7 @@ export default function App() {
     : ""
 
   return (
+    <div className="no-scrollbar h-full overflow-y-auto overflow-x-hidden bg-paper">
     <div className="relative h-full w-full overflow-hidden bg-paper" onClick={() => setPick(null)}>
       {!IS_V3 && searching && !converged && <Progress key={runId} />}
 
@@ -877,11 +857,7 @@ export default function App() {
         </div>
       )}
 
-      <div className={`absolute inset-0 ${view === "read" ? "hidden" : ""}`}>
-        {/* display:none above, not visibility:hidden — the words used to set
-            their own inline visibility, and an inline `visible` on a child
-            overrides a hidden ancestor, so the poster kept drawing itself
-            straight through the read view. */}
+      <div className="absolute inset-0">
         {/* Before the first frame there is no grid to hang the caret off, and
             the caret alone IS the idle state — the prompt with nothing typed
             into it yet. It sits where the mirror will be. */}
@@ -900,7 +876,9 @@ export default function App() {
           <div className="absolute inset-x-0 top-1/2 mt-8 flex flex-col items-center gap-2 px-4"
                onClick={(e) => e.stopPropagation()}>
             {phase === "error" && <p className="label text-center text-signal">{error}</p>}
-            <button onClick={run} className="label hover:text-signal">generate</button>
+            <button onClick={run} className="shimmer label" aria-label="generate">
+              {[..."generate"].map((ch, i) => <span key={i} style={{ animationDelay: `${-i * 300}ms` }}>{ch}</span>)}
+            </button>
           </div>
         )}
 
@@ -992,38 +970,12 @@ export default function App() {
         )}
       </div>
 
-      {/* pb clears the whole bottom cluster, not just the buttons: the hint line
-          keeps its height when it is blank and the credits run to two lines on a
-          narrow screen, which together are taller than the fade and were leaving
-          the last line of prose readable underneath the controls. */}
-      {view === "read" && result && (
-        <div className="absolute inset-0 overflow-y-auto overscroll-contain px-5 pb-44 pt-16">
-          <p className="mx-auto max-w-[62ch] break-words text-left text-[15px] leading-[1.85] text-ink sm:text-base">
-            {result.written ? result.written : <>
-            {result.left.join(" ")}
-            {/* A cursor belongs on the poster, not in the prose; here the mirror
-                shows only when it is the visitor's own phrase. */}
-            {result.centerDisplay
-              ? <> <span className={result.promptCenter ? "text-signal" : ""}>{result.centerDisplay}</span> </>
-              : " "}
-            {result.right.join(" ")}
-            </>}
-          </p>
-        </div>
-      )}
-
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-paper via-paper to-transparent sm:h-28" />
       {done && (
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-paper via-paper to-transparent" />
       )}
 
-      {/* The prompt is hidden in the read view rather than faded under it.
-          The block is as tall as the controls a version happens to have — v3
-          carries a length slider that v1 does not — so the prose's top padding
-          cannot be set to clear it, and the taller one was landing on the first
-          two lines. Nothing here is needed while reading, and "Poster" at the
-          bottom brings it all back. */}
-      {IS_V3 && view !== "read" && (
+      {IS_V3 && (
       <div className="pointer-events-none absolute inset-x-0 top-0 grid place-items-center px-4 pt-6 sm:pt-10">
         <div className="pointer-events-auto flex w-full max-w-[34rem] flex-col gap-2"
              onClick={(e) => e.stopPropagation()}>
@@ -1077,51 +1029,9 @@ export default function App() {
       </div>
       )}
 
-      {done && result && (
-        <div className="absolute inset-x-0 bottom-0 grid place-items-center px-4 pb-5"
-             onClick={(e) => e.stopPropagation()}>
-          <div className="flex w-full max-w-[34rem] flex-col items-center gap-3">
-            <p className="label text-center">
-              {view === "read" ? " "
-                : pick ? "the same letters, read the other way"
-                : "click a word to find its mirror"}
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <button
-                onClick={run}
-                className="slab slab-press h-9 rounded-[3px] bg-ink px-4 font-display text-[11px] font-bold uppercase tracking-[.14em] text-paper hover:bg-signal"
-              >
-                Generate
-              </button>
-              <button
-                onClick={() => setView(view === "read" ? "poster" : "read")}
-                className="slab slab-press h-9 rounded-[3px] bg-paper px-4 font-display text-[11px] font-bold uppercase tracking-[.14em] text-ink"
-              >
-                {view === "read" ? "Poster" : "Read it"}
-              </button>
-              <button
-                onClick={copy}
-                className="slab slab-press h-9 rounded-[3px] bg-paper px-4 font-display text-[11px] font-bold uppercase tracking-[.14em] text-ink"
-              >
-                {copied ? "Copied" : "Copy"}
-              </button>
-            </div>
-            <p className="label text-center leading-relaxed">
-              reads the same backwards ·{" "}
-              <a href="https://ericspencer.us" target="_blank" rel="noopener noreferrer"
-                 className="underline decoration-from-font underline-offset-2 hover:text-signal">
-                ericspencer.us
-              </a>{" "}
-              · after{" "}
-              <a href="https://norvig.com/pal-alg.html" target="_blank" rel="noopener noreferrer"
-                 className="underline decoration-from-font underline-offset-2 hover:text-signal">
-                norvig
-              </a>{" "}
-              &amp; hoey
-            </p>
-          </div>
-        </div>
-      )}
+      {done && result && <Tutorial onOpenChange={setCardOpen} />}
+    </div>
+    {!IS_V3 && <About />}
     </div>
   )
 }

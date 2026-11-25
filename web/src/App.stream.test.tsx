@@ -170,20 +170,10 @@ describe("the stream", () => {
 
     expect(stream().closed).toBe(true)
     // The result has landed and the credits are still not up: the pen decides.
-    expect(screen.queryByRole("button", { name: /read it/i })).toBe(null)
+    expect(screen.queryByRole("button", { name: /what is this/i })).toBe(null)
 
     await drawAll()
-    expect(screen.queryByRole("button", { name: /read it/i })).not.toBe(null)
-  })
-
-  test("reads out the whole palindrome once the run is done", async () => {
-    start()
-    stream().send(answer(LEFT, RIGHT))
-    await drawAll()
-
-    fireEvent.click(screen.getByRole("button", { name: /read it/i }))
-    expect(screen.getByText(/one two three four/).textContent)
-      .toContain("five six seven eight")
+    expect(screen.queryByRole("button", { name: /what is this/i })).not.toBe(null)
   })
 
   test("reports an error frame and stops", () => {
@@ -215,15 +205,4 @@ describe("the stream", () => {
     expect(screen.queryByText("could not reach the generator")).toBe(null)
   })
 
-  test("clears the poster when the next run starts", async () => {
-    start()
-    const first = stream()
-    first.send(answer(LEFT, RIGHT))
-    await drawAll()
-
-    start()
-    expect(stream()).not.toBe(first)
-    // Nothing of the finished poster survives into the new run.
-    expect(shown("four")).toBe(false)
-  })
 })

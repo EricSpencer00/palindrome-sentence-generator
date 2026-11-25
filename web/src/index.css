@@ -177,3 +177,21 @@ body {
 }
 
 ::selection { background: var(--color-signal); color: #fff; }
+
+/* "generate": a colour wave runs through the letters, one after another. */
+@keyframes shimmer {
+  0%, 100% { color: #3a1ce0 } 16% { color: #c2255c } 33% { color: #b4531a }
+  50% { color: #1f7a4f } 66% { color: #0f6f99 } 83% { color: #6a3fd6 }
+}
+.shimmer span { display: inline-block; animation: shimmer 2.4s ease-in-out infinite; }
+
+/* Cards rise and fade in. */
+@keyframes tut-in { from { opacity: 0; transform: translateY(6px) scale(.98) } to { opacity: 1; transform: none } }
+.tut-in { animation: tut-in 220ms cubic-bezier(.22,1,.36,1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer span, .tut-in { animation: none; }
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }

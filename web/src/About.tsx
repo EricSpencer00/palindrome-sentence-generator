@@ -79,8 +79,8 @@ export default function About({ archives = {} }: { archives?: Record<string, Sav
         part to create more interesting phrases such as <U>ere he met a hill</U>. But wait, that
         means we need to add more letters to the first phrase. <U>Illi hate me here</U> doesn’t
         work, but <U>Will I hate me here?</U> does. That also means adding a <U>w</U> to the
-        second phrase, and you can easily see how small additions can pile onto each other,
-        creating coherent phrases one on top of another.
+        second phrase. You can easily see how small additions pile onto each other, creating
+        coherent phrases one on top of another.
       </P>
 
       <H>Choosing among millions</H>

@@ -73,9 +73,9 @@ export default function About() {
       <ol className="list-none space-y-4">
         <li>
           <b>v1</b> searched word by word, scored by a bigram model and reranked by GPT-2. It made
-          exact palindromes at any length and word salad at every length. The search learned that
-          tiny words are the cheapest way to pay a debt: 52.6% of its words had one or two letters,
-          against 18.5% in ordinary English. A blinded judge rejected all 25 of its sentences.
+          exact palindromes at any length and word salad at every length, one unpunctuated run per
+          paragraph. GPT-2 rates it six times more perplexing than this version. A blinded judge
+          rejected all 25 of its sentences.
         </li>
         <li>
           <b>v2</b> stopped generating and started quoting, placing about 1,300 whole sentences

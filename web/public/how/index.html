@@ -121,8 +121,8 @@
     ah</i>, and with a little more, <i>ere he met a hill</i>. The trouble is that the search is
     blind to meaning. Left alone, it discovers that tiny words are the cheapest way to settle a
     debt: <i>a</i>, <i>I</i>, <i>no</i>, <i>it</i>, <i>on</i>. An unguided palindrome search
-    converges on a slurry of two-letter words, which is exactly what the first version of this
-    generator produced.
+    converges on a slurry of two-letter words, and every search that cares about grammar has to
+    pay for it in short words.
   </p>
 
   <h2>Search: keep hundreds, keep the best</h2>
@@ -172,13 +172,13 @@
     The verifier’s verdict, two thirds of sentences readable and level with real English, is
     not independent evidence: the search was optimised against that verifier, so of course it
     passes. GPT-2 is the honest witness, because the search never consulted it. By that measure
-    the generator more than halves v1’s perplexity, 205 against 457, and remains roughly four
-    times further from ordinary English, at 55. The verifier also scores how stock a sentence is, and the generator’s
+    the generator cuts v1’s perplexity more than sixfold, 205 against 1,273, and remains roughly
+    four times further from ordinary English, at 55. The verifier also scores how stock a sentence is, and the generator’s
     sentences sit near that end, closer than real prose does; the search does not yet push back
-    against familiar phrasing. Short words tell the same story from the other
-    side: 45% of the generator’s words have one or two letters, no better than v1 and double
-    English. The generator writes sentences; it has not yet escaped the economics of the
-    palindrome. No blinded human reader study has been run on this version.
+    against familiar phrasing. Short words are the price: 45% of the generator’s words have one
+    or two letters, against 30% for v1 and 21% for English. Grammar is bought with <i>a</i>,
+    <i>I</i>, <i>no</i> and <i>it</i>. The generator writes sentences; it has not yet escaped
+    the economics of the palindrome. No blinded human reader study has been run on this version.
   </p>
 
   <h2>Where the idea comes from</h2>

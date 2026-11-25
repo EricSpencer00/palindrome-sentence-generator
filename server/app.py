@@ -75,6 +75,13 @@ ENGINE = os.environ.get("PALINDROME_ENGINE", "v1")
 if ENGINE == "v5":
     RETIRED_OUTPUT_PATHS = RETIRED_OUTPUT_PATHS - {"/api/generate"}
 
+# Archive mode (localhost replay) lifts every gate; v4's own /generate stays
+# gated in its router because v4 never generated live.
+from server import archive  # noqa: E402
+
+if archive.ENABLED:
+    RETIRED_OUTPUT_PATHS = frozenset()
+
 
 @app.middleware("http")
 async def refuse_unvalidated_palindrome_output(request: Request, call_next):
@@ -306,6 +313,9 @@ def health():
     if ENGINE == "v5":
         from server import v5
         return {"ok": True, "output_available": True, "engine": "v5", "ready": v5._ready.is_set()}
+    if archive.ENABLED:
+        return {"ok": True, "archive": True, "vocab": _tries is not None,
+                "lm": _lm is not None, "bigrams": _bigrams is not None, "lm_error": _lm_error}
     return {"ok": True, "output_available": False, "reason": RETIREMENT_MESSAGE,
             "vocab": _tries is not None, "lm": _lm is not None,
             "bigrams": _bigrams is not None, "lm_error": _lm_error}

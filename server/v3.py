@@ -75,6 +75,7 @@ from llm_palindrome.lexicon import is_real_word, load_lexicon
 from llm_palindrome.present import present
 from llm_palindrome.shortwords import is_real_short
 from llm_palindrome.validator import is_palindrome, normalize
+from server import archive
 
 router = APIRouter(prefix="/api/v3")
 
@@ -145,6 +146,13 @@ def _load_bank(path: str = BANK_PATH) -> list[dict]:
             continue
         if not real_words(words):
             continue
+        if archive.ENABLED:
+            # The bank as it served live: exact, long enough, real words.
+            out.append({"text": text, "words": words,
+                        "letters": len(normalize(text)),
+                        "source": r.get("source", "generated"),
+                        "origin": r.get("origin", "")})
+            continue
         # Legacy v3 material predates the reader-first acceptance contract.
         # Exactness and dictionary membership cannot let it bypass the shared
         # exclusions for mirrors, repeated units, or catalogue lineage.
@@ -163,14 +171,15 @@ def ensure_loaded() -> None:
     global _bank, _tables, _load_error
     if _bank or _load_error:
         return
-    _load_error = RETIREMENT_REASON
-    return
+    if not archive.ENABLED:
+        _load_error = RETIREMENT_REASON
+        return
     try:
         _bank = _load_bank()
         from llm_palindrome.syntax import brown_tables
         _tables = brown_tables()
         if not _bank:
-            _load_error = RETIREMENT_REASON
+            _load_error = "bank empty after verification"
     except Exception as exc:                     # noqa: BLE001 - reported, not raised
         _load_error = f"{type(exc).__name__}: {exc}"
 

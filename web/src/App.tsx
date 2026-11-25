@@ -263,11 +263,15 @@ function place(s: Shape, cols: number): Grid {
   const leftEnd = display ? cStart - 2 : c0 - 1
   const rightStart = display ? cStart + display.length + 1 : c0 + 1
 
-  /* The centre word is the palindromic core, so it sits symmetrically across the
-     mirror: its C letters run from −C to +C in half-letters, whatever C is. */
-  const core = letterCount(s.center)
+  /* The mirror cuts the centre word after its first P letters, wherever that
+     falls: in the gap before letter P when the count is even, through letter P
+     itself when it is odd. Its letters start at −2P half-letters (−2P−1 when the
+     mirror sits on a letter) and run 2C on from there. */
+  const before = letterCount(display.slice(0, s.pivot))
+  const cRel = display ? -2 * before - (s.pivotOdd ? 1 : 0) : 0
+  const cEnd = display ? cRel + 2 * letterCount(s.center) : 0
   const center: Cell | null = display
-    ? { text: display, row: 0, col: cStart, rel: -core }
+    ? { text: display, row: 0, col: cStart, rel: cRel }
     : null
 
   let base: Ext = { minRow: 0, maxRow: 0, minCol: c0, maxCol: c0 }
@@ -278,7 +282,7 @@ function place(s: Shape, cols: number): Grid {
   const rightExt: Ext[] = [base]
   let row = 0
   let col = rightStart
-  let rel = core
+  let rel = cEnd
   for (const w of s.right) {
     if (col + w.length > cols) { row += 1; col = 0 }
     right.push({ text: w, row, col, rel })
@@ -295,7 +299,7 @@ function place(s: Shape, cols: number): Grid {
   const leftExt: Ext[] = [base]
   row = 0
   let end = leftEnd
-  rel = -core
+  rel = cRel
   for (let i = s.left.length - 1; i >= 0; i--) {
     const w = s.left[i]
     if (end - w.length + 1 < 0) { row -= 1; end = cols - 1 }
@@ -911,7 +915,7 @@ export default function App() {
               // that letter is drawn by itself so it can blink, and a click
               // landing on it would otherwise fall through and clear.
               const toggle = () =>
-                setPick((p) => (p && p[0] === c.rel ? null : [c.rel, -c.rel]))
+                setPick((p) => (p && p[0] === c.rel ? null : [c.rel, c.rel + 2 * letterCount(c.text)]))
               const take = (e: MouseEvent) => { e.stopPropagation(); toggle() }
               return (
                 <span
@@ -1062,7 +1066,6 @@ export default function App() {
             </div>
             <p className="label text-center leading-relaxed">
               reads the same backwards ·{" "}
-              {IS_V3 ? "composed on a local machine" : "searched on a local machine"} ·{" "}
               <a href="https://ericspencer.us" target="_blank" rel="noopener noreferrer"
                  className="underline decoration-from-font underline-offset-2 hover:text-signal">
                 ericspencer.us

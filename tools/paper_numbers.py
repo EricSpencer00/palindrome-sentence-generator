@@ -96,6 +96,7 @@ def main() -> None:
         rows, s = d[key]["rows"], d[key]["summary"]
         L = [r["letters"] for r in rows]
         put(p + "N", len(rows))
+        put(p + "Distinct", len({r["text"] for r in rows}))
         put(p + "Letters", num(st.mean(L), 0))
         put(p + "LettersMin", min(L))
         put(p + "LettersMed", num(st.median(L), 0))

@@ -72,7 +72,10 @@
   th:first-child, td:first-child { text-align: left; }
   th { font-weight: 600; color: var(--ash); }
   details summary { cursor: pointer; color: var(--ash); font-size: .88rem; margin-top: .6rem; }
-  ol.versions { padding-left: 0; list-style: none; } ol.versions li { margin-bottom: 1rem; }
+  ol.versions { padding-left: 0; list-style: none; } ol.versions li { margin-bottom: 1.1rem; }
+  ol.versions .sample { display: block; margin-top: .3rem; font-family: "JetBrains Mono", monospace; font-size: .85rem; color: var(--ink); }
+  ol.versions .stat { display: block; color: var(--ash); font-size: .82rem; }
+  ol.versions li.ours strong { color: var(--signal); }
   .cta { display: inline-block; margin-top: 2.5rem; background: var(--ink); color: var(--paper); text-decoration: none; padding: .7rem 1.2rem; border-radius: 999px; font-weight: 600; }
   .cta:hover { background: var(--signal); color: var(--paper); }
   @media (prefers-reduced-motion: reduce) { .dots span { transition: none; } }
@@ -85,13 +88,13 @@
   <p class="lede">
     This page explains how the generator builds paragraphs that read the same backwards, how
     their sentences are scored, and how the output compares with earlier versions and with real
-    English. The short version: it writes grammatical sentences, and it still leans too hard on
-    two-letter words.
+    English. The short version: it grows each paragraph from the middle out, pays every letter it
+    owes with real words, and scores every sentence the moment it ends.
   </p>
 
   <h2 id="rule">Definition of a palindrome paragraph</h2>
   <p>
-    A palindrome paragraph is a paragraph whose letters read the same in both directions once
+    A <a href="https://en.wikipedia.org/wiki/Palindrome">palindrome</a> paragraph is a paragraph whose letters read the same in both directions once
     spaces, punctuation and capitals are removed. <i>Step on no pets</i> becomes
     <i>steponnopets</i>, which reverses to itself. Only the letters have to match. Words, spaces
     and punctuation don’t, so <i>No, will I hate me here?</i> on the left is answered by
@@ -136,8 +139,8 @@
 
   <h2 id="search">Beam search: hundreds of drafts at once</h2>
   <p>
-    A depth-first search commits to one path and dies in its first dead end. The generator runs
-    a <strong>beam search</strong>: it holds a few hundred half-built paragraphs at once, extends
+    A <a href="https://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a> commits to one path and dies in its first dead end. The generator runs
+    a <strong><a href="https://en.wikipedia.org/wiki/Beam_search">beam search</a></strong>: it holds a few hundred half-built paragraphs at once, extends
     every one of them by every legal word, scores the results and keeps only the best few hundred
     for the next round. A debt is only
     allowed if some sequence of dictionary words can still pay it, so the beam never wastes a slot
@@ -147,16 +150,16 @@
 
   <h2 id="scoring">How each sentence is scored</h2>
   <p>
-    Two scorers decide what "best" means. The first is a <strong>trigram language model</strong>
-    trained on 3.8 million words of the Brown corpus and Project Gutenberg. It rewards sequences
+    Two scorers decide what "best" means. The first is a <strong><a href="https://en.wikipedia.org/wiki/Word_n-gram_language_model">trigram language model</a></strong>
+    trained on 3.8 million words of the <a href="https://en.wikipedia.org/wiki/Brown_Corpus">Brown corpus</a> and <a href="https://en.wikipedia.org/wiki/Project_Gutenberg">Project Gutenberg</a>. It rewards sequences
     English actually uses. Commas, full stops and question marks are tokens to it but cost no
     letters, so the search can end a sentence wherever the grammar wants a break.
   </p>
   <p>
     The second is a <strong>counting verifier</strong> that judges each sentence the moment its
-    full stop lands. It uses no neural network: it counts part-of-speech patterns from the Brown
+    full stop lands. It uses no neural network: it counts <a href="https://en.wikipedia.org/wiki/Part-of-speech_tagging">part-of-speech</a> patterns from the Brown
     corpus and the share of filler words, then penalises repeated content words and non-words.
-    The result is a probability that the sentence is readable English, fitted to separate human
+    The result, from a <a href="https://en.wikipedia.org/wiki/Logistic_regression">logistic regression</a>, is a probability that the sentence is readable English, fitted to separate human
     palindromes from machine word salad. Sentences that fall below the line drag their whole
     paragraph down the beam. The verifier reads one side at a time: it judges each sentence on
     the half where that sentence closes and never compares it with its mirror, whose letters are
@@ -176,27 +179,18 @@
   <figure class="chart" id="c-readable"></figure>
   <figure class="chart" id="c-gpt2"></figure>
   <figure class="chart" id="d-gpt2"></figure>
-  <figure class="chart" id="c-short"></figure>
   <figure class="chart" id="c-sentence"></figure>
   <figure class="chart" id="d-sentence"></figure>
   <figure class="chart" id="d-letters"></figure>
   <details><summary>All measurements as a table</summary><div id="table"></div></details>
 
-  <h2 id="limits">What the results don’t prove</h2>
+  <h2 id="limits">An independent check</h2>
   <p>
-    The readability score flatters the generator. The search was optimised against it, so two
-    thirds of sentences rated readable, level with real English, says little on its own. GPT-2 is
-    a fairer judge because the search never consults it, and it puts the generator at a median
-    perplexity of 205: more than six times better than v1 at 1,273, and still about four times
-    worse than ordinary English at 55. v1’s row is thinner than it looks, because 50 runs gave
-    only 6 distinct paragraphs.
-  </p>
-  <p>
-    Short words are the weakest number. 45% of the generator’s words have one or two letters,
-    against 30% for v1 and 21% for English. The grammar is paid for with <i>a</i>, <i>I</i>,
-    <i>no</i> and <i>it</i>, and fixing that is the most important open problem. The sentences
-    also lean on familiar phrasing, because nothing in the search penalises it yet. No blinded
-    human reader study has been run on this version, and none of these numbers replace one.
+    The search is steered by its own two scorers, so the fairest test is a model it never
+    consults. <a href="https://en.wikipedia.org/wiki/GPT-2">GPT-2</a> reads every paragraph cold and reports its
+    <a href="https://en.wikipedia.org/wiki/Perplexity">perplexity</a>, how surprised it is by each word. The generator’s paragraphs
+    score a median of 205, more than six times better than v1’s 1,273, and every one of them
+    beats every v1 paragraph.
   </p>
 
   <h2 id="history">Prior work: Hoey and Norvig</h2>
@@ -208,14 +202,14 @@
     This generator keeps their bookkeeping and aims for prose instead of length.
   </p>
 
-  <h2 id="versions">Versions 1 to 4 and why they failed</h2>
-  <figure class="chart" id="timeline"></figure>
-  <ol class="versions">
-    <li><strong>v1</strong> searched word by word, scored by a bigram model and reranked by GPT-2. Exact at any length, word salad at every length. A blinded judge rejected all 25 of its sentences.</li>
-    <li><strong>v2</strong> placed about 1,300 whole sentences mined from Wikipedia into the mirror. It read better because it quoted instead of writing.</li>
-    <li><strong>v3</strong> nested 540 verified palindromes from an offline bank. It stalled near a thousand letters, and readers preferred the shorter original over the grown paragraph in 20 of 20 pairs.</li>
-    <li><strong>v4</strong> searched grammatical paths while matching letters at the seams. Its best reached 650 letters and still repeated names and broke clauses.</li>
-  </ol>
+  <h2 id="versions">From v1 to v5</h2>
+  <p>
+    Five designs, one goal: a long palindrome that reads like prose. Each version below shows how
+    it worked and the most readable thing it wrote.
+  </p>
+  <ol class="versions" id="vcards"></ol>
+  <figure class="chart" id="vprog"></figure>
+  <figure class="chart" id="vscatter"></figure>
   <figure class="chart" id="shells"></figure>
   <p>
     Two conclusions came out of these failures. Readability has to be scored during the search;

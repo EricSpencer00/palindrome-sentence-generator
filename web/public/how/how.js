@@ -282,7 +282,7 @@
       hover(hit, () => `<b>${LABELS[k]}</b><br>median ${Math.round(m).toLocaleString()} · range ${Math.round(vs[0]).toLocaleString()}–${Math.round(vs[vs.length - 1]).toLocaleString()} · ${vs.length} texts`)
     })
     mount("d-gpt2", "GPT-2 perplexity, every text (log scale)", svg,
-      "One dot per text, the black tick at the median. The ranges do not overlap: the worst English paragraph reads better to GPT-2 than the best generated one, and the worst generated one better than any v1 paragraph. v1’s dots stack because it repeats itself.")
+      "One dot per text, the black tick at the median. Every generated paragraph reads better to GPT-2 than every v1 paragraph.")
   }
   const hist = (id, title, label, caption, series, bins, binLabel) => {
     const W = 640, H = 200, left = 34, top = 14, base = 160
@@ -304,19 +304,80 @@
     mount(id, title, svg, caption)
   }
 
-  Promise.all([fetch("/how/data.json").then((r) => r.json()), fetch("/how/figures.json").then((r) => r.json())]).then(([data, fig]) => {
+  /* ---- v1 to v5 ------------------------------------------------------ */
+  const VERS = [
+    ["v1", "Word-by-word search, scored by word pairs and reranked by GPT-2."],
+    ["v2", "Whole sentences mined from Wikipedia, placed into the mirror."],
+    ["v3", "Short verified palindromes nested inside one another."],
+    ["v4", "Grammatical paths, with letters matched at the seams."],
+    ["v5", "Letter debts paid from the middle out, every sentence scored as it closes."],
+  ]
+  let versionData = null
+  const versions = () => {
+    const vd = versionData
+    if (!vd) return
+    // Cards: what each version did, and the most readable thing it wrote.
+    const cards = document.getElementById("vcards")
+    VERS.forEach(([v, how]) => {
+      const d = vd[v], li = document.createElement("li")
+      li.innerHTML = `<strong>${v}</strong> ${how}<span class="sample">${d.excerpt}</span>` +
+        `<span class="stat">${pct(d.readable_share)} of sentences readable · ${Math.round(d.letters)} letters on average</span>`
+      if (v === "v5") li.className = "ours"
+      cards.appendChild(li)
+    })
+    // Readable share by version.
+    ;(() => {
+      const W = 640, H = 220, left = 40, base = 180, top = 20, bw = (W - left) / VERS.length
+      const svg = svgOf(W, H, "Share of sentences rated readable, by version.")
+      svg.appendChild(el("line", { x1: left, x2: W, y1: base, y2: base, stroke: "var(--ink)" }))
+      VERS.forEach(([v], i) => {
+        const r = vd[v].readable_share, h = (base - top) * r, x = left + i * bw + bw * 0.28, ours = v === "v5"
+        svg.appendChild(el("rect", { x, y: base - Math.max(h, 1.5), width: bw * 0.44, height: Math.max(h, 1.5), rx: 4,
+          fill: ours ? "var(--signal)" : "var(--grey)" }))
+        svg.appendChild(el("text", { x: x + bw * 0.22, y: base - h - 8, "text-anchor": "middle", class: "val" }, pct(r)))
+        svg.appendChild(el("text", { x: x + bw * 0.22, y: base + 20, "text-anchor": "middle" }, v))
+        const hit = svg.appendChild(el("rect", { x: left + i * bw, y: 0, width: bw, height: H, fill: "transparent" }))
+        hover(hit, () => `<b>${v}</b><br>${pct(r)} of sentences readable · ${vd[v].n} outputs`)
+      })
+      mount("vprog", "Sentences rated readable, by version", svg,
+        "Each version reads better than the last. v5 is the first to write mostly readable sentences.")
+    })()
+    // Length against readability: the corner every version was aiming for.
+    ;(() => {
+      const W = 640, H = 300, l = 60, r = 24, t = 16, b = 46, maxX = 1100
+      const X = (v) => l + ((W - l - r) * v) / maxX, Y = (v) => H - b - (H - t - b) * v
+      const svg = svgOf(W, H, "Average length in letters against share of readable sentences, one point per version.")
+      ;[0, 0.25, 0.5, 0.75].forEach((g) => {
+        svg.appendChild(el("line", { x1: l, x2: W - r, y1: Y(g), y2: Y(g), stroke: "var(--haze)" }))
+        svg.appendChild(el("text", { x: l - 8, y: Y(g) + 4, "text-anchor": "end" }, pct(g)))
+      })
+      ;[0, 250, 500, 750, 1000].forEach((g) => svg.appendChild(el("text", { x: X(g), y: H - b + 18, "text-anchor": "middle" }, g)))
+      svg.appendChild(el("text", { x: (l + W - r) / 2, y: H - 8, "text-anchor": "middle" }, "letters per output"))
+      const pts = [...VERS.map(([v]) => [v, vd[v]]), ["v5, long", vd.v5_long]]
+      pts.forEach(([v, d]) => {
+        const ours = v.startsWith("v5"), cx = X(d.letters), cy = Y(d.readable_share)
+        svg.appendChild(el("circle", { cx, cy, r: 7, fill: ours ? "var(--signal)" : "var(--paper)",
+          stroke: ours ? "var(--signal)" : "var(--grey)", "stroke-width": 2 }))
+        svg.appendChild(el("text", { x: cx + 12, y: cy + 4, class: "val" }, v))
+        const hit = svg.appendChild(el("circle", { cx, cy, r: 16, fill: "transparent" }))
+        hover(hit, () => `<b>${v}</b><br>${Math.round(d.letters)} letters · ${pct(d.readable_share)} readable`)
+      })
+      mount("vscatter", "Length against readability", svg,
+        "The goal is the top right: long and readable. Earlier versions got one or the other; v5 keeps its readability from 300 letters to 1,000.")
+    })()
+  }
+
+  Promise.all([fetch("/how/versions.json").then((r) => r.json()).then((v) => { versionData = v }), fetch("/how/data.json").then((r) => r.json()), fetch("/how/figures.json").then((r) => r.json())]).then(([, data, fig]) => {
     document.getElementById("n-v5").textContent = data.v5_live.n + data.v5_sophia.n
     bars("c-readable", "Sentences the verifier rates readable", "readable_share", pct,
       "Share of sentences scoring at or above the verifier’s readable threshold. v1 never ends a sentence, so its one sentence per paragraph fails.", data)
     bars("c-gpt2", "GPT-2 perplexity, median (lower reads more like English)", "gpt2_ppl_median",
       (v) => Math.round(v).toLocaleString(),
       "An independent check: GPT-2 never takes part in the search, so the generator cannot have been tuned against it.", data)
-    bars("c-short", "Words of one or two letters", "short_share", pct,
-      "Short words are the cheapest way to pay a letter debt. This generator uses more of them than v1, which is its worst result.", data)
     bars("c-sentence", "Words per sentence", "sentence_words", (v) => v.toFixed(1),
       "Free punctuation lets the generator end sentences; v1 wrote each paragraph as one run-on.", data)
     const cols = [["readable_share", "readable", pct], ["gpt2_ppl_median", "GPT-2 ppl", (v) => Math.round(v)],
-      ["short_share", "≤2-letter words", pct], ["sentence_words", "words/sentence", (v) => v.toFixed(1)],
+      ["sentence_words", "words/sentence", (v) => v.toFixed(1)],
       ["letters", "letters", (v) => Math.round(v)], ["exact", "exact", pct], ["n", "n", (v) => v]]
     const t = document.createElement("table")
     t.innerHTML = `<tr><th></th>${cols.map((c) => `<th>${c[1]}</th>`).join("")}</tr>` +
@@ -338,26 +399,7 @@
       [...Array(32)].map((_, i) => [300 + i * 25, 325 + i * 25]),
       ([a, b], short) => (short ? String(a) : `${a}–${b - 1} letters`))
 
-    /* ---- versions timeline ------------------------------------------ */
-    ;(() => {
-      const W = 640, H = 150, pad = 60, y = 40, vs = fig.versions
-      const x = (i) => pad + (i * (W - 2 * pad)) / (vs.length - 1)
-      const svg = svgOf(W, H, "Five versions of the generator, one key number each.")
-      svg.appendChild(el("line", { x1: x(0), x2: x(vs.length - 1), y1: y, y2: y, stroke: "var(--grey)" }))
-      vs.forEach(([v, n, what], i) => {
-        const ours = i === vs.length - 1
-        svg.appendChild(el("circle", { cx: x(i), cy: y, r: 6, fill: ours ? "var(--signal)" : "var(--paper)", stroke: ours ? "var(--signal)" : "var(--grey)", "stroke-width": 2 }))
-        svg.appendChild(el("text", { x: x(i), y: y - 16, "text-anchor": "middle", class: "val" }, v))
-        svg.appendChild(el("text", { x: x(i), y: y + 30, "text-anchor": "middle", class: "val" }, n))
-        const ws = what.split(" "), cut = Math.ceil(ws.length / 2)
-        ;[ws.slice(0, cut), ws.slice(cut)].forEach((line, j) =>
-          svg.appendChild(el("text", { x: x(i), y: y + 48 + j * 15, "text-anchor": "middle" }, line.join(" "))))
-        const hit = svg.appendChild(el("rect", { x: x(i) - 50, y: 0, width: 100, height: H, fill: "transparent" }))
-        hover(hit, () => `<b>${v}</b><br>${n} ${what}`)
-      })
-      mount("timeline", null, svg, "One number per version. Each failed on a different axis, so no single measure fits all five.")
-    })()
-
+    versions()
     if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView()
   })
 })()

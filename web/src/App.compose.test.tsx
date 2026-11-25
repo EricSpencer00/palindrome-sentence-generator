@@ -19,11 +19,11 @@ const shape = {
   letters: 30, words: 9,
 }
 
-/* The composition is synthesised into 14 frames 300ms apart, so the pen's span
-   is the gap between them. One advance past the pen's ceiling finishes it. */
+/* The composition is synthesised into 14 frames 300ms apart; the pen writes the
+   whole paragraph in 6s behind them. */
 const FRAMES = 14
 const GAP = 300
-const MAX_SPAN = 1600
+const MAX_SPAN = 7000   // the pen writes the whole paragraph in 6s
 
 let composition: Record<string, unknown>
 let health: Record<string, unknown> | null
@@ -105,10 +105,9 @@ describe("the composed poster", () => {
     // Nothing is drawn by the response; the pen walks to it.
     expect(shown("four")).toBe(false)
 
-    // Half the frames, and the pen settled on the last of them.
-    await draw(GAP * (FRAMES / 2) + GAP - 10)
-    expect([shown("four"), shown("three"), shown("two"), shown("one")])
-      .toEqual([true, true, false, false])
+    // Partway: the words nearest the mirror are down, the farthest are not.
+    await draw(1200)
+    expect([shown("four"), shown("one")]).toEqual([true, false])
     // The credits wait for the pen, not for the fetch.
     expect(screen.queryByRole("button", { name: /read it/i })).toBe(null)
 

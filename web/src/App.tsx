@@ -143,9 +143,7 @@ const CARD_CHROME = 260     // the open "What is this?" card, so it covers no wo
 const MAX_SCALE = 3         // scaling a large block UP is what strains the rasteriser
 const EXPECT_LETTERS = 1200 // fallback if the search does not announce its size
 const CHARS_PER_LETTER = 1.3  // what the spaces between words add
-const DEFAULT_SPAN = 750    // the search's own publishing interval
-const MIN_SPAN = 200        // floor and ceiling on how fast the pen is allowed
-const MAX_SPAN = 1600       // to run when frames bunch up or straggle
+const DRAW_MS = 6000       // the whole paragraph is written in this long
 /* The camera's two numbers, both taken from the deployed poster.
  *
  * OPEN_W is a WIDTH, not a multiple of the finished fit: the screen shows about
@@ -411,17 +409,11 @@ export default function App() {
   const [cap, setCap] = useState(14500)
   const v3Timers = useRef<number[]>([])
 
-  /* Words are written one at a time, spread evenly across the gap the frames
-     arrive on. The search publishes in chunks of twenty-odd words because that
-     is how a beam search finds them, but nobody reads in chunks of twenty-odd
-     words: paced out over the second it took to find them, the same text reads
-     as writing rather than as a slideshow. The clock is the gap between the last
-     two frames, so the pen keeps up with whatever the box is managing. */
+  /* Words are written one at a time, fast enough that the whole paragraph takes DRAW_MS. */
   const [drawn, setDrawn] = useState({ l: 0, r: 0 })
   const drawnRef = useRef({ l: 0, r: 0 })
-  const pace = useRef({ l0: 0, r0: 0, lt: 0, rt: 0, t0: 0, span: DEFAULT_SPAN })
+  const pace = useRef({ lt: 0, rt: 0, t0: 0, acc: 1 })
   const tick = useRef(0)
-  const lastFrame = useRef(0)
   const finished = useRef(false)
 
   const esRef = useRef<EventSource | null>(null)
@@ -431,38 +423,33 @@ export default function App() {
   const searching = phase === "searching"
 
   const write = useCallback((lt: number, rt: number) => {
-    const now = performance.now()
-    const gap = lastFrame.current ? now - lastFrame.current : DEFAULT_SPAN
-    lastFrame.current = now
-    pace.current = {
-      l0: drawnRef.current.l, r0: drawnRef.current.r, lt, rt, t0: now,
-      // A frame that arrives late must not make the pen crawl for a second and
-      // a half, and one that arrives on top of the last must not make it bolt.
-      span: Math.min(MAX_SPAN, Math.max(MIN_SPAN, gap)),
-    }
-    /* A timer, not requestAnimationFrame. rAF does not fire in a background tab,
-       and the pen is what decides the run is over — so a visitor who looked away
-       mid-search came back to a page still saying "searching", with the button
-       disabled and nothing left that would ever finish it. A timer keeps firing
-       (slowly) when hidden, and since every position is computed from the clock
-       rather than accumulated per tick, a coarse tick rate costs smoothness and
-       nothing else. Always clear before scheduling: exactly one pen. */
+    pace.current.lt = lt; pace.current.rt = rt
+    /* A timer, not requestAnimationFrame: rAF stops in a background tab, and the
+       pen is what decides the run is over. The pen keeps its own clock, so frames
+       arriving often retarget it without restarting it. */
     const step = () => {
       const p = pace.current
-      const k = Math.min(1, (performance.now() - p.t0) / p.span)
-      const l = p.l0 + Math.round((p.lt - p.l0) * k)
-      const r = p.r0 + Math.round((p.rt - p.r0) * k)
+      const now = performance.now()
+      p.acc += ((now - p.t0) * (p.lt + p.rt)) / DRAW_MS
+      p.t0 = now
+      let { l, r } = drawnRef.current
+      while (p.acc >= 1 && (l < p.lt || r < p.rt)) {
+        // The side further behind its own target goes next.
+        if (r >= p.rt || (l < p.lt && l / p.lt <= r / p.rt)) l++
+        else r++
+        p.acc -= 1
+      }
       if (l !== drawnRef.current.l || r !== drawnRef.current.r) {
         drawnRef.current = { l, r }
         setDrawn({ l, r })
       }
-      if (k < 1) { tick.current = window.setTimeout(step, 16); return }
+      if (l < p.lt || r < p.rt) { tick.current = window.setTimeout(step, 16); return }
       tick.current = 0
+      p.acc = 1   // the next frame's first word goes down at once
       // The credits wait for the pen, not for the search.
       if (finished.current) setPhase("done")
     }
-    window.clearTimeout(tick.current)
-    step()
+    if (!tick.current) { pace.current.t0 = performance.now(); step() }
   }, [])
 
   useEffect(() => () => window.clearTimeout(tick.current), [])
@@ -640,8 +627,8 @@ export default function App() {
     window.clearTimeout(tick.current); tick.current = 0
     setResult(null); setError(""); setElapsed(0); setPick(null)
     setCols(0); setEndRows(1); expectRef.current = EXPECT_LETTERS
-    setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }
-    lastFrame.current = performance.now(); finished.current = false
+    setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }; pace.current.acc = 1
+    finished.current = false
     setPhase("searching"); setRunId((n) => n + 1); setConverged(false); setCardOpen(false)
 
     window.clearTimeout(deadline.current)
@@ -701,8 +688,8 @@ export default function App() {
     window.clearTimeout(tick.current); tick.current = 0
     setResult(null); setError(""); setElapsed(0); setPick(null)
     setCols(0); setEndRows(1)
-    setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }
-    lastFrame.current = performance.now(); finished.current = false
+    setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }; pace.current.acc = 1
+    finished.current = false
     setPhase("searching")
 
     const q = new URLSearchParams({

@@ -195,3 +195,8 @@ body {
 
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* The arrow under the poster: a bounce, then a rest, so it draws the eye without nagging. */
+@keyframes nudge { 0%, 60%, 100% { transform: none } 20% { transform: translateY(5px) } 40% { transform: translateY(-2px) } }
+.nudge svg { animation: nudge 1.8s cubic-bezier(.22,1,.36,1) infinite; }
+@media (prefers-reduced-motion: reduce) { .nudge svg { animation: none; } }

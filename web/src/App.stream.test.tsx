@@ -60,19 +60,15 @@ const answer = (left: string[], right: string[]) => ({
 const LEFT = ["one", "two", "three", "four"]
 const RIGHT = ["five", "six", "seven", "eight"]
 
-/* The pen's own numbers. It steps every 16ms across a span taken from the gap
- * between the last two frames, clamped to [200, 1600]. Frames sent back to back
- * therefore draw over 200ms, and one advance past the ceiling finishes the pen
- * whatever the gap turned out to be. */
+/* The pen's own numbers: it steps every 16ms and writes the whole paragraph in 6s. */
 const STEP = 16
-const MIN_SPAN = 200
-const MAX_SPAN = 1600
+const WORD_MS = 750   // eight words in 6s
 
 const draw = async (ms: number) => {
   await act(async () => { await vi.advanceTimersByTimeAsync(ms) })
 }
-const drawHalf = () => draw(MIN_SPAN / 2 + STEP)
-const drawAll = () => draw(MAX_SPAN + STEP)
+const drawHalf = () => draw(3 * WORD_MS + STEP)   // four of the eight words: one at once, three more
+const drawAll = () => draw(8 * WORD_MS + STEP)
 
 const start = () => fireEvent.click(screen.getByRole("button", { name: /generate/i }))
 const shown = (word: string) => screen.queryByText(word) !== null
@@ -124,8 +120,8 @@ describe("the stream", () => {
     stream().send({ type: "plan", expectLetters: 200 })
     stream().send(draft(LEFT, RIGHT))
 
-    // Nothing is written by the frame itself; the pen walks to it.
-    expect(shown("four")).toBe(false)
+    // The first word goes down at once; the rest follow at the pen's pace.
+    expect([shown("four"), shown("three")]).toEqual([true, false])
 
     await drawHalf()
     // Two of the four on each side, and they are the two nearest the mirror.
@@ -134,6 +130,7 @@ describe("the stream", () => {
     expect([shown("five"), shown("six"), shown("seven"), shown("eight")])
       .toEqual([true, true, false, false])
 
+    stream().send(answer(LEFT, RIGHT))
     await drawAll()
     expect([shown("one"), shown("eight")]).toEqual([true, true])
   })
@@ -157,8 +154,8 @@ describe("the stream", () => {
        on the left and appends on the right, so every word already on screen
        keeps the cell it landed in — however much longer the draft gets. */
     const grown = (tag: string) => Array.from({ length: 30 }, (_, i) => tag + i)
-    stream().send(draft([...grown("l"), ...LEFT], [...RIGHT, ...grown("r")]))
-    await drawAll()
+    stream().send({ ...answer([...grown("l"), ...LEFT], [...RIGHT, ...grown("r")]) })
+    await draw(68 * WORD_MS + STEP)
 
     expect(cell()).toBe(before)
     expect([shown("l0"), shown("r0")]).toEqual([true, true])

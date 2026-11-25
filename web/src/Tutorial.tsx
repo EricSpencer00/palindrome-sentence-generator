@@ -39,13 +39,28 @@ export default function Tutorial({ onOpenChange }: { onOpenChange: (open: boolea
   return (
     <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30 flex justify-center px-4 pb-5">
       {!open ? (
-        <button
-          ref={pill}
-          onClick={(e) => { e.stopPropagation(); setOpen(true) }}
-          className="tut-in pointer-events-auto rounded-full border border-border bg-paper px-4 py-2 font-display text-[13px] text-ink transition-colors hover:border-signal hover:text-signal"
-        >
-          What is this?
-        </button>
+        <div className="tut-in pointer-events-auto flex items-center gap-2">
+          <button
+            ref={pill}
+            onClick={(e) => { e.stopPropagation(); setOpen(true) }}
+            className="rounded-full border border-border bg-paper px-5 py-2.5 font-display text-[15px] text-ink transition-colors hover:border-signal hover:text-signal"
+          >
+            What is this?
+          </button>
+          <button
+            aria-label="Read more"
+            onClick={(e) => {
+              e.stopPropagation()
+              document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
+            }}
+            className="nudge grid h-11 w-11 place-items-center rounded-full bg-ink text-paper transition-colors hover:bg-signal"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M8 3v10M3.5 8.5 8 13l4.5-4.5" />
+            </svg>
+          </button>
+        </div>
       ) : (
         <div
           role="dialog" aria-label="What is this?"

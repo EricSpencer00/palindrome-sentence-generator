@@ -367,6 +367,26 @@ function Word({
   )
 }
 
+/* Log-shaped: 90% by 3s, the last 10% across 3–20s, then the run times out. */
+const TIMEOUT_MS = 20000
+function progress(t: number) {
+  return t <= 3
+    ? 0.9 * Math.log1p(3 * t) / Math.log1p(9)
+    : Math.min(1, 0.9 + 0.1 * Math.log1p(t - 3) / Math.log1p(17))
+}
+
+function Progress() {
+  const [p, setP] = useState(0)
+  useEffect(() => {
+    const t0 = performance.now()
+    let raf = 0
+    const step = () => { setP(progress((performance.now() - t0) / 1000)); raf = requestAnimationFrame(step) }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [])
+  return <div role="progressbar" className="absolute left-0 top-0 z-40 h-[2px] bg-signal" style={{ width: `${p * 100}%` }} />
+}
+
 export default function App() {
   const [prompt, setPrompt] = useState("")
   const [para, setPara] = useState<Paragraph | null>(null)
@@ -381,6 +401,9 @@ export default function App() {
   const [cols, setCols] = useState(0)
   const [endRows, setEndRows] = useState(1)   // rows the finished poster expects to take
   const [pick, setPick] = useState<[number, number] | null>(null)
+  const [runId, setRunId] = useState(0)
+  const [converged, setConverged] = useState(false)
+  const deadline = useRef(0)
 
   /* v3's two extra controls. `cap` is the bank's own ceiling, asked for rather
      than assumed, so the dial cannot promise a length the material cannot
@@ -632,8 +655,13 @@ export default function App() {
     setCols(0); setEndRows(1); expectRef.current = EXPECT_LETTERS
     setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }
     lastFrame.current = performance.now(); finished.current = false
-    setView("poster"); setPhase("searching")
+    setView("poster"); setPhase("searching"); setRunId((n) => n + 1); setConverged(false)
 
+    window.clearTimeout(deadline.current)
+    deadline.current = window.setTimeout(() => {
+      if (finished.current) return
+      es.close(); setError("timed out"); setResult(null); setPhase("error")
+    }, TIMEOUT_MS)
     const es = new EventSource(`${API}?prompt=${encodeURIComponent(prompt)}&budget=16`)
     esRef.current = es
     es.onmessage = (ev) => {
@@ -655,7 +683,7 @@ export default function App() {
         setEndRows(Math.max(1, Math.ceil((expectRef.current * CHARS_PER_LETTER) / n)))
         setResult(msg.type === "result" ? (msg as Result)
           : { ...shape, lm: null, coherence: 0, seconds: 0 })
-        if (msg.type === "result") { finished.current = true; es.close() }
+        if (msg.type === "result") { finished.current = true; setConverged(true); es.close() }
         // The frame is now the target; the pen walks to it. `done` is set when
         // the pen arrives, not here.
         write(shape.left.length, shape.right.length)
@@ -783,6 +811,7 @@ export default function App() {
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-paper" onClick={() => setPick(null)}>
+      {!IS_V3 && searching && !converged && <Progress key={runId} />}
 
       {/* v2 does not write its best sentences — it finds them already written and
           builds the mirror around them. Wikipedia is CC BY-SA, so the credit is
@@ -866,6 +895,13 @@ export default function App() {
               marginLeft: -BAR_W / 2, marginTop: -BAR_H / 2,
             }}
           />
+        )}
+        {!IS_V3 && !grid && phase !== "searching" && (
+          <div className="absolute inset-x-0 top-1/2 mt-8 flex flex-col items-center gap-2 px-4"
+               onClick={(e) => e.stopPropagation()}>
+            {phase === "error" && <p className="label text-center text-signal">{error}</p>}
+            <button onClick={run} className="label hover:text-signal">generate</button>
+          </div>
         )}
 
         {grid && result && (
@@ -987,7 +1023,7 @@ export default function App() {
           cannot be set to clear it, and the taller one was landing on the first
           two lines. Nothing here is needed while reading, and "Poster" at the
           bottom brings it all back. */}
-      {view !== "read" && (
+      {IS_V3 && view !== "read" && (
       <div className="pointer-events-none absolute inset-x-0 top-0 grid place-items-center px-4 pt-6 sm:pt-10">
         <div className="pointer-events-auto flex w-full max-w-[34rem] flex-col gap-2"
              onClick={(e) => e.stopPropagation()}>
@@ -1051,6 +1087,12 @@ export default function App() {
                 : "click a word to find its mirror"}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2">
+              <button
+                onClick={run}
+                className="slab slab-press h-9 rounded-[3px] bg-ink px-4 font-display text-[11px] font-bold uppercase tracking-[.14em] text-paper hover:bg-signal"
+              >
+                Generate
+              </button>
               <button
                 onClick={() => setView(view === "read" ? "poster" : "read")}
                 className="slab slab-press h-9 rounded-[3px] bg-paper px-4 font-display text-[11px] font-bold uppercase tracking-[.14em] text-ink"

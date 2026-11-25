@@ -76,7 +76,7 @@ const drawAll = () => draw(MAX_SPAN + STEP)
 
 const start = () => fireEvent.click(screen.getByRole("button", { name: /generate/i }))
 const shown = (word: string) => screen.queryByText(word) !== null
-const status = () => document.querySelector('label[for="p"]')?.textContent ?? ""
+const bar = () => document.querySelector('[role="progressbar"]')
 
 beforeEach(() => {
   vi.useFakeTimers()
@@ -95,20 +95,28 @@ afterEach(() => {
 })
 
 describe("the stream", () => {
-  test("opens the v1 endpoint with the prompt", () => {
-    fireEvent.change(screen.getByPlaceholderText("never odd or even"), {
-      target: { value: "never odd or even" },
-    })
+  test("opens the generate endpoint", () => {
     start()
-    expect(stream().url).toBe("/api/generate?prompt=never%20odd%20or%20even&budget=16")
+    expect(stream().url).toBe("/api/generate?prompt=&budget=16")
   })
 
-  test("reports elapsed time from status frames and draws nothing", () => {
+  test("shows a progress bar until the result lands, and draws nothing from status", async () => {
     start()
     stream().send({ type: "status", elapsed: 1.25 })
-
-    expect(status()).toBe("1.3s")
+    expect(bar()).not.toBe(null)
     expect(shown("level")).toBe(false)
+
+    stream().send(answer(LEFT, RIGHT))
+    expect(bar()).toBe(null)
+  })
+
+  test("times out at 20s without a result", async () => {
+    start()
+    stream().send(draft(LEFT, RIGHT))
+    await draw(20000)
+
+    expect(stream().closed).toBe(true)
+    expect(screen.getByText("timed out")).not.toBe(null)
   })
 
   test("draws a draft outward from the mirror, a word at a time", async () => {
@@ -166,7 +174,6 @@ describe("the stream", () => {
 
     await drawAll()
     expect(screen.queryByRole("button", { name: /read it/i })).not.toBe(null)
-    expect(status()).toBe("37 letters · 9 words · 2s")
   })
 
   test("reads out the whole palindrome once the run is done", async () => {
@@ -183,7 +190,7 @@ describe("the stream", () => {
     start()
     stream().send({ type: "error", message: "the bank is empty" })
 
-    expect(status()).toBe("the bank is empty")
+    expect(screen.getByText("the bank is empty")).not.toBe(null)
     expect(stream().closed).toBe(true)
     const button = screen.getByRole("button", { name: /generate/i }) as HTMLButtonElement
     expect(button.disabled).toBe(false)
@@ -193,7 +200,7 @@ describe("the stream", () => {
     start()
     stream().fail()
 
-    expect(status()).toBe("could not reach the generator")
+    expect(screen.getByText("could not reach the generator")).not.toBe(null)
     expect(stream().closed).toBe(true)
   })
 
@@ -205,7 +212,7 @@ describe("the stream", () => {
     // A server closing a finished stream is normal, and must not paint an error
     // over a poster that is already written.
     stream().fail()
-    expect(status()).toBe("37 letters · 9 words · 2s")
+    expect(screen.queryByText("could not reach the generator")).toBe(null)
   })
 
   test("clears the poster when the next run starts", async () => {
@@ -218,6 +225,5 @@ describe("the stream", () => {
     expect(stream()).not.toBe(first)
     // Nothing of the finished poster survives into the new run.
     expect(shown("four")).toBe(false)
-    expect(status()).toBe("0.0s")
   })
 })

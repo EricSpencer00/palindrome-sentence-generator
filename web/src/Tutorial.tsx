@@ -5,7 +5,7 @@ const STEPS: ReactNode[] = [
     A palindrome is a phrase that mirrors itself halfway through. ABC at the start becomes CBA
     at the end. It can be as short as “racecar” or as long as{" "}
     <a href="https://en.wikipedia.org/wiki/Palindrome" target="_blank"
-       rel="noopener noreferrer" className="underline underline-offset-2 hover:text-signal">
+       rel="noopener noreferrer" className="text-signal hover:text-ink">
       “saippuakivikauppias”
     </a>
     , and it can even stretch multiple words, like above.

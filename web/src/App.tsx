@@ -882,7 +882,7 @@ export default function App() {
             v2
             {result?.attribution
               ? <> · quoted sentences from {result.attribution.source},{" "}
-                  <a className="pointer-events-auto underline"
+                  <a className="pointer-events-auto text-signal hover:text-ink"
                      href={result.attribution.url}
                      target="_blank" rel="noreferrer license noopener">
                     {result.attribution.license}

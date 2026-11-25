@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 const A = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a href={href} target="_blank" rel="noopener noreferrer"
-     className="underline decoration-from-font underline-offset-2 hover:text-signal">{children}</a>
+     className="text-signal hover:text-ink">{children}</a>
 )
 
 const H = ({ children }: { children: React.ReactNode }) => (
@@ -147,7 +147,7 @@ export default function About({ archives = {} }: { archives?: Record<string, Sav
       </P>
 
       <p className="mt-10">
-        <a href="/how/" className="underline decoration-from-font underline-offset-2 hover:text-signal">
+        <a href="/how/" className="text-signal hover:text-ink">
           How the algorithm works, with walkthroughs and measurements →
         </a>
       </p>

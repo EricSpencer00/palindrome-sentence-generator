@@ -121,3 +121,11 @@ class TestShape:
         shape = _shape("step on no pets".split(), "")
         assert (shape["letters"], shape["words"]) == (12, 4)
         assert shape["center"] == ""          # 12 letters, mirror after `on`
+
+
+def test_punctuation_does_not_move_the_mirror():
+    """v5 words carry their punctuation; the cut is still by letters."""
+    plain = _split_at_mirror(["step", "on", "no", "pets"])
+    punct = _split_at_mirror(["Step", "on,", "no", "pets."])
+    assert [len(x) if isinstance(x, list) else x for x in plain] == \
+           [len(x) if isinstance(x, list) else x for x in punct]

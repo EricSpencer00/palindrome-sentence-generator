@@ -14,6 +14,7 @@ import asyncio
 import json
 import os
 import queue
+import re
 import threading
 import time
 from typing import Optional
@@ -69,6 +70,12 @@ RETIREMENT_MESSAGE = (
 )
 
 
+# v5 serves /api/generate through the v1 contract; everything else stays retired.
+ENGINE = os.environ.get("PALINDROME_ENGINE", "v1")
+if ENGINE == "v5":
+    RETIRED_OUTPUT_PATHS = RETIRED_OUTPUT_PATHS - {"/api/generate"}
+
+
 @app.middleware("http")
 async def refuse_unvalidated_palindrome_output(request: Request, call_next):
     """Keep every legacy generation route from reviving a shortcut output."""
@@ -85,6 +92,9 @@ _lm_error: Optional[str] = None
 def _warm() -> None:
     """Vocabulary and model load once, off the request path."""
     global _tries, _bigrams, _lm, _lm_error
+    if ENGINE == "v5":
+        from server import v5
+        v5.warm()
     vocab = build_vocab()
     _tries = WordTries(vocab)
     _bigrams = BigramModel.from_file(BIGRAMS_PATH, vocab=set(vocab))
@@ -127,6 +137,10 @@ def longest_palindromic_center(prompt: str) -> str:
     return best if len(best) >= 3 else ""
 
 
+def _alpha(w: str) -> int:
+    return sum(c.isalpha() for c in w)
+
+
 def _split_at_mirror(words: list[str]) -> tuple[list[str], str, list[str], int]:
     """Cut the word list where the text actually mirrors.
 
@@ -142,12 +156,12 @@ def _split_at_mirror(words: list[str]) -> tuple[list[str], str, list[str], int]:
     middle letter itself when the letter count is odd, otherwise the gap before
     that letter.
     """
-    n = sum(len(w) for w in words)
+    n = sum(_alpha(w) for w in words)
     half = n // 2
     odd = n % 2 == 1
     start = 0
     for i, w in enumerate(words):
-        end = start + len(w)
+        end = start + _alpha(w)
         if not odd and end == half:
             return words[: i + 1], "", words[i + 1:], 0
         inside = start <= half < end if odd else start < half < end
@@ -198,6 +212,17 @@ def _shape(words: list[str], prompt: str) -> dict:
     }
 
 
+def _search_v5(prompt: str) -> Optional[dict]:
+    from server import v5
+    typed = normalize(prompt)
+    centre = re.findall(r"[a-z]+", prompt.lower()) if typed and typed == typed[::-1] else []
+    words = v5.search(prompt, centre)
+    if not words or not is_palindrome(" ".join(words)):  # never serve a broken palindrome
+        return None
+    return {"type": "result", **_shape(words, prompt), "lm": None,
+            "usedPrompt": bool(prompt.strip()), "coherence": None}
+
+
 def _search(prompt: str, budget: float, on_partial=None) -> Optional[dict]:
     """Grow for `budget` seconds and return the palindrome the page was shown.
 
@@ -211,6 +236,8 @@ def _search(prompt: str, budget: float, on_partial=None) -> Optional[dict]:
     exactly where it was. Buying that guarantee costs the search its freedom to
     start over — see `commit_every` — and costs about 9% of the final length.
     """
+    if ENGINE == "v5":
+        return _search_v5(prompt)
     center = longest_palindromic_center(prompt)
     scorer = CoherentScorer(_bigrams, center=center, wanted=_wanted_words(prompt))
 
@@ -267,6 +294,9 @@ def _search(prompt: str, budget: float, on_partial=None) -> Optional[dict]:
 
 @app.get("/health")
 def health():
+    if ENGINE == "v5":
+        from server import v5
+        return {"ok": True, "output_available": True, "engine": "v5", "ready": v5._ready.is_set()}
     return {"ok": True, "output_available": False, "reason": RETIREMENT_MESSAGE,
             "vocab": _tries is not None, "lm": _lm is not None,
             "bigrams": _bigrams is not None, "lm_error": _lm_error}
@@ -293,7 +323,8 @@ async def generate(prompt: str = Query("", max_length=200),
         # The page needs the size the search is aiming at before the first frame
         # lands: it picks a grid width from it and then never changes it, because
         # rewrapping is exactly what it must not do.
-        yield _sse({"type": "plan", "expectLetters": 3 * LENGTH_FLOOR})
+        expect = int(os.environ.get("PALINDROME_V5_LETTERS", "300")) + 40 if ENGINE == "v5" else 3 * LENGTH_FLOOR
+        yield _sse({"type": "plan", "expectLetters": expect})
 
         t0 = time.time()
         # The search runs on a thread and hands its published frames back through

@@ -1,0 +1,14 @@
+[Unit]
+Description=palindrome API (v5 engine behind /api/generate)
+After=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/palindrome-v5
+Environment=PALINDROME_ENGINE=v5
+ExecStart=/home/ubuntu/palindrome-v5/.venv/bin/uvicorn server.app:app --host 127.0.0.1 --port 8010 --loop asyncio --http h11
+Restart=always
+Nice=5
+
+[Install]
+WantedBy=multi-user.target

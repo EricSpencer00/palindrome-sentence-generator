@@ -9,7 +9,8 @@ const ORIGIN = "https://palindrome-api.ericspencer.us"
 // public API honest at the Pages boundary: health and other diagnostic
 // endpoints remain available, but no generation route may expose material
 // before an independently generated candidate has passed the reader gate.
-const RETIRED_OUTPUT = /^\/api\/(?:generate|v\d+\/(?:generate|paragraph|composition|palindrome|refrain))(?:\/|$)/
+// /api/generate is served by the v5 engine through the v1 contract.
+const RETIRED_OUTPUT = /^\/api\/v\d+\/(?:generate|paragraph|composition|palindrome|refrain)(?:\/|$)/
 const RETIREMENT = {
   detail:
     "Palindrome output is retired: exactness and programmatic filters do not establish readable English. The service will remain unavailable until independently generated candidates have blinded human-reader evidence.",

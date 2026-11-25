@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 const A = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a href={href} target="_blank" rel="noopener noreferrer"
@@ -16,35 +16,54 @@ const U = ({ children }: { children: React.ReactNode }) => (
 
 const P = ({ children }: { children: React.ReactNode }) => <p className="mt-4 first:mt-0">{children}</p>
 
-type Saved = { left: string[]; center?: string; centerDisplay?: string; right: string[]; letters: number }
+type Saved = { left: string[]; center?: string; centerDisplay?: string; pivot?: number; pivotOdd?: boolean; right: string[]; letters: number }
 
 /* A saved paragraph from a retired version, written out from its mirror in a
    small box of its own, so the poster above stays where it is. */
 function Replay({ version, item }: { version: string; item: Saved }) {
   const mid = item.centerDisplay || item.center || ""
-  const [k, setK] = useState(0)
+  /* Every letter gets its place on one tape; letter j mirrors letter N-1-j. */
+  const words = useMemo(() => {
+    let n = 0
+    return [...item.left, ...(mid ? [mid] : []), ...item.right].map((w) => {
+      const at = [...w].map((c) => (/[a-z]/i.test(c) ? n++ : -1))
+      return { w, at, lo: Math.min(...at.filter((x) => x >= 0)), hi: Math.max(...at) }
+    })
+  }, [item, mid])
+  const N = words.reduce((m, x) => Math.max(m, x.hi + 1), 0)
+  const half = N / 2
+  // How far each word's outer edge sits from the mirror: both ends finish together.
+  const dist = (x: { lo: number; hi: number }) => Math.max(half - x.lo, x.hi + 1 - half, 0)
+  const total = Math.ceil(half)
+  const [p, setP] = useState(0)
+  const [pick, setPick] = useState<Set<number> | null>(null)
   useEffect(() => {
-    setK(0)
-    const total = Math.max(item.left.length, item.right.length)
-    const step = Math.max(12, 3000 / Math.max(1, total))
-    const t = window.setInterval(() => setK((n) => (n >= total ? (window.clearInterval(t), n) : n + 1)), step)
+    setP(0); setPick(null)
+    const t0 = performance.now()
+    const t = window.setInterval(() => {
+      const k = Math.min(1, (performance.now() - t0) / 3000)
+      setP(k * total)
+      if (k >= 1) window.clearInterval(t)
+    }, 30)
     return () => window.clearInterval(t)
-  }, [item])
-  // Every word holds its final place from the start; the pen only reveals them,
-  // from the centre outward, so the text never reflows while it writes.
-  const L = item.left.length
-  const words = [
-    ...item.left.map((w, i) => ({ w, on: L - i <= k })),
-    ...(mid ? [{ w: mid, on: true, mid: true }] : []),
-    ...item.right.map((w, i) => ({ w, on: i < k })),
-  ]
+  }, [item, total])
+  const mirror = pick ? new Set([...pick].map((j) => N - 1 - j)) : null
+  const bar = <span className="caret mx-px inline-block h-[1.1em] w-[2px] translate-y-[.2em] bg-signal" />
   return (
-    <div className="tut-in mt-4 rounded-2xl border border-haze p-4">
+    <div className="tut-in mt-4 rounded-2xl border border-haze p-4" onClick={() => setPick(null)}>
       <div className="label mb-2">{version} · {item.letters} letters</div>
       <p className="break-words text-center font-mono text-[13px] leading-relaxed">
         {words.map((x, i) => (
-          <span key={i} className={`transition-opacity duration-300 ${x.on ? "opacity-100" : "opacity-0"} ${"mid" in x ? "text-signal" : ""}`}>
-            {x.w}{" "}
+          <span key={i}
+                onClick={(e) => { e.stopPropagation(); setPick(new Set(x.at.filter((j) => j >= 0))) }}
+                className={`cursor-pointer transition-opacity duration-300 ${dist(x) <= p ? "opacity-100" : "opacity-0"}`}>
+            {[...x.w].map((c, k) => {
+              const j = x.at[k]
+              const cls = j < 0 ? "" : pick?.has(j) ? "bg-signal text-paper"
+                : mirror?.has(j) ? "bg-signal-soft text-signal"
+                : N % 2 === 1 && j === (N - 1) / 2 ? "pivot" : ""
+              return <span key={k}>{N % 2 === 0 && j === half ? bar : null}<span className={cls}>{c}</span></span>
+            })}{" "}
           </span>
         ))}
       </p>

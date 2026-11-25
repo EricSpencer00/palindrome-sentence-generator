@@ -2,8 +2,9 @@
 
 Trained on Brown plus the NLTK Gutenberg selection (Austen, Melville, Carroll,
 Chesterton, the King James Bible, Milton, Whitman, Shakespeare): 3.8M tokens.
-Commas and full stops are tokens. A palindrome ignores punctuation, so the
-search may place them anywhere, and the model decides where sentences end.
+Commas, full stops and question marks are tokens ("!" reads as a full stop).
+A palindrome ignores punctuation, so the search may place them anywhere, and
+the model decides where sentences end and which of them ask.
 
 The left half of a centre-out palindrome grows by prepending, so it is scored
 backwards, P(w | the two tokens after it); the right half forwards. One count
@@ -20,30 +21,42 @@ from .spectrum import ROOT
 
 CACHE = os.path.join(ROOT, "data", ".prose_lm.pkl")
 BOS = "."  # a full stop doubles as the sentence boundary
+VERSION = 2  # bump when tokenisation changes, so a stale cache is rebuilt
 
 
 def _stream():
+    """Sentences as (tokens, end mark): "?" where the sentence asks, else "."."""
     from nltk.corpus import brown, gutenberg
     for corpus in (brown, gutenberg):
         for sent in corpus.sents():
             out = []
             for tok in sent:
                 if tok in (",", ";", ":", "--"):
-                    if out and out[-1] != ",":
+                    if out and out[-1] not in (",", "?"):
                         out.append(",")
+                elif "?" in tok and not any(c.isalnum() for c in tok) and out:  # Gutenberg: '?"', '?--'
+                    if out[-1] == ",":
+                        out.pop()
+                    if out and out[-1] != "?":
+                        out.append("?")
                 elif tok.isalpha():
                     out.append(tok.lower())
             while out and out[-1] == ",":
                 out.pop()
-            if len(out) >= 3:
-                yield out
+            end = out.pop() if out and out[-1] == "?" else BOS
+            if sum(t.isalpha() for t in out) >= 3:
+                yield out, end
 
 
 class ProseLM:
     def __init__(self):
         uni, bi, tri = collections.Counter(), collections.Counter(), collections.Counter()
-        for s in _stream():
-            seq = [BOS] + s + [BOS]
+        self.version = VERSION
+        prev = BOS
+        for s, end in _stream():
+            # A sentence starts after the previous one's end mark.
+            seq = [prev] + s + [end]
+            prev = end
             uni.update(seq[1:])
             bi.update(zip(seq, seq[1:]))
             tri.update(zip(seq, seq[1:], seq[2:]))
@@ -64,7 +77,9 @@ class ProseLM:
     def load(cls) -> "ProseLM":
         if os.path.exists(CACHE):
             with open(CACHE, "rb") as fh:
-                return pickle.load(fh)
+                lm = pickle.load(fh)
+            if getattr(lm, "version", 1) == VERSION:
+                return lm
         lm = cls()
         with open(CACHE, "wb") as fh:
             pickle.dump(lm, fh, protocol=pickle.HIGHEST_PROTOCOL)
@@ -99,7 +114,7 @@ class ProseLM:
 
     def score(self, toks: list[str]) -> float:
         """Mean forward log-prob per token of a full text, boundaries included."""
-        seq = [BOS] + toks + ([BOS] if toks[-1] != BOS else [])
+        seq = [BOS] + toks + ([BOS] if toks[-1] not in (BOS, "?") else [])
         s = sum(self.fwd(seq[i - 2] if i >= 2 else None, seq[i - 1], seq[i]) for i in range(1, len(seq)))
         return s / (len(seq) - 1)
 

@@ -43,7 +43,9 @@
   h2 { font-size: 1.5rem; letter-spacing: -.02em; line-height: 1.2; margin: 3.5rem 0 .6rem; }
   p { margin: 0 0 1rem; }
   .lede { font-size: 1.2rem; line-height: 1.55; }
-  i, .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-style: normal; font-size: .9em; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .9em; }
+  i, em { font-style: normal; text-decoration: underline; text-decoration-color: var(--grey); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+  h2, figure { scroll-margin-top: 1.5rem; }
   figure { margin: 2rem 0; }
   figcaption { color: var(--ash); font-size: .88rem; line-height: 1.5; margin-top: .6rem; }
   .card { border: 1px solid var(--haze); border-radius: 14px; padding: 1.25rem; }
@@ -62,6 +64,8 @@
   .chart svg { width: 100%; height: auto; display: block; overflow: visible; }
   .chart text { font: 12px Archivo, sans-serif; fill: var(--ash); }
   .chart .val { fill: var(--ink); font-weight: 600; }
+  .chart text.m { font: 600 13px "JetBrains Mono", monospace; fill: var(--ink); }
+  .chart [data-hit] { cursor: default; }
   .tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--paper); font-size: .8rem; padding: .35rem .55rem; border-radius: 6px; opacity: 0; transition: opacity .12s; max-width: 18rem; z-index: 9; }
   table { width: 100%; border-collapse: collapse; font-size: .88rem; }
   th, td { text-align: right; padding: .35rem .4rem; border-bottom: 1px solid var(--haze); font-variant-numeric: tabular-nums; }
@@ -84,7 +88,7 @@
     is how the generator solves it.
   </p>
 
-  <h2>The rule: every letter is owed</h2>
+  <h2 id="rule">The rule: every letter is owed</h2>
   <p>
     Ignore spaces, punctuation and capitals, and a palindrome is a string of letters that equals
     its own reverse. <i>Step on no pets</i> is <i>steponnopets</i>, and so is its reversal. Word
@@ -92,6 +96,7 @@
     never needs a matching word on the right. It needs matching <em>letters</em>, and those
     letters can be split across as many words as the right side likes.
   </p>
+  <figure class="chart" id="tape"></figure>
   <p>
     The generator therefore treats a palindrome as a ledger. It writes from the middle out. Each
     word added to one half creates a debt: the other half owes those letters, reversed. Whichever
@@ -113,8 +118,9 @@
       <button class="primary" id="w-next">Next</button>
     </div>
   </figure>
+  <figure class="chart" id="debt"></figure>
 
-  <h2>Why most moves are bad</h2>
+  <h2 id="moves">Why most moves are bad</h2>
   <p>
     Every debt can be paid many ways, and almost all of them are gibberish. <i>Hate me here</i>
     reverses to <i>ereh em etah</i>. Split differently, the same letters give <i>ere he met
@@ -125,7 +131,7 @@
     pay for it in short words.
   </p>
 
-  <h2>Search: keep hundreds, keep the best</h2>
+  <h2 id="search">Search: keep hundreds, keep the best</h2>
   <p>
     A depth-first search commits to one path and dies in its first dead end. The generator runs
     a <strong>beam search</strong>: it holds a few hundred half-built paragraphs at once, extends
@@ -136,7 +142,7 @@
   </p>
   <figure class="chart" id="beam" aria-label="Diagram of a beam search keeping the best candidates each round"></figure>
 
-  <h2>Scoring: grammar, counted</h2>
+  <h2 id="scoring">Scoring: grammar, counted</h2>
   <p>
     Two scorers decide what "best" means. The first is a <strong>trigram language model</strong>
     trained on 3.8 million words of the Brown corpus and Project Gutenberg. It rewards sequences
@@ -154,7 +160,7 @@
   </p>
   <figure class="chart" id="spectrum" aria-label="The verifier’s readability scale from garbage to readable"></figure>
 
-  <h2>Results</h2>
+  <h2 id="results">Results</h2>
   <p>
     Every paragraph the generator returns is an exact palindrome; that is checked mechanically
     before anything is shown. The harder question is whether it reads. The measurements below
@@ -163,11 +169,14 @@
   </p>
   <figure class="chart" id="c-readable"></figure>
   <figure class="chart" id="c-gpt2"></figure>
+  <figure class="chart" id="d-gpt2"></figure>
   <figure class="chart" id="c-short"></figure>
   <figure class="chart" id="c-sentence"></figure>
+  <figure class="chart" id="d-sentence"></figure>
+  <figure class="chart" id="d-letters"></figure>
   <details><summary>All measurements as a table</summary><div id="table"></div></details>
 
-  <h2>What the numbers do and do not show</h2>
+  <h2 id="limits">What the numbers do and do not show</h2>
   <p>
     The verifier’s verdict, two thirds of sentences readable and level with real English, is
     not independent evidence: the search was optimised against that verifier, so of course it
@@ -182,7 +191,7 @@
     the economics of the palindrome. No blinded human reader study has been run on this version.
   </p>
 
-  <h2>Where the idea comes from</h2>
+  <h2 id="history">Where the idea comes from</h2>
   <p>
     In 1984 Dan Hoey wrote a program that extended <i>A man, a plan, a canal: Panama</i> to
     hundreds of words by tracking the letters one side owed the other. In 2002 Peter Norvig
@@ -191,13 +200,15 @@
     generator keeps their bookkeeping and changes the objective, from length to prose.
   </p>
 
-  <h2>Four versions that failed</h2>
+  <h2 id="versions">Four versions that failed</h2>
+  <figure class="chart" id="timeline"></figure>
   <ol class="versions">
     <li><strong>v1</strong> searched word by word, scored by a bigram model and reranked by GPT-2. Exact at any length, word salad at every length. A blinded judge rejected all 25 of its sentences.</li>
     <li><strong>v2</strong> placed about 1,300 whole sentences mined from Wikipedia into the mirror. It read better because it quoted instead of writing.</li>
     <li><strong>v3</strong> nested 540 verified palindromes from an offline bank. It stalled near a thousand letters, and readers preferred the shorter original over the grown paragraph in 20 of 20 pairs.</li>
     <li><strong>v4</strong> searched grammatical paths while matching letters at the seams. Its best reached 650 letters and still repeated names and broke clauses.</li>
   </ol>
+  <figure class="chart" id="shells"></figure>
   <p>
     The lesson of all four: exactness is easy and readability cannot be bolted on at the end. It
     has to be rewarded at every step of the search. Penalising bad phrases is not enough either.

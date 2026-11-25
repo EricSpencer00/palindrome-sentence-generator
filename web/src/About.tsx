@@ -7,10 +7,17 @@ const H = ({ children }: { children: React.ReactNode }) => (
   <h2 className="label mb-3 mt-14 first:mt-0">{children}</h2>
 )
 
+/* Quoted letters and phrases: underlined, never italic. */
+const U = ({ children }: { children: React.ReactNode }) => (
+  <span className="underline decoration-from-font underline-offset-4">{children}</span>
+)
+
 const P = ({ children }: { children: React.ReactNode }) => <p className="mt-4 first:mt-0">{children}</p>
 
 /* Below the poster: why it exists, how it works, and what failed first. */
-export default function About() {
+export default function About({
+  versions = [], onReplay,
+}: { versions?: string[]; onReplay?: (v: string) => void }) {
   return (
     <article id="about" className="mx-auto max-w-[38rem] px-5 pb-24 pt-16 font-display text-[15px] leading-relaxed text-ink">
       <h1 className="sr-only">Palindrome Paragraph Generator</h1>
@@ -33,12 +40,12 @@ export default function About() {
         Click on a longer word above. Longer words usually mean a few small words on the other
         side. But what happens when the word does not flip into another word easily? You can see
         how it must pay the debt that it has created for itself by using other letters from the
-        starts or ends of other words. <i>Hate me here</i> flips into <i>ereh em etah</i>, but
-        this is uninteresting and gibberish. Instead, split the second part into <i>ere he met
-        ah</i> via Brown-corpus sentence construction. Then, further add letters onto the second
-        part to create more interesting phrases such as <i>ere he met a hill</i>. But wait, that
-        means we need to add more letters to the first phrase. <i>Illi hate me here</i> doesn’t
-        work, but <i>Will I hate me here?</i> does. That also means adding a <i>w</i> to the
+        starts or ends of other words. <U>Hate me here</U> flips into <U>ereh em etah</U>, but
+        this is uninteresting and gibberish. Instead, split the second part into <U>ere he met
+        ah</U> via Brown-corpus sentence construction. Then, further add letters onto the second
+        part to create more interesting phrases such as <U>ere he met a hill</U>. But wait, that
+        means we need to add more letters to the first phrase. <U>Illi hate me here</U> doesn’t
+        work, but <U>Will I hate me here?</U> does. That also means adding a <U>w</U> to the
         second phrase, and you can easily see how small additions can pile onto each other,
         creating coherent phrases one on top of another.
       </P>
@@ -62,7 +69,7 @@ export default function About() {
 
       <H>Where it comes from</H>
       <P>
-        In 1984, Dan Hoey wrote a program that stretched <i>A man, a plan, a canal: Panama</i> to
+        In 1984, Dan Hoey wrote a program that stretched <U>A man, a plan, a canal: Panama</U> to
         hundreds of words by tracking exactly this kind of letter debt. In 2002, Peter Norvig
         rebuilt it as a search and <A href="https://norvig.com/pal-alg.html">wrote it up</A>. Their
         palindromes are records, not reading: exact, enormous lists of names and nouns. This
@@ -99,7 +106,7 @@ export default function About() {
 
       <H>Research</H>
       <P>
-        Long searches fall into ruts: 46 of 52 earlier outputs contained <i>no it a</i>. In a
+        Long searches fall into ruts: 46 of 52 earlier outputs contained <U>no it a</U>. In a
         controlled study of 360 matched runs, penalizing the six most reused phrases removed them
         and raised lexical diversity, and the search found new ruts to replace them. Banning bad
         phrases doesn’t produce good ones. That is why this generator rewards good sentences
@@ -111,6 +118,18 @@ export default function About() {
           How the algorithm works, with walkthroughs and measurements →
         </a>
       </p>
+
+      {versions.length > 0 && (
+        <div className="mt-10 flex flex-wrap items-center gap-2">
+          <span className="label mr-1">Earlier versions</span>
+          {versions.map((v) => (
+            <button key={v} onClick={() => onReplay?.(v)}
+                    className="rounded-[3px] bg-haze px-2 py-0.5 font-mono text-xs text-ink hover:bg-signal hover:text-paper">
+              {v}
+            </button>
+          ))}
+        </div>
+      )}
 
       <p className="label mt-16">
         <A href="https://github.com/EricSpencer00/palindrome-sentence-generator">source</A> ·{" "}

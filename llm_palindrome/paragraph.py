@@ -27,7 +27,9 @@ from .prose_lm import BOS, ProseLM
 from .spectrum import FUNCTION, Tables
 from .validator import is_palindrome
 
-PUNCT = ("", ",", ".")
+ENDS = (".", "?")  # tokens that close a sentence
+MARKS = (",",) + ENDS  # free punctuation: no letters
+PUNCT = ("",) + MARKS
 
 # Palindromes that can sit at any mirrored seam, or at the centre.
 PALINDROMES = """did eye noon level racecar madam refer civic deed peep pop sees stats solos
@@ -35,7 +37,7 @@ tenet gag nun kayak radar rotor redder wow mom dad pup tot sis ewe eve ere""".sp
 
 
 def letters(tok: str) -> str:
-    return "" if tok in (",", ".") else tok
+    return "" if tok in MARKS else tok
 
 
 class Lexicon:
@@ -124,11 +126,19 @@ def _content(w):
 
 
 def _word_after(seq, i):
-    return next((x for x in seq[i + 1:i + 4] if x not in (",", ".")), None)
+    return next((x for x in seq[i + 1:i + 4] if x not in MARKS), None)
 
 
 def _word_before(seq, i):
-    return next((x for x in reversed(seq[max(0, i - 3):i]) if x not in (",", ".")), None)
+    return next((x for x in reversed(seq[max(0, i - 3):i]) if x not in MARKS), None)
+
+
+def _first_end(seq):
+    return next(i for i, x in enumerate(seq) if x in ENDS)
+
+
+def _last_end(seq):
+    return max(i for i, x in enumerate(seq) if x in ENDS)
 
 
 def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: int = 12,
@@ -153,8 +163,9 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
         return lm.fwd(sq[i - 2] if i >= 2 else None, sq[i - 1] if i >= 1 else None, sq[i])
 
     def sentence(toks) -> float:
-        """A sentence just closed on one side: judge it whole with the Brown
-        syntax verifier. Fragments and salad pay; real clauses earn."""
+        """A sentence just closed on one side, its end mark included: judge it
+        whole with the Brown syntax verifier. Fragments and salad pay; real
+        clauses earn."""
         toks = tuple(toks)
         if toks not in judged:
             if spectrum is None or not toks:
@@ -162,7 +173,7 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
             else:
                 f = spectrum.features(render(toks))
                 r = spectrum.readable(f)
-                n = sum(1 for x in toks if x != ",")
+                n = sum(1 for x in toks if x not in MARKS)
                 judged[toks] = sent_w * (math.log(max(r, 0.02)) - math.log(0.5)) * min(n, 12) / 4
         return judged[toks]
 
@@ -173,17 +184,24 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
         """Mean per-token value of a closed paragraph, penalties included."""
         return (k.score + k.adj) / len(k.seq)
 
-    def finish(sq) -> float:
+    def finish(sq) -> tuple[float, str]:
         """A closed paragraph: its first word starts a sentence, its last ends
-        one, and its two outer sentences are judged whole like the rest."""
+        one, and its two outer sentences are judged whole like the rest.
+        The last sentence closes on whichever end mark scores better; returns
+        (delta, mark)."""
         d = lm.fwd(None, BOS, sq[0]) - fterm(sq, 0)
         if len(sq) > 1:
             d += lm.fwd(BOS, sq[0], sq[1]) - fterm(sq, 1)
-        d += lm.fwd(sq[-2] if len(sq) > 1 else BOS, sq[-1], BOS)
-        if "." in sq:
-            d += sentence(sq[:sq.index(".")])
-            d += sentence(sq[len(sq) - sq[::-1].index("."):])
-        return d
+        inner = any(x in ENDS for x in sq)
+        if inner:
+            d += sentence(sq[:_first_end(sq) + 1])
+        a = sq[-2] if len(sq) > 1 else BOS
+        last = sq[_last_end(sq) + 1:] if inner else ()
+
+        def close(e):
+            return lm.fwd(a, sq[-1], e) + (sentence(last + (e,)) if inner else 0.0)
+        mark = max(ENDS, key=close)
+        return d + close(mark), mark
 
     def tri_total(sq) -> float:
         return sum(fterm(sq, i) for i in range(len(sq)))
@@ -207,7 +225,7 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
                 uses, bigs = s.uses, s.bigs
                 pen = 0.0
                 left_side = new_seq[:1] != seq[:1] or not seq
-                near = [x for x in (new_seq[:9] if left_side else new_seq[-9:]) if x not in (",", ".")]
+                near = [x for x in (new_seq[:9] if left_side else new_seq[-9:]) if x not in MARKS]
                 recent = new_seq[:recall] if left_side else new_seq[-recall:]
                 for i, w in enumerate(new_words):
                     n = uses[w] + 1 + new_words[:i].count(w)
@@ -222,7 +240,7 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
                         pen += window_pen
                 # An edge that has gone too long without a full stop is a run-on.
                 edge = new_seq[:runon] if left_side else new_seq[-runon:]
-                if len(new_seq) > runon and "." not in edge:
+                if len(new_seq) > runon and not any(x in ENDS for x in edge):
                     pen += runon_pen * len(new_words)
                 # A word pair that already occurs is the start of a cycle.
                 edges = tuple(e for e in edges if None not in e)
@@ -240,7 +258,7 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
                 """Prepend w, with optional punctuation after it."""
                 for p in PUNCT:
                     toks = (w, p) if p else (w,)
-                    if p and seq and seq[0] in (",", "."):
+                    if p and seq and seq[0] in MARKS:
                         continue
                     nxt = toks + seq
                     # One forward model for the whole paragraph: prepending
@@ -252,14 +270,14 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
                     d -= sum(fterm(seq, i) for i in range(min(len(seq), 2)))
                     if p == ",":
                         d -= comma_pen
-                    if p == "." and "." in seq:
-                        d += sentence(seq[:seq.index(".")])
+                    if p in ENDS and any(x in ENDS for x in seq):
+                        d += sentence(seq[:_first_end(seq) + 1])
                     yield nxt, d
 
             def right_variants(w):
                 for p in PUNCT:
                     toks = (p, w) if p else (w,)
-                    if p and seq and seq[-1] in (",", "."):
+                    if p and seq and seq[-1] in MARKS:
                         continue
                     nxt = seq + toks
                     d = 0.0
@@ -267,13 +285,13 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
                         d += lm.fwd(nxt[i - 2] if i >= 2 else BOS, nxt[i - 1] if i >= 1 else BOS, nxt[i])
                     if p == ",":
                         d -= comma_pen
-                    if p == "." and "." in seq:
-                        d += sentence(seq[len(seq) - seq[::-1].index("."):])
+                    if p in ENDS and any(x in ENDS for x in seq):
+                        d += sentence(seq[_last_end(seq) + 1:] + (p,))
                     yield nxt, d
 
             if not s.owed:
                 # A shell boundary. Start a new shell on the left ...
-                ctx = next((x for x in seq if x not in (",", ".")), BOS)
+                ctx = next((x for x in seq if x not in MARKS), BOS)
                 opts = list(lex.before.get(ctx, ())[:40 if seq else 400])
                 if topic:
                     opts += [w for w in theme_words if w in lex.words
@@ -298,7 +316,7 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
                     cands = lex.append_matches(s.owed)
                     if len(cands) > top_k:
                         cands = heapq.nlargest(top_k, cands, key=lambda c: max(
-                            lm.fwd(a, b, c[0]), lm.fwd(b, ".", c[0]) - 1.0) + theme_w * topic.get(c[0], 0.0))
+                            lm.fwd(a, b, c[0]), *(lm.fwd(b, e, c[0]) - 1.0 for e in ENDS)) + theme_w * topic.get(c[0], 0.0))
                     memo[key] = cands
                 for w, rest, flipped in cands:
                     for nxt, d in right_variants(w):
@@ -312,7 +330,7 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
                     cands = lex.prepend_matches(s.owed)
                     if len(cands) > top_k:
                         cands = heapq.nlargest(top_k, cands, key=lambda c: max(
-                            lm.bwd(c[0], b, c2), lm.bwd(c[0], ".", b) - 1.0) + theme_w * topic.get(c[0], 0.0))
+                            lm.bwd(c[0], b, c2), *(lm.bwd(c[0], e, b) - 1.0 for e in ENDS)) + theme_w * topic.get(c[0], 0.0))
                     memo[key] = cands
                 for w, rest, flipped in cands:
                     for nxt, d in left_variants(w):
@@ -323,9 +341,12 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
             pool.extend(heapq.nlargest(per_parent if seq else len(kids), kids, key=priority))
 
         for k in pool:
-            if not k.owed and k.n >= target and k.seq[0] not in (",", ".") and k.seq[-1] != ",":
-                k.adj += finish(k.seq)
-                closed.append(k)
+            if not k.owed and k.n >= target and k.seq[0] not in MARKS and k.seq[-1] not in MARKS:
+                d, mark = finish(k.seq)
+                k.adj += d
+                # The paragraph's own full stop is implicit; any other mark is printed.
+                closed.append(k if mark == "." else State(k.seq + (mark,), k.owner, k.owed, k.score,
+                                                           k.n, k.inserts, k))
         if len(closed) > 2000:
             closed = heapq.nlargest(500, closed, key=quality)
         # Diversity: one state per (outer context, owed); a little noise.
@@ -352,16 +373,16 @@ def grow(lm: ProseLM, lex: Lexicon, target: int, beam: int = 400, per_parent: in
 def render(seq) -> str:
     out, cap = [], True
     for tok in seq:
-        if tok in (",", "."):
+        if tok in MARKS:
             if out:
                 out[-1] += tok
-            cap = tok == "."
+            cap = tok in ENDS
             continue
         w = "I" if tok == "i" else tok
         out.append(w[0].upper() + w[1:] if cap else w)
         cap = False
     text = " ".join(out)
-    return text if text.endswith(".") else text.rstrip(",") + "."
+    return text if text.endswith(ENDS) else text.rstrip(",") + "."
 
 
 def main() -> None:
@@ -389,7 +410,7 @@ def main() -> None:
             continue
         seen.add(text)
         assert is_palindrome(text), text
-        print(f"\n[{s.n} letters, {sum(1 for x in s.seq if x not in ',.')} words, "
+        print(f"\n[{s.n} letters, {sum(1 for x in s.seq if x not in MARKS)} words, "
               f"lm {lm.score(list(s.seq)):.2f}, inserts {s.inserts}]\n{text}")
         if len(seen) >= args.show:
             break

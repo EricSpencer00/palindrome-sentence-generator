@@ -85,7 +85,10 @@ beforeEach(() => {
   FakeStream.last = null
   vi.stubGlobal("EventSource", FakeStream)
   replay = null
-  vi.stubGlobal("fetch", () => replay
+  vi.stubGlobal("fetch", (url: string) => url === "/archive/v2.json"
+    ? Promise.resolve({ ok: true, json: async () => [{ ...answer(["old"], ["dlo"]), version: "v2" }] })
+    : url.startsWith("/archive/") ? Promise.resolve({ ok: false, json: async () => null })
+    : replay
     ? Promise.resolve({ ok: true, json: async () => replay })
     : Promise.reject(new Error("offline")))
   render(<App />)
@@ -220,5 +223,31 @@ describe("the stream", () => {
     expect([shown("one"), shown("eight")]).toEqual([true, true])
     expect(screen.queryByText("could not reach the generator")).toBe(null)
     expect(screen.queryByRole("button", { name: /what is this/i })).not.toBe(null)
+  })
+
+  test("replays a saved output of an earlier version, labelled with it", async () => {
+    await draw(0)
+    // Only versions whose file loaded get a button.
+    expect(screen.queryByRole("button", { name: "v1" })).toBe(null)
+    fireEvent.click(screen.getByRole("button", { name: "v2" }))
+    await drawAll()
+
+    expect([shown("old"), shown("dlo")]).toEqual([true, true])
+    expect(document.querySelector("p.label.absolute")?.textContent).toBe("v2")
+  })
+
+  test("labels nothing on a normal run", async () => {
+    start()
+    stream().send(answer(LEFT, RIGHT))
+    await drawAll()
+    expect(document.querySelector("p.label.absolute")).toBe(null)
+  })
+
+  test("writes fresh words in plain ink", async () => {
+    start()
+    stream().send(draft(LEFT, RIGHT))
+    const word = screen.getByText("four")
+    expect(word.className).not.toMatch(/signal/)
+    expect(word.closest(".font-mono")?.className).toMatch(/select-none/)
   })
 })

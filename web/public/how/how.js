@@ -1,5 +1,6 @@
-/* /how: the debt walkthrough, two diagrams, and the measurement charts. */
+/* /how: the debt walkthrough, diagrams, and the measurement charts. */
 (() => {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual"
   const NS = "http://www.w3.org/2000/svg"
   const el = (tag, attrs = {}, text) => {
     const n = document.createElementNS(NS, tag)
@@ -15,6 +16,57 @@
     tip.style.top = e.clientY + 14 + "px"
   }
   const hideTip = () => { tip.style.opacity = 0 }
+  const hover = (node, html, on, off) => {
+    node.setAttribute("data-hit", "")
+    node.addEventListener("mousemove", (e) => { showTip(e, html()); on && on() })
+    node.addEventListener("mouseleave", () => { hideTip(); off && off() })
+  }
+  const mount = (id, title, svg, caption) => {
+    const fig = document.getElementById(id)
+    if (title) {
+      fig.appendChild(Object.assign(document.createElement("div"), { className: "label", textContent: title }))
+      fig.lastChild.style.marginBottom = ".6rem"
+    }
+    fig.appendChild(svg)
+    fig.appendChild(Object.assign(document.createElement("figcaption"), { textContent: caption }))
+  }
+  const svgOf = (W, H, label) => el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": label })
+
+  /* ---- letter tape ---------------------------------------------------- */
+  ;(() => {
+    const L = ["No", "will", "I", "hate", "me", "here"], R = ["Ere", "he", "met", "a", "hill", "I", "won"]
+    const letters = (L.join("") + R.join("")).toLowerCase(), N = letters.length, half = N / 2
+    const W = 640, H = 178, pad = 14, gap = 12, base = 128
+    const cw = (W - 2 * pad - gap) / N
+    const cx = (i) => pad + (i + 0.5) * cw + (i >= half ? gap : 0)
+    const svg = svgOf(W, H, "The letters of a palindrome mirrored across its centre; the two halves split the same letters into different words.")
+    const arcs = [], cells = []
+    for (let i = 0; i < half; i++) {
+      const a = cx(i), b = cx(N - 1 - i), r = (b - a) / 2
+      arcs.push(svg.appendChild(el("path", { d: `M${a},${base - 16}A${r},${Math.min(r * 0.32, 92)} 0 0 1 ${b},${base - 16}`,
+        fill: "none", stroke: "var(--haze)", "stroke-width": 1.2 })))
+    }
+    svg.appendChild(el("line", { x1: W / 2, x2: W / 2, y1: 20, y2: base + 6, stroke: "var(--ink)", "stroke-dasharray": "2 3" }))
+    for (let i = 0; i < N; i++) cells.push(svg.appendChild(el("text", { x: cx(i), y: base, "text-anchor": "middle", class: "m" }, letters[i])))
+    const pair = (i, on) => {
+      const j = N - 1 - i, k = Math.min(i, j)
+      arcs[k].setAttribute("stroke", on ? "var(--signal)" : "var(--haze)")
+      arcs[k].setAttribute("stroke-width", on ? 2 : 1.2)
+      for (const n of [i, j]) cells[n].style.fill = on ? "var(--signal)" : ""
+    }
+    for (let i = 0; i < N; i++) {
+      const hit = svg.appendChild(el("rect", { x: cx(i) - cw / 2, y: base - 16, width: cw, height: 22, fill: "transparent" }))
+      hover(hit, () => `“${letters[i]}”: letter ${i + 1} and letter ${N - i} from the left`, () => pair(i, true), () => pair(i, false))
+    }
+    let at = 0
+    for (const w of [...L, ...R]) {
+      const a = cx(at) - cw / 2 + 2, b = cx(at + w.length - 1) + cw / 2 - 2
+      svg.appendChild(el("line", { x1: a, x2: b, y1: base + 10, y2: base + 10, stroke: "var(--grey)", "stroke-width": 1.5 }))
+      svg.appendChild(el("text", { x: (a + b) / 2, y: base + 28, "text-anchor": "middle" }, w))
+      at += w.length
+    }
+    mount("tape", null, svg, "Each letter is tied to its mirror across the centre; hover one to see its partner. The halves share letters, not words: “no will I hate me here” against “ere he met a hill I won”.")
+  })()
 
   /* ---- walkthrough ---------------------------------------------------- */
   const STEPS = [
@@ -34,6 +86,7 @@
       note: "“No” settles it. Nothing is owed, so the paragraph is a palindrome: nowillihatemehere | erehemetahilliwon." },
   ]
   let at = 0
+  const onStep = []
   const words = (ws, fresh, from) => ws.map((w, i) => {
     const isNew = from === "end" ? i >= ws.length - fresh : i < fresh
     return isNew ? `<span class="new">${w}</span>` : w
@@ -50,7 +103,32 @@
     ;[...dots.children].forEach((d, i) => d.classList.toggle("on", i === at))
     document.getElementById("w-back").disabled = at === 0
     document.getElementById("w-next").textContent = at === STEPS.length - 1 ? "Again" : "Next"
+    onStep.forEach((f) => f(at))
   }
+  /* ---- debt per step ------------------------------------------------- */
+  ;(() => {
+    const W = 640, H = 176, left = 30, top = 40, base = 134, max = Math.max(...STEPS.map((s) => s.owed ? s.owed[1].length : 0))
+    const bw = (W - left) / STEPS.length
+    const svg = svgOf(W, H, "Letters owed after each step of the walkthrough, by side.")
+    svg.appendChild(el("line", { x1: left, x2: W, y1: base, y2: base, stroke: "var(--ink)" }))
+    const groups = STEPS.map((s, i) => {
+      const n = s.owed ? s.owed[1].length : 0, h = ((base - top) * n) / max, x = left + i * bw + bw * 0.3
+      const g = svg.appendChild(el("g", {}))
+      g.appendChild(el("rect", { x, y: base - Math.max(h, 1.5), width: bw * 0.4, height: Math.max(h, 1.5), rx: 3,
+        fill: s.owed && s.owed[0] === "right" ? "var(--signal)" : "var(--grey)" }))
+      g.appendChild(el("text", { x: x + bw * 0.2, y: base - h - 6, "text-anchor": "middle", class: "val" }, n))
+      g.appendChild(el("text", { x: x + bw * 0.2, y: base + 18, "text-anchor": "middle" }, `step ${i + 1}`))
+      const hit = svg.appendChild(el("rect", { x: left + i * bw, y: 0, width: bw, height: H, fill: "transparent" }))
+      hit.style.cursor = "pointer"
+      hover(hit, () => s.owed ? `<b>Step ${i + 1}</b><br>${s.owed[0]} owes “${s.owed[1]}”` : `<b>Step ${i + 1}</b><br>nothing owed`)
+      hit.addEventListener("click", () => { at = i; draw() })
+      return g
+    })
+    svg.appendChild(el("text", { x: left, y: 12 }, "letters owed"))
+    onStep.push((k) => groups.forEach((g, i) => g.setAttribute("opacity", i === k ? 1 : 0.35)))
+    mount("debt", null, svg, "The debt across the walkthrough: blue while the right half owes, grey while the left does. It shrinks, flips sides on an overpayment, and closes at zero. Click a step to show it above.")
+  })()
+
   document.getElementById("w-back").onclick = () => { at = Math.max(0, at - 1); draw() }
   document.getElementById("w-next").onclick = () => { at = at === STEPS.length - 1 ? 0 : at + 1; draw() }
   draw()
@@ -108,6 +186,41 @@
       textContent: "Schematic. The verifier turns counts into a probability that a sentence is readable; the beam pays for sentences on the right and punishes those on the left." }))
   })()
 
+  /* ---- nested shells ---------------------------------------------------- */
+  ;(() => {
+    const parts = ["L3", "L2", "L1", "racecar", "R1", "R2", "R3"]
+    const W = 640, H = 150, bw = 70, seamW = 104, gap = 10, y = 30, bh = 34
+    const total = 6 * bw + seamW + 6 * gap
+    let cur = (W - total) / 2
+    const box = parts.map((p) => { const w = p === "racecar" ? seamW : bw, b = { p, x: cur, w }; cur += w + gap; return b })
+    const svg = svgOf(W, H, "Nested shells L3 L2 L1, a seam insert, then R1 R2 R3; each Lk mirrors Rk.")
+    const arcs = {}, rects = {}
+    for (let k = 1; k <= 3; k++) {
+      const a = box[3 - k], b = box[3 + k], ax = a.x + a.w / 2, bx = b.x + b.w / 2, r = (bx - ax) / 2
+      arcs[k] = svg.appendChild(el("path", { d: `M${ax},${y + bh + 4}A${r},${18 + k * 14} 0 0 0 ${bx},${y + bh + 4}`,
+        fill: "none", stroke: "var(--grey)", "stroke-width": 1.2 }))
+    }
+    box.forEach((b) => {
+      const seam = b.p === "racecar"
+      rects[b.p] = svg.appendChild(el("rect", { x: b.x, y, width: b.w, height: bh, rx: 6,
+        fill: seam ? "var(--signal-soft)" : "var(--paper)", stroke: seam ? "var(--signal)" : "var(--grey)", "stroke-width": 1.5 }))
+      svg.appendChild(el("text", { x: b.x + b.w / 2, y: y + 22, "text-anchor": "middle", class: seam ? "m" : "val" }, b.p))
+      if (seam) svg.lastChild.style.fill = "var(--signal)"
+    })
+    svg.appendChild(el("text", { x: W / 2, y: y - 10, "text-anchor": "middle" }, "seam"))
+    const light = (k, on) => {
+      arcs[k].setAttribute("stroke", on ? "var(--signal)" : "var(--grey)")
+      for (const p of ["L" + k, "R" + k]) rects[p].setAttribute("stroke", on ? "var(--signal)" : "var(--grey)")
+    }
+    box.forEach((b) => {
+      const hit = svg.appendChild(el("rect", { x: b.x, y: 0, width: b.w, height: H, fill: "transparent" }))
+      const k = +b.p[1]
+      if (b.p === "racecar") hover(hit, () => "A palindrome at the centre seam keeps the whole exact.")
+      else hover(hit, () => `${b.p} is ${b.p[0] === "L" ? "R" : "L"}${k} reversed, letter for letter`, () => light(k, true), () => light(k, false))
+    })
+    mount("shells", null, svg, "Schematic of v3 and v4. Each shell pair mirrors letter for letter around one centre, so any palindrome dropped into the centre seam, here racecar, leaves the whole paragraph exact.")
+  })()
+
   /* ---- measurement charts --------------------------------------------- */
   const LABELS = {
     brown: "English prose (Brown)", classics: "Classic palindromes", v1: "v1 generator",
@@ -140,7 +253,50 @@
   }
   const pct = (v) => `${Math.round(v * 100)}%`
 
-  fetch("/how/data.json").then((r) => r.json()).then((data) => {
+  /* ---- distributions -------------------------------------------------- */
+  const strip = (fig, data) => {
+    const keys = ["brown", "v1", "v5_live", "v5_sophia"].filter((k) => fig.gpt2[k])
+    const W = 640, rowH = 34, left = 210, right = 20, top = 8, H = keys.length * rowH + top + 30
+    const lo = Math.log(20), hi = Math.log(1500), x = (v) => left + ((Math.log(v) - lo) / (hi - lo)) * (W - left - right)
+    const svg = svgOf(W, H, "GPT-2 perplexity of every text, per corpus, on a log scale.")
+    for (const t of [20, 50, 100, 200, 500, 1000]) {
+      svg.appendChild(el("line", { x1: x(t), x2: x(t), y1: top, y2: H - 26, stroke: "var(--haze)" }))
+      svg.appendChild(el("text", { x: x(t), y: H - 8, "text-anchor": "middle" }, t.toLocaleString()))
+    }
+    keys.forEach((k, r) => {
+      const vs = fig.gpt2[k], yy = top + r * rowH + rowH / 2, ours = k.startsWith("v5")
+      svg.appendChild(el("text", { x: left - 10, y: yy + 4, "text-anchor": "end" }, LABELS[k]))
+      vs.forEach((v, i) => svg.appendChild(el("circle", { cx: x(v), cy: yy + (((i * 0.618) % 1) - 0.5) * 16, r: 2.6,
+        fill: ours ? "var(--signal)" : "var(--grey)", "fill-opacity": 0.55 })))
+      const m = data[k].gpt2_ppl_median
+      svg.appendChild(el("line", { x1: x(m), x2: x(m), y1: yy - 12, y2: yy + 12, stroke: "var(--ink)", "stroke-width": 2 }))
+      const hit = svg.appendChild(el("rect", { x: 0, y: yy - rowH / 2, width: W, height: rowH, fill: "transparent" }))
+      hover(hit, () => `<b>${LABELS[k]}</b><br>median ${Math.round(m).toLocaleString()} · range ${Math.round(vs[0]).toLocaleString()}–${Math.round(vs[vs.length - 1]).toLocaleString()} · ${vs.length} texts`)
+    })
+    mount("d-gpt2", "GPT-2 perplexity, every text (log scale)", svg,
+      "One dot per text, the black tick at the median. The ranges do not overlap: the worst English paragraph reads better to GPT-2 than the best generated one, and the worst generated one better than any v1 paragraph. v1’s dots stack because it repeats itself.")
+  }
+  const hist = (id, title, label, caption, series, bins, binLabel) => {
+    const W = 640, H = 200, left = 34, top = 14, base = 160
+    const counts = series.map((s) => bins.map(([a, b]) => s.vs.filter((v) => v >= a && v < b).length / (s.share ? s.vs.length : 1)))
+    const max = Math.max(...counts.flat())
+    const bw = (W - left) / bins.length, sw = (bw * 0.8) / series.length
+    const svg = svgOf(W, H, label)
+    svg.appendChild(el("line", { x1: left, x2: W, y1: base, y2: base, stroke: "var(--ink)" }))
+    bins.forEach((bin, i) => {
+      series.forEach((s, j) => {
+        const c = counts[j][i], h = ((base - top) * c) / max
+        svg.appendChild(el("rect", { x: left + i * bw + bw * 0.1 + j * sw, y: base - h, width: Math.max(sw - 1, 1), height: h, rx: 1.5, fill: s.color, "fill-opacity": s.opacity || 1 }))
+      })
+      if (i % Math.ceil(bins.length / 10) === 0) svg.appendChild(el("text", { x: left + i * bw + bw / 2, y: base + 18, "text-anchor": "middle" }, binLabel(bin, true)))
+      const hit = svg.appendChild(el("rect", { x: left + i * bw, y: 0, width: bw, height: H, fill: "transparent" }))
+      hover(hit, () => `<b>${binLabel(bin)}</b><br>` + series.map((s, j) => `${s.name}: ${s.share ? pct(counts[j][i]) : counts[j][i]}`).join("<br>"))
+    })
+    svg.appendChild(el("text", { x: left, y: 8 }, series[0].share ? "share" : "texts"))
+    mount(id, title, svg, caption)
+  }
+
+  Promise.all([fetch("/how/data.json").then((r) => r.json()), fetch("/how/figures.json").then((r) => r.json())]).then(([data, fig]) => {
     document.getElementById("n-v5").textContent = data.v5_live.n + data.v5_sophia.n
     bars("c-readable", "Sentences the verifier rates readable", "readable_share", pct,
       "Share of sentences scoring at or above the verifier’s readable threshold. v1 never ends a sentence, so its one sentence per paragraph fails.", data)
@@ -159,5 +315,41 @@
       ORDER.filter((k) => data[k]).map((k) =>
         `<tr><td>${LABELS[k]}</td>${cols.map((c) => `<td>${data[k][c[0]] == null ? "–" : c[2](data[k][c[0]])}</td>`).join("")}</tr>`).join("")
     document.getElementById("table").appendChild(t)
+
+    strip(fig, data)
+    const sl = fig.sentence_lengths
+    hist("d-sentence", "Sentence length in words", "Distribution of sentence lengths, this generator against English prose.",
+      `Every sentence pooled: ${sl.v5.length.toLocaleString()} generated (blue) against ${sl.brown.length} from Brown (grey). 68% of generated sentences run ten words or fewer, against 37% of English; 2% reach twenty, against 33%.`,
+      [{ name: "This generator", vs: sl.v5, share: true, color: "var(--signal)" }, { name: "Brown", vs: sl.brown, share: true, color: "var(--grey)" }],
+      [...Array(30)].map((_, i) => (i < 29 ? [i + 1, i + 2] : [30, Infinity])),
+      ([a, b], short) => (b === Infinity ? (short ? "30+" : "30 or more words") : short ? String(a) : `${a} word${a > 1 ? "s" : ""}`))
+    const lv = fig.letters
+    hist("d-letters", "Letters per paragraph", "Distribution of paragraph lengths in letters for both generator runs.",
+      "Length is a target the search hits: paragraphs stop at or just past it, 300 letters live (dark), 600, 700 or 1,000 in the long runs (light).",
+      [{ name: "300-letter target", vs: lv.v5_live, color: "var(--signal)" }, { name: "600–1,000 target", vs: lv.v5_sophia, color: "var(--signal)", opacity: 0.4 }],
+      [...Array(32)].map((_, i) => [300 + i * 25, 325 + i * 25]),
+      ([a, b], short) => (short ? String(a) : `${a}–${b - 1} letters`))
+
+    /* ---- versions timeline ------------------------------------------ */
+    ;(() => {
+      const W = 640, H = 150, pad = 60, y = 40, vs = fig.versions
+      const x = (i) => pad + (i * (W - 2 * pad)) / (vs.length - 1)
+      const svg = svgOf(W, H, "Five versions of the generator, one key number each.")
+      svg.appendChild(el("line", { x1: x(0), x2: x(vs.length - 1), y1: y, y2: y, stroke: "var(--grey)" }))
+      vs.forEach(([v, n, what], i) => {
+        const ours = i === vs.length - 1
+        svg.appendChild(el("circle", { cx: x(i), cy: y, r: 6, fill: ours ? "var(--signal)" : "var(--paper)", stroke: ours ? "var(--signal)" : "var(--grey)", "stroke-width": 2 }))
+        svg.appendChild(el("text", { x: x(i), y: y - 16, "text-anchor": "middle", class: "val" }, v))
+        svg.appendChild(el("text", { x: x(i), y: y + 30, "text-anchor": "middle", class: "val" }, n))
+        const ws = what.split(" "), cut = Math.ceil(ws.length / 2)
+        ;[ws.slice(0, cut), ws.slice(cut)].forEach((line, j) =>
+          svg.appendChild(el("text", { x: x(i), y: y + 48 + j * 15, "text-anchor": "middle" }, line.join(" "))))
+        const hit = svg.appendChild(el("rect", { x: x(i) - 50, y: 0, width: 100, height: H, fill: "transparent" }))
+        hover(hit, () => `<b>${v}</b><br>${n} ${what}`)
+      })
+      mount("timeline", null, svg, "One number per version. Each failed on a different axis, so no single measure fits all five.")
+    })()
+
+    if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView()
   })
 })()

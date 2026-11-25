@@ -178,19 +178,52 @@ body {
 
 ::selection { background: var(--color-signal); color: #fff; }
 
-/* "generate": a colour wave runs through the letters, one after another. */
+/* "generate", lit the way Claude Code lights "ultrathink": a bright band sweeps
+   across the letters one after another, then the word rests. Blue and white
+   only — the band is a pale tint with a soft glow, the rest is signal blue. */
 @keyframes shimmer {
-  0%, 100% { color: #3a1ce0 } 16% { color: #c2255c } 33% { color: #b4531a }
-  50% { color: #1f7a4f } 66% { color: #0f6f99 } 83% { color: #6a3fd6 }
+  0%, 28%, 100% { color: var(--color-signal); text-shadow: none }
+  10% { color: #b3a6ff; text-shadow: 0 0 6px #ffffff, 0 0 10px #8f7cff }
 }
-.shimmer span { display: inline-block; animation: shimmer 2.4s ease-in-out infinite; }
+.shimmer { position: relative; }
+.shimmer span {
+  display: inline-block;
+  color: var(--color-signal);
+  animation: shimmer 2.6s ease-in-out infinite;
+}
+/* One glint on each sweep, where the band leaves the word. */
+@keyframes glint {
+  0%, 32%, 100% { opacity: 0; transform: scale(.2) rotate(0) }
+  38% { opacity: 1; transform: scale(1) rotate(45deg) }
+  46% { opacity: 0; transform: scale(.2) rotate(90deg) }
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  right: -9px; top: -5px;
+  width: 7px; height: 7px;
+  background: var(--color-signal);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  opacity: 0;
+  animation: glint 2.6s ease-out infinite;
+}
+
+/* While the search runs, two pens leave the mirror for either edge and fade,
+   again and again: the two halves growing out of the middle. */
+@keyframes pen {
+  0% { transform: translateX(0); opacity: 0 }
+  20% { opacity: .9 }
+  100% { transform: translateX(calc(var(--d) * 2.4em)); opacity: 0 }
+}
+.pen { font-size: 42px; animation: pen 1.6s cubic-bezier(.22,1,.36,1) infinite; }
 
 /* Cards rise and fade in. */
 @keyframes tut-in { from { opacity: 0; transform: translateY(6px) scale(.98) } to { opacity: 1; transform: none } }
 .tut-in { animation: tut-in 220ms cubic-bezier(.22,1,.36,1); }
 
 @media (prefers-reduced-motion: reduce) {
-  .shimmer span, .tut-in { animation: none; }
+  .shimmer span, .shimmer::after, .tut-in, .pen { animation: none; }
+  .pen { display: none; }
 }
 
 .no-scrollbar { scrollbar-width: none; }

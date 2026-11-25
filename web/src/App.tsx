@@ -368,6 +368,7 @@ function Word({
 /* Log-shaped: 90% by 3s, the last 10% across 3–20s, then the run times out. */
 const TIMEOUT_MS = 20000
 const REPLAY = "/replay.json"   // paragraphs written earlier, for when the generator is down
+const VERSIONS = ["v1", "v2", "v3", "v4"]   // retired generators, each with saved outputs in /archive
 function progress(t: number) {
   return t <= 3
     ? 0.9 * Math.log1p(3 * t) / Math.log1p(9)
@@ -402,6 +403,10 @@ export default function App() {
   const [runId, setRunId] = useState(0)
   const [converged, setConverged] = useState(false)
   const deadline = useRef(0)
+  const scroller = useRef<HTMLDivElement>(null)
+  /* Saved outputs of the retired versions, and which one is on the poster. */
+  const [archives, setArchives] = useState<Record<string, Result[]>>({})
+  const [archive, setArchive] = useState<string | null>(null)
 
   /* v3's two extra controls. `cap` is the bank's own ceiling, asked for rather
      than assumed, so the dial cannot promise a length the material cannot
@@ -623,14 +628,46 @@ export default function App() {
     ]
   }, [grid, drawn])
 
-  const generate = useCallback(() => {
+  /* Back to an empty poster, ready for a new run. */
+  const reset = useCallback(() => {
     esRef.current?.close()
+    window.clearTimeout(deadline.current)
     window.clearTimeout(tick.current); tick.current = 0
     setResult(null); setError(""); setElapsed(0); setPick(null)
     setCols(0); setEndRows(1); expectRef.current = EXPECT_LETTERS
     setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }; pace.current.acc = 1
     finished.current = false
     setPhase("searching"); setRunId((n) => n + 1); setConverged(false); setCardOpen(false)
+    setArchive(null)
+    // A selection left on the page paints every word the pen writes into it.
+    window.getSelection?.()?.removeAllRanges()
+  }, [])
+
+  /* Write out a paragraph that is already whole: a cached one when the
+     generator is down, or a saved one from an earlier version. */
+  const play = useCallback((pick: Result) => {
+    finished.current = true
+    window.clearTimeout(tick.current); tick.current = 0
+    setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }; pace.current.acc = 1
+    const n = pickCols(pick.letters, availW, availH, advance)
+    setCols(n)
+    setEndRows(Math.max(1, Math.ceil((pick.letters * CHARS_PER_LETTER) / n)))
+    setResult(pick); setConverged(true)
+    write(pick.left.length, pick.right.length)
+  }, [availW, availH, advance, write])
+
+  const replayVersion = useCallback((v: string) => {
+    const list = archives[v]
+    const pick = list?.[Math.floor(Math.random() * list.length)]
+    if (!pick) return
+    reset()
+    setArchive(v)
+    scroller.current?.scrollTo?.({ top: 0, behavior: "smooth" })
+    play(pick)
+  }, [archives, reset, play])
+
+  const generate = useCallback(() => {
+    reset()
 
     /* When the generator is down or too busy to answer in time, play one of the
        paragraphs it wrote earlier instead of showing an error. */
@@ -644,17 +681,11 @@ export default function App() {
         .then((list: Result[]) => {
           const pick = list[Math.floor(Math.random() * list.length)]
           if (!pick) throw new Error()
-          setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }; pace.current.acc = 1
-          const n = pickCols(pick.letters, availW, availH, advance)
-          setCols(n)
-          setEndRows(Math.max(1, Math.ceil((pick.letters * CHARS_PER_LETTER) / n)))
-          setResult(pick); setConverged(true)
-          write(pick.left.length, pick.right.length)
+          play(pick)
         })
         .catch(() => { setError(message); setResult(null); setPhase("error") })
     }
 
-    window.clearTimeout(deadline.current)
     deadline.current = window.setTimeout(() => fail("timed out"), TIMEOUT_MS)
     const es = new EventSource(`${API}?prompt=${encodeURIComponent(prompt)}&budget=16`)
     esRef.current = es
@@ -684,7 +715,7 @@ export default function App() {
       }
     }
     es.onerror = () => fail("could not reach the generator")
-  }, [prompt, availW, availH, advance, write, cols])
+  }, [prompt, availW, availH, advance, write, cols, reset, play])
 
   /* v3, which arrives whole and is written out anyway.
    *
@@ -749,6 +780,22 @@ export default function App() {
     v3Timers.current.forEach(window.clearTimeout)
   }, [])
 
+  /* A version whose file is missing gets no button. */
+  useEffect(() => {
+    if (IS_V3) return
+    let alive = true
+    for (const v of VERSIONS) {
+      fetch(`/archive/${v}.json`)
+        .then((r) => (r.ok ? r.json() : Promise.reject()))
+        .then((list: Result[]) => {
+          const ok = Array.isArray(list) ? list.filter((x) => x?.left && x?.right) : []
+          if (alive && ok.length) setArchives((a) => ({ ...a, [v]: ok }))
+        })
+        .catch(() => { /* no file, no button */ })
+    }
+    return () => { alive = false }
+  }, [])
+
   /* The dial cannot offer a length the bank cannot reach, so it asks. */
   useEffect(() => {
     if (!IS_V3) return
@@ -790,7 +837,7 @@ export default function App() {
     : ""
 
   return (
-    <div className="no-scrollbar h-full overflow-y-auto overflow-x-hidden bg-paper">
+    <div ref={scroller} className="no-scrollbar h-full overflow-y-auto overflow-x-hidden bg-paper">
     <div className="relative h-full w-full overflow-hidden bg-paper" onClick={() => setPick(null)}>
       {!IS_V3 && searching && !converged && <Progress key={runId} />}
 
@@ -873,12 +920,27 @@ export default function App() {
             }}
           />
         )}
+        {/* Waiting: the two pens leave the mirror in opposite directions, over
+            and over, the way the two halves will grow out of it. */}
+        {!grid && searching && [-1, 1].map((d) => (
+          <span
+            key={d}
+            aria-hidden="true"
+            className="pen absolute bg-signal"
+            style={{
+              left: "50%", top: "50%",
+              width: BAR_W, height: BAR_H,
+              marginLeft: -BAR_W / 2, marginTop: -BAR_H / 2,
+              ["--d" as string]: d,
+            }}
+          />
+        ))}
         {!IS_V3 && !grid && phase !== "searching" && (
           <div className="absolute inset-x-0 top-1/2 mt-8 flex flex-col items-center gap-2 px-4"
                onClick={(e) => e.stopPropagation()}>
             {phase === "error" && <p className="label text-center text-signal">{error}</p>}
             <button onClick={run} className="shimmer label" aria-label="generate">
-              {[..."generate"].map((ch, i) => <span key={i} style={{ animationDelay: `${-i * 300}ms` }}>{ch}</span>)}
+              {[..."generate"].map((ch, i) => <span key={i} style={{ animationDelay: `${i * 90}ms` }}>{ch}</span>)}
             </button>
           </div>
         )}
@@ -904,7 +966,7 @@ export default function App() {
                   ? "transform 1400ms cubic-bezier(.22,1,.36,1)"
                   : "transform 140ms linear",
             }}
-            className="font-mono text-ink"
+            className={`font-mono text-ink ${done ? "" : "select-none"}`}
           >
             {[...grid.left.slice(0, drawn.l), ...grid.right.slice(0, drawn.r)].map((c) => (
               <span
@@ -1030,9 +1092,15 @@ export default function App() {
       </div>
       )}
 
+      {archive && grid && (
+        <p className="label pointer-events-none absolute inset-x-0 top-6 z-30 text-center sm:top-10">{archive}</p>
+      )}
+
       {done && result && <Tutorial onOpenChange={setCardOpen} />}
     </div>
-    {!IS_V3 && <About />}
+    {!IS_V3 && (
+      <About versions={VERSIONS.filter((v) => archives[v])} onReplay={replayVersion} />
+    )}
     </div>
   )
 }

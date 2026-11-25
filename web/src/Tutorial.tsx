@@ -3,12 +3,12 @@ import { useEffect, useRef, useState, type ReactNode } from "react"
 const STEPS: ReactNode[] = [
   <>
     A palindrome is a phrase that mirrors itself halfway through. ABC at the start becomes CBA
-    at the end. It can be as short as “racecar” or as long as{" "}
-    <a href="https://en.wikipedia.org/wiki/Palindrome" target="_blank"
+    at the end. It can be as short as “racecar” or as long as Peter Norvig’s 21,012-word{" "}
+    <a href="https://norvig.com/palindrome.html" target="_blank"
        rel="noopener noreferrer" className="text-signal hover:text-ink">
-      “saippuakivikauppias”
+      “A man, a plan, a caretaker, …, a canal, Panama”
     </a>
-    , and it can even stretch multiple words, like above.
+    .
   </>,
   <>Click on any word above and see where its letters lie in the other half of the phrase.</>,
 ]

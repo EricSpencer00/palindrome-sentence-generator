@@ -375,6 +375,24 @@ function progress(t: number) {
     : Math.min(1, 0.9 + 0.1 * Math.log1p(t - 3) / Math.log1p(17))
 }
 
+const WAIT_WORDS = ["loading", "thinking", "pondering", "mirroring", "balancing"]
+
+/* Under the pens while the search runs. The word ends at the mirror and the
+   dots start there, in a fixed box, so neither moves when the word changes. */
+function Waiting() {
+  const [n, setN] = useState(0)
+  useEffect(() => {
+    const t = window.setInterval(() => setN((k) => k + 1), 450)
+    return () => window.clearInterval(t)
+  }, [])
+  return (
+    <div aria-hidden="true" className="label absolute inset-x-0 top-1/2 mt-8 grid grid-cols-2">
+      <span className="text-right">{WAIT_WORDS[Math.floor(n / 3) % WAIT_WORDS.length]}</span>
+      <span className="w-[3ch] text-left">{".".repeat((n % 3) + 1)}</span>
+    </div>
+  )
+}
+
 function Progress() {
   const [p, setP] = useState(0)
   useEffect(() => {
@@ -923,6 +941,7 @@ export default function App() {
             }}
           />
         ))}
+        {!grid && searching && <Waiting />}
         {!IS_V3 && !grid && phase !== "searching" && (
           <div className="absolute inset-x-0 top-1/2 mt-8 flex flex-col items-center gap-2 px-4"
                onClick={(e) => e.stopPropagation()}>

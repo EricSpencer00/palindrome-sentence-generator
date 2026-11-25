@@ -87,18 +87,25 @@
   ]
   let at = 0
   const onStep = []
-  const words = (ws, fresh, from) => ws.map((w, i) => {
-    const isNew = from === "end" ? i >= ws.length - fresh : i < fresh
-    return isNew ? `<span class="new">${w}</span>` : w
-  }).join(" ")
+  /* One half of the mirror: its words, with the letters it still owes drawn as
+     empty slots at its outer edge, where the next words must go. Fresh words
+     slide in from the mirror and settle from blue to ink. */
+  const half = (ws, fresh, side, owed) => {
+    const isNew = (i) => (side === "l" ? i < fresh : i >= ws.length - fresh)
+    const w = ws.map((x, i) => `<span class="w${isNew(i) ? " in-" + side : ""}">${x}</span>`)
+    const g = owed ? [...owed].map((c, i) => `<span class="g" style="animation-delay:${120 + i * 55}ms">${c}</span>`).join("") : ""
+    return side === "l" ? [g, ...w].filter(Boolean).join(" ") : [...w, g].filter(Boolean).join(" ")
+  }
   const dots = document.getElementById("w-dots")
   STEPS.forEach(() => dots.appendChild(document.createElement("span")))
   const draw = () => {
     const s = STEPS[at]
-    document.getElementById("w-left").innerHTML = words(s.l, s.side === "l" ? s.n : 0, "start") || "&nbsp;"
-    document.getElementById("w-right").innerHTML = words(s.r, s.side === "r" ? s.n : 0, "end") || "&nbsp;"
-    document.getElementById("w-owed").innerHTML = s.owed
-      ? `${s.owed[0]} owes <span class="debt">${s.owed[1]}</span>` : "nothing"
+    const lo = s.owed && s.owed[0] === "left" ? s.owed[1] : "", ro = s.owed && s.owed[0] === "right" ? s.owed[1] : ""
+    document.getElementById("w-left").innerHTML = half(s.l, s.side === "l" ? s.n : 0, "l", lo) || "&nbsp;"
+    document.getElementById("w-right").innerHTML = half(s.r, s.side === "r" ? s.n : 0, "r", ro) || "&nbsp;"
+    const label = (id, text, owes) => { const e = document.getElementById(id); e.textContent = text; e.classList.toggle("owes", owes) }
+    label("w-lside", lo ? `left owes ${lo.length}` : s.owed ? "left half" : "settled", !!lo)
+    label("w-rside", ro ? `right owes ${ro.length}` : s.owed ? "right half" : "settled", !!ro)
     document.getElementById("w-note").textContent = s.note
     ;[...dots.children].forEach((d, i) => d.classList.toggle("on", i === at))
     document.getElementById("w-back").disabled = at === 0

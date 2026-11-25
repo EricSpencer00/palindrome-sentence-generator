@@ -30,13 +30,23 @@ function Replay({ version, item }: { version: string; item: Saved }) {
     const t = window.setInterval(() => setK((n) => (n >= total ? (window.clearInterval(t), n) : n + 1)), step)
     return () => window.clearInterval(t)
   }, [item])
-  const left = item.left.slice(Math.max(0, item.left.length - k))
-  const right = item.right.slice(0, k)
+  // Every word holds its final place from the start; the pen only reveals them,
+  // from the centre outward, so the text never reflows while it writes.
+  const L = item.left.length
+  const words = [
+    ...item.left.map((w, i) => ({ w, on: L - i <= k })),
+    ...(mid ? [{ w: mid, on: true, mid: true }] : []),
+    ...item.right.map((w, i) => ({ w, on: i < k })),
+  ]
   return (
     <div className="tut-in mt-4 rounded-2xl border border-haze p-4">
       <div className="label mb-2">{version} · {item.letters} letters</div>
-      <p className="break-words font-mono text-[13px] leading-relaxed">
-        {[...left, ...(mid ? [mid] : []), ...right].join(" ")}
+      <p className="break-words text-center font-mono text-[13px] leading-relaxed">
+        {words.map((x, i) => (
+          <span key={i} className={`transition-opacity duration-300 ${x.on ? "opacity-100" : "opacity-0"} ${"mid" in x ? "text-signal" : ""}`}>
+            {x.w}{" "}
+          </span>
+        ))}
       </p>
     </div>
   )

@@ -542,9 +542,20 @@ export default function App() {
 
     // The finished poster: the full width of the grid, and however many rows it
     // turns out to need.
-    const endHalfW = Math.max(anchorX, cols * charW - anchorX)
-    const endHalfH = (endRows * lineH) / 2
+    /* When the whole answer has arrived up front (v5 sends no drafts), the end
+       is no longer an estimate: aim at the real extent, so the camera makes one
+       move instead of zooming to the estimate and then again to the truth. */
+    const known = finished.current && written
+    const last = union(grid.leftExt[grid.leftExt.length - 1], grid.rightExt[grid.rightExt.length - 1])
+    const endHalfW = known
+      ? Math.max(anchorX - last.minCol * charW, last.maxCol * charW - anchorX, 1)
+      : Math.max(anchorX, cols * charW - anchorX)
+    const endHalfH = known
+      ? Math.max(anchorY - last.minRow * lineH, (last.maxRow + 1) * lineH - anchorY, 1)
+      : (endRows * lineH) / 2
     const fitEnd = Math.min(availW / (2 * endHalfW), availH / (2 * endHalfH))
+    // Known end: one eased move to the true fit (see the transition below).
+    if (known) return Math.min(MAX_SCALE, fitEnd)
 
     /* How far through the writing, as a fraction — and it has to be a FRACTION.
        Counting the rows the drawn text spans is the obvious measure and it is an
@@ -870,7 +881,9 @@ export default function App() {
                  it snaps. */
               transition: done
                 ? "transform 900ms cubic-bezier(.22,1,.36,1)"
-                : "transform 140ms linear",
+                : finished.current
+                  ? "transform 1400ms cubic-bezier(.22,1,.36,1)"
+                  : "transform 140ms linear",
             }}
             className="font-mono text-ink"
           >

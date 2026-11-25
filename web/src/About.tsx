@@ -13,6 +13,7 @@ const P = ({ children }: { children: React.ReactNode }) => <p className="mt-4 fi
 export default function About() {
   return (
     <article id="about" className="mx-auto max-w-[38rem] px-5 pb-24 pt-16 font-display text-[15px] leading-relaxed text-ink">
+      <h1 className="sr-only">Palindrome Paragraph Generator</h1>
       <H>Why a paragraph</H>
       <P>
         Palindromes are words or phrases that mirror themselves halfway. One side’s letters
@@ -103,6 +104,12 @@ export default function About() {
         phrases doesn’t produce good ones. That is why this generator rewards good sentences
         instead of punishing bad ones.
       </P>
+
+      <p className="mt-10">
+        <a href="/how/" className="underline decoration-from-font underline-offset-2 hover:text-signal">
+          How the algorithm works, with walkthroughs and measurements →
+        </a>
+      </p>
 
       <p className="label mt-16">
         <A href="https://github.com/EricSpencer00/palindrome-sentence-generator">source</A> ·{" "}

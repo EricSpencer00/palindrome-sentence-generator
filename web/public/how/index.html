@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Write a Palindrome Paragraph: The Letter-Debt Algorithm</title>
+<meta name="description" content="How a palindrome paragraph generator works: letter debts between two halves, beam search, a trigram model and a counting verifier for readability, with measurements against v1 and real English.">
+<link rel="canonical" href="https://palindrome.ericspencer.us/how/">
+<meta property="og:title" content="How to Write a Palindrome Paragraph">
+<meta property="og:description" content="The letter-debt algorithm behind paragraphs that read the same backwards, explained with walkthroughs and measurements.">
+<meta property="og:url" content="https://palindrome.ericspencer.us/how/">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to Write a Palindrome Paragraph: The Letter-Debt Algorithm",
+  "description": "How a palindrome paragraph generator works: letter debts, beam search, a trigram model and a counting readability verifier, with measurements.",
+  "url": "https://palindrome.ericspencer.us/how/",
+  "author": {"@type": "Person", "name": "Eric Spencer", "url": "https://ericspencer.us"},
+  "datePublished": "2026-11-25",
+  "about": ["Palindrome", "Beam search", "Natural language generation", "Constrained text generation"],
+  "isPartOf": {"@type": "WebSite", "name": "Palindrome Paragraph Generator", "url": "https://palindrome.ericspencer.us/"}
+}
+</script>
+<style>
+  :root {
+    --paper: #ffffff; --ink: #0d0d10; --ash: #6b6b76; --haze: #ececf1;
+    --signal: #3a1ce0; --signal-soft: #ece9ff; --grey: #b9b9c3;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.7 Archivo, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  main { max-width: 42rem; margin: 0 auto; padding: 4rem 1rem 6rem; }
+  a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--signal); }
+  .label { font: 700 .66rem/1.4 Archivo, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--ash); }
+  h1 { font-size: clamp(2rem, 6vw, 3.1rem); line-height: 1.04; letter-spacing: -.035em; margin: .6rem 0 1.2rem; }
+  h2 { font-size: 1.5rem; letter-spacing: -.02em; line-height: 1.2; margin: 3.5rem 0 .6rem; }
+  p { margin: 0 0 1rem; }
+  .lede { font-size: 1.2rem; line-height: 1.55; }
+  i, .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-style: normal; font-size: .9em; }
+  figure { margin: 2rem 0; }
+  figcaption { color: var(--ash); font-size: .88rem; line-height: 1.5; margin-top: .6rem; }
+  .card { border: 1px solid var(--haze); border-radius: 14px; padding: 1.25rem; }
+  button { font: 600 .85rem Archivo, sans-serif; border: 0; border-radius: 999px; padding: .45rem .95rem; cursor: pointer; }
+  .primary { background: var(--ink); color: var(--paper); } .primary:hover { background: var(--signal); }
+  .ghost { background: transparent; color: var(--ash); } .ghost:hover { color: var(--ink); }
+  button:disabled { opacity: .35; cursor: default; }
+  .ledger { font-family: "JetBrains Mono", monospace; font-size: .95rem; line-height: 1.9; overflow-x: auto; }
+  .ledger .row { display: grid; grid-template-columns: 4.5rem 1fr; gap: .5rem; white-space: pre; }
+  .ledger .debt { color: var(--signal); background: var(--signal-soft); border-radius: 3px; padding: 0 .2em; }
+  .ledger .new { color: var(--signal); }
+  .note { min-height: 3.4em; color: var(--ash); font-size: .95rem; margin: .8rem 0 0; }
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-top: .8rem; }
+  .dots { display: flex; gap: 6px; } .dots span { height: 6px; width: 6px; border-radius: 99px; background: var(--haze); transition: width .3s; }
+  .dots span.on { width: 16px; background: var(--ink); }
+  .chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .chart text { font: 12px Archivo, sans-serif; fill: var(--ash); }
+  .chart .val { fill: var(--ink); font-weight: 600; }
+  .tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--paper); font-size: .8rem; padding: .35rem .55rem; border-radius: 6px; opacity: 0; transition: opacity .12s; max-width: 18rem; z-index: 9; }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  th, td { text-align: right; padding: .35rem .4rem; border-bottom: 1px solid var(--haze); font-variant-numeric: tabular-nums; }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-weight: 600; color: var(--ash); }
+  details summary { cursor: pointer; color: var(--ash); font-size: .88rem; margin-top: .6rem; }
+  ol.versions { padding-left: 0; list-style: none; } ol.versions li { margin-bottom: 1rem; }
+  .cta { display: inline-block; margin-top: 2.5rem; background: var(--ink); color: var(--paper); text-decoration: none; padding: .7rem 1.2rem; border-radius: 999px; font-weight: 600; }
+  .cta:hover { background: var(--signal); color: var(--paper); }
+  @media (prefers-reduced-motion: reduce) { .dots span { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <a class="label" href="/">← Palindrome Paragraph Generator</a>
+  <h1>How to write a palindrome paragraph</h1>
+  <p class="lede">
+    A palindrome reads the same backwards, letter by letter. Seven words of one is a party trick.
+    Three hundred letters of one that still reads like prose is an engineering problem, and this
+    is how the generator solves it.
+  </p>
+
+  <h2>The rule: every letter is owed</h2>
+  <p>
+    Ignore spaces, punctuation and capitals, and a palindrome is a string of letters that equals
+    its own reverse. <i>Step on no pets</i> is <i>steponnopets</i>, and so is its reversal. Word
+    boundaries are free; letters are not. That asymmetry is the whole game. A word on the left
+    never needs a matching word on the right. It needs matching <em>letters</em>, and those
+    letters can be split across as many words as the right side likes.
+  </p>
+  <p>
+    The generator therefore treats a palindrome as a ledger. It writes from the middle out. Each
+    word added to one half creates a debt: the other half owes those letters, reversed. Whichever
+    half owes adds words to pay. A word that overpays turns its surplus into a debt for the other
+    side. The paragraph is finished when nothing is owed.
+  </p>
+
+  <figure class="card" id="walk" aria-label="Interactive walkthrough of letter debts">
+    <div class="label">Walkthrough: paying a debt</div>
+    <div class="ledger" style="margin-top:.8rem">
+      <div class="row"><span class="label" style="line-height:1.9">left</span><span id="w-left"></span></div>
+      <div class="row"><span class="label" style="line-height:1.9">right</span><span id="w-right"></span></div>
+      <div class="row"><span class="label" style="line-height:1.9">owed</span><span id="w-owed"></span></div>
+    </div>
+    <p class="note" id="w-note"></p>
+    <div class="nav">
+      <button class="ghost" id="w-back">Back</button>
+      <div class="dots" id="w-dots"></div>
+      <button class="primary" id="w-next">Next</button>
+    </div>
+  </figure>
+
+  <h2>Why most moves are bad</h2>
+  <p>
+    Every debt can be paid many ways, and almost all of them are gibberish. <i>Hate me here</i>
+    reverses to <i>ereh em etah</i>. Split differently, the same letters give <i>ere he met
+    ah</i>, and with a little more, <i>ere he met a hill</i>. The trouble is that the search is
+    blind to meaning. Left alone, it discovers that tiny words are the cheapest way to settle a
+    debt: <i>a</i>, <i>I</i>, <i>no</i>, <i>it</i>, <i>on</i>. An unguided palindrome search
+    converges on a slurry of two-letter words, which is exactly what the first version of this
+    generator produced.
+  </p>
+
+  <h2>Search: keep hundreds, keep the best</h2>
+  <p>
+    A depth-first search commits to one path and dies in its first dead end. The generator runs
+    a <strong>beam search</strong>: it holds a few hundred half-built paragraphs at once, extends
+    every one of them by every legal word, scores the results and keeps only the best few hundred
+    for the next round. Bad branches die early; promising ones get room to grow. A debt is only
+    allowed if some sequence of dictionary words can still pay it, so the beam never wastes a slot
+    on a hopeless paragraph.
+  </p>
+  <figure class="chart" id="beam" aria-label="Diagram of a beam search keeping the best candidates each round"></figure>
+
+  <h2>Scoring: fluent, but not a cliché</h2>
+  <p>
+    Two scorers decide what "best" means. The first is a <strong>trigram language model</strong>
+    trained on 3.8 million words of the Brown corpus and Project Gutenberg. It rewards sequences
+    English actually uses. Commas and full stops are tokens to it but cost no letters, so the
+    search can end a sentence wherever grammar wants a break, for free.
+  </p>
+  <p>
+    The second is a <strong>counting verifier</strong> that judges each sentence the moment its
+    full stop lands. It uses no neural network: it counts part-of-speech patterns from the Brown
+    corpus, the share of filler words, repetition and word rarity, and places the sentence on a
+    line that runs from repetitive garbage to stock phrase. Both ends lose. Garbage is unreadable;
+    stock phrases are the palindrome world's clichés. The verifier rewards the middle, where a
+    sentence is readable and still surprising. It runs in a fraction of a millisecond, so it
+    judges every candidate rather than only the survivor.
+  </p>
+  <figure class="chart" id="spectrum" aria-label="The readability spectrum from garbage to stock phrase"></figure>
+
+  <h2>Results</h2>
+  <p>
+    Every paragraph the generator returns is an exact palindrome; that is checked mechanically
+    before anything is shown. The harder question is whether it reads. The measurements below
+    compare <span id="n-v5"></span> paragraphs from the live generator against the first version,
+    against classic human palindromes, and against ordinary English from the Brown corpus.
+  </p>
+  <figure class="chart" id="c-readable"></figure>
+  <figure class="chart" id="c-gpt2"></figure>
+  <figure class="chart" id="c-short"></figure>
+  <figure class="chart" id="c-sentence"></figure>
+  <details><summary>All measurements as a table</summary><div id="table"></div></details>
+
+  <h2>What the numbers do and do not show</h2>
+  <p>
+    The verifier’s verdict, two thirds of sentences readable and level with real English, is
+    not independent evidence: the search was optimised against that verifier, so of course it
+    passes. GPT-2 is the honest witness, because the search never consulted it. By that measure
+    the generator more than halves v1’s perplexity, 205 against 457, and remains roughly four
+    times further from ordinary English, at 55. Short words tell the same story from the other
+    side: 45% of the generator’s words have one or two letters, no better than v1 and double
+    English. The generator writes sentences; it has not yet escaped the economics of the
+    palindrome. No blinded human reader study has been run on this version.
+  </p>
+
+  <h2>Where the idea comes from</h2>
+  <p>
+    In 1984 Dan Hoey wrote a program that extended <i>A man, a plan, a canal: Panama</i> to
+    hundreds of words by tracking the letters one side owed the other. In 2002 Peter Norvig
+    rebuilt the idea as a search and <a href="https://norvig.com/pal-alg.html">documented it</a>.
+    Their palindromes are records, not reading: exact, enormous lists of names and nouns. This
+    generator keeps their bookkeeping and changes the objective, from length to prose.
+  </p>
+
+  <h2>Four versions that failed</h2>
+  <ol class="versions">
+    <li><strong>v1</strong> searched word by word, scored by a bigram model and reranked by GPT-2. Exact at any length, word salad at every length. A blinded judge rejected all 25 of its sentences.</li>
+    <li><strong>v2</strong> placed about 1,300 whole sentences mined from Wikipedia into the mirror. It read better because it quoted instead of writing.</li>
+    <li><strong>v3</strong> nested 540 verified palindromes from an offline bank. It stalled near a thousand letters, and readers preferred the shorter original over the grown paragraph in 20 of 20 pairs.</li>
+    <li><strong>v4</strong> searched grammatical paths while matching letters at the seams. Its best reached 650 letters and still repeated names and broke clauses.</li>
+  </ol>
+  <p>
+    The lesson of all four: exactness is easy and readability cannot be bolted on at the end. It
+    has to be rewarded at every step of the search. Penalising bad phrases is not enough either.
+    In a controlled study of 360 matched runs, banning the six most reused phrases removed them
+    and raised lexical diversity, and the search found new ruts to replace them.
+  </p>
+
+  <a class="cta" href="/">Generate a paragraph</a>
+</main>
+<div class="tip" id="tip" role="tooltip"></div>
+<script src="/how/how.js" defer></script>
+</body>
+</html>

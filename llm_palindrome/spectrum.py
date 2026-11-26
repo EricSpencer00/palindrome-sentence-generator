@@ -26,6 +26,8 @@ import os
 import pickle
 import re
 
+from .contractions import SPELL, TAG_LIKE
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BIGRAMS = os.path.join(ROOT, "data", "count_2w.txt")  # norvig.com/ngrams/count_2w.txt
 CACHE = os.path.join(ROOT, "data", ".spectrum_tables.pkl")
@@ -173,7 +175,10 @@ class Tables:
         self.fwd, self.fwd_total = dict(fwd), dict(tot)
 
     def is_word(self, w: str) -> bool:
-        """Brown-attested, not foreign, not only ever a name."""
+        """Brown-attested, not foreign, not only ever a name; or a contraction
+        ("im" of "I'm", which Brown capitalises into a name)."""
+        if w in SPELL:
+            return True
         tags = self.lex.get(w)
         return bool(tags) and not set(tags) <= {"NP", "NPS"} and w not in self.names
 
@@ -181,10 +186,15 @@ class Tables:
     def load(cls) -> "Tables":
         if os.path.exists(CACHE):
             with open(CACHE, "rb") as fh:
-                return pickle.load(fh)
-        t = cls()
-        with open(CACHE, "wb") as fh:
-            pickle.dump(t, fh)
+                t = pickle.load(fh)
+        else:
+            t = cls()
+            with open(CACHE, "wb") as fh:
+                pickle.dump(t, fh)
+        # Elisions Brown never tags read like the word they shorten.
+        for short, full in TAG_LIKE.items():
+            if not t.lex.get(short) and t.lex.get(full):
+                t.lex[short] = t.lex[full]
         return t
 
 

@@ -21,7 +21,33 @@ from .spectrum import ROOT
 
 CACHE = os.path.join(ROOT, "data", ".prose_lm.pkl")
 BOS = "."  # a full stop doubles as the sentence boundary
-VERSION = 2  # bump when tokenisation changes, so a stale cache is rebuilt
+VERSION = 3  # bump when tokenisation changes, so a stale cache is rebuilt
+
+
+def _join_contractions(sent):
+    """Contractions as one letters-only token: Brown's "don't" and Gutenberg's
+    "don ' t" both become "dont"; "' Tis" becomes "tis"."""
+    from .contractions import JOIN
+    out, i = [], 0
+    while i < len(sent):
+        tok = sent[i]
+        low = tok.lower()
+        if "'" in low and low in JOIN:
+            out.append(JOIN[low])
+        elif tok == "'" and i + 1 < len(sent) and sent[i + 1].isalpha():
+            nxt = sent[i + 1].lower()
+            if out and out[-1].isalpha() and f"{out[-1].lower()}'{nxt}" in JOIN:
+                out[-1] = JOIN[f"{out[-1].lower()}'{nxt}"]
+                i += 1
+            elif f"'{nxt}" in JOIN:
+                out.append(JOIN[f"'{nxt}"])
+                i += 1
+            else:
+                out.append(tok)
+        else:
+            out.append(tok)
+        i += 1
+    return out
 
 
 def _stream():
@@ -30,7 +56,7 @@ def _stream():
     for corpus in (brown, gutenberg):
         for sent in corpus.sents():
             out = []
-            for tok in sent:
+            for tok in _join_contractions(sent):
                 if tok in (",", ";", ":", "--"):
                     if out and out[-1] not in (",", "?"):
                         out.append(",")

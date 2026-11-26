@@ -23,6 +23,7 @@ import heapq
 import math
 import random
 
+from .contractions import SPELL
 from .prose_lm import BOS, ProseLM
 from .spectrum import FUNCTION, Tables
 from .validator import is_palindrome
@@ -49,8 +50,8 @@ class Lexicon:
         stubs = {"didn", "doesn", "don", "isn", "wasn", "weren", "hasn", "haven", "hadn",
                  "couldn", "wouldn", "shouldn", "mustn", "aren", "ain", "shan", "needn", "ll", "ve", "re"}
         self.words = {w for w, n in lm.uni.items()
-                      if n >= min_count and w.isalpha() and t.is_word(w) and w not in stubs
-                      and (len(w) > 2 or w in REAL_SHORT_WORDS)}
+                      if n >= min_count and w.isalpha() and w not in stubs
+                      and (w in SPELL or t.is_word(w) and (len(w) > 2 or w in REAL_SHORT_WORDS))}
         self.freq = {w: lm.uni[w] for w in self.words}
         self.prefix, self.suffix = collections.defaultdict(list), collections.defaultdict(list)
         for w in self.words:
@@ -378,8 +379,11 @@ def render(seq) -> str:
                 out[-1] += tok
             cap = tok in ENDS
             continue
-        w = "I" if tok == "i" else tok
-        out.append(w[0].upper() + w[1:] if cap else w)
+        w = "I" if tok == "i" else SPELL.get(tok, tok)
+        if cap:  # "'tis" opens a sentence as "'Tis"
+            k = 1 if w[0] == "'" else 0
+            w = w[:k] + w[k].upper() + w[k + 1:]
+        out.append(w)
         cap = False
     text = " ".join(out)
     return text if text.endswith(ENDS) else text.rstrip(",") + "."

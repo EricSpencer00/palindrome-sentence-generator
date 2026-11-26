@@ -49,7 +49,7 @@ def start() -> None:
     global _executor
     try:
         with open(POOL_PATH) as fh:
-            _pool.extend(json.load(fh))
+            _pool.extend(x for x in json.load(fh) if x.get("left") and x.get("right"))
     except (OSError, ValueError):
         pass
     import multiprocessing as mp
@@ -60,7 +60,7 @@ def start() -> None:
 
 
 def pooled() -> dict | None:
-    if not _pool:
+    if not _pool:  # every pooled entry carries both halves (checked on load and on add)
         return None
     return {**random.choice(list(_pool)), "cached": True}
 
@@ -88,7 +88,7 @@ def _release(ip: str) -> None:
 
 
 def _remember(result: dict) -> None:
-    keep = {k: result[k] for k in ("type", "left", "center", "centerDisplay", "pivot",
+    keep = {k: result[k] for k in ("type", "left", "right", "center", "centerDisplay", "pivot",
                                    "pivotOdd", "promptCenter", "letters", "words") if k in result}
     _pool.append(keep)
     try:

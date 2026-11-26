@@ -182,13 +182,17 @@ body {
    across the letters one after another, then the word rests. Blue and white
    only — the band is a pale tint with a soft glow, the rest is signal blue. */
 @keyframes shimmer {
-  0%, 28%, 100% { color: var(--color-signal); text-shadow: none }
-  10% { color: #b3a6ff; text-shadow: 0 0 6px #ffffff, 0 0 10px #8f7cff }
+  0%, 28%, 100% { color: var(--color-paper); text-shadow: none }
+  10% { color: #d9d3ff; text-shadow: 0 0 6px #ffffff, 0 0 12px #b3a6ff }
 }
-.shimmer { position: relative; }
+/* A blue pill with white letters; the sweep and glint play across it. */
+.shimmer { position: relative; background: var(--color-signal); border-radius: 999px;
+  padding: .7em 1.5em; transition: background-color 200ms ease, transform 200ms ease; }
+.shimmer:hover { background: color-mix(in srgb, var(--color-signal) 85%, black); }
+.shimmer:active { transform: scale(.97); }
 .shimmer span {
   display: inline-block;
-  color: var(--color-signal);
+  color: var(--color-paper);
   animation: shimmer 2.6s ease-in-out infinite;
 }
 /* One glint on each sweep, where the band leaves the word. */
@@ -200,9 +204,9 @@ body {
 .shimmer::after {
   content: "";
   position: absolute;
-  right: -9px; top: -5px;
+  right: 7px; top: 5px;
   width: 7px; height: 7px;
-  background: var(--color-signal);
+  background: var(--color-paper);
   clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
   opacity: 0;
   animation: glint 2.6s ease-out infinite;

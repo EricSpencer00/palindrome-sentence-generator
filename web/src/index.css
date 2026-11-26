@@ -219,7 +219,13 @@ body {
   20% { opacity: .9 }
   100% { transform: translateX(calc(var(--d) * 2.4em)); opacity: 0 }
 }
-.pen { font-size: 42px; animation: pen 1.6s cubic-bezier(.22,1,.36,1) infinite; }
+/* One beat drives the whole wait: the centre caret blinks on as the pens
+   leave it, and each beat adds a dot (App.tsx BEAT_MS matches --beat). */
+:root { --beat: 800ms; }
+.pen { font-size: 42px; animation: pen var(--beat) cubic-bezier(.22,1,.36,1) infinite; }
+.caret-beat { animation: blink var(--beat) steps(1, end) infinite; }
+@keyframes beat-tick { to { opacity: 0 } }
+.beat-tick { position: absolute; width: 0; height: 0; animation: beat-tick var(--beat) linear infinite; }
 
 /* Cards rise and fade in. */
 @keyframes tut-in { from { opacity: 0; transform: translateY(6px) scale(.98) } to { opacity: 1; transform: none } }
@@ -235,7 +241,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .wait-word, .wait-dot { transition: none; transform: none; filter: none; }
-  .shimmer span, .shimmer::after, .tut-in, .pen { animation: none; }
+  .shimmer span, .shimmer::after, .tut-in, .pen, .caret-beat, .beat-tick { animation: none; }
   .pen { display: none; }
 }
 

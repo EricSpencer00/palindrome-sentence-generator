@@ -375,6 +375,7 @@ function progress(t: number) {
     : Math.min(1, 0.9 + 0.1 * Math.log1p(t - 3) / Math.log1p(17))
 }
 
+const BEAT_MS = 800  // keep equal to --beat in index.css
 const WAIT_WORDS = [
   "loading", "thinking", "pondering", "mirroring", "balancing", "reversing", "reflecting",
   "untangling", "weighing", "spelling", "rereading", "juggling", "folding", "wondering",
@@ -398,8 +399,12 @@ function Waiting() {
     measure()
     document.fonts?.ready.then(measure)
   }, [])
+  // The dots count the pens' beat: a CSS ticker mounted with them advances n
+  // on every iteration, so caret, pens and dots never drift apart. Without
+  // motion there is no animation to listen to, so a timer stands in.
   useEffect(() => {
-    const t = window.setInterval(() => setN((k) => k + 1), 450)
+    if (!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return
+    const t = window.setInterval(() => setN((k) => k + 1), BEAT_MS)
     return () => window.clearInterval(t)
   }, [])
   const cur = Math.floor(n / 3) % WAIT_WORDS.length
@@ -407,6 +412,7 @@ function Waiting() {
   return (
     <div aria-hidden="true" className="label absolute inset-x-0 top-1/2 mt-8 grid"
          style={{ gridTemplateColumns: `calc(50% + ${shift}px) 1fr` }}>
+      <span className="beat-tick" onAnimationIteration={() => setN((k) => k + 1)} />
       <span ref={words} className="grid justify-items-end">
         {WAIT_WORDS.map((w, i) => (
           <span key={w} className="wait-word col-start-1 row-start-1"
@@ -944,8 +950,9 @@ export default function App() {
             into it yet. It sits where the mirror will be. */}
         {!grid && (
           <span
+            key={searching ? "beat" : "idle"}  // remount so the beat starts with the pens
             aria-hidden="true"
-            className="caret absolute bg-signal"
+            className={`${searching ? "caret-beat" : "caret"} absolute bg-signal`}
             style={{
               left: "50%", top: "50%",
               width: BAR_W, height: BAR_H,

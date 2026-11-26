@@ -14,7 +14,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from experiments.fragment_penalty_20261002 import OUT, SEEDS, STRENGTHS, sha, tokens, trigrams, write
-from experiments.paired_directional_search_resource_sensitivity_20260925 import STRUCTURAL_CHECKS
+from experiments.structural_checks import STRUCTURAL_CHECKS
 
 
 def validate_saved_row(row, expected_job):

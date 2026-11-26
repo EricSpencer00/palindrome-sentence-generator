@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "heldout-block-seam-comparison-001",
+  "status": "protocol_frozen_not_executed",
+  "question": "Does typed block/seam assembly improve independently accepted exact completions over word-at-a-time outside-in search on reserved new starts?",
+  "heldout_scope": "New prospective start/scene combinations reserved before either arm runs; manually curated ordinary English drafts, not human-validated corpus spans. Existing partial/full bank is development material. No claim of globally unseen lexical tokens.",
+  "development_anchor": "No rider sees red iron. remains development preference evidence; exclude from heldout outcomes.",
+  "logging": "Save every proposed action with start/arm/state, source lineage, residual, syntax frontier, next-option evidence and rejection reason; retain closures rejected for grammar, coherence, known status, runtime caps and source restoration. Preserve chronological counters and timing.",
+  "primary_endpoint": "Paired count of independently reviewed exact, grammatical, coherent, non-control recombinations per heldout start; unreviewed closures reported separately.",
+  "interpretation": "Six starts is a feasibility pilot, not a statistical superiority or global impossibility test. No human acceptance or paragraph success inferred.",
+  "dependencies": "No new paid inference/training. Existing baseline supports seeded-start wrapper must be verified before running; missing support is logged, not replaced silently.",
+  "protocol_sha256": "08d8321c73e368a17c3f70ff9dca4900570f08d8c481a0d39c140dc44776af49",
+  "starts": [
+    {
+      "id": "heldout-block-901",
+      "left": "The pilot",
+      "right": "",
+      "scene": "A pilot handles a map.",
+      "required_parse": "singular animate subject + finite transitive verb + concrete NP"
+    },
+    {
+      "id": "heldout-block-902",
+      "left": "A baker",
+      "right": "",
+      "scene": "A baker moves a tray.",
+      "required_parse": "singular animate subject + finite transitive verb + concrete NP"
+    },
+    {
+      "id": "heldout-block-903",
+      "left": "The gardener",
+      "right": "",
+      "scene": "A gardener carries a pot.",
+      "required_parse": "singular animate subject + finite transitive verb + concrete NP"
+    },
+    {
+      "id": "heldout-block-904",
+      "left": "",
+      "right": "the map",
+      "scene": "A pilot handles a map.",
+      "required_parse": "subject NP + finite transitive verb + definite object NP"
+    },
+    {
+      "id": "heldout-block-905",
+      "left": "",
+      "right": "a tray",
+      "scene": "A baker moves a tray.",
+      "required_parse": "subject NP + finite transitive verb + indefinite object NP"
+    },
+    {
+      "id": "heldout-block-906",
+      "left": "",
+      "right": "a pot",
+      "scene": "A gardener carries a pot.",
+      "required_parse": "subject NP + finite transitive verb + indefinite object NP"
+    }
+  ],
+  "preflight": [
+    "Validate standard vocabulary membership and explicit agreement/valency parses for newly curated fragments; preserve failures.",
+    "Check starts against prior request/checkpoint start lists by normalized exact equality; any overlap excluded before execution and recorded.",
+    "Freeze bank, vocabulary, starts, scorer and exclusion hashes. No outcome-guided edits."
+  ],
+  "arms": {
+    "baseline": "Existing outside-in word-at-a-time search, seeded with the same fixed left/right starts; original score ordering; no old strict prohibition on individually palindromic blocks.",
+    "block_seam": "Existing Seam residual cancellation with full/partial bank pieces, declared syntax frontiers and one-step lexical/grammar feasibility; no native inference. Require at least two distinct source/block lineages for recombination success, excluding same-source restoration.",
+    "fairness": "Same lexical union, starts, target bands, exclusions, deterministic scorer and syntax/meaning review. Block vocabulary derives from exactly the same shared inventory; record scorer work and expanded states, as per-action costs differ."
+  },
+  "budget": {
+    "workers": 1,
+    "total_search_seconds": 60,
+    "arms_per_start": 2,
+    "start_count": 6,
+    "per_cell_seconds": 5,
+    "beam_width": 32,
+    "max_expansions_per_cell": 2000,
+    "max_added_words": 24,
+    "wall_budget": "Hard monotonic check per expansion and before each cell; include index construction in 60-second search budget; preserve partial results on cap.",
+    "normalized_letter_band": [
+      30,
+      119
+    ]
+  },
+  "closure_checks": [
+    "Full normalized assembled text equals its reverse under project ASCII-letter normalizer.",
+    "Explicit complete ordinary sentence parses with agreement, determiner and valency checks; independent review required for acceptance.",
+    "At least two distinct source/block lineages without duplicated complete sentences or mirror-copy padding.",
+    "Single global palindrome for any paragraph; concatenating independent palindrome sentences is not success.",
+    "Coherence checked across clauses: connected ordinary scene, consistent referents, meaningful relation. Topic overlap alone insufficient.",
+    "Exact normalized exclusion against local known catalogues, all human-identified existing controls and development bank full restorations.",
+    "Targeted archival/provenance check for each surviving full text before novelty-facing presentation; web absence never proves novelty."
+  ],
+  "known_control_exclusions": [
+    "Liam sees mail.",
+    "No evil did live on."
+  ],
+  "secondary_endpoints": [
+    "exact closures before language/provenance gates",
+    "letter mismatches",
+    "grammar rejections",
+    "known/control/restoration exclusions",
+    "states and scorer calls",
+    "time/cap events"
+  ]
+}

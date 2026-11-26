@@ -375,7 +375,11 @@ function progress(t: number) {
     : Math.min(1, 0.9 + 0.1 * Math.log1p(t - 3) / Math.log1p(17))
 }
 
-const WAIT_WORDS = ["loading", "thinking", "pondering", "mirroring", "balancing"]
+const WAIT_WORDS = [
+  "loading", "thinking", "pondering", "mirroring", "balancing", "reversing", "reflecting",
+  "untangling", "weighing", "spelling", "rereading", "juggling", "folding", "wondering",
+  "composing", "settling", "rhyming", "scheming", "musing", "flipping",
+]
 
 /* Under the pens while the search runs. Every word ends on one fixed line and
    the dots start there, so nothing moves when the word changes. The line sits

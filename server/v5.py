@@ -16,12 +16,13 @@ from llm_palindrome.spectrum import Spectrum, Tables
 
 LETTERS = int(os.environ.get("PALINDROME_V5_LETTERS", "300"))
 BEAM = int(os.environ.get("PALINDROME_V5_BEAM", "200"))
-THEME_W = float(os.environ.get("PALINDROME_V5_THEME_W", "15"))
+THEME_W = float(os.environ.get("PALINDROME_V5_THEME_W", "5"))
 
 # An empty prompt draws one of these. Without a theme every run falls into the
-# same phrases ("I saw one" in 24 of 24); with one, pairwise trigram overlap
-# drops from 0.21 to 0.05 at the same readable share. Each kept theme read at
-# 60% or better over two runs (runs/themes/trial-20261125.jsonl).
+# same phrases ("I saw one" in 24 of 24). Weight 5 cuts pairwise trigram overlap
+# from 0.21 to 0.16 at unchanged GPT-2 perplexity (186 vs 189); weight 15 cuts it
+# to 0.05 but raises perplexity to 334 (runs/themes/isolate.log). Each kept theme
+# read at 60% or better over two runs (runs/themes/trial-20261125.jsonl).
 THEMES = [
     "forest wolf tree", "doctor fever nurse", "love heart kiss", "mother home child",
     "fire smoke ash", "gold silver coin", "farm field harvest", "sea ship storm",

@@ -99,6 +99,15 @@ afterEach(() => {
   vi.unstubAllGlobals()
 })
 
+/* With /replay.json unreachable too, the page still writes a paragraph from
+   the dozen built into it, and never shows the failure. */
+async function builtIn(message: string) {
+  await draw(0)
+  await drawAll()
+  expect(screen.queryByText(message)).toBe(null)
+  expect(screen.queryByRole("button", { name: /what is this/i })).not.toBe(null)
+}
+
 describe("the stream", () => {
   test("opens the generate endpoint", () => {
     start()
@@ -121,7 +130,7 @@ describe("the stream", () => {
     await draw(20000)
 
     expect(stream().closed).toBe(true)
-    expect(screen.getByText("timed out")).not.toBe(null)
+    await builtIn("timed out")
   })
 
   test("draws a draft outward from the mirror, a word at a time", async () => {
@@ -182,24 +191,18 @@ describe("the stream", () => {
     expect(screen.queryByRole("button", { name: /what is this/i })).not.toBe(null)
   })
 
-  test("reports an error frame and stops", async () => {
+  test("an error frame stops the stream and plays a built-in paragraph", async () => {
     start()
     stream().send({ type: "error", message: "the bank is empty" })
-    await draw(0)
-
-    expect(screen.getByText("the bank is empty")).not.toBe(null)
     expect(stream().closed).toBe(true)
-    const button = screen.getByRole("button", { name: /generate/i }) as HTMLButtonElement
-    expect(button.disabled).toBe(false)
+    await builtIn("the bank is empty")
   })
 
-  test("reports a transport failure while searching", async () => {
+  test("a transport failure with the cache file offline plays a built-in paragraph", async () => {
     start()
     stream().fail()
-    await draw(0)
-
-    expect(screen.getByText("could not reach the generator")).not.toBe(null)
     expect(stream().closed).toBe(true)
+    await builtIn("could not reach the generator")
   })
 
   test("ignores a transport failure once the run is done", async () => {

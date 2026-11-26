@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import type { MouseEvent } from "react"
 import { Input } from "@/components/ui/input"
+import FALLBACK from "./fallback.json"
 import { Button } from "@/components/ui/button"
 import About from "./About"
 import Tutorial from "./Tutorial"
@@ -715,14 +716,21 @@ export default function App() {
       if (finished.current) return
       finished.current = true
       window.clearTimeout(tick.current); tick.current = 0
+      // The cache file first; if even that cannot load, the dozen paragraphs
+      // built into the page. Only a broken bundle reaches the error.
+      const whole = (x: Result) => Array.isArray(x?.left) && Array.isArray(x?.right)
+      const any = (list: Result[]) => {
+        const ok = list.filter(whole)
+        if (!ok.length) throw new Error("no cached paragraph")
+        play(ok[Math.floor(Math.random() * ok.length)])
+      }
       fetch(REPLAY)
-        .then((r) => (r.ok ? r.json() : Promise.reject()))
-        .then((list: Result[]) => {
-          const pick = list[Math.floor(Math.random() * list.length)]
-          if (!pick) throw new Error()
-          play(pick)
+        .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`replay ${r.status}`))))
+        .then(any)
+        .catch((e) => {
+          console.warn("cached paragraphs unavailable, using built-in ones:", message, e)
+          try { any(FALLBACK as unknown as Result[]) } catch { setError(message); setResult(null); setPhase("error") }
         })
-        .catch(() => { setError(message); setResult(null); setPhase("error") })
     }
 
     deadline.current = window.setTimeout(() => fail("timed out"), TIMEOUT_MS)

@@ -109,8 +109,10 @@ def _warm() -> None:
     """Vocabulary and model load once, off the request path."""
     global _tries, _bigrams, _lm, _lm_error
     if ENGINE == "v5":
-        from server import v5
-        v5.warm()
+        # Searches run in worker processes; this process only admits and streams.
+        from server import v5_serve
+        v5_serve.start()
+        return
     vocab = build_vocab()
     _tries = WordTries(vocab)
     _bigrams = BigramModel.from_file(BIGRAMS_PATH, vocab=set(vocab))
@@ -311,8 +313,10 @@ def _search(prompt: str, budget: float, on_partial=None) -> Optional[dict]:
 @app.get("/health")
 def health():
     if ENGINE == "v5":
-        from server import v5
-        return {"ok": True, "output_available": True, "engine": "v5", "ready": v5._ready.is_set()}
+        from server import v5_serve
+        return {"ok": True, "output_available": True, "engine": "v5",
+                "ready": v5_serve._executor is not None, "busy": v5_serve._busy,
+                "pool": len(v5_serve._pool)}
     if archive.ENABLED:
         return {"ok": True, "archive": True, "vocab": _tries is not None,
                 "lm": _lm is not None, "bigrams": _bigrams is not None, "lm_error": _lm_error}
@@ -322,9 +326,17 @@ def health():
 
 
 @app.get("/api/generate")
-async def generate(prompt: str = Query("", max_length=200),
+async def generate(request: Request, prompt: str = Query("", max_length=200),
                    budget: float = Query(DEFAULT_BUDGET)):
     budget = max(1.0, min(float(budget), MAX_BUDGET))
+    if ENGINE == "v5":
+        # The site's proxy forwards the visitor in x-visitor-ip; direct callers
+        # are seen by the tunnel as themselves. Spoofing it only buys a visitor
+        # more turns at the same WORKERS-wide cap.
+        ip = (request.headers.get("x-visitor-ip") or request.headers.get("cf-connecting-ip")
+              or (request.client.host if request.client else ""))
+        return StreamingResponse(_stream_v5(prompt, ip), media_type="text/event-stream",
+                                 headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
     async def stream():
         # Search must not start while the model is still loading: it competes for
@@ -375,6 +387,23 @@ async def generate(prompt: str = Query("", max_length=200),
     return StreamingResponse(stream(), media_type="text/event-stream",
                              headers={"Cache-Control": "no-cache",
                                       "X-Accel-Buffering": "no"})
+
+
+async def _stream_v5(prompt: str, ip: str):
+    from server import v5_serve
+    yield _sse({"type": "plan", "expectLetters": int(os.environ.get("PALINDROME_V5_LETTERS", "300")) + 40})
+    t0 = time.time()
+    task = asyncio.create_task(v5_serve.generate(prompt, ip))
+    while not task.done():  # heartbeats keep the tunnel and the browser open
+        yield _sse({"type": "status", "phase": "searching", "elapsed": round(time.time() - t0, 1)})
+        await asyncio.wait({task}, timeout=0.5)
+    result = task.result()
+    if result is None:
+        yield _sse({"type": "error", "message": "no palindrome closed; try again"})
+    elif result.get("type") == "busy":
+        yield _sse({"type": "error", "message": "busy; try again in a minute"})
+    else:
+        yield _sse({**result, "seconds": round(time.time() - t0, 1)})
 
 
 def _sse(payload: dict) -> str:

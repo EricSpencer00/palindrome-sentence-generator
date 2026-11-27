@@ -1,9 +1,10 @@
-# Archived handoff — superseded 25 September 2026
+# Archived handoff — superseded 26 September 2026
 
 The notes below describe earlier drafts and experiments and are retained as
 historical context, not current instructions. The current manuscript is
 `paper/naacl2027.tex`; its review PDF is generated at
-`output/pdf/paper-revision/naacl2027.pdf`. References below to
+`output/pdf/palindrome-evaluation/naacl2027.pdf`. The active framing is recorded
+in [FRAMING-REVISION-20260926.md](FRAMING-REVISION-20260926.md). References below to
 `paper/naacl2027.pdf` describe the earlier compiled draft.
 
 Latest editorial direction — 11 September 2026: the user asked to run the

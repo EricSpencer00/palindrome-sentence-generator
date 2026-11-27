@@ -1,0 +1,32 @@
+#!/bin/bash -l
+#PBS -N pal-free-meaning
+#PBS -q debug
+#PBS -A EVITA
+#PBS -l select=1:ncpus=32:mpiprocs=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:10:00
+#PBS -l filesystems=home:eagle
+#PBS -j oe
+
+set -euo pipefail
+umask 077
+cd "$PBS_O_WORKDIR"
+export PYTHONPATH="$PBS_O_WORKDIR"
+export PYTHONUNBUFFERED=1
+export OMP_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+mkdir results
+hostname > compute-host.txt
+pal_pids=()
+for pal_seed in 20261009 20261010 20261011; do
+  /usr/bin/python3.11 experiments/argonne_free_typed_clauses_20261009.py \
+    --out "results/free-typed-$pal_seed.json" --seed "$pal_seed" --seconds 120 \
+    --bigram-file data/count_2w.txt --beam-width 384 --max-letters 2500 \
+    --max-steps 1500 --max-overhang 96 > "results/free-typed-$pal_seed.log" 2>&1 &
+  pal_pids+=("$!")
+done
+pal_status=0
+for pal_pid in "${pal_pids[@]}"; do
+  wait "$pal_pid" || pal_status=1
+done
+exit "$pal_status"

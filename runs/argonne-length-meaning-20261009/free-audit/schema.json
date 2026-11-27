@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:palindrome:argonne-meaning-candidates:1",
+  "title": "Independent Argonne candidate audit",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "candidates"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "audit",
+          "surfaces",
+          "sources",
+          "matches",
+          "inherited_seed_only",
+          "blind_eligible",
+          "semantic_acceptance"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "text": {
+            "type": "string"
+          },
+          "audit": {
+            "type": "object",
+            "required": [
+              "exact",
+              "raw_outside_in",
+              "normalized_reverse_exact",
+              "checks_agree",
+              "unsupported_letters",
+              "letters",
+              "normalized_sha256"
+            ]
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1
+          },
+          "surfaces": {
+            "type": "array",
+            "minItems": 1
+          },
+          "blind_eligible": {
+            "type": "boolean"
+          },
+          "semantic_acceptance": {
+            "const": "not_evaluated"
+          }
+        }
+      }
+    }
+  }
+}

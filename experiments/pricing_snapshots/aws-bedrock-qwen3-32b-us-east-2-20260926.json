@@ -1,0 +1,40 @@
+{
+  "source": "AWS Price List Query API GetProducts",
+  "retrieved_on": "2026-09-26",
+  "query": {
+    "service_code": "AmazonBedrock",
+    "pricing_api_endpoint_region": "us-east-1",
+    "product_filters": {
+      "location": "US East (Ohio)",
+      "model": "Qwen3 32B"
+    },
+    "aws_cli_filters": [
+      "Type=TERM_MATCH,Field=location,Value=US East (Ohio)",
+      "Type=TERM_MATCH,Field=model,Value=Qwen3 32B"
+    ],
+    "price_region_code": "us-east-2",
+    "tier": "standard on-demand",
+    "effective_date": "2026-09-01T00:00:00Z"
+  },
+  "products": [
+    {
+      "sku": "REQSN4M8AVCDU8BK",
+      "inference_type": "Input tokens",
+      "usage_type": "USE2-Qwen3-32B-input-tokens",
+      "unit": "1K tokens",
+      "usd_per_1k_tokens": "0.0001500000"
+    },
+    {
+      "sku": "SQ4MM597ZHN23FMA",
+      "inference_type": "Output tokens",
+      "usage_type": "USE2-Qwen3-32B-output-tokens",
+      "unit": "1K tokens",
+      "usd_per_1k_tokens": "0.0006000000"
+    }
+  ],
+  "reproduction": {
+    "command": "aws pricing get-products --service-code AmazonBedrock --region us-east-1 --filters Type=TERM_MATCH,Field=location,Value='US East (Ohio)' Type=TERM_MATCH,Field=model,Value='Qwen3 32B' --max-results 100",
+    "aws_api_reference": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetProducts.html",
+    "pricing_page": "https://aws.amazon.com/bedrock/pricing/"
+  }
+}

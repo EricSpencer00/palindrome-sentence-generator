@@ -1,0 +1,27 @@
+#!/bin/bash -l
+#PBS -N pal-length-readability
+#PBS -q debug
+#PBS -A EVITA
+#PBS -l select=1:ncpus=32:mpiprocs=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:10:00
+#PBS -l filesystems=home:eagle
+#PBS -j oe
+
+set -euo pipefail
+cd "$PBS_O_WORKDIR"
+export PYTHONPATH="$PBS_O_WORKDIR"
+export PYTHONUNBUFFERED=1
+export OMP_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+OUT="$PBS_O_WORKDIR/results"
+hostname > "$PBS_O_WORKDIR/compute-host.txt"
+/usr/bin/python3.11 --version > "$PBS_O_WORKDIR/python-version.txt" 2>&1
+/usr/bin/python3.11 tools/polaris/length_readability_quick.py \
+  --vocab-file tools/polaris/payload/vocab30k.txt \
+  --bigram-file tools/polaris/payload/count_2w.txt \
+  --workers 12 --out "$OUT"
+/usr/bin/python3.11 experiments/quick_length_readability_diagnostics_20261009.py \
+  --results "$OUT/results.json" --output "$OUT/diagnostics.json" \
+  --controls runs/argonne-length-readability-20261009/controls.json \
+  --bigram-file tools/polaris/payload/count_2w.txt

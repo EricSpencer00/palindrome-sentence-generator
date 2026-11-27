@@ -1,0 +1,62 @@
+{
+  "experiment_id": "center-vocative-repunctuation-20261008",
+  "status": "same_tape_grammar_repair_exactness_preserved",
+  "question": "Can an inherited one-word fragment be joined as a grammatical vocative without changing the exact letter tape?",
+  "plan": {
+    "decision": "Test a presentation-level grammar repair at one measured malformed seam in the verified 752 rendering.",
+    "acceptance_gate": "Exactly one frozen substring changes; normalized tape and length remain identical; independent opposing-character check passes; revised syntax reads as a finite clause with direct address.",
+    "baseline": "Verified 752-letter central-event-path rendering.",
+    "falsifier": "Any normalized-letter change, mismatch, wrong seam, or syntax that does not support a vocative rejects the repair.",
+    "fixed_conditions": [
+      "one punctuation substitution",
+      "no lexical substitution",
+      "no search or model scoring"
+    ],
+    "stop_rule": "One localized punctuation repair only.",
+    "promotion_rule": "May be retained as an edited rendering of the same exact candidate; does not establish whole-text readability."
+  },
+  "parent": {
+    "artifact": "runs/repair-736-center-lexical-event-path-20260923.json",
+    "candidate_id": "568-lineage-central-event-path-752",
+    "normalized_letters": 752,
+    "normalized_sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c"
+  },
+  "edit": {
+    "old": "Nadia delivers maps. Leon. Ari sees Leon.",
+    "new": "Nadia delivers maps, Leon. Ari sees Leon.",
+    "operation": "replace the period after 'maps' with a comma so 'Leon' is a direct-address vocative",
+    "local_before": "aw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. No",
+    "local_after": "aw desserts. Noel, was I stressed? Nadia delivers maps, Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. No",
+    "characters_changed": "one punctuation mark",
+    "letter_tape_changed": false,
+    "grammar_note": "'Nadia delivers maps, Leon.' is a finite clause with a terminal vocative; the next sentence refers to Leon again. This local reading is a syntax judgment by the author, not a reader rating."
+  },
+  "candidate": {
+    "id": "568-lineage-central-event-path-752-vocative-edit",
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps, Leon. Ari sees Leon. Leon stops Ira. Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+    "normalized_letters": 752,
+    "growth_over_parent": 0,
+    "normalized_tape_sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c"
+  },
+  "independent_audit": {
+    "normalizer": "remove non-ASCII letters and lowercase",
+    "two_pointer_exact": true,
+    "first_mismatch": null,
+    "forward_sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c",
+    "reverse_sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c",
+    "hashes_equal": true,
+    "normalized_tape_equal_to_parent": true
+  },
+  "limitations": {
+    "length_frontier_advanced": false,
+    "full_text_readability": "not assessed",
+    "human_ratings": "none",
+    "search_scope": "one authored punctuation repair; no remote compute used",
+    "public_claim": false
+  },
+  "provenance": {
+    "parent_file_sha256": "424d9d5fa3a4f8a450f149e3feb2d239f6116b4fe99c60e3328df58fda367a2d",
+    "source_script": "experiments/center_vocative_repunctuation_20261008.py",
+    "script_sha256": "5558fdae78a739b72a3d61ccf390943e5ff2fa443385eb8cd9012aca325c1fc1"
+  }
+}

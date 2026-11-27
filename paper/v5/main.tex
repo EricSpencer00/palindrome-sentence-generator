@@ -1,0 +1,397 @@
+\documentclass[11pt]{article}
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{xurl}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{statistics}
+\usetikzlibrary{calc,positioning}
+\pgfplotsset{compat=1.17}
+
+\input{numbers}
+\colorlet{cvOne}{red!70!black}
+\colorlet{cLive}{blue!70!black}
+\colorlet{cLong}{teal!70!black}
+\colorlet{cBrown}{black!70}
+\colorlet{cClassic}{orange!80!black}
+
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\w}[1]{\emph{#1}}
+\newcommand{\obj}{$^\dagger$}
+
+\title{Debt Crossing: Growing Paragraph-Length Palindromes\\from the Centre Out}
+\author{Anonymous submission}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A palindrome paragraph must spell every letter twice, once in each reading direction, and both readings must be English. We describe v5, a generator that grows such paragraphs from the centre outward as a beam search over \emph{debts}: the letters one side owes the other. A word that overpays its debt hands the surplus, reversed, to the opposite side, so word boundaries on the two halves never need to align. Commas and full stops cost no letters and are searched like words, which lets each half end sentences where its own prose wants. Inside the beam, a count-based sentence verifier fitted on Brown tag trigrams judges each sentence as it closes in about \verifierMs{}~ms. v5 is the fifth design in a line of four failures, and we report what each one rules out. All \vFiveLiveN{} deployed paragraphs (\vFiveLiveLettersMin--\vFiveLiveLettersMax{} letters) and \vFiveSophiaN{} long paragraphs (up to \vFiveSophiaLettersMax{} letters) are exact. Under GPT-2, a model the search never sees, v5's median perplexity is \pplRatioVOne{} times lower than that of the earlier word-level search, and still \pplRatioBrownLive{} times higher than that of Brown prose. Drawing a random theme per run trades repetition for fluency: as the theme weight rises, cross-run trigram overlap falls from \themeOverlapZero{} to \themeOverlapFifteen{} and GPT-2 perplexity rises from \themePPLZero{} to \themePPLFifteen. The verifier rates v5 as highly as Brown; because it is also the search objective, that rating is not evidence of quality. v5 uses more one- and two-letter words than v1, and no human study has been run.
+\end{abstract}
+
+\section{Introduction}
+
+\w{Never odd or even} reads the same in both directions once case, spaces and punctuation are removed. Short palindromes like this one are written by people. Long ones are found by programs, and they read as noise: \citet{norvig2002palindrome} reaches tens of thousands of letters by chaining dictionary words with no regard for sense. The hard problem is the conjunction: a paragraph of English whose letters reverse exactly and which a reader can follow.
+
+The difficulty is structural. Every letter is placed twice, and the second placement is read backward. Re-segmenting reversed English into words costs, in our earlier measurements, 2.2--3.6 bits per free letter against 1.4--1.9 bits for the same spans read forward. The set of strings that read well in both directions therefore thins by about an order of magnitude per letter. A generator cannot write one half and hope the other reads; both halves must be steered at once.
+
+This paper describes v5, the generator now deployed by our project, and the four designs that failed before it. v5 combines four ideas:
+
+\begin{enumerate}
+\item \textbf{Debt crossing, centre out.} The paragraph grows outward in nested shells. A state records which side owes letters and what it owes. Overpayment flips the debt to the other side, reversed. Commas and full stops are zero-letter tokens, so sentence boundaries are a search decision on each half independently. At zero debt, a palindromic word can be set into both edges at once (\S\ref{sec:method}).
+\item \textbf{A count-based readability verifier inside the beam.} When a full stop closes a sentence on either half, a logistic model over Brown tag-trigram syntax gain and filler share scores the sentence. It needs no neural network and runs in about \verifierMs{}~ms per sentence. Its second axis places text on a spectrum from garbage through readable to stock (\S\ref{sec:verifier}).
+\item \textbf{Negative results.} Four earlier designs failed in distinct, measured ways: word salad, quotation, nesting of short palindromes, and grammar templates. Each failure removes a family of approaches (\S\ref{sec:history}).
+\item \textbf{Measurements} of exactness, lexical statistics, the search's own scores and an independent GPT-2 perplexity, against Brown prose and classic human palindromes (\S\ref{sec:results}).
+\end{enumerate}
+
+We state the limits plainly. The verifier and the trigram model are the search objective, so v5 scoring well on them shows that the search optimises them, not that the text reads. GPT-2 perplexity is our only automatic measure independent of the search. No human reader study has been run on v5; \S\ref{sec:human} gives the protocol.
+
+\section{Related work}
+
+\citet{norvig2002palindrome} builds very long palindromes by tracking the unmatched letters on one side and extending with dictionary words; v5's debt is the same bookkeeping, applied centre-out with a language model and punctuation. \citet{papadopoulos2015palindromes} enumerate palindromes from $n$-gram corpora as paths in a graph, which yields grammatical fragments but no paragraphs. \citet{bonlarron-regin-2024} combine constraint programming with language-model scores to generate heavily constrained sentences. Markov constraints \citep{pachet-roy-2011-markov} and constrained decoding \citep{hokamp-liu-2017-lexically,lu-etal-2021-neurologic} impose lexical or logical constraints on generation; a palindrome constrains every character against another position, which none of these formulations target. Constrained poetry generation \citep{ghazvininejad-etal-2016-generating} faces the same tension between a hard form and fluent content.
+
+Our verifier is a scorer used as a search objective, so it inherits the over-optimisation problem documented for learned rewards \citep{gao-etal-2023-scaling}: scores rise faster than the quality they proxy. We follow evaluation guidance that separates the measured quality from the instrument \citep{howcroft-etal-2020-twenty} and checks metrics against perturbations \citep{sai-etal-2021-perturbation}, and we propose a human protocol in the style of \citet{khashabi-etal-2022-genie}. The trigram model uses stupid backoff \citep{brants-etal-2007-large}; the verifier uses the Brown corpus \citep{kucera-francis-1967} through NLTK \citep{loper-bird-2002-nltk}, web bigram counts \citep{norvig-2009-ngrams} and \code{wordfreq} \citep{speer-2022-wordfreq}. GPT-2 \citep{radford2019language} is the independent check.
+
+\section{Four failed designs}\label{sec:history}
+
+Table~\ref{tab:history} summarises the designs that preceded v5. Each one met the exactness requirement; each failed on readability in a way that excludes a family of approaches.
+
+\begin{table*}[t]
+\centering\small
+\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{5.2cm} >{\raggedright\arraybackslash}p{5.0cm}@{}}
+\toprule
+& Unit and search & Measured failure & What it rules out \\
+\midrule
+v1 & Single words; overhang beam search, Zipf and bigram scores, GPT-2 rerank & Closes 958 letters in 14\,s. An earlier configuration's output was 52.6\% one- and two-letter words (18.5\% in English); our fresh sample measures \vOneShort\% (\S\ref{sec:results}); a blinded model judge rejected 25/25 sentences; 46 of 52 distinct outputs contain \w{no it a}. GPT-2 in the loop cost 7$\times$ and left coherence unchanged. & Scoring the visible half harder. The debt is paid on the half the scorer cannot see. \\
+v2 & About 1,300 whole Wikipedia sentences placed atomically & Passes the judge that rejected v1, because the sentences are quoted. & Quotation. It does not compose, and the readable material is someone else's. \\
+v3 & Nested bank of 540 verified palindromes (499 found by our walks) & Growth succeeded on 750/750 seeds (+36 letters mean); two blind annotators preferred the \emph{ungrown} seed on 20/20 pairs. Guarded composition stops at 832--980 letters when material runs out. & Assembly from self-contained palindromes. The units are too short to mean anything, and the supply is finite. \\
+v4 & Grammatical lexical paths under character-seam constraints & Best exact text 650 letters: \w{Nora spots a rat. Nadia spots a ram.} Repeated names and frames, malformed clauses. & Hard grammar templates. They satisfy the mirror by collapsing the vocabulary into names and one frame. \\
+\bottomrule
+\end{tabular}
+\caption{The four designs before v5. Every output was exact; readability failed each time.}
+\label{tab:history}
+\end{table*}
+
+\paragraph{v1: words without sense.} v1 searches over single words with an overhang (the unmatched letters of a straddling word), ranks extensions by word frequency, length and bigram counts, and reranks closures with GPT-2. It reaches any length, but its joins are arbitrary and its vocabulary, a web frequency list, admits tokens such as \w{hdr} and \w{okc}. Earlier project measurements put its short-word share at 52.6\% against 18.5\% for English; that figure came from an earlier v1 configuration and sample, and the archived code we measure here gives \vOneShort\% (\S\ref{sec:results}). We report our measurement. Two interventions on v1 failed. Raising the vocabulary from 30k to 100k words, or putting GPT-2 inside the search at 7$\times$ the cost, left long-range coherence unchanged; a better scorer of the visible half does not help when most branches have no readable continuation on the hidden half. In a separate controlled study of 360 matched runs of v1-family searches, penalising the six most frequent trigrams removed them and raised the number of distinct outputs from 69 to 78, but new ruts took their place in 46 of 78 outputs.
+
+\paragraph{v2: quoting.} v2 changed the unit to whole sentences mined from Wikipedia, about 1,300 of them, each placed intact or not at all. Its paragraphs pass a judge that rejects all of v1's, for the trivial reason that the sentences were written by people. v2 shows where readability can come from and why that source does not count.
+
+\paragraph{v3: nesting short palindromes.} If $p_1,\dots,p_k$ are palindromes, $p_1 \cdots p_k \cdots p_1$ is one too, so length becomes free. v3 composed from a bank of 540 verified palindromes and grew them with wrap operations. Growth succeeded on every seed, and blind readers preferred the shorter text on every pair. Units that pay the mirror internally are a few words long, so a paragraph of them is a list. A concatenation of self-palindromic units also mirrors only if the unit sequence itself mirrors, which forces every non-central unit to appear twice.
+
+\paragraph{v4: grammar first.} v4 chose grammatical lexical paths while satisfying the character seams. It produced the longest exact constructions with recognisable clauses (568--666 letters), but the clauses that close the mirror are few, so the text repeats them with a cast of reversible names.
+
+The lesson of the four: readability has to come from a model of ordinary prose acting \emph{during} the search, over a vocabulary of ordinary words, with word boundaries on the two halves free to disagree and sentence boundaries free on each half.
+
+\section{Debt crossing, centre out}\label{sec:method}
+
+\subsection{State}
+A paragraph is a token sequence $s = (t_1,\dots,t_m)$ over words and the two punctuation marks \{\code{,}, \code{.}\}. Its letter string $\lambda(s)$ concatenates the words. The search grows $s$ at both ends. A state is $(s, o, d)$ where $o \in \{L, R\}$ is the side that owes and $d$ is the owed string: the letters that side must add next, in its own reading order, for $\lambda(s)$ to be a palindrome after the debt is paid. When $d$ is empty the letters of $s$ form a palindrome and the state is \emph{settled}. The start state is the empty sequence, or an optional centre phrase, settled.
+
+\subsection{Moves}
+\paragraph{Open a shell.} From a settled state, prepend a word $w$ on the left. The right now owes $w$ reversed: $(o,d) \leftarrow (R, w^{\mathrm{R}})$. Candidates are the 40 words most often seen before the current leftmost word in the training corpus (the 60 most frequent sentence-final words at an empty start), plus up to 20 theme words attested in that position.
+
+\paragraph{Pay.} The owing side adds one word. On the right, a word $w$ pays $d$ when $w$ is a prefix of $d$ (exact or partial fit: $d \leftarrow d[|w|{:}]$) or $d$ is a proper prefix of $w$. On the left the mirror image holds with suffixes, since the left grows by prepending.
+
+\paragraph{Cross.} When $w$ overpays, the surplus becomes the other side's debt, reversed. On the right with $w = d\,u$, the new state is $(L, u^{\mathrm{R}})$; on the left with $w = u\,d$, it is $(R, u^{\mathrm{R}})$. Debt crossing is what lets a word on one half straddle two words on the other: the letter string stays exact while word boundaries never align.
+
+\paragraph{Insert at the seam.} From a settled non-empty state, a word $p$ from a list of 30 short palindromes (\w{did}, \w{noon}, \w{level}, \w{refer}, \dots) can be added at both edges at once. Since $p^{\mathrm{R}} = p$ the state stays settled. Each insert pays a fixed penalty.
+
+\paragraph{Punctuate.} Every word move has three variants: no mark, a comma or a full stop between the new word and its neighbour. Marks add no letters, so the two halves punctuate independently: a full stop on the left half has no counterpart on the right.
+
+\paragraph{Prune.} A child is dropped when $|d| > 8$ or when the debt is not payable: no lexicon word has $d$ as a prefix (right) or suffix (left), and no prefix (suffix) of $d$ is a word. Overrun candidates are capped at the 150 most frequent words per debt, and every exact fit is kept; the 30 best of these under the language model (plus the theme bonus) are expanded.
+
+Figure~\ref{fig:example} traces these moves on a short example.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=0.34cm, y=0.5cm, font=\small]
+  \foreach \c [count=\i from 0] in {n,o,w,i,l,l,i,h,a,t,e,m,e,h,e,r,e} {
+    \node[draw=black!40, minimum width=0.34cm, minimum height=0.5cm, inner sep=0pt, font=\ttfamily\small] at (\i,0) {\c};
+  }
+  % left words, read forward, above
+  \foreach \a/\b/\t in {0/1/No, 2/5/will, 6/6/I, 7/10/hate, 11/12/me, 13/16/here} {
+    \draw[blue!70!black, thick] (\a-0.38,0.6) -- (\a-0.38,0.8) -- (\b+0.38,0.8) -- (\b+0.38,0.6);
+    \node[blue!70!black, above, font=\footnotesize] at ({(\a+\b)/2},0.8) {\t};
+  }
+  % right words, read backward, below
+  \foreach \a/\b/\t in {0/2/won, 3/3/I, 4/7/hill, 8/8/a, 9/11/met, 12/13/he, 14/16/Ere} {
+    \draw[teal!70!black, thick] (\a-0.38,-0.6) -- (\a-0.38,-0.8) -- (\b+0.38,-0.8) -- (\b+0.38,-0.6);
+    \node[teal!70!black, below, font=\footnotesize] at ({(\a+\b)/2},-0.8) {\t};
+  }
+  \node[anchor=east, blue!70!black, font=\footnotesize] at (-0.7,0.95) {left $\rightarrow$};
+  \node[anchor=east, teal!70!black, font=\footnotesize] at (-0.7,-0.95) {right $\leftarrow$};
+\end{tikzpicture}
+
+\vspace{4pt}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}r l l l l@{}}
+\toprule
+& Side & Word & Effect & Next debt \\
+\midrule
+1 & L & here & opens shell & R owes \code{ereh} \\
+2 & R & Ere & pays & R owes \code{h} \\
+3 & R & he & overpays & L owes \code{e} \\
+4 & L & me & overpays & R owes \code{m} \\
+5 & R & met & overpays & L owes \code{te} \\
+6 & L & hate & overpays & R owes \code{ah} \\
+7 & R & a & pays & R owes \code{h} \\
+8 & R & hill & overpays & L owes \code{lli} \\
+9 & L & I & pays & L owes \code{ll} \\
+10 & L & will & overpays & R owes \code{iw} \\
+11 & R & I & pays & R owes \code{w} \\
+12 & R & won & overpays & L owes \code{no} \\
+13 & L & No & pays & settled \\
+\bottomrule
+\end{tabular}
+\caption{Debt crossing on \w{No, will I hate me here? / Ere he met a hill. I won.} Top: the shared letter string, segmented by the left half read forward (above) and by the right half read backward (below); boundaries align only at the ends. Bottom: the move sequence. Seven of the thirteen moves overpay and hand the reversed surplus to the other side. Full stops and commas are free moves and are omitted; the generator emits only commas and full stops, and the question mark is shown for the reader. The pair \w{I hate me here} $|$ \w{Ere he met a hill} occurs in deployed output.}
+\label{fig:example}
+\end{figure}
+
+\subsection{Scoring}
+\paragraph{Prose model.} A trigram model with stupid backoff \citep{brants-etal-2007-large} is trained on the Brown corpus and the NLTK Gutenberg selection (Austen, Melville, Carroll, Chesterton, the King James Bible, Milton, Whitman, Shakespeare; 3.8M tokens), lower-cased, with commas and full stops as tokens and the full stop doubling as the sentence boundary. Trigrams and bigrams seen fewer than twice are dropped. The whole paragraph is scored in one direction, forward. Appending on the right adds the terms of the new tokens. Prepending on the left adds the terms of the new tokens and re-scores the two tokens that follow them, whose context has changed; the leftmost token is scored on backoff until something is prepended. Every state's score is therefore the forward score of its current text, and states with different growth histories compare fairly. Candidate pruning for left moves uses the backward conditional $P(w \mid b\,c)$ from the same counts.
+
+\paragraph{Sentence verifier.} When a full stop closes a sentence on either half, the verifier of \S\ref{sec:verifier} returns a readability probability $r$ for the closed sentence of $n$ words, and the state receives
+\[
+  2\,\bigl(\log\max(r, 0.02) - \log 0.5\bigr)\cdot \min(n,12)/4 .
+\]
+Fragments and word salad pay; real clauses earn in proportion to their length, up to twelve words.
+
+\paragraph{Penalties.} Content words (three or more letters, not a function word) receive a bonus of 1.6 on use, minus 4 per earlier use within the last 40 tokens on that edge and 0.5 per use elsewhere; any word occurring twice within the nine tokens at the growing edge pays 4; function words pay 0.6 per use beyond three in the recent window. A word pair already present in the paragraph pays 6, which stops the cycles that a mirror invites. An edge with no full stop in its last 18 tokens pays 2 per new word (run-on). Each comma costs 1.
+
+\paragraph{Theme.} Optional theme words select a topic vector. Each vocabulary word has a tf--idf vector over 2,000-word passages of the same corpora; a word's theme bonus is its cosine with the centroid of the theme words, kept for the 3,000 nearest words. The bonus (weight 15 in production) is paid on a word's first use only; afterwards the word is ordinary repetition.
+
+\subsection{Beam, diversity and closure}
+States are ranked by priority $\text{score} + 0.7\,|\lambda(s)| - 0.4\,|d|$, which rewards letters placed and charges unpaid debt. Each parent contributes its 12 best children. To prevent the beam from filling with near-copies, states are merged on the key (first three tokens, last three tokens, owing side, debt) and the best of each key survives; a uniform random term in $[0, 4)$ is added to priorities for the first eight steps, then in $[0, 0.3)$. A settled state with at least the target number of letters, not starting with punctuation and not ending in a comma, is closed: its first and last tokens are re-scored against sentence boundaries and its outermost sentences are judged by the verifier. Closed paragraphs are ranked by score per token. States more than a slack of letters beyond the target are dropped, so the search terminates. Production settings are 300 target letters, beam 200 and slack 40 (Appendix~\ref{app:settings}).
+
+Exactness holds by construction: every move preserves the debt invariant, and closure requires zero debt. We also check it independently on every output (\S\ref{sec:results}).
+
+\section{A count-based readability verifier}\label{sec:verifier}
+
+The verifier scores a sentence from counts in about \verifierMs{}~ms (warm, single thread, measured on the \vFiveLiveN{} deployed paragraphs' sentences), cheap enough to call on every closed sentence in the beam.
+
+\paragraph{Syntax gain.} Words are tagged by a Viterbi-style search over Brown tags (normalised, 12 best histories). Each word's candidate tags are those covering at least 2\% of its Brown occurrences; unknown words get suffix-based guesses, and a capitalised word inside a clause may be a proper noun. Tag transitions interpolate trigram, bigram and unigram estimates (0.6/0.3/0.1). For the best path, each step's \emph{gain} is $\log P(\text{tag}_i \mid \text{tag}_{i-2}\,\text{tag}_{i-1}) - \log P(\text{tag}_i)$, including the end-of-clause step. Word salad takes steps Brown never takes and shows large negative gains.
+
+\paragraph{Readable axis.} Three features enter a logistic model: mean gain, the mean of the two worst gains, and the filler share (function words and words of at most two letters). Positives are \anchorReddit{} human palindromes posted to an online forum, \anchorBrown{} short Brown sentences and the \anchorClassics{} classics; negatives are \anchorVOneWindows{} windows of four to eleven words from \anchorVOneOutputs{} long v1 outputs and the \anchorShuffled{} human palindromes with their words shuffled. Five-fold held-out AUC is \verifierAUC{}. Two fixed penalties follow the logistic: twice the repetition rate (repeated content words plus twice the repeated bigrams, per word) and 1.5 times the share of non-words above 15\%.
+
+\paragraph{Spectrum.} A second axis, \emph{ism}, measures how stock a text is: mean web-bigram surprisal of its joins \citep{norvig-2009-ngrams} plus mean word rarity ($7.5-\text{Zipf}$), mapped linearly so that stock phrases sit at 1, raised to the text's overlap with a classic palindrome. Readable text at the garbage end is salad; at the stock end it is a retread. The verifier's combined score rewards readable text at ism 0.2, the region where human forum palindromes fall. v5's beam uses only the readable axis; we report ism as a measurement.
+
+\section{Evaluation}\label{sec:eval}
+
+\paragraph{Corpora.} \textbf{v5 live}: \vFiveLiveN{} paragraphs from the deployed generator (production settings, random seeds, no theme unless the user prompt supplies one; collected before the theme draw of Table~\ref{tab:themes}), \vFiveLiveLettersMin--\vFiveLiveLettersMax{} letters. \textbf{v5 long}: \vFiveSophiaN{} themed paragraphs of \vFiveSophiaLettersMin--\vFiveSophiaLettersMax{} letters from \longBatches{} development batches on a CPU cluster (\longThemes{} three-word themes such as \w{sea, ship, storm}; targets \longTargetMin--\longTargetMax{} letters; beams \longBeamMin--\longBeamMax; \longSecsMin--\longSecsMax{}\,s per paragraph, median \longSecsMed{}\,s). The generator code changed between batches, so this corpus represents the v5 family at length, not a controlled ablation. \textbf{v1}: \vOneN{} fresh outputs of the archived v1 code run in archive mode with its GPT-2 reranker loaded (\nolinkurl{data/spectrum-anchors/v1-archive-50-20261125.jsonl}); the search returns the same few texts across runs, so the \vOneN{} outputs contain only \vOneDistinct{} distinct texts and v1's per-paragraph statistics carry little more information than \vOneDistinct{} samples. The live v5 corpus contains \vFiveLiveDistinct{} distinct texts and the long corpus \vFiveSophiaDistinct. \textbf{Brown}: \BrownN{} contiguous passages of about 100 words from the Brown corpus (fixed seed). \textbf{Classics}: the \ClassicsN{} famous human palindromes the verifier uses as anchors (\w{a man a plan a canal panama}), \ClassicsLettersMin--\ClassicsLettersMax{} letters.
+
+\paragraph{Metrics.} \emph{Exactness}: letters only, compared with their reverse. \emph{Short-word share}: words of one or two letters. \emph{Type--token ratio} and \emph{distinct bigrams} (unique word bigrams over all bigrams). \emph{Words per sentence}, splitting on \code{.!?}. \emph{Trigram LM}: mean stupid-backoff log score per token, boundaries included, under v5's own prose model. \emph{Verifier}: each sentence of at least two words is scored; we report the mean readability probability, the share of sentences at or above 0.6 (\emph{readable}) and below 0.3 (\emph{garbage}), averaged over paragraphs, and mean ism. \emph{GPT-2 perplexity}: the 124M-parameter model on the rendered text with its capitals and punctuation, first 1,024 tokens, median over paragraphs. Classics are excluded from perplexity: at a median of \ClassicsLettersMed{} letters, a few tokens dominate it.
+
+\paragraph{Independence.} The trigram LM and the verifier are terms of v5's objective; rows that use them are marked \obj{} and are reported as a check that the search does what it is built to do. GPT-2 never enters the search, the lexicon or the tuning, so it is the one independent automatic signal. It is not a reader.
+
+\section{Results}\label{sec:results}
+
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{@{}l r r r r r@{}}
+\toprule
+& v1 & \multicolumn{2}{c}{v5} & Brown & Class. \\
+\cmidrule(lr){3-4}
+& & live & long & & \\
+\midrule
+$n$ & \vOneN & \vFiveLiveN & \vFiveSophiaN & \BrownN & \ClassicsN \\
+Letters (mean) & \vOneLetters & \vFiveLiveLetters & \vFiveSophiaLetters & \BrownLetters & \ClassicsLetters \\
+Exact (\%) & \vOneExact & \vFiveLiveExact & \vFiveSophiaExact & \BrownExact & \ClassicsExact \\
+Short words (\%) & \vOneShort & \vFiveLiveShort & \vFiveSophiaShort & \BrownShort & \ClassicsShort \\
+Word length & \vOneWordLen & \vFiveLiveWordLen & \vFiveSophiaWordLen & \BrownWordLen & \ClassicsWordLen \\
+Type--token & \vOneTTR & \vFiveLiveTTR & \vFiveSophiaTTR & \BrownTTR & \ClassicsTTR \\
+Distinct bigr. (\%) & \vOneBigrams & \vFiveLiveBigrams & \vFiveSophiaBigrams & \BrownBigrams & \ClassicsBigrams \\
+Words/sentence & \vOneSentWords & \vFiveLiveSentWords & \vFiveSophiaSentWords & \BrownSentWords & \ClassicsSentWords \\
+\midrule
+Trigram LM\obj & \vOneLM & \vFiveLiveLM & \vFiveSophiaLM & \BrownLM & \ClassicsLM \\
+Readable mean\obj & \vOneReadable & \vFiveLiveReadable & \vFiveSophiaReadable & \BrownReadable & \ClassicsReadable \\
+Readable (\%)\obj & \vOneReadableShare & \vFiveLiveReadableShare & \vFiveSophiaReadableShare & \BrownReadableShare & \ClassicsReadableShare \\
+Garbage (\%)\obj & \vOneGarbageShare & \vFiveLiveGarbageShare & \vFiveSophiaGarbageShare & \BrownGarbageShare & \ClassicsGarbageShare \\
+Ism & \vOneIsm & \vFiveLiveIsm & \vFiveSophiaIsm & \BrownIsm & \ClassicsIsm \\
+\midrule
+GPT-2 ppl & \vOnePPL & \vFiveLivePPL & \vFiveSophiaPPL & \BrownPPL & -- \\
+\quad IQR & {\scriptsize\vOnePPLQone--\vOnePPLQthree} & {\scriptsize\vFiveLivePPLQone--\vFiveLivePPLQthree} & {\scriptsize\vFiveSophiaPPLQone--\vFiveSophiaPPLQthree} & {\scriptsize\BrownPPLQone--\BrownPPLQthree} & -- \\
+\bottomrule
+\end{tabular}
+\caption{Per-corpus means; GPT-2 perplexity is the median with its interquartile range. Readable and garbage are shares of sentences. \obj{}Term of v5's search objective: not independent evidence. GPT-2 never enters the search.}
+\label{tab:main}
+\end{table}
+
+\paragraph{Exactness.} Every generated paragraph is exact: \vFiveLiveExactCheck/\vFiveLiveN{} live, \vFiveSophiaExactCheck/\vFiveSophiaN{} long, by an independent letters-only check as well as the project's validator. The long corpus reaches \vFiveSophiaLettersMax{} letters.
+
+\paragraph{The objective is met, which proves little.} v5's sentences score \vFiveLiveReadable{} on the verifier against \BrownReadable{} for Brown, with \vFiveLiveReadableShare\% of sentences readable against \BrownReadableShare\% (Table~\ref{tab:main}, Figure~\ref{fig:dist}c). Under its own trigram model, v5 text scores \vFiveLiveLM{} per token, \emph{higher} than Brown's \BrownLM. Neither comparison says v5 reads as well as Brown. The search was built to maximise both quantities, and it does. They show that the objective is implemented correctly and that it is saturated: further optimisation against these scores cannot be measured by them. The verifier does separate v1 (\vOneReadable{} readable mean, \vOneGarbageShare\% of sentences garbage) from everything else, which is the distinction it was fitted to make.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=\columnwidth, height=5.0cm,
+  ymode=log, log basis y=10, ytick={20,50,100,200,500,1000,2000}, log ticks with fixed point,
+  ylabel={GPT-2 perplexity}, ylabel style={font=\small},
+  xtick={1,2,3,4}, xticklabels={v1, v5 live, v5 long, Brown},
+  tick label style={font=\small},
+  xmin=0.4, xmax=4.6, ymin=15, ymax=2500,
+  ymajorgrids, grid style={black!10},
+  boxplot/draw direction=y,
+]
+\input{figdata/ppl}
+\end{axis}
+\end{tikzpicture}
+\caption{GPT-2 perplexity per paragraph (log scale). Boxes span the interquartile range with the median; whiskers reach the extremes; points are paragraphs. GPT-2 is outside the search. \inBrownRangeLive{} live and \inBrownRangeLong{} long paragraphs reach Brown's range; \belowVOneMinLive{} of \vFiveLiveN{} live paragraphs fall below v1's minimum.}
+\label{fig:ppl}
+\end{figure}
+
+\paragraph{Independent check: GPT-2.} GPT-2's median perplexity on v5 live is \vFiveLivePPL{} against \vOnePPL{} for v1, a factor of \pplRatioVOne{} (Figure~\ref{fig:ppl}). All \belowVOneMinLive{} of \vFiveLiveN{} live paragraphs fall below the lowest v1 value, and \belowVOneMinLong{} of \vFiveSophiaN{} long ones do. Brown's median is \BrownPPL: v5 live is \pplRatioBrownLive{} times higher, the long corpus \pplRatioBrownLong{} times. The two distributions do not overlap: \inBrownRangeLive{} live and \inBrownRangeLong{} long paragraphs fall at or below Brown's maximum of \BrownPPLMax. Part of the gain over v1 comes from vocabulary, since v1 admits web tokens such as \w{hdr} and \w{nintendo}, and part from presentation: v1 outputs are one unpunctuated lower-case run (\vOneSentWords{} words per sentence), while v5 emits capitals and full stops every \vFiveLiveSentWords{} words, and GPT-2 rewards both. Sentence boundaries are a search decision in v5 and part of its contribution, but a control that renders v5 without punctuation is needed to size that share.
+
+\begin{figure*}[t]
+\centering
+\pgfplotsset{distpanel/.style={
+  width=0.36\textwidth, height=4.4cm,
+  title style={font=\small, yshift=-4pt},
+  xtick={1,2,3,4,5}, xticklabels={v1, v5 live, v5 long, Brown, Classics},
+  x tick label style={font=\scriptsize, rotate=30, anchor=north east, inner sep=1pt},
+  y tick label style={font=\scriptsize},
+  xmin=0.4, xmax=5.6, ymajorgrids, grid style={black!10}, boxplot/draw direction=y}}
+\begin{tikzpicture}
+\begin{axis}[distpanel, name=a, title={(a) Letters per paragraph}, ymin=0, ymax=1100]
+\input{figdata/letters}
+\end{axis}
+\begin{axis}[distpanel, name=b, at={(a.east)}, anchor=west, xshift=0.9cm, title={(b) Short-word share}, ymin=0, ymax=0.8]
+\input{figdata/short}
+\end{axis}
+\begin{axis}[distpanel, at={(b.east)}, anchor=west, xshift=0.9cm, title={(c) Readable sentences\obj}, ymin=-0.05, ymax=1.05]
+\input{figdata/readshare}
+\end{axis}
+\end{tikzpicture}
+\caption{Per-paragraph distributions; boxes are interquartile ranges with medians, whiskers reach the extremes, points are paragraphs. (a) v5 is exact from \vFiveLiveLettersMin{} to \vFiveSophiaLettersMax{} letters. (b) Share of one- and two-letter words: v5 does not move toward Brown. (c) Share of sentences the verifier rates readable ($r\ge0.6$). \obj{}The verifier is v5's objective; (c) shows that the search meets it, not that the text reads.}
+\label{fig:dist}
+\end{figure*}
+
+\paragraph{Short words get worse.} v5 live uses \vFiveLiveShort\% one- and two-letter words, \shortDeltaAbs{} points \shortDir{} v1's \vOneShort\%; the long corpus is \shortDeltaLongAbs{} points \shortDirLong{} v1. Brown uses \BrownShort\% (Figure~\ref{fig:dist}b). Mean word length stays near three letters (\vFiveLiveWordLen{} live, \vFiveSophiaWordLen{} long; Brown \BrownWordLen). Short words are the cheapest exact payment for a debt of one or two letters, and the search takes them: six of the thirteen words in Figure~\ref{fig:example} have one or two letters. The prose model does not object, because short function words are frequent in its training text. v1 keeps its share lower by drawing longer tokens from a web frequency list, many of which are not English words in running prose; v5's lexicon admits only Brown-attested words and an allowlist of real short words, which leaves short words as the cheap payment.
+
+\paragraph{Ruts persist.} Distinct-bigram share within a paragraph is near 100\%, so the cycle and repetition penalties work inside one text. Across texts they do not apply, and a few phrasings recur: the 4-gram \w{\rutLive} occurs in \rutLiveN{} of \vFiveLiveN{} live paragraphs, and \w{\rutLong} in \rutLongN{} of \vFiveSophiaN{} long ones. v1 is worse: \w{\rutVOne} occurs in \rutVOneN{} of \vOneN{} outputs. This matches the v1 study, where removing six frequent trigrams let others take their place. A mirror rewards the few word chains that pay their own debts, and a frequency-trained model ranks the same chains first on every run.
+
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l r r r r@{}}
+\toprule
+Theme weight $w$ & none & 5 & 8 & 15 \\
+\midrule
+$n$ & \themeNZero & \themeNFive & \themeNEight & \themeNFifteen \\
+Trigram overlap & \themeOverlapZero & \themeOverlapFive & \themeOverlapEight & \themeOverlapFifteen \\
+Top trigram (\%) & \themeTopZero & \themeTopFive & \themeTopEight & \themeTopFifteen \\
+Short words (\%) & \themeShortZero & \themeShortFive & \themeShortEight & \themeShortFifteen \\
+Readable (\%)\obj & \themeReadZero & \themeReadFive & \themeReadEight & \themeReadFifteen \\
+GPT-2 ppl & \themePPLZero & \themePPLFive & \themePPLEight & \themePPLFifteen \\
+\bottomrule
+\end{tabular}
+\caption{Themes against cross-run ruts, 300-letter production settings. Trigram overlap: mean Jaccard of word-trigram sets over all pairs of paragraphs. Top trigram: share of paragraphs containing the corpus's most common trigram. GPT-2: median. Every paragraph is exact.}
+\label{tab:themes}
+\end{table}
+
+\paragraph{Themes break ruts, at a price.} The deployed generator draws a theme when the prompt is empty: three related words such as \w{sea, ship, storm}. Each lexicon word earns a one-time bonus of $w$ times its tf-idf cosine with the theme centroid, computed over 2,000-word Brown and Gutenberg passages. We ran \themeTried{} themes twice each at $w=15$ and kept the \themeKept{} whose sentences the verifier rated readable at 60\% or more; that selection uses the objective. Without a theme, \w{\themeTopPhraseZero} occurs in \themeTopZero\% of paragraphs and two paragraphs share \themeOverlapZero{} of their trigrams (Table~\ref{tab:themes}). Overlap falls with every step of $w$, to \themeOverlapFifteen{} at $w=15$, where the most common trigram appears in \themeTopFifteen\%. GPT-2 perplexity rises with it, from \themePPLZero{} to \themePPLFifteen. Part of that rise is vocabulary: a theme swaps cheap function-word chains for rarer content words (short words fall from \themeShortZero\% to \themeShortFifteen\%), and a frequency-trained model charges for rare words in any prose. Readers are needed to separate that charge from lost fluency. The deployed weight is 5, where perplexity stays at the unthemed level and overlap falls to \themeOverlapFive.
+
+\paragraph{Stock, not middle.} The ism axis places v5 live at \vFiveLiveIsm{} and v5 long at \vFiveSophiaIsm, closer to the stock end than Brown (\BrownIsm). The trigram model pulls joins toward common pairs, and the beam does not consume the ism axis. Aiming at the middle is a stated target of the verifier that v5 does not yet reach.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=\columnwidth, height=5.0cm,
+  ymode=log, log basis y=10, ytick={20,50,100,200,500,1000,2000}, log ticks with fixed point,
+  xlabel={Letters per paragraph}, ylabel={GPT-2 perplexity},
+  label style={font=\small}, tick label style={font=\small},
+  xmin=0, xmax=1100, ymin=15, ymax=2500,
+  ymajorgrids, grid style={black!10},
+  legend style={font=\scriptsize, at={(0.98,0.03)}, anchor=south east, draw=black!30, legend columns=2},
+]
+\input{figdata/length}
+\end{axis}
+\end{tikzpicture}
+\caption{GPT-2 perplexity against length. Within the long corpus the rank correlation is $\rho=\spearmanLong$; within the live corpus $\rho=\spearmanLive$.}
+\label{fig:length}
+\end{figure}
+
+\paragraph{Length.} Within the long corpus, perplexity barely tracks length (Spearman $\rho=\spearmanLong$, Figure~\ref{fig:length}); a 1,000-letter paragraph is not markedly worse than a 600-letter one. The long corpus sits higher than the live one (median \vFiveSophiaPPL{} against \vFiveLivePPL), but it differs in code version, beam, theme and target, so we do not attribute the gap to length. v1 already closed at any length; the property that matters is that v5's per-token quality does not decay as the beam keeps paying debts.
+
+\paragraph{Where it fails.} Appendix~\ref{app:samples} prints the median live and long paragraphs by GPT-2 perplexity. Their sentences are short and many are grammatical in isolation (\w{I hate me. Here are we now to ten or even\dots}); the failures are dangling function words where a debt was paid with whatever fit (\w{as a were held}), and the absence of any thread between sentences. Themes add topical words (\w{stars}, \w{rose}, \w{sea}) without adding a subject that persists.
+
+\section{Proposed human evaluation}\label{sec:human}
+
+No reader has judged v5 in a controlled study, and the automatic results above cannot substitute for one. We will run the following protocol before claiming readability.
+
+\paragraph{Items.} Five conditions at matched length (300--340 letters, or 60--120 words for prose): v5 live; v1; Brown passages; v5 paragraphs with words shuffled within each sentence (salad control that keeps v5's vocabulary and punctuation); and v5 rendered without punctuation or capitals (sizes the presentational share of the GPT-2 gain). Thirty items per condition, drawn by seed before any rating.
+
+\paragraph{Judgements.} Raters, blind to condition and to the palindrome property, rate each sentence for grammaticality (0--3) and each paragraph for meaning (0--3), with written anchors as in our earlier rubric, and answer a pairwise forced choice between v5 and v1 at matched length with position balanced. Each item receives five ratings; attention checks use Brown and shuffled controls with known answers.
+
+\paragraph{Analysis.} Pre-registered hypotheses: (H1) v5 sentences outscore v1 on grammaticality; (H2) v5 does not reach Brown; (H3) the verifier's readability probability correlates with human sentence grammaticality on held-out v5 sentences (Spearman, with a bootstrap interval). H3 is the test the verifier has not had: its AUC was measured against v1 and shuffles, and inside the beam it may be rewarding sentences readers reject. Ordinal mixed-effects models with rater and item intercepts; inter-rater agreement by Krippendorff's $\alpha$.
+
+\section{Discussion}
+
+The four failures and v5 together delimit the design space. Text cannot be scored only on the half the search can see (v1), cannot be borrowed (v2), cannot be assembled from units that are palindromes on their own (v3), and cannot be forced through a small set of grammatical frames (v4). What remains is a search that lets the two halves disagree about word and sentence boundaries, scores both with a model of ordinary prose as they grow, and judges each sentence as it closes. v5 is that search. Its outputs are exact at any length we have tried, beat the earlier word-level search by a wide margin on an independent model, and remain far from prose.
+
+Three directions follow from the measurements. The short-word share is the clearest target, since v5 is worse than v1 on it: a cost on one- and two-letter debts, or a lexicon that prefers longer exact fits, attacks it directly. Themes cut cross-run overlap by a factor of four; a penalty on recently emitted phrases would attack the chains that survive them. And the verifier should be retrained once human judgements of v5 sentences exist, because a scorer fitted to reject v1 is now saturated by the generator it steers.
+
+\section*{Limitations}
+The verifier and the trigram model are both objective and measurement; Table~\ref{tab:main} marks every such row, and none of them is evidence that v5 reads well. GPT-2 perplexity is independent of the search but is a fluency proxy, rewards punctuation and capitals that v1 lacks, and has not been validated against readers on palindromic text. No human study has been run on v5. The v1 comparison corpus has \vOneN{} outputs but only \vOneDistinct{} distinct texts. The long corpus mixes development batches with differing code, beam widths and targets. The verifier's anchors are human forum palindromes, Brown sentences and classics against v1 windows and shuffles; its AUC says nothing about the boundary between v5's sentences and human prose. Brown and Gutenberg text supply the vocabulary and the prose model, so the register is mid-century American and older literary English. The work is English only. Earlier measurements cited from the project's history (v1--v4) come from different evaluation setups and are not directly comparable with each other or with Table~\ref{tab:main}.
+
+\section*{Ethical considerations}
+No human participants were involved. The training corpora are public; the human palindromes used as verifier anchors are short public posts used only as feature-fitting data and are not reproduced. Model scores are never presented as human judgements. Generative AI assisted with implementation and writing.
+
+\bibliography{references}
+
+\appendix
+
+\section{Settings}\label{app:settings}
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}l r@{}}
+\toprule
+Parameter & Production \\
+\midrule
+Target letters / slack & 300 / 40 \\
+Beam width / children per parent & 200 / 12 \\
+LM-ranked candidates per debt & 30 \\
+Overrun candidates per debt (by frequency) & 150 \\
+Maximum debt (letters) & 8 \\
+Priority: per letter / per owed letter & 0.7 / 0.4 \\
+Sentence weight / comma cost & 2.0 / 1.0 \\
+Content bonus / local / far repeat & 1.6 / 4.0 / 0.5 \\
+Near-window repeat / cycle & 4.0 / 6.0 \\
+Run-on window (tokens) / cost per word & 18 / 2.0 \\
+Seam-insert cost & 1.0 \\
+Theme weight (first use) & 15 \\
+Start noise / steps; later noise & 4.0 / 8; 0.3 \\
+Lexicon minimum count & 3 \\
+\bottomrule
+\end{tabular}
+\caption{Settings of the deployed generator.}
+\end{table}
+
+The lexicon keeps alphabetic words seen at least three times in the prose corpus that are attested in Brown other than as proper nouns, excluding contraction stems (\w{didn}, \w{wouldn}) and words of one or two letters outside an allowlist of real short words. The left half is scored by the same forward model as the right; a hook for periodic re-scoring by a neural model exists in the code and is disabled in production, so no neural model is in v5's loop.
+
+\section{Sample outputs}\label{app:samples}
+\paragraph{v5 live, median GPT-2 perplexity (314 letters).}
+\small
+\begin{quote}
+Till at last, are here may be not I won kill it never even a man. I put new era. Consider it to get on a net for ever. Of no part nor in all am so still. If I did not at all a cotton field is it I saw one man went on, not new name. Now, as it is idle. If not to call at a ton. Did I fill it. So small an iron trap on forever. Often, a note. Got tired is no care went up in a man ever, even till I know it. One by a mere her at salt. All. It.
+\end{quote}
+\normalsize
+\paragraph{v5 long, lowest GPT-2 perplexity (706 letters, theme not shown), first half.}
+\small
+\begin{quote}
+Sun, or of stars. I hate me help missiles. Seven of iron are hosts. A foot too fat ones. I arise. Yes, till it was a fine my bed. I say as to no die not satisfied is still a walk said neon sign. I care not for one year of never even a month girl late so temple hosts. It ran as a tired. Now I met in it for ever. Of evil, as I lived an idle. His eye, yet so may be no part nor in all I know it. \dots
+\end{quote}
+\normalsize
+
+\end{document}

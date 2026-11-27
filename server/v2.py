@@ -44,6 +44,7 @@ from llm_palindrome.paragraphs import is_word_palindrome, word_assemble
 from llm_palindrome.reversal import drop_worst
 from llm_palindrome.textify import segment_at_units
 from llm_palindrome.validator import is_palindrome, normalize
+from server import archive
 
 router = APIRouter(prefix="/api/v2")
 RETIREMENT_MESSAGE = (
@@ -55,6 +56,8 @@ RETIREMENT_MESSAGE = (
 
 def _retired_route() -> None:
     """Refuse output even when this historical router is mounted standalone."""
+    if archive.ENABLED:
+        return
     raise HTTPException(status_code=503, detail=RETIREMENT_MESSAGE)
 
 # The configuration that met the acceptance criterion — 5/5 generations
@@ -566,6 +569,9 @@ def paragraph(sentences: int = Query(9, ge=1, le=40),
 
 @router.get("/health")
 def health():
+    if archive.ENABLED:
+        return {"ok": True, "version": 2, "archive": True, "vocab": _tries is not None,
+                "sentences": len(_sentences), "error": _load_error}
     return {"ok": False, "version": 2, "output_available": False,
             "reason": RETIREMENT_MESSAGE}
 

@@ -271,6 +271,8 @@ def beam_search(
     allow_state=None,
     allow_closed=None,
     deadline: Optional[float] = None,
+    max_overhang: Optional[int] = 24,
+    closed_stop_factor: Optional[float] = 3.0,
 ) -> list[str]:
     """Beam search for a word sequence whose letters form a palindrome.
 
@@ -291,10 +293,21 @@ def beam_search(
     next state or expansion checkpoint and returns the best eligible closure
     found so far.
 
+    `max_overhang` bounds the unmatched letter debt after each extension;
+    its historical default is 24. A positive larger cap admits longer phrase
+    debts; None removes this cap. `closed_stop_factor` stops after an incumbent
+    exists and every surviving state's length exceeds this positive factor
+    times `min_letters` (historically 3). None disables that early stop;
+    step, beam, callback, and deadline limits still apply.
+
     `prune(states) -> states` is called every `prune_every` steps; a language
     model uses it to drop branches that are letter-valid but not fluent. It may
     reorder or filter but must not fabricate states, so correctness is unaffected.
     """
+    if max_overhang is not None and not max_overhang > 0:
+        raise ValueError("max_overhang must be positive or None")
+    if closed_stop_factor is not None and not closed_stop_factor > 0:
+        raise ValueError("closed_stop_factor must be positive or None")
     rng = random.Random(seed)
     start = initial_state or State(sort_key=0.0, left=(), right=(), overhang="", side="L")
     beam = [start]
@@ -327,7 +340,7 @@ def beam_search(
             for placement, w, new_over, new_side in _expand(state, tries, candidate_limit):
                 if deadline is not None and time.monotonic() >= deadline:
                     break
-                if len(new_over) > 24:  # unmatchable overhangs stall the search
+                if max_overhang is not None and len(new_over) > max_overhang:
                     continue
                 if (opening_words is not None and placement == "L"
                         and not state.left and w not in opening_words):
@@ -368,7 +381,8 @@ def beam_search(
         beam = heapq.nsmallest(beam_width, pool)
         if prune is not None and beam and step % prune_every == prune_every - 1:
             beam = list(prune(beam))
-        if best is not None and all(s.letters > 3 * min_letters for s in beam):
+        if (best is not None and closed_stop_factor is not None
+                and all(s.letters > closed_stop_factor * min_letters for s in beam)):
             break
 
     return best[1] if best else []

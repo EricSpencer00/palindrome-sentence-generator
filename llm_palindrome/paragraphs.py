@@ -1,26 +1,18 @@
 """Paragraph-length palindromes, assembled from short units.
 
-The mirror costs about 3 bits per free letter (`experiments/mirror_cost.py`;
-2.2 to 3.6 across models, segmentation objectives and span lengths), which is
-why every attempt at paragraph-length palindromic PROSE in
-this repository produced English glued to gibberish: past ~30 letters the
-coherent feasible set of free-running text is effectively empty, and no scorer
-can select what does not exist.
-
-But a paragraph does not have to be free-running. Two kinds of unit pay the
-mirror constraint entirely within themselves:
+Two kinds of existing corpus unit settle the mirror constraint internally:
 
   center   a sentence that is itself a palindrome
   pair     two sentences whose letters are each other's reverse — both
            readable, because the palindrome they were cut from was scored
            as a whole
 
-and any arrangement  L1 L2 ... Lk  C  Rk ... R2 R1  of them is a palindrome by
-construction, at ANY length. No search, no overhang, no letter debt: the
-assembly step cannot fail, so the only open problem left at paragraph scale is
-which units to choose and how to order them — and that is a problem about
-meaning, not letters, which is the first time in this project the two have
-separated.
+and any arrangement L1 L2 ... Lk C Rk ... R2 R1 of valid units is a palindrome
+by construction. A sequence of complete self-palindromic chunks instead uses
+A B ... C ... B A. Available material limits length without repeated padding.
+Selection, context and ordering determine how the result reads; exact assembly
+does not establish meaning. Failures of free-running searches do not prove
+that coherent longer English palindromes cannot exist.
 
 The exhaustive hunt is what makes this more than a trick: it mass-produces the
 units. 2,550,331 short palindromes from one 30-minute walk, each one either a
@@ -339,8 +331,8 @@ def refrain(units: Sequence[str]) -> list[str]:
     Judged strictly, mirror-pairs with two readable halves barely exist — of
     the bank's top pairs, none passed on both sides. Whole short palindromes
     DO pass as sentences, and a mirrored sequence of them is a palindrome by
-    construction. The repetition is not a defect; it is the refrain, and it is
-    how every long palindromic poem already earns its length.
+    construction. The returned units form an explicit refrain. Its repeated
+    wording still needs assessment in the context of the whole passage.
     """
     for u in units:
         if not is_palindrome(u):

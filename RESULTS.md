@@ -6,10 +6,11 @@ This is the short version of the experiment record. The repository contains many
 
 ## Current exact-construction status
 
-The **38-letter** reader-facing benchmark is the only established
-human-readability result. No candidate longer than 38 letters has
-human-readability evidence, and no candidate may be called a readable world
-record. The exact **568-letter** causal-scene row remains the working-length
+The **38-letter** Diana sentence is an inherited exact reference. No primary
+human ratings or administered reader protocol were located for it or the
+longer candidates in the [historical audit](paper/BASELINE-PROVENANCE-AUDIT-V1.md).
+These records establish no readable world record. The exact **568-letter**
+causal-scene row remains the working-length
 incumbent; the exact 666-letter comparison parent and naturalness child are
 retained as unpromoted comparison evidence after whole-text review.
 
@@ -35,7 +36,7 @@ The **54-letter** NP cross-role candidate remains a separate meaning-bearing
 growth seed (SHA-256
 `2f88268e3a920af5ceb67cfb20d1498ef5ce47e91d8800c937639cc8ce376268`). Its
 24-rater packet is frozen but unrun. Relative and possessive-head growth
-attempts have produced readable near misses from 78 to 96 letters, but none is
+attempts have produced prose proposals from 78 to 96 letters, but none is
 exact. The 82-letter center-pair insertion is rejected because its added pair
 forms its own palindrome.
 
@@ -61,7 +62,7 @@ A ram saw Nadia. Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. 
 
 | Length | What changed | Status |
 |---:|---|---|
-| 38 | Diana seed and the initial exact benchmark | calibration |
+| 38 | Inherited Diana reference | exactness example; no located human ratings |
 | 44 | Reconstructed “Now, an aide rips nine memos; some men inspire. Diana won.” | exact, discourse debt |
 | 54 | Noel / stressed-desserts seam diagnostics | exact diagnostic |
 | 106 | Reversed-word insertion around the Diana seed | exact, word-salad control |

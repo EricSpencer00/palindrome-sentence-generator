@@ -1,0 +1,103 @@
+{
+  "experiment": "static-language-verifier-20260925",
+  "status": "incomplete_preflight_excluded_from_main_analysis",
+  "input_manifest_sha256": "65034504b22d500c66ecfd9a6a5b0bdfd7e848383f55bdb3bf99679fa382a41e",
+  "model": {
+    "id": "us.deepseek.r1-v1:0",
+    "region": "us-east-2"
+  },
+  "method": {
+    "task": "blinded pairwise preference for ordinary-language quality",
+    "system_prompt": "You are comparing two short English texts for ordinary-language quality. Judge sentence-level grammaticality, natural phrasing, and whether the text communicates a coherent meaning. Ignore length. One may be deliberately word-shuffled. Do not infer or reward palindrome status. Do not provide chain-of-thought. Return one JSON object only with choice A, B, or tie and a brief observable language feature (at most 12 words).",
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens_including_reasoning": 1024,
+    "ordering": "deterministic SHA-256 assignment; the request contains no candidate/control labels",
+    "provider_seed": null,
+    "preflight_cost_ceiling_usd": 0.0913437,
+    "input_token_bound_method": "UTF-8 byte count for fixed ASCII prompts; one byte per token upper bound, plus configured output-token cap",
+    "cost_cap_usd": 0.1
+  },
+  "comparisons": [
+    {
+      "comparison_id": "38-control::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:38-control",
+      "baseline_id": "shuffle:candidate:38-control:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "A",
+      "a_id": "candidate:38-control",
+      "b_id": "shuffle:candidate:38-control:00",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: An aide rips nine memos; some men inspire Diana.\n\nB: some aide memos rips An; Diana nine men inspire.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "45c86a2fed07f81add538e2307d183ded2b833f695833ecebe626de91b9bd757",
+      "raw_visible_response": "\n\n{\"choice\":\"A\",\"observable_feature\":\"correct grammar, natural word order\"}",
+      "parsed": {
+        "choice": "A",
+        "observable_feature": "correct grammar, natural word order"
+      },
+      "usage": {
+        "inputTokens": 155,
+        "outputTokens": 459,
+        "totalTokens": 614
+      },
+      "stop_reason": "end_turn",
+      "request_id": "ce56e984-f306-48ef-b0ad-3c290dd13ca1"
+    },
+    {
+      "comparison_id": "54-np-candidate::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:54-np-candidate",
+      "baseline_id": "shuffle:candidate:54-np-candidate:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "B",
+      "a_id": "shuffle:candidate:54-np-candidate:00",
+      "b_id": "candidate:54-np-candidate",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: aide men inspire more An-memo rips. hero memos home Some Diana nine.\n\nB: An aide rips nine memo-hero memos. Some more home men inspire Diana.\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "7a1c44853583bf98d447d97e48f310a3cf2b68b2c88d6c6b0d2c5c3dabb09207",
+      "raw_visible_response": "\n\n{\"choice\":\"B\",\"observable_feature\":\"compound adjective 'memo-hero' used correctly\"}",
+      "parsed": {
+        "choice": "B",
+        "observable_feature": "compound adjective 'memo-hero' used correctly"
+      },
+      "usage": {
+        "inputTokens": 165,
+        "outputTokens": 466,
+        "totalTokens": 631
+      },
+      "stop_reason": "end_turn",
+      "request_id": "236b3443-a38a-4cac-a1bf-50a5e0517581"
+    },
+    {
+      "comparison_id": "498-overhang::vs::candidate_same_word_shuffle",
+      "candidate_id": "candidate:498-overhang",
+      "baseline_id": "shuffle:candidate:498-overhang:00",
+      "baseline_kind": "candidate_same_word_shuffle",
+      "candidate_side": "A",
+      "a_id": "candidate:498-overhang",
+      "b_id": "shuffle:candidate:498-overhang:00",
+      "prompt": "Compare the two passages. Which reads as better ordinary English prose?\n\nA: to get at see men into long no last never one post its apple here we many me rate yes up us if for even of is all it state go two no do two her an it so my be not as in or of Noel did I live Nora was I evil Noel did I draw Mara was I God Sara did I live Nora I saw desserts Noel was I stressed Nora I saw deliver Noel I saw diaper Repaid was I Leon Reviled was I Aron Desserts I saw Leon Stressed was I Aron Evil I did Aras Dog I saw Aram Ward I did Leon Live I saw Aron Evil I did Leon for on is at one by most in are how to do now to get at still as if on ever off is up use yet are my name were help past its open or events along no lot nine me estate got\n\nB: by Leon was is to all never saw open me even as long Live see most Nora Evil it in an two rate lot Leon Aras deliver no was Noel state I Noel events us at I of I did yes last get Desserts its her into saw Dog do up go my men desserts how Aron Repaid Nora Noel to on were got nine did is use me or diaper I not we did for was now did I are Aram past two I as God was off here I did or if in Aron I no get name help Leon I live Leon stressed I saw along I ever at live I be estate Evil Sara I one yet its do of Mara if I are still I no was draw Stressed did Reviled Aron for I I I my apple up one many was to evil Ward saw is saw post at on Nora so saw Noel it\n\nReturn exactly: {\"choice\":\"A|B|tie\",\"observable_feature\":\"brief concrete feature\"}",
+      "prompt_sha256": "7a95e0c2421f40cfc89ed22bfca6bc5d67817a8f1816dd87024f1d9ad733b6a1",
+      "raw_visible_response": "",
+      "parsed": {
+        "choice": null,
+        "observable_feature": null
+      },
+      "usage": {
+        "inputTokens": 469,
+        "outputTokens": 1024,
+        "totalTokens": 1493
+      },
+      "stop_reason": "max_tokens",
+      "request_id": null,
+      "invocation_transport": "aws-cli; text output filtered by AWS CLI query"
+    }
+  ],
+  "created_utc": "2026-09-25T15:23:00Z",
+  "usage": {
+    "calls": 3,
+    "input_tokens": 789,
+    "output_tokens": 1949,
+    "total_tokens": 2738
+  },
+  "estimated_cost_usd": 0.011589750000000001,
+  "discard_reason": "DeepSeek-R1 used its full 1,024-token response ceiling without returning visible text for the 498-overhang comparison; it was replaced by DeepSeek V3.2, run consistently on all 11 pairs. The first two responses are retained for audit but are excluded from the main table.",
+  "pricing_source": "AWS Bedrock pricing example for DeepSeek-R1 retrieved 2026-09-25: $0.00135/1K input tokens and $0.0054/1K output tokens."
+}

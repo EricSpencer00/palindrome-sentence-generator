@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How the Palindrome Paragraph Generator Works</title>
+<meta name="description" content="How a palindrome paragraph generator works: letter debts between two halves, beam search, a trigram model and a counting verifier for readability, with measurements against v1 and real English.">
+<link rel="canonical" href="https://palindrome.ericspencer.us/how/">
+<meta property="og:title" content="How to Write a Palindrome Paragraph">
+<meta property="og:description" content="The letter-debt algorithm behind paragraphs that read the same backwards, explained with walkthroughs and measurements.">
+<meta property="og:url" content="https://palindrome.ericspencer.us/how/">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How the Palindrome Paragraph Generator Works",
+  "description": "How a palindrome paragraph generator works: letter debts, beam search, a trigram model and a counting readability verifier, with measurements.",
+  "url": "https://palindrome.ericspencer.us/how/",
+  "author": {"@type": "Person", "name": "Eric Spencer", "url": "https://ericspencer.us"},
+  "datePublished": "2026-11-25",
+  "about": ["Palindrome", "Beam search", "Natural language generation", "Constrained text generation"],
+  "isPartOf": {"@type": "WebSite", "name": "Palindrome Paragraph Generator", "url": "https://palindrome.ericspencer.us/"}
+}
+</script>
+<style>
+  :root {
+    --paper: #ffffff; --ink: #0d0d10; --ash: #6b6b76; --haze: #ececf1;
+    --signal: #3a1ce0; --signal-soft: #ece9ff; --grey: #b9b9c3;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.7 Archivo, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  main { max-width: 42rem; margin: 0 auto; padding: 4rem 1rem 6rem; }
+  a { color: var(--signal); text-decoration: none; }
+  a:hover, a.label:hover { color: var(--ink); }
+  a.label { color: var(--signal); }
+  .label { font: 700 .66rem/1.4 Archivo, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--ash); }
+  h1 { font-size: clamp(2rem, 6vw, 3.1rem); line-height: 1.04; letter-spacing: -.035em; margin: .6rem 0 1.2rem; }
+  h2 { font-size: 1.5rem; letter-spacing: -.02em; line-height: 1.2; margin: 3.5rem 0 .6rem; }
+  p { margin: 0 0 1rem; }
+  .lede { font-size: 1.2rem; line-height: 1.55; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .9em; }
+  i, em { font-style: normal; text-decoration: underline; text-decoration-color: var(--grey); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+  h2, figure { scroll-margin-top: 1.5rem; }
+  figure { margin: 2rem 0; }
+  figcaption { color: var(--ash); font-size: .88rem; line-height: 1.5; margin-top: .6rem; }
+  .card { border: 1px solid var(--haze); border-radius: 14px; padding: 1.25rem; }
+  button { font: 600 .85rem Archivo, sans-serif; border: 0; border-radius: 999px; padding: .45rem .95rem; cursor: pointer; }
+  .primary { background: var(--ink); color: var(--paper); } .primary:hover { background: var(--signal); }
+  .ghost { background: transparent; color: var(--ash); } .ghost:hover { color: var(--ink); }
+  button:disabled { opacity: .35; cursor: default; }
+  .mirror { display: flex; align-items: stretch; gap: .7rem; margin: 1.6rem 0 .4rem; font-family: "JetBrains Mono", monospace; font-size: clamp(11px, 3.1vw, 16px); line-height: 2; }
+  .mirror .half { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+  .mirror .l { align-items: flex-end; text-align: right; } .mirror .r { align-items: flex-start; }
+  .mirror .txt { min-height: 2em; }
+  .mirror .bar { width: 2px; background: var(--signal); border-radius: 2px; animation: blink 1.06s steps(1, end) infinite; }
+  .mirror .w { display: inline-block; white-space: pre; }
+  .mirror .w.in-l { animation: in-l .45s cubic-bezier(.22,1,.36,1) both, ink 1.4s ease .45s both; }
+  .mirror .w.in-r { animation: in-r .45s cubic-bezier(.22,1,.36,1) both, ink 1.4s ease .45s both; }
+  .mirror .g { display: inline-block; width: .9em; margin: 0 .04em; text-align: center; color: var(--signal); background: var(--signal-soft);
+    border-bottom: 2px dashed var(--signal); border-radius: 3px 3px 0 0; line-height: 1.5; animation: pop .35s cubic-bezier(.22,1.4,.36,1) both; }
+  .mirror .side { font: 700 .62rem/1.4 Archivo, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--ash); margin-top: .5rem; transition: color .3s; }
+  .mirror .side.owes { color: var(--signal); }
+  @keyframes in-l { from { opacity: 0; transform: translateX(10px) } to { opacity: 1; transform: none } }
+  @keyframes in-r { from { opacity: 0; transform: translateX(-10px) } to { opacity: 1; transform: none } }
+  @keyframes ink { from { color: var(--signal) } to { color: var(--ink) } }
+  @keyframes pop { from { opacity: 0; transform: translateY(6px) scale(.6) } to { opacity: 1; transform: none } }
+  @keyframes blink { 0%, 49% { opacity: 1 } 50%, 100% { opacity: .25 } }
+  .note { min-height: 3.4em; color: var(--ash); font-size: .95rem; margin: .8rem 0 0; }
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-top: .8rem; }
+  .dots { display: flex; gap: 6px; } .dots span { height: 6px; width: 6px; border-radius: 99px; background: var(--haze); transition: width .3s; }
+  .dots span.on { width: 16px; background: var(--ink); }
+  .chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .chart text { font: 12px Archivo, sans-serif; fill: var(--ash); }
+  .chart .val { fill: var(--ink); font-weight: 600; }
+  .chart text.m { font: 600 13px "JetBrains Mono", monospace; fill: var(--ink); }
+  .chart [data-hit] { cursor: default; }
+  .tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--paper); font-size: .8rem; padding: .35rem .55rem; border-radius: 6px; opacity: 0; transition: opacity .12s; max-width: 18rem; z-index: 9; }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  th, td { text-align: right; padding: .35rem .4rem; border-bottom: 1px solid var(--haze); font-variant-numeric: tabular-nums; }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-weight: 600; color: var(--ash); }
+  details summary { cursor: pointer; color: var(--ash); font-size: .88rem; margin-top: .6rem; }
+  ol.versions { padding-left: 0; list-style: none; } ol.versions li { margin-bottom: 1.1rem; }
+  ol.versions .sample { display: block; margin-top: .3rem; font-family: "JetBrains Mono", monospace; font-size: .85rem; color: var(--ink); }
+  ol.versions .stat { display: block; color: var(--ash); font-size: .82rem; }
+  ol.versions li.ours strong { color: var(--signal); }
+  .cta { display: inline-block; margin-top: 2.5rem; background: var(--ink); color: var(--paper); text-decoration: none; padding: .7rem 1.2rem; border-radius: 999px; font-weight: 600; }
+  .cta:hover { background: var(--signal); color: var(--paper); }
+  @media (prefers-reduced-motion: reduce) { .dots span { transition: none; } .mirror .w, .mirror .g, .mirror .bar { animation: none; } }
+</style>
+</head>
+<body>
+<main>
+  <a class="label" href="/">← Palindrome Paragraph Generator</a>
+  <h1>How the palindrome paragraph generator works</h1>
+  <p class="lede">
+    This page explains how the generator builds paragraphs that read the same backwards, how
+    their sentences are scored, and how the output compares with earlier versions and with real
+    English. The short version: it grows each paragraph from the middle out, pays every letter it
+    owes with real words, and scores every sentence the moment it ends.
+  </p>
+
+  <h2 id="rule">Definition of a palindrome paragraph</h2>
+  <p>
+    A <a href="https://en.wikipedia.org/wiki/Palindrome">palindrome</a> paragraph is a paragraph whose letters read the same in both directions once
+    spaces, punctuation and capitals are removed. <i>Step on no pets</i> becomes
+    <i>steponnopets</i>, which reverses to itself. Only the letters have to match. Words, spaces
+    and punctuation don’t, so <i>No, will I hate me here?</i> on the left is answered by
+    <i>Ere he met a hill. I won.</i> on the right, although no word on one side matches a word
+    on the other. That freedom is what makes long palindromes possible, and it is also why most
+    long palindromes read badly: letters can be cut into words almost any way at all.
+  </p>
+  <figure class="chart" id="tape"></figure>
+  <h2 id="debts">How the generator pays letter debts</h2>
+  <p>
+    The generator treats a palindrome as a ledger. It writes from the middle out. Each
+    word added to one half creates a debt: the other half owes those letters, reversed. Whichever
+    half owes adds words to pay. A word that overpays turns its surplus into a debt for the other
+    side. The paragraph is finished when nothing is owed.
+  </p>
+
+  <figure class="card" id="walk" aria-label="Interactive walkthrough of letter debts">
+    <div class="label">Walkthrough: paying a debt</div>
+    <div class="mirror" aria-live="polite">
+      <div class="half l"><div class="txt" id="w-left"></div><div class="side" id="w-lside"></div></div>
+      <div class="bar"></div>
+      <div class="half r"><div class="txt" id="w-right"></div><div class="side" id="w-rside"></div></div>
+    </div>
+    <p class="note" id="w-note"></p>
+    <div class="nav">
+      <button class="ghost" id="w-back">Back</button>
+      <div class="dots" id="w-dots"></div>
+      <button class="primary" id="w-next">Next</button>
+    </div>
+  </figure>
+  <figure class="chart" id="debt"></figure>
+
+  <h2 id="moves">Why most valid moves produce gibberish</h2>
+  <p>
+    Each debt can be paid in many ways, and most of them are nonsense. <i>Hate me here</i>
+    reverses to <i>ereh em etah</i>. Cut differently, the same letters give <i>ere he met
+    ah</i>, and with a little more, <i>ere he met a hill</i>. A search that only cares about
+    matching letters can’t tell these apart, and it quickly learns that tiny words are the
+    cheapest payment: <i>a</i>, <i>I</i>, <i>no</i>, <i>it</i>, <i>on</i>. Keeping that habit in
+    check is the main job of the scoring described below.
+  </p>
+
+  <h2 id="search">Beam search: hundreds of drafts at once</h2>
+  <p>
+    A <a href="https://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a> commits to one path and dies in its first dead end. The generator runs
+    a <strong><a href="https://en.wikipedia.org/wiki/Beam_search">beam search</a></strong>: it holds a few hundred half-built paragraphs at once, extends
+    every one of them by every legal word, scores the results and keeps only the best few hundred
+    for the next round. A debt is only
+    allowed if some sequence of dictionary words can still pay it, so the beam never wastes a slot
+    on a hopeless paragraph.
+  </p>
+  <figure class="chart" id="beam" aria-label="Diagram of a beam search keeping the best candidates each round"></figure>
+
+  <h2 id="scoring">How each sentence is scored</h2>
+  <p>
+    Two scorers decide what "best" means. The first is a <strong><a href="https://en.wikipedia.org/wiki/Word_n-gram_language_model">trigram language model</a></strong>
+    trained on 3.8 million words of the <a href="https://en.wikipedia.org/wiki/Brown_Corpus">Brown corpus</a> and <a href="https://en.wikipedia.org/wiki/Project_Gutenberg">Project Gutenberg</a>. It rewards sequences
+    English actually uses. Commas, full stops and question marks are tokens to it but cost no
+    letters, so the search can end a sentence wherever the grammar wants a break.
+  </p>
+  <p>
+    The second is a <strong>counting verifier</strong> that judges each sentence the moment its
+    full stop lands. It uses no neural network: it counts <a href="https://en.wikipedia.org/wiki/Part-of-speech_tagging">part-of-speech</a> patterns from the Brown
+    corpus and the share of filler words, then penalises repeated content words and non-words.
+    The result, from a <a href="https://en.wikipedia.org/wiki/Logistic_regression">logistic regression</a>, is a probability that the sentence is readable English, fitted to separate human
+    palindromes from machine word salad. Sentences that fall below the line drag their whole
+    paragraph down the beam. The verifier reads one side at a time: it judges each sentence on
+    the half where that sentence closes and never compares it with its mirror, whose letters are
+    already fixed by the debt. The mirror half gets judged when its own sentences close. A counting model is the better tool here than a neural judge: it
+    runs in a fraction of a millisecond, so it can score every candidate instead of only the
+    finalists, and every penalty it gives can be traced to a count.
+  </p>
+  <figure class="chart" id="spectrum" aria-label="The verifier’s readability scale from garbage to readable"></figure>
+
+  <h2 id="results">Results compared with v1 and English</h2>
+  <p>
+    Every paragraph the generator returns is an exact palindrome; that is checked mechanically
+    before anything is shown. The harder question is whether it reads. The measurements below
+    compare <span id="n-v5"></span> paragraphs from the live generator against the first version,
+    against classic human palindromes, and against ordinary English from the Brown corpus.
+  </p>
+  <figure class="chart" id="c-readable"></figure>
+  <figure class="chart" id="c-gpt2"></figure>
+  <figure class="chart" id="d-gpt2"></figure>
+  <figure class="chart" id="c-sentence"></figure>
+  <figure class="chart" id="d-sentence"></figure>
+  <figure class="chart" id="d-letters"></figure>
+  <details><summary>All measurements as a table</summary><div id="table"></div></details>
+
+  <h2 id="limits">An independent check</h2>
+  <p>
+    The search is steered by its own two scorers, so the fairest test is a model it never
+    consults. <a href="https://en.wikipedia.org/wiki/GPT-2">GPT-2</a> reads every paragraph cold and reports its
+    <a href="https://en.wikipedia.org/wiki/Perplexity">perplexity</a>, how surprised it is by each word. The generator’s paragraphs
+    score a median of 205, more than six times better than v1’s 1,273, and every one of them
+    beats every v1 paragraph.
+  </p>
+
+  <h2 id="history">Prior work: Hoey and Norvig</h2>
+  <p>
+    In 1984 Dan Hoey wrote a program that extended <i>A man, a plan, a canal: Panama</i> to
+    hundreds of words by tracking the letters one side owed the other. In 2002 Peter Norvig
+    rebuilt the idea as a search and <a href="https://norvig.com/pal-alg.html">documented it</a>.
+    Their palindromes are impressive and unreadable: exact, enormous lists of names and nouns.
+    This generator keeps their bookkeeping and aims for prose instead of length.
+  </p>
+
+  <h2 id="versions">From v1 to v5</h2>
+  <p>
+    Five designs, one goal: a long palindrome that reads like prose. Each version below shows how
+    it worked and the most readable thing it wrote.
+  </p>
+  <ol class="versions" id="vcards"></ol>
+  <figure class="chart" id="vprog"></figure>
+  <figure class="chart" id="vscatter"></figure>
+  <figure class="chart" id="shells"></figure>
+  <p>
+    Two conclusions came out of these failures. Readability has to be scored during the search;
+    checking it at the end is too late, because by then every candidate is already gibberish.
+    And banning bad phrases doesn’t work: in a controlled study of 360 matched runs, banning the
+    six most reused phrases removed them and raised lexical diversity, and the search settled
+    into new repeated phrases instead.
+  </p>
+
+  <a class="cta" href="/">Generate a paragraph</a>
+</main>
+<div class="tip" id="tip" role="tooltip"></div>
+<script src="/how/how.js" defer></script>
+</body>
+</html>

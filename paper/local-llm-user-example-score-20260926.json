@@ -1,0 +1,91 @@
+{
+  "record": "single punctuation-variant local-model diagnostic; excluded from the frozen 244-presentation audit and paper totals",
+  "run_utc": "2026-09-26T07:10:17.333285+00:00",
+  "input": {
+    "text": "No it a i cos say let in if edward name open? or oft on not for one poem and raw definitely association.",
+    "sha256": "9b17d92c8af75d8a485c024db38be65e37995c6f199ccb6721188d77ffd89ed2"
+  },
+  "deterministic_structure_check": {
+    "definition": "lowercase ASCII letters only; exact forward/reverse equality",
+    "letter_count": 80,
+    "letter_level_palindrome": true,
+    "word_count": 23,
+    "word_order_palindrome": false
+  },
+  "judge": {
+    "model": {
+      "model": "qwen2.5:3b",
+      "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+      "model_size_bytes": 1929912432,
+      "details": {
+        "family": "qwen2",
+        "parameter_size": "3.1B",
+        "quantization_level": "Q4_K_M"
+      },
+      "ollama_version": "0.31.1"
+    },
+    "system_prompt": "You are a blinded evaluator of one short English text.\nJudge only the exact text provided. Do not add words, repair it, reorder it,\nguess the author's intent, or reward formal patterns, repetition, rhyme, or\nsymmetry. Score grammaticality and recoverable meaning independently. Ordinary\nwords placed in a sequence without a stable sentence meaning should receive low\nscores even if each word is familiar. Do not provide chain-of-thought.",
+    "user_prompt_template": "Rate this text on two independent integer scales from 0 to 3.\n\ngrammaticality:\n0 = no recoverable sentence parse / word salad;\n1 = isolated grammatical phrases, but major sentence-level breaks;\n2 = a sentence parse is mostly recoverable, though strained or awkward;\n3 = natural, grammatical connected English.\n\ncoherent_meaning:\n0 = no recoverable proposition or event;\n1 = a few word associations, but their relations are unclear;\n2 = one plausible interpretation is recoverable, though incomplete or vague;\n3 = a clear meaning with understandable relations between its parts.\n\nDo not explain or quote the text. Return only the requested JSON.\n\nTEXT:\n{text}",
+    "prompt_sha256": "231485ef7812fe0c37d3f32215a2baa260f3edccc5d15deb84a0176c074ce632",
+    "decoding": {
+      "temperature": 0,
+      "top_p": 1,
+      "seed": 20260926,
+      "num_predict": 128
+    },
+    "output_schema": {
+      "type": "object",
+      "properties": {
+        "grammaticality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "coherent_meaning": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        }
+      },
+      "required": [
+        "grammaticality",
+        "coherent_meaning"
+      ],
+      "additionalProperties": false
+    },
+    "score": {
+      "grammaticality": 0,
+      "coherent_meaning": 0
+    },
+    "raw_response": "{\"grammaticality\":0,\"coherent_meaning\":0}",
+    "api_metadata": {
+      "done_reason": "stop",
+      "prompt_eval_count": 266,
+      "eval_count": 20,
+      "total_duration_ns": 6768437333,
+      "load_duration_ns": 5551617917,
+      "prompt_eval_duration_ns": 702312000,
+      "eval_duration_ns": 500832000
+    }
+  },
+  "source_and_limits": {
+    "runner": "experiments/local_llm_readability_audit_20260926.py",
+    "runner_sha256": "67a72cc85d7379bbf7ea61825097e746ecd4203eabb18277d2c7e328e03a8199",
+    "protocol": "experiments/LOCAL-LLM-READABILITY-AUDIT-20260926.md",
+    "model_reference": "https://ollama.com/library/qwen2.5%3A3b-instruct",
+    "prior_frozen_candidate_audit": "52/52 candidates received 0/3 on both dimensions; model control gate failed (1/12 positive spans, 4/12 in a separate single-sentence sensitivity set); 12/12 duplicate requests matched. Therefore this score is an uncalibrated diagnostic, not a validated readability rating or human result.",
+    "reproduction": "The exact punctuation variant was one additional request outside the frozen 244-presentation run. The unpunctuated source candidate appears in that run and received the same 0/3, 0/3 score. Both remain uncalibrated diagnostics because the positive-control gate failed."
+  },
+  "related_frozen_candidate": {
+    "candidate_id": "candidate:seed-4017:band-3:escalated_v4:outside_in_norvig_hoey_adaptation",
+    "candidate_text": "No it a i cos say let in if edward name open or oft on not for one poem and raw definitely association.",
+    "candidate_text_sha256": "a1c967ac13059e1655c59bca14a405b42ff43dac3a9f74b811e9cc41a60f81f6",
+    "relation": "same normalized letter tape; user example adds a question mark after “open”",
+    "frozen_audit_score": {
+      "grammaticality": 0,
+      "coherent_meaning": 0
+    },
+    "frozen_audit_presentation_id": "V-5BF4AD953269",
+    "frozen_audit_raw_result": "runs/local-llm-readability-audit-20260926.json"
+  }
+}

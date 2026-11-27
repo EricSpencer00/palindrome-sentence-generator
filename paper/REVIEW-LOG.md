@@ -407,3 +407,45 @@ are historical; the current review PDF is under `output/pdf/paper-revision/`.
 The ten-pass internal review is complete. It does not supply human ratings,
 a prior-generator quality comparison, or a general method result, so the paper
 is not yet strong enough to call NAACL main submission-ready.
+
+## Existing-results framing revision — 26 September 2026
+
+At the user's request, the manuscript was rewritten using saved evidence,
+with no new experiments or model scoring calls. The title is now
+*Evaluating Exact Palindrome Generation Beyond Character Validity*. Its
+central comparison places positive Brown/GPT-2 shuffle-relative diagnostics
+alongside Qwen3's floor-level absolute ratings on the same exact output set.
+The existing length analysis is in the main paper; the Diana construction
+pair is a separate retrospective appendix.
+
+An independent subagent checked the new prose against the archived figures
+and found the thesis coherent and the numerical claims supported. It caught
+two wording issues: phrase occurrence across outputs could sound like
+within-text repetition, and one sentence implied a language-quality
+comparison with the original bundle, which had no outputs. Both were fixed.
+The review supplies no human validation, peer-review decision, or new score.
+The earlier 2.5/5 internal estimate describes the resource-centered draft.
+
+The PDF was rebuilt and its five pages inspected. Main content ends on page 4;
+references and the separate appendix extend to page 5. The professor handoff
+now copies the current PDF, source, and brief from canonical files. The
+source map and editorial checks are in FRAMING-REVISION-20260926.md.
+
+## Final review corrections closed — 26 September 2026
+
+The final mock ARR review recommended 3/5 overall (Findings), soundness
+3.5/5, excitement 2.5/5, and reproducibility 4/5. An independent Astra review
+also recommended 3/5 overall. These are internal assessments of the
+evaluation draft before the final corrections, not an acceptance decision.
+
+All four requested clarifications are implemented: the incremental
+contribution and its practical interpretation; complete rubric anchors and
+the limited scope of the prose-control screen; seeded ranking perturbations,
+fixed search limits, and the bootstrap unit; and descriptive length wording.
+The supplementary report's ambiguous 0.280 GPT-2 contrast is now explicitly
+identified as raw candidate likelihood in both the report and its renderer.
+The metric definition and numeric value are unchanged.
+
+This closes the internal editorial review cycle at the user's request.
+No further reviewer was consulted and no experiment or scoring call was
+made. Final PDF and package integrity checks complete the handoff.

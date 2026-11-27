@@ -1,12 +1,251 @@
-import { render, screen } from "@testing-library/react"
-import { expect, test } from "vitest"
+/* The streaming poster: what it does with the frames, and when it draws them.
+ *
+ * Two things are worth pinning down. The stream contract — status, plan,
+ * partial, result, error — because the poster is its only reader, and a change
+ * on either side breaks nothing loudly. And the pen, because `done` is set when
+ * the pen arrives rather than when the result lands: every version of that rule
+ * that got it the other way round shipped a page which said "searching" for
+ * ever. */
+import { act, fireEvent, render, screen } from "@testing-library/react"
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest"
 
-import App from "./App"
+/* jsdom opens at "/", which is v3 — composed, not searched, and it does not
+ * stream. The poster reads the path once when the module loads, so the path has
+ * to be set before the import. */
+window.history.replaceState({}, "", "/v1")
+const { default: App } = await import("./App")
 
+/* EventSource does not exist in jsdom, and a real one would need a server. This
+ * is the whole surface the poster uses: two handlers and close(). */
+class FakeStream {
+  static last: FakeStream | null = null
+  onmessage: ((e: { data: string }) => void) | null = null
+  onerror: (() => void) | null = null
+  closed = false
+  readonly url: string
 
-test("every route surface has no request or stream control", () => {
+  constructor(url: string) {
+    this.url = url
+    FakeStream.last = this
+  }
+
+  close() { this.closed = true }
+
+  send(msg: unknown) { act(() => { this.onmessage?.({ data: JSON.stringify(msg) }) }) }
+
+  fail() { act(() => { this.onerror?.() }) }
+}
+
+const stream = () => {
+  const s = FakeStream.last
+  if (!s) throw new Error("the poster never opened a stream")
+  return s
+}
+
+/* A draft. The words are all different, so a query for one of them cannot match
+ * its own mirror image — which on a real palindrome it always would. */
+const draft = (left: string[], right: string[]) => ({
+  type: "partial",
+  center: "level", centerDisplay: "level", pivot: 2, pivotOdd: true,
+  promptCenter: false,
+  left, right,
+  letters: [...left, "level", ...right].join("").length,
+  words: left.length + right.length + 1,
+})
+
+const answer = (left: string[], right: string[]) => ({
+  ...draft(left, right), type: "result", lm: null, coherence: 0.5, seconds: 2,
+})
+
+const LEFT = ["one", "two", "three", "four"]
+const RIGHT = ["five", "six", "seven", "eight"]
+
+/* The pen's own numbers: it steps every 16ms and writes the whole paragraph in 6s. */
+const STEP = 16
+const WORD_MS = 750   // eight words in 6s
+
+const draw = async (ms: number) => {
+  await act(async () => { await vi.advanceTimersByTimeAsync(ms) })
+}
+const drawHalf = () => draw(3 * WORD_MS + STEP)   // four of the eight words: one at once, three more
+const drawAll = () => draw(8 * WORD_MS + STEP)
+
+const start = () => fireEvent.click(screen.getByRole("button", { name: /generate/i }))
+const shown = (word: string) => screen.queryByText(word) !== null
+let replay: unknown[] | null = null
+
+const bar = () => document.querySelector('[role="progressbar"]')
+
+beforeEach(() => {
+  vi.useFakeTimers()
+  /* The fake clock starts at zero, and the pen reads a zero timestamp as "no
+     previous frame" and falls back to its default span. A real page cannot open
+     a stream in its first millisecond, so the tests should not either. */
+  vi.advanceTimersByTime(1)
+  FakeStream.last = null
+  vi.stubGlobal("EventSource", FakeStream)
+  replay = null
+  vi.stubGlobal("fetch", (url: string) => url === "/archive/v2.json"
+    ? Promise.resolve({ ok: true, json: async () => [{ ...answer(["old"], ["dlo"]), version: "v2" }] })
+    : url.startsWith("/archive/") ? Promise.resolve({ ok: false, json: async () => null })
+    : replay
+    ? Promise.resolve({ ok: true, json: async () => replay })
+    : Promise.reject(new Error("offline")))
   render(<App />)
+})
 
-  expect(screen.queryByLabelText(/prompt/i)).toBeNull()
-  expect(screen.queryByRole("button", { name: /generate/i })).toBeNull()
+afterEach(() => {
+  vi.useRealTimers()
+  vi.unstubAllGlobals()
+})
+
+/* With /replay.json unreachable too, the page still writes a paragraph from
+   the dozen built into it, and never shows the failure. */
+async function builtIn(message: string) {
+  await draw(0)
+  await drawAll()
+  expect(screen.queryByText(message)).toBe(null)
+  expect(screen.queryByRole("button", { name: /what is this/i })).not.toBe(null)
+}
+
+describe("the stream", () => {
+  test("opens the generate endpoint", () => {
+    start()
+    expect(stream().url).toBe("/api/generate?prompt=&budget=16")
+  })
+
+  test("shows a progress bar until the result lands, and draws nothing from status", async () => {
+    start()
+    stream().send({ type: "status", elapsed: 1.25 })
+    expect(bar()).not.toBe(null)
+    expect(shown("level")).toBe(false)
+
+    stream().send(answer(LEFT, RIGHT))
+    expect(bar()).toBe(null)
+  })
+
+  test("times out at 20s without a result", async () => {
+    start()
+    stream().send(draft(LEFT, RIGHT))
+    await draw(20000)
+
+    expect(stream().closed).toBe(true)
+    await builtIn("timed out")
+  })
+
+  test("draws a draft outward from the mirror, a word at a time", async () => {
+    start()
+    stream().send({ type: "plan", expectLetters: 200 })
+    stream().send(draft(LEFT, RIGHT))
+
+    // The first word goes down at once; the rest follow at the pen's pace.
+    expect([shown("four"), shown("three")]).toEqual([true, false])
+
+    await drawHalf()
+    // Two of the four on each side, and they are the two nearest the mirror.
+    expect([shown("four"), shown("three"), shown("two"), shown("one")])
+      .toEqual([true, true, false, false])
+    expect([shown("five"), shown("six"), shown("seven"), shown("eight")])
+      .toEqual([true, true, false, false])
+
+    stream().send(answer(LEFT, RIGHT))
+    await drawAll()
+    expect([shown("one"), shown("eight")]).toEqual([true, true])
+  })
+
+  test("leaves drawn words in their cells when the draft grows", async () => {
+    start()
+    /* The grid is picked once, from the size the search says it is aiming at.
+       Picking it again from the draft in hand would rewrap, and a rewrap moves
+       words that are already written. */
+    stream().send({ type: "plan", expectLetters: 2000 })
+    stream().send(draft(LEFT, RIGHT))
+    await drawAll()
+
+    const cell = () => {
+      const el = screen.getByText("four").parentElement
+      return `${el?.style.left} ${el?.style.top}`
+    }
+    const before = cell()
+
+    /* A beam search grows the draft by twenty-odd words at a time. It prepends
+       on the left and appends on the right, so every word already on screen
+       keeps the cell it landed in — however much longer the draft gets. */
+    const grown = (tag: string) => Array.from({ length: 30 }, (_, i) => tag + i)
+    stream().send({ ...answer([...grown("l"), ...LEFT], [...RIGHT, ...grown("r")]) })
+    await draw(68 * WORD_MS + STEP)
+
+    expect(cell()).toBe(before)
+    expect([shown("l0"), shown("r0")]).toEqual([true, true])
+  })
+
+  test("closes the stream on the result and waits for the pen", async () => {
+    start()
+    stream().send(answer(LEFT, RIGHT))
+
+    expect(stream().closed).toBe(true)
+    // The result has landed and the credits are still not up: the pen decides.
+    expect(screen.queryByRole("button", { name: /what is this/i })).toBe(null)
+
+    await drawAll()
+    expect(screen.queryByRole("button", { name: /what is this/i })).not.toBe(null)
+  })
+
+  test("an error frame stops the stream and plays a built-in paragraph", async () => {
+    start()
+    stream().send({ type: "error", message: "the bank is empty" })
+    expect(stream().closed).toBe(true)
+    await builtIn("the bank is empty")
+  })
+
+  test("a transport failure with the cache file offline plays a built-in paragraph", async () => {
+    start()
+    stream().fail()
+    expect(stream().closed).toBe(true)
+    await builtIn("could not reach the generator")
+  })
+
+  test("ignores a transport failure once the run is done", async () => {
+    start()
+    stream().send(answer(LEFT, RIGHT))
+    await drawAll()
+
+    // A server closing a finished stream is normal, and must not paint an error
+    // over a poster that is already written.
+    stream().fail()
+    expect(screen.queryByText("could not reach the generator")).toBe(null)
+  })
+
+
+  test("plays a cached paragraph when the generator is down", async () => {
+    replay = [answer(LEFT, RIGHT)]
+    start()
+    stream().fail()
+    await drawAll()
+
+    expect([shown("one"), shown("eight")]).toEqual([true, true])
+    expect(screen.queryByText("could not reach the generator")).toBe(null)
+    expect(screen.queryByRole("button", { name: /what is this/i })).not.toBe(null)
+  })
+
+  test("replays an earlier version in its own box, leaving the poster alone", async () => {
+    await draw(0)
+    // Only versions whose file loaded get a button.
+    expect(screen.queryByRole("button", { name: "v1" })).toBe(null)
+    fireEvent.click(screen.getByRole("button", { name: "v2" }))
+    await draw(4000)
+
+    const box = screen.getByText(/v2 ·/).parentElement as HTMLElement
+    expect(box.textContent).toMatch(/old/)
+    expect(box.textContent).toMatch(/dlo/)
+    expect(FakeStream.last).toBe(null)   // no run started; the poster is untouched
+  })
+
+  test("writes fresh words in plain ink", async () => {
+    start()
+    stream().send(draft(LEFT, RIGHT))
+    const word = screen.getByText("four")
+    expect(word.className).not.toMatch(/signal/)
+    expect(word.closest(".font-mono")?.className).toMatch(/select-none/)
+  })
 })

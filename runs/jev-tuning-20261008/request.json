@@ -1,0 +1,45 @@
+{
+  "model": "jev-1.13.0",
+  "state": {
+    "task": "General advice for tuning an English letter-palindrome search: maximize length and readable connected English simultaneously. No project data, results, texts or private files supplied. Advice will be evaluated experimentally, not treated as proof."
+  },
+  "questions": {
+    "strategy": {
+      "type": "choice",
+      "instructions": "Which general strategy best preserves readability while searching exact long palindromes?",
+      "criteria": {
+        "grammar_residual": "Grammar-preserving edits of exact parents, tracking residual letter constraints and sentence roles",
+        "frequency_only": "Only maximize word frequency with a larger beam",
+        "repetition": "Repeat short reversible phrases without a grammar constraint",
+        "insufficient": "No preference without experimental data"
+      }
+    },
+    "penalties": {
+      "type": "choice",
+      "instructions": "Which general development tuning design avoids selecting a repetition penalty without a baseline?",
+      "criteria": {
+        "paired_low": "Paired penalty0,1,2,4 on development seeds at identical resource limits",
+        "high_only": "Penalties16,32,64 without zero baseline",
+        "insufficient": "Numeric values cannot be justified a priori"
+      }
+    },
+    "validation": {
+      "type": "choice",
+      "instructions": "Which general validation supports a readability claim after automated tuning?",
+      "criteria": {
+        "heldout_blind": "Freeze parameters and evaluate held-out outputs with blinded human grammar, meaning and comprehension judgments and length-matched controls",
+        "ordinary_controls": "Ordinary corpus prose versus shuffled words alone",
+        "tuning_judge": "Selected outputs rated only by the same model used in tuning"
+      }
+    },
+    "length_cap": {
+      "type": "choice",
+      "instructions": "Which word-cap policy is valid for a specified minimum letter length?",
+      "criteria": {
+        "feasibility_first": "First prove cap times maximum vocabulary-word length can reach the target, then tune feasible caps with repetition diagnostics",
+        "fixed_small": "Keep an arbitrary small fixed cap regardless of letter feasibility",
+        "unlimited": "Use unlimited repeated words without diagnostics"
+      }
+    }
+  }
+}

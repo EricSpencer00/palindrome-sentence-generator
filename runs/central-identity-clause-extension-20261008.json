@@ -1,0 +1,81 @@
+{
+  "experiment_id": "central-identity-clause-extension-20261008",
+  "status": "rejected_exact_extension_novelty_and_shortcut_gate",
+  "question": "Can one connected, non-SVO identity clause pair extend the verified 752-letter parent at its center while preserving the parent tape?",
+  "plan": {
+    "decision": "Determine whether a different clause family can add an exact center block with retained context.",
+    "acceptance_gate": "In addition to parent retention, positive growth, local equation, exactness, and finite-clause interpretation, the inserted clauses must be novel in the tracked archive and must not rely on direct reversed content-word tokens.",
+    "baseline": "Verified 752-letter parent and its exact center split.",
+    "fixed_conditions": [
+      "one deterministic authored insertion",
+      "ASCII-letter lowercase normalization",
+      "no corpus or model scoring",
+      "no parameter tuning"
+    ],
+    "falsifier": "Any parent drift, seam drift, local equation mismatch, child mismatch, or failure to retain the original tape aborts the construction.",
+    "stop_rule": "One authored candidate only; no lexical expansion after observing the result.",
+    "promotion_rule": "Keep as an exploratory exact construction only; no readability claim without blinded human ratings."
+  },
+  "parent": {
+    "artifact": "runs/repair-736-center-lexical-event-path-20260923.json",
+    "candidate_id": "568-lineage-central-event-path-752",
+    "letters": 752,
+    "normalized_sha256": "109c758ecfa0c0a2049c1dfb925d3820eb453a92836c0835d80f5106f222de3c",
+    "independent_two_pointer_exact": true
+  },
+  "method": "Diagnostic authored insertion at the verified center cut: a transitive-past clause followed by a copular-past identity clause. This is preserved as a rejected probe, not promoted as a new construction.",
+  "seam": {
+    "normalized_offset": 376,
+    "raw_offset": 504,
+    "parent_context_before": "Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. ",
+    "parent_context_after": "Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon",
+    "frozen_context_witness": "Leon stops Ira. |Ari spots Noel.",
+    "outside_insertion_retained_byte_for_byte": true
+  },
+  "local_equation": {
+    "left_clause": "Noel saw Leon.",
+    "left_tape": "noelsawleon",
+    "right_clause": "Noel was Leon.",
+    "right_tape": "noelwasleon",
+    "reverse_right_tape": "noelsawleon",
+    "exact": true,
+    "letters_per_clause": 11,
+    "interpretation": "A discovery followed by an identity disclosure (Noel is Leon); this reading is an authored interpretation, not a reader judgment."
+  },
+  "rejection": {
+    "reasons": [
+      "The exact clause 'Noel saw Leon' already occurs in tracked exploratory artifacts, including runs/semantic-event-argument-csp-20260918.json.",
+      "Noel and Leon are direct reversed-name tokens; the inserted identity pair therefore relies on a lexical reversal shortcut."
+    ],
+    "effect": "Exactness is retained as a diagnostic, but this does not meet the novelty/shortcut gate and is not a promoted candidate."
+  },
+  "candidate": {
+    "id": "568-lineage-central-identity-clause-774",
+    "rendered": "Leon won. Wolf spots Nora. Nadia stops, so Tara rewards Nadia. Nora delivers maps. Noel sees Mara. Mara sees Sara. Sara sees Nora. Leon sees Sara. Sara sees Aidan. Aidan sees Nora. Nora sees Leon. Aidan delivers maps. Nora sees Sara. Sara stops Aidan. Aidan stops Noel. Noel sees Nora. Deliver no evil. Now, Noel, did I live? Nora saw Noel live. Noel, I sit. Pat notes. Mara saw God. Sara, did I live? Nora, I saw desserts. Noel, was I stressed? Nadia delivers maps. Leon. Ari sees Leon. Leon stops Ira. Noel saw Leon. Noel was Leon. Ari spots Noel. Noel sees Ira. Noel; spam's reviled, Aidan. Desserts I saw, Leon. Stressed was I, Aron. Evil I did, Aras. Dog was Aram. Seton, tap. 'Tis I, Leon. “Evil Leon” was Aron. Evil I did, Leon won. Live on, reviled. Aron sees Leon. Leon spots Nadia. Nadia spots Aras. Aras sees Aron. Spam's reviled, Nadia. Noel sees Aron. Aron sees Nadia. Nadia sees Aras. Aras sees Noel. Aron sees Aras. Aras sees Aram. Aram sees Leon. Spam's reviled, Aron. Aidan's drawer, Aratos, spots Aidan. Aron stops flow now, Noel.",
+    "letters": 774,
+    "growth_over_parent": 22,
+    "normalized_tape_sha256": "2a075cb43bf31664c35ec820d9af120a8460305b5cac9d2fa75cf75e830a465d"
+  },
+  "independent_audit": {
+    "normalizer": "remove non-ASCII letters and lowercase",
+    "normalized_letters": 774,
+    "two_pointer_exact": true,
+    "first_mismatch": null,
+    "forward_sha256": "2a075cb43bf31664c35ec820d9af120a8460305b5cac9d2fa75cf75e830a465d",
+    "reverse_sha256": "2a075cb43bf31664c35ec820d9af120a8460305b5cac9d2fa75cf75e830a465d",
+    "hashes_equal": true,
+    "parent_recovered_byte_for_byte": true
+  },
+  "limitations": {
+    "full_text_readability": "not assessed",
+    "human_ratings": "none",
+    "meaning_scope": "only the inserted two-clause unit has an authored identity reading; inherited rough discourse and repetition remain",
+    "search_scope": "not a search run; no remote compute used",
+    "public_claim": false
+  },
+  "source": {
+    "script": "experiments/central_identity_clause_extension_20261008.py",
+    "parent_file_sha256": "424d9d5fa3a4f8a450f149e3feb2d239f6116b4fe99c60e3328df58fda367a2d",
+    "script_sha256": "96d742dc86a789fb3a9ea40314148a101092c2af1f37aea62d68121bb6e0da41"
+  }
+}

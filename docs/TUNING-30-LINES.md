@@ -1,0 +1,30 @@
+- Tuning changes which search paths win.
+- Exactness stays a hard requirement.
+- Spaces and punctuation do not count.
+- Every letter must match its mirror.
+- Vocabulary size sets available words.
+- Frequency weight favors common words.
+- Length weight favors longer words.
+- Reuse checks reject padding.
+- Repeated words can keep a scene connected.
+- Bigram weight rewards familiar word pairs.
+- Forward models score what comes next.
+- Backward models score what comes before.
+- Model training adjusts prediction weights.
+- Learning rate controls adjustment size.
+- Training steps control practice time.
+- Regularization limits overfitting.
+- Beam size controls paths kept alive.
+- Candidate limits control words considered.
+- Child limits control branching.
+- Step limits control search depth.
+- Time limits control search cost.
+- Word caps limit output length.
+- Diversity keeps competing paths different.
+- Overhang limits unmatched letters.
+- Reused phrases need a different useful role.
+- Bigger limits allow more search.
+- More letters must preserve meaning.
+- Your ratings separate grammar from meaning.
+- Clear statements matter more than word associations.
+- Verify texts, compare lengths, then test fresh readers.

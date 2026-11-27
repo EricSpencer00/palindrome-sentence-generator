@@ -2,8 +2,7 @@
 
 Whole paragraphs that read the same backwards:
 **[palindrome.ericspencer.us](https://palindrome.ericspencer.us)** ·
-[how it works](https://palindrome.ericspencer.us/how/) ·
-**[paper](paper/v5/main.pdf)**
+[how it works](https://palindrome.ericspencer.us/how/)
 
 The paragraph grows from the middle out as a beam search over letter debts, scored by a
 trigram model and a sentence verifier. It keeps Hoey's and
